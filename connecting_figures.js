@@ -8,8 +8,6 @@ var COLOR_MAP = {
 };
 
 //-------------------------------------------
-var inputFigureName = 'all';
-var inputDance = 'Rumba';
 var mode = 'browse'; // vs. "routine" for building a routine
 var isLatinDance = false; // do not show starting direction for Latin dances
 var DANCE_MAP;
@@ -21,10 +19,7 @@ var selectedFigureName = inputFigureName; // current selected figure name
 //-------------------------------------------
 // one-time initialization after scripts are loaded
 function initVars() {
-  if (IS_GADGET) {
-    inputFigureName = '__UP_figureName__';
-    inputDance = '__UP_dance__';
-  } else {
+  if (!IS_GADGET) {
     var paramValue = getURLParam('dance');
     if (paramValue) inputDance = paramValue;
 
