@@ -13,7 +13,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "v1.0118.1910";  // major.MMDD.HHMM
+    var VERSION = "$Rev$";
     var ID_ANALYTICS = "UA-9375974-3";
 
     var LEVELS = ['Newcomer', 'Bronze', 'Silver', 'Gold', 'Open'];
@@ -27,7 +27,7 @@
 
     //-------------------------------------------
     var inputFigureName = 'NaturalTurn';
-    var inputDance = 'Quickstep';
+    var inputDance = 'Rumba';
     var mode = 'browse'; // vs. "routine" for building a routine
     var isLatinDance = false; // do not show starting direction for Latin dances
     var DANCE_MAP;
@@ -122,6 +122,7 @@
     //----------------------------------------     
     // return true if figure matches level
     function MatchLevel(figure) {
+      if (!figure) return true; // undefined yet.
       var levelElement = document.getElementById(figure['level']);
       return levelElement && levelElement.checked;
     }
@@ -214,7 +215,6 @@
         if (figure['urlpath']) {
           output.push('<a style="color:' + COLOR_MAP[figure['level']] + '"');
           output.push(' onclick="return onClickFigure(\'' + figureID + '\');" ');
-          //output.push('target="windowDetails" ');
           if (inPage)
             output.push(' target="_self" href="#section_' + figureID);
           else
@@ -301,12 +301,14 @@
       mode = 'routine';
       document.getElementById('idPauseRoutine').style.display = 'inline';
       document.getElementById('idContinueRoutine').style.display = 'none';
+      return false;
     }
 
     function pauseRoutine() {
       mode = 'browse';
       document.getElementById('idPauseRoutine').style.display = 'none';
       document.getElementById('idContinueRoutine').style.display = 'inline';
+      return false;
     }
 
     // start a new routine
@@ -325,6 +327,7 @@
       document.getElementById('idStartRoutine').style.display = 'inline';
       document.getElementById('idPauseRoutine').style.display = 'inline';
       document.getElementById('idContinueRoutine').style.display = 'none';
+      return false;
     }
 
     // select the specified figure in figure drop down list and update view
@@ -478,5 +481,4 @@ Routine:
 
 ]]></Content>
 </Module>
-
 
