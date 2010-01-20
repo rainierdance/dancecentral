@@ -5,50 +5,16 @@
 <UserPref name="figureName" display_name="Figure Name" default_value="all"/>
 <Content type="html"><![CDATA[
 <head>
-<base target="_top" />
-      <style>
-      body {
-        font-family: arial, sans-serif;
-        font-size: 90%;
-      }
-      .figure,li {
-        font-size: 0.9em;
-      }      
-      #divVersion {
-        font-size: 0.9em;
-        float: right;
-      }
-      #divRoutine {
-        //background: #fff4c2;
-        position: fixed;
-        z-index: 10000;
-        right: 0.5em;
-        top: 0.5em;
-        _position: absolute;
-        _top: expression((temp = 2 + (document.documentElement.scrollTop ?
-              document.documentElement.scrollTop : document.body.scrollTop) ) + 'px' );
-      }
-      td {
-        font-size: 0.9em;
-        vertical-align: top;
-      }
-    </style>
-   <script type="text/javascript" src="http://dancecentral.googlecode.com/svn/trunk/quickstep.js"></script>
-   <script type="text/javascript" src="http://dancecentral.googlecode.com/svn/trunk/rumba.js"></script>
-   <script type="text/javascript">
+  <base target="_top" />
+  <LINK REL=StyleSheet HREF="http://dancecentral.googlecode.com/svn/trunk/figures.css" TYPE="text/css"/>
+  <script type="text/javascript" src="http://dancecentral.googlecode.com/svn/trunk/quickstep.js"></script>
+  <script type="text/javascript" src="http://dancecentral.googlecode.com/svn/trunk/rumba.js"></script>
+  <script type="text/javascript">
     //-------------------------------------------
     // globals
+    var IS_GADGET = true; 
     var VERSION = "v1.0118.1910";  // major.MMDD.HHMM
     var ID_ANALYTICS = "UA-9375974-3";
-    var IS_GADGET = true;
-
-    var inputFigureName = 'NaturalTurn';
-    var dance = 'Rumba';
-
-    if (IS_GADGET) {
-      inputFigureName = '__UP_figureName__';
-      dance = '__UP_dance__';
-    }
 
     var LEVELS = ['Newcomer', 'Bronze', 'Silver', 'Gold', 'Open'];
     var COLOR_MAP = {
@@ -60,18 +26,48 @@
     };
 
     //-------------------------------------------
-    var DANCE_MAP = {
-      'Quickstep' : {
-        'urlprefix' : 'quickstep',
-        'figures' : quickstepFigures,
-        'type' : 'standard'
-      },
-      'Rumba' : {
-        'urlprefix' : 'rumba',
-        'figures' : rumbaFigures,
-        'type' : 'latin'
+    var inputFigureName = 'NaturalTurn';
+    var inputDance = 'Quickstep';
+    var mode = 'browse'; // vs. "routine" for building a routine
+    var isLatinDance = false; // do not show starting direction for Latin dances
+    var DANCE_MAP;
+    var URL_BASE;
+    var figures;  // all figues in the selected dance
+    var sortedIds = []; // display figures in alphabetically order
+    var selectedFigureName = inputFigureName; // current selected figure name
+
+    //-------------------------------------------
+    // one-time initialization after scripts are loaded
+    function initVars() {
+      if (IS_GADGET) {
+        inputFigureName = '__UP_figureName__';
+        inputDance = '__UP_dance__';
       }
-    };
+
+      DANCE_MAP  = {
+        'Quickstep' : {
+          'urlprefix' : 'quickstep',
+          'figures' : quickstepFigures,
+          'type' : 'standard'
+        },
+        'Rumba' : {
+          'urlprefix' : 'rumba',
+          'figures' : rumbaFigures,
+          'type' : 'latin'
+        }
+      };
+
+      isLatinDance = DANCE_MAP[inputDance]['type'] == 'latin';
+      URL_BASE = 'http://www.dancecentral.info/ballroom/international-style/' + DANCE_MAP[inputDance]['urlprefix'];    
+      figures = DANCE_MAP[inputDance]['figures'];
+      selectedFigureName = inputFigureName; 
+
+      sortedIds = []; // display figures in alphabetically order
+      for (var id in figures) {
+        sortedIds.push(id);
+      }
+      sortedIds.sort();
+    }
          
     //-------------------------------------------
     // Utitilies 
@@ -123,27 +119,18 @@
       }
     }
     
-   
-    var isLatinDance = DANCE_MAP[dance]['type'] == 'latin';
-    var URL_BASE = 'http://www.dancecentral.info/ballroom/international-style/' + DANCE_MAP[dance]['urlprefix'];    
-    var figures = DANCE_MAP[dance]['figures'];
-    var selectedFigureName = inputFigureName; 
-    var sortedIds = []; // display figures in alphabetically order
-    var mode = 'browse'; // vs. "routine" for building a routine
-
-    for (var id in figures) {
-      sortedIds.push(id);
-    }
-    sortedIds.sort();
-
     //----------------------------------------     
+    // return true if figure matches level
+    function MatchLevel(figure) {
+      var levelElement = document.getElementById(figure['level']);
+      return levelElement && levelElement.checked;
+    }
+
+    // return true if figure matches level and additional criteria
     function MatchFigure(figure, criteria) {
       if (!figure) return true; // undefined yet.
 
-      // check level first
-      if (document.getElementById(figure['level']) && 
-           (!document.getElementById(figure['level']).checked))
-        return false;
+      if (!MatchLevel(figure)) return false;
 
       if (!criteria) return true;
 
@@ -154,6 +141,7 @@
       return true;
     }
 
+    // returns matching figures, this is eval'ed, not directly called in the source
     function MatchFigures(criteria) {
       var result = []; // array of figure IDs that matched criteria
       for (var id in figures) {
@@ -164,14 +152,15 @@
       return result;
     }
 
-    function onLoad() {     
+    // initialize display
+    function initDisplay() {     
       var output = [];
 
       // initialize levels
       var element = document.getElementById('divLevels');
-      output = [dance + ' levels: '];
+      output = [inputDance + ' levels: '];
       LEVELS.forEach(function (level) {
-        output.push('<input type=checkbox id="' + level + '" onclick="updateOptions();" checked>' + 
+        output.push('<input type=checkbox id="' + level + '" onclick="updateFigureList();" checked>' + 
           '<span style="color:' + COLOR_MAP[level] + '">' + level + '</span> &nbsp;');
       });
       output.push('<br>');
@@ -182,7 +171,7 @@
       } 
       document.getElementById('divVersion').innerHTML = VERSION;
           
-      updateOptions();
+      updateFigureList();
     }
 
     function resetFigureListIndex() {
@@ -195,7 +184,8 @@
       document.getElementById('startDirection').selectedIndex = 0;
     }
     
-    function updateOptions() {
+    // update the list of figues in the Figures drop down, update view as well
+    function updateFigureList() {
      var output = [];
 
       output.push('Figures: <select id="figureName" onchange="resetStartingPoint();updateView();">');
@@ -203,7 +193,7 @@
       sortedIds.forEach(function (id) {
         if (!document.getElementById(figures[id]['level']).checked) return;
         output.push('<option value="' + id + '" ');
-        if (selectedFigureName != 'all' && figures[id]['name'] == selectedFigureName)
+        if (selectedFigureName != 'all' && (figures[id]['name'] == selectedFigureName || id == selectedFigureName))
           output.push('selected');
         output.push('>' + figures[id]['name'] + '</option>');
       });
@@ -213,6 +203,8 @@
       updateView();
     }
 
+    // returns the html for the figure name with its link
+    // inPage: go to local anchor, otherwise, go to figure details page
     function getFigureLink(figureID, inPage) {
       var output = [];
       var figure = figures[figureID];
@@ -221,7 +213,7 @@
           figure['name'] = figureID; // default
         if (figure['urlpath']) {
           output.push('<a style="color:' + COLOR_MAP[figure['level']] + '"');
-          output.push(' onclick="return onClickFigure(\'' + figureID + '\',  ' + (inPage ? 'true' : 'false') + ');" ');
+          output.push(' onclick="return onClickFigure(\'' + figureID + '\');" ');
           //output.push('target="windowDetails" ');
           if (inPage)
             output.push(' target="_self" href="#section_' + figureID);
@@ -254,7 +246,7 @@
           // filter out dups
           ids.forEach(function (followID) {
             var followFigure = figures[followID];
-            if (!contains(follows, followID) && MatchFigure(followFigure))
+            if (MatchLevel(followFigure))
               follows.push([followID, nextFigure['comment']]);
           });
         });
@@ -263,6 +255,7 @@
     
     // diagraph turns out to be too complicated for it to be useful
     // leave it here for future
+/*
     function outputDotSource() {
       var output = [];
       output.push('digraph ConnectingFigures {');
@@ -303,7 +296,7 @@
       output.push('}');
       document.getElementById('dotOutput').value = output.join('');
     }
-
+*/
     function continueRoutine() {
       mode = 'routine';
       document.getElementById('idPauseRoutine').style.display = 'inline';
@@ -316,8 +309,11 @@
       document.getElementById('idContinueRoutine').style.display = 'inline';
     }
 
+    // start a new routine
     function startRoutine() {
       mode = 'routine';
+
+      // keep selected level, reset other criteria
       resetFigureListIndex();
       resetStartingPoint();
       updateView();
@@ -331,6 +327,7 @@
       document.getElementById('idContinueRoutine').style.display = 'none';
     }
 
+    // select the specified figure in figure drop down list and update view
     function selectFigure(figureID) {
       var selectedFigureElement = document.getElementById('figureName');
       for (var i = 0; i< selectedFigureElement.options.length; i++) {
@@ -342,30 +339,35 @@
       updateView();
     }
 
-    function onClickFigure(figureID, inPage) {
-      if (mode != 'routine') return true;
+    // when building routine, this is called when user clicks on a figure name
+    function onClickFigure(figureID) {
+      if (mode != 'routine') return true; // continue with the link
+
+      // update the routine list
       var output = [];
       var figure = figures[figureID];
       output.push('<li><a href="' + URL_BASE + figure['urlpath'] + '">' + figure['name'] + '</a> &nbsp;&nbsp; </li>');
       var element = document.getElementById('spanRoutine');
       var content = element.innerHTML.replace(/^<ol>/, '').replace(/<\/ol>$/, '');
       element.innerHTML = '<ol>' + content + output.join('') + '</ol>';
-      //element = document.getElementById('dotOutput');
-      //element.value = element.value + output.join('');
+
+      // update the view to only show the selected figure, so it's easier to see what should follow.
       selectFigure(figureID);
-      return inPage ? true : false;
+
+      return false; // not continue with <a link target
     }
                   
-    // re-filter, regenerate display
+    // Re-filter, re-display figure and its following figures
     function updateView() {
-      var output = [];
-      var element = document.getElementById('divFigureChart');
       var selectedFigureElement = document.getElementById('figureName');
       selectedFigureName = selectedFigureElement.options[selectedFigureElement.selectedIndex].text;
+
+      var output = [];
 
       sortedIds.forEach(function (id) {
         var figure = figures[id];
         if (!MatchFigure(figure)) return; // pass UI filter
+
         if (selectedFigureName != 'all' && figure['name'] != selectedFigureName)
           return;
 
@@ -390,7 +392,6 @@
         output.push('</span>');
 
         var follows = getFollows(figure);
-
         output.push('<ol>');
         follows.forEach(function (follow) {
           output.push('<li>' + getFigureLink(follow[0], selectedFigureName == 'all'));
@@ -399,11 +400,20 @@
         });
         output.push('</ol>');
       });
+
+      var element = document.getElementById('divFigureChart');
       element.innerHTML = output.join('');
+
       //outputDotSource(); // diagram too complicated to be useful
-      //outputCSV();
                             
-      //gadgets.window.adjustHeight();
+      if (IS_GADGET) {
+        gadgets.window.adjustHeight();
+      }
+    }
+
+    function onLoad() {     
+      initVars();
+      initDisplay();
     }
 
     if (IS_GADGET) {
@@ -413,9 +423,11 @@
     }
   </script>
 </head>
+
 <body>
 <div id='divLevels'></div>
 <div id='divFiguresList'></div>
+
 <span id='divSelectFigure'>
 Starting alignment:
 <select id='startAlignment' onchange="resetFigureListIndex();updateView();">
@@ -442,7 +454,9 @@ Direction:
 <option>back</option>
 </select>
 </span><br>
+
 <div id='divFigureChart'> </div>
+
 <div id='divRoutine' style='display:bock'>
 <table cellspacing=0 cellpadding=0>
 <tr><td style="background: #ddf8cc;padding:4px">
@@ -452,17 +466,17 @@ Routine:
 <a id='idPauseRoutine' style='display:none' href="#" onclick="return pauseRoutine();">Pause</a><a id='idContinueRoutine' style='display:none' href="#" onclick="return continueRoutine();">Continue</a> &nbsp;
 </span>
 </td></tr>
-<tr><td style="background: #fff4c2;">
-<span id='spanRoutine'></span>
-</td>
-</tr></table>
+<tr><td style="background: #fff4c2;"> <span id='spanRoutine'></span> </td> </tr>
+</table>
 </div>
 
-<div id='divVersion'></div>
-<textarea id='dotOutput' style='display:none'></textarea>
-<div id='debugOutput' style='display:none'></div>
+<textarea id='dotOutput' rows=10 cols=100 style='display:none'></textarea>
+<pre id='debugOutput' style='display:block'></pre>
 
+<div id='divVersion'></div>
 </body> 
+
 ]]></Content>
 </Module>
+
 
