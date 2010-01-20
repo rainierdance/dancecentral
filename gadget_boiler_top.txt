@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="DanceCentral.info Connecting Figures" />
+<UserPref name="dance" display_name="Dance" default_value="Quickstep"/>
+<UserPref name="figureName" display_name="Figure Name" default_value="all"/>
+<Content type="html"><![CDATA[
