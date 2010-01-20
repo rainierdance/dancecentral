@@ -154,7 +154,8 @@ function getFigureLink(figureID, inPage) {
       output.push('<a style="color:' + COLOR_MAP[figure['level']] + '"');
       output.push(' onclick="return onClickFigure(\'' + figureID + '\');" ');
       if (inPage)
-        output.push(' target="_self" href="#section_' + figureID);
+        output.push(' target="_self" href="javascript:selectFigure(\'' + figureID + '\')');
+        //output.push(' target="_self" href="#section_' + figureID);
       else
         output.push(' href="' + URL_BASE + figure['urlpath']);
       //output.push('?tmpl=/system/app/templates/print/');
@@ -335,7 +336,7 @@ function updateView() {
     var follows = getFollows(figure);
     output.push('<ol>');
     follows.forEach(function (follow) {
-      output.push('<li>' + getFigureLink(follow[0], selectedFigureName == 'all'));
+      output.push('<li>' + getFigureLink(follow[0], true));
       if (follow[1])
         output.push(' (' + follow[1] + ')');
     });
@@ -352,7 +353,3 @@ function updateView() {
   }
 }
 
-function onLoad() {     
-  initVars();
-  initDisplay();
-}
