@@ -1,0 +1,1261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="DanceCentral.info Connecting Figures" />
+<UserPref name="dance" display_name="Dance" default_value="Rumba"/>
+<UserPref name="figureName" display_name="Figure Name" default_value="all"/>
+<Content type="html"><![CDATA[
+<head>
+<base target="_top" />
+      <style>
+      body {
+        font-family: arial, sans-serif;
+        font-size: 90%;
+      }
+      .figure,li {
+        font-size: 0.9em;
+      }      
+      #divVersion {
+        font-size: 0.9em;
+        float: right;
+      }
+      #divRoutine {
+        //background: #fff4c2;
+        position: fixed;
+        z-index: 10000;
+        right: 0.5em;
+        top: 0.5em;
+        _position: absolute;
+        _top: expression((temp = 2 + (document.documentElement.scrollTop ?
+              document.documentElement.scrollTop : document.body.scrollTop) ) + 'px' );
+      }
+      td {
+        font-size: 0.9em;
+        vertical-align: top;
+      }
+    </style>
+   <script type="text/javascript">
+    //-------------------------------------------
+    // globals
+    var VERSION = "v1.0118.1910";  // major.MMDD.HHMM
+    var ID_ANALYTICS = "UA-9375974-3";
+    var IS_GADGET = true;
+
+    var inputFigureName = 'NaturalTurn';
+    var dance = 'Quickstep';
+
+    if (IS_GADGET) {
+      inputFigureName = '__UP_figureName__';
+      dance = '__UP_dance__';
+    }
+
+    var LEVELS = ['Newcomer', 'Bronze', 'Silver', 'Gold', 'Open'];
+    var COLOR_MAP = {
+      'Newcomer' : 'Navy',
+      'Bronze' : 'SaddleBrown',
+      'Silver' : 'Silver',
+      'Gold' : 'OrangeRed',
+      'Open' : 'DarkGreen'
+    };
+
+    //-------------------------------------------
+    // QUICKSTEP FIGURES
+    var quickstepFigures = 
+      {
+        'ZigZagBackLockAndRunningFinish' : 
+          {
+            'name' : 'Zig-Zag, Back Lock And Running Finish',
+            'urlpath' : '/zig-zag-back-lock-and-running-finish',
+            'level' : 'Bronze',
+            'startAlignment' : ['LOD'],
+            'startFoot' : 'LF',
+            'startDirection' : 'fwd',
+            'follow' : [
+                {
+                   'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})'
+                }
+              ]
+          },
+        'CrossChasse' : 
+          {
+            'name' : 'Cross Chasse',
+            'urlpath' : '/cross-chasse',
+            'level' : 'Bronze',
+            'startAlignment' : ['DW'],
+            'startFoot' : 'LF',
+            'startDirection' : 'fwd',
+            'follow' : [
+                {
+                   'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})'
+                }
+              ]
+          },
+        'HeelPivot' : 
+          {
+            'name' : 'Heel Pivot (Quarter Turn To Left)',
+            'urlpath' : '/heel-pivot-quarter-turn-to-left',
+            'level' : 'Newcomer',
+            'startAlignment' : ['BDC', 'DW'], // when previous step is underturned
+            'startFoot' : 'RF',
+            'startDirection' : 'back',
+            'follow' : [
+                {
+                  'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})'
+                },
+                {
+                  'id' : 'CrossChasse',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ChasseReverseTurn',
+                  'comment' : 'when ending DC'
+                },
+                {
+                  'id' : 'ProgressiveChasseToRight',
+                  'comment' : 'when ending DC'
+                },
+                {
+                  'id' : 'DoubleReverseSpin',
+                  'comment' : 'when ending DC'
+                },
+                {
+                  'id' : 'ZigZagBackLockAndRunningFinish'
+                }
+              ]
+          },
+        'DoubleReverseSpin' : 
+          {
+            'name' : 'Double Reverse Spin',
+            'urlpath' : '/double-reverse-spin',
+            'level' : 'Bronze',
+            'startAlignment' : ['LOD', 'DC', 'DW'],
+            'startFoot' : 'LF',
+            'startDirection' : 'fwd',
+            'follow' : [
+                {
+                  'id' : 'ChasseReverseTurn'
+                },
+                {
+                  'id' : 'ProgressiveChasseToRight'
+                },
+                {
+                  'id' : 'DoubleReverseSpin'
+                },
+                {
+                  'id' : 'CrossChasse'
+                },
+                {
+                  'id' : 'ZigZagBackLockAndRunningFinish'
+                }
+              ]
+          },
+        'NaturalTurnAndBackLock' : 
+          {
+            'name' : 'Natural Turn And Back Lock',
+            'urlpath' : '/natural-turn-and-back-lock',
+            'level' : 'Bronze',
+            'startAlignment' : ['DW'],
+            'startFoot' : 'RF',
+            'startDirection' : 'fwd',
+            'follow' : [
+                {
+                  'id' : 'ClosedImpetus'
+                },
+                {
+                  'id' : 'TippleChasseToRight'
+                },
+                {
+                  'id' : 'RunningFinish'
+                }
+              ]
+          },
+        'RunningFinish' : 
+          {
+            'name' : 'Running Finish',
+            'urlpath' : '/running-finish',
+            'level' : 'Bronze',
+            'startAlignment' : ['BDW', 'BLOD'],
+            'startFoot' : 'LF',
+            'startDirection' : 'back',
+            'follow' : [
+                {
+                  'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})'
+                }
+              ]
+          },
+        'TippleChasseToRight' : 
+          {
+            'name' : 'Tipple Chasse To Right',
+            'urlpath' : '/tipple-chasse-to-r',
+            'level' : 'Bronze',
+            'startAlignment' : ['BLOD', 'BDW'],
+            'startFoot' : 'LF',
+            'startDirection' : 'back',
+            'follow' : [
+                {
+                  'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})'
+                }
+              ]
+          },
+        'ProgressiveChasseToRight' : 
+          {
+            'name' : 'Progressive Chasse To Right',
+            'urlpath' : '/progressive-chasse-to-r',
+            'level' : 'Bronze',
+            'startAlignment' : ['DC', 'LOD'],
+            'startFoot' : 'RF',
+            'startDirection' : 'back',
+            'follow' : [
+                {
+                  'id' : 'ClosedImpetus'
+                },
+                {
+                  'id' : 'BackLock'
+                },
+                {
+                  'id' : 'TippleChasseToRight'
+                },
+                {
+                  'id' : 'RunningFinish'
+                }
+              ]
+          },
+        'ReversePivot' : 
+          {
+            'name' : 'Reverse Pivot',
+            'urlpath' : '/reverse-pivot',
+            'level' : 'Bronze',
+            'startAlignment' : ['BDC', 'BLOD'],
+            'startFoot' : 'RF',
+            'startDirection' : 'back',
+            'follow' : [
+                {
+                  'id' : 'ChasseReverseTurn'
+                },
+                {
+                  'id' : 'ProgressiveChasseToRight'
+                },
+                {
+                  'id' : 'DoubleReverseSpin'
+                },
+                {
+                  'id' : 'CrossChasse'
+                },
+                {
+                  'id' : 'ZigZagBackLockAndRunningFinish'
+                }
+              ]
+          },
+        'BackLock' : 
+          {
+            'name' : 'Back Lock',
+            'urlpath' : '/back-lock',
+            'level' : 'Bronze',
+            'startAlignment' : ['BDW'],
+            'startFoot' : 'LF',
+            'startDirection' : 'back',
+            'follow' : [
+                {
+                  'id' : 'ClosedImpetus',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'TippleChasseToRight',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'RunningFinish',
+                  'comment' : ''
+                }
+              ]
+          },
+        'ClosedImpetus' : 
+          {
+            'name' : 'Closed Impetus',
+            'urlpath' : '/closed-impetus',
+            'level' : 'Bronze',
+            'startAlignment' : ['BLOD'],
+            'startFoot' : 'LF',
+            'startDirection' : 'back',
+            'follow' : [
+                {
+                  'id' : 'ReversePivot',
+                  'comment' : 'after step 3'
+                },
+                {
+                  'id' : 'ProgressiveChasse',
+                  'comment' : 'at corner'
+                },
+                {
+                  'id' : 'HeelPivot',
+                  'comment' : ''
+                }
+              ]
+          },
+        'ChasseReverseTurn' : 
+          {
+            'name' : 'Chasse Reverse Turn',
+            'urlpath' : '/chasse-reverse-turn',
+            'level' : 'Newcomer',
+            'startAlignment' : ['DC'],
+            'endAlignment' : 'BLOD',
+            'startFoot' : 'LF',
+            'startDirection' : 'fwd',
+            'follow' : [
+                {
+                  'id': 'ProgressiveChasse'
+                },
+                {
+                  'id': 'ReversePivot'
+                },
+                {
+                  'id' : 'HeelPivot',
+                  'comment' : ''
+                }
+              ]
+          },
+        'NaturalPivotTurn' : 
+          {
+            'name' : 'Natural Pivot Turn',
+            'urlpath' : '/natural-pivot-turn',
+            'level' : 'Newcomer',
+            'startAlignment' : ['DW'],
+            'endAlignment' : 'BLOD',
+            'startFoot' : 'RF',
+            'startDirection' : 'fwd',
+            'follow' : [
+                {
+                  'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})'
+                }
+              ]
+          },
+        'NaturalSpinTurn' : 
+          {
+            'name' : 'Natural Spin Turn',
+            'urlpath' : '/natural-spin-turn',
+            'level' : 'Newcomer',
+            'startAlignment' : ['DW'],
+            'endAlignment' : 'BDC',
+            'startFoot' : 'RF',
+            'startDirection' : 'fwd',
+            'follow' : [
+                {
+                  'id' : 'ProgressiveChasse'
+                },
+                {
+                  'id' : 'ReversePivot'
+                },
+                {
+                  'id' : 'HeelPivot',
+                  'comment' : ''
+                }
+              ]
+          },
+        'NaturalTurnWithHesitation' : 
+          {
+            'name' : 'Natural Turn With Hesitation',
+            'urlpath' : '/natural-turn-with-hesitation',
+            'level' : 'Newcomer',
+            'startAlignment' : ['DW'],
+            'endAlignment' : 'DC', // old LOD.
+            'startFoot' : 'RF',
+            'startDirection' : 'fwd',
+            'follow' : [
+                {
+                  'id' : 'ChasseReverseTurn'
+                },
+                {
+                  'id' : 'ProgressiveChasseToRight'
+                },
+                {
+                  'id' : 'DoubleReverseSpin'
+                }
+              ]
+          },
+        'NaturalTurn' : 
+          {
+            'name' : 'Natural Turn',
+            'urlpath' : '/natural-turn',
+            'level' : 'Newcomer',
+            'startAlignment' : ['DW'],
+            'endAlignment' : 'DW',
+            'startFoot' : 'RF',
+            'startDirection' : 'fwd',
+            'follow' : [
+                {
+                  'id' : 'ClosedImpetus',
+                  'comment' : 'after 1-3'
+                },
+                {
+                  'id' : 'TippleChasseToRight',
+                  'comment' : 'after 1-3'
+                },
+                {
+                  'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'CrossChasse',
+                  'comment' : 'use 6th step of Natural Turn as entry'
+                },
+                {
+                  'id' : 'ZigZagBackLockAndRunningFinish',
+                  'comment' : 'use 6th step of Natural Turn as entry'
+                }
+              ]
+          },
+        'QuarterTurnToRight' : 
+          {
+            'name' : 'Quarter Turn to Right',
+            'urlpath' : '/quarter-turn-to-right',
+            'level' : 'Newcomer',
+            'startAlignment' : ['DW', 'LOD'],
+            'endAlignment' : 'BDC',
+            'startFoot' : 'RF',
+            'startDirection' : 'fwd',
+            'follow' : [
+                {
+                  'id' : 'ProgressiveChasse',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ReversePivot',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'HeelPivot',
+                  'comment' : ''
+                }
+              ]
+          },
+        'ForwardLock' : 
+          {
+            'name' : 'Forward Lock',
+            'urlpath' : '/forward-lock',
+            'level' : 'Newcomer',
+            'startAlignment' : ['DW'],
+            'endAlignment' : 'DW',
+            'startFoot' : 'RF',
+            'startDirection' : 'fwd',
+            'follow' : [
+                { // any Natural figures
+                  'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})',
+                  'comment' : ''
+                }
+              ]
+          },
+        'ProgressiveChasse' : 
+          {
+            'name' : 'Progressive Chasse',
+            'urlpath' : '/progressive-chasse',
+            'level' : 'Newcomer',
+            'startAlignment' : ['BDC', 'BLOD'],
+            'endAlignment' : 'DW',
+            'startFoot' : 'RF',
+            'startDirection' : 'back',
+            'follow' : [
+                {
+                  'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})',
+                  'comment' : ''
+                }
+              ]
+          }
+      };
+
+    //-------------------------------------------
+    // RUMBA FIGURES
+    var rumbaFigures = {
+        'ClosedHipTwist' : 
+          {
+            'name' : 'Closed Hip Twist',
+            'urlpath' : '/closed-hip-twist',
+            'level' : 'Bronze',
+            'follow' : [
+                {
+                   'id' : 'BasicMovements'
+                }
+              ]
+          },
+        'NaturalOpeningOutMovement' : 
+          {
+            'name' : 'Natural Opening Out Movement',
+            'urlpath' : '/natural-opening-out-movement',
+            'level' : 'Bronze',
+            'follow' : [
+                {
+                   'id' : 'BasicMovements'
+                }
+              ]
+          },
+        'OpeningOutToRightAndLeft' : 
+          {
+            'name' : 'Opening Out To Right And Left',
+            'urlpath' : '/opening-out-to-right-and-left',
+            'level' : 'Bronze',
+            'follow' : [
+                {
+                   'id' : 'BasicMovements'
+                }
+              ]
+          },
+        'NaturalTop' : 
+          {
+            'name' : 'Natural Top',
+            'urlpath' : '/natural-top',
+            'level' : 'Bronze',
+            'follow' : [
+                {
+                   'id' : 'BasicMovements'
+                }
+              ]
+          },
+        'HockeyStick' : 
+          {
+            'name' : 'HockeyStick',
+            'urlpath' : '/hockey-stick',
+            'level' : 'Bronze',
+            'follow' : [
+                {
+                   'id' : 'BasicMovements'
+                }
+              ]
+          },
+        'Alemana' : 
+          {
+            'name' : 'Alemana',
+            'urlpath' : '/alemana',
+            'level' : 'Bronze',
+            'follow' : [
+                {
+                   'id' : 'BasicMovements'
+                }
+              ]
+          },
+        'Fan' : 
+          {
+            'name' : 'Fan',
+            'urlpath' : '/fan',
+            'level' : 'Bronze',
+            'follow' : [
+                {
+                   'id' : 'BasicMovements'
+                }
+              ]
+          },
+        'CubanRocks' : 
+          {
+            'name' : 'Cuban Rocks',
+            'urlpath' : '/cuban-rocks',
+            'level' : 'Newcomer',
+            'follow' : [
+                {
+                   'id' : 'BasicMovements'
+                }
+              ]
+          },
+        'SideSteps' : 
+          {
+            'name' : 'Side Steps',
+            'urlpath' : '/side-steps',
+            'level' : 'Newcomer',
+            'follow' : [
+                {
+                   'id' : 'BasicMovements'
+                }
+              ]
+          },
+        'ProgressiveWalks' : 
+          {
+            'name' : 'Progressive Walks',
+            'urlpath' : '/progressive-walks',
+            'level' : 'Newcomer',
+            'follow' : [
+                {
+                   'id' : 'BasicMovements'
+                }
+              ]
+          },
+        'HandToHand' : 
+          {
+            'name' : 'Hand To Hand',
+            'urlpath' : '/hand-to-hand',
+            'level' : 'Newcomer',
+            'follow' : [
+                {
+                   'id' : 'BasicMovements'
+                }
+              ]
+          },
+        'ShoulderToShoulder' : 
+          {
+            'name' : 'Shoulder To Shoulder',
+            'urlpath' : '/shoulder-to-shoulder',
+            'level' : 'Newcomer',
+            'follow' : [
+                {
+                   'id' : 'BasicMovements'
+                }
+              ]
+          },
+        'SpotTurn' : 
+          {
+            'name' : 'Spot Turn',
+            'urlpath' : '/spot-turns',
+            'level' : 'Newcomer',
+            'follow' : [
+                {
+                   'id' : 'BasicMovements'
+                }
+              ]
+          },
+        'SwitchTurn' : 
+          {
+            'name' : 'Switch Turn',
+            'urlpath' : '/spot-turns',
+            'level' : 'Newcomer',
+            'follow' : [
+                {
+                   'id' : 'BasicMovements'
+                }
+              ]
+          },
+        'UnderarmTurn' : 
+          {
+            'name' : 'Underarm Turn',
+            'urlpath' : '/spot-turns',
+            'level' : 'Newcomer',
+            'follow' : [
+                {
+                   'id' : 'BasicMovements'
+                }
+              ]
+          },
+        'NewYork' : 
+          {
+            'name' : 'New York',
+            'urlpath' : '/new-york',
+            'level' : 'Newcomer',
+            'follow' : [
+                {
+                   'id' : 'NewYork',
+                   'comment' : 'to opposite side, when ending in Open PP'
+                },
+                {
+                   'id' : 'SpotTurn',
+                   'comment' : 'to opposite side, when ending in Open PP'
+                },
+                {
+                   'id' : 'SwitchTurn',
+                   'comment' : 'to opposite side, when ending in Open PP'
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : '4-6, when ending facing partner'
+                },
+                {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : '4-6, when ending facing partner'
+                },
+                {
+                   'id' : 'UnderarmTurn',
+                   'comment' : 'to R, when ending facing partner'
+                },
+                {
+                   'id' : 'HandToHand'
+                },
+                {
+                   'id' : 'SideSteps'
+                },
+                {
+                   'id' : 'CubanRocks'
+                },
+                {
+                   'id' : 'Fan'
+                },
+                {
+                   'id' : 'ClosedHipTwist',
+                   'comment' : '4-6, when New York LSP ends facing parter'
+                },
+                {
+                   'id' : 'UnderarmTurn',
+                   'comment' : 'to L following New York RSP, when ending in Open PP'
+                }
+              ]
+          },
+        'Cucarachas' : 
+          {
+            'name' : 'Cucarachas',
+            'urlpath' : '/cucarachas',
+            'level' : 'Newcomer',
+            'follow' : [
+                {
+                   'id' : 'BasicMovementsOpen',
+                    'comment' : 'skip 1-3 for LF Cucaracha'
+                },
+                {
+                   'id' : 'BasicMovementsClosed',
+                    'comment' : 'skip 1-3 for LF Cucaracha'
+                },
+                {
+                   'id' : 'Cucarachas'
+                },
+                {
+                   'id' : 'UnderarmTurn',
+                   'comment' : 'to R, following LF Cucaracha'
+                },
+                {
+                   'id' : 'SideSteps'
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : 'for LF Cucaracha, go directly to 4-6 of Fan, lady in line on 4'
+                }
+              ]
+          },
+        'Cucarachas' : 
+          {
+            'name' : 'Cucarachas',
+            'urlpath' : '/cucarachas',
+            'level' : 'Newcomer',
+            'follow' : [
+                {
+                   'id' : 'BasicMovementsOpen',
+                    'comment' : 'skip 1-3 for LF Cucaracha'
+                },
+                {
+                   'id' : 'BasicMovementsClosed',
+                    'comment' : 'skip 1-3 for LF Cucaracha'
+                },
+                {
+                   'id' : 'Cucarachas'
+                },
+                {
+                   'id' : 'UnderarmTurn',
+                   'comment' : 'to R, following LF Cucaracha'
+                },
+                {
+                   'id' : 'SideSteps'
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : 'for LF Cucaracha, go directly to 4-6 of Fan, lady in line on 4'
+                }
+              ]
+          },
+        'BasicMovementsClosed' : 
+          {
+            'name' : 'Basic Movements: Closed',
+            'urlpath' : '/basic-movements',
+            'level' : 'Newcomer',
+            'follow' : [
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'NewYork',
+                   'comment' : 'LSP, having turned to Open CPP on last step'
+                },
+                {
+                   'id' : 'SpotTurn',
+                   'comment' : 'to R'
+                },
+                {
+                   'id' : 'SwitchTurn',
+                   'comment' : 'to R'
+                },
+                {
+                   'id' : 'UnderarmTurn',
+                   'comment' : 'to L'
+                },
+                {
+                   'id' : 'ShoulderToShoulder',
+                   'comment' : 'L side'
+                },
+                {
+                   'id' : 'SideSteps',
+                   'comment' : 'L or R'
+                },
+                {
+                   'id' : 'HandToHand',
+                   'comment' : 'RSP'
+                },
+                {
+                   'id' : 'CubanRocks',
+                   'comment' : 'LF'
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : 'after 1-3 Closed Basic, follow with 4-6 Open Basic'
+                },
+                {
+                   'id' : 'SpotTurn',
+                   'comment' : 'to L, after 1-3 Closed Basic'
+                },
+                {
+                   'id' : 'SwitchTurn',
+                   'comment' : 'to L, after 1-3 Closed Basic'
+                },
+                {
+                   'id' : 'UnderarmTurn',
+                   'comment' : 'to R, after 1-3 Closed Basic'
+                },
+                {
+                   'id' : 'HandToHand',
+                   'comment' : 'LSP, after 1-3 Closed Basic'
+                },
+                {
+                   'id' : 'SideSteps',
+                   'comment' : 'after 1-3 Closed Basic'
+                },
+                {
+                   'id' : 'CubanRocks',
+                   'comment' : 'after 1-3 Closed Basic'
+                },
+                {
+                   'id' : 'NaturalTop',
+                   'comment' : 'after 1-3 Closed Basic, Man step 3 LF side turning slightly R, Lady RF fwd'
+                }
+             ]
+          },
+        'BasicMovementsOpen' : 
+         {
+            'name' : 'Basic Movements: Open',
+            'urlpath' : '/basic-movements',
+            'level' : 'Newcomer',
+            'follow' : [
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : 'when danced in Closed Position'
+                },
+                {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : 'when danced in Closed Position'
+                },
+                {
+                   'id' : 'ProgressiveWalks',
+                   'comment' : 'fwd, when danced in Open or Closed Position'
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : 'when danced in Closed Position'
+                },
+                {
+                   'id' : 'Alemana',
+                   'comment' : 'when danced in Open Position, Lady RF back on 1'
+                },
+                {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : 'after 1-3, follow with 4-6 of Closed Basic, when danced in Closed Position'
+                },
+                {
+                   'id' : 'ProgressiveWalks',
+                   'comment' : 'back, after 1-3, when danced in Open or Closed Position'
+                },
+                {
+                   'id' : 'NaturalTop',
+                   'comment' : 'after 1-3 Open Basic, Man step 3 LF side turning slightly R, Lady RF fwd, danced in Open Position'
+                }
+             ]
+        }
+    };
+    
+    //-------------------------------------------
+    var DANCE_MAP = {
+      'Quickstep' : {
+        'urlprefix' : 'quickstep',
+        'figures' : quickstepFigures,
+        'type' : 'standard'
+      },
+      'Rumba' : {
+        'urlprefix' : 'rumba',
+        'figures' : rumbaFigures,
+        'type' : 'latin'
+      }
+    };
+         
+    //-------------------------------------------
+    // Utitilies 
+    function log(msg) {
+      var debugElement = document.getElementById('debugOutput');
+      if (debugElement) {
+        var now = new Date();
+        debugElement.innerHTML = '[' + now.getHours() + ':' +
+          now.getMinutes() + ':' + now.getSeconds() + '] ' + 
+          msg + '\n' + debugElement.innerHTML;
+      }
+    }
+
+    function setCookie(name, value) {
+      var expireDate = new Date();
+      expireDate.setDate(expireDate.getDate() + 1000);
+      document.cookie = cookiePrefix + "_" + name + "=" + escape(value) +
+        ";expires=" + expireDate.toGMTString();
+    } 
+       
+    function getCookie(name) {
+      if (document.cookie.length == 0)
+        return '';
+      var cookieName = cookiePrefix +  "_" + name;
+      var start = document.cookie.indexOf(cookieName + "=");
+      if (start == -1)
+        return '';
+      start = start + cookieName.length + 1;
+
+      var end = document.cookie.indexOf(";", start);
+      if (end == -1)
+        end = document.cookie.length;
+      return unescape(document.cookie.substring(start, end));
+    }
+    
+    function contains(list, value) {
+      if (list instanceof Array) {
+        return list.indexOf(value) != -1;
+      } else {
+        return list == value;
+      }
+    }
+    
+    function removeValue(list, value){
+      var i = list.indexOf(value);
+      while (i != -1) { // remove all occurences
+        list.splice(i, 1);
+        i = list.indexOf(value);
+      }
+    }
+    
+   
+    var isLatinDance = DANCE_MAP[dance]['type'] == 'latin';
+    var URL_BASE = 'http://www.dancecentral.info/ballroom/international-style/' + DANCE_MAP[dance]['urlprefix'];    
+    var figures = DANCE_MAP[dance]['figures'];
+    var selectedFigureName = inputFigureName; 
+    var sortedIds = []; // display figures in alphabetically order
+    var mode = 'browse'; // vs. "routine" for building a routine
+
+    for (var id in figures) {
+      sortedIds.push(id);
+    }
+    sortedIds.sort();
+
+    //----------------------------------------     
+    function MatchFigure(figure, criteria) {
+      if (!figure) return true; // undefined yet.
+
+      // check level first
+      if (document.getElementById(figure['level']) && 
+           (!document.getElementById(figure['level']).checked))
+        return false;
+
+      if (!criteria) return true;
+
+      for (var key in criteria) {
+        if (!contains(figure[key], criteria[key]))
+          return false;
+      }
+      return true;
+    }
+
+    function MatchFigures(criteria) {
+      var result = []; // array of figure IDs that matched criteria
+      for (var id in figures) {
+        var figure = figures[id];
+        if (MatchFigure(figure, criteria))
+          result.push(id);
+      }
+      return result;
+    }
+
+    function onLoad() {     
+      var output = [];
+
+      // initialize levels
+      var element = document.getElementById('divLevels');
+      output = [dance + ' levels: '];
+      LEVELS.forEach(function (level) {
+        output.push('<input type=checkbox id="' + level + '" onclick="updateOptions();" checked>' + 
+          '<span style="color:' + COLOR_MAP[level] + '">' + level + '</span> &nbsp;');
+      });
+      output.push('<br>');
+      element.innerHTML = output.join('');
+
+      if (isLatinDance) {
+        document.getElementById('divSelectFigure').style.display = 'none';
+      } 
+      document.getElementById('divVersion').innerHTML = VERSION;
+          
+      updateOptions();
+    }
+
+    function resetFigureListIndex() {
+      document.getElementById('figureName').selectedIndex = 0;
+    }
+        
+    function resetStartingPoint() {
+      document.getElementById('startAlignment').selectedIndex = 0;
+      document.getElementById('startFoot').selectedIndex = 0;
+      document.getElementById('startDirection').selectedIndex = 0;
+    }
+    
+    function updateOptions() {
+     var output = [];
+
+      output.push('Figures: <select id="figureName" onchange="resetStartingPoint();updateView();">');
+      output.push('<option>all</option>');
+      sortedIds.forEach(function (id) {
+        if (!document.getElementById(figures[id]['level']).checked) return;
+        output.push('<option value="' + id + '" ');
+        if (selectedFigureName != 'all' && figures[id]['name'] == selectedFigureName)
+          output.push('selected');
+        output.push('>' + figures[id]['name'] + '</option>');
+      });
+      output.push('</select>');
+      document.getElementById('divFiguresList').innerHTML = output.join('');
+
+      updateView();
+    }
+
+    function getFigureLink(figureID, inPage) {
+      var output = [];
+      var figure = figures[figureID];
+      if (figure) {
+        if (!figure['name'])
+          figure['name'] = figureID; // default
+        if (figure['urlpath']) {
+          output.push('<a style="color:' + COLOR_MAP[figure['level']] + '"');
+          output.push(' onclick="return onClickFigure(\'' + figureID + '\',  ' + (inPage ? 'true' : 'false') + ');" ');
+          //output.push('target="windowDetails" ');
+          if (inPage)
+            output.push(' target="_self" href="#section_' + figureID);
+          else
+            output.push(' href="' + URL_BASE + figure['urlpath']);
+          //output.push('?tmpl=/system/app/templates/print/');
+          output.push('">' + figure['name'] + '</a>');
+        } else {
+          output.push(figure['name']);
+        }
+      } else {
+        output.push(figureID);
+      }
+      return output.join('');
+    }
+  
+    // returns an array of following figures: [followID, comment] 
+    function getFollows(figure) {
+        // get all ids, some are evaluating
+        var follows = [];
+        figure['follow'].forEach(function (nextFigure) {
+          var ids = [];
+          var evalStr = nextFigure['eval'];
+          if (evalStr) {
+            ids = eval(evalStr);
+          } else { // check id 
+            if (nextFigure['id'])
+              ids.push(nextFigure['id']);
+          }
+          // filter out dups
+          ids.forEach(function (followID) {
+            var followFigure = figures[followID];
+            if (!contains(follows, followID) && MatchFigure(followFigure))
+              follows.push([followID, nextFigure['comment']]);
+          });
+        });
+        return follows;
+    }
+    
+    // diagraph turns out to be too complicated for it to be useful
+    // leave it here for future
+    function outputDotSource() {
+      var output = [];
+      output.push('digraph ConnectingFigures {');
+      output.push('labelloc=t;');
+      output.push('node [color=black, fontcolor=black];');
+
+      output.push('label="Title";');
+      sortedIds.forEach(function (id) {
+        var figure = figures[id];
+        if (!MatchFigure(figure)) return; // pass UI filter
+        output.push(id + '[label="' + figure['name'] + '"];');
+        var follows = getFollows(figure);
+
+        follows.forEach(function (follow) {
+          output.push(id + ' -> ' + follow[0] + ';');
+        });
+       });
+      output.push('}');
+      document.getElementById('dotOutput').value = output.join('');
+    }
+     
+    function outputCSV() {
+      var output = [];
+      sortedIds.forEach(function (id) {
+        var figure = figures[id];
+        output.push(id);
+        output.push(figure['name']);
+        output.push(figure['urlpath']);
+        output.push(figure['level']);
+        output.push(figure['startAlignment']);
+        output.push(figure['startFoot']);
+        output.push(figure['startDirection']);
+        var follows = figures['follow'];
+        follows.forEach(function (follow) {
+          output.push(follow[0] + '/' + follow[1]);
+        });
+       });
+      output.push('}');
+      document.getElementById('dotOutput').value = output.join('');
+    }
+
+    function continueRoutine() {
+      mode = 'routine';
+      document.getElementById('idPauseRoutine').style.display = 'inline';
+      document.getElementById('idContinueRoutine').style.display = 'none';
+    }
+
+    function pauseRoutine() {
+      mode = 'browse';
+      document.getElementById('idPauseRoutine').style.display = 'none';
+      document.getElementById('idContinueRoutine').style.display = 'inline';
+    }
+
+    function startRoutine() {
+      mode = 'routine';
+
+      var element = document.getElementById('spanRoutine');
+      element.innerHTML = '';
+
+      // other controls
+      document.getElementById('idStartRoutine').style.display = 'inline';
+      document.getElementById('idPauseRoutine').style.display = 'inline';
+      document.getElementById('idContinueRoutine').style.display = 'none';
+    }
+
+    function onClickFigure(figureID, inPage) {
+      if (mode != 'routine') return true;
+      var output = [];
+      var figure = figures[figureID];
+      output.push('<li><a href="' + URL_BASE + figure['urlpath'] + '">' + figure['name'] + '</a> &nbsp;&nbsp; </li>');
+      var element = document.getElementById('spanRoutine');
+      var content = element.innerHTML.replace(/^<ol>/, '').replace(/<\/ol>$/, '');
+      element.innerHTML = '<ol>' + content + output.join('') + '</ol>';
+      //element = document.getElementById('dotOutput');
+      //element.value = element.value + output.join('');
+      return inPage ? true : false;
+    }
+                  
+    // re-filter, regenerate display
+    function updateView() {
+      var output = [];
+      var element = document.getElementById('divFigureChart');
+      var selectedFigureElement = document.getElementById('figureName');
+      selectedFigureName = selectedFigureElement.options[selectedFigureElement.selectedIndex].text;
+
+      sortedIds.forEach(function (id) {
+        var figure = figures[id];
+        if (!MatchFigure(figure)) return; // pass UI filter
+        if (selectedFigureName != 'all' && figure['name'] != selectedFigureName)
+          return;
+
+        var filterElement = document.getElementById('startAlignment');
+        var selectedAlignment = filterElement.options[filterElement.selectedIndex].text;
+        filterElement = document.getElementById('startFoot');
+        var selectedFoot = filterElement.options[filterElement.selectedIndex].text;
+        filterElement = document.getElementById('startDirection');
+        var selectedDirection = filterElement.options[filterElement.selectedIndex].text;
+  
+        if (selectedAlignment != 'all' && !contains(figure['startAlignment'], selectedAlignment))
+          return;
+  
+        if (selectedFoot != 'all' && figure['startFoot'] != selectedFoot)
+          return;
+  
+        if (selectedDirection != 'all' && figure['startDirection'] != selectedDirection)
+          return;
+
+        output.push('<a name="section_' + id + '"></a><span class="figure">');
+        output.push(getFigureLink(id));
+        output.push('</span>');
+
+        var follows = getFollows(figure);
+
+        output.push('<ol>');
+        follows.forEach(function (follow) {
+          output.push('<li>' + getFigureLink(follow[0], selectedFigureName == 'all'));
+          if (follow[1])
+            output.push(' (' + follow[1] + ')');
+        });
+        output.push('</ol>');
+      });
+      element.innerHTML = output.join('');
+      //outputDotSource(); // diagram too complicated to be useful
+      //outputCSV();
+                            
+      //gadgets.window.adjustHeight();
+    }
+
+    if (IS_GADGET) {
+      _IG_RegisterOnloadHandler(onLoad);
+    } else {
+      window.onload = onLoad;
+    }
+  </script>
+</head>
+<body>
+<div id='divLevels'></div>
+<div id='divFiguresList'></div>
+<span id='divSelectFigure'>
+Starting alignment:
+<select id='startAlignment' onchange="resetFigureListIndex();updateView();">
+<option>all</option>
+<option>DW</option>
+<option>LOD</option>
+<option>DC</option>
+<option>Center</option>
+<option>BDW</option>
+<option>BLOD</option>
+<option>BDC</option>
+<option>Wall</option>
+</select>
+Free foot:
+<select id='startFoot' onchange="resetFigureListIndex();updateView();">
+<option>all</option>
+<option>LF</option>
+<option>RF</option>
+</select>
+Direction:
+<select id='startDirection' onchange="resetFigureListIndex();updateView();">
+<option>all</option>
+<option>fwd</option>
+<option>back</option>
+</select>
+</span><br>
+<div id='divFigureChart'> </div>
+<div id='divRoutine' style='display:bock'>
+<table cellspacing=0 cellpadding=0>
+<tr><td style="background: #ddf8cc;padding:4px">
+<span id='idRoutineControls'>
+Routine: 
+<a id='idStartRoutine' href="#" onclick="return startRoutine();">Start New</a> &nbsp;
+<a id='idPauseRoutine' style='display:none' href="#" onclick="return pauseRoutine();">Pause</a><a id='idContinueRoutine' style='display:none' href="#" onclick="return continueRoutine();">Continue</a> &nbsp;
+</span>
+</td></tr>
+<tr><td style="background: #fff4c2;">
+<span id='spanRoutine'></span>
+</td>
+</tr></table>
+</div>
+
+<div id='divVersion'></div>
+<textarea id='dotOutput' style='display:none'></textarea>
+<div id='debugOutput' style='display:none'></div>
+
+</body> 
+]]></Content>
+</Module>
+
