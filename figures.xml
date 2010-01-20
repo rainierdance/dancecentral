@@ -27,7 +27,7 @@
 
     //-------------------------------------------
     var inputFigureName = 'NaturalTurn';
-    var inputDance = 'Rumba';
+    var inputDance = 'Quickstep';
     var mode = 'browse'; // vs. "routine" for building a routine
     var isLatinDance = false; // do not show starting direction for Latin dances
     var DANCE_MAP;
