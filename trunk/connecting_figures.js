@@ -132,6 +132,7 @@ function updateFigureList() {
     output.push('>' + figures[id]['name'] + '</option>');
   });
   output.push('</select>');
+  output.push(' <a href="javascript:void(0);" onclick="selectFigure(\'all\');">show all</a>');
   document.getElementById('divFiguresList').innerHTML = output.join('');
 
   updateView();
