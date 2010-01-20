@@ -232,21 +232,18 @@ function outputCSV() {
 }
 */
 function continueRoutine() {
-log('continue routine');
   mode = 'routine';
   document.getElementById('idPauseRoutine').style.display = 'inline';
   document.getElementById('idContinueRoutine').style.display = 'none';
 }
 
 function pauseRoutine() {
-log('pause routine');
   mode = 'browse';
   document.getElementById('idPauseRoutine').style.display = 'none';
   document.getElementById('idContinueRoutine').style.display = 'inline';
 }
 
 function startRoutine() {
-log('start new routine');
   mode = 'routine';
 
   // keep selected level, reset other criteria
@@ -257,13 +254,10 @@ log('start new routine');
   var element = document.getElementById('spanRoutine');
   element.innerHTML = '';
 
-log('clear routine list ' + element);
-
   // other controls
   document.getElementById('idStartRoutine').style.display = 'inline';
   document.getElementById('idPauseRoutine').style.display = 'inline';
   document.getElementById('idContinueRoutine').style.display = 'none';
-log('pause routine element display style ' + document.getElementById('idPauseRoutine').style.display);
 }
 
 // select the specified figure in figure drop down list and update view
@@ -344,9 +338,5 @@ function updateView() {
   element.innerHTML = output.join('');
 
   //outputDotSource(); // diagram too complicated to be useful
-                        
-  if (IS_GADGET) {
-    gadgets.window.adjustHeight();
-  }
 }
 
