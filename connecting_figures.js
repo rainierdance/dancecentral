@@ -232,21 +232,21 @@ function outputCSV() {
 }
 */
 function continueRoutine() {
+log('continue routine');
   mode = 'routine';
   document.getElementById('idPauseRoutine').style.display = 'inline';
   document.getElementById('idContinueRoutine').style.display = 'none';
-  return false;
 }
 
 function pauseRoutine() {
+log('pause routine');
   mode = 'browse';
   document.getElementById('idPauseRoutine').style.display = 'none';
   document.getElementById('idContinueRoutine').style.display = 'inline';
-  return false;
 }
 
-// start a new routine
 function startRoutine() {
+log('start new routine');
   mode = 'routine';
 
   // keep selected level, reset other criteria
@@ -257,11 +257,13 @@ function startRoutine() {
   var element = document.getElementById('spanRoutine');
   element.innerHTML = '';
 
+log('clear routine list ' + element);
+
   // other controls
   document.getElementById('idStartRoutine').style.display = 'inline';
   document.getElementById('idPauseRoutine').style.display = 'inline';
   document.getElementById('idContinueRoutine').style.display = 'none';
-  return false;
+log('pause routine element display style ' + document.getElementById('idPauseRoutine').style.display);
 }
 
 // select the specified figure in figure drop down list and update view

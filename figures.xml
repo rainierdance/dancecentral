@@ -15,7 +15,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0120.1034";
+    var VERSION = "10.0120.1058";
     var ID_ANALYTICS = "UA-9375974-3";
 
     var inputDance = 'Quickstep';
@@ -77,8 +77,8 @@ Direction:
 <tr><td style="background: #ddf8cc;padding:4px">
 <span id='idRoutineControls'>
 Routine: 
-<a id='idStartRoutine' href="javascript:void(0);" onclick="return startRoutine();">Start New</a> &nbsp;
-<a id='idPauseRoutine' style='display:none' href="javascript:void(0);" onclick="return pauseRoutine();">Pause</a><a id='idContinueRoutine' style='display:none' href="javascript:void(0);" onclick="return continueRoutine();">Continue</a> &nbsp;
+<a id='idStartRoutine' href="javascript:void(0);" onclick="startRoutine();">Start New</a> &nbsp;
+<a id='idPauseRoutine' style='display:none' href="javascript:void(0);" onclick="pauseRoutine();">Pause</a><a id='idContinueRoutine' style='display:none' href="javascript:void(0);" onclick="continueRoutine();">Continue</a> &nbsp;
 </span>
 </td></tr>
 <tr><td style="background: #fff4c2;"> <span id='spanRoutine'></span> </td> </tr>
