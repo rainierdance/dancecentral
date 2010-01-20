@@ -12,6 +12,14 @@
     var VERSION = "$Rev$";
     var ID_ANALYTICS = "UA-9375974-3";
 
+    var inputDance = 'Quickstep';
+    var inputFigureName = 'all';
+
+    if (IS_GADGET) {
+      inputDance = '__UP_dance__';
+      inputFigureName = '__UP_figureName__';
+    }
+
     function onLoad() {     
       initVars();
       initDisplay();
