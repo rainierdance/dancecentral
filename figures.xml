@@ -7,13 +7,14 @@
 <head>
   <base target="_top" />
   <LINK REL=StyleSheet HREF="http://dancecentral.googlecode.com/svn/trunk/figures.css" TYPE="text/css"/>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/utils.js"></script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/quickstep.js"></script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/rumba.js"></script>
   <script type="text/javascript">
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0120.0817";
+    var VERSION = "10.0120.0952";
     var ID_ANALYTICS = "UA-9375974-3";
 
     var LEVELS = ['Newcomer', 'Bronze', 'Silver', 'Gold', 'Open'];
@@ -26,7 +27,7 @@
     };
 
     //-------------------------------------------
-    var inputFigureName = 'NaturalTurn';
+    var inputFigureName = 'all';
     var inputDance = 'Rumba';
     var mode = 'browse'; // vs. "routine" for building a routine
     var isLatinDance = false; // do not show starting direction for Latin dances
@@ -42,6 +43,12 @@
       if (IS_GADGET) {
         inputFigureName = '__UP_figureName__';
         inputDance = '__UP_dance__';
+      } else {
+        var paramValue = getURLParam('dance');
+        if (paramValue) inputDance = paramValue;
+
+        paramValue = getURLParam('figure');
+        if (paramValue) inputFigureName = paramValue;
       }
 
       DANCE_MAP  = {
@@ -69,56 +76,6 @@
       sortedIds.sort();
     }
          
-    //-------------------------------------------
-    // Utitilies 
-    function log(msg) {
-      var debugElement = document.getElementById('debugOutput');
-      if (debugElement) {
-        var now = new Date();
-        debugElement.innerHTML = '[' + now.getHours() + ':' +
-          now.getMinutes() + ':' + now.getSeconds() + '] ' + 
-          msg + '\n' + debugElement.innerHTML;
-      }
-    }
-
-    function setCookie(name, value) {
-      var expireDate = new Date();
-      expireDate.setDate(expireDate.getDate() + 1000);
-      document.cookie = cookiePrefix + "_" + name + "=" + escape(value) +
-        ";expires=" + expireDate.toGMTString();
-    } 
-       
-    function getCookie(name) {
-      if (document.cookie.length == 0)
-        return '';
-      var cookieName = cookiePrefix +  "_" + name;
-      var start = document.cookie.indexOf(cookieName + "=");
-      if (start == -1)
-        return '';
-      start = start + cookieName.length + 1;
-
-      var end = document.cookie.indexOf(";", start);
-      if (end == -1)
-        end = document.cookie.length;
-      return unescape(document.cookie.substring(start, end));
-    }
-    
-    function contains(list, value) {
-      if (list instanceof Array) {
-        return list.indexOf(value) != -1;
-      } else {
-        return list == value;
-      }
-    }
-    
-    function removeValue(list, value){
-      var i = list.indexOf(value);
-      while (i != -1) { // remove all occurences
-        list.splice(i, 1);
-        i = list.indexOf(value);
-      }
-    }
-    
     //----------------------------------------     
     // return true if figure matches level
     function MatchLevel(figure) {
