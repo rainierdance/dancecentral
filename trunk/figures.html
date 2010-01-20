@@ -12,6 +12,11 @@
     var VERSION = "$Rev$";
     var ID_ANALYTICS = "UA-9375974-3";
 
+    function onLoad() {     
+      initVars();
+      initDisplay();
+    }
+
     if (IS_GADGET) {
       _IG_RegisterOnloadHandler(onLoad);
     } else {

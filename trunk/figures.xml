@@ -15,8 +15,13 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0120.1009";
+    var VERSION = "10.0120.1019";
     var ID_ANALYTICS = "UA-9375974-3";
+
+    function onLoad() {     
+      initVars();
+      initDisplay();
+    }
 
     if (IS_GADGET) {
       _IG_RegisterOnloadHandler(onLoad);
