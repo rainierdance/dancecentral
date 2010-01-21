@@ -2,6 +2,11 @@
     // QUICKSTEP FIGURES
     var quickstepFigures = 
       {
+        'ChangeOfDirection' : 
+          {
+            'name' : 'Change of Direction',
+            'level' : 'Bronze'
+          },
         'HoverCorte' : 
           {
             'name' : 'Hover Corte',
@@ -95,11 +100,14 @@
             'startDirection' : 'back',
             'follow' : [
                 {
-                  'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})'
+                  'eval' : 'MatchFigureName("Natural")'
                 },
                 {
                   'id' : 'CrossChasse',
                   'comment' : ''
+                },
+                {
+                  'id' : 'ChangeOfDirection'
                 },
                 {
                   'id' : 'ChasseReverseTurn',
@@ -115,6 +123,21 @@
                 },
                 {
                   'id' : 'ZigZagBackLockAndRunningFinish'
+                },
+                {
+                  'id' : 'QuickOpenReverse',
+                  'comment' : 'when ending DC'
+                },
+                {
+                  'id' : 'ClosedTelemark',
+                  'comment' : 'when ending DC'
+                },
+                {
+                  'id' : 'CrossSwivel'
+                },
+                {
+                  'id' : 'TipsyToRAndL',
+                  'comment' : 'R'
                 }
               ]
           },
@@ -306,6 +329,12 @@
                 {
                   'id' : 'HeelPivot',
                   'comment' : ''
+                },
+                {
+                  'id': 'FourQuickRun'
+                },
+                {
+                  'id': 'HoverCorte'
                 }
               ]
           },
@@ -320,7 +349,10 @@
             'startDirection' : 'fwd',
             'follow' : [
                 {
-                  'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})'
+                  'eval' : 'MatchFigureName("Natural")'
+                },
+                {
+                  'id' : 'RumbaCross'
                 }
               ]
           },
@@ -343,6 +375,20 @@
                 {
                   'id' : 'HeelPivot',
                   'comment' : ''
+                },
+                {
+                  'id' : 'FourQuickRun'
+                },
+                {
+                  'id' : 'V6',
+                  'comment' : '2-12, heel should lower on previous step'
+                },
+                {
+                  'id' : 'SixQuickRun',
+                  'comment' : 'heel should lower on previous step'
+                },
+                {
+                  'id' : 'HoverCorte'
                 }
               ]
           },
@@ -386,7 +432,7 @@
                   'comment' : 'after 1-3'
                 },
                 {
-                  'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})',
+                  'eval' : 'MatchFigureName("Natural")',
                   'comment' : ''
                 },
                 {
@@ -394,8 +440,19 @@
                   'comment' : 'use 6th step of Natural Turn as entry'
                 },
                 {
+                  'id' : 'ForwardLock',
+                  'comment' : 'and then Quick Open Reverse, after 1-5 of Natural Turn ending DC, '
+                },
+                {
+                  'id' : 'ForwardLock',
+                  'comment' : 'and then any Natural figures, after 1-5 of Natural Turn ending DW of new LOD, '
+                },
+                {
                   'id' : 'ZigZagBackLockAndRunningFinish',
                   'comment' : 'use 6th step of Natural Turn as entry'
+                },
+                {
+                  'id' : 'RumbaCross'
                 }
               ]
           },
@@ -449,9 +506,33 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'follow' : [
-                { // any Natural figures
-                  'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})',
+                {
+                  'eval' : 'MatchFigureName("Natural")',
                   'comment' : ''
+                },
+                {
+                  'id' : 'QuickOpenReverse',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'Fishtail',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'FourQuickRun',
+                  'comment' : 'at corner, LF back with Lady OP, TH, S into Four Quick Run'
+                },
+                {
+                  'id' : 'V6',
+                  'comment' : '2-12, at corner, LF back with Lady OP, TH, S into 2-12 V6'
+                },
+                {
+                  'id' : 'TipsyToRAndL',
+                  'comment' : 'L, into 2-12 V6 DC or 2-5 Back Lock down LOD.'
+                },
+                {
+                  'id' : 'SixQuickRun',
+                  'comment' : 'at corner, LF back with Lady OP, TH, S into Six Quick Run'
                 }
               ]
           },
@@ -468,6 +549,30 @@
                 {
                   'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})',
                   'comment' : ''
+                },
+                {
+                  'id' : 'QuickOpenReverse',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'Fishtail',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'FourQuickRun',
+                  'comment' : 'at corner, LF back with Lady OP, TH, S into Four Quick Run'
+                },
+                {
+                  'id' : 'V6',
+                  'comment' : '2-12, at corner, LF back with Lady OP, TH, S into 2-12 V6'
+                },
+                {
+                  'id' : 'TipsyToRAndL',
+                  'comment' : 'L, into 2-12 V6 DC or 2-5 Back Lock down LOD.'
+                },
+                {
+                  'id' : 'SixQuickRun',
+                  'comment' : 'at corner, LF back with Lady OP, TH, S into Six Quick Run'
                 }
               ]
           }
