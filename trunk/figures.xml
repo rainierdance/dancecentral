@@ -3,6 +3,7 @@
 <ModulePrefs title="DanceCentral.info Connecting Figures" />
 <UserPref name="dance" display_name="Dance" default_value="Quickstep"/>
 <UserPref name="figureName" display_name="Figure Name" default_value="all"/>
+<UserPref name="mode" display_name="Mode" default_value=""/>
 <Content type="html"><![CDATA[
 <head>
   <base target="_top" />
@@ -15,15 +16,17 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0121.1253";
+    var VERSION = "10.0121.1433";
     var ID_ANALYTICS = "UA-9375974-3";
 
     var inputDance = 'Quickstep';
     var inputFigureName = 'all';
+    var inputMode = 'routine';
 
     if (IS_GADGET) {
       inputDance = '__UP_dance__';
       inputFigureName = '__UP_figureName__';
+      inputMode= '__UP_mode__';
     }
 
     function onLoad() {     

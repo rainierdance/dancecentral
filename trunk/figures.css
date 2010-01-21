@@ -6,8 +6,8 @@ body {
   font-size: 0.9em;
 }      
 #divVersion {
-  font-size: 0.9em;
-  float: right;
+  font-size: 0.5em;
+  float: left;
 }
 #divRoutine {
   //background: #fff4c2;

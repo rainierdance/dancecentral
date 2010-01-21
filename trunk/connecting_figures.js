@@ -25,6 +25,9 @@ function initVars() {
 
     paramValue = getURLParam('figure');
     if (paramValue) inputFigureName = paramValue;
+
+    paramValue = getURLParam('mode');
+    if (paramValue) inputMode = paramValue;
   }
 
   DANCE_MAP  = {
@@ -115,8 +118,11 @@ function initDisplay() {
     document.getElementById('divSelectFigure').style.display = 'none';
   } 
   document.getElementById('divVersion').innerHTML = VERSION;
+
+  document.getElementById('divRoutine').style.display = (inputMode == 'routine') ? 'block' : 'none';
       
   updateFigureList();
+
 }
 
 function resetFigureListIndex() {

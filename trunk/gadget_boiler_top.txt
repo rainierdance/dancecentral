@@ -3,4 +3,5 @@
 <ModulePrefs title="DanceCentral.info Connecting Figures" />
 <UserPref name="dance" display_name="Dance" default_value="Quickstep"/>
 <UserPref name="figureName" display_name="Figure Name" default_value="all"/>
+<UserPref name="mode" display_name="Mode" default_value=""/>
 <Content type="html"><![CDATA[
