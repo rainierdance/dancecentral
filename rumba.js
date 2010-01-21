@@ -151,7 +151,10 @@
             'level' : 'Newcomer',
             'follow' : [
                 {
-                   'id' : 'BasicMovements'
+                   'id' : 'BasicMovementsOpen'
+                },
+                {
+                   'id' : 'BasicMovementsClosed'
                 }
               ]
           },
