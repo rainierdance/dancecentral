@@ -2,6 +2,61 @@
     // QUICKSTEP FIGURES
     var quickstepFigures = 
       {
+        'HoverCorte' : 
+          {
+            'name' : 'Hover Corte',
+            'level' : 'Gold'
+          },
+        'TipsyToRAndL' : 
+          {
+            'name' : 'Tipsy To R and L',
+            'level' : 'Gold'
+          },
+        'RumbaCross' : 
+          {
+            'name' : 'Rumba Cross',
+            'level' : 'Gold'
+          },
+        'SixQuickRun' : 
+          {
+            'name' : 'Six Quick Run',
+            'level' : 'Gold'
+          },
+        'CrossSwivel' : 
+          {
+            'name' : 'Cross Swivel',
+            'level' : 'Gold'
+          },
+        'ClosedTelemark' : 
+          {
+            'name' : 'Closed Telemark',
+            'level' : 'Silver'
+          },
+        'V6' : 
+          {
+            'name' : 'V6',
+            'level' : 'Silver'
+          },
+        'FourQuickRun' : 
+          {
+            'name' : 'Four Quick Run',
+            'level' : 'Silver'
+          },
+        'RunningRightTurn' : 
+          {
+            'name' : 'Running Right Turn',
+            'level' : 'Silver'
+          },
+        'Fishtail' : 
+          {
+            'name' : 'Fishtail',
+            'level' : 'Silver'
+          },
+        'QuickOpenReverse' : 
+          {
+            'name' : 'Quick Open Reverse',
+            'level' : 'Silver'
+          },
         'ZigZagBackLockAndRunningFinish' : 
           {
             'name' : 'Zig-Zag, Back Lock And Running Finish',
@@ -364,6 +419,22 @@
                 },
                 {
                   'id' : 'HeelPivot',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'FourQuickRun',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'V6',
+                  'comment' : '2-12, L heel should still lower on preceeding step'
+                },
+                {
+                  'id' : 'SixQuickRun',
+                  'comment' : 'L heel should still lower on preceeding step'
+                },
+                {
+                  'id' : 'HoverCorte',
                   'comment' : ''
                 }
               ]

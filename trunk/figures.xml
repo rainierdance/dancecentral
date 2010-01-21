@@ -15,7 +15,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0120.1058";
+    var VERSION = "10.0121.1253";
     var ID_ANALYTICS = "UA-9375974-3";
 
     var inputDance = 'Quickstep';

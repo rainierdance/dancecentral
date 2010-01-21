@@ -1,6 +1,56 @@
     //-------------------------------------------
     // RUMBA FIGURES
     var rumbaFigures = {
+        'HipTwists' : 
+          {
+            'name' : 'Hip Twists (Advanced, Continuous and Circular)',
+            'level' : 'Gold'
+          },
+        'ThreeAlemanas' : 
+          {
+            'name' : 'Three Alemanas',
+            'level' : 'Gold'
+          },
+        'ThreeThrees' : 
+          {
+            'name' : 'Three Threes',
+            'level' : 'Gold'
+          },
+        'Fencing' : 
+          {
+            'name' : 'Fencing',
+            'level' : 'Gold'
+          },
+        'SlidingDoors' : 
+          {
+            'name' : 'Sliding Doors',
+            'level' : 'Gold'
+          },
+        'SpiralTurns' : 
+          {
+            'name' : 'Spiral Turns (Spiral, Curl and Rope Spinning)',
+            'level' : 'Silver'
+          },
+        'Aida' : 
+          {
+            'name' : 'Aida',
+            'level' : 'Silver'
+          },
+        'OpeningOutFromReverseTop' : 
+          {
+            'name' : 'Opening Out From Reverse Top',
+            'level' : 'Silver'
+          },
+        'ReverseTop' : 
+          {
+            'name' : 'Reverse Top',
+            'level' : 'Silver'
+          },
+        'OpenHipTwist' : 
+          {
+            'name' : 'Open Hip Twist',
+            'level' : 'Silver'
+          },
         'ClosedHipTwist' : 
           {
             'name' : 'Closed Hip Twist',
