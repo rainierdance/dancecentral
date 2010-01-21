@@ -86,6 +86,17 @@ function MatchFigures(criteria) {
   return result;
 }
 
+// returns matching figures, this is eval'ed, not directly called in the source
+function MatchFigureName(namePrefix) {
+  var result = []; // array of figure IDs that matched criteria
+  for (var id in figures) {
+    var figure = figures[id];
+    if (id.indexOf(namePrefix) == 0)
+      result.push(id);
+  }
+  return result;
+}
+
 // initialize display
 function initDisplay() {     
   var output = [];
