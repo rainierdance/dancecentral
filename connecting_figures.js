@@ -157,7 +157,9 @@ function getFigureLink(figureID, inPage) {
       //output.push('?tmpl=/system/app/templates/print/');
       output.push('">' + figure['name'] + '</a>');
     } else {
+      output.push('<span style="color:' + COLOR_MAP[figure['level']] + '">');
       output.push(figure['name']);
+      output.push('</span>');
     }
   } else {
     output.push(figureID);
@@ -169,6 +171,9 @@ function getFigureLink(figureID, inPage) {
 function getFollows(figure) {
     // get all ids, some are evaluating
     var follows = [];
+
+    if (!figure['follow']) return follows;
+
     figure['follow'].forEach(function (nextFigure) {
       var ids = [];
       var evalStr = nextFigure['eval'];
@@ -218,16 +223,19 @@ function outputCSV() {
     var figure = figures[id];
     output.push(id);
     output.push(figure['name']);
-    output.push(figure['urlpath']);
+    output.push(figure['urlpath'] ? figure['urlpath'] : '');
     output.push(figure['level']);
     output.push(figure['startAlignment']);
     output.push(figure['startFoot']);
     output.push(figure['startDirection']);
-    var follows = figures['follow'];
-    follows.forEach(function (follow) {
-      output.push(follow[0] + '/' + follow[1]);
-    });
-   });
+    var follows = figure['follow'];
+    if (figure['follow']) {
+      follows.forEach(function (follow) {
+        output.push(follow[0] + '/' + follow[1]);
+      });
+    }
+  });
+}
   output.push('}');
   document.getElementById('dotOutput').value = output.join('');
 }
