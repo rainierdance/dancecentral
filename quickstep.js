@@ -5,16 +5,34 @@
         'ChangeOfDirection' : 
           {
             'name' : 'Change of Direction',
-            'level' : 'Bronze'
+            'level' : 'Bronze',
+            'follow' : [
+                {
+                  'id' : 'ChasseReverseTurn'
+                },
+                {
+                  'id' : 'ProgressiveChasseToRight',
+                  'comment' : 'when this follows Change of Direction, step 4 would not be taken in CBMP'
+                },
+                {
+                  'id' : 'CrossChasse',
+                  'comment' : 'at corner'
+                }
+              ]
           },
         'HoverCorte' : 
           {
             'name' : 'Hover Corte',
             'level' : 'Gold'
           },
-        'TipsyToRAndL' : 
+        'TipsyToL' : 
           {
-            'name' : 'Tipsy To R and L',
+            'name' : 'Tipsy To L',
+            'level' : 'Gold'
+          },
+        'TipsyToR' : 
+          {
+            'name' : 'Tipsy To R',
             'level' : 'Gold'
           },
         'RumbaCross' : 
@@ -54,7 +72,7 @@
           },
         'Fishtail' : 
           {
-            'name' : 'Fishtail',
+            'name' : 'Fish Tail',
             'level' : 'Silver'
           },
         'QuickOpenReverse' : 
@@ -72,7 +90,13 @@
             'startDirection' : 'fwd',
             'follow' : [
                 {
-                   'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})'
+                  'eval' : 'MatchFigureName("Natural")'
+                },
+                {
+                  'id' : 'ForwardLock'
+                },
+                {
+                  'id' : 'QuickOpenReverse'
                 }
               ]
           },
@@ -86,7 +110,13 @@
             'startDirection' : 'fwd',
             'follow' : [
                 {
-                   'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})'
+                  'eval' : 'MatchFigureName("Natural")'
+                },
+                {
+                  'id' : 'ForwardLock'
+                },
+                {
+                  'id' : 'Fishtail'
                 }
               ]
           },
@@ -136,8 +166,7 @@
                   'id' : 'CrossSwivel'
                 },
                 {
-                  'id' : 'TipsyToRAndL',
-                  'comment' : 'R'
+                  'id' : 'TipsyToR'
                 }
               ]
           },
@@ -164,6 +193,19 @@
                 },
                 {
                   'id' : 'ZigZagBackLockAndRunningFinish'
+                },
+                {
+                  'id' : 'QuickOpenReverse'
+                },
+                {
+                  'id' : 'ClosedTelemark'
+                },
+                {
+                  'id' : 'CrossSwivel'
+                },
+                {
+                  'id' : 'TipsyToR',
+                  'comment' : 'LF fwd, H, S into Tipsy to R'
                 }
               ]
           },
@@ -184,6 +226,9 @@
                 },
                 {
                   'id' : 'RunningFinish'
+                },
+                {
+                  'id' : 'TipsyToR'
                 }
               ]
           },
@@ -197,7 +242,30 @@
             'startDirection' : 'back',
             'follow' : [
                 {
-                  'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})'
+                  'eval' : 'MatchFigureName("Natural")',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'QuickOpenReverse'
+                },
+                {
+                  'id' : 'Fishtail'
+                },
+                {
+                  'id' : 'FourQuickRun',
+                  'comment' : 'at corner, LF back with lady OP, TH, S into Four Quick Runs'
+                },
+                {
+                  'id' : 'V6',
+                  'comment' : '2-12, at corner, LF back with lady OP, TH, S into Four Quick Runs'
+                },
+                {
+                  'id' : 'TipsyToL',
+                  'comment' : 'then into 2-12 V6 DC or 2-5 Back Lock down LOD.'
+                },
+                {
+                  'id' : 'SixQuickRun',
+                  'comment' : 'at corner, LF back with Lady OP, TH, S into Six Quick Run.'
                 }
               ]
           },
@@ -211,7 +279,35 @@
             'startDirection' : 'back',
             'follow' : [
                 {
-                  'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})'
+                  'eval' : 'MatchFigureName("Natural")'
+                },
+                {
+                  'id' : 'QuickOpenReverse',
+                  'comment' : 'at corner, when ended DC'
+                },
+                {
+                  'id' : 'Fishtail',
+                  'comment' : 'at corner, when ended DC'
+                },
+                {
+                  'id' : 'TipsyToR',
+                  'comment' : '1-4 at corner, then followed by Tipsy to L'
+                },
+                {
+                  'id' : 'FourQuickRun',
+                  'comment' : 'at corner, LF back with Lady OP, TH, S into Four Quick Run'
+                },
+                {
+                  'id' : 'V6',
+                  'comment' : '2-12, at corner, LF back with Lady OP, TH, S into 2-12 V6'
+                },
+                {
+                  'id' : 'TipsyToL',
+                  'comment' : 'then into 2-12 V6 DC or 2-5 Back Lock down LOD'
+                },
+                {
+                  'id' : 'SixQuickRun',
+                  'comment' : 'at corner, LF back with Lady OP, TH, S into Six Quick Run'
                 }
               ]
           },
@@ -235,6 +331,21 @@
                 },
                 {
                   'id' : 'RunningFinish'
+                },
+                {
+                  'id' : 'FourQuickRun',
+                  'comment' : 'when ending DC or LOD'
+                },
+                {
+                  'id' : 'V6',
+                  'comment' : '6-12, when ending DC or LOD'
+                },
+                {
+                  'id' : 'TipsyToR'
+                },
+                {
+                  'id' : 'SixQuickRun',
+                  'comment' : 'when ending DC'
                 }
               ]
           },
@@ -261,6 +372,19 @@
                 },
                 {
                   'id' : 'ZigZagBackLockAndRunningFinish'
+                },
+                {
+                  'id' : 'QuickOpenReverse'
+                },
+                {
+                  'id' : 'ClosedTelemark'
+                },
+                {
+                  'id' : 'CrossSwivel'
+                },
+                {
+                  'id' : 'TipsyToR',
+                  'comment' : 'after a step fwd on LF'
                 }
               ]
           },
@@ -284,6 +408,9 @@
                 {
                   'id' : 'RunningFinish',
                   'comment' : ''
+                },
+                {
+                  'id' : 'TipsyToR'
                 }
               ]
           },
@@ -307,6 +434,20 @@
                 {
                   'id' : 'HeelPivot',
                   'comment' : ''
+                },
+                {
+                  'id' : 'FourQuickRun'
+                },
+                {
+                  'id' : 'V6',
+                  'comment' : '2-12, at corner after step 3, lower L heel on previous step',
+                },
+                {
+                  'id' : 'SixQuickRun',
+                  'comment' : 'after step 3, lower L heel on previous step',
+                },
+                {
+                  'id' : 'HoverCorte'
                 }
               ]
           },
@@ -527,8 +668,8 @@
                   'comment' : '2-12, at corner, LF back with Lady OP, TH, S into 2-12 V6'
                 },
                 {
-                  'id' : 'TipsyToRAndL',
-                  'comment' : 'L, into 2-12 V6 DC or 2-5 Back Lock down LOD.'
+                  'id' : 'TipsyToL',
+                  'comment' : 'then into 2-12 V6 DC or 2-5 Back Lock down LOD.'
                 },
                 {
                   'id' : 'SixQuickRun',
@@ -567,8 +708,8 @@
                   'comment' : '2-12, at corner, LF back with Lady OP, TH, S into 2-12 V6'
                 },
                 {
-                  'id' : 'TipsyToRAndL',
-                  'comment' : 'L, into 2-12 V6 DC or 2-5 Back Lock down LOD.'
+                  'id' : 'TipsyToL',
+                  'comment' : 'then into 2-12 V6 DC or 2-5 Back Lock down LOD.'
                 },
                 {
                   'id' : 'SixQuickRun',
