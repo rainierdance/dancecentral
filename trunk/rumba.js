@@ -205,7 +205,43 @@
                 },
                 {
                    'id' : 'BasicMovementsClosed'
-                }
+                },
+                {
+                   'id' : 'NewYork'
+                },
+                {
+                   'id' : 'SpotTurn'
+                },
+                {
+                   'id' : 'UnderarmTurn'
+                },
+                {
+                   'id' : 'HandToHand'
+                },
+                {
+                   'id' : 'SideSteps'
+                },
+                {
+                   'id' : 'CubanRocks'
+                },
+                {
+                   'id' : 'Fan'
+                },
+                {
+                   'id' : 'NaturalTop',
+                   'comment' : 'turning slightly R and leading Lady to step RF fwd on last step of Underarm Turn L',
+                },
+                {
+                   'id' : 'Aida'
+                },
+                {
+                   'id' : 'CubanRocks',
+                   'comment' : 'Syncopated'
+                },
+                {
+                   'id' : 'ShoulderToShoulder',
+                   'comment' : 'L side, when following Underarm Turn to R'
+                },
               ]
           },
         'NewYork' : 
