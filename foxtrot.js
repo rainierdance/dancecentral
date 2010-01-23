@@ -123,17 +123,17 @@ var foxtrotFigures =
     {
       'id' : 'NaturalWeave',
       'comment' : 'side of room'
-    }
+    },
     {
       'id' : 'OpenImpetus',
       'comment' : 'after step 3'
-    }
+    },
     {
       'id' : 'HoverFeather',
       'comment' : 'after step 5'
     },
     {
-      'id' : 'CurvedFeatherToBackFeather'
+      'id' : 'CurvedFeatherToBackFeather',
       'comment' : 'at corner'
     }
       ]
@@ -330,255 +330,255 @@ var foxtrotFigures =
   'ClosedTelemark' : 
     {
       'name' : 'Closed Telemark',
-      //'urlpath' : '/pattern-name',
+      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      //'startAlignment' : ['LOD'],
-      //'startFoot' : 'LF',
-      //'startDirection' : 'fwd',
-      //'follow' : [
-      //{
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'follow' : [
+      {
         'id' : "NextPattern"
-      //}
-      //]
+      }
+      ]
     },
   'OpenTelemarkAndFeatherEnding' : 
     {
       'name' : 'Open Telemark and Feather Ending',
-      //'urlpath' : '/pattern-name',
+      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      //'startAlignment' : ['LOD'],
-      //'startFoot' : 'LF',
-      //'startDirection' : 'fwd',
-      //'follow' : [
-      //{
-      //	'id' : "NextPattern"
-      //}
-      //]
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'follow' : [
+      {
+      	'id' : "NextPattern"
+      }
+      ]
     },
   'TopSpin' : 
     {
       'name' : 'Top Spin',
-      //'urlpath' : '/pattern-name',
+      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      //'startAlignment' : ['LOD'],
-      //'startFoot' : 'LF',
-      //'startDirection' : 'fwd',
-      //'follow' : [
-      //{
-      //	'id' : "NextPattern"
-      //}
-      //]
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'follow' : [
+      {
+      	'id' : "NextPattern"
+      }
+      ]
     },
   'HoverFeather' : 
     {
       'name' : 'Hover Feather',
-      //'urlpath' : '/pattern-name',
+      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      //'startAlignment' : ['LOD'],
-      //'startFoot' : 'LF',
-      //'startDirection' : 'fwd',
-      //'follow' : [
-      //{
-      //	'id' : "NextPattern"
-      //}
-      //]
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'follow' : [
+      {
+      	'id' : "NextPattern"
+      }
+      ]
     },
   'HoverTelemark' : 
     {
       'name' : 'Hover Telemark',
-      //'urlpath' : '/pattern-name',
+      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      //'startAlignment' : ['LOD'],
-      //'startFoot' : 'LF',
-      //'startDirection' : 'fwd',
-      //'follow' : [
-      //{
-      //	'id' : "NextPattern"
-      //}
-      //]
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'follow' : [
+      {
+      	'id' : "NextPattern"
+      }
+      ]
     },
   'NaturalTelemark' : 
     {
       'name' : 'Natural Telemark',
-      //'urlpath' : '/pattern-name',
+      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      //'startAlignment' : ['LOD'],
-      //'startFoot' : 'LF',
-      //'startDirection' : 'fwd',
-      //'follow' : [
-      //{
-      //	'id' : "NextPattern"
-      //}
-      //]
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'follow' : [
+      {
+      	'id' : "NextPattern"
+      }
+      ]
     },
   'HoverCross' : 
     {
       'name' : 'Hover Cross',
-      //'urlpath' : '/pattern-name',
+      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      //'startAlignment' : ['LOD'],
-      //'startFoot' : 'LF',
-      //'startDirection' : 'fwd',
-      //'follow' : [
-      //{
-      //	'id' : "NextPattern"
-      //}
-      //]
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'follow' : [
+      {
+      	'id' : "NextPattern"
+      }
+      ]
     },
   'OpenTelemarkNaturalTurnOutsideSwivelAndFeatherEnding' : 
     {
       'name' : 'Open Telemark, Natural Turn, Outside Swivel and Feather Ending',
-      //'urlpath' : '/pattern-name',
+      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      //'startAlignment' : ['LOD'],
-      //'startFoot' : 'LF',
-      //'startDirection' : 'fwd',
-      //'follow' : [
-      //{
-      //	'id' : "NextPattern"
-      //}
-      //]
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'follow' : [
+      {
+      	'id' : "NextPattern"
+      }
+      ]
     },
   'OpenImpetus' : 
     {
       'name' : 'Open Impetus',
-      //'urlpath' : '/pattern-name',
+      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      //'startAlignment' : ['LOD'],
-      //'startFoot' : 'LF',
-      //'startDirection' : 'fwd',
-      //'follow' : [
-      //{
-      //	'id' : "NextPattern"
-      //}
-      //]
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'follow' : [
+      {
+      	'id' : "NextPattern"
+      }
+      ]
     },
   'WeaveFromPP' : 
     {
       'name' : 'Weave from PP',
-      //'urlpath' : '/pattern-name',
+      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      //'startAlignment' : ['LOD'],
-      //'startFoot' : 'LF',
-      //'startDirection' : 'fwd',
-      //'follow' : [
-      //{
-      //	'id' : "NextPattern"
-      //}
-      //]
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'follow' : [
+      {
+      	'id' : "NextPattern"
+      }
+      ]
     },
   'Reverse Wave' : 
     {
       'name' : 'Reverse Wave',
-      //'urlpath' : '/pattern-name',
+      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      //'startAlignment' : ['LOD'],
-      //'startFoot' : 'LF',
-      //'startDirection' : 'fwd',
-      //'follow' : [
-      //{
-      //	'id' : "NextPattern"
-      //}
-      //]
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'follow' : [
+      {
+      	'id' : "NextPattern"
+      }
+      ]
     },
   'OutsideSwivel' : 
     {
-    // doesn't exist as a separate pattern in book, will have to extract it
+     //doesn't exist as a separate pattern in book, will have to extract it
       'name' : 'Outside Swivel',
-      //'urlpath' : '/pattern-name',
+      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      //'startAlignment' : ['LOD'],
-      //'startFoot' : 'LF',
-      //'startDirection' : 'fwd',
-      //'follow' : [
-      //{
-      //	'id' : "NextPattern"
-      //}
-      //]
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'follow' : [
+      {
+      	'id' : "NextPattern"
+      }
+      ]
     },
   'NaturalTwistTurn' : 
     {
       'name' : 'Natural Twist Turn',
-      //'urlpath' : '/pattern-name',
+      'urlpath' : '/pattern-name',
       'level' : 'Gold',
-      //'startAlignment' : ['LOD'],
-      //'startFoot' : 'LF',
-      //'startDirection' : 'fwd',
-      //'follow' : [
-      //{
-      //	'id' : "NextPattern"
-      //}
-      //]
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'follow' : [
+      {
+      	'id' : "NextPattern"
+      }
+      ]
     },
   'CurvedFeatherToBackFeather' : 
     {
       'name' : 'Curved Feather to Back Feather',
-      //'urlpath' : '/pattern-name',
+      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      //'startAlignment' : ['LOD'],
-      //'startFoot' : 'LF',
-      //'startDirection' : 'fwd',
-      //'follow' : [
-      //{
-      //	'id' : "NextPattern"
-      //}
-      //]
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'follow' : [
+      {
+      	'id' : "NextPattern"
+      }
+      ]
     },
   'NaturalZigZagFromPP' : 
     {
       'name' : 'Natural Zig-Zag from PP',
-      //'urlpath' : '/pattern-name',
+      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      //'startAlignment' : ['LOD'],
-      //'startFoot' : 'LF',
-      //'startDirection' : 'fwd',
-      //'follow' : [
-      //{
-      //	'id' : "NextPattern"
-      //}
-      //]
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'follow' : [
+      {
+      	'id' : "NextPattern"
+      }
+      ]
     },
   'FallawayReverseAndSlipPivot' : 
     {
       'name' : 'Fallaway Reverse and Slip Pivot',
-      //'urlpath' : '/pattern-name',
+      'urlpath' : '/pattern-name',
       'level' : 'Gold',
-      //'startAlignment' : ['LOD'],
-      //'startFoot' : 'LF',
-      //'startDirection' : 'fwd',
-      //'follow' : [
-      //{
-      //	'id' : "NextPattern"
-      //}
-      //]
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'follow' : [
+      {
+      	'id' : "NextPattern"
+      }
+      ]
     },
   'NaturalHoverTelemark' : 
     {
       'name' : 'Natural Hover Telemark',
-      //'urlpath' : '/pattern-name',
+      'urlpath' : '/pattern-name',
       'level' : 'Gold',
-      //'startAlignment' : ['LOD'],
-      //'startFoot' : 'LF',
-      //'startDirection' : 'fwd',
-      //'follow' : [
-      //{
-      //	'id' : "NextPattern"
-      //}
-      //]
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'follow' : [
+      {
+      	'id' : "NextPattern"
+      }
+      ]
     },
   'BounceFallawayWithWeaveEnding' : 
     {
       'name' : 'Bounce Fallaway with Weave Ending',
-      //'urlpath' : '/pattern-name',
+      'urlpath' : '/pattern-name',
       'level' : 'Gold',
-      //'startAlignment' : ['LOD'],
-      //'startFoot' : 'LF',
-      //'startDirection' : 'fwd',
-      //'follow' : [
-      //{
-      //	'id' : "NextPattern"
-      //}
-      //]
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'follow' : [
+      {
+      	'id' : "NextPattern"
+      }
+      ]
     }
 };
 
