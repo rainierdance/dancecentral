@@ -2,7 +2,7 @@ var LEVELS = ['Newcomer', 'Bronze', 'Silver', 'Gold', 'Open'];
 var COLOR_MAP = {
   'Newcomer' : 'Navy',
   'Bronze' : 'SaddleBrown',
-  'Silver' : 'Silver',
+  'Silver' : 'SlateGray',
   'Gold' : 'OrangeRed',
   'Open' : 'DarkGreen'
 };
@@ -31,10 +31,35 @@ function initVars() {
   }
 
   DANCE_MAP  = {
+    'Waltz' : {
+      'urlprefix' : 'waltz',
+      'figures' : waltzFigures,
+      'type' : 'standard'
+    },
     'Quickstep' : {
       'urlprefix' : 'quickstep',
       'figures' : quickstepFigures,
       'type' : 'standard'
+    },
+    'Foxtrot' : {
+      'urlprefix' : 'foxtrot',
+      'figures' : foxtrotFigures,
+      'type' : 'standard'
+    },
+    'Tango' : {
+      'urlprefix' : 'tango',
+      'figures' : tangoFigures,
+      'type' : 'standard'
+    },
+    'ChaCha' : {
+      'urlprefix' : 'cha-cha-cha',
+      'figures' : chachaFigures,
+      'type' : 'latin'
+    },
+    'Samba' : {
+      'urlprefix' : 'samba',
+      'figures' : sambaFigures,
+      'type' : 'latin'
     },
     'Rumba' : {
       'urlprefix' : 'rumba',

@@ -10,13 +10,21 @@
   <LINK REL=StyleSheet HREF="http://dancecentral.googlecode.com/svn/trunk/figures.css" TYPE="text/css"/>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/utils.js"></script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/connecting_figures.js"></script>
+
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/quickstep.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/waltz.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/tango.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/foxtrot.js"></script>
+
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/rumba.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/chacha.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/samba.js"></script>
+
   <script type="text/javascript">
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0121.1433";
+    var VERSION = "10.0122.1735";
     var ID_ANALYTICS = "UA-9375974-3";
 
     var inputDance = 'Quickstep';
