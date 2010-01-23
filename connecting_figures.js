@@ -209,6 +209,23 @@ function getFigureLink(figureID, inPage) {
   return output.join('');
 }
   
+function getPrecedes(figureID) {
+  var precedes = []; // array of Ids
+
+  sortedIds.forEach(function (id) {
+    var figure = figures[id];
+    var follows = getFollows(figure); // need to use this to expand the eval(..) values
+    if (!follows) return; // continue to next
+
+    follows.forEach(function (follow) {
+      if (follow[0] == figureID)
+        precedes.push([id]);
+    });
+  });
+
+  return precedes;
+}
+
 // returns an array of following figures: [followID, comment] 
 function getFollows(figure) {
     // get all ids, some are evaluating
@@ -323,6 +340,20 @@ function selectFigure(figureID) {
   updateView();
 }
 
+function formatFigureList(items) {
+  var output = [];
+
+  output.push('<ol>');
+  items.forEach(function (item) {
+    output.push('<li>' + getFigureLink(item[0], true));
+    if (item[1])
+      output.push(' (' + item[1] + ')');
+  });
+  output.push('</ol>');
+
+  return output.join('');
+}
+
 // when building routine, this is called when user clicks on a figure name
 function onClickFigure(figureID) {
   if (mode != 'routine') return true; // continue with the link
@@ -376,13 +407,23 @@ function updateView() {
     output.push('</span>');
 
     var follows = getFollows(figure);
-    output.push('<ol>');
-    follows.forEach(function (follow) {
-      output.push('<li>' + getFigureLink(follow[0], true));
-      if (follow[1])
-        output.push(' (' + follow[1] + ')');
-    });
-    output.push('</ol>');
+    var precedes = getPrecedes(id);
+
+    if (inputMode != 'routine') {
+      output.push('<table style="border-spacing:0;width:600"><tr>');
+
+      output.push('<td align=center width=40%>Preceding figures</td>');
+      output.push('<td align=center>Following figures</td>');
+
+      output.push('</tr><tr>');
+  
+      output.push('<td>' + formatFigureList(precedes) + '</td>');
+      output.push('<td>' + formatFigureList(follows) + '</td>');
+  
+      output.push('</tr></table>');
+    } else {
+      output.push(formatFigureList(follows));
+    }
   });
 
   var element = document.getElementById('divFigureChart');
