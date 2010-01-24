@@ -229,7 +229,7 @@ var foxtrotFigures =
     },
   'NaturalWeave' : 
     {
-      'name' : 'NaturalWeave',
+      'name' : 'Natural Weave',
       'urlpath' : '/natural-weave',
       'level' : 'Bronze',
       'startAlignment' : ['LOD'],
