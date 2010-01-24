@@ -467,7 +467,7 @@ var foxtrotFigures =
       }
       ]
     },
-  'Reverse Wave' : 
+  'ReverseWave' : 
     {
       'name' : 'Reverse Wave',
       'urlpath' : '/pattern-name',
