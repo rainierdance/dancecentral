@@ -117,7 +117,7 @@ var foxtrotFigures =
       'comment' : 'at corner'
     },
     {
-      'id' : 'ClosedImpetus',
+      'id' : 'ClosedImpetusAndFeatherFinish',
       'comment' :  'after step 3'
     },
     {
