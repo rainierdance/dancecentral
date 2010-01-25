@@ -31,11 +31,8 @@ var foxtrotFigures =
       'id' : 'ThreeStep'
     },
     {
-      'id' : 'ReverseTurn'
-    },
-    {
-      'id' : 'BasicWeave',
-      'comment' : '1-4 Reverse Turn check and Basic Weave'
+      'id' : 'ReverseTurn',
+      'comment' : 'just Reverse Turn with Feather finish, or 1-4 Reverse Turn check and Basic Weave'
     },
     {
       'id' : 'ChangeOfDirection'
@@ -114,15 +111,11 @@ var foxtrotFigures =
     },
     {
       'id' : 'NaturalWeave',
-      'comment' : 'at corner'
+      'comment' : 'at corner for Bronze, side of room for Silver and Gold'
     },
     {
       'id' : 'ClosedImpetusAndFeatherFinish',
       'comment' :  'after step 3'
-    },
-    {
-      'id' : 'NaturalWeave',
-      'comment' : 'side of room'
     },
     {
       'id' : 'OpenImpetus',
@@ -140,7 +133,7 @@ var foxtrotFigures =
     },
   'ReverseTurn' : 
     {
-    'name' : 'Reverse Turn (incorporating Feather Finish)',
+    'name' : 'Reverse Turn',
     'urlpath' : '/reverse-turn',
     'level' : 'Newcomer',
     'startAlignment' : ['DC'], 
@@ -190,11 +183,8 @@ var foxtrotFigures =
           'id' : 'ThreeStep'
         },
         {
-          'id' : 'ReverseTurn'
-        },
-        {
-          'id' : 'BasicWeave',
-          'comment' : '1-4 Reverse Turn check and Basic Weave'
+          'id' : 'ReverseTurn',
+          'comment' : 'just Reverse Turn with Feather Finish, or 1-4 Reverse Turn check and Basic Weave'
         },
         {
           'id' : 'ChangeOfDirection'
@@ -280,11 +270,7 @@ var foxtrotFigures =
         },
         {
           'id' : 'NaturalWeave',
-          'comment' : 'at corner'
-        },
-        {
-          'id' : 'NaturalWeave',
-          'comment' : 'side of room'
+          'comment' : 'at corner for Bronze; side of room for Silver and Gold'
         }
       ]
     },
@@ -514,7 +500,7 @@ var foxtrotFigures =
     {
       'name' : 'Curved Feather to Back Feather',
       'urlpath' : '/pattern-name',
-      'level' : 'Silver',
+      'level' : 'Gold',
       'startAlignment' : ['LOD'],
       'startFoot' : 'LF',
       'startDirection' : 'fwd',
