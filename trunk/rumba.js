@@ -26,9 +26,19 @@
             'name' : 'Sliding Doors',
             'level' : 'Gold'
           },
-        'SpiralTurns' : 
+        'Spiral' : 
           {
-            'name' : 'Spiral Turns (Spiral, Curl and Rope Spinning)',
+            'name' : 'Spiral',
+            'level' : 'Silver'
+          },
+        'Curl' : 
+          {
+            'name' : 'Curl',
+            'level' : 'Silver'
+          },
+        'RopeSpinning' : 
+          {
+            'name' : 'Rope Spinning',
             'level' : 'Silver'
           },
         'Aida' : 
@@ -97,7 +107,7 @@
           },
         'HockeyStick' : 
           {
-            'name' : 'HockeyStick',
+            'name' : 'Hockey Stick',
             'urlpath' : '/hockey-stick',
             'level' : 'Bronze',
             'follow' : [
@@ -135,7 +145,40 @@
             'level' : 'Newcomer',
             'follow' : [
                 {
-                   'id' : 'BasicMovements'
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'NewYork',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'SpotTurn',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'UnderarmTurn',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'HandToHand',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'SideSteps',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'CubanRocks',
+                   'comment' : 'Standard, or at Gold Level, use Syncopated Cuban Rock'
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : ''
                 }
               ]
           },
@@ -146,7 +189,48 @@
             'level' : 'Newcomer',
             'follow' : [
                 {
-                   'id' : 'BasicMovements'
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'NewYork',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'SpotTurn',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'UnderarmTurn',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'ShoulderToShoulder',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'HandToHand',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'SideSteps',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'CubanRocks',
+                   'comment' : 'Standard, or at Gold Level, use Syncopated Cuban Rock'
+                },
+                {
+                   'id' : 'Cucarachas',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : ''
                 }
               ]
           },
@@ -157,7 +241,72 @@
             'level' : 'Newcomer',
             'follow' : [
                 {
-                   'id' : 'BasicMovements'
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Alemana',
+                   'comment' : 'following Progressive Walks forward danced in open position'
+                },
+                {
+                   'id' : 'OpenHipTwist',
+                   'comment' : 'following Progressive Walks forward danced in open position'
+                },
+                {
+                   'id' : 'Curl',
+                   'comment' : 'following Progressive Walks forward danced in open position'
+                },
+                {
+                   'id' : 'ThreeThrees',
+                   'comment' : 'following Progressive Walks forward danced in open position'
+                },
+                {
+                   'id' : 'ThreeAlemanas',
+                   'comment' : 'following Progressive Walks forward danced in open position'
+                },
+                {
+                   'id' : 'NaturalTop',
+                   'comment' : 'following Progressive Walks back with last step LF side turning slightly R, Lady RF fwd'
+                },
+                {
+                   'id' : 'Spiral',
+                   'comment' : 'to R to continue with Rope Spinning'
+                },
+                {
+                   'id' : 'SpotTurn',
+                   'comment' : 'after Progressive Walks forward in either LSP or RSP ending last step to side facing partner'
+                },
+                {
+                   'id' : 'UnderarmTurn',
+                   'comment' : 'after Progressive Walks forward in either LSP or RSP ending last step to side facing partner'
+                },
+                {
+                   'id' : 'HandToHand',
+                   'comment' : 'after Progressive Walks forward in either LSP or RSP ending last step to side facing partner'
+                },
+                {
+                   'id' : 'SideSteps',
+                   'comment' : 'after Progressive Walks forward in either LSP or RSP ending last step to side facing partner'
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : 'after Progressive Walks forward in either LSP or RSP ending last step to side facing partner'
+                },
+                {
+                   'id' : 'CubanRocks',
+                   'comment' : 'after Progressive Walks forward in either LSP or RSP ending last step to side facing partner; at Gold level, do Syncopated Cuban Rock'
+                },
+                {
+                   'id' : 'Aida',
+                   'comment' : 'after Progressive Walks forward in RSP ending last step to side facing partner'
                 }
               ]
           },
@@ -168,7 +317,56 @@
             'level' : 'Newcomer',
             'follow' : [
                 {
-                   'id' : 'BasicMovements'
+                   'id' : 'ShoulderToShoulder',
+                   'comment' : 'opposite side'
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'SpotTurn',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'UnderarmTurn',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'HandToHand',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'SideSteps',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'CubanRocks',
+                   'comment' : 'Standard, or at Gold Level, use Syncopated Cuban Rock'
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : 'Fan following Hand to Hand to LSP; 4-6 Fan following Hand To Hand to RSP, lady in line'
+                },
+                {
+                   'id' : 'ClosedHipTwist',
+                   'comment' : '4-6, leading lady with R hand to turn R, then changing to L to R hand hold on 5'
+                },
+                {
+                   'id' : 'Aida',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Spiral',
+                   'comment' : 'Spiral after Hand to Hand to RSP- ending with Man close RF to LF and lead Lady to turn L into her spiral action on 3 to continue with 4-6 of Spiral'
+                },
+                {
+                   'id' : 'RopeSpinning',
+                   'comment' : 'Rope Spinning after Hand to Hand to LSP - Man close RF to LF and lead Lady to turn R into her spiral action on 3 to continue with Rope Spinning'
                 }
               ]
           },
@@ -179,7 +377,48 @@
             'level' : 'Newcomer',
             'follow' : [
                 {
-                   'id' : 'BasicMovements'
+                   'id' : 'ShoulderToShoulder',
+                   'comment' : 'opposite side'
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'SpotTurn',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'UnderarmTurn',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'HandToHand',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'SideSteps',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'CubanRocks',
+                   'comment' : 'Standard, or at Gold Level, use Syncopated Cuban Rock'
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : '4-6 after Left side Shoulder to Shoulder, full Fan after Right side shoulder to shoulder'
+                },
+                {
+                   'id' : 'ClosedHipTwist',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'NewYork',
+                   'comment' : 'when ending in Open PP'
                 }
               ]
           },
@@ -190,7 +429,58 @@
             'level' : 'Newcomer',
             'follow' : [
                 {
-                   'id' : 'BasicMovements'
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : 'when ending in either open or closed position; after 1-3 Open basic, follow with Natural Top, or Progressive Walks Back'
+                },
+                {
+                   'id' : 'BasicMovementsClosed'
+                },
+                {
+                   'id' : 'NewYork'
+                },
+                {
+                   'id' : 'SpotTurn'
+                },
+                {
+                   'id' : 'UnderarmTurn'
+                },
+                {
+                   'id' : 'HandToHand'
+                },
+                {
+                   'id' : 'SideSteps'
+                },
+                {
+                   'id' : 'CubanRocks',
+                   'comment' : 'Standard or at Gold level use RF Syncopated Cuban Rocks after Spot or Switch Turn to R'
+                },
+                {
+                   'id' : 'Alemana',
+                   'comment' : 'when ending in open position'
+                },
+                {
+                   'id' : 'OpenHipTwist',
+                   'comment' : 'when ending in open position'
+                },
+                {
+                   'id' : 'Curl',
+                   'comment' : 'when ending in open position'
+                },
+                {
+                   'id' : 'ThreeThrees',
+                   'comment' : 'when ending in open position'
+                },
+                {
+                   'id' : 'ThreeAlemanas',
+                   'comment' : 'when ending in open position'
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : '4-6, after Spot or Switch Turn to R'
+                },
+                {
+                   'id' : 'Aida',
+                   'comment' : 'after Spot or Switch Turn to R'
                 }
               ]
           },
@@ -222,7 +512,8 @@
                    'id' : 'SideSteps'
                 },
                 {
-                   'id' : 'CubanRocks'
+                   'id' : 'CubanRocks',
+                   'comment' : 'Standard or at Gold level, use syncopated Cuban Rocks'
                 },
                 {
                    'id' : 'Fan'
@@ -235,13 +526,9 @@
                    'id' : 'Aida'
                 },
                 {
-                   'id' : 'CubanRocks',
-                   'comment' : 'Syncopated'
-                },
-                {
                    'id' : 'ShoulderToShoulder',
                    'comment' : 'L side, when following Underarm Turn to R'
-                },
+                }
               ]
           },
         'NewYork' : 
