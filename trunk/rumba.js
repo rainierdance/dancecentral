@@ -68,7 +68,56 @@
             'level' : 'Bronze',
             'follow' : [
                 {
-                   'id' : 'BasicMovements'
+                   'id' : 'Alemana',
+                   'comment' : 'when ending in Fan position or Open Position'
+                },
+                {
+                   'id' : 'HockeyStick',
+                   'comment' : 'when ending in Fan position'
+                },
+                {
+                   'id' : 'SlidingDoors',
+                   'comment' : 'when ending in Fan position'
+                },
+                {
+                   'id' : 'Fencing',
+                   'comment' : 'when ending in Fan position'
+                },
+                {
+                   'id' : 'ThreeAlemanas',
+                   'comment' : 'when ending in Fan or Open position'
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : 'when ending open position, follow with Open Basic or 1-3 Open Basic into Progressive Walks Back or Natural Top'
+                },
+                {
+                   'id' : 'OpenHipTwist',
+                   'comment' : 'when ending in Open Position'
+                },
+                {
+                   'id' : 'Curl',
+                   'comment' : 'when ending in Open Position'
+                },
+                {
+                   'id' : 'ThreeThrees',
+                   'comment' : 'when ending in Open position'
+                },
+                {
+                   'id' : 'NewYork',
+                   'comment' : 'LSP, when ending in Open CPP'
+                },
+                {
+                   'id' : 'SpotTurn',
+                   'comment' : 'to R, Lady to L when ending in Open CPP'
+                },
+                {
+                   'id' : 'UnderarmTurn',
+                   'comment' : 'to L, when ending in Open CPP'
+                },
+                {
+                   'id' : 'ReverseTop',
+                   'comment' : '4-6 or 4-9 when ending in contact position'
                 }
               ]
           },
@@ -79,7 +128,24 @@
             'level' : 'Bronze',
             'follow' : [
                 {
-                   'id' : 'BasicMovements'
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : '4-6'
+                },
+                {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : '4-6'
+                },
+                {
+                   'id' : 'UnderarmTurn',
+                   'comment' : 'to R'
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : '4-6'
+                },
+                {
+                   'id' : 'ReverseTop',
+                   'comment' : 'Man turns 1/8 L on 3 to contact position, placing LF in front of RF as Cuban Cross. Lady turns an additional 1/8 on 3 to end wih RF back and slightly side'
                 }
               ]
           },
@@ -90,7 +156,16 @@
             'level' : 'Bronze',
             'follow' : [
                 {
-                   'id' : 'BasicMovements'
+                   'id' : 'NaturalOpeningOutMovement',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'ClosedHipTwist',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Spiral',
+                   'comment' : '1/4 R on 1'
                 }
               ]
           },
@@ -101,7 +176,44 @@
             'level' : 'Bronze',
             'follow' : [
                 {
-                   'id' : 'BasicMovements'
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'NaturalOpeningOutMovement',
+                   'comment' : 'last step, Man leads Lady towards his R side'
+                },
+                {
+                   'id' : 'OpeningOutToRightAndLeft',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'ClosedHipTwist',
+                   'comment' : 'last step, Man leads Lady towards his R side'
+                },
+                {
+                   'id' : 'Spiral',
+                   'comment' : 'last step, Man leads Lady towards his R side'
+                },
+                {
+                   'id' : 'RopeSpinning',
+                   'comment' : 'last step, Man leads Lady towards his R side'
+                },
+                {
+                   'id' : 'HockeyStick',
+                   'comment' : '4-6 following step 6 of Natural Top'
+                },
+                {
+                   'id' : 'HipTwists',
+                   'comment' : 'continue to turn a further 1/8 (up to 3/8) R on step 9, Man taking last step fwd in line with LF towards Lady R side'
                 }
               ]
           },
@@ -112,7 +224,44 @@
             'level' : 'Bronze',
             'follow' : [
                 {
-                   'id' : 'BasicMovements'
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : 'can follow with Progressive Walks Back or Natural Top'
+                },
+                {
+                   'id' : 'ShoulderToShoulder',
+                   'comment' : 'Left side'
+                },
+                {
+                   'id' : 'Alemana',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'OpenHipTwist',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Curl',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'ThreeThrees',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'ThreeAlemanas',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'NewYork',
+                   'comment' : 'LSP when Hockey Stick ends in Open CPP'
+                },
+                {
+                   'id' : 'SpotTurn',
+                   'comment' : 'to R (Lady to L), when Hockey Stick ends in Open CPP'
+                },
+                {
+                   'id' : 'UnderarmTurn',
+                   'comment' : 'to L, when Hockey Stick ends in Open CPP'
                 }
               ]
           },
@@ -123,7 +272,20 @@
             'level' : 'Bronze',
             'follow' : [
                 {
-                   'id' : 'BasicMovements'
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'OpeningOutToRightAndLeft',
+                   'comment' : 'Lady LF side on 6'
                 }
               ]
           },
@@ -134,7 +296,24 @@
             'level' : 'Bronze',
             'follow' : [
                 {
-                   'id' : 'BasicMovements'
+                   'id' : 'Alemana',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'HockeyStick',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'SlidingDoors',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Fencing',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'ThreeAlemanas',
+                   'comment' : ''
                 }
               ]
           },
