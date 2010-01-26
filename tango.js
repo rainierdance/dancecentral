@@ -2,16 +2,87 @@
     // TANGO FIGURES
     var tangoFigures = 
       {
-        'Walk' : 
+        'Walk' :
           {
             'name' : 'Walk',
             'urlpath' : '/walk',
+            'level' : 'Newcomer',
+            'startAlignment' : ['DW', 'DC', 'LOD'],
+            'startFoot' : 'LF',
+            'startDirection' : 'fwd',
+            'follow' : [
+              ]
+          },
+        'OpenFinish' : 
+          {
+            'name' : 'Open Finish',
+            'urlpath' : '/open-finish',
             'level' : 'Newcomer',
             'startAlignment' : ['DW'],
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'follow' : [
-              ]
+              {
+                'id' : 'Walk',
+                'comment' : 'LF'
+              },
+              {
+                'id' : 'ProgressiveSideStep',
+                'comment' : ''
+              },
+              {
+                'id' : 'ProgressiveLink',
+                'comment' : ''
+              },
+              {
+                'eval' : 'MatchFigureName("Reverse")',
+                'comment' : 'when ended DC'
+              },
+              {
+                'id' : 'FourStep',
+                'comment' : ''
+              },
+              {
+                'id' : 'ReverseOutsideSwivel',
+                'comment' : ''
+              },
+              {
+                'id' : 'FourStepChange',
+                'comment' : ''
+              },
+              {
+                'id' : 'BrushTap',
+                'comment' : ''
+              },
+              {
+                'id' : 'FallawayFourStep',
+                'comment' : ''
+              },
+              {
+                'id' : 'Oversway',
+                'comment' : ''
+              },
+              {
+                'id' : 'FallawayReverseAndSlipPivot',
+                'comment' : ''
+              },
+              {
+                'id' : 'FiveStep',
+                'comment' : ''
+              },
+              {
+                'id' : 'BackCorte',
+                'comment' : 'step 1 in CBMP with Lady OP'
+              },
+              {
+                'id' : 'LFAndRFRocks',
+                'comment' : 'LF Rock in CBMP withLady OP, no turn or up to 1/4 to R'
+              },
+              {
+                'id' : 'OutsideSwivel',
+                'comment' : ''
+              }
+            ]
           },
         'ProgressiveSideStep' :
           {
@@ -22,6 +93,14 @@
           'startFoot' : 'RF',
           'startDirection' : 'fwd',
           'follow' : [
+              {
+                'id' : 'Walk',
+                'comment' : 'RF'
+              },
+              {
+                'id' : 'RockTurn',
+                'comment' : ''
+              }
             ]
         },
         'ProgressiveLink' :
@@ -178,9 +257,17 @@
           'follow' : [
             ]
         },
-        'OutsideSwivels' :
+        'ReverseOutsideSwivel' :
           {
-          'name' : 'Outside Swivels',
+          'name' : 'Reverse Outside Swivel',
+          //'urlpath' : '/waltz-natural-turn',
+          'level' : 'Silver',
+          'follow' : [
+            ]
+        },
+        'OutsideSwivel' :
+          {
+          'name' : 'Outside Swivel',
           //'urlpath' : '/waltz-natural-turn',
           'level' : 'Silver',
           //'startAlignment' : ['DW'],
@@ -222,9 +309,9 @@
           'follow' : [
             ]
         },
-        'FallawayFourstep' :
+        'FallawayFourStep' :
           {
-          'name' : 'Fallaway Fourstep',
+          'name' : 'Fallaway Four Step',
           //'urlpath' : '/waltz-natural-turn',
           'level' : 'Gold',
           //'startAlignment' : ['DW'],
