@@ -308,7 +308,7 @@
             }
             ]
         },
-        'OpenReverseTurnLadyInside' :
+        'OpenReverseTurnLadyInline' :
           {
           'name' : 'Open Reverse Turn, Lady In Line',
           'urlpath' : '/open-reverse-turn-lady-inside',
