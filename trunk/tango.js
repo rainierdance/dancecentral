@@ -75,7 +75,7 @@
                 'comment' : 'step 1 in CBMP with Lady OP'
               },
               {
-                'id' : 'LFAndRFRocks',
+                'id' : 'LFRock',
                 'comment' : 'LF Rock in CBMP withLady OP, no turn or up to 1/4 to R'
               },
               {
@@ -112,6 +112,38 @@
           'startFoot' : 'RF',
           'startDirection' : 'fwd',
           'follow' : [
+              {
+                'id' : 'ClosedPromenade',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenPromenade',
+                'comment' : ''
+              },
+              {
+                'id' : 'NaturalTwistTurn',
+                'comment' : ''
+              },
+              {
+                'id' : 'NaturalPromenadeTurn',
+                'comment' : ''
+              },
+              {
+                'id' : 'PromenadeLink',
+                'comment' : ''
+              },
+              {
+                'id' : 'BackOpenPromenade',
+                'comment' : ''
+              },
+              {
+                'id' : 'FallawayPromenade',
+                'comment' : ''
+              },
+              {
+                'id' : 'Chase',
+                'comment' : ''
+              }
             ]
         },
         'ClosedPromenade' :
@@ -123,6 +155,66 @@
           'startFoot' : 'RF',
           'startDirection' : 'fwd',
           'follow' : [
+              {
+                'id' : 'Walk',
+                'comment' : 'LF'
+              },
+              {
+                'id' : 'ProgressiveSideStep',
+                'comment' : ''
+              },
+              {
+                'id' : 'ProgressiveLink',
+                'comment' : ''
+              },
+              {
+                'id' : 'BackCorte',
+                'comment' : ''
+              },
+              {
+                'id' : 'LFRock',
+                'comment' : ''
+              },
+              {
+                'eval' : 'MatchFigureName("Reverse")',
+                'comment' : 'when ended DC'
+              },
+              {
+                'id' : 'FourStep',
+                'comment' : ''
+              },
+              {
+                'id' : 'OutsideSwivel',
+                'comment' : ''
+              },
+              {
+                'id' : 'FourStepChange',
+                'comment' : ''
+              },
+              {
+                'id' : 'BrushTap',
+                'comment' : ''
+              },
+              {
+                'id' : 'FallawayFourStep',
+                'comment' : ''
+              },
+              {
+                'id' : 'Oversway',
+                'comment' : ''
+              },
+              {
+                'id' : 'FallawayReverseAndSlipPivot',
+                'comment' : ''
+              },
+              {
+                'id' : 'FiveStep',
+                'comment' : ''
+              },
+              {
+                'id' : 'ContraCheck',
+                'comment' : ''
+              }
             ]
         },
         'RockTurn' :
@@ -134,6 +226,9 @@
           'startFoot' : 'RF',
           'startDirection' : 'fwd',
           'follow' : [
+            {
+                'eval' : 'SameFollowAs("ClosedPromenade")'
+            }
             ]
         },
         'OpenReverseTurnLadyOutside' :
@@ -145,17 +240,72 @@
           'startFoot' : 'RF',
           'startDirection' : 'fwd',
           'follow' : [
+              {
+                'id' : 'Walk',
+                'comment' : 'LF'
+              },
+              {
+                'id' : 'ProgressiveSideStep',
+                'comment' : ''
+              },
+              {
+                'id' : 'ProgressiveLink',
+                'comment' : ''
+              },
+              {
+                'id' : 'BackCorte',
+                'comment' : ''
+              },
+              {
+                'id' : 'LFRock',
+                'comment' : ''
+              },
+              {
+                'eval' : 'MatchFigureName(" Promenade")',
+                'comment' : 'keep feet in place and turn Lady to PP and end of the last step, count &'
+              },
+              {
+                'id' : 'FourStep',
+                'comment' : ''
+              },
+              {
+                'id' : 'OutsideSwivel',
+                'comment' : ''
+              },
+              {
+                'id' : 'FourStepChange',
+                'comment' : ''
+              },
+              {
+                'id' : 'BrushTap',
+                'comment' : ''
+              },
+              {
+                'id' : 'FallawayFourStep',
+                'comment' : ''
+              },
+              {
+                'id' : 'FiveStep',
+                'comment' : ''
+              },
+              {
+                'id' : 'ContraCheck',
+                'comment' : ''
+              }
             ]
         },
         'BackCorte' :
           {
-          'name' : 'Back Cort&eacute;',
+          'name' : 'Back Corte',
           'urlpath' : '/back-corte',
           'level' : 'Newcomer',
           'startAlignment' : ['DW'],
           'startFoot' : 'RF',
           'startDirection' : 'fwd',
           'follow' : [
+            {
+                'eval' : 'SameFollowAs("ClosedPromenade")'
+            }
             ]
         },
         'OpenReverseTurnLadyInside' :
@@ -167,6 +317,9 @@
           'startFoot' : 'RF',
           'startDirection' : 'fwd',
           'follow' : [
+            {
+                'eval' : 'SameFollowAs("OpenReverseTurnLadyOutside")'
+            }
             ]
         },
         'ProgressiveSideStepReverseTurn' :
@@ -178,6 +331,9 @@
           'startFoot' : 'RF',
           'startDirection' : 'fwd',
           'follow' : [
+            {
+                'eval' : 'SameFollowAs("OpenReverseTurnLadyOutside")'
+            }
             ]
         },
         'OpenPromenade' :
@@ -189,17 +345,102 @@
           'startFoot' : 'RF',
           'startDirection' : 'fwd',
           'follow' : [
+              {
+                'id' : 'Walk',
+                'comment' : 'LF'
+              },
+              {
+                'id' : 'ProgressiveSideStep',
+                'comment' : ''
+              },
+              {
+                'id' : 'ProgressiveLink',
+                'comment' : ''
+              },
+              {
+                'eval' : 'MatchFigureName("Reverse")',
+                'comment' : 'when ended DC'
+              },
+              {
+                'id' : 'FourStep',
+                'comment' : ''
+              },
+              {
+                'id' : 'ReverseOutsideSwivel',
+                'comment' : ''
+              },
+              {
+                'id' : 'FourStepChange',
+                'comment' : ''
+              },
+              {
+                'id' : 'BrushTap',
+                'comment' : ''
+              },
+              {
+                'id' : 'FallawayFourStep',
+                'comment' : ''
+              },
+              {
+                'id' : 'Oversway',
+                'comment' : ''
+              },
+              {
+                'id' : 'FallawayReverseAndSlipPivot',
+                'comment' : ''
+              },
+              {
+                'id' : 'FiveStep',
+                'comment' : ''
+              },
+              {
+                'id' : 'BackCorte',
+                'comment' : 'step 1 in CBMP with Lady OP using CBM on 1 and 2'
+              },
+              {
+                'id' : 'LFRock',
+                'comment' : 'LF Rock in CBMP with Lady OP, no turn or up to 1/4 to R'
+              },
+              {
+                'id' : 'OutsideSwivel',
+                'comment' : ''
+              },
+              {
+                'eval' : 'MatchFigureName(" Promenade")',
+                'comment' : 'having placed LF to side without weight, leading Lady to to PP, count &'
+              }
             ]
         },
-        'LFAndRFRocks' :
+        'LFRock' :
           {
-          'name' : 'LF and RF Rocks',
+          'name' : 'LF Rock',
           'urlpath' : '/lf-and-rf-rocks',
           'level' : 'Bronze',
-          'startAlignment' : ['DW'],
-          'startFoot' : 'RF',
-          'startDirection' : 'fwd',
           'follow' : [
+              {
+                'id' : 'OpenFinish',
+                'comment' : 'or Closed Finish'
+              },
+              {
+                'id' : 'RFRock',
+                'comment' : ''
+              }
+            ]
+        },
+        'RFRock' :
+          {
+          'name' : 'RF Rock',
+          'urlpath' : '/lf-and-rf-rocks',
+          'level' : 'Bronze',
+          'follow' : [
+              {
+                'id' : 'BackCorte',
+                'comment' : ''
+              },
+              {
+                'id' : 'LFRock',
+                'comment' : ''
+              }
             ]
         },
         'NaturalTwistTurn' :
@@ -211,17 +452,37 @@
           'startFoot' : 'RF',
           'startDirection' : 'fwd',
           'follow' : [
+              {
+                'eval' : 'MatchFigureName(" Promenade")',
+                'comment' : ''
+              },
+              {
+                'id' : 'BackCorte',
+                'comment' : ''
+              },
+              {
+                'id' : 'LFRock',
+                'comment' : ''
+              }
             ]
         },
         'NaturalPromenadeTurn' :
           {
           'name' : 'Natural Promenade Turn',
           'urlpath' : '/natural-promenade-turn',
-          'level' : 'Newcomer',
+          'level' : 'Bronze',
           'startAlignment' : ['DW'],
           'startFoot' : 'RF',
           'startDirection' : 'fwd',
           'follow' : [
+              {
+                'eval' : 'MatchFigureName(" Promenade")',
+                'comment' : ''
+              },
+              {
+                'id' : 'RockTurn',
+                'comment' : '2-7'
+              }
             ]
         },
         'PromenadeLink' :
@@ -342,7 +603,7 @@
           'follow' : [
             ]
         },
-        'TheChase' :
+        'Chase' :
           {
           'name' : 'The Chase',
           //'urlpath' : '/waltz-natural-turn',
