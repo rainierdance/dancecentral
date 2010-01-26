@@ -412,13 +412,17 @@ function updateView() {
     if (inputMode != 'routine') {
       output.push('<table style="border-spacing:0;width:600"><tr>');
 
-      output.push('<td align=center width=40%>Preceding figures</td>');
+      if (precedes.length > 0)
+        output.push('<td align=center width=40%>Preceding figures</td>');
+      if (follows.length > 0)
       output.push('<td align=center>Following figures</td>');
 
       output.push('</tr><tr>');
   
-      output.push('<td>' + formatFigureList(precedes) + '</td>');
-      output.push('<td>' + formatFigureList(follows) + '</td>');
+      if (precedes.length > 0)
+        output.push('<td>' + formatFigureList(precedes) + '</td>');
+      if (follows.length > 0)
+        output.push('<td>' + formatFigureList(follows) + '</td>');
   
       output.push('</tr></table>');
     } else {
