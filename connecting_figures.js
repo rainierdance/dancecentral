@@ -114,12 +114,17 @@ function MatchFigures(criteria) {
   return result;
 }
 
+// returns same follow IDs as the figureId
+function SameFollowAs(figureId) {
+  return getFollows(figures[figureId]);
+}
+
 // returns matching figures, this is eval'ed, not directly called in the source
 function MatchFigureName(name) {
   var result = []; // array of figure IDs that matched criteria
   for (var id in figures) {
     var figure = figures[id];
-    if (id.indexOf(name) != -1)
+    if ((id.indexOf(name) != -1) || (figure['name'].indexOf(name) != -1))
       result.push(id);
   }
   return result;
@@ -234,16 +239,24 @@ function getFollows(figure) {
     if (!figure['follow']) return follows;
 
     figure['follow'].forEach(function (nextFigure) {
-      var ids = [];
+      var results = [];
       var evalStr = nextFigure['eval'];
       if (evalStr) {
-        ids = eval(evalStr);
+        results = eval(evalStr);
+        if (evalStr.indexOf('SameFollowAs') == 0) {
+          // eval returns follows array
+          // ingore comment, take the results as is.
+          results.forEach(function (follow) {
+            follows.push(follow);
+          });
+          return;
+        } // eval returns IDs, fall through to get comment
       } else { // check id 
         if (nextFigure['id'])
-          ids.push(nextFigure['id']);
+          results.push(nextFigure['id']);
       }
       // filter out dups
-      ids.forEach(function (followID) {
+      results.forEach(function (followID) {
         var followFigure = figures[followID];
         if (MatchLevel(followFigure))
           follows.push([followID, nextFigure['comment']]);
