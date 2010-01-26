@@ -138,7 +138,10 @@ function initDisplay() {
   var element = document.getElementById('divLevels');
   output = [inputDance + ' levels: '];
   LEVELS.forEach(function (level) {
-    output.push('<input type=checkbox id="' + level + '" onclick="updateFigureList();" checked>' + 
+    output.push('<input type=checkbox id="' + level +
+      //'" onclick=\'updateFigureList();\' ' +
+      '" onclick=\'setCookie("' + level + '", this.checked ? "1" : "0");updateFigureList();\' ' +
+      (getCookie(level) == "0" ? 'unchecked' : 'checked')  + '>' + 
       '<span style="color:' + COLOR_MAP[level] + '">' + level + '</span> &nbsp;');
   });
   output.push('<br>');

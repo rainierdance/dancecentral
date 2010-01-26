@@ -13,14 +13,13 @@ function log(msg) {
 function setCookie(name, value) {
   var expireDate = new Date();
   expireDate.setDate(expireDate.getDate() + 1000);
-  document.cookie = cookiePrefix + "_" + name + "=" + escape(value) +
+  document.cookie = name + "=" + escape(value) +
     ";expires=" + expireDate.toGMTString();
 } 
    
-function getCookie(name) {
+function getCookie(cookieName) {
   if (document.cookie.length == 0)
     return '';
-  var cookieName = cookiePrefix +  "_" + name;
   var start = document.cookie.indexOf(cookieName + "=");
   if (start == -1)
     return '';
