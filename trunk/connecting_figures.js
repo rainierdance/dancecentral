@@ -115,11 +115,11 @@ function MatchFigures(criteria) {
 }
 
 // returns matching figures, this is eval'ed, not directly called in the source
-function MatchFigureName(namePrefix) {
+function MatchFigureName(name) {
   var result = []; // array of figure IDs that matched criteria
   for (var id in figures) {
     var figure = figures[id];
-    if (id.indexOf(namePrefix) == 0)
+    if (id.indexOf(name) != -1)
       result.push(id);
   }
   return result;
