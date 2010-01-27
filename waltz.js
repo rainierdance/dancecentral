@@ -151,6 +151,30 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'follow' : [
+                {
+                  'id' : 'ReverseTurn',
+                  'comment' : '4-6'
+                },
+                {
+                  'id' : 'ReverseCorte',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ReversePivot',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'TurningLock',
+                  'comment' : 'at corner'
+                },
+                {
+                  'id' : 'LeftWhisk',
+                  'comment' : 'RF back into Left Whisk'
+                },
+                {
+                  'id' : 'HoverCorte',
+                  'comment' : ''
+                }
               ]
           },
         'HesitationChange' : 
@@ -162,6 +186,46 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'follow' : [
+                {
+                  'id' : 'ReverseTurn',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'DoubleReverseSpin',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ProgressiveChasseToR',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ClosedChange',
+                  'comment' : 'LF Closed Change when facing DW of new LOD'
+                },
+                {
+                  'id' : 'Whisk',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ReverseTurn',
+                  'comment' : 'to back DW then Basic Weave when Hesitation Change ends facing new LOD'
+                },
+                {
+                  'id' : 'ClosedTelemark',
+                  'comment' : ''
+                },
+                {
+                  'eval' : 'MatchFigureName("Open Telemark")',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'FallawayReverseAndSlipPivot',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ContraCheck',
+                  'comment' : 'at corner'
+                }
               ]
           },
         'OutsideChange' : 
@@ -173,6 +237,26 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'follow' : [
+                {
+                  'eval' : 'MatchFigureName("Natural")',
+                  'comment' : 'when ending OP'
+                },
+                {
+                  'id' : 'ClosedWing',
+                  'comment' : 'when ending OP or when ending PP, Foot position of step 3 of Outside Change will be the same as step 3 Open Telemark'
+                },
+                {
+                  'id' : 'ChasseFromPP',
+                  'comment' : 'when ending in PP'
+                },
+                {
+                  'eval' : 'MatchFigureName("Cross Hesitation")',
+                  'comment' : 'when ending in PP'
+                },
+                {
+                  'id' : 'LeftWhisk',
+                  'comment' : 'when ending in PP'
+                }
               ]
           },
         'ReverseCorte' : 
@@ -184,6 +268,38 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'follow' : [
+                {
+                  'id' : 'NaturalTurn',
+                  'comment' : '4-6, ending DW or BDW new LOD?'
+                },
+                {
+                  'id' : 'BackWhisk',
+                  'comment' : 'standard, or with turn at corner, or when ending BDW'
+                },
+                {
+                  'id' : 'ClosedImpetus',
+                  'comment' : 'when ending BDW'
+                },
+                {
+                  'id' : 'BackLock',
+                  'comment' : 'when ending BDW'
+                },
+                {
+                  'id' : 'OutsideChange',
+                  'comment' : 'at corner'
+                },
+                {
+                  'eval' : 'MatchFigureName("Open Impetus")',
+                  'comment' : 'when ending BDW'
+                },
+                {
+                  'id' : 'OutsideSpin',
+                  'comment' : 'underturned'
+                },
+                {
+                  'id' : 'OutsideChange',
+                  'comment' : 'into Closed Wing'
+                }
               ]
           },
         'BackWhisk' : 
@@ -195,6 +311,9 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'follow' : [
+                {
+                  'eval' : 'SameFollowAs("Whisk")'
+                }
               ]
           },
         'BasicWeave' : 
@@ -206,6 +325,14 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'follow' : [
+                {
+                  'eval' : 'MatchFigureName("Natural")',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ClosedWing',
+                  'comment' : ''
+                }
               ]
           },
         'DoubleReverseSpin' : 
@@ -217,6 +344,46 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'follow' : [
+                {
+                  'id' : 'ClosedChange',
+                  'comment' : 'LF, when ending DW'
+                },
+                {
+                  'id' : 'Whisk',
+                  'comment' : 'when ending DW'
+                },
+                {
+                  'id' : 'DoubleReverseSpin',
+                  'comment' : 'when ending LOD'
+                },
+                {
+                  'id' : 'ReverseTurn',
+                  'comment' : '1-3 Reverse Turn into Basic Weave, when ending LOD'
+                },
+                {
+                  'eval' : 'MatchFigureName("Reverse")',
+                  'comment' : 'when ending DC'
+                },
+                {
+                  'id' : 'ProgressiveChasseToR',
+                  'comment' : 'when ending DC'
+                },
+                {
+                  'id' : 'ClosedTelemark',
+                  'comment' : ''
+                },
+                {
+                  'eval' : 'MatchFigureName("Open Telemark")',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ContraCheck',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'FallawayReverseAndSlipPivot',
+                  'comment' : ''
+                }
               ]
           },
         'ReversePivot' : 
@@ -228,6 +395,42 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'follow' : [
+                {
+                  'id' : 'ClosedChange',
+                  'comment' : 'LF, when ending DW'
+                },
+                {
+                  'id' : 'Whisk',
+                  'comment' : 'when ending DW'
+                },
+                {
+                  'id' : 'DoubleReverseSpin',
+                  'comment' : 'when ending DW, DC, or LOD'
+                },
+                {
+                  'id' : 'ContraCheck',
+                  'comment' : 'when ending DW'
+                },
+                {
+                  'id' : 'ReverseTurn',
+                  'comment' : '1-3 into Basic Weave, when ending LOD; or ReverseTurn when ending DC'
+                },
+                {
+                  'id' : 'ProgressiveChasseToR',
+                  'comment' : 'when ending DC, OR 3/8 turn, when ending LOD'
+                },
+                {
+                  'id' : 'ClosedTelemark',
+                  'comment' : ''
+                },
+                {
+                  'eval' : 'MatchFigureName("Open Telemark")',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'FallawayReverseAndSlipPivot',
+                  'comment' : ''
+                }
               ]
           },
         'BackLock' : 
@@ -239,6 +442,26 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'follow' : [
+                {
+                  'id' : 'NaturalTurn',
+                  'comment' : '4-6'
+                },
+                {
+                  'id' : 'ClosedImpetus',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'BackWhisk',
+                  'comment' : 'standard, or with turn at corner'
+                },
+                {
+                  'eval' : 'MatchFigureName("Open Impetus")',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'OutsideSpin',
+                  'comment' : 'underturned'
+                }
               ]
           },
         'ProgressiveChasseToR' : 
@@ -250,6 +473,34 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'follow' : [
+                {
+                  'id' : 'NaturalTurn',
+                  'comment' : '4-6'
+                },
+                {
+                  'id' : 'ClosedImpetus',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'BackLock',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'BackWhisk',
+                  'comment' : 'standard, or with turn at corner'
+                },
+                {
+                  'eval' : 'MatchFigureName("Open Impetus")',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'OutsideSpin',
+                  'comment' : 'underturned'
+                },
+                {
+                  'id' : 'OutsideChange',
+                  'comment' : 'when ending DC'
+                }
               ]
           },
         'ChasseFromPP' : 
@@ -266,7 +517,7 @@
                   'comment' : ''
                 },
                 {
-                  'id' : 'ClosedWing',
+                  'id' : '',
                   'comment' : ''
                 }
               ]
