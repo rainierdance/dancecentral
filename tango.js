@@ -10,7 +10,31 @@
             'startAlignment' : ['DW', 'DC', 'LOD'],
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
-            'follow' : [
+            'follow' : [ // this is not listed in book, we summarized it
+              {
+                'id' : 'Walk',
+                'comment' : ''
+              },
+              {
+                'id' : 'ProgressiveSideStep',
+                'comment' : ''
+              },
+              {
+                'id' : 'ProgressiveLink',
+                'comment' : ''
+              },
+              {
+                'id' : 'RockTurn',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenReverseTurnLadyOutside',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenReverseTurnLadyInline',
+                'comment' : ''
+              }
               ]
           },
         'OpenFinish' : 

@@ -62,7 +62,7 @@
             'follow' : [
               ]
           },
-        'WeaveFromPromenadePosition' : 
+        'WeaveFromPP' : 
           {
             'name' : 'Weave From Promenade Position',
             'level' : 'Silver',
@@ -252,7 +252,7 @@
             'follow' : [
               ]
           },
-        'ChasseFromPromenadePosition' : 
+        'ChasseFromPP' : 
           {
             'name' : 'Chasse From Promenade Position',
             'urlpath' : '/waltz-chasse-from-promenade-position',
@@ -261,6 +261,14 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'follow' : [
+                {
+                  'eval' : 'MatchFigureName("Natural")',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ClosedWing',
+                  'comment' : ''
+                }
               ]
           },
         'Whisk' : 
@@ -272,6 +280,26 @@
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
             'follow' : [
+                {
+                  'id' : 'ChasseFromPP',
+                  'comment' : 'Standard Chasse From Promenade or moving DC to follow with Closed Wing'
+                },
+                {
+                  'id' : 'WeaveFromPP',
+                  'comment' : 'after 1-2 moving to center after Whisk turned to face DC, OR, steps 1-2 moving DC after Whisk turned to face LOD'
+                },
+                {
+                  'id' : 'OpenImpetusAndCrossHesitation',
+                  'comment' : 'Cross Hesitation'
+                },
+                {
+                  'id' : 'ClosedWing',
+                  'comment' : 'Wing ?'
+                },
+                {
+                  'id' : 'LeftWhisk',
+                  'comment' : ''
+                }
               ]
           },
         'NaturalSpinTurn' : 
@@ -283,6 +311,34 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'follow' : [
+                {
+                  'id' : 'ReverseTurn',
+                  'comment' : '4-6'
+                },
+                {
+                  'id' : 'ReverseCorte',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ReversePivot',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'TurningLock',
+                  'comment' : 'standard Turning Lock or Turning Lock to R after overturned Natural Spin Turn'
+                },
+                {
+                  'id' : 'BasicWeave',
+                  'comment' : 'approaching a corner'
+                },
+                {
+                  'id' : 'LeftWhisk',
+                  'comment' : 'RF back into Left Whisk'
+                },
+                {
+                  'id' : 'HoverCorte',
+                  'comment' : ''
+                }
               ]
           },
         'ReverseTurn' : 
@@ -294,6 +350,42 @@
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
             'follow' : [
+                {
+                  'id' : 'ClosedChange',
+                  'comment' : 'LF'
+                },
+                {
+                  'id' : 'Whisk',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'DoubleReverseSpin',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ProgressiveChasseToR',
+                  'comment' : 'after 4-6 of Reverse Turn ended DC after undertuned Natural Spin Turn or Closed Impetus'
+                },
+                {
+                  'id' : 'ReverseCorte',
+                  'comment' : 'after 1-3 Reverse Turn'
+                },
+                {
+                  'id' : 'ClosedTelemark',
+                  'comment' : 'after 4-6 Reverse Turn ended DC after underturned natural Spin Turn or Closed Impetus'
+                },
+                {
+                  'eval' : 'MatchFigureName("Open Telemark")',
+                  'comment' : 'after 4-6 Reverse Turn ended DC after underturned natural Spin Turn or Closed Impetus'
+                },
+                {
+                  'id' : 'ContraCheck',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'HoverCorte',
+                  'comment' : 'after 1-3 Reverse Turn'
+                }
               ]
           },
         'NaturalTurn' : 
@@ -305,11 +397,23 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'follow' : [
+                {
+                  'id' : 'ClosedChange',
+                  'comment' : 'RF'
+                },
+                {
+                  'eval' : 'MatchFigureName("Natural")',
+                  'comment' : 'at corner'
+                },
+                {
+                  'id' : 'BackWhisk',
+                  'comment' : 'after 1-3 Natural Turn'
+                }
               ]
           },
-        'ClosedChanges' : 
+        'ClosedChange' : 
           {
-            'name' : 'Closed Changes',
+            'name' : 'Closed Change',
             'urlpath' : '/waltz-closed-changes',
             'level' : 'Newcomer',
             'startAlignment' : ['DC', 'DW'],
@@ -317,6 +421,12 @@
             'startDirection' : 'fwd',
             'follow' : [
                 {
+                  'eval' : 'MatchFigureName("Reverse")',
+                  'comment' : 'after RF Closed Change'
+                },
+                {
+                  'eval' : 'MatchFigureName("Natural")',
+                  'comment' : 'after LF Closed Change'
                 }
               ]
           }
