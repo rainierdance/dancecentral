@@ -17,6 +17,7 @@ var sortedIds = []; // display figures in alphabetically order
 
 var showPrecedes = true;  // whether to show preceding figures
 var showFollows = true;
+var showComments = true;  // whether to show preceding figures
 
 var selectedFigureName = inputFigureName; // current selected figure name
 
@@ -94,8 +95,10 @@ function initVars() {
   showPrecedes = getCookie('showPrecedes') != "0";
   showFollows = getCookie('showFollows') != "0";
   */
-  if (inputMode == 'routine')
+  if (inputMode == 'routine') {
     showPrecedes = false;
+    showComments = false;
+  }
 }
      
 //----------------------------------------     
@@ -209,6 +212,10 @@ function updateFigureList() {
   output.push('<input type=checkbox onclick=\'showFollows=this.checked;setCookie("showFollows", this.checked? "1": "0");updateView();\' ');
   output.push(showFollows ? 'checked' : 'unchecked');
   output.push('> Show Follows &nbsp;');
+
+  output.push('<input type=checkbox onclick=\'showComments=this.checked;setCookie("showComments", this.checked? "1": "0");updateView();\' ');
+  output.push(showComments ? 'checked' : 'unchecked');
+  output.push('> Show Comments &nbsp;');
 
   document.getElementById('divFiguresList').innerHTML = output.join('');
 
@@ -403,7 +410,7 @@ function formatFigureList(items) {
   output.push('<ol>');
   items.forEach(function (item) {
     output.push('<li>' + getFigureLink(item[0], true));
-    if (item[1])
+    if (item[1] && showComments)
       output.push(' (' + item[1] + ')');
   });
   output.push('</ol>');
@@ -468,10 +475,10 @@ function updateView() {
     var follows = getFollows(figure);
     var precedes = getPrecedes(id);
 
-    output.push('<table style="border-spacing:0;width:600"><tr>');
+    output.push('<table style="border-spacing:0;"><tr>');
 
     if (showPrecedes && precedes.length > 0)
-      output.push('<td width=40%>Preceding figures</td>');
+      output.push('<td >Preceding figures</td>');
     if (showFollows && follows.length > 0)
       output.push('<td >Following figures</td>');
 
