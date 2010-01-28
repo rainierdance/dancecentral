@@ -60,7 +60,7 @@
               },
               {
                 'eval' : 'MatchFigureName("Reverse")',
-                'comment' : 'when ended DC'
+                'comment' : 'when Open Finish ends DC'
               },
               {
                 'id' : 'FourStep',
@@ -96,7 +96,7 @@
               },
               {
                 'id' : 'BackCorte',
-                'comment' : 'step 1 in CBMP with Lady OP'
+                'comment' : 'step 1 of Back Corte in CBMP with Lady OP'
               },
               {
                 'id' : 'LFRock',
@@ -105,6 +105,10 @@
               {
                 'id' : 'OutsideSwivel',
                 'comment' : ''
+              },
+              {
+                'eval' : 'MatchFigureName(" Promenade")',
+                'comment' : 'after Open Finish, place LF to side without weight leading Lady to turn to PP, count &, then proceed with the Promenade figure'
               }
             ]
           },

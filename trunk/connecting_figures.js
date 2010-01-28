@@ -303,7 +303,7 @@ function getFollows(figure) {
       results.forEach(function (followID) {
         var followFigure = figures[followID];
         if (MatchLevel(followFigure))
-          follows.push([followID, nextFigure['comment']]);
+          addFollow(follows, [followID, nextFigure['comment']]);
       });
     });
     return follows;
