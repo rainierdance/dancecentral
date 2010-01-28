@@ -470,16 +470,16 @@ function updateView() {
 
     output.push('<table style="border-spacing:0;width:600"><tr>');
 
-    if (showPrecedes)
+    if (showPrecedes && precedes.length > 0)
       output.push('<td width=40%>Preceding figures</td>');
-    if (showFollows)
+    if (showFollows && follows.length > 0)
       output.push('<td >Following figures</td>');
 
     output.push('</tr><tr>');
 
-    if (showPrecedes)
+    if (showPrecedes && precedes.length > 0)
       output.push('<td>' + formatFigureList(precedes) + '</td>');
-    if (showFollows)
+    if (showFollows && follows.length > 0)
       output.push('<td>' + formatFigureList(follows) + '</td>');
 
     output.push('</tr></table>');
