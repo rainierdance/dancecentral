@@ -457,7 +457,6 @@
             'urlpath' : '/chasse-reverse-turn',
             'level' : 'Newcomer',
             'startAlignment' : ['DC'],
-            'endAlignment' : 'BLOD',
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
             'follow' : [

@@ -8,8 +8,8 @@
             'urlpath' : '/walk',
             'level' : 'Newcomer',
             'startAlignment' : ['DW', 'DC', 'LOD'],
-            'startFoot' : 'LF',
-            'startDirection' : 'fwd',
+            'startFoot' : ['LF', 'RF'],
+            'startDirection' : ['fwd', 'back'],
             'follow' : [ // this is not listed in book, we summarized it
               {
                 'id' : 'Walk',
@@ -34,7 +34,11 @@
               {
                 'id' : 'OpenReverseTurnLadyInline',
                 'comment' : ''
-              }
+              },
+              {
+                'id' : 'RFRock',
+                'comment' : 'after Walk back on LF'
+              },
               ]
           },
         'OpenFinish' : 
@@ -42,9 +46,9 @@
             'name' : 'Open Finish',
             'urlpath' : '/open-finish',
             'level' : 'Newcomer',
-            'startAlignment' : ['DW'],
+            'startAlignment' : ['DC'],
             'startFoot' : 'RF',
-            'startDirection' : 'fwd',
+            'startDirection' : 'back',
             'follow' : [
               {
                 'id' : 'Walk',
@@ -60,7 +64,7 @@
               },
               {
                 'eval' : 'MatchFigureName("Reverse")',
-                'comment' : 'when Open Finish ends DC'
+                'comment' : 'when preceding figure ends DC'
               },
               {
                 'id' : 'FourStep',
@@ -100,7 +104,7 @@
               },
               {
                 'id' : 'LFRock',
-                'comment' : 'LF Rock in CBMP withLady OP, no turn or up to 1/4 to R'
+                'comment' : 'LF Rock in CBMP with Lady OP, no turn or up to 1/4 to R'
               },
               {
                 'id' : 'OutsideSwivel',
@@ -117,8 +121,8 @@
           'name' : 'Progressive Side Step',
           'urlpath' : '/progressive-side-step',
           'level' : 'Newcomer',
-          'startAlignment' : ['DW'],
-          'startFoot' : 'RF',
+          'startAlignment' : ['DW', 'LOD', 'DC'],
+          'startFoot' : 'LF',
           'startDirection' : 'fwd',
           'follow' : [
               {
@@ -137,7 +141,7 @@
           'urlpath' : '/progressive-link',
           'level' : 'Newcomer',
           'startAlignment' : ['DW'],
-          'startFoot' : 'RF',
+          'startFoot' : 'LF',
           'startDirection' : 'fwd',
           'follow' : [
               {
@@ -179,8 +183,8 @@
           'name' : 'Closed Promenade',
           'urlpath' : '/closed-promenade',
           'level' : 'Newcomer',
-          'startAlignment' : ['DW'],
-          'startFoot' : 'RF',
+          'startAlignment' : ['DC', 'LOD', 'DW'],
+          'startFoot' : 'LF',
           'startDirection' : 'fwd',
           'follow' : [
               {
@@ -205,7 +209,7 @@
               },
               {
                 'eval' : 'MatchFigureName("Reverse")',
-                'comment' : 'when ended DC'
+                'comment' : 'when preceding figure ended DC'
               },
               {
                 'id' : 'FourStep',
@@ -264,8 +268,8 @@
           'name' : 'Open Reverse Turn, Lady Outside',
           'urlpath' : '/open-reverse-turn-lady-outside',
           'level' : 'Newcomer',
-          'startAlignment' : ['DW'],
-          'startFoot' : 'RF',
+          'startAlignment' : ['DC'],
+          'startFoot' : 'LF',
           'startDirection' : 'fwd',
           'follow' : [
               {
@@ -290,7 +294,7 @@
               },
               {
                 'eval' : 'MatchFigureName(" Promenade")',
-                'comment' : 'keep feet in place and turn Lady to PP and end of the last step, count &'
+                'comment' : 'at end of last step of preceding figure, using Open Finish, keep feet in place and turn Lady to PP, count &'
               },
               {
                 'id' : 'FourStep',
@@ -327,9 +331,9 @@
           'name' : 'Back Corte',
           'urlpath' : '/back-corte',
           'level' : 'Newcomer',
-          'startAlignment' : ['DW'],
-          'startFoot' : 'RF',
-          'startDirection' : 'fwd',
+          'startAlignment' : ['LOD', 'DW'], // down new LOD, or dance at corner
+          'startFoot' : 'LF',
+          'startDirection' : 'back',
           'follow' : [
             {
                 'eval' : 'SameFollowAs("ClosedPromenade")'
@@ -341,8 +345,8 @@
           'name' : 'Open Reverse Turn, Lady In Line',
           'urlpath' : '/open-reverse-turn-lady-inside',
           'level' : 'Bronze',
-          'startAlignment' : ['DW'],
-          'startFoot' : 'RF',
+          'startAlignment' : ['DC'],
+          'startFoot' : 'LF',
           'startDirection' : 'fwd',
           'follow' : [
             {
@@ -355,9 +359,6 @@
           'name' : 'Progressive Side Step Reverse Turn',
           'urlpath' : '/progressive-side-step-reverse-turn',
           'level' : 'Bronze',
-          'startAlignment' : ['DW'],
-          'startFoot' : 'RF',
-          'startDirection' : 'fwd',
           'follow' : [
             {
                 'eval' : 'SameFollowAs("OpenReverseTurnLadyOutside")'
@@ -369,9 +370,6 @@
           'name' : 'Open Promenade',
           'urlpath' : '/open-promenade',
           'level' : 'Bronze',
-          'startAlignment' : ['DW'],
-          'startFoot' : 'RF',
-          'startDirection' : 'fwd',
           'follow' : [
               {
                 'id' : 'Walk',
@@ -387,7 +385,7 @@
               },
               {
                 'eval' : 'MatchFigureName("Reverse")',
-                'comment' : 'when ended DC'
+                'comment' : 'when preceding figure ended DC'
               },
               {
                 'id' : 'FourStep',
@@ -444,6 +442,9 @@
           'name' : 'LF Rock',
           'urlpath' : '/lf-and-rf-rocks',
           'level' : 'Bronze',
+          'startAlignment' : ['LOD'],
+          'startFoot' : 'LF',
+          'startDirection' : 'back',
           'follow' : [
               {
                 'id' : 'OpenFinish',
@@ -460,6 +461,9 @@
           'name' : 'RF Rock',
           'urlpath' : '/lf-and-rf-rocks',
           'level' : 'Bronze',
+          'startAlignment' : ['LOD', 'DC'],
+          'startFoot' : 'RF',
+          'startDirection' : 'back',
           'follow' : [
               {
                 'id' : 'BackCorte',
@@ -476,9 +480,6 @@
           'name' : 'Natural Twist Turn',
           'urlpath' : '/natural-twist-turn',
           'level' : 'Bronze',
-          'startAlignment' : ['DW'],
-          'startFoot' : 'RF',
-          'startDirection' : 'fwd',
           'follow' : [
               {
                 'eval' : 'MatchFigureName(" Promenade")',
@@ -499,9 +500,9 @@
           'name' : 'Natural Promenade Turn',
           'urlpath' : '/natural-promenade-turn',
           'level' : 'Bronze',
-          'startAlignment' : ['DW'],
-          'startFoot' : 'RF',
-          'startDirection' : 'fwd',
+          //'startAlignment' : ['DW'],
+          //'startFoot' : 'RF',
+          //'startDirection' : 'fwd',
           'follow' : [
               {
                 'eval' : 'MatchFigureName(" Promenade")',

@@ -6,6 +6,7 @@ var COLOR_MAP = {
   'Gold' : 'OrangeRed',
   'Open' : 'DarkGreen'
 };
+var INFO_FIELDS = ['startAlignment', 'startFoot', 'startDirection'];
 
 //-------------------------------------------
 var viewMode = 'browse'; // vs. "routine" for building a routine
@@ -205,17 +206,18 @@ function updateFigureList() {
   output.push('</select>');
   output.push('&nbsp; <a href="javascript:void(0);" onclick="selectFigure(\'all\');">all</a> &nbsp;&nbsp;&nbsp; ');
 
+  output.push('Show: ');
   output.push('<input type=checkbox onclick=\'showPrecedes=this.checked;setCookie("showPrecedes", this.checked? "1": "0");updateView();\' ');
   output.push(showPrecedes ? 'checked' : 'unchecked');
-  output.push('> Show Precedes &nbsp;');
+  output.push('>Precedes &nbsp;');
 
   output.push('<input type=checkbox onclick=\'showFollows=this.checked;setCookie("showFollows", this.checked? "1": "0");updateView();\' ');
   output.push(showFollows ? 'checked' : 'unchecked');
-  output.push('> Show Follows &nbsp;');
+  output.push('>Follows &nbsp;');
 
   output.push('<input type=checkbox onclick=\'showComments=this.checked;setCookie("showComments", this.checked? "1": "0");updateView();\' ');
   output.push(showComments ? 'checked' : 'unchecked');
-  output.push('> Show Comments &nbsp;');
+  output.push('>Comments &nbsp;');
 
   document.getElementById('divFiguresList').innerHTML = output.join('');
 
@@ -240,7 +242,14 @@ function getFigureLink(figureID, inPage) {
       else
         output.push(' href="' + URL_BASE + figure['urlpath']);
       //output.push('?tmpl=/system/app/templates/print/');
-      output.push('">' + figure['name'] + '</a>');
+      output.push('">' + figure['name'] + '</a> ');
+      if (!inPage && showComments) {  // show the rest of the configuration
+        INFO_FIELDS.forEach(function (fieldID) {
+          if (figure[fieldID]) {
+            output.push('<span class="FigureInfo"> &nbsp;' + figure[fieldID] + '</span>');
+          }
+        });
+      }
     } else {
       output.push('<span class="' + styleClass + '" style="color:' + COLOR_MAP[figure['level']] + '">');
       output.push(figure['name']);
@@ -273,8 +282,12 @@ function getPrecedes(figureID) {
 function addFollow(follows, followToAdd) {
   for (var i=0; i< follows.length; i++) {
     if (follows[i][0] == followToAdd[0]) {
-      if (followToAdd[1]) // merge comments
-        follows[i][1] = follows[i][1] + '; ' + followToAdd[1];
+      if (followToAdd[1] || follows[i][1]) { // merge comments
+        // one of the comments are not empty
+        if (!followToAdd[1]) followToAdd[1] = 'normal';
+        if (!follows[i][1]) follows[i][1] = 'normal';
+        follows[i][1] = follows[i][1] + '; or ' + followToAdd[1];
+      }
       return;
     }
   }
@@ -310,7 +323,7 @@ function getFollows(figure) {
       results.forEach(function (followID) {
         var followFigure = figures[followID];
         if (MatchLevel(followFigure))
-          addFollow(follows, [followID, nextFigure['comment']]);
+          addFollow(follows, [followID, nextFigure['comment'] ? nextFigure['comment'] : '']);
       });
     });
     return follows;
