@@ -234,6 +234,19 @@ function getPrecedes(figureID) {
   return precedes;
 }
 
+// update follows to add new follow, combine comments for dups
+function addFollow(follows, followToAdd) {
+  for (var i=0; i< follows.length; i++) {
+    if (follows[i][0] == followToAdd[0]) {
+      if (followToAdd[1]) // merge comments
+        follows[i][1] = follows[i][1] + '; ' + followToAdd[1];
+      return;
+    }
+  }
+  // add at end
+  follows.push(followToAdd);
+}
+
 // returns an array of following figures: [followID, comment] 
 function getFollows(figure) {
     // get all ids, some are evaluating
@@ -250,7 +263,7 @@ function getFollows(figure) {
           // eval returns follows array
           // ingore comment, take the results as is.
           results.forEach(function (follow) {
-            follows.push(follow);
+            addFollow(follows, follow);
           });
           return;
         } // eval returns IDs, fall through to get comment
