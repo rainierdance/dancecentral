@@ -2,8 +2,13 @@ body {
   font-family: arial, sans-serif;
   font-size: 90%;
 }
+
+.FigureLevel1 {
+  font-weight: bold;
+}
+
 .figure,li {
-  font-size: 0.9em;
+  #font-size: 0.9em;
 }      
 #divVersion {
   font-size: 0.5em;

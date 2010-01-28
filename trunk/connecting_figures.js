@@ -8,12 +8,16 @@ var COLOR_MAP = {
 };
 
 //-------------------------------------------
-var mode = 'browse'; // vs. "routine" for building a routine
+var viewMode = 'browse'; // vs. "routine" for building a routine
 var isLatinDance = false; // do not show starting direction for Latin dances
 var DANCE_MAP;
 var URL_BASE;
 var figures;  // all figues in the selected dance
 var sortedIds = []; // display figures in alphabetically order
+
+var showPrecedes = true;  // whether to show preceding figures
+var showFollows = true;
+
 var selectedFigureName = inputFigureName; // current selected figure name
 
 //-------------------------------------------
@@ -26,6 +30,10 @@ function initVars() {
     paramValue = getURLParam('figure');
     if (paramValue) inputFigureName = paramValue;
 
+    /* input mode:
+         '': is for per figure
+         'routine': is for connection figures page - building routine
+    */
     paramValue = getURLParam('mode');
     if (paramValue) inputMode = paramValue;
   }
@@ -78,6 +86,16 @@ function initVars() {
     sortedIds.push(id);
   }
   sortedIds.sort();
+
+  /*
+  // it's going to look weird if user goes to a figure page and don't see anything
+  // because previously they unchecked any of these. So we won't read from cookies now.
+
+  showPrecedes = getCookie('showPrecedes') != "0";
+  showFollows = getCookie('showFollows') != "0";
+  */
+  if (inputMode == 'routine')
+    showPrecedes = false;
 }
      
 //----------------------------------------     
@@ -182,7 +200,16 @@ function updateFigureList() {
     output.push('>' + figures[id]['name'] + '</option>');
   });
   output.push('</select>');
-  output.push(' <a href="javascript:void(0);" onclick="selectFigure(\'all\');">show all</a>');
+  output.push('&nbsp; <a href="javascript:void(0);" onclick="selectFigure(\'all\');">all</a> &nbsp;&nbsp;&nbsp; ');
+
+  output.push('<input type=checkbox onclick=\'showPrecedes=this.checked;setCookie("showPrecedes", this.checked? "1": "0");updateView();\' ');
+  output.push(showPrecedes ? 'checked' : 'unchecked');
+  output.push('> Show Precedes &nbsp;');
+
+  output.push('<input type=checkbox onclick=\'showFollows=this.checked;setCookie("showFollows", this.checked? "1": "0");updateView();\' ');
+  output.push(showFollows ? 'checked' : 'unchecked');
+  output.push('> Show Follows &nbsp;');
+
   document.getElementById('divFiguresList').innerHTML = output.join('');
 
   updateView();
@@ -193,11 +220,12 @@ function updateFigureList() {
 function getFigureLink(figureID, inPage) {
   var output = [];
   var figure = figures[figureID];
+  var styleClass = inPage ? 'FigureLevel2' : 'FigureLevel1';
   if (figure) {
     if (!figure['name'])
       figure['name'] = figureID; // default
     if (figure['urlpath']) {
-      output.push('<a style="color:' + COLOR_MAP[figure['level']] + '"');
+      output.push('<a class="' + styleClass + '" style="color:' + COLOR_MAP[figure['level']] + '"');
       output.push(' onclick="return onClickFigure(\'' + figureID + '\');" ');
       if (inPage)
         output.push(' target="_self" href="javascript:selectFigure(\'' + figureID + '\')');
@@ -207,7 +235,7 @@ function getFigureLink(figureID, inPage) {
       //output.push('?tmpl=/system/app/templates/print/');
       output.push('">' + figure['name'] + '</a>');
     } else {
-      output.push('<span style="color:' + COLOR_MAP[figure['level']] + '">');
+      output.push('<span class="' + styleClass + '" style="color:' + COLOR_MAP[figure['level']] + '">');
       output.push(figure['name']);
       output.push('</span>');
     }
@@ -329,19 +357,19 @@ function outputCSV() {
 }
 */
 function continueRoutine() {
-  mode = 'routine';
+  viewMode = 'build';
   document.getElementById('idPauseRoutine').style.display = 'inline';
   document.getElementById('idContinueRoutine').style.display = 'none';
 }
 
 function pauseRoutine() {
-  mode = 'browse';
+  viewMode = 'browse';
   document.getElementById('idPauseRoutine').style.display = 'none';
   document.getElementById('idContinueRoutine').style.display = 'inline';
 }
 
 function startRoutine() {
-  mode = 'routine';
+  viewMode = 'build';
 
   // keep selected level, reset other criteria
   resetFigureListIndex();
@@ -385,7 +413,7 @@ function formatFigureList(items) {
 
 // when building routine, this is called when user clicks on a figure name
 function onClickFigure(figureID) {
-  if (mode != 'routine') return true; // continue with the link
+  if (viewMode != 'build') return true; // continue with the link
 
   // update the routine list
   var output = [];
@@ -408,6 +436,7 @@ function updateView() {
 
   var output = [];
 
+  var counter = 0;
   sortedIds.forEach(function (id) {
     var figure = figures[id];
     if (!MatchFigure(figure)) return; // pass UI filter
@@ -431,32 +460,29 @@ function updateView() {
     if (selectedDirection != 'all' && figure['startDirection'] != selectedDirection)
       return;
 
-    output.push('<a name="section_' + id + '"></a><span class="figure">');
+    counter++;
+    output.push('<span class="FigureLevel1">' + counter + '.</span> <a name="section_' + id + '"></a><span class="figure">');
     output.push(getFigureLink(id));
     output.push('</span>');
 
     var follows = getFollows(figure);
     var precedes = getPrecedes(id);
 
-    if (inputMode != 'routine') {
-      output.push('<table style="border-spacing:0;width:600"><tr>');
+    output.push('<table style="border-spacing:0;width:600"><tr>');
 
-      if (precedes.length > 0)
-        output.push('<td align=center width=40%>Preceding figures</td>');
-      if (follows.length > 0)
-      output.push('<td align=center>Following figures</td>');
+    if (showPrecedes)
+      output.push('<td width=40%>Preceding figures</td>');
+    if (showFollows)
+      output.push('<td >Following figures</td>');
 
-      output.push('</tr><tr>');
-  
-      if (precedes.length > 0)
-        output.push('<td>' + formatFigureList(precedes) + '</td>');
-      if (follows.length > 0)
-        output.push('<td>' + formatFigureList(follows) + '</td>');
-  
-      output.push('</tr></table>');
-    } else {
-      output.push(formatFigureList(follows));
-    }
+    output.push('</tr><tr>');
+
+    if (showPrecedes)
+      output.push('<td>' + formatFigureList(precedes) + '</td>');
+    if (showFollows)
+      output.push('<td>' + formatFigureList(follows) + '</td>');
+
+    output.push('</tr></table>');
   });
 
   var element = document.getElementById('divFigureChart');
