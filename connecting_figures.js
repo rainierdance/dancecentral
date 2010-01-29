@@ -86,6 +86,8 @@ function initVars() {
   sortedIds = []; // display figures in alphabetically order
   for (var id in figures) {
     sortedIds.push(id);
+    if (!figures[id]['name'])
+      figures[id]['name'] = '';
   }
   sortedIds.sort();
 
@@ -231,8 +233,9 @@ function getFigureLink(figureID, inPage) {
   var figure = figures[figureID];
   var styleClass = inPage ? 'FigureLevel2' : 'FigureLevel1';
   if (figure) {
+    var name = figure['name'];
     if (!figure['name'])
-      figure['name'] = figureID; // default
+      name = '<span class="error">' + figureID + '</span>'; // highlighted error to catch eyes - error case
     if (figure['urlpath']) {
       output.push('<a class="' + styleClass + '" style="color:' + COLOR_MAP[figure['level']] + '"');
       output.push(' onclick="return onClickFigure(\'' + figureID + '\');" ');
@@ -242,7 +245,7 @@ function getFigureLink(figureID, inPage) {
       else
         output.push(' href="' + URL_BASE + figure['urlpath']);
       //output.push('?tmpl=/system/app/templates/print/');
-      output.push('">' + figure['name'] + '</a> ');
+      output.push('">' + name + '</a> ');
       if (!inPage && showComments) {  // show the rest of the configuration
         INFO_FIELDS.forEach(function (fieldID) {
           if (figure[fieldID]) {
@@ -252,11 +255,11 @@ function getFigureLink(figureID, inPage) {
       }
     } else {
       output.push('<span class="' + styleClass + '" style="color:' + COLOR_MAP[figure['level']] + '">');
-      output.push(figure['name']);
+      output.push(name);
       output.push('</span>');
     }
   } else {
-    output.push(figureID);
+    output.push('<span class="error">' + figureID + '</span>');
   }
   return output.join('');
 }
@@ -488,7 +491,7 @@ function updateView() {
     var follows = getFollows(figure);
     var precedes = getPrecedes(id);
 
-    output.push('<table style="border-spacing:0;"><tr>');
+    output.push('<table class="TablePrecedesFollows" style="border-spacing:0;"><tr>');
 
     if (showPrecedes && precedes.length > 0)
       output.push('<td >Preceding figures</td>');
