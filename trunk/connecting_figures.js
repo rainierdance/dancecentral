@@ -6,7 +6,7 @@ var COLOR_MAP = {
   'Gold' : 'OrangeRed',
   'Open' : 'DarkGreen'
 };
-var INFO_FIELDS = ['startAlignment', 'startFoot', 'startDirection'];
+var INFO_FIELDS = ['startAlignment', 'startFoot', 'startDirection', 'comment'];
 
 //-------------------------------------------
 var viewMode = 'browse'; // vs. "routine" for building a routine
