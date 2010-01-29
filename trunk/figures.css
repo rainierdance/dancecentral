@@ -11,13 +11,19 @@ body {
   font-size: 0.8em;
 }      
 
+.error {
+  background-color: #ffcc00;
+}      
+
 .figure,li {
   #font-size: 0.9em;
 }      
+
 #divVersion {
   font-size: 0.5em;
   float: left;
 }
+
 #divRoutine {
   //background: #fff4c2;
   position: fixed;
@@ -28,8 +34,12 @@ body {
   _top: expression((temp = 2 + (document.documentElement.scrollTop ?
         document.documentElement.scrollTop : document.body.scrollTop) ) + 'px' );
 }
+
 td {
   font-size: 0.8em;
   vertical-align: top;
+}
+
+.TablePrecedesFollows td {
   padding: 4px;
 }

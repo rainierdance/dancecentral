@@ -12,7 +12,7 @@
                 },
                 {
                   'id' : 'ProgressiveChasseToRight',
-                  'comment' : 'when this follows Change of Direction, step 4 would not be taken in CBMP'
+                  'comment' : 'step 4 of Change of Direction would not be taken in CBMP when followed by Progressive Chasse To Right'
                 },
                 {
                   'id' : 'CrossChasse',
@@ -141,26 +141,26 @@
                 },
                 {
                   'id' : 'ChasseReverseTurn',
-                  'comment' : 'when ending DC'
+                  'comment' : 'when preceding figure ends DC'
                 },
                 {
                   'id' : 'ProgressiveChasseToRight',
-                  'comment' : 'when ending DC'
+                  'comment' : 'when preceding figure ends DC'
                 },
                 {
                   'id' : 'DoubleReverseSpin',
-                  'comment' : 'when ending DC'
+                  'comment' : 'when preceding figure ends DC'
                 },
                 {
                   'id' : 'ZigZagBackLockAndRunningFinish'
                 },
                 {
                   'id' : 'QuickOpenReverse',
-                  'comment' : 'when ending DC'
+                  'comment' : 'when preceding figure ends DC'
                 },
                 {
                   'id' : 'ClosedTelemark',
-                  'comment' : 'when ending DC'
+                  'comment' : 'when preceding figure ends DC'
                 },
                 {
                   'id' : 'CrossSwivel'
@@ -206,6 +206,9 @@
                 {
                   'id' : 'TipsyToR',
                   'comment' : 'LF fwd, H, S into Tipsy to R'
+                },
+                {
+                  'id' : 'ChangeOfDirection'
                 }
               ]
           },
@@ -334,18 +337,18 @@
                 },
                 {
                   'id' : 'FourQuickRun',
-                  'comment' : 'when ending DC or LOD'
+                  'comment' : 'when preceding figure ends DC or LOD'
                 },
                 {
                   'id' : 'V6',
-                  'comment' : '6-12, when ending DC or LOD'
+                  'comment' : '6-12, when preceding figure ends DC or LOD'
                 },
                 {
                   'id' : 'TipsyToR'
                 },
                 {
                   'id' : 'SixQuickRun',
-                  'comment' : 'when ending DC'
+                  'comment' : 'when preceding figure ends DC'
                 }
               ]
           },
@@ -385,6 +388,9 @@
                 {
                   'id' : 'TipsyToR',
                   'comment' : 'after a step fwd on LF'
+                },
+                {
+                  'id' : 'ChangeOfDirection'
                 }
               ]
           },

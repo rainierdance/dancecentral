@@ -23,7 +23,7 @@ var foxtrotFigures =
     'name' : 'Feather Step',
     'level' : 'Newcomer',
     'urlpath' : '/feather-step',
-    'startAlignment' : ['LOD'],
+    'startAlignment' : ['DW', 'DC'],
     'startFoot' : 'RF',
     'startDirection' : 'fwd',
     'follow' : [
@@ -70,8 +70,8 @@ var foxtrotFigures =
     'name' : 'Three Step',
     'urlpath' : '/three-step',
     'level' : 'Newcomer',
-    'startAlignment' : ['LOD'],
-    'startFoot' : 'LF',
+    'startAlignment' : ['LOD', 'DW'],
+    'startFoot' : 'RF',
     'startDirection' : 'fwd',
     'follow' : [
     {
@@ -102,7 +102,7 @@ var foxtrotFigures =
     'name' : 'Natural Turn',
     'urlpath' : '/natural-turn',
     'level' : 'Newcomer',
-    'startAlignment' : ['LOD'],
+    'startAlignment' : ['LOD', 'DW'],
     'startFoot' : 'RF',
     'startDirection' : 'fwd',
     'follow' : [
@@ -180,40 +180,7 @@ var foxtrotFigures =
       'startDirection' : 'back',
       'follow' : [
         {
-          'id' : 'ThreeStep'
-        },
-        {
-          'id' : 'ReverseTurn',
-          'comment' : 'just Reverse Turn with Feather Finish, or 1-4 Reverse Turn check and Basic Weave'
-        },
-        {
-          'id' : 'ChangeOfDirection'
-        },
-        {
-          'id' : 'ClosedTelemark'
-        },
-        {
-          'eval' : 'MatchFigureName("Open Telemark")'
-        },
-        {
-          'id' : 'HoverTelemark'
-        },
-        {
-          'id' : 'ReverseWave'
-        },
-        {
-          'id' : 'TopSpin',
-          'comment' : 'check back after step 3 of feather finish'
-        },
-        {
-          'id' : 'OutsideSwivel',
-          'comment' : 'check back after step 3 of Feather Step'
-        },
-        {
-          'id' : 'FallawayReverseAndSlipPivot'
-        },
-        {
-          'id' : 'BounceFallawayWithWeaveEnding'
+          'eval' : 'SameFollowAs("ReverseTurn")'
         }
       ]
     },
@@ -227,32 +194,7 @@ var foxtrotFigures =
       'startDirection' : 'fwd',
       'follow' : [
         {
-          'id' : 'ThreeStep'
-        },
-        {
-          'id' : 'ChangeOfDirection'
-        },
-        {
-          'id' : 'BasicWeave',
-          'comment' : 'overturned 1-4 Reverse Turn, check, and Basic Weave'
-        },
-        {
-          'id' : 'HoverTelemark'
-        },
-        {
-          'id' : 'ReverseWave',
-        },
-        {
-          'id' : 'TopSpin',
-          'comment' : 'check back after step 6'
-        },
-        {
-          'id' : 'OutsideSwivel',
-          'comment' : 'check back after step 6'
-        },
-        {
-          'id' : 'FallawayReverseAndSlipPivot',
-          'comment' : 'at corner'
+          'eval' : 'SameFollowAs("ReverseTurn")'
         }
       ]
     },
@@ -284,286 +226,135 @@ var foxtrotFigures =
       'startDirection' : 'fwd',
       'follow' : [
         {
-          'id' : 'ThreeStep'
-        },
-        {
-          'id' : 'ChangeOfDirection'
-        },
-        {
-          'id' : 'BasicWeave',
-          'comment' : 'overturned 1-4 Reverse Turn, check, and Basic Weave'
-        },
-        {
-          'id' : 'HoverTelemark'
-        },
-        {
-          'id' : 'ReverseWave',
-        },
-        {
-          'id' : 'TopSpin',
-          'comment' : 'check back after step 6'
-        },
-        {
-          'id' : 'OutsideSwivel',
-          'comment' : 'check back after step 6'
-        },
-        {
-          'id' : 'FallawayReverseAndSlipPivot',
-          'comment' : 'at corner'
+          'eval' : 'SameFollowAs("ReverseTurn")'
         }
       ]
     },
   'ClosedTelemark' : 
     {
       'name' : 'Closed Telemark',
-      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      'startAlignment' : ['LOD'],
-      'startFoot' : 'LF',
-      'startDirection' : 'fwd',
       'follow' : [
-      {
-        'id' : "NextPattern"
-      }
       ]
     },
   'OpenTelemarkAndFeatherEnding' : 
     {
       'name' : 'Open Telemark and Feather Ending',
-      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      'startAlignment' : ['LOD'],
-      'startFoot' : 'LF',
-      'startDirection' : 'fwd',
       'follow' : [
-      {
-      	'id' : "NextPattern"
-      }
       ]
     },
   'TopSpin' : 
     {
       'name' : 'Top Spin',
-      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      'startAlignment' : ['LOD'],
-      'startFoot' : 'LF',
-      'startDirection' : 'fwd',
       'follow' : [
-      {
-      	'id' : "NextPattern"
-      }
       ]
     },
   'HoverFeather' : 
     {
       'name' : 'Hover Feather',
-      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      'startAlignment' : ['LOD'],
-      'startFoot' : 'LF',
-      'startDirection' : 'fwd',
       'follow' : [
-      {
-      	'id' : "NextPattern"
-      }
       ]
     },
   'HoverTelemark' : 
     {
       'name' : 'Hover Telemark',
-      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      'startAlignment' : ['LOD'],
-      'startFoot' : 'LF',
-      'startDirection' : 'fwd',
       'follow' : [
-      {
-      	'id' : "NextPattern"
-      }
       ]
     },
   'NaturalTelemark' : 
     {
       'name' : 'Natural Telemark',
-      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      'startAlignment' : ['LOD'],
-      'startFoot' : 'LF',
-      'startDirection' : 'fwd',
       'follow' : [
-      {
-      	'id' : "NextPattern"
-      }
       ]
     },
   'HoverCross' : 
     {
       'name' : 'Hover Cross',
-      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      'startAlignment' : ['LOD'],
-      'startFoot' : 'LF',
-      'startDirection' : 'fwd',
       'follow' : [
-      {
-      	'id' : "NextPattern"
-      }
       ]
     },
   'OpenTelemarkNaturalTurnOutsideSwivelAndFeatherEnding' : 
     {
       'name' : 'Open Telemark, Natural Turn, Outside Swivel and Feather Ending',
-      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      'startAlignment' : ['LOD'],
-      'startFoot' : 'LF',
-      'startDirection' : 'fwd',
       'follow' : [
-      {
-      	'id' : "NextPattern"
-      }
       ]
     },
   'OpenImpetus' : 
     {
       'name' : 'Open Impetus',
-      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      'startAlignment' : ['LOD'],
-      'startFoot' : 'LF',
-      'startDirection' : 'fwd',
       'follow' : [
-      {
-      	'id' : "NextPattern"
-      }
       ]
     },
   'WeaveFromPP' : 
     {
       'name' : 'Weave from PP',
-      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      'startAlignment' : ['LOD'],
-      'startFoot' : 'LF',
-      'startDirection' : 'fwd',
       'follow' : [
-      {
-      	'id' : "NextPattern"
-      }
       ]
     },
   'ReverseWave' : 
     {
       'name' : 'Reverse Wave',
-      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      'startAlignment' : ['LOD'],
-      'startFoot' : 'LF',
-      'startDirection' : 'fwd',
       'follow' : [
-      {
-      	'id' : "NextPattern"
-      }
       ]
     },
   'OutsideSwivel' : 
     {
      //doesn't exist as a separate pattern in book, will have to extract it
       'name' : 'Outside Swivel',
-      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      'startAlignment' : ['LOD'],
-      'startFoot' : 'LF',
-      'startDirection' : 'fwd',
       'follow' : [
-      {
-      	'id' : "NextPattern"
-      }
       ]
     },
   'NaturalTwistTurn' : 
     {
       'name' : 'Natural Twist Turn',
-      'urlpath' : '/pattern-name',
       'level' : 'Gold',
-      'startAlignment' : ['LOD'],
-      'startFoot' : 'LF',
-      'startDirection' : 'fwd',
       'follow' : [
-      {
-      	'id' : "NextPattern"
-      }
       ]
     },
   'CurvedFeatherToBackFeather' : 
     {
       'name' : 'Curved Feather to Back Feather',
-      'urlpath' : '/pattern-name',
       'level' : 'Gold',
-      'startAlignment' : ['LOD'],
-      'startFoot' : 'LF',
-      'startDirection' : 'fwd',
       'follow' : [
-      {
-      	'id' : "NextPattern"
-      }
       ]
     },
   'NaturalZigZagFromPP' : 
     {
       'name' : 'Natural Zig-Zag from PP',
-      'urlpath' : '/pattern-name',
       'level' : 'Silver',
-      'startAlignment' : ['LOD'],
-      'startFoot' : 'LF',
-      'startDirection' : 'fwd',
       'follow' : [
-      {
-      	'id' : "NextPattern"
-      }
       ]
     },
   'FallawayReverseAndSlipPivot' : 
     {
       'name' : 'Fallaway Reverse and Slip Pivot',
-      'urlpath' : '/pattern-name',
       'level' : 'Gold',
-      'startAlignment' : ['LOD'],
-      'startFoot' : 'LF',
-      'startDirection' : 'fwd',
       'follow' : [
-      {
-      	'id' : "NextPattern"
-      }
       ]
     },
   'NaturalHoverTelemark' : 
     {
       'name' : 'Natural Hover Telemark',
-      'urlpath' : '/pattern-name',
       'level' : 'Gold',
-      'startAlignment' : ['LOD'],
-      'startFoot' : 'LF',
-      'startDirection' : 'fwd',
       'follow' : [
-      {
-      	'id' : "NextPattern"
-      }
       ]
     },
   'BounceFallawayWithWeaveEnding' : 
     {
       'name' : 'Bounce Fallaway with Weave Ending',
-      'urlpath' : '/pattern-name',
       'level' : 'Gold',
-      'startAlignment' : ['LOD'],
-      'startFoot' : 'LF',
-      'startDirection' : 'fwd',
       'follow' : [
-      {
-      	'id' : "NextPattern"
-      }
       ]
     }
 };
