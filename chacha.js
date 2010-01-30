@@ -198,6 +198,90 @@
             'urlpath' : '/time-step',
             'level' : 'Newcomer',
             'follow' : [
+              {
+                'id' : 'ClosedBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'NewYorkLSP',
+                'comment' : ''
+              },
+              {
+                'id' : 'SpotTurnToR',
+                'comment' : ''
+              },
+              {
+                'id' : 'UnderarmTurnToL',
+                'comment' : ''
+              },
+              {
+                'id' : 'ShoulderToShoulderL',
+                'comment' : ''
+              },
+              {
+                'id' : 'SideStepLeftLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SideStepRightLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'HandToHandRSP',
+                'comment' : ''
+              },
+              {
+                'id' : 'TimeStepLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'Fan',
+                'comment' : ''
+              },
+              {
+                'id' : 'Alemana',
+                'comment' : 'from Open Position'
+              },
+              {
+                'id' : 'OpenHipTwist',
+                'comment' : ''
+              },
+              {
+                'id' : 'Curl',
+                'comment' : ''
+              },
+              {
+                'id' : 'CrossBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SplitCubanBreakLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'Chase',
+                'comment' : ''
+              },
+              {
+                'id' : 'TurkishTowel',
+                'comment' : ''
+              },
+              {
+                'id' : 'Sweetheart',
+                'comment' : ''
+              },
+              {
+                'id' : 'FollowMyLeader',
+                'comment' : ''
+              }
               ]
           },
         'TimeStepLF' : 
@@ -206,6 +290,54 @@
             'urlpath' : '/time-step',
             'level' : 'Newcomer',
             'follow' : [
+              {
+                'id' : 'ClosedBasic',
+                'comment' : '6-10'
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : '6-10'
+              },
+              {
+                'id' : 'NewYorkRSP',
+                'comment' : ''
+              },
+              {
+                'id' : 'SpotTurnToL',
+                'comment' : ''
+              },
+              {
+                'id' : 'UnderarmTurnToR',
+                'comment' : ''
+              },
+              {
+                'id' : 'ShoulderToShoulderR',
+                'comment' : ''
+              },
+              {
+                'id' : 'SideStepLeftRF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SideStepRightRF',
+                'comment' : ''
+              },
+              {
+                'id' : 'HandToHandLSP',
+                'comment' : ''
+              },
+              {
+                'id' : 'TimeStepRF',
+                'comment' : ''
+              },
+              {
+                'id' : 'CubanBreakRF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SplitCubanBreakRF',
+                'comment' : ''
+              }
               ]
           },
         'ThereAndBack' : 
@@ -214,6 +346,54 @@
             'urlpath' : '/there-and-back',
             'level' : 'Newcomer',
             'follow' : [
+              {
+                'id' : 'ClosedBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'SpotTurnToR',
+                'comment' : ''
+              },
+              {
+                'id' : 'UnderarmTurnToL',
+                'comment' : ''
+              },
+              {
+                'id' : 'SideStepLeftLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SideStepRightLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'HandToHandRSP',
+                'comment' : ''
+              },
+              {
+                'id' : 'ThereAndBack',
+                'comment' : ''
+              },
+              {
+                'id' : 'TimeStepLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'Fan',
+                'comment' : ''
+              },
+              {
+                'id' : 'CubanBreakRF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SplitCubanBreakRF',
+                'comment' : ''
+              }
               ]
           },
         'SideStepLeftLF' : 
@@ -914,7 +1094,7 @@
           },
         'SpotTurnToL' : 
           {
-            'name' : 'Spot or Switch Turn To L',
+            'name' : 'Spot or Switch Turn To L (Lady to R)',
             'urlpath' : '/spot-turn',
             'level' : 'Newcomer',
             'follow' : [
@@ -1018,7 +1198,7 @@
           },
         'SpotTurnToR' : 
           {
-            'name' : 'Spot or Switch Turn To R',
+            'name' : 'Spot or Switch Turn To R (Lady to L)',
             'urlpath' : '/spot-turn',
             'level' : 'Newcomer',
             'follow' : [
