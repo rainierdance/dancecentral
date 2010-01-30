@@ -216,20 +216,164 @@
             'follow' : [
               ]
           },
-        'SideStepLF' : 
+        'SideStepLeftLF' : 
           {
-            'name' : 'Side Step commenced with LF',
+            'name' : 'Side Step To Left commenced with LF',
             'urlpath' : '/side-step',
             'level' : 'Newcomer',
             'follow' : [
+              {
+                'id' : 'ClosedBasic',
+                'comment' : '6-10'
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : '6-10'
+              },
+              {
+                'id' : 'NewYorkRSP',
+                'comment' : ''
+              },
+              {
+                'id' : 'SpotTurnToL',
+                'comment' : ''
+              },
+              {
+                'id' : 'UnderarmTurnToR',
+                'comment' : ''
+              },
+              {
+                'id' : 'ShoulderToShoulderR',
+                'comment' : '1/8 turn L on step 5'
+              },
+              {
+                'id' : 'HandToHandLSP',
+                'comment' : ''
+              },
+              {
+                'id' : 'SideStepLeftRF',
+                'comment' : 'moving to L'
+              },
+              {
+                'id' : 'TimeStepRF',
+                'comment' : ''
+              },
+              {
+                'id' : 'CubanBreakRF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SplitCubanBreakRF',
+                'comment' : ''
+              }
               ]
           },
-        'SideStepRF' : 
+        'SideStepLeftRF' : 
           {
-            'name' : 'Side Step commenced with RF',
+            'name' : 'Side Step To Left commenced with RF',
             'urlpath' : '/side-step',
             'level' : 'Newcomer',
             'follow' : [
+              {
+                'id' : 'ClosedBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'ThereAndBack',
+                'comment' : ''
+              },
+              {
+                'id' : 'SideStepLeftLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'Fan',
+                'comment' : ''
+              }
+              ]
+          },
+        'SideStepRightRF' : 
+          {
+            'name' : 'Side Step To Right commenced with RF',
+            'urlpath' : '/side-step',
+            'level' : 'Newcomer',
+            'follow' : [
+              {
+                'id' : 'ClosedBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'NewYorkLSP',
+                'comment' : ''
+              },
+              {
+                'id' : 'SpotTurnToR',
+                'comment' : ''
+              },
+              {
+                'id' : 'ShoulderToShoulderL',
+                'comment' : '1/8 turn R on step 5'
+              },
+              {
+                'id' : 'HandToHandRSP',
+                'comment' : ''
+              },
+              {
+                'id' : 'SideStepRightLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'TimeStepLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'Fan',
+                'comment' : ''
+              },
+              {
+                'id' : 'CubanBreakRF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SplitCubanBreakRF',
+                'comment' : ''
+              }
+              ]
+          },
+        'SideStepRightLF' : 
+          {
+            'name' : 'Side Step To Right commenced with LF',
+            'urlpath' : '/side-step',
+            'level' : 'Newcomer',
+            'follow' : [
+              {
+                'id' : 'ClosedBasic',
+                'comment' : '6-10'
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : '6-10'
+              },
+              {
+                'id' : 'UnderarmTurnToR',
+                'comment' : ''
+              },
+              {
+                'id' : 'SideStepRightRF',
+                'comment' : ''
+              },
+              {
+                'id' : 'Fan',
+                'comment' : '6-10'
+              }
               ]
           },
         'ThreeChaChaChasFwd' : 
@@ -238,6 +382,62 @@
             'urlpath' : '/three-cha-cha-chas',
             'level' : 'Newcomer',
             'follow' : [
+              {
+                'id' : 'ClosedBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'Fan',
+                'comment' : ''
+              },
+              {
+                'id' : 'Alemana',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenHipTwist',
+                'comment' : ''
+              },
+              {
+                'id' : 'Curl',
+                'comment' : ''
+              },
+              {
+                'id' : 'Chase',
+                'comment' : 'when Three Cha Cha Chas are danced in Open Position'
+              },
+              {
+                'id' : 'TurkishTowel',
+                'comment' : ''
+              },
+              {
+                'id' : 'Sweetheart',
+                'comment' : ''
+              },
+              {
+                'id' : 'FollowMyLeader',
+                'comment' : 'when Three Cha Cha Chas are danced in Open Position'
+              },
+              {
+                'id' : 'NewYorkRSP',
+                'comment' : 'when danced in RSP, last three steps may be danced as a side chasse after Man and Lady turn to face partner and end in Closed Position'
+              },
+              {
+                'id' : 'SpotTurnToL',
+                'comment' : 'when danced in RSP, last three steps may be danced as a side chasse after Man and Lady turn to face partner and end in Closed Position'
+              },
+              {
+                'id' : 'NewYorkLSP',
+                'comment' : 'when danced in LSP, last three steps may be danced as a side chasse after Man and Lady turn to face partner and end in Closed Position'
+              },
+              {
+                'id' : 'SpotTurnToR',
+                'comment' : 'when danced in LSP, last three steps may be danced as a side chasse after Man and Lady turn to face partner and end in Closed Position'
+              }
               ]
           },
         'ThreeChaChaChasBack' : 
@@ -246,6 +446,34 @@
             'urlpath' : '/three-cha-cha-chas',
             'level' : 'Newcomer',
             'follow' : [
+              {
+                'id' : 'ClosedBasic',
+                'comment' : '6-10'
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : '6-10'
+              },
+              {
+                'id' : 'ClosedBasic',
+                'comment' : '6-7, then into Three Chas Cha Chas Forward'
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : '6-7, then into Three Chas Cha Chas Forward'
+              },
+              {
+                'id' : 'Fan',
+                'comment' : '6-10'
+              },
+              {
+                'id' : 'Alemana',
+                'comment' : '6-10'
+              },
+              {
+                'id' : 'NaturalTop',
+                'comment' : 'Man last step LF side turning slightly R, Lady RF fwd'
+              }
               ]
           },
         'HandToHandRSP' : 
@@ -279,7 +507,11 @@
                 'comment' : ''
               },
               {
-                'id' : 'SideStepRF',
+                'id' : 'SideStepLeftRF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SideStepRightRF',
                 'comment' : ''
               },
               {
@@ -343,7 +575,11 @@
                 'comment' : ''
               },
               {
-                'id' : 'SideStepLF',
+                'id' : 'SideStepLeftLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SideStepRightLF',
                 'comment' : ''
               },
               {
@@ -407,7 +643,11 @@
                 'comment' : 'when ended facing partner, having turned 1/8 over step 3-5 and danced chasse to side'
               },
               {
-                'id' : 'SideStepRF',
+                'id' : 'SideStepLeftRF',
+                'comment' : 'when ended facing partner, having turned 1/8 over step 3-5 and danced chasse to side'
+              },
+              {
+                'id' : 'SideStepRightRF',
                 'comment' : 'when ended facing partner, having turned 1/8 over step 3-5 and danced chasse to side'
               },
               {
@@ -487,7 +727,11 @@
                 'comment' : 'when ended facing partner, having turned 1/8 over step 3-5 and danced chasse to side'
               },
               {
-                'id' : 'SideStepLF',
+                'id' : 'SideStepLeftLF',
+                'comment' : 'when ended facing partner, having turned 1/8 over step 3-5 and danced chasse to side'
+              },
+              {
+                'id' : 'SideStepRightLF',
                 'comment' : 'when ended facing partner, having turned 1/8 over step 3-5 and danced chasse to side'
               },
               {
@@ -571,7 +815,11 @@
                 'comment' : ''
               },
               {
-                'id' : 'SideStepLF',
+                'id' : 'SideStepLeftLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SideStepRightLF',
                 'comment' : ''
               },
               {
@@ -631,7 +879,11 @@
                 'comment' : ''
               },
               {
-                'id' : 'SideStepRF',
+                'id' : 'SideStepLeftRF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SideStepRightRF',
                 'comment' : ''
               },
               {
@@ -691,7 +943,11 @@
                 'comment' : ''
               },
               {
-                'id' : 'SideStepLF',
+                'id' : 'SideStepLeftLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SideStepRightLF',
                 'comment' : ''
               },
               {
@@ -791,7 +1047,11 @@
                 'comment' : ''
               },
               {
-                'id' : 'SideStepRF',
+                'id' : 'SideStepLeftRF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SideStepRightRF',
                 'comment' : ''
               },
               {
@@ -859,7 +1119,11 @@
                 'comment' : 'when ending facing partner'
               },
               {
-                'id' : 'SideStepLF',
+                'id' : 'SideStepLeftLF',
+                'comment' : 'when ending facing partner'
+              },
+              {
+                'id' : 'SideStepRightLF',
                 'comment' : 'when ending facing partner'
               },
               {
@@ -927,7 +1191,7 @@
                 'comment' : 'when ending facing partner'
               },
               {
-                'id' : 'SideStepRF',
+                'id' : 'SideStepRightRF',
                 'comment' : 'when ending facing partner'
               },
               {
@@ -990,7 +1254,10 @@
                 'id' : 'ShoulderToShoulderL'
               },
               {
-                'id' : 'SideStepLF'
+                'id' : 'SideStepLeftLF'
+              },
+              {
+                'id' : 'SideStepRightLF'
               },
               {
                 'id' : 'HandToHandRSP',
@@ -1037,7 +1304,11 @@
                 'comment' : 'after step 1-5'
               },
               {
-                'id' : 'SideStepRF',
+                'id' : 'SideStepLeftRF',
+                'comment' : 'after step 1-5'
+              },
+              {
+                'id' : 'SideStepRightRF',
                 'comment' : 'after step 1-5'
               },
               {
