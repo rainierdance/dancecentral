@@ -150,6 +150,94 @@
             'urlpath' : '/closed-hip-twist',
             'level' : 'Bronze',
             'follow' : [
+              {
+                'id' : 'Alemana',
+                'comment' : ''
+              },
+              {
+                'id' : 'HockeyStick',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : 'when ending Open Position'
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : 'when ending Open Position, follow with 1-2 Open Basic into Three Cha Cha Chas Back'
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : 'when ending Open Position, follow with 1-5 Open Basic into Natural Top'
+              },
+              {
+                'id' : 'TimeStepLF',
+                'comment' : 'when ending Open Position'
+              },
+              {
+                'id' : 'Alemana',
+                'comment' : 'when ending Open Position'
+              },
+              {
+                'id' : 'OpenHipTwist',
+                'comment' : 'when ending Open Position'
+              },
+              {
+                'id' : 'Curl',
+                'comment' : 'when ending Open Position'
+              },
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : 'when ending Open Position'
+              },
+              {
+                'id' : 'SplitCubanBreakLF',
+                'comment' : 'when ending Open Position'
+              },
+              {
+                'id' : 'Chase',
+                'comment' : 'when ending Open Position'
+              },
+              {
+                'id' : 'TurkishTowel',
+                'comment' : 'when ending Open Position'
+              },
+              {
+                'id' : 'Sweetheart',
+                'comment' : 'when ending Open Position'
+              },
+              {
+                'id' : 'FollowMyLeader',
+                'comment' : 'when ending Open Position'
+              },
+              {
+                'id' : 'NewYorkLSP',
+                'comment' : 'when ending Open CPP'
+              },
+              {
+                'id' : 'SpotTurnToR',
+                'comment' : 'when ending Open CPP'
+              },
+              {
+                'id' : 'UnderarmTurnToL',
+                'comment' : 'when ending Open CPP'
+              },
+              {
+                'id' : 'ThreeChaChaChasFwd',
+                'comment' : 'when ending Open CPP, follow with 4-9 Three Cha Cha Chas Fwd in LSP'
+              },
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : 'when ending Open CPP'
+              },
+              {
+                'id' : 'SplitCubanBreakLF',
+                'comment' : 'when ending Open CPP'
+              },
+              {
+                'id' : 'ReverseTop',
+                'comment' : 'when ending in Contact Position, follow with 6-10 or 6-15 of Reverse Top'
+              }
               ]
           },
         'NaturalOpeningOutMovement' : 
@@ -158,6 +246,26 @@
             'urlpath' : '/natural-opening-out-movement',
             'level' : 'Bronze',
             'follow' : [
+              {
+                'id' : 'OpenBasic',
+                'comment' : '6-10'
+              },
+              {
+                'id' : 'ClosedBasic',
+                'comment' : '6-10'
+              },
+              {
+                'id' : 'UnderarmTurnToR',
+                'comment' : ''
+              },
+              {
+                'id' : 'Fan',
+                'comment' : '6-10'
+              },
+              {
+                'id' : 'ReverseTop',
+                'comment' : "Man turns 1/8 L over 3-5 to Contact Position, placing LF in front RF as Cuban Cross to chasse LRL, Lady turns an additional 1/8 over 3-5 to end with RF back and slightly side, Man's first step of Natural Opening Out Movement is side"
+              }
               ]
           },
         'NaturalTop' : 
@@ -166,6 +274,54 @@
             'urlpath' : '/natural-top',
             'level' : 'Bronze',
             'follow' : [
+              {
+                'id' : 'OpenBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'ClosedBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'Fan',
+                'comment' : ''
+              },
+              {
+                'id' : 'NaturalOpeningOutMovement',
+                'comment' : 'on last step of Natural Top, Man leads Lady towawrds his R side'
+              },
+              {
+                'id' : 'ClosedHipTwist',
+                'comment' : 'on last step of Natural Top, Man leads Lady towawrds his R side'
+              },
+              {
+                'id' : 'Spiral',
+                'comment' : 'on last step of Natural Top, Man leads Lady towawrds his R side'
+              },
+              {
+                'id' : 'RopeSpinning',
+                'comment' : 'on last step of Natural Top, Man leads Lady towawrds his R side'
+              },
+              {
+                'id' : 'AdvancedHipTwist',
+                'comment' : 'Man RF fwd in line with LF on step 13 into fwd Lock RLR, Lady fwd Lock toward his R side, then continuing to turn up to 1/4 R to follow with Advanced Hip Twist'
+              },
+              {
+                'id' : 'HipTwistSpiral',
+                'comment' : 'Man RF fwd in line with LF on step 13 into fwd Lock RLR, Lady fwd Lock toward his R side, then continuing to turn up to 1/4 R to follow with Hip Twist Sprial'
+              },
+              {
+                'id' : 'AdvancedHipTwist',
+                'comment' : 'Man RF fwd in line with LF on 15, lady LF fwd towards his R side'
+              },
+              {
+                'id' : 'HipTwistSpiral',
+                'comment' : 'Man RF fwd in line with LF on 15, lady LF fwd towards his R side'
+              },
+              {
+                'id' : 'HockeyStick',
+                'comment' : '6-10 Hockey Stick after step 10 of Natural Top'
+              },
               ]
           },
         'HockeyStick' : 
@@ -174,6 +330,90 @@
             'urlpath' : '/hockey-stick',
             'level' : 'Bronze',
             'follow' : [
+              {
+                'id' : 'OpenBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'ShoulderToShoulderL',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : '1-2 Open Basic into Three Cha Cha Chas Back'
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : '1-5 Open Basic into Natural Top'
+              },
+              {
+                'id' : 'TimeStepLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'Alemana',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenHipTwist',
+                'comment' : ''
+              },
+              {
+                'id' : 'Curl',
+                'comment' : ''
+              },
+              {
+                'id' : 'Chase',
+                'comment' : ''
+              },
+              {
+                'id' : 'TurkishTowel',
+                'comment' : ''
+              },
+              {
+                'id' : 'Sweetheart',
+                'comment' : ''
+              },
+              {
+                'id' : 'FollowMyLeader',
+                'comment' : ''
+              },
+              {
+                'id' : 'ThreeChaChaChasFwd',
+                'comment' : 'from steps 1-7, in Open Position'
+              },
+              {
+                'id' : 'NewYorkLSP',
+                'comment' : 'in Open CPP'
+              },
+              {
+                'id' : 'SpotTurnToR',
+                'comment' : 'in Open CPP'
+              },
+              {
+                'id' : 'UnderarmTurnToL',
+                'comment' : 'in Open CPP'
+              },
+              {
+                'id' : 'ThreeChaChaChasFwd',
+                'comment' : '4-9, LSP'
+              },
+              {
+                'id' : 'SpotTurnToR',
+                'comment' : 'when ending LSP'
+              },
+              {
+                'id' : 'NewYorkLSP',
+                'comment' : 'no turn on first step when ending LSP'
+              },
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : 'when ending LSP, retaining LSP'
+              },
+              {
+                'id' : 'SplitCubanBreakLF',
+                'comment' : 'when ending LSP'
+              }
               ]
           },
         'Alemana' : 
@@ -182,6 +422,90 @@
             'urlpath' : '/alemana',
             'level' : 'Bronze',
             'follow' : [
+              {
+                'id' : 'ClosedBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'ThereAndBack',
+                'comment' : ''
+              },
+              {
+                'id' : 'Fan',
+                'comment' : ''
+              },
+              {
+                'id' : 'HandToHandRSP',
+                'comment' : 'when Man and Lady ending to side'
+              },
+              {
+                'id' : 'SideStepLeftLF',
+                'comment' : 'when Man and Lady ending to side'
+              },
+              {
+                'id' : 'SideStepRightLF',
+                'comment' : 'when Man and Lady ending to side'
+              },
+              {
+                'id' : 'TimeStepLF',
+                'comment' : 'when Man and Lady ending to side'
+              },
+              {
+                'id' : 'CrossBasic',
+                'comment' : 'when Man and Lady ending to side'
+              },
+              {
+                'id' : 'NewYorkLSP',
+                'comment' : 'when Man and Lady ending diagonally fwd in Open CPP'
+              },
+              {
+                'id' : 'SpotTurnToR',
+                'comment' : 'when Man and Lady ending diagonally fwd in Open CPP'
+              },
+              {
+                'id' : 'UnderarmTurnToL',
+                'comment' : 'when Man and Lady ending diagonally fwd in Open CPP'
+              },
+              {
+                'id' : 'ThreeChaChaChasFwd',
+                'comment' : '4-9, LSP, when Man and Lady ending diagonally fwd in Open CPP'
+              },
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : 'when Man and Lady ending diagonally fwd in Open CPP'
+              },
+              {
+                'id' : 'SplitCubanBreakLF',
+                'comment' : 'when Man and Lady ending diagonally fwd in Open CPP'
+              },
+              {
+                'id' : 'NaturalOpeningOutMovement',
+                'comment' : "when Lady ending fwd towards Man's R side"
+              },
+              {
+                'id' : 'ClosedHipTwist',
+                'comment' : "when Lady ending fwd towards Man's R side"
+              },
+              {
+                'id' : 'Spiral',
+                'comment' : "when Lady ending fwd towards Man's R side"
+              },
+              {
+                'id' : 'RopeSpinning',
+                'comment' : "when Lady ending fwd towards Man's R side"
+              },
+              {
+                'id' : 'AdvancedHipTwist',
+                'comment' : "when Man and Lady ending fwd towards partner's R side"
+              },
+              {
+                'id' : 'HipTwistSpiral',
+                'comment' : "when Man and Lady ending fwd towards partner's R side"
+              }
               ]
           },
         'Fan' : 
@@ -190,6 +514,14 @@
             'urlpath' : '/fan',
             'level' : 'Bronze',
             'follow' : [
+              {
+                'id' : 'Alemana',
+                'comment' : ''
+              },
+              {
+                'id' : 'HockeyStick',
+                'comment' : ''
+              }
               ]
           },
         'TimeStepRF' : 
