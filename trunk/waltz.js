@@ -105,6 +105,9 @@
             'name' : 'Closed Impetus',
             'urlpath' : '/closed-impetus',
             'level' : 'Bronze',
+            'startAlignment' : ['BLOD'],
+            'startFoot' : 'LF',
+            'startDirection' : 'back',
             'follow' : [
                 {
                   'id' : 'ReverseTurn',
