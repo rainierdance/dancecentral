@@ -6,6 +6,10 @@
           {
             'name' : 'Change of Direction',
             'level' : 'Bronze',
+            'urlpath' : '/change-of-direction',
+            'startAlignment' : ['DW'],
+            'startFoot' : 'LF',
+            'startDirection' : 'fwd',
             'follow' : [
                 {
                   'id' : 'ChasseReverseTurn'
