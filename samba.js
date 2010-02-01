@@ -184,6 +184,8 @@
             'name' : 'Criss Cross Bota Fogos (Shadow Bota Fogos)',
             'urlpath' : '/criss-cross-bota-fogos-shadow-bota-fogos',
             'level' : 'Newcomer',
+            'startFoot' : ['LF'],
+            'startAlignment' : ['DW'],
             'follow' : [
               {
                 'id' : 'SambaWalkStationary',
@@ -203,7 +205,7 @@
               },
               {
                 'id' : 'Maypole',
-                'comment' : 'Many turn L, or Man turning R after step 3'
+                'comment' : 'Man turn L, or Man turning R after step 3'
               },
               {
                 'id' : 'FootChanges',
@@ -211,7 +213,7 @@
               },
               {
                 'id' : 'SambaLocks',
-                'comment' : ''
+                'comment' : 'after step 3'
               }
              ]
         },
@@ -220,6 +222,8 @@
             'name' : 'Traveling Bota Fogos Forward',
             'urlpath' : '/traveling-bota-fogos-forward',
             'level' : 'Newcomer',
+            'startFoot' : ['RF'],
+            'startAlignment' : ['DC'],
             'follow' : [
               {
                 'id' : 'NaturalBasicMovement',
@@ -227,19 +231,35 @@
               }
              ]
         },
-        'Volta' : 
+        'TravelingVoltaR' : 
          {
-            'name' : 'Volta',
+            'name' : 'Traveling Volta to Righ',
             'urlpath' : '/volta-movements',
             'level' : 'Newcomer',
+            'startFoot' : ['LF'],
+            'startAlignment' : ['Center'],
+            'follow' : [
+              {
+                'id' : 'WhiskToR',
+                'comment' : ''
+              }
+             ]
+        },
+        'TravelingVoltaL' : 
+         {
+            'name' : 'Traveling Volta to Left',
+            'urlpath' : '/volta-movements',
+            'level' : 'Newcomer',
+            'startFoot' : ['RF'],
+            'startAlignment' : ['W'],
             'follow' : [
               {
                 'id' : 'WhiskToL',
-                'comment' : 'after Traveling Volta to L'
+                'comment' : ''
               },
               {
-                'id' : 'WhiskToR',
-                'comment' : 'after Traveling Volta to R'
+                'id' : 'SambaWalkStationary',  // TravelingVoltaL is listed as a precedes for Stationary Samba Walk
+                'comment' : 'Traveling Volta to Left is in Closed Position'
               }
              ]
         },
@@ -249,6 +269,7 @@
             'urlpath' : '/rhythm-bounce',
             'level' : 'Newcomer',
             'startFoot' : ['RF', 'LF'],
+            'startAlignment' : ['various'],
             'follow' : [
              ]
         },
@@ -258,6 +279,7 @@
             'urlpath' : '/samba-walks',
             'level' : 'Newcomer',
             'startFoot' : 'RF',
+            'startAlignment' : ['Wall'],
             'follow' : [
               {
                 'id' : 'ReverseBasicMovement',
@@ -307,10 +329,11 @@
             'urlpath' : '/samba-walks',
             'level' : 'Newcomer',
             'startFoot' : 'RF',
+            'startAlignment' : ['LOD'],
             'follow' : [
               {
                 'id' : 'SambaWalkLF',
-                'comment' : 'in PP, first step fwd and slightly across'
+                'comment' : 'first step fwd and slightly across'
               },
               {
                 'id' : 'CrissCrossBotaFogos',
@@ -344,43 +367,33 @@
         },
         'SambaWalkRF' : 
          {
-            'name' : 'Samba Walk: RF',
+            'name' : 'Samba Walk in PP: RF',
             'urlpath' : '/samba-walks',
             'level' : 'Newcomer',
             'startFoot' : 'RF',
+            'startAlignment' : ['LOD'],
             'follow' : [
               {
                 'id' : 'SambaWalkLF',
-                'comment' : 'in PP'
-              },
-              {
-                'id' : 'TravelingBotaFogosBack',
                 'comment' : ''
               },
               {
-                'id' : 'CrissCrossBotaFogos',
-                'comment' : "with lady's underarm turn ending in PP"
-              },
-              {
-                'id' : 'BotaFogosToPromenadeAndCPP',
-                'comment' : ''
-              },
-              {
-                'id' : 'FootChanges',
-                'comment' : 'from R Shadow Position to PP, or from R Contra Position to PP'
+                'id' : 'WhiskToL',
+                'comment' : 'turn 1/4 R on 1, Lady to L, to face partner'
               }
              ]
         },
         'SambaWalkLF' : 
          {
-            'name' : 'Samba Walk: LF',
+            'name' : 'Samba Walk in PP: LF',
             'urlpath' : '/samba-walks',
             'level' : 'Newcomer',
+            'startAlignment' : ['LOD'],
             'startFoot' : 'LF',
             'follow' : [
               {
                 'id' : 'SambaWalkRF',
-                'comment' : 'in PP'
+                'comment' : ''
               },
               {
                 'id' : 'SambaWalkSide',
@@ -398,6 +411,8 @@
             'urlpath' : '/whisk',
             'level' : 'Newcomer',
             'startFoot' : 'RF',
+            'startAlignment' : ['W', 'various'],
+            'startDirection' : 'side',
             'follow' : [
               {
                 'id' : 'ReverseBasicMovement',
@@ -409,7 +424,7 @@
               },
               {
                 'id' : 'SambaWalkLF',
-                'comment' : 'in CPP, having turned to PP over 103 of Whisk'
+                'comment' : 'in CPP, having turned to PP over 1-3 of Whisk'
               },
               {
                 'id' : 'BotaFogosToPromenadeAndCPP',
@@ -431,6 +446,8 @@
             'urlpath' : '/whisk',
             'level' : 'Newcomer',
             'startFoot' : 'LF',
+            'startAlignment' : ['W', 'various'],
+            'startDirection' : 'side',
             'follow' : [
               {
                 'id' : 'NaturalBasicMovement',
@@ -441,8 +458,8 @@
                 'comment' : ''
               },
               {
-                'id' : 'Volta',
-                'comment' : 'traveling to L'
+                'id' : 'TravelingVoltaL',
+                'comment' : ''
               },
               {
                 'id' : 'SoloSpotVolta',
@@ -471,10 +488,16 @@
             'name' : 'Natural Basic Movement',
             'urlpath' : '/basic-movements',
             'level' : 'Newcomer',
+            'startAlignment' : ['LOD', 'DC', 'DW', 'W'],
             'startFoot' : 'RF',
+            'startDirection' : 'fwd',
             'follow' : [
               {
                 'eval' : 'MatchFigures({"startFoot" : "RF"})'
+              },
+              {
+                'eval' : 'MatchFigures({"startFoot" : "LF"})',
+                'comment' : 'after 1-3 of Natural Basic'
               }
              ]
         },
@@ -483,10 +506,16 @@
             'name' : 'Reverse Basic Movement',
             'urlpath' : '/basic-movements',
             'level' : 'Newcomer',
+            'startAlignment' : ['LOD', 'DC', 'DW', 'W'],
             'startFoot' : 'LF',
+            'startDirection' : 'fwd',
             'follow' : [
               {
                 'eval' : 'MatchFigures({"startFoot" : "LF"})'
+              },
+              {
+                'eval' : 'MatchFigures({"startFoot" : "RF"})',
+                'comment' : 'after 1-3 of Reverse Basic'
               }
              ]
         },
@@ -495,7 +524,9 @@
             'name' : 'Side Basic Movement',
             'urlpath' : '/basic-movements',
             'level' : 'Newcomer',
+            'startAlignment' : ['LOD', 'DC', 'DW', 'W'],
             'startFoot' : ['LF', 'RF'],
+            'startDirection' : 'side',
             'follow' : [
               {
                 'eval' : 'SameFollowAs("NaturalBasicMovement")'
@@ -510,6 +541,7 @@
             'name' : 'Progressive Basic Movement',
             'urlpath' : '/basic-movements',
             'level' : 'Newcomer',
+            'startAlignment' : ['W'],
             'startFoot' : 'RF',
             'follow' : [
               {
