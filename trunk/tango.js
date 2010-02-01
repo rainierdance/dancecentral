@@ -359,6 +359,9 @@
           'name' : 'Progressive Side Step Reverse Turn',
           'urlpath' : '/progressive-side-step-reverse-turn',
           'level' : 'Bronze',
+          'startAlignment' : ['DC'],
+          'startFoot' : 'LF',
+          'startDirection' : 'fwd',
           'follow' : [
             {
                 'eval' : 'SameFollowAs("OpenReverseTurnLadyOutside")'
@@ -370,6 +373,9 @@
           'name' : 'Open Promenade',
           'urlpath' : '/open-promenade',
           'level' : 'Bronze',
+          'startAlignment' : ['LOD'],
+          'startFoot' : 'LF',
+          'startDirection' : 'fwd',
           'follow' : [
               {
                 'id' : 'Walk',
@@ -480,6 +486,9 @@
           'name' : 'Natural Twist Turn',
           'urlpath' : '/natural-twist-turn',
           'level' : 'Bronze',
+          'startAlignment' : ['LOD'],
+          'startFoot' : 'LF',
+          'startDirection' : 'fwd',
           'follow' : [
               {
                 'eval' : 'MatchFigureName(" Promenade")',
@@ -500,9 +509,9 @@
           'name' : 'Natural Promenade Turn',
           'urlpath' : '/natural-promenade-turn',
           'level' : 'Bronze',
-          //'startAlignment' : ['DW'],
-          //'startFoot' : 'RF',
-          //'startDirection' : 'fwd',
+          'startAlignment' : ['LOD'],
+          'startFoot' : 'LF',
+          'startDirection' : 'fwd',
           'follow' : [
               {
                 'eval' : 'MatchFigureName(" Promenade")',
