@@ -23,7 +23,7 @@ var foxtrotFigures =
     'name' : 'Feather Step',
     'level' : 'Newcomer',
     'urlpath' : '/feather-step',
-    'startAlignment' : ['DW', 'DC'],
+    'startAlignment' : ['DW', 'DC', 'LOD'],
     'startFoot' : 'RF',
     'startDirection' : 'fwd',
     'follow' : [
@@ -148,7 +148,11 @@ var foxtrotFigures =
       },
       {
         'id' : 'BasicWeave',
-        'comment' : 'overturned 1-4 Reverse Turn, check, and Basic Weave'
+        'comment' : '1-4 Reverse Turn to end BDW, check, and Basic Weave'
+      },
+      {
+        'id' : 'BasicWeave',
+        'comment' : '1-4 Reverse Turn to end BLOD near corner, check and Basic Weave turning 1/8, 1/8, 3/8; or 1/4, 1/8, 3/4; to end DW of new LOD'
       },
       {
         'id' : 'HoverTelemark'
@@ -180,7 +184,7 @@ var foxtrotFigures =
       'startDirection' : 'back',
       'follow' : [
         {
-          'eval' : 'SameFollowAs("ReverseTurn")'
+          'eval' : 'SameFollowAs("FeatherStep")'
         }
       ]
     },
@@ -203,7 +207,7 @@ var foxtrotFigures =
       'name' : 'Change Of Direction',
       'level' : 'Bronze',
       'urlpath' : '/change-of-direction',
-      'startAligment' : ['DW'],
+      'startAlignment' : ['DW'],
       'startFoot' : 'LF',
       'startDirection' : 'fwd',
       'follow' : [
