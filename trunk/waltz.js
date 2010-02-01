@@ -105,7 +105,7 @@
             'name' : 'Closed Impetus',
             'urlpath' : '/closed-impetus',
             'level' : 'Bronze',
-            'startAlignment' : ['BLOD'],
+            'startAlignment' : ['BLOD', 'BDW'],
             'startFoot' : 'LF',
             'startDirection' : 'back',
             'follow' : [
@@ -143,7 +143,7 @@
             'startAlignment' : ['DW'],
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
-            'follow' : [
+            'follow' : [  // its precedes is listed "As Natural Turn", so anywhere Natural Turn is listed as follow, we add HesitationChange
                 {
                   'id' : 'ReverseTurn',
                   'comment' : ''
@@ -200,6 +200,10 @@
                   'comment' : 'when ending OP'
                 },
                 {
+                  'id' : 'HesitationChange', // derived from: Hesitation change has same precedes as Natural Turn
+                  'comment' : 'when ending OP'
+                },
+                {
                   'id' : 'ClosedWing',
                   'comment' : 'when ending OP'
                 },
@@ -226,12 +230,16 @@
             'name' : 'Reverse Corte',
             'urlpath' : '/reverse-corte',
             'level' : 'Bronze',
-            'startAlignment' : ['BLOD'],
+            'startAlignment' : ['BLOD', 'BDC'],
             'startFoot' : 'RF',
             'startDirection' : 'back',
             'follow' : [
                 {
                   'id' : 'NaturalTurn',
+                  'comment' : '4-6, ending DW or BDW new LOD?'
+                },
+                {
+                  'id' : 'HesitationChange', // derived from: Hesitation change has same precedes as Natural Turn
                   'comment' : '4-6, ending DW or BDW new LOD?'
                 },
                 {
@@ -292,6 +300,14 @@
                   'comment' : ''
                 },
                 {
+                  'id' : 'HesitationChange', // derived from: Hesitation change has same precedes as Natural Turn
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ChasseFromPP',
+                  'comment' : 'when ended in PP'
+                },
+                {
                   'id' : 'ClosedWing',
                   'comment' : ''
                 }
@@ -302,7 +318,7 @@
             'name' : 'Double Reverse Spin',
             'urlpath' : '/double-reverse-spin',
             'level' : 'Bronze',
-            'startAlignment' : ['LOD', 'DC'],
+            'startAlignment' : ['LOD', 'DC', 'DW'],
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
             'follow' : [
@@ -409,6 +425,10 @@
                   'comment' : '4-6'
                 },
                 {
+                  'id' : 'HesitationChange', // derived from: Hesitation change has same precedes as Natural Turn
+                  'comment' : '4-6'
+                },
+                {
                   'id' : 'ClosedImpetus',
                   'comment' : ''
                 },
@@ -431,12 +451,16 @@
             'name' : 'Progressive Chasse To R',
             'urlpath' : '/progressive-chasse-to-r',
             'level' : 'Bronze',
-            'startAlignment' : ['DC'],
+            'startAlignment' : ['DC', 'LOD'],
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
             'follow' : [
                 {
                   'id' : 'NaturalTurn',
+                  'comment' : '4-6'
+                },
+                {
+                  'id' : 'HesitationChange', // derived from: Hesitation change has same precedes as Natural Turn
                   'comment' : '4-6'
                 },
                 {
@@ -479,7 +503,11 @@
                   'comment' : ''
                 },
                 {
-                  'id' : '',
+                  'id' : 'HesitationChange', // derived from: Hesitation change has same precedes as Natural Turn
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ClosedWing',
                   'comment' : ''
                 }
               ]
@@ -580,6 +608,18 @@
                   'comment' : 'after 4-6 of Reverse Turn ended DC after undertuned Natural Spin Turn or Closed Impetus'
                 },
                 {
+                  'id' : 'BasicWeave',
+                  'comment' : 'after 1-3 of Reverse Turn when is commenced LOD'
+                },
+                {
+                  'id' : 'BasicWeave',
+                  'comment' : 'after 1-3 of Reverse Turn when ending BLOD near corner, then turn either 1/8, 1/8, 3/8; or 1/4, 1/8, 1/4 on Basic Weave to end DW of new LOD'
+                },
+                {
+                  'id' : 'ReversePivot',
+                  'comment' : 'after 1-3'
+                },
+                {
                   'id' : 'ReverseCorte',
                   'comment' : 'after 1-3 Reverse Turn'
                 },
@@ -619,6 +659,18 @@
                   'comment' : 'at corner'
                 },
                 {
+                  'id' : 'HesitationChange', // derived from: Hesitation change has same precedes as Natural Turn
+                  'comment' : 'at corner'
+                },
+                {
+                  'id' : 'ClosedImpetus',  // listed as ClosedImpetu's precedes
+                  'comment' : 'after 1-3'
+                },
+                {
+                  'id' : 'OutsideChange',  // listed as ClosedImpetu's precedes
+                  'comment' : 'after 1-3, ending BDC, either underturned, or commenced LOD'
+                },
+                {
                   'id' : 'BackWhisk',
                   'comment' : 'after 1-3 Natural Turn'
                 }
@@ -636,6 +688,10 @@
                 {
                   'eval' : 'MatchFigureName("Reverse")',
                   'comment' : ''
+                },
+                {
+                  'id' : 'ProgressiveChasseToR', // LF Closed Change listed as its precede
+                  'comment' : ''
                 }
               ]
           },
@@ -650,6 +706,10 @@
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'HesitationChange', // derived from: Hesitation change has same precedes as Natural Turn
                   'comment' : ''
                 }
               ]
