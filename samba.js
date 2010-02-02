@@ -4,7 +4,7 @@
         'foo' : 
          {
             'name' : 'foo',
-            'urlpath' : '/foo',
+            'urlpath' : 'foo',
             'level' : 'Newcomer',
             'follow' : [
              ]
@@ -182,7 +182,7 @@
         'CrissCrossBotaFogos' : 
          {
             'name' : 'Criss Cross Bota Fogos (Shadow Bota Fogos)',
-            'urlpath' : '/criss-cross-bota-fogos-shadow-bota-fogos',
+            'urlpath' : 'criss-cross-bota-fogos-shadow-bota-fogos',
             'level' : 'Newcomer',
             'startFoot' : ['LF'],
             'startAlignment' : ['DW'],
@@ -220,7 +220,7 @@
         'TravelingBotaFogosForward' : 
          {
             'name' : 'Traveling Bota Fogos Forward',
-            'urlpath' : '/traveling-bota-fogos-forward',
+            'urlpath' : 'traveling-bota-fogos-forward',
             'level' : 'Newcomer',
             'startFoot' : ['RF'],
             'startAlignment' : ['DC'],
@@ -234,7 +234,7 @@
         'TravelingVoltaR' : 
          {
             'name' : 'Traveling Volta to Righ',
-            'urlpath' : '/volta-movements',
+            'urlpath' : 'volta-movements',
             'level' : 'Newcomer',
             'startFoot' : ['LF'],
             'startAlignment' : ['Center'],
@@ -248,7 +248,7 @@
         'TravelingVoltaL' : 
          {
             'name' : 'Traveling Volta to Left',
-            'urlpath' : '/volta-movements',
+            'urlpath' : 'volta-movements',
             'level' : 'Newcomer',
             'startFoot' : ['RF'],
             'startAlignment' : ['W'],
@@ -266,7 +266,7 @@
         'RhythmBounce' : 
          {
             'name' : 'Rhythm Bounce',
-            'urlpath' : '/rhythm-bounce',
+            'urlpath' : 'rhythm-bounce',
             'level' : 'Newcomer',
             'startFoot' : ['RF', 'LF'],
             'startAlignment' : ['various'],
@@ -276,7 +276,7 @@
         'SambaWalkStationary' : 
          {
             'name' : 'Samba Walk: Stationary',
-            'urlpath' : '/samba-walks',
+            'urlpath' : 'samba-walks',
             'level' : 'Newcomer',
             'startFoot' : 'RF',
             'startAlignment' : ['Wall'],
@@ -326,7 +326,7 @@
         'SambaWalkSide' : 
          {
             'name' : 'Samba Walk: Side',
-            'urlpath' : '/samba-walks',
+            'urlpath' : 'samba-walks',
             'level' : 'Newcomer',
             'startFoot' : 'RF',
             'startAlignment' : ['LOD'],
@@ -368,7 +368,7 @@
         'SambaWalkRF' : 
          {
             'name' : 'Samba Walk in PP: RF',
-            'urlpath' : '/samba-walks',
+            'urlpath' : 'samba-walks',
             'level' : 'Newcomer',
             'startFoot' : 'RF',
             'startAlignment' : ['LOD'],
@@ -386,7 +386,7 @@
         'SambaWalkLF' : 
          {
             'name' : 'Samba Walk in PP: LF',
-            'urlpath' : '/samba-walks',
+            'urlpath' : 'samba-walks',
             'level' : 'Newcomer',
             'startAlignment' : ['LOD'],
             'startFoot' : 'LF',
@@ -408,7 +408,7 @@
         'WhiskToR' : 
          {
             'name' : 'Whisk To Right',
-            'urlpath' : '/whisk',
+            'urlpath' : 'whisk',
             'level' : 'Newcomer',
             'startFoot' : 'RF',
             'startAlignment' : ['W', 'various'],
@@ -443,7 +443,7 @@
         'WhiskToL' : 
          {
             'name' : 'Whisk To Left',
-            'urlpath' : '/whisk',
+            'urlpath' : 'whisk',
             'level' : 'Newcomer',
             'startFoot' : 'LF',
             'startAlignment' : ['W', 'various'],
@@ -486,7 +486,7 @@
         'NaturalBasicMovement' : 
          {
             'name' : 'Natural Basic Movement',
-            'urlpath' : '/basic-movements',
+            'urlpath' : 'basic-movements',
             'level' : 'Newcomer',
             'startAlignment' : ['LOD', 'DC', 'DW', 'W'],
             'startFoot' : 'RF',
@@ -504,7 +504,7 @@
         'ReverseBasicMovement' : 
          {
             'name' : 'Reverse Basic Movement',
-            'urlpath' : '/basic-movements',
+            'urlpath' : 'basic-movements',
             'level' : 'Newcomer',
             'startAlignment' : ['LOD', 'DC', 'DW', 'W'],
             'startFoot' : 'LF',
@@ -522,7 +522,7 @@
         'SideBasicMovement' : 
          {
             'name' : 'Side Basic Movement',
-            'urlpath' : '/basic-movements',
+            'urlpath' : 'basic-movements',
             'level' : 'Newcomer',
             'startAlignment' : ['LOD', 'DC', 'DW', 'W'],
             'startFoot' : ['LF', 'RF'],
@@ -539,7 +539,7 @@
         'ProgressiveBasicMovement' : 
          {
             'name' : 'Progressive Basic Movement',
-            'urlpath' : '/basic-movements',
+            'urlpath' : 'basic-movements',
             'level' : 'Newcomer',
             'startAlignment' : ['W'],
             'startFoot' : 'RF',

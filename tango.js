@@ -5,7 +5,7 @@
         'Walk' :
           {
             'name' : 'Walk',
-            'urlpath' : '/walk',
+            'urlpath' : 'walk',
             'level' : 'Newcomer',
             'startAlignment' : ['DW', 'DC', 'LOD'],
             'startFoot' : ['LF', 'RF'],
@@ -44,7 +44,7 @@
         'OpenFinish' : 
           {
             'name' : 'Open Finish',
-            'urlpath' : '/open-finish',
+            'urlpath' : 'open-finish',
             'level' : 'Newcomer',
             'startAlignment' : ['DC'],
             'startFoot' : 'RF',
@@ -119,7 +119,7 @@
         'ProgressiveSideStep' :
           {
           'name' : 'Progressive Side Step',
-          'urlpath' : '/progressive-side-step',
+          'urlpath' : 'progressive-side-step',
           'level' : 'Newcomer',
           'startAlignment' : ['DW', 'LOD', 'DC'],
           'startFoot' : 'LF',
@@ -138,7 +138,7 @@
         'ProgressiveLink' :
           {
           'name' : 'Progressive Link',
-          'urlpath' : '/progressive-link',
+          'urlpath' : 'progressive-link',
           'level' : 'Newcomer',
           'startAlignment' : ['DW'],
           'startFoot' : 'LF',
@@ -181,7 +181,7 @@
         'ClosedPromenade' :
           {
           'name' : 'Closed Promenade',
-          'urlpath' : '/closed-promenade',
+          'urlpath' : 'closed-promenade',
           'level' : 'Newcomer',
           'startAlignment' : ['DC', 'LOD', 'DW'],
           'startFoot' : 'LF',
@@ -252,7 +252,7 @@
         'RockTurn' :
           {
           'name' : 'Rock Turn',
-          'urlpath' : '/rock-turn',
+          'urlpath' : 'rock-turn',
           'level' : 'Newcomer',
           'startAlignment' : ['DW'],
           'startFoot' : 'RF',
@@ -266,7 +266,7 @@
         'OpenReverseTurnLadyOutside' :
           {
           'name' : 'Open Reverse Turn, Lady Outside',
-          'urlpath' : '/open-reverse-turn-lady-outside',
+          'urlpath' : 'open-reverse-turn-lady-outside',
           'level' : 'Newcomer',
           'startAlignment' : ['DC'],
           'startFoot' : 'LF',
@@ -329,7 +329,7 @@
         'BackCorte' :
           {
           'name' : 'Back Corte',
-          'urlpath' : '/back-corte',
+          'urlpath' : 'back-corte',
           'level' : 'Newcomer',
           'startAlignment' : ['LOD', 'DW'], // down new LOD, or dance at corner
           'startFoot' : 'LF',
@@ -343,7 +343,7 @@
         'OpenReverseTurnLadyInline' :
           {
           'name' : 'Open Reverse Turn, Lady In Line',
-          'urlpath' : '/open-reverse-turn-lady-inside',
+          'urlpath' : 'open-reverse-turn-lady-inside',
           'level' : 'Bronze',
           'startAlignment' : ['DC'],
           'startFoot' : 'LF',
@@ -357,7 +357,7 @@
         'ProgressiveSideStepReverseTurn' :
           {
           'name' : 'Progressive Side Step Reverse Turn',
-          'urlpath' : '/progressive-side-step-reverse-turn',
+          'urlpath' : 'progressive-side-step-reverse-turn',
           'level' : 'Bronze',
           'startAlignment' : ['DC'],
           'startFoot' : 'LF',
@@ -371,7 +371,7 @@
         'OpenPromenade' :
           {
           'name' : 'Open Promenade',
-          'urlpath' : '/open-promenade',
+          'urlpath' : 'open-promenade',
           'level' : 'Bronze',
           'startAlignment' : ['LOD'],
           'startFoot' : 'LF',
@@ -446,7 +446,7 @@
         'LFRock' :
           {
           'name' : 'LF Rock',
-          'urlpath' : '/lf-and-rf-rocks',
+          'urlpath' : 'lf-and-rf-rocks',
           'level' : 'Bronze',
           'startAlignment' : ['LOD'],
           'startFoot' : 'LF',
@@ -465,7 +465,7 @@
         'RFRock' :
           {
           'name' : 'RF Rock',
-          'urlpath' : '/lf-and-rf-rocks',
+          'urlpath' : 'lf-and-rf-rocks',
           'level' : 'Bronze',
           'startAlignment' : ['LOD', 'DC'],
           'startFoot' : 'RF',
@@ -484,7 +484,7 @@
         'NaturalTwistTurn' :
           {
           'name' : 'Natural Twist Turn',
-          'urlpath' : '/natural-twist-turn',
+          'urlpath' : 'natural-twist-turn',
           'level' : 'Bronze',
           'startAlignment' : ['LOD'],
           'startFoot' : 'LF',
@@ -507,7 +507,7 @@
         'NaturalPromenadeTurn' :
           {
           'name' : 'Natural Promenade Turn',
-          'urlpath' : '/natural-promenade-turn',
+          'urlpath' : 'natural-promenade-turn',
           'level' : 'Bronze',
           'startAlignment' : ['LOD'],
           'startFoot' : 'LF',
@@ -526,7 +526,7 @@
         'PromenadeLink' :
           {
           'name' : 'Promenade Link',
-          //'urlpath' : '/waltz-natural-turn',
+          //'urlpath' : 'waltz-natural-turn',
           'level' : 'Silver',
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
@@ -537,7 +537,7 @@
         'FourStep' :
           {
           'name' : 'Four Step',
-          //'urlpath' : '/waltz-natural-turn',
+          //'urlpath' : 'waltz-natural-turn',
           'level' : 'Silver',
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
@@ -548,7 +548,7 @@
         'BackOpenPromenade' :
           {
           'name' : 'Back Open Promenade',
-          //'urlpath' : '/waltz-natural-turn',
+          //'urlpath' : 'waltz-natural-turn',
           'level' : 'Silver',
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
@@ -559,7 +559,7 @@
         'ReverseOutsideSwivel' :
           {
           'name' : 'Reverse Outside Swivel',
-          //'urlpath' : '/waltz-natural-turn',
+          //'urlpath' : 'waltz-natural-turn',
           'level' : 'Silver',
           'follow' : [
             ]
@@ -567,7 +567,7 @@
         'OutsideSwivel' :
           {
           'name' : 'Outside Swivel',
-          //'urlpath' : '/waltz-natural-turn',
+          //'urlpath' : 'waltz-natural-turn',
           'level' : 'Silver',
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
@@ -578,7 +578,7 @@
         'FallawayPromenade' :
           {
           'name' : 'Fallaway  Promenade',
-          //'urlpath' : '/waltz-natural-turn',
+          //'urlpath' : 'waltz-natural-turn',
           'level' : 'Silver',
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
@@ -589,7 +589,7 @@
         'FourStepChange' :
           {
           'name' : 'Four Step Change',
-          //'urlpath' : '/waltz-natural-turn',
+          //'urlpath' : 'waltz-natural-turn',
           'level' : 'Silver',
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
@@ -600,7 +600,7 @@
         'BrushTap' :
           {
           'name' : 'Brush Tap',
-          //'urlpath' : '/waltz-natural-turn',
+          //'urlpath' : 'waltz-natural-turn',
           'level' : 'Silver',
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
@@ -611,7 +611,7 @@
         'FallawayFourStep' :
           {
           'name' : 'Fallaway Four Step',
-          //'urlpath' : '/waltz-natural-turn',
+          //'urlpath' : 'waltz-natural-turn',
           'level' : 'Gold',
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
@@ -622,7 +622,7 @@
         'Oversway' :
           {
           'name' : 'Oversway',
-          //'urlpath' : '/waltz-natural-turn',
+          //'urlpath' : 'waltz-natural-turn',
           'level' : 'Gold',
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
@@ -633,7 +633,7 @@
         'BasicReverseTurn' :
           {
           'name' : 'Basic Reverse Turn',
-          //'urlpath' : '/waltz-natural-turn',
+          //'urlpath' : 'waltz-natural-turn',
           'level' : 'Gold',
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
@@ -644,7 +644,7 @@
         'Chase' :
           {
           'name' : 'The Chase',
-          //'urlpath' : '/waltz-natural-turn',
+          //'urlpath' : 'waltz-natural-turn',
           'level' : 'Gold',
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
@@ -655,7 +655,7 @@
         'FallawayReverseAndSlipPivot' :
           {
           'name' : 'Fallaway Reverse and Slip Pivot',
-          //'urlpath' : '/waltz-natural-turn',
+          //'urlpath' : 'waltz-natural-turn',
           'level' : 'Gold',
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
@@ -666,7 +666,7 @@
         'FiveStep' :
           {
           'name' : 'Five Step',
-          //'urlpath' : '/waltz-natural-turn',
+          //'urlpath' : 'waltz-natural-turn',
           'level' : 'Gold',
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
@@ -677,7 +677,7 @@
         'ContraCheck' : 
           {
             'name' : 'Contra Check',
-            //'urlpath' : '/waltz-closed-changes',
+            //'urlpath' : 'waltz-closed-changes',
             'level' : 'Gold',
             //'startAlignment' : ['DC', 'DW'],
             //'startFoot' : ['RF', 'LF'],
