@@ -64,7 +64,7 @@
         'ClosedHipTwist' : 
           {
             'name' : 'Closed Hip Twist',
-            'urlpath' : '/closed-hip-twist',
+            'urlpath' : 'closed-hip-twist',
             'level' : 'Bronze',
             'follow' : [
                 {
@@ -124,7 +124,7 @@
         'NaturalOpeningOutMovement' : 
           {
             'name' : 'Natural Opening Out Movement',
-            'urlpath' : '/natural-opening-out-movement',
+            'urlpath' : 'natural-opening-out-movement',
             'level' : 'Bronze',
             'follow' : [
                 {
@@ -152,7 +152,7 @@
         'OpeningOutToRightAndLeft' : 
           {
             'name' : 'Opening Out To Right And Left',
-            'urlpath' : '/opening-out-to-right-and-left',
+            'urlpath' : 'opening-out-to-right-and-left',
             'level' : 'Bronze',
             'follow' : [
                 {
@@ -172,7 +172,7 @@
         'NaturalTop' : 
           {
             'name' : 'Natural Top',
-            'urlpath' : '/natural-top',
+            'urlpath' : 'natural-top',
             'level' : 'Bronze',
             'follow' : [
                 {
@@ -220,7 +220,7 @@
         'HockeyStick' : 
           {
             'name' : 'Hockey Stick',
-            'urlpath' : '/hockey-stick',
+            'urlpath' : 'hockey-stick',
             'level' : 'Bronze',
             'follow' : [
                 {
@@ -268,7 +268,7 @@
         'Alemana' : 
           {
             'name' : 'Alemana',
-            'urlpath' : '/alemana',
+            'urlpath' : 'alemana',
             'level' : 'Bronze',
             'follow' : [
                 {
@@ -292,7 +292,7 @@
         'Fan' : 
           {
             'name' : 'Fan',
-            'urlpath' : '/fan',
+            'urlpath' : 'fan',
             'level' : 'Bronze',
             'follow' : [
                 {
@@ -320,7 +320,7 @@
         'CubanRocks' : 
           {
             'name' : 'Cuban Rocks',
-            'urlpath' : '/cuban-rocks',
+            'urlpath' : 'cuban-rocks',
             'level' : 'Newcomer',
             'follow' : [
                 {
@@ -364,7 +364,7 @@
         'SideSteps' : 
           {
             'name' : 'Side Steps',
-            'urlpath' : '/side-steps',
+            'urlpath' : 'side-steps',
             'level' : 'Newcomer',
             'follow' : [
                 {
@@ -416,7 +416,7 @@
         'ProgressiveWalks' : 
           {
             'name' : 'Progressive Walks',
-            'urlpath' : '/progressive-walks',
+            'urlpath' : 'progressive-walks',
             'level' : 'Newcomer',
             'follow' : [
                 {
@@ -492,7 +492,7 @@
         'HandToHand' : 
           {
             'name' : 'Hand To Hand',
-            'urlpath' : '/hand-to-hand',
+            'urlpath' : 'hand-to-hand',
             'level' : 'Newcomer',
             'follow' : [
                 {
@@ -552,7 +552,7 @@
         'ShoulderToShoulder' : 
           {
             'name' : 'Shoulder To Shoulder',
-            'urlpath' : '/shoulder-to-shoulder',
+            'urlpath' : 'shoulder-to-shoulder',
             'level' : 'Newcomer',
             'follow' : [
                 {
@@ -604,7 +604,7 @@
         'SpotTurn' : 
           {
             'name' : 'Spot or Switch Turn',
-            'urlpath' : '/spot-turns',
+            'urlpath' : 'spot-turns',
             'level' : 'Newcomer',
             'follow' : [
                 {
@@ -666,7 +666,7 @@
         'UnderarmTurn' : 
           {
             'name' : 'Underarm Turn',
-            'urlpath' : '/spot-turns',
+            'urlpath' : 'spot-turns',
             'level' : 'Newcomer',
             'follow' : [
                 {
@@ -713,7 +713,7 @@
         'NewYork' : 
           {
             'name' : 'New York',
-            'urlpath' : '/new-york',
+            'urlpath' : 'new-york',
             'level' : 'Newcomer',
             'follow' : [
                 {
@@ -761,7 +761,7 @@
         'Cucarachas' : 
           {
             'name' : 'Cucarachas',
-            'urlpath' : '/cucarachas',
+            'urlpath' : 'cucarachas',
             'level' : 'Newcomer',
             'follow' : [
                 {
@@ -791,7 +791,7 @@
         'Cucarachas' : 
           {
             'name' : 'Cucarachas',
-            'urlpath' : '/cucarachas',
+            'urlpath' : 'cucarachas',
             'level' : 'Newcomer',
             'follow' : [
                 {
@@ -821,7 +821,7 @@
         'BasicMovementsClosed' : 
           {
             'name' : 'Basic Movements: Closed',
-            'urlpath' : '/basic-movements',
+            'urlpath' : 'basic-movements',
             'level' : 'Newcomer',
             'follow' : [
                 {
@@ -897,7 +897,7 @@
         'BasicMovementsOpen' : 
          {
             'name' : 'Basic Movements: Open',
-            'urlpath' : '/basic-movements',
+            'urlpath' : 'basic-movements',
             'level' : 'Newcomer',
             'follow' : [
                 {

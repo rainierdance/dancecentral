@@ -6,7 +6,7 @@
           {
             'name' : 'Change of Direction',
             'level' : 'Bronze',
-            'urlpath' : '/change-of-direction',
+            'urlpath' : 'change-of-direction',
             'startAlignment' : ['DW'],
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
@@ -87,7 +87,7 @@
         'ZigZagBackLockAndRunningFinish' : 
           {
             'name' : 'Zig-Zag, Back Lock And Running Finish',
-            'urlpath' : '/zig-zag-back-lock-and-running-finish',
+            'urlpath' : 'zig-zag-back-lock-and-running-finish',
             'level' : 'Bronze',
             'startAlignment' : ['LOD'],
             'startFoot' : 'LF',
@@ -107,7 +107,7 @@
         'CrossChasse' : 
           {
             'name' : 'Cross Chasse',
-            'urlpath' : '/cross-chasse',
+            'urlpath' : 'cross-chasse',
             'level' : 'Bronze',
             'startAlignment' : ['DW'],
             'startFoot' : 'LF',
@@ -127,7 +127,7 @@
         'HeelPivot' : 
           {
             'name' : 'Heel Pivot (Quarter Turn To Left)',
-            'urlpath' : '/heel-pivot-quarter-turn-to-left',
+            'urlpath' : 'heel-pivot-quarter-turn-to-left',
             'level' : 'Newcomer',
             'startAlignment' : ['BDC', 'DW'], // when previous step is underturned
             'startFoot' : 'RF',
@@ -177,7 +177,7 @@
         'DoubleReverseSpin' : 
           {
             'name' : 'Double Reverse Spin',
-            'urlpath' : '/double-reverse-spin',
+            'urlpath' : 'double-reverse-spin',
             'level' : 'Bronze',
             'startAlignment' : ['LOD', 'DC', 'DW'],
             'startFoot' : 'LF',
@@ -219,7 +219,7 @@
         'NaturalTurnAndBackLock' : 
           {
             'name' : 'Natural Turn And Back Lock',
-            'urlpath' : '/natural-turn-and-back-lock',
+            'urlpath' : 'natural-turn-and-back-lock',
             'level' : 'Bronze',
             'startAlignment' : ['DW'],
             'startFoot' : 'RF',
@@ -242,7 +242,7 @@
         'RunningFinish' : 
           {
             'name' : 'Running Finish',
-            'urlpath' : '/running-finish',
+            'urlpath' : 'running-finish',
             'level' : 'Bronze',
             'startAlignment' : ['BDW', 'BLOD'],
             'startFoot' : 'LF',
@@ -279,7 +279,7 @@
         'TippleChasseToRight' : 
           {
             'name' : 'Tipple Chasse To Right',
-            'urlpath' : '/tipple-chasse-to-r',
+            'urlpath' : 'tipple-chasse-to-r',
             'level' : 'Bronze',
             'startAlignment' : ['BLOD', 'BDW'],
             'startFoot' : 'LF',
@@ -321,7 +321,7 @@
         'ProgressiveChasseToRight' : 
           {
             'name' : 'Progressive Chasse To Right',
-            'urlpath' : '/progressive-chasse-to-r',
+            'urlpath' : 'progressive-chasse-to-r',
             'level' : 'Bronze',
             'startAlignment' : ['DC', 'LOD'],
             'startFoot' : 'RF',
@@ -359,7 +359,7 @@
         'ReversePivot' : 
           {
             'name' : 'Reverse Pivot',
-            'urlpath' : '/reverse-pivot',
+            'urlpath' : 'reverse-pivot',
             'level' : 'Bronze',
             'startAlignment' : ['BDC', 'BLOD'],
             'startFoot' : 'RF',
@@ -401,7 +401,7 @@
         'BackLock' : 
           {
             'name' : 'Back Lock',
-            'urlpath' : '/back-lock',
+            'urlpath' : 'back-lock',
             'level' : 'Bronze',
             'startAlignment' : ['BDW'],
             'startFoot' : 'LF',
@@ -427,7 +427,7 @@
         'ClosedImpetus' : 
           {
             'name' : 'Closed Impetus',
-            'urlpath' : '/closed-impetus',
+            'urlpath' : 'closed-impetus',
             'level' : 'Bronze',
             'startAlignment' : ['BLOD'],
             'startFoot' : 'LF',
@@ -464,7 +464,7 @@
         'ChasseReverseTurn' : 
           {
             'name' : 'Chasse Reverse Turn',
-            'urlpath' : '/chasse-reverse-turn',
+            'urlpath' : 'chasse-reverse-turn',
             'level' : 'Newcomer',
             'startAlignment' : ['DC'],
             'startFoot' : 'LF',
@@ -491,7 +491,7 @@
         'NaturalPivotTurn' : 
           {
             'name' : 'Natural Pivot Turn',
-            'urlpath' : '/natural-pivot-turn',
+            'urlpath' : 'natural-pivot-turn',
             'level' : 'Newcomer',
             'startAlignment' : ['DW'],
             'endAlignment' : 'BLOD',
@@ -509,7 +509,7 @@
         'NaturalSpinTurn' : 
           {
             'name' : 'Natural Spin Turn',
-            'urlpath' : '/natural-spin-turn',
+            'urlpath' : 'natural-spin-turn',
             'level' : 'Newcomer',
             'startAlignment' : ['DW'],
             'endAlignment' : 'BDC',
@@ -545,7 +545,7 @@
         'NaturalTurnWithHesitation' : 
           {
             'name' : 'Natural Turn With Hesitation',
-            'urlpath' : '/natural-turn-with-hesitation',
+            'urlpath' : 'natural-turn-with-hesitation',
             'level' : 'Newcomer',
             'startAlignment' : ['DW'],
             'endAlignment' : 'DC', // old LOD.
@@ -566,7 +566,7 @@
         'NaturalTurn' : 
           {
             'name' : 'Natural Turn',
-            'urlpath' : '/natural-turn',
+            'urlpath' : 'natural-turn',
             'level' : 'Newcomer',
             'startAlignment' : ['DW'],
             'endAlignment' : 'DW',
@@ -609,7 +609,7 @@
         'QuarterTurnToRight' : 
           {
             'name' : 'Quarter Turn to Right',
-            'urlpath' : '/quarter-turn-to-right',
+            'urlpath' : 'quarter-turn-to-right',
             'level' : 'Newcomer',
             'startAlignment' : ['DW', 'LOD'],
             'endAlignment' : 'BDC',
@@ -649,7 +649,7 @@
         'ForwardLock' : 
           {
             'name' : 'Forward Lock',
-            'urlpath' : '/forward-lock',
+            'urlpath' : 'forward-lock',
             'level' : 'Newcomer',
             'startAlignment' : ['DW'],
             'endAlignment' : 'DW',
@@ -689,7 +689,7 @@
         'ProgressiveChasse' : 
           {
             'name' : 'Progressive Chasse',
-            'urlpath' : '/progressive-chasse',
+            'urlpath' : 'progressive-chasse',
             'level' : 'Newcomer',
             'startAlignment' : ['BDC', 'BLOD'],
             'endAlignment' : 'DW',

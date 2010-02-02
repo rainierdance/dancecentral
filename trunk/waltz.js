@@ -103,7 +103,7 @@
         'ClosedImpetus' : 
           {
             'name' : 'Closed Impetus',
-            'urlpath' : '/closed-impetus',
+            'urlpath' : 'closed-impetus',
             'level' : 'Bronze',
             'startAlignment' : ['BLOD', 'BDW'],
             'startFoot' : 'LF',
@@ -138,7 +138,7 @@
         'HesitationChange' : 
           {
             'name' : 'Hesitation Change',
-            'urlpath' : '/hesitation-change',
+            'urlpath' : 'hesitation-change',
             'level' : 'Bronze',
             'startAlignment' : ['DW'],
             'startFoot' : 'RF',
@@ -189,7 +189,7 @@
         'OutsideChange' : 
           {
             'name' : 'Outside Change',
-            'urlpath' : '/outside-change',
+            'urlpath' : 'outside-change',
             'level' : 'Bronze',
             'startAlignment' : ['BDC'],
             'startFoot' : 'LF',
@@ -228,7 +228,7 @@
         'ReverseCorte' : 
           {
             'name' : 'Reverse Corte',
-            'urlpath' : '/reverse-corte',
+            'urlpath' : 'reverse-corte',
             'level' : 'Bronze',
             'startAlignment' : ['BLOD', 'BDC'],
             'startFoot' : 'RF',
@@ -275,7 +275,7 @@
         'BackWhisk' : 
           {
             'name' : 'Back Whisk',
-            'urlpath' : '/back-whisk',
+            'urlpath' : 'back-whisk',
             'level' : 'Bronze',
             'startAlignment' : ['DW'],
             'startFoot' : 'LF',
@@ -289,7 +289,7 @@
         'BasicWeave' : 
           {
             'name' : 'Basic Weave',
-            'urlpath' : '/basic-weave',
+            'urlpath' : 'basic-weave',
             'level' : 'Bronze',
             'startAlignment' : ['BDW'],
             'startFoot' : 'RF',
@@ -316,7 +316,7 @@
         'DoubleReverseSpin' : 
           {
             'name' : 'Double Reverse Spin',
-            'urlpath' : '/double-reverse-spin',
+            'urlpath' : 'double-reverse-spin',
             'level' : 'Bronze',
             'startAlignment' : ['LOD', 'DC', 'DW'],
             'startFoot' : 'LF',
@@ -367,7 +367,7 @@
         'ReversePivot' : 
           {
             'name' : 'Reverse Pivot',
-            'urlpath' : '/reverse-pivot',
+            'urlpath' : 'reverse-pivot',
             'level' : 'Bronze',
             'startAlignment' : ['BLOD', 'BDC'],
             'startFoot' : 'RF',
@@ -414,7 +414,7 @@
         'BackLock' : 
           {
             'name' : 'Back Lock',
-            'urlpath' : '/back-lock',
+            'urlpath' : 'back-lock',
             'level' : 'Bronze',
             'startAlignment' : ['BDW'],
             'startFoot' : 'LF',
@@ -449,7 +449,7 @@
         'ProgressiveChasseToR' : 
           {
             'name' : 'Progressive Chasse To R',
-            'urlpath' : '/progressive-chasse-to-r',
+            'urlpath' : 'progressive-chasse-to-r',
             'level' : 'Bronze',
             'startAlignment' : ['DC', 'LOD'],
             'startFoot' : 'LF',
@@ -492,7 +492,7 @@
         'ChasseFromPP' : 
           {
             'name' : 'Chasse From Promenade Position',
-            'urlpath' : '/chasse-from-promenade-position',
+            'urlpath' : 'chasse-from-promenade-position',
             'level' : 'Newcomer',
             'startAlignment' : ['DW'],
             'startFoot' : 'RF',
@@ -515,7 +515,7 @@
         'Whisk' : 
           {
             'name' : 'Whisk',
-            'urlpath' : '/waltz-whisk',
+            'urlpath' : 'waltz-whisk',
             'level' : 'Newcomer',
             'startAlignment' : ['DW'],
             'startFoot' : 'LF',
@@ -546,7 +546,7 @@
         'NaturalSpinTurn' : 
           {
             'name' : 'Natural Spin Turn',
-            'urlpath' : '/waltz-natural-spin-turn',
+            'urlpath' : 'waltz-natural-spin-turn',
             'level' : 'Newcomer',
             'startAlignment' : ['DW'],
             'startFoot' : 'RF',
@@ -585,7 +585,7 @@
         'ReverseTurn' : 
           {
             'name' : 'Reverse Turn',
-            'urlpath' : '/waltz-reverse-turn',
+            'urlpath' : 'waltz-reverse-turn',
             'level' : 'Newcomer',
             'startAlignment' : ['DC'],
             'startFoot' : 'LF',
@@ -644,7 +644,7 @@
         'NaturalTurn' : 
           {
             'name' : 'Natural Turn',
-            'urlpath' : '/waltz-natural-turn',
+            'urlpath' : 'waltz-natural-turn',
             'level' : 'Newcomer',
             'startAlignment' : ['DW'],
             'startFoot' : 'RF',
@@ -679,7 +679,7 @@
         'ClosedChangeRF' : 
           {
             'name' : 'Closed Change RF',
-            'urlpath' : '/waltz-closed-changes',
+            'urlpath' : 'waltz-closed-changes',
             'level' : 'Newcomer',
             'startAlignment' : ['DC'],
             'startFoot' : ['RF'],
@@ -698,7 +698,7 @@
         'ClosedChangeLF' : 
           {
             'name' : 'Closed Change LF',
-            'urlpath' : '/waltz-closed-changes',
+            'urlpath' : 'waltz-closed-changes',
             'level' : 'Newcomer',
             'startAlignment' : ['DW'],
             'startFoot' : ['LF'],

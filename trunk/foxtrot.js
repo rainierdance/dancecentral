@@ -4,7 +4,7 @@
 'PatternName' : 
 	{
 		'name' : 'Pattern Name',
-		'urlpath' : '/pattern-name',
+		'urlpath' : 'pattern-name',
 		'level' : 'Level',
 		'startAlignment' : ['LOD'],
 		'startFoot' : 'LF',
@@ -22,7 +22,7 @@ var foxtrotFigures =
     {
     'name' : 'Feather Step',
     'level' : 'Newcomer',
-    'urlpath' : '/feather-step',
+    'urlpath' : 'feather-step',
     'startAlignment' : ['DW', 'DC', 'LOD'],
     'startFoot' : 'RF',
     'startDirection' : 'fwd',
@@ -68,7 +68,7 @@ var foxtrotFigures =
   'ThreeStep' : 
     {
     'name' : 'Three Step',
-    'urlpath' : '/three-step',
+    'urlpath' : 'three-step',
     'level' : 'Newcomer',
     'startAlignment' : ['LOD', 'DW'],
     'startFoot' : 'RF',
@@ -100,7 +100,7 @@ var foxtrotFigures =
   'NaturalTurn' : 
     {
     'name' : 'Natural Turn',
-    'urlpath' : '/natural-turn',
+    'urlpath' : 'natural-turn',
     'level' : 'Newcomer',
     'startAlignment' : ['LOD', 'DW'],
     'startFoot' : 'RF',
@@ -134,7 +134,7 @@ var foxtrotFigures =
   'ReverseTurn' : 
     {
     'name' : 'Reverse Turn',
-    'urlpath' : '/reverse-turn',
+    'urlpath' : 'reverse-turn',
     'level' : 'Newcomer',
     'startAlignment' : ['DC'], 
     'startFoot' : 'LF',
@@ -177,7 +177,7 @@ var foxtrotFigures =
   'ClosedImpetusAndFeatherFinish' : 
     {
       'name' : 'Closed Impetus and Feather Finish',
-      'urlpath' : '/closed-impetus',
+      'urlpath' : 'closed-impetus',
       'level' : 'Newcomer',
       'startAlignment' : ['BLOD'],
       'startFoot' : 'LF',
@@ -191,7 +191,7 @@ var foxtrotFigures =
   'NaturalWeave' : 
     {
       'name' : 'Natural Weave',
-      'urlpath' : '/natural-weave',
+      'urlpath' : 'natural-weave',
       'level' : 'Bronze',
       'startAlignment' : ['LOD'],
       'startFoot' : 'RF',
@@ -206,7 +206,7 @@ var foxtrotFigures =
     {
       'name' : 'Change Of Direction',
       'level' : 'Bronze',
-      'urlpath' : '/change-of-direction',
+      'urlpath' : 'change-of-direction',
       'startAlignment' : ['DW'],
       'startFoot' : 'LF',
       'startDirection' : 'fwd',
@@ -223,7 +223,7 @@ var foxtrotFigures =
   'BasicWeave' : 
     {
       'name' : 'Basic Weave',
-      'urlpath' : '/basic-weave',
+      'urlpath' : 'basic-weave',
       'level' : 'Bronze',
       'startAlignment' : ['BDW'],
       'startFoot' : 'LF',
