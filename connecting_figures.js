@@ -52,7 +52,7 @@ function initVars() {
       'type' : 'standard'
     },
     'Foxtrot' : {
-      'urlprefix' : 'foxtrot',
+      'urlprefix' : 'slow-foxtrot',
       'figures' : foxtrotFigures,
       'type' : 'standard'
     },

@@ -1731,7 +1731,7 @@
         'BasicInPlace' : 
           {
             'name' : 'Basic Movement In Place',
-            'urlpath' : '/new-york',
+            'urlpath' : '/cha-cha-basic',
             'level' : 'Newcomer',
             'comment' : 'can be danced in place of Closed Basic',
             'follow' : [
@@ -1743,7 +1743,7 @@
         'ClosedBasic' : 
          {
             'name' : 'Closed Basic Movement',
-            'urlpath' : 'cha-cha-basic',
+            'urlpath' : '/cha-cha-basic',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -1840,7 +1840,7 @@
         'OpenBasic' : 
          {
             'name' : 'Open Basic Movement',
-            'urlpath' : 'cha-cha-basic',
+            'urlpath' : '/cha-cha-basic',
             'level' : 'Newcomer',
             'follow' : [
               {

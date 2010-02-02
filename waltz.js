@@ -492,7 +492,7 @@
         'ChasseFromPP' : 
           {
             'name' : 'Chasse From Promenade Position',
-            'urlpath' : '/waltz-chasse-from-promenade-position',
+            'urlpath' : '/chasse-from-promenade-position',
             'level' : 'Newcomer',
             'startAlignment' : ['DW'],
             'startFoot' : 'RF',
