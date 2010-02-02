@@ -19,6 +19,7 @@ var sortedIds = []; // display figures in alphabetically order
 var showPrecedes = true;  // whether to show preceding figures
 var showFollows = true;
 var showComments = true;  // whether to show preceding figures
+var generateRelativeUrl = false;  // for figure links
 
 var selectedFigureName = inputFigureName; // current selected figure name
 
@@ -79,7 +80,7 @@ function initVars() {
   };
 
   isLatinDance = DANCE_MAP[inputDance]['type'] == 'latin';
-  URL_BASE = 'http://www.dancecentral.info/ballroom/international-style/' + DANCE_MAP[inputDance]['urlprefix'];    
+  URL_BASE = 'http://www.dancecentral.info/ballroom/international-style/' + DANCE_MAP[inputDance]['urlprefix'] + '/';    
   figures = DANCE_MAP[inputDance]['figures'];
   selectedFigureName = inputFigureName; 
 
@@ -242,8 +243,9 @@ function getFigureLink(figureID, inPage) {
       if (inPage)
         output.push(' target="_self" href="javascript:selectFigure(\'' + figureID + '\')');
         //output.push(' target="_self" href="#section_' + figureID);
-      else
-        output.push(' href="' + URL_BASE + figure['urlpath']);
+      else {
+        output.push(' href="' + (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath']);
+      }
       //output.push('?tmpl=/system/app/templates/print/');
       output.push('">' + name + '</a> ');
       if (!inPage && showComments) {  // show the rest of the configuration
@@ -441,7 +443,8 @@ function onClickFigure(figureID) {
   // update the routine list
   var output = [];
   var figure = figures[figureID];
-  output.push('<li><a href="' + URL_BASE + figure['urlpath'] + '">' + figure['name'] + '</a> &nbsp;&nbsp; </li>');
+  output.push('<li><a href="' + 
+      (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath'] + '">' + figure['name'] + '</a> &nbsp;&nbsp; </li>');
   var element = document.getElementById('spanRoutine');
   var content = element.innerHTML.replace(/^<ol>/, '').replace(/<\/ol>$/, '');
   element.innerHTML = '<ol>' + content + output.join('') + '</ol>';
