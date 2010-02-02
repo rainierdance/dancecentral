@@ -4,7 +4,7 @@
         'foo' : 
           {
             'name' : 'foo',
-            'urlpath' : '/foo',
+            'urlpath' : 'foo',
             'level' : 'Gold',
             'follow' : [
               ]
@@ -147,7 +147,7 @@
         'ClosedHipTwist' : 
           {
             'name' : 'Closed Hip Twist',
-            'urlpath' : '/closed-hip-twist',
+            'urlpath' : 'closed-hip-twist',
             'level' : 'Bronze',
             'follow' : [
               {
@@ -243,7 +243,7 @@
         'NaturalOpeningOutMovement' : 
           {
             'name' : 'Natural Opening Out Movement',
-            'urlpath' : '/natural-opening-out-movement',
+            'urlpath' : 'natural-opening-out-movement',
             'level' : 'Bronze',
             'follow' : [
               {
@@ -271,7 +271,7 @@
         'NaturalTop' : 
           {
             'name' : 'Natural Top',
-            'urlpath' : '/natural-top',
+            'urlpath' : 'natural-top',
             'level' : 'Bronze',
             'follow' : [
               {
@@ -327,7 +327,7 @@
         'HockeyStick' : 
           {
             'name' : 'Hockey Stick',
-            'urlpath' : '/hockey-stick',
+            'urlpath' : 'hockey-stick',
             'level' : 'Bronze',
             'follow' : [
               {
@@ -419,7 +419,7 @@
         'Alemana' : 
           {
             'name' : 'Alemana',
-            'urlpath' : '/alemana',
+            'urlpath' : 'alemana',
             'level' : 'Bronze',
             'follow' : [
               {
@@ -511,7 +511,7 @@
         'Fan' : 
           {
             'name' : 'Fan',
-            'urlpath' : '/fan',
+            'urlpath' : 'fan',
             'level' : 'Bronze',
             'follow' : [
               {
@@ -527,7 +527,7 @@
         'TimeStepRF' : 
           {
             'name' : 'Time Step RF',
-            'urlpath' : '/time-step',
+            'urlpath' : 'time-step',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -619,7 +619,7 @@
         'TimeStepLF' : 
           {
             'name' : 'Time Step LF',
-            'urlpath' : '/time-step',
+            'urlpath' : 'time-step',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -675,7 +675,7 @@
         'ThereAndBack' : 
           {
             'name' : 'There And Back',
-            'urlpath' : '/there-and-back',
+            'urlpath' : 'there-and-back',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -731,7 +731,7 @@
         'SideStepLeftLF' : 
           {
             'name' : 'Side Step To Left commenced with LF',
-            'urlpath' : '/side-step',
+            'urlpath' : 'side-step',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -783,7 +783,7 @@
         'SideStepLeftRF' : 
           {
             'name' : 'Side Step To Left commenced with RF',
-            'urlpath' : '/side-step',
+            'urlpath' : 'side-step',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -811,7 +811,7 @@
         'SideStepRightRF' : 
           {
             'name' : 'Side Step To Right commenced with RF',
-            'urlpath' : '/side-step',
+            'urlpath' : 'side-step',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -863,7 +863,7 @@
         'SideStepRightLF' : 
           {
             'name' : 'Side Step To Right commenced with LF',
-            'urlpath' : '/side-step',
+            'urlpath' : 'side-step',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -891,7 +891,7 @@
         'ThreeChaChaChasFwd' : 
           {
             'name' : 'Three Cha Cha Chas Forward',
-            'urlpath' : '/three-cha-cha-chas',
+            'urlpath' : 'three-cha-cha-chas',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -955,7 +955,7 @@
         'ThreeChaChaChasBack' : 
           {
             'name' : 'Three Cha Cha Chas Back',
-            'urlpath' : '/three-cha-cha-chas',
+            'urlpath' : 'three-cha-cha-chas',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -991,7 +991,7 @@
         'HandToHandRSP' : 
           {
             'name' : 'Hand To Hand RSP',
-            'urlpath' : '/hand-to-hand',
+            'urlpath' : 'hand-to-hand',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -1059,7 +1059,7 @@
         'HandToHandLSP' : 
           {
             'name' : 'Hand To Hand LSP',
-            'urlpath' : '/hand-to-hand',
+            'urlpath' : 'hand-to-hand',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -1127,7 +1127,7 @@
         'ShoulderToShoulderL' : 
           {
             'name' : 'Shoulder To Shoulder Left Side',
-            'urlpath' : '/shoulder-to-shoulder',
+            'urlpath' : 'shoulder-to-shoulder',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -1211,7 +1211,7 @@
         'ShoulderToShoulderR' : 
           {
             'name' : 'Shoulder To Shoulder Right Side',
-            'urlpath' : '/shoulder-to-shoulder',
+            'urlpath' : 'shoulder-to-shoulder',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -1295,7 +1295,7 @@
         'UnderarmTurnToR' : 
           {
             'name' : 'Underarm Turn To R',
-            'urlpath' : '/spot-turn',
+            'urlpath' : 'spot-turn',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -1363,7 +1363,7 @@
         'UnderarmTurnToL' : 
           {
             'name' : 'Underarm Turn to L',
-            'urlpath' : '/spot-turn',
+            'urlpath' : 'spot-turn',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -1427,7 +1427,7 @@
         'SpotTurnToL' : 
           {
             'name' : 'Spot or Switch Turn To L (Lady to R)',
-            'urlpath' : '/spot-turn',
+            'urlpath' : 'spot-turn',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -1531,7 +1531,7 @@
         'SpotTurnToR' : 
           {
             'name' : 'Spot or Switch Turn To R (Lady to L)',
-            'urlpath' : '/spot-turn',
+            'urlpath' : 'spot-turn',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -1595,7 +1595,7 @@
         'NewYorkRSP' : 
           {
             'name' : 'New York RSP',
-            'urlpath' : '/new-york',
+            'urlpath' : 'new-york',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -1667,7 +1667,7 @@
         'NewYorkLSP' : 
           {
             'name' : 'New York LSP',
-            'urlpath' : '/new-york',
+            'urlpath' : 'new-york',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -1731,7 +1731,7 @@
         'BasicInPlace' : 
           {
             'name' : 'Basic Movement In Place',
-            'urlpath' : '/cha-cha-basic',
+            'urlpath' : 'cha-cha-basic',
             'level' : 'Newcomer',
             'comment' : 'can be danced in place of Closed Basic',
             'follow' : [
@@ -1743,7 +1743,7 @@
         'ClosedBasic' : 
          {
             'name' : 'Closed Basic Movement',
-            'urlpath' : '/cha-cha-basic',
+            'urlpath' : 'cha-cha-basic',
             'level' : 'Newcomer',
             'follow' : [
               {
@@ -1840,7 +1840,7 @@
         'OpenBasic' : 
          {
             'name' : 'Open Basic Movement',
-            'urlpath' : '/cha-cha-basic',
+            'urlpath' : 'cha-cha-basic',
             'level' : 'Newcomer',
             'follow' : [
               {
