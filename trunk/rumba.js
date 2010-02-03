@@ -69,7 +69,7 @@
             'follow' : [
                 {
                    'id' : 'Alemana',
-                   'comment' : 'when ending in Fan position or Open Position'
+                   'comment' : 'when ending in Fan position'
                 },
                 {
                    'id' : 'HockeyStick',
@@ -89,7 +89,15 @@
                 },
                 {
                    'id' : 'BasicMovementsOpen',
-                   'comment' : 'when ending open position, follow with Open Basic or 1-3 Open Basic into Progressive Walks Back or Natural Top'
+                   'comment' : 'when ending Open Position'
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : '1-3 Open Basic into Progressive Walks Back or Natural Top, when Closed Hip Twist ends in Open Position'
+                },
+                {
+                   'id' : 'Alemana',
+                   'comment' : 'when ending in Open Position'
                 },
                 {
                    'id' : 'OpenHipTwist',
@@ -104,20 +112,20 @@
                    'comment' : 'when ending in Open position'
                 },
                 {
-                   'id' : 'NewYork',
-                   'comment' : 'LSP, when ending in Open CPP'
+                   'id' : 'NewYorkLSP',
+                   'comment' : 'when ending in Open CPP'
                 },
                 {
-                   'id' : 'SpotTurn',
-                   'comment' : 'to R, Lady to L when ending in Open CPP'
+                   'id' : 'SpotTurnR',
+                   'comment' : 'Lady to L when ending in Open CPP'
                 },
                 {
-                   'id' : 'UnderarmTurn',
-                   'comment' : 'to L, when ending in Open CPP'
+                   'id' : 'UnderarmTurnL',
+                   'comment' : 'when ending in Open CPP'
                 },
                 {
                    'id' : 'ReverseTop',
-                   'comment' : '4-6 or 4-9 when ending in contact position'
+                   'comment' : '4-6 or 4-9 when ending in Contact Position'
                 }
               ]
           },
@@ -136,8 +144,8 @@
                    'comment' : '4-6'
                 },
                 {
-                   'id' : 'UnderarmTurn',
-                   'comment' : 'to R'
+                   'id' : 'UnderarmTurnR',
+                   'comment' : ''
                 },
                 {
                    'id' : 'Fan',
@@ -225,11 +233,19 @@
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
-                   'comment' : 'can follow with Progressive Walks Back or Natural Top'
+                   'comment' : ''
                 },
                 {
-                   'id' : 'ShoulderToShoulder',
-                   'comment' : 'Left side'
+                   'id' : 'ShoulderToShoulderL',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : '1-3 Open Basic into Progressive Walks Back'
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : '1-3 Open Basic into Natural Top'
                 },
                 {
                    'id' : 'Alemana',
@@ -252,16 +268,16 @@
                    'comment' : ''
                 },
                 {
-                   'id' : 'NewYork',
-                   'comment' : 'LSP when Hockey Stick ends in Open CPP'
+                   'id' : 'NewYorkLSP',
+                   'comment' : 'when Hockey Stick ends in Open CPP'
                 },
                 {
-                   'id' : 'SpotTurn',
-                   'comment' : 'to R (Lady to L), when Hockey Stick ends in Open CPP'
+                   'id' : 'SpotTurnR',
+                   'comment' : 'when Hockey Stick ends in Open CPP'
                 },
                 {
-                   'id' : 'UnderarmTurn',
-                   'comment' : 'to L, when Hockey Stick ends in Open CPP'
+                   'id' : 'UnderarmTurnL',
+                   'comment' : 'when Hockey Stick ends in Open CPP'
                 }
               ]
           },
@@ -286,6 +302,66 @@
                 {
                    'id' : 'OpeningOutToRightAndLeft',
                    'comment' : 'Lady LF side on 6'
+                },
+                {
+                   'id' : 'HandToHandRSP',
+                   'comment' : 'when ending to side'
+                },
+                {
+                   'id' : 'SideStepLeftLF',
+                   'comment' : 'when ending to side'
+                },
+                {
+                   'id' : 'SideStepRightLF',
+                   'comment' : 'when ending to side'
+                },
+                {
+                   'id' : 'CubanRockLF',
+                   'comment' : 'when ending to side'
+                },
+                {
+                   'id' : 'SyncopatedCubanRockLF',
+                   'comment' : 'when ending to side'
+                },
+                {
+                   'id' : 'NewYorkLSP',
+                   'comment' : 'when ending diagonally fwd in Open CPP'
+                },
+                {
+                   'id' : 'SpotTurnR',
+                   'comment' : 'when ending diagonally fwd in Open CPP'
+                },
+                {
+                   'id' : 'UnderarmTurnL',
+                   'comment' : 'when ending diagonally fwd in Open CPP'
+                },
+                {
+                   'id' : 'NaturalOpeningOutMovement',
+                   'comment' : 'when ending Lady fwd toards Man\'s R side'
+                },
+                {
+                   'id' : 'ClosedHipTwist',
+                   'comment' : 'when ending Lady fwd toards Man\'s R side'
+                },
+                {
+                   'id' : 'Spiral',
+                   'comment' : 'when ending Lady fwd toards Man\'s R side'
+                },
+                {
+                   'id' : 'RopeSpinning',
+                   'comment' : 'when ending Lady fwd toards Man\'s R side'
+                },
+                {
+                   'id' : 'HipTwists',
+                   'comment' : 'when ending fwd towards partner\'s R side'
+                },
+                {
+                   'id' : 'ProgressiveWalksFwdRShadow',
+                   'comment' : 'when ending R Shadow Position'
+                },
+                {
+                   'id' : 'SlidingDoors',
+                   'comment' : '7-12, when ending R Shadow Position'
                 }
               ]
           },
