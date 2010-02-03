@@ -84,6 +84,19 @@ function initVars() {
   figures = DANCE_MAP[inputDance]['figures'];
   selectedFigureName = inputFigureName; 
 
+  // if there is a figure name, we need to reset the Level to at least include the figure's level
+  // otherwise, it will apear to list all figures, nothing matches. not expectedon per figure page.
+  var figure = figures[selectedFigureName];
+  if (figure) { // 'all' won't match and figure will be null
+    // reset level
+    for (var i = 0; i< LEVELS.length; i++) { // increasing higher level
+      setCookie(LEVELS[i], '1');
+      if (LEVELS[i] == figure['level']) {
+        break; // leave higher levels alone
+      } 
+    }
+  }
+
   sortedIds = []; // display figures in alphabetically order
   for (var id in figures) {
     sortedIds.push(id);
