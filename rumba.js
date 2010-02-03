@@ -324,39 +324,7 @@
             'level' : 'Gold',
             'follow' : [
                 {
-                   'id' : 'BasicMovementsOpen',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'BasicMovementsClosed',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'NewYork',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'SpotTurn',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'UnderarmTurn',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'HandToHand',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'SideSteps',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'CubanRocks',
-                   'comment' : 'Standard, or at Gold Level, use Syncopated Cuban Rock'
-                },
-                {
-                   'id' : 'Fan',
+                   'eval' : 'SameFollowAs("CubanRockRF")',
                    'comment' : ''
                 }
               ]
@@ -368,39 +336,7 @@
             'level' : 'Gold',
             'follow' : [
                 {
-                   'id' : 'BasicMovementsOpen',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'BasicMovementsClosed',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'NewYork',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'SpotTurn',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'UnderarmTurn',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'HandToHand',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'SideSteps',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'CubanRocks',
-                   'comment' : 'Standard, or at Gold Level, use Syncopated Cuban Rock'
-                },
-                {
-                   'id' : 'Fan',
+                   'eval' : 'SameFollowAs("CubanRockLF")',
                    'comment' : ''
                 }
               ]
@@ -413,38 +349,46 @@
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
-                   'comment' : ''
+                   'comment' : '4-6'
                 },
                 {
                    'id' : 'BasicMovementsClosed',
+                   'comment' : '4-6'
+                },
+                {
+                   'id' : 'NewYorkRSP',
                    'comment' : ''
                 },
                 {
-                   'id' : 'NewYork',
+                   'id' : 'SpotTurnL',
                    'comment' : ''
                 },
                 {
-                   'id' : 'SpotTurn',
+                   'id' : 'UnderarmTurnR',
                    'comment' : ''
                 },
                 {
-                   'id' : 'UnderarmTurn',
+                   'id' : 'HandToHandLSP',
                    'comment' : ''
                 },
                 {
-                   'id' : 'HandToHand',
+                   'id' : 'SideStepLeftRF',
                    'comment' : ''
                 },
                 {
-                   'id' : 'SideSteps',
+                   'id' : 'SideStepRightRF',
                    'comment' : ''
                 },
                 {
-                   'id' : 'CubanRocks',
-                   'comment' : 'Standard, or at Gold Level, use Syncopated Cuban Rock'
+                   'id' : 'CubanRockRF',
+                   'comment' : ''
                 },
                 {
                    'id' : 'Fan',
+                   'comment' : '4-6'
+                },
+                {
+                   'id' : 'SyncopatedCubanRockRF',
                    'comment' : ''
                 }
               ]
@@ -464,31 +408,39 @@
                    'comment' : ''
                 },
                 {
-                   'id' : 'NewYork',
+                   'id' : 'NewYorkLSP',
                    'comment' : ''
                 },
                 {
-                   'id' : 'SpotTurn',
+                   'id' : 'SpotTurnR',
                    'comment' : ''
                 },
                 {
-                   'id' : 'UnderarmTurn',
+                   'id' : 'UnderarmTurnL',
                    'comment' : ''
                 },
                 {
-                   'id' : 'HandToHand',
+                   'id' : 'HandToHandRSP',
                    'comment' : ''
                 },
                 {
-                   'id' : 'SideSteps',
+                   'id' : 'SideStepLeftLF',
                    'comment' : ''
                 },
                 {
-                   'id' : 'CubanRocks',
-                   'comment' : 'Standard, or at Gold Level, use Syncopated Cuban Rock'
+                   'id' : 'SideStepRightLF',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'CubanRockLF',
+                   'comment' : ''
                 },
                 {
                    'id' : 'Fan',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'SyncopatedCubanRockLF',
                    'comment' : ''
                 }
               ]
@@ -501,46 +453,42 @@
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
-                   'comment' : ''
+                   'comment' : '4-6'
                 },
                 {
                    'id' : 'BasicMovementsClosed',
+                   'comment' : '4-6'
+                },
+                {
+                   'id' : 'NewYorkRSP',
                    'comment' : ''
                 },
                 {
-                   'id' : 'NewYork',
+                   'id' : 'SpotTurnL',
                    'comment' : ''
                 },
                 {
-                   'id' : 'SpotTurn',
+                   'id' : 'UnderarmTurnR',
                    'comment' : ''
                 },
                 {
-                   'id' : 'UnderarmTurn',
+                   'id' : 'ShoulderToShoulderR',
                    'comment' : ''
                 },
                 {
-                   'id' : 'ShoulderToShoulder',
+                   'id' : 'HandToHandLSP',
                    'comment' : ''
                 },
                 {
-                   'id' : 'HandToHand',
+                   'id' : 'SideStepLeftRF',
                    'comment' : ''
                 },
                 {
-                   'id' : 'SideSteps',
+                   'id' : 'CubanRockRF',
                    'comment' : ''
                 },
                 {
-                   'id' : 'CubanRocks',
-                   'comment' : 'Standard, or at Gold Level, use Syncopated Cuban Rock'
-                },
-                {
-                   'id' : 'Cucarachas',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'Fan',
+                   'id' : 'SyncopatedCubanRockRF',
                    'comment' : ''
                 }
               ]
@@ -560,39 +508,11 @@
                    'comment' : ''
                 },
                 {
-                   'id' : 'NewYork',
+                   'id' : 'CucarachasLF',
                    'comment' : ''
                 },
                 {
-                   'id' : 'SpotTurn',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'UnderarmTurn',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'ShoulderToShoulder',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'HandToHand',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'SideSteps',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'CubanRocks',
-                   'comment' : 'Standard, or at Gold Level, use Syncopated Cuban Rock'
-                },
-                {
-                   'id' : 'Cucarachas',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'Fan',
+                   'id' : 'SideStepLeftLF',
                    'comment' : ''
                 }
               ]
@@ -605,47 +525,27 @@
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
-                   'comment' : ''
+                   'comment' : '4-6'
                 },
                 {
                    'id' : 'BasicMovementsClosed',
+                   'comment' : '4-6'
+                },
+                {
+                   'id' : 'CucarachasRF',
                    'comment' : ''
                 },
                 {
-                   'id' : 'NewYork',
+                   'id' : 'UnderarmTurnR',
                    'comment' : ''
                 },
                 {
-                   'id' : 'SpotTurn',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'UnderarmTurn',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'ShoulderToShoulder',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'HandToHand',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'SideSteps',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'CubanRocks',
-                   'comment' : 'Standard, or at Gold Level, use Syncopated Cuban Rock'
-                },
-                {
-                   'id' : 'Cucarachas',
+                   'id' : 'SideStepRightRF',
                    'comment' : ''
                 },
                 {
                    'id' : 'Fan',
-                   'comment' : ''
+                   'comment' : '4-6'
                 }
               ]
           },
@@ -664,41 +564,41 @@
                    'comment' : ''
                 },
                 {
-                   'id' : 'NewYork',
+                   'id' : 'NewYorkLSP',
                    'comment' : ''
                 },
                 {
-                   'id' : 'SpotTurn',
+                   'id' : 'SpotTurnR',
                    'comment' : ''
                 },
                 {
-                   'id' : 'UnderarmTurn',
+                   'id' : 'UnderarmTurnL',
                    'comment' : ''
                 },
                 {
-                   'id' : 'ShoulderToShoulder',
+                   'id' : 'ShoulderToShoulderL',
+                   'comment' : '1/8 turn R on step 3'
+                },
+                {
+                   'id' : 'HandToHandLSP',
                    'comment' : ''
                 },
                 {
-                   'id' : 'HandToHand',
+                   'id' : 'SideStepRightLF',
                    'comment' : ''
                 },
                 {
-                   'id' : 'SideSteps',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'CubanRocks',
-                   'comment' : 'Standard, or at Gold Level, use Syncopated Cuban Rock'
-                },
-                {
-                   'id' : 'Cucarachas',
+                   'id' : 'CubanRockLF',
                    'comment' : ''
                 },
                 {
                    'id' : 'Fan',
                    'comment' : ''
-                }
+                },
+                {
+                   'id' : 'SyncopatedCubanRockLF',
+                   'comment' : ''
+                },
               ]
           },
         'ProgressiveWalksBack' : 
@@ -892,72 +792,64 @@
             'level' : 'Newcomer',
             'follow' : [
                 {
-                   'id' : 'BasicMovementsOpen',
-                   'comment' : ''
+                   'id' : 'Fan',
+                   'comment' : '4-6, Fan Finish'
                 },
                 {
                    'id' : 'BasicMovementsClosed',
-                   'comment' : ''
+                   'comment' : '4-6, when ending facing partner'
                 },
                 {
-                   'id' : 'Fan',
-                   'comment' : ''
-                },
-                {
-                   'id' : 'Alemana',
-                   'comment' : 'following Progressive Walks forward danced in open position'
-                },
-                {
-                   'id' : 'OpenHipTwist',
-                   'comment' : 'following Progressive Walks forward danced in open position'
-                },
-                {
-                   'id' : 'Curl',
-                   'comment' : 'following Progressive Walks forward danced in open position'
-                },
-                {
-                   'id' : 'ThreeThrees',
-                   'comment' : 'following Progressive Walks forward danced in open position'
-                },
-                {
-                   'id' : 'ThreeAlemanas',
-                   'comment' : 'following Progressive Walks forward danced in open position'
-                },
-                {
-                   'id' : 'NaturalTop',
-                   'comment' : 'following Progressive Walks back with last step LF side turning slightly R, Lady RF fwd'
-                },
-                {
-                   'id' : 'Spiral',
-                   'comment' : 'to R to continue with Rope Spinning'
-                },
-                {
-                   'id' : 'SpotTurn',
-                   'comment' : 'after Progressive Walks forward in either LSP or RSP ending last step to side facing partner'
-                },
-                {
-                   'id' : 'UnderarmTurn',
-                   'comment' : 'after Progressive Walks forward in either LSP or RSP ending last step to side facing partner'
-                },
-                {
-                   'id' : 'HandToHand',
-                   'comment' : 'after Progressive Walks forward in either LSP or RSP ending last step to side facing partner'
-                },
-                {
-                   'id' : 'SideSteps',
-                   'comment' : 'after Progressive Walks forward in either LSP or RSP ending last step to side facing partner'
-                },
-                {
-                   'id' : 'Fan',
-                   'comment' : 'after Progressive Walks forward in either LSP or RSP ending last step to side facing partner'
-                },
-                {
-                   'id' : 'CubanRocks',
-                   'comment' : 'after Progressive Walks forward in either LSP or RSP ending last step to side facing partner; at Gold level, do Syncopated Cuban Rock'
+                   'id' : 'HandToHandLSP',
+                   'comment' : 'when ending facing partner'
                 },
                 {
                    'id' : 'Aida',
-                   'comment' : 'after Progressive Walks forward in RSP ending last step to side facing partner'
+                   'comment' : 'when ending facing partner'
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : '4-6, when Walks ending last step to side, facing partner'
+                },
+                {
+                   'id' : 'SpotTurnL',
+                   'comment' : 'when Walks ending last step to side, facing partner'
+                },
+                {
+                   'id' : 'UnderarmTurnR',
+                   'comment' : 'when Walks ending last step to side, facing partner'
+                },
+                {
+                   'id' : 'SideStepLeftRF',
+                   'comment' : 'when Walks ending last step to side, facing partner'
+                },
+                {
+                   'id' : 'SideStepRightRF',
+                   'comment' : 'when Walks ending last step to side, facing partner'
+                },
+                {
+                   'id' : 'CubanRockRF',
+                   'comment' : 'when Walks ending last step to side, facing partner'
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : '4-6, when Walks ending last step to side, facing partner'
+                },
+                {
+                   'id' : 'ClosedHipTwist',
+                   'comment' : '4-6, when Walks ending last step to side, facing partner'
+                },
+                {
+                   'id' : 'Aida',
+                   'comment' : 'when Walks ending last step to side, facing partner'
+                },
+                {
+                   'id' : 'SyncopatedCubanRockRF',
+                   'comment' : 'when Walks ending last step to side, facing partner'
+                },
+                {
+                   'id' : 'Spiral',
+                   'comment' : ''
                 }
               ]
           },
