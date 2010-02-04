@@ -108,6 +108,7 @@
             'startAlignment' : ['BLOD', 'BDW'],
             'startFoot' : 'LF',
             'startDirection' : 'back',
+            'timing' : '123',
             'follow' : [
                 {
                   'id' : 'ReverseTurn',
@@ -143,6 +144,7 @@
             'startAlignment' : ['DW'],
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
+            'timing' : '123 123',
             'follow' : [  // its precedes is listed "As Natural Turn", so anywhere Natural Turn is listed as follow, we add HesitationChange
                 {
                   'id' : 'ReverseTurn',
@@ -194,6 +196,7 @@
             'startAlignment' : ['BDC'],
             'startFoot' : 'LF',
             'startDirection' : 'back',
+            'timing' : '123',
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")',
@@ -233,6 +236,7 @@
             'startAlignment' : ['BLOD', 'BDC'],
             'startFoot' : 'RF',
             'startDirection' : 'back',
+            'timing' : '123',
             'follow' : [
                 {
                   'id' : 'NaturalTurn',
@@ -280,6 +284,7 @@
             'startAlignment' : ['DW'],
             'startFoot' : 'LF',
             'startDirection' : 'back',
+            'timing' : '123',
             'follow' : [
                 {
                   'eval' : 'SameFollowAs("Whisk")'
@@ -294,6 +299,7 @@
             'startAlignment' : ['BDW'],
             'startFoot' : 'RF',
             'startDirection' : 'back',
+            'timing' : '123 123',
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")',
@@ -321,6 +327,7 @@
             'startAlignment' : ['LOD', 'DC', 'DW'],
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
+            'timing' : '1 2& 3 or 1 2 3&',
             'follow' : [
                 {
                   'id' : 'ClosedChangeLF',
@@ -372,6 +379,7 @@
             'startAlignment' : ['BLOD', 'BDC'],
             'startFoot' : 'RF',
             'startDirection' : 'back',
+            'timing' : '&',
             'follow' : [
                 {
                   'id' : 'ClosedChangeLF',
@@ -419,6 +427,7 @@
             'startAlignment' : ['BDW'],
             'startFoot' : 'LF',
             'startDirection' : 'back',
+            'timing' : '1 2& 3',
             'follow' : [
                 {
                   'id' : 'NaturalTurn',
@@ -454,6 +463,7 @@
             'startAlignment' : ['DC', 'LOD'],
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
+            'timing' : '1 2& 3',
             'follow' : [
                 {
                   'id' : 'NaturalTurn',
@@ -497,6 +507,7 @@
             'startAlignment' : ['DW'],
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
+            'timing' : '1 2& 3',
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")',
@@ -520,6 +531,7 @@
             'startAlignment' : ['DW'],
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
+            'timing' : '123',
             'follow' : [
                 {
                   'id' : 'ChasseFromPP',
@@ -551,6 +563,7 @@
             'startAlignment' : ['DW'],
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
+            'timing' : '123 123',
             'follow' : [
                 {
                   'id' : 'ReverseTurn',
@@ -590,6 +603,7 @@
             'startAlignment' : ['DC'],
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
+            'timing' : '123 123',
             'follow' : [
                 {
                   'id' : 'ClosedChangeLF',
@@ -649,6 +663,7 @@
             'startAlignment' : ['DW'],
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
+            'timing' : '123 123',
             'follow' : [
                 {
                   'id' : 'ClosedChangeRF',
@@ -684,6 +699,7 @@
             'startAlignment' : ['DC'],
             'startFoot' : ['RF'],
             'startDirection' : 'fwd',
+            'timing' : '123',
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Reverse")',
@@ -703,6 +719,7 @@
             'startAlignment' : ['DW'],
             'startFoot' : ['LF'],
             'startDirection' : 'fwd',
+            'timing' : '123',
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")',

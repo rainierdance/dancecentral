@@ -66,6 +66,8 @@
             'name' : 'Closed Hip Twist',
             'urlpath' : 'closed-hip-twist',
             'level' : 'Bronze',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'Alemana',
@@ -134,6 +136,8 @@
             'name' : 'Natural Opening Out Movement',
             'urlpath' : 'natural-opening-out-movement',
             'level' : 'Bronze',
+            'timing' : '2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -162,6 +166,8 @@
             'name' : 'Opening Out To Right And Left',
             'urlpath' : 'opening-out-to-right-and-left',
             'level' : 'Bronze',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'NaturalOpeningOutMovement',
@@ -182,6 +188,8 @@
             'name' : 'Natural Top',
             'urlpath' : 'natural-top',
             'level' : 'Bronze',
+            'timing' : '2341 2341 2341',
+            'startFoot' : 'RF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -230,6 +238,8 @@
             'name' : 'Hockey Stick',
             'urlpath' : 'hockey-stick',
             'level' : 'Bronze',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -286,6 +296,8 @@
             'name' : 'Alemana',
             'urlpath' : 'alemana',
             'level' : 'Bronze',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -370,6 +382,8 @@
             'name' : 'Fan',
             'urlpath' : 'fan',
             'level' : 'Bronze',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'Alemana',
@@ -398,6 +412,8 @@
             'name' : 'Syncopated Cuban Rock LF',
             'urlpath' : 'cuban-rocks',
             'level' : 'Gold',
+            'timing' : '2&341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'eval' : 'SameFollowAs("CubanRockRF")',
@@ -410,6 +426,8 @@
             'name' : 'Syncopated Cuban Rocks RF',
             'urlpath' : 'cuban-rocks',
             'level' : 'Gold',
+            'timing' : '2&341',
+            'startFoot' : 'RF',
             'follow' : [
                 {
                    'eval' : 'SameFollowAs("CubanRockLF")',
@@ -422,6 +440,8 @@
             'name' : 'Cuban Rock LF',
             'urlpath' : 'cuban-rocks',
             'level' : 'Newcomer',
+            'timing' : '2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -474,6 +494,8 @@
             'name' : 'Cuban Rocks RF',
             'urlpath' : 'cuban-rocks',
             'level' : 'Newcomer',
+            'timing' : '2341',
+            'startFoot' : 'RF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -526,6 +548,8 @@
             'name' : 'Side Step To Left commenced with LF',
             'urlpath' : 'side-steps',
             'level' : 'Newcomer',
+            'timing' : '2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -574,6 +598,8 @@
             'name' : 'Side Step To Left commenced with RF',
             'urlpath' : 'side-steps',
             'level' : 'Newcomer',
+            'timing' : '2341',
+            'startFoot' : 'RF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -598,6 +624,8 @@
             'name' : 'Side Step To Right commenced with LF',
             'urlpath' : 'side-steps',
             'level' : 'Newcomer',
+            'timing' : '2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -630,6 +658,8 @@
             'name' : 'Side Step To Right commenced with RF',
             'urlpath' : 'side-steps',
             'level' : 'Newcomer',
+            'timing' : '2341',
+            'startFoot' : 'RF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -682,6 +712,8 @@
             'name' : 'Progressive Walks Back',
             'urlpath' : 'progressive-walks',
             'level' : 'Newcomer',
+            'timing' : '2341 2341',
+            'startFoot' : 'RF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -710,6 +742,8 @@
             'name' : 'Progressive Walks Forward',
             'urlpath' : 'progressive-walks',
             'level' : 'Newcomer',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -750,6 +784,8 @@
             'name' : 'Progressive Walks Forward in RSP',
             'urlpath' : 'progressive-walks',
             'level' : 'Newcomer',
+            'timing' : '2341 2341',
+            'startFoot' : 'RF',
             'follow' : [
                 {
                    'id' : 'SpotTurnL',
@@ -814,6 +850,8 @@
             'name' : 'Progressive Walks Forward in LSP',
             'urlpath' : 'progressive-walks',
             'level' : 'Newcomer',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'SpotTurnR',
@@ -866,6 +904,8 @@
             'name' : 'Progressive Walks Forward in Right Shadow Position',
             'urlpath' : 'progressive-walks',
             'level' : 'Newcomer',
+            'timing' : '2341 2341',
+            'startFoot' : 'RF',
             'follow' : [
                 {
                    'id' : 'Fan',
@@ -934,6 +974,8 @@
             'name' : 'Hand To Hand LSP',
             'urlpath' : 'hand-to-hand',
             'level' : 'Newcomer',
+            'timing' : '2341',
+            'startFoot' : 'RF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -990,6 +1032,8 @@
             'name' : 'Hand To Hand RSP',
             'urlpath' : 'hand-to-hand',
             'level' : 'Newcomer',
+            'timing' : '2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -1054,6 +1098,8 @@
             'name' : 'Shoulder To Shoulder Right Side',
             'urlpath' : 'shoulder-to-shoulder',
             'level' : 'Newcomer',
+            'timing' : '2341',
+            'startFoot' : 'RF',
             'follow' : [
                 {
                    'id' : 'ShoulderToShoulderL',
@@ -1118,6 +1164,8 @@
             'name' : 'Shoulder To Shoulder Left Side',
             'urlpath' : 'shoulder-to-shoulder',
             'level' : 'Newcomer',
+            'timing' : '2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'ShoulderToShoulderR',
@@ -1182,6 +1230,8 @@
             'name' : 'Spot or Switch Turn to L (Lady to R)',
             'urlpath' : 'spot-turns',
             'level' : 'Newcomer',
+            'timing' : '2341',
+            'startFoot' : 'RF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -1259,6 +1309,8 @@
             'name' : 'Spot or Switch Turn To R (Lady to L)',
             'urlpath' : 'spot-turns',
             'level' : 'Newcomer',
+            'timing' : '2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -1309,6 +1361,8 @@
             'name' : 'Underarm Turn To R',
             'urlpath' : 'spot-turns',
             'level' : 'Newcomer',
+            'timing' : '2341',
+            'startFoot' : 'RF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen'
@@ -1354,6 +1408,8 @@
             'name' : 'Underarm Turn To L',
             'urlpath' : 'spot-turns',
             'level' : 'Newcomer',
+            'timing' : '2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -1406,6 +1462,8 @@
             'name' : 'New York LSP',
             'urlpath' : 'new-york',
             'level' : 'Newcomer',
+            'timing' : '2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'NewYorkRSP',
@@ -1458,6 +1516,8 @@
             'name' : 'New York RSP',
             'urlpath' : 'new-york',
             'level' : 'Newcomer',
+            'timing' : '2341',
+            'startFoot' : 'RF',
             'follow' : [
                 {
                    'id' : 'NewYorkLSP',
@@ -1504,6 +1564,8 @@
             'name' : 'Cucarachas: LF',
             'urlpath' : 'cucarachas',
             'level' : 'Newcomer',
+            'timing' : '2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -1538,6 +1600,8 @@
             'name' : 'Cucarachas: RF',
             'urlpath' : 'cucarachas',
             'level' : 'Newcomer',
+            'timing' : '2341',
+            'startFoot' : 'RF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -1564,6 +1628,8 @@
             'name' : 'Basic Movements: Closed',
             'urlpath' : 'basic-movements',
             'level' : 'Newcomer',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',
@@ -1656,6 +1722,8 @@
             'name' : 'Basic Movements: Open',
             'urlpath' : 'basic-movements',
             'level' : 'Newcomer',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
             'follow' : [
                 {
                    'id' : 'BasicMovementsOpen',

@@ -149,6 +149,8 @@
             'name' : 'Closed Hip Twist',
             'urlpath' : 'closed-hip-twist',
             'level' : 'Bronze',
+            'timing' : '234&1 234&1',
+            'startFoot' : 'LF',
             'follow' : [
               {
                 'id' : 'Alemana',
@@ -245,6 +247,8 @@
             'name' : 'Natural Opening Out Movement',
             'urlpath' : 'natural-opening-out-movement',
             'level' : 'Bronze',
+            'timing' : '234&1',
+            'startFoot' : 'LF',
             'follow' : [
               {
                 'id' : 'OpenBasic',
@@ -273,6 +277,8 @@
             'name' : 'Natural Top',
             'urlpath' : 'natural-top',
             'level' : 'Bronze',
+            'timing' : '234&1 234&1 234&1',
+            'startFoot' : 'RF',
             'follow' : [
               {
                 'id' : 'OpenBasic',
@@ -329,6 +335,8 @@
             'name' : 'Hockey Stick',
             'urlpath' : 'hockey-stick',
             'level' : 'Bronze',
+            'timing' : '234&1 234&1',
+            'startFoot' : 'LF',
             'follow' : [
               {
                 'id' : 'OpenBasic',
@@ -421,6 +429,8 @@
             'name' : 'Alemana',
             'urlpath' : 'alemana',
             'level' : 'Bronze',
+            'timing' : '234&1 234&1',
+            'startFoot' : 'LF',
             'follow' : [
               {
                 'id' : 'ClosedBasic',
@@ -513,6 +523,8 @@
             'name' : 'Fan',
             'urlpath' : 'fan',
             'level' : 'Bronze',
+            'timing' : '234&1 234&1',
+            'startFoot' : 'LF',
             'follow' : [
               {
                 'id' : 'Alemana',
@@ -529,6 +541,8 @@
             'name' : 'Time Step RF',
             'urlpath' : 'time-step',
             'level' : 'Newcomer',
+            'timing' : '234&1',
+            'startFoot' : 'RF',
             'follow' : [
               {
                 'id' : 'ClosedBasic',
@@ -621,6 +635,8 @@
             'name' : 'Time Step LF',
             'urlpath' : 'time-step',
             'level' : 'Newcomer',
+            'timing' : '234&1',
+            'startFoot' : 'LF',
             'follow' : [
               {
                 'id' : 'ClosedBasic',
@@ -677,6 +693,8 @@
             'name' : 'There And Back',
             'urlpath' : 'there-and-back',
             'level' : 'Newcomer',
+            'timing' : '234&1 234&1',
+            'startFoot' : 'LF',
             'follow' : [
               {
                 'id' : 'ClosedBasic',
@@ -733,6 +751,8 @@
             'name' : 'Side Step To Left commenced with LF',
             'urlpath' : 'side-step',
             'level' : 'Newcomer',
+            'timing' : '234&1',
+            'startFoot' : 'LF',
             'follow' : [
               {
                 'id' : 'ClosedBasic',
@@ -785,6 +805,8 @@
             'name' : 'Side Step To Left commenced with RF',
             'urlpath' : 'side-step',
             'level' : 'Newcomer',
+            'timing' : '234&1',
+            'startFoot' : 'RF',
             'follow' : [
               {
                 'id' : 'ClosedBasic',
@@ -813,6 +835,8 @@
             'name' : 'Side Step To Right commenced with RF',
             'urlpath' : 'side-step',
             'level' : 'Newcomer',
+            'timing' : '234&1',
+            'startFoot' : 'RF',
             'follow' : [
               {
                 'id' : 'ClosedBasic',
@@ -865,6 +889,8 @@
             'name' : 'Side Step To Right commenced with LF',
             'urlpath' : 'side-step',
             'level' : 'Newcomer',
+            'timing' : '234&1',
+            'startFoot' : 'LF',
             'follow' : [
               {
                 'id' : 'ClosedBasic',
@@ -893,6 +919,8 @@
             'name' : 'Three Cha Cha Chas Forward',
             'urlpath' : 'three-cha-cha-chas',
             'level' : 'Newcomer',
+            'timing' : '4&1 2&3 4&1',
+            'startFoot' : 'RF',
             'follow' : [
               {
                 'id' : 'ClosedBasic',
@@ -957,6 +985,8 @@
             'name' : 'Three Cha Cha Chas Back',
             'urlpath' : 'three-cha-cha-chas',
             'level' : 'Newcomer',
+            'timing' : '4&1 2&3 4&1',
+            'startFoot' : 'LF',
             'follow' : [
               {
                 'id' : 'ClosedBasic',
@@ -993,6 +1023,8 @@
             'name' : 'Hand To Hand RSP',
             'urlpath' : 'hand-to-hand',
             'level' : 'Newcomer',
+            'timing' : '234&1',
+            'startFoot' : 'LF',
             'follow' : [
               {
                 'id' : 'ClosedBasic',
@@ -1061,6 +1093,8 @@
             'name' : 'Hand To Hand LSP',
             'urlpath' : 'hand-to-hand',
             'level' : 'Newcomer',
+            'timing' : '234&1',
+            'startFoot' : 'RF',
             'follow' : [
               {
                 'id' : 'ClosedBasic',
@@ -1129,6 +1163,8 @@
             'name' : 'Shoulder To Shoulder Left Side',
             'urlpath' : 'shoulder-to-shoulder',
             'level' : 'Newcomer',
+            'timing' : '234&1',
+            'startFoot' : 'LF',
             'follow' : [
               {
                 'id' : 'ShoulderToShoulderR',
@@ -1213,6 +1249,8 @@
             'name' : 'Shoulder To Shoulder Right Side',
             'urlpath' : 'shoulder-to-shoulder',
             'level' : 'Newcomer',
+            'timing' : '234&1',
+            'startFoot' : 'RF',
             'follow' : [
               {
                 'id' : 'ShoulderToShoulderL',
@@ -1297,6 +1335,8 @@
             'name' : 'Underarm Turn To R',
             'urlpath' : 'spot-turn',
             'level' : 'Newcomer',
+            'timing' : '234&1',
+            'startFoot' : 'RF',
             'follow' : [
               {
                 'id' : 'ClosedBasic',
@@ -1365,6 +1405,8 @@
             'name' : 'Underarm Turn to L',
             'urlpath' : 'spot-turn',
             'level' : 'Newcomer',
+            'timing' : '234&1',
+            'startFoot' : 'LF',
             'follow' : [
               {
                 'id' : 'ClosedBasic',
@@ -1429,6 +1471,8 @@
             'name' : 'Spot or Switch Turn To L (Lady to R)',
             'urlpath' : 'spot-turn',
             'level' : 'Newcomer',
+            'timing' : '234&1',
+            'startFoot' : 'RF',
             'follow' : [
               {
                 'id' : 'ClosedBasic',
@@ -1533,6 +1577,8 @@
             'name' : 'Spot or Switch Turn To R (Lady to L)',
             'urlpath' : 'spot-turn',
             'level' : 'Newcomer',
+            'timing' : '234&1',
+            'startFoot' : 'LF',
             'follow' : [
               {
                 'id' : 'ClosedBasic',
@@ -1597,6 +1643,8 @@
             'name' : 'New York RSP',
             'urlpath' : 'new-york',
             'level' : 'Newcomer',
+            'timing' : '234&1',
+            'startFoot' : 'RF',
             'follow' : [
               {
                 'id' : 'NewYorkLSP',
@@ -1669,6 +1717,8 @@
             'name' : 'New York LSP',
             'urlpath' : 'new-york',
             'level' : 'Newcomer',
+            'timing' : '234&1',
+            'startFoot' : 'LF',
             'follow' : [
               {
                 'id' : 'NewYorkRSP',
@@ -1733,6 +1783,8 @@
             'name' : 'Basic Movement In Place',
             'urlpath' : 'cha-cha-basic',
             'level' : 'Newcomer',
+            'timing' : '234&1 234&1',
+            'startFoot' : 'LF',
             'comment' : 'can be danced in place of Closed Basic',
             'follow' : [
               {
@@ -1745,6 +1797,8 @@
             'name' : 'Closed Basic Movement',
             'urlpath' : 'cha-cha-basic',
             'level' : 'Newcomer',
+            'timing' : '234&1 234&1',
+            'startFoot' : 'LF',
             'follow' : [
               {
                 'id' : 'OpenBasic'
@@ -1842,6 +1896,8 @@
             'name' : 'Open Basic Movement',
             'urlpath' : 'cha-cha-basic',
             'level' : 'Newcomer',
+            'timing' : '234&1 234&1',
+            'startFoot' : 'LF',
             'follow' : [
               {
                 'id' : 'ClosedBasic',

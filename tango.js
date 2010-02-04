@@ -10,6 +10,7 @@
             'startAlignment' : ['DW', 'DC', 'LOD'],
             'startFoot' : ['LF', 'RF'],
             'startDirection' : ['fwd', 'back'],
+            'timing' : 'S',
             'follow' : [ // this is not listed in book, we summarized it
               {
                 'id' : 'Walk',
@@ -41,6 +42,30 @@
               },
               ]
           },
+        'ClosedFinish' : 
+          {
+            'name' : 'Closed Finish',
+            'urlpath' : 'open-finish',
+            'level' : 'Newcomer',
+            'startAlignment' : ['DC'],
+            'startFoot' : 'RF',
+            'startDirection' : 'back',
+            'timing' : 'QQS',
+            'follow' : [ // not listed, guessed
+              {
+                'id' : 'Walk',
+                'comment' : 'LF'
+              },
+              {
+                'id' : 'ProgressiveSideStep',
+                'comment' : ''
+              },
+              {
+                'id' : 'ProgressiveLink',
+                'comment' : ''
+              }
+              ]
+          },
         'OpenFinish' : 
           {
             'name' : 'Open Finish',
@@ -49,6 +74,7 @@
             'startAlignment' : ['DC'],
             'startFoot' : 'RF',
             'startDirection' : 'back',
+            'timing' : 'QQS',
             'follow' : [
               {
                 'id' : 'Walk',
@@ -124,6 +150,7 @@
           'startAlignment' : ['DW', 'LOD', 'DC'],
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
+           'timing' : 'QQS',
           'follow' : [
               {
                 'id' : 'Walk',
@@ -143,6 +170,7 @@
           'startAlignment' : ['DW'],
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
+           'timing' : 'QQ',
           'follow' : [
               {
                 'id' : 'ClosedPromenade',
@@ -186,6 +214,7 @@
           'startAlignment' : ['DC', 'LOD', 'DW'],
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
+           'timing' : 'SQQS',
           'follow' : [
               {
                 'id' : 'Walk',
@@ -257,6 +286,7 @@
           'startAlignment' : ['DW'],
           'startFoot' : 'RF',
           'startDirection' : 'fwd',
+           'timing' : 'S QQS QQS',
           'follow' : [
             {
                 'eval' : 'SameFollowAs("ClosedPromenade")'
@@ -271,6 +301,7 @@
           'startAlignment' : ['DC'],
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
+           'timing' : 'QQS QQS',
           'follow' : [
               {
                 'id' : 'Walk',
@@ -334,6 +365,7 @@
           'startAlignment' : ['LOD', 'DW'], // down new LOD, or dance at corner
           'startFoot' : 'LF',
           'startDirection' : 'back',
+           'timing' : 'S QQS',
           'follow' : [
             {
                 'eval' : 'SameFollowAs("ClosedPromenade")'
@@ -348,6 +380,7 @@
           'startAlignment' : ['DC'],
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
+           'timing' : 'QQS QQS',
           'follow' : [
             {
                 'eval' : 'SameFollowAs("OpenReverseTurnLadyOutside")'
@@ -362,6 +395,7 @@
           'startAlignment' : ['DC'],
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
+           'timing' : 'QQSS QQS QQS',
           'follow' : [
             {
                 'eval' : 'SameFollowAs("OpenReverseTurnLadyOutside")'
@@ -376,6 +410,7 @@
           'startAlignment' : ['LOD'],
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
+           'timing' : 'SQQS',
           'follow' : [
               {
                 'id' : 'Walk',
@@ -451,10 +486,15 @@
           'startAlignment' : ['LOD'],
           'startFoot' : 'LF',
           'startDirection' : 'back',
+           'timing' : 'QQS',
           'follow' : [
               {
                 'id' : 'OpenFinish',
-                'comment' : 'or Closed Finish'
+                'comment' : ''
+              },
+              {
+                'id' : 'ClosedFinish',
+                'comment' : ''
               },
               {
                 'id' : 'RFRock',
@@ -470,6 +510,7 @@
           'startAlignment' : ['LOD', 'DC'],
           'startFoot' : 'RF',
           'startDirection' : 'back',
+           'timing' : 'QQS',
           'follow' : [
               {
                 'id' : 'BackCorte',
@@ -489,6 +530,7 @@
           'startAlignment' : ['LOD'],
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
+           'timing' : 'S QQS QQ',
           'follow' : [
               {
                 'eval' : 'MatchFigureName(" Promenade")',
@@ -512,6 +554,7 @@
           'startAlignment' : ['LOD'],
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
+           'timing' : 'S QQS',
           'follow' : [
               {
                 'eval' : 'MatchFigureName(" Promenade")',
@@ -531,6 +574,7 @@
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
           //'startDirection' : 'fwd',
+           'timing' : '',
           'follow' : [
             ]
         },
@@ -542,6 +586,7 @@
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
           //'startDirection' : 'fwd',
+           'timing' : '',
           'follow' : [
             ]
         },
@@ -553,6 +598,7 @@
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
           //'startDirection' : 'fwd',
+           'timing' : '',
           'follow' : [
             ]
         },
@@ -572,6 +618,7 @@
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
           //'startDirection' : 'fwd',
+           'timing' : '',
           'follow' : [
             ]
         },
@@ -583,6 +630,7 @@
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
           //'startDirection' : 'fwd',
+           'timing' : '',
           'follow' : [
             ]
         },
@@ -594,6 +642,7 @@
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
           //'startDirection' : 'fwd',
+           'timing' : '',
           'follow' : [
             ]
         },
@@ -605,6 +654,7 @@
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
           //'startDirection' : 'fwd',
+           'timing' : '',
           'follow' : [
             ]
         },
@@ -616,6 +666,7 @@
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
           //'startDirection' : 'fwd',
+           'timing' : '',
           'follow' : [
             ]
         },
@@ -627,6 +678,7 @@
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
           //'startDirection' : 'fwd',
+           'timing' : '',
           'follow' : [
             ]
         },
@@ -649,6 +701,7 @@
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
           //'startDirection' : 'fwd',
+           'timing' : '',
           'follow' : [
             ]
         },
@@ -660,6 +713,7 @@
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
           //'startDirection' : 'fwd',
+           'timing' : '',
           'follow' : [
             ]
         },
@@ -671,6 +725,7 @@
           //'startAlignment' : ['DW'],
           //'startFoot' : 'RF',
           //'startDirection' : 'fwd',
+           'timing' : '',
           'follow' : [
             ]
         },
@@ -682,6 +737,7 @@
             //'startAlignment' : ['DC', 'DW'],
             //'startFoot' : ['RF', 'LF'],
             //'startDirection' : 'fwd',
+           'timing' : '',
             'follow' : [
                 {
                 }

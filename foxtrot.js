@@ -26,6 +26,7 @@ var foxtrotFigures =
     'startAlignment' : ['DW', 'DC', 'LOD'],
     'startFoot' : 'RF',
     'startDirection' : 'fwd',
+    'timing' : 'SQQS',
     'follow' : [
     {
       'id' : 'ThreeStep'
@@ -73,6 +74,7 @@ var foxtrotFigures =
     'startAlignment' : ['LOD', 'DW'],
     'startFoot' : 'RF',
     'startDirection' : 'fwd',
+    'timing' : 'QQS',
     'follow' : [
     {
       'id' : 'NaturalTurn'
@@ -105,6 +107,7 @@ var foxtrotFigures =
     'startAlignment' : ['LOD', 'DW'],
     'startFoot' : 'RF',
     'startDirection' : 'fwd',
+    'timing' : 'SQQ SSS',
     'follow' : [
     {
       'id' : 'FeatherStep'
@@ -139,6 +142,7 @@ var foxtrotFigures =
     'startAlignment' : ['DC'], 
     'startFoot' : 'LF',
     'startDirection' : 'fwd',
+    'timing' : 'SQQ SQQS',
     'follow' : [
       {
         'id' : 'ThreeStep'
@@ -182,6 +186,7 @@ var foxtrotFigures =
       'startAlignment' : ['BLOD'],
       'startFoot' : 'LF',
       'startDirection' : 'back',
+    'timing' : 'SQQ SQQS',
       'follow' : [
         {
           'eval' : 'SameFollowAs("FeatherStep")'
@@ -196,6 +201,7 @@ var foxtrotFigures =
       'startAlignment' : ['LOD'],
       'startFoot' : 'RF',
       'startDirection' : 'fwd',
+    'timing' : 'S QQ QQ QQ S',
       'follow' : [
         {
           'eval' : 'SameFollowAs("ReverseTurn")'
@@ -210,6 +216,7 @@ var foxtrotFigures =
       'startAlignment' : ['DW'],
       'startFoot' : 'LF',
       'startDirection' : 'fwd',
+      'timing' : 'SSS',
       'follow' : [
         {
           'id' : 'FeatherStep'
@@ -228,6 +235,7 @@ var foxtrotFigures =
       'startAlignment' : ['BDW'],
       'startFoot' : 'LF',
       'startDirection' : 'fwd',
+      'timing' : 'QQ QQ QQ S',
       'follow' : [
         {
           'eval' : 'SameFollowAs("ReverseTurn")'
