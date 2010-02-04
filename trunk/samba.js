@@ -186,6 +186,7 @@
             'level' : 'Newcomer',
             'startFoot' : ['LF'],
             'startAlignment' : ['DW'],
+            'timing' : '1a2 3a4',
             'follow' : [
               {
                 'id' : 'SambaWalkStationary',
@@ -224,6 +225,7 @@
             'level' : 'Newcomer',
             'startFoot' : ['RF'],
             'startAlignment' : ['DC'],
+            'timing' : '1a2 3a4',
             'follow' : [
               {
                 'id' : 'NaturalBasicMovement',
@@ -238,6 +240,7 @@
             'level' : 'Newcomer',
             'startFoot' : ['LF'],
             'startAlignment' : ['Center'],
+            'timing' : '1a2 a1a2',
             'follow' : [
               {
                 'id' : 'WhiskToR',
@@ -252,6 +255,7 @@
             'level' : 'Newcomer',
             'startFoot' : ['RF'],
             'startAlignment' : ['W'],
+            'timing' : '1a2 a1a2',
             'follow' : [
               {
                 'id' : 'WhiskToL',
@@ -270,6 +274,7 @@
             'level' : 'Newcomer',
             'startFoot' : ['RF', 'LF'],
             'startAlignment' : ['various'],
+            'timing' : 'a1a2',
             'follow' : [
              ]
         },
@@ -280,6 +285,7 @@
             'level' : 'Newcomer',
             'startFoot' : 'RF',
             'startAlignment' : ['Wall'],
+            'timing' : '1a2 3a4',
             'follow' : [
               {
                 'id' : 'ReverseBasicMovement',
@@ -330,6 +336,7 @@
             'level' : 'Newcomer',
             'startFoot' : 'RF',
             'startAlignment' : ['LOD'],
+            'timing' : '1a2',
             'follow' : [
               {
                 'id' : 'SambaWalkLF',
@@ -372,6 +379,7 @@
             'level' : 'Newcomer',
             'startFoot' : 'RF',
             'startAlignment' : ['LOD'],
+            'timing' : '1a2',
             'follow' : [
               {
                 'id' : 'SambaWalkLF',
@@ -389,6 +397,7 @@
             'urlpath' : 'samba-walks',
             'level' : 'Newcomer',
             'startAlignment' : ['LOD'],
+            'timing' : '1a2',
             'startFoot' : 'LF',
             'follow' : [
               {
@@ -412,6 +421,7 @@
             'level' : 'Newcomer',
             'startFoot' : 'RF',
             'startAlignment' : ['W', 'various'],
+            'timing' : '1a2',
             'startDirection' : 'side',
             'follow' : [
               {
@@ -447,6 +457,7 @@
             'level' : 'Newcomer',
             'startFoot' : 'LF',
             'startAlignment' : ['W', 'various'],
+            'timing' : '1a2',
             'startDirection' : 'side',
             'follow' : [
               {
@@ -489,6 +500,7 @@
             'urlpath' : 'basic-movements',
             'level' : 'Newcomer',
             'startAlignment' : ['LOD', 'DC', 'DW', 'W'],
+            'timing' : '1a2 3a4',
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'follow' : [
@@ -507,6 +519,7 @@
             'urlpath' : 'basic-movements',
             'level' : 'Newcomer',
             'startAlignment' : ['LOD', 'DC', 'DW', 'W'],
+            'timing' : '1a2 3a4',
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
             'follow' : [
@@ -525,6 +538,7 @@
             'urlpath' : 'basic-movements',
             'level' : 'Newcomer',
             'startAlignment' : ['LOD', 'DC', 'DW', 'W'],
+            'timing' : '1a2 3a4',
             'startFoot' : ['LF', 'RF'],
             'startDirection' : 'side',
             'follow' : [
@@ -542,6 +556,7 @@
             'urlpath' : 'basic-movements',
             'level' : 'Newcomer',
             'startAlignment' : ['W'],
+            'timing' : '1a2 3a4',
             'startFoot' : 'RF',
             'follow' : [
               {

@@ -6,7 +6,7 @@ var COLOR_MAP = {
   'Gold' : 'OrangeRed',
   'Open' : 'DarkGreen'
 };
-var INFO_FIELDS = ['startAlignment', 'startFoot', 'startDirection', 'comment'];
+var INFO_FIELDS = ['timing', 'startAlignment', 'startFoot', 'startDirection', 'comment'];
 
 //-------------------------------------------
 var viewMode = 'browse'; // vs. "routine" for building a routine
@@ -457,7 +457,11 @@ function onClickFigure(figureID) {
   var output = [];
   var figure = figures[figureID];
   output.push('<li><a href="' + 
-      (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath'] + '">' + figure['name'] + '</a> &nbsp;&nbsp; </li>');
+      (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath'] + '">' + figure['name'] + '</a> &nbsp;');
+  if (figure['timing']) {
+    output.push('(' + figure['timing'] + ') &nbsp;');
+  }
+  output.push('</li>');
   var element = document.getElementById('spanRoutine');
   var content = element.innerHTML.replace(/^<ol>/, '').replace(/<\/ol>$/, '');
   element.innerHTML = '<ol>' + content + output.join('') + '</ol>';

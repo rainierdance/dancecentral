@@ -10,6 +10,7 @@
             'startAlignment' : ['DW'],
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
+            'timing' : 'SSSS',
             'follow' : [
                 {
                   'id' : 'ChasseReverseTurn'
@@ -92,6 +93,7 @@
             'startAlignment' : ['LOD'],
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
+            'timing' : 'SS SQQS SQQS',
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")'
@@ -112,6 +114,7 @@
             'startAlignment' : ['DW'],
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
+            'timing' : 'SQQ',
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")'
@@ -132,6 +135,7 @@
             'startAlignment' : ['BDC', 'DW'], // when previous step is underturned
             'startFoot' : 'RF',
             'startDirection' : 'back',
+            'timing' : 'SQQS',
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")'
@@ -182,6 +186,7 @@
             'startAlignment' : ['LOD', 'DC', 'DW'],
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
+            'timing' : 'SSQQ',
             'follow' : [
                 {
                   'id' : 'ChasseReverseTurn'
@@ -224,6 +229,7 @@
             'startAlignment' : ['DW'],
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
+            'timing' : 'SQQ SQQS',
             'follow' : [
                 {
                   'id' : 'ClosedImpetus'
@@ -247,6 +253,7 @@
             'startAlignment' : ['BDW', 'BLOD'],
             'startFoot' : 'LF',
             'startDirection' : 'back',
+            'timing' : 'SQQ',
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")',
@@ -284,6 +291,7 @@
             'startAlignment' : ['BLOD', 'BDW'],
             'startFoot' : 'LF',
             'startDirection' : 'back',
+            'timing' : 'SQQ SQQS',
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")'
@@ -326,6 +334,7 @@
             'startAlignment' : ['DC', 'LOD'],
             'startFoot' : 'RF',
             'startDirection' : 'back',
+            'timing' : 'SQQS',
             'follow' : [
                 {
                   'id' : 'ClosedImpetus'
@@ -364,6 +373,7 @@
             'startAlignment' : ['BDC', 'BLOD'],
             'startFoot' : 'RF',
             'startDirection' : 'back',
+            'timing' : 'S or &',
             'follow' : [
                 {
                   'id' : 'ChasseReverseTurn'
@@ -406,6 +416,7 @@
             'startAlignment' : ['BDW'],
             'startFoot' : 'LF',
             'startDirection' : 'back',
+            'timing' : 'SQQS',
             'follow' : [
                 {
                   'id' : 'ClosedImpetus',
@@ -432,6 +443,7 @@
             'startAlignment' : ['BLOD'],
             'startFoot' : 'LF',
             'startDirection' : 'back',
+            'timing' : 'SSS',
             'follow' : [
                 {
                   'id' : 'ReversePivot',
@@ -469,6 +481,7 @@
             'startAlignment' : ['DC'],
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
+            'timing' : 'SQQ',
             'follow' : [
                 {
                   'id': 'ProgressiveChasse'
@@ -497,6 +510,7 @@
             'endAlignment' : 'BLOD',
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
+            'timing' : 'SQQS',
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")'
@@ -515,6 +529,7 @@
             'endAlignment' : 'BDC',
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
+            'timing' : 'SQQ SSS',
             'follow' : [
                 {
                   'id' : 'ProgressiveChasse'
@@ -551,6 +566,7 @@
             'endAlignment' : 'DC', // old LOD.
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
+            'timing' : 'SQQ SSS',
             'follow' : [
                 {
                   'id' : 'ChasseReverseTurn'
@@ -572,6 +588,7 @@
             'endAlignment' : 'DW',
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
+            'timing' : 'SQQ SSS',
             'follow' : [
                 {
                   'id' : 'ClosedImpetus',
@@ -615,6 +632,7 @@
             'endAlignment' : 'BDC',
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
+            'timing' : 'SQQS',
             'follow' : [
                 {
                   'id' : 'ProgressiveChasse',
@@ -655,6 +673,7 @@
             'endAlignment' : 'DW',
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
+            'timing' : 'SQQS',
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")',
@@ -695,6 +714,7 @@
             'endAlignment' : 'DW',
             'startFoot' : 'RF',
             'startDirection' : 'back',
+            'timing' : 'SQQS',
             'follow' : [
                 {
                   'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})',
