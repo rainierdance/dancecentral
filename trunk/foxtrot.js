@@ -26,7 +26,7 @@ var foxtrotFigures =
     'startAlignment' : ['DW', 'DC', 'LOD'],
     'startFoot' : 'RF',
     'startDirection' : 'fwd',
-    'timing' : 'SQQS',
+    'timing' : 'SQQ',
     'follow' : [
     {
       'id' : 'ThreeStep'
@@ -74,7 +74,7 @@ var foxtrotFigures =
     'startAlignment' : ['LOD', 'DW'],
     'startFoot' : 'RF',
     'startDirection' : 'fwd',
-    'timing' : 'QQS',
+    'timing' : 'SQQ', // normally noted this way, not like the book
     'follow' : [
     {
       'id' : 'NaturalTurn'
@@ -142,7 +142,7 @@ var foxtrotFigures =
     'startAlignment' : ['DC'], 
     'startFoot' : 'LF',
     'startDirection' : 'fwd',
-    'timing' : 'SQQ SQQS',
+    'timing' : 'SQQ SQQ',
     'follow' : [
       {
         'id' : 'ThreeStep'
@@ -186,7 +186,7 @@ var foxtrotFigures =
       'startAlignment' : ['BLOD'],
       'startFoot' : 'LF',
       'startDirection' : 'back',
-    'timing' : 'SQQ SQQS',
+    'timing' : 'SQQ SQQ',
       'follow' : [
         {
           'eval' : 'SameFollowAs("FeatherStep")'
