@@ -13,6 +13,7 @@
 
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/quickstep.js"></script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/waltz.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/vwaltz.js"></script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/tango.js"></script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/foxtrot.js"></script>
 
@@ -24,7 +25,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0122.1735";
+    var VERSION = "10.0208.0140";
     var ID_ANALYTICS = "UA-9375974-3";
 
     var inputDance = 'Quickstep';

@@ -62,6 +62,11 @@ function initVars() {
       'figures' : tangoFigures,
       'type' : 'standard'
     },
+    'VWaltz' : {
+      'urlprefix' : 'vwaltz',
+      'figures' : vwaltzFigures,
+      'type' : 'standard'
+    },
     'ChaCha' : {
       'urlprefix' : 'cha-cha-cha',
       'figures' : chachaFigures,
