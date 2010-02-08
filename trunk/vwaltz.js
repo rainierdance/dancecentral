@@ -5,7 +5,7 @@
         'RFForwardChange' : 
           {
             'name' : 'RF Forward Change',
-            'level' : 'Newcomer',
+            'level' : 'Bronze',
             'startAlignment' : ['DC'],
             'startFoot' : ['RF'],
             'startDirection' : 'fwd',
@@ -20,7 +20,7 @@
         'LFForwardChange' : 
           {
             'name' : 'LF Forward Change',
-            'level' : 'Newcomer',
+            'level' : 'Bronze',
             'startAlignment' : ['DW'],
             'startFoot' : ['LF'],
             'startDirection' : 'fwd',
@@ -35,7 +35,7 @@
         'ReverseFleckerl' : 
           {
             'name' : 'Reverse Fleckerl',
-            'level' : 'Newcomer',
+            'level' : 'Silver',
             'startAlignment' : ['LOD'],
             'startFoot' : ['LF'],
             'startDirection' : 'fwd',
@@ -62,7 +62,7 @@
         'NaturalFleckerl' : 
           {
             'name' : 'Natural Fleckerl',
-            'level' : 'Newcomer',
+            'level' : 'Gold',
             'startAlignment' : ['LOD'],
             'startFoot' : ['RF'],
             'startDirection' : 'fwd',
@@ -85,7 +85,7 @@
         'ContraCheck' : 
           {
             'name' : 'Contra Check',
-            'level' : 'Newcomer',
+            'level' : 'Gold',
             'startAlignment' : ['LOD'],
             'startFoot' : ['LF'],
             'startDirection' : 'fwd',
@@ -104,7 +104,7 @@
         'ReverseTurn' : 
           {
             'name' : 'Reverse Turn',
-            'level' : 'Newcomer',
+            'level' : 'Bronze',
             'startAlignment' : ['DW'],
             'startFoot' : ['LF'],
             'startDirection' : 'fwd',
@@ -135,7 +135,7 @@
         'NaturalTurn' : 
           {
             'name' : 'Natural Turn',
-            'level' : 'Newcomer',
+            'level' : 'Bronze',
             'startAlignment' : ['DC'],
             'startFoot' : ['RF'],
             'startDirection' : 'fwd',
