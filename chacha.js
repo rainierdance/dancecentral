@@ -1709,6 +1709,10 @@
               {
                 'id' : 'SplitCubanBreakLF',
                 'comment' : 'when ending facing partner'
+              },
+              {
+                'id' : 'ThreeChaChaChas',
+                'comment' : '4-9 Three Cha Cha Chas Fwd after turning 1/8 more between step 5 of New York and step 1 of next figure to end in LSP'
               }
               ]
           },
@@ -1775,6 +1779,10 @@
               {
                 'id' : 'SplitCubanBreakRF',
                 'comment' : 'when ending facing partner'
+              },
+              {
+                'id' : 'ThreeChaChaChas',
+                'comment' : '4-9 Three Cha Cha Chas Fwd after turning 1/8 more between step 5 of New York and step 1 of next figure to end in RSP'
               }
               ]
           },
