@@ -120,63 +120,468 @@
          {
             'name' : 'Closed Rocks',
             'level' : 'Bronze',
+            'urlpath' : 'closed-rocks',
+            'startFoot' : ['RF'],
+            'startAlignment' : ['LOD'],
+            'startDirection' : ['fwd'],
+            'timing' : 'SQQSQQ',
             'follow' : [
+              {
+                'id' : 'NaturalBasicMovement',
+                'comment' : ''
+              },
+              {
+                'id' : 'CortaJaca',
+                'comment' : 'near corner'
+              },
+              {
+                'id' : 'OpenRocks',
+                'comment' : ''
+              },
+              {
+                'id' : 'NaturalRoll',
+                'comment' : ''
+              },
+              {
+                'id' : 'ThreeStepTurn',
+                'comment' : ''
+              },
+              {
+                'id' : 'ReverseBasicMovement',
+                'comment' : 'after step 3'
+              },
+              {
+                'id' : 'ReverseTurn',
+                'comment' : 'after step 3'
+              },
+              {
+                'id' : 'ReverseRoll',
+                'comment' : 'after step 3'
+              },
+              {
+                'id' : 'ThreeStepTurn',
+                'comment' : 'after step 3'
+              }
              ]
         },
         'CortaJaca' : 
          {
             'name' : 'Corta Jaca',
             'level' : 'Bronze',
+            'urlpath' : 'corta-jaca',
+            'startFoot' : ['RF'],
+            'startAlignment' : ['W', 'DW'],
+            'startDirection' : ['fwd'],
+            'timing' : 'SQQQQQQ',
             'follow' : [
+              {
+                'id' : 'NaturalBasicMovement',
+                'comment' : '4-6'
+              },
+              {
+                'id' : 'SoloSpotVoltaL',
+                'comment' : ''
+              },
+              {
+                'id' : 'NaturalRoll',
+                'comment' : '4-6'
+              }
              ]
         },
         'ReverseTurn' : 
          {
             'name' : 'Reverse Turn',
             'level' : 'Bronze',
+            'urlpath' : 'reverse-turn',
+            'startFoot' : ['LF'],
+            'startAlignment' : ['LOD'],
+            'startDirection' : ['fwd'],
+            'timing' : '1a2 3a4',
+            'follow' : [
+              {
+                'id' : 'ReverseBasicMovement',
+                'comment' : ''
+              },
+              {
+                'id' : 'WhiskToL',
+                'comment' : 'Reverse Turn undertuned to face wall'
+              },
+              {
+                'id' : 'TravelingBotaFogosForward',
+                'comment' : 'LF'
+              },
+              {
+                'id' : 'BotaFogosToPromenadeAndCPP',
+                'comment' : 'Reverse Turn undertuned to face wall'
+              },
+              {
+                'id' : 'ReverseTurn',
+                'comment' : ''
+              },
+              {
+                'id' : 'ReverseRoll',
+                'comment' : ''
+              },
+              {
+                'id' : 'TravelingBotaFogosBack',
+                'comment' : 'after step 3'
+              },
+              {
+                'id' : 'BackRocks',
+                'comment' : 'after step 3'
+              },
+              {
+                'id' : 'Plait',
+                'comment' : 'after step 3'
+              }
+             ]
+        },
+        'ShadowTravelingVoltaRF' : 
+         {
+            'name' : 'Shadow Traveling Volta commenced with RF',
+            'level' : 'Bronze',
+            'urlpath' : 'shadow-travelling-volta',
+            'startFoot' : ['RF'],
+            'startAlignment' : ['W'],
+            'timing' : '1a2',
+            'startDirection' : 'fwd',
+            'follow' : [
+              {
+                'id' : 'SambaWalkLF',
+                'comment' : 'same foot'
+              },
+              {
+                'id' : 'TravelingBotaFogosForward',
+                'comment' : 'LF'
+              },
+              {
+                'id' : 'ShadowTravelingVoltaLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'ShadowCircularVolta',
+                'comment' : 'LF'
+              },
+              {
+                'id' : 'ContraBotaFogos',
+                'comment' : 'Same Foot Bota Fogo to R Contra Postion'
+              },
+              {
+                'id' : 'CruzadosWalksAndLocks',
+                'comment' : 'LF'
+              }
+             ]
+        },
+        'ShadowTravelingVoltaLF' : 
+         {
+            'name' : 'Shadow Traveling Volta commenced with LF',
+            'level' : 'Bronze',
+            'urlpath' : 'shadow-travelling-volta',
+            'startFoot' : ['LF'],
+            'startAlignment' : ['W'],
+            'timing' : '1a2',
+            'startDirection' : 'fwd',
+            'follow' : [
+              {
+                'id' : 'FootChange2',
+                'comment' : ''
+              },
+              {
+                'id' : 'FootChange4',
+                'comment' : ''
+              },
+              {
+                'id' : 'SambaWalkRF',
+                'comment' : 'same foot'
+              },
+              {
+                'id' : 'TravelingBotaFogosForward',
+                'comment' : 'RF'
+              },
+              {
+                'id' : 'ShadowTravelingVoltaRF',
+                'comment' : ''
+              },
+              {
+                'id' : 'ShadowCircularVolta',
+                'comment' : 'RF'
+              },
+              {
+                'id' : 'ContraBotaFogos',
+                'comment' : 'Same Foot Bota Fogo to R Contra Postion'
+              },
+              {
+                'id' : 'CruzadosWalksAndLocks',
+                'comment' : 'RF'
+              }
+             ]
+        },
+        'FootChange1' : 
+         {
+            'name' : 'Foot Change 1: Closed Position to Right Shadow Position',
+            'level' : 'Bronze',
+            'urlpath' : 'foot-changes',
+            'follow' : [
+              {
+                'id' : 'ShadowTravelingVoltaRF',
+                'comment' : ''
+              }
+             ]
+        },
+        'FootChange2' : 
+         {
+            'name' : 'Foot Change 2: Right Shadow Position To Closed Position',
+            'level' : 'Bronze',
+            'urlpath' : 'foot-changes',
             'follow' : [
              ]
         },
-        'ShadowTravelingVolta' : 
+        'FootChange3' : 
          {
-            'name' : 'Shadow Traveling Volta',
+            'name' : 'Foot Change 3: Promenade or Open Promenade to Right Shadow Position',
             'level' : 'Bronze',
+            'urlpath' : 'foot-changes',
+            'follow' : [
+              {
+                'id' : 'ShadowTravelingVoltaLF',
+                'comment' : ''
+              }
+             ]
+        },
+        'FootChange4' : 
+         {
+            'name' : 'Foot Change 4: Rright Shadow Position to Promenade Position',
+            'level' : 'Silver',
+            'urlpath' : 'foot-changes',
+            'follow' : [
+              {
+                'id' : 'SambaWalkRF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SambaWalkSide',
+                'comment' : ''
+              }
+             ]
+        },
+        'FootChange5' : 
+         {
+            'name' : 'Foot Change 5: Promenade Postion to Right Contra Position',
+            'level' : 'Gold',
+            'urlpath' : 'foot-changes',
             'follow' : [
              ]
         },
-        'FootChanges' : 
+        'FootChange6' : 
          {
-            'name' : 'Foot Changes',
-            'level' : 'Bronze',
+            'name' : 'Foot Change 6: R Contra Position to Promenade Position',
+            'level' : 'Gold',
+            'urlpath' : 'foot-changes',
             'follow' : [
              ]
         },
-        'SoloSpotVolta' : 
+        'FootChange7' : 
          {
-            'name' : 'Solo Spot Volta',
-            'level' : 'Bronze',
+            'name' : 'Foot Change 7: R Contra Position to Open Counter Promenade Position',
+            'level' : 'Gold',
+            'urlpath' : 'foot-changes',
             'follow' : [
+             ]
+        },
+        'FootChange8' : 
+         {
+            'name' : 'Foot Change 8: Right Side Position to Right Shadow Position',
+            'level' : 'Silver',
+            'urlpath' : 'foot-changes',
+            'follow' : [
+              {
+                'id' : 'ShadowTravelingVoltaRF',
+                'comment' : ''
+              }
+             ]
+        },
+        'SoloSpotVoltaL' : 
+         {
+            'name' : 'Solo Spot Volta to Left (Lady to Right)',
+            'level' : 'Bronze',
+            'urlpath' : 'solo-spot-volta',
+            'startFoot' : ['LF'],
+            'startAlignment' : ['W'],
+            'timing' : '1a2',
+            'startDirection' : 'fwd',
+            'follow' : [
+              {
+                'id' : 'WhiskToR',
+                'comment' : ''
+              },
+              {
+                'id' : 'SambaWalkStationary',
+                'comment' : 'RF'
+              },
+              {
+                'id' : 'SoloSpotVoltaR',
+                'comment' : ''
+              },
+              {
+                'id' : 'ArgentineCrosses',
+                'comment' : 'started with RF'
+              },
+              {
+                'id' : 'PromenadeAndCPPRuns',
+                'comment' : ''
+              }
+             ]
+        },
+        'SoloSpotVoltaR' : 
+         {
+            'name' : 'Solo Spot Volta to Right (Lady to Left)',
+            'level' : 'Bronze',
+            'urlpath' : 'solo-spot-volta',
+            'startFoot' : ['RF'],
+            'startAlignment' : ['Center'],
+            'timing' : '1a2',
+            'startDirection' : 'fwd',
+            'follow' : [
+              {
+                'id' : 'WhiskToL',
+                'comment' : ''
+              },
+              {
+                'id' : 'SambaWalkStationary',
+                'comment' : 'LF'
+              },
+              {
+                'id' : 'SoloSpotVoltaL',
+                'comment' : ''
+              },
+              {
+                'id' : 'ArgentineCrosses',
+                'comment' : ''
+              }
              ]
         },
         'CrissCrossVoltas' : 
          {
             'name' : 'Criss Cross Voltas',
             'level' : 'Bronze',
+            'urlpath' : 'criss-cross-voltas',
+            'startFoot' : ['RF'],
+            'startAlignment' : ['DW'],
+            'timing' : '1a2a1a2 1a2a1a2',
+            'startDirection' : 'fwd',
             'follow' : [
+              {
+                'id' : 'ReverseBasicMovement',
+                'comment' : ''
+              },
+              {
+                'id' : 'WhiskToL',
+                'comment' : ''
+              },
+              {
+                'id' : 'SambaWalkStationary',
+                'comment' : ''
+              },
+              {
+                'id' : 'BotaFogosToPromenadeAndCPP',
+                'comment' : ''
+              },
+              {
+                'id' : 'ArgentineCrosses',
+                'comment' : ''
+              },
+              {
+                'id' : 'CrissCrossBotaFogos',
+                'comment' : 'when ending in Open PP'
+              },
+              {
+                'id' : 'Maypole',
+                'comment' : 'Man turning L, when ending in Open PP'
+              },
+              {
+                'id' : 'FootChange3',
+                'comment' : 'when ending in Open PP'
+              },
+              {
+                'id' : 'CrissCrossBotaFogos',
+                'comment' : '4-6, when ending in Open CPP'
+              },
+              {
+                'id' : 'Maypole',
+                'comment' : 'Man turning R, when ending in Open CPP'
+              },
+              {
+                'id' : 'SambaLocks',
+                'comment' : 'when ending in Open CPP'
+              },
+              {
+                'id' : 'SambaWalkLF',
+                'comment' : '2 Samba Walks in RSP commenced with LF, Lady RF, then Rolling off the Arm, when ending in R Side Position'
+              },
+              {
+                'id' : 'RollingOffTheArm',
+                'comment' : 'when ending in R Side Position'
+              }
              ]
         },
         'BotaFogosToPromenadeAndCPP' : 
          {
             'name' : 'Bota Fogos To Promenade and Counter Promenade',
             'level' : 'Bronze',
+            'urlpath' : 'bota-fogos-to-promenade-and-counter-promenade',
+            'startFoot' : ['LF'],
+            'startAlignment' : ['W'],
+            'timing' : '1a2 3a4 5a6',
+            'startDirection' : 'fwd',
             'follow' : [
+              {
+                'id' : 'SambaWalkRF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SambaWalkSide',
+                'comment' : ''
+              },
+              {
+                'id' : 'TravelingVoltaL',
+                'comment' : 'turn to face partner on step 1'
+              },
+              {
+                'id' : 'FootChange5',
+                'comment' : 'having made 1/4 turn over 8 & 9'
+              }
              ]
         },
         'TravelingBotaFogosBack' : 
          {
             'name' : 'Traveling Bota Fogos Back',
             'level' : 'Bronze',
+            'urlpath' : 'traveling-bota-fogos-back',
+            'startFoot' : ['RF'],
+            'startAlignment' : ['BDW'],
+            'timing' : '1a2 3a4 5a6 7a8',
+            'startDirection' : 'back',
             'follow' : [
+              {
+                'id' : 'SambaWalkRF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SambaWalkSide',
+                'comment' : ''
+              },
+              {
+                'id' : 'TravelingVoltaL',
+                'comment' : 'turning to face partner on step 1'
+              },
+              {
+                'id' : 'BotaFogosToPromenadeAndCPP',
+                'comment' : '4-9'
+              },
+              {
+                'id' : 'FootChange5',
+                'comment' : ''
+              }
              ]
         },
         'CrissCrossBotaFogos' : 
@@ -186,6 +591,7 @@
             'level' : 'Newcomer',
             'startFoot' : ['LF'],
             'startAlignment' : ['DW'],
+            'startDirection' : ['fwd'],
             'timing' : '1a2 3a4',
             'follow' : [
               {
@@ -209,7 +615,7 @@
                 'comment' : 'Man turn L, or Man turning R after step 3'
               },
               {
-                'id' : 'FootChanges',
+                'id' : 'FootChange3',
                 'comment' : 'Open PP to R Shadow Position'
               },
               {
@@ -225,21 +631,39 @@
             'level' : 'Newcomer',
             'startFoot' : ['RF'],
             'startAlignment' : ['DC'],
+            'startDirection' : 'fwd',
             'timing' : '1a2 3a4',
             'follow' : [
               {
                 'id' : 'NaturalBasicMovement',
                 'comment' : 'commenced OP - turn 1/8 R over 2 and 3 to face partner'
+              },
+              {
+                'id' : 'ContraBotaFogos',
+                'comment' : 'when same foot Bota Fogos ending in Contra Position'
+              },
+              {
+                'id' : 'Roundabout',
+                'comment' : 'when same foot Bota Fogos ending in Contra Position'
+              },
+              {
+                'id' : 'ShadowTravelingVoltaRF',
+                'comment' : 'when LF Traveling Bota Fogos Fwd is dance with same foot'
+              },
+              {
+                'id' : 'ShadowTravelingVoltaLF',
+                'comment' : 'when RF Traveling Bota Fogos Fwd is dance with same foot'
               }
              ]
         },
         'TravelingVoltaR' : 
          {
-            'name' : 'Traveling Volta to Righ',
+            'name' : 'Traveling Volta to Right',
             'urlpath' : 'volta-movements',
             'level' : 'Newcomer',
             'startFoot' : ['LF'],
             'startAlignment' : ['Center'],
+            'startDirection' : 'fwd',
             'timing' : '1a2 a1a2',
             'follow' : [
               {
@@ -256,6 +680,7 @@
             'startFoot' : ['RF'],
             'startAlignment' : ['W'],
             'timing' : '1a2 a1a2',
+            'startDirection' : 'fwd',
             'follow' : [
               {
                 'id' : 'WhiskToL',
@@ -286,6 +711,7 @@
             'startFoot' : 'RF',
             'startAlignment' : ['Wall'],
             'timing' : '1a2 3a4',
+            'startDirection' : 'together',
             'follow' : [
               {
                 'id' : 'ReverseBasicMovement',
@@ -298,6 +724,14 @@
               {
                 'id' : 'BotaFogosToPromenadeAndCPP',
                 'comment' : ''
+              },
+              {
+                'id' : 'SoloSpotVoltaL', // from Solo Spot Volta's preceding figure list
+                'comment' : 'after RF Stationary Walk'
+              },
+              {
+                'id' : 'SoloSpotVoltaR', // from Solo Spot Volta's preceding figure list
+                'comment' : 'after LF Stationary Walk'
               },
               {
                 'id' : 'ArgentineCrosses',
@@ -336,6 +770,7 @@
             'level' : 'Newcomer',
             'startFoot' : 'RF',
             'startAlignment' : ['LOD'],
+            'startDirection' : 'fwd',
             'timing' : '1a2',
             'follow' : [
               {
@@ -351,15 +786,15 @@
                 'comment' : 'in Open PP, having released hold with R hand'
               },
               {
-                'id' : 'SoloSpotVolta',
-                'comment' : 'to L, lady to R, in Open PP, having released hold with R hand'
+                'id' : 'SoloSpotVoltaL',
+                'comment' : 'in Open PP, having released hold with R hand'
               },
               {
                 'id' : 'Maypole',
                 'comment' : 'Man turning L, in Open PP, having released hold with R hand'
               },
               {
-                'id' : 'FootChanges',
+                'id' : 'FootChange3',
                 'comment' : 'from Open PP to R Shadow Position, after having released hold with R hand'
               },
               {
@@ -380,6 +815,7 @@
             'startFoot' : 'RF',
             'startAlignment' : ['LOD'],
             'timing' : '1a2',
+            'startDirection' : 'fwd',
             'follow' : [
               {
                 'id' : 'SambaWalkLF',
@@ -399,6 +835,7 @@
             'startAlignment' : ['LOD'],
             'timing' : '1a2',
             'startFoot' : 'LF',
+            'startDirection' : 'fwd',
             'follow' : [
               {
                 'id' : 'SambaWalkRF',
@@ -441,8 +878,8 @@
                 'comment' : ''
               },
               {
-                'id' : 'SoloSpotVolta',
-                'comment' : 'to L, lady to R'
+                'id' : 'SoloSpotVoltaL',
+                'comment' : ''
               },
               {
                 'id' : 'ArgentineCrosses',
@@ -473,8 +910,8 @@
                 'comment' : ''
               },
               {
-                'id' : 'SoloSpotVolta',
-                'comment' : 'to R - lady to L'
+                'id' : 'SoloSpotVoltaR',
+                'comment' : ''
               },
               {
                 'id' : 'CortaJaca',
@@ -558,6 +995,7 @@
             'startAlignment' : ['W'],
             'timing' : '1a2 3a4',
             'startFoot' : 'RF',
+            'startDirection' : 'fwd',
             'follow' : [
               {
                 'id' : 'NaturalBasicMovement'
