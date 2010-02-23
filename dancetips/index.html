@@ -1,0 +1,39 @@
+<head>
+  <base target="_top" />
+  <LINK REL=StyleSheet HREF="dancetips.css" TYPE="text/css"/>
+  <script type="text/javascript" SRC="../utils/utils.js"></script>
+  <script type="text/javascript" SRC="dancetips.js"></script>
+  <script type="text/javascript" SRC="tips.js"></script>
+
+  <script type="text/javascript">
+    //-------------------------------------------
+    // globals
+    var IS_GADGET = false; 
+    var VERSION = "$Rev$";
+    var ID_ANALYTICS = "UA-9375974-3";
+
+    var inputMode = 'single';
+
+    if (IS_GADGET) {
+      inputMode = '__UP_mode__';
+    }
+
+    function onLoad() {     
+      initVars();
+      initDisplay();
+    }
+
+    if (IS_GADGET) {
+      _IG_RegisterOnloadHandler(onLoad);
+    } else {
+      window.onload = onLoad;
+    }
+  </script>
+</head>
+
+<body>
+<span id='idTipsHeader'></span>
+<span id='idTipsBody'></span>
+<pre id='debugOutput' style='display:block'></pre>
+</body> 
+
