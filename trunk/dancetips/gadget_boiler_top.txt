@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="DanceCentral.info Dance Tips" />
+<UserPref name="mode" display_name="Mode" default_value="single"/>
+<Content type="html"><![CDATA[

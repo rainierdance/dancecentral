@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="DanceCentral.info Dance Tips" />
+<UserPref name="mode" display_name="Mode" default_value="single"/>
+<Content type="html"><![CDATA[
+<head>
+  <base target="_top" />
+  <LINK REL=StyleSheet HREF="http://dancecentral.googlecode.com/svn/trunk/dancetips/dancetips.css" TYPE="text/css"/>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/dancetips/../utils/utils.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/dancetips/dancetips.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/dancetips/tips.js"></script>
+
+  <script type="text/javascript">
+    //-------------------------------------------
+    // globals
+    var IS_GADGET = true; 
+    var VERSION = "10.0223.1344";
+    var ID_ANALYTICS = "UA-9375974-3";
+
+    var inputMode = 'single';
+
+    if (IS_GADGET) {
+      inputMode = '__UP_mode__';
+    }
+
+    function onLoad() {     
+      initVars();
+      initDisplay();
+    }
+
+    if (IS_GADGET) {
+      _IG_RegisterOnloadHandler(onLoad);
+    } else {
+      window.onload = onLoad;
+    }
+  </script>
+</head>
+
+<body>
+<span id='idTipsHeader'></span>
+<span id='idTipsBody'></span>
+<pre id='debugOutput' style='display:block'></pre>
+</body> 
+
+]]></Content>
+</Module>
+
