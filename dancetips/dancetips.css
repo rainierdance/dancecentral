@@ -6,3 +6,15 @@ body {
 td {
   font-size: 0.8em;
 }
+
+.selectedLabel {
+  background-color: #fff4c2;
+  padding: 3px;
+}
+
+.nonSelectedLabel {
+  background-color: #deefe0;
+  padding: 3px;
+  #text-decoration: line-through; 
+}
+
