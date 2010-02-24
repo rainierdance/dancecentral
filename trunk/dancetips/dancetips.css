@@ -9,12 +9,12 @@ td {
 
 .selectedLabel {
   background-color: #fff4c2;
-  padding: 3px;
+  padding: 1px 5px 1px 5px;
 }
 
 .nonSelectedLabel {
   background-color: #deefe0;
-  padding: 3px;
+  padding: 1px 5px 1px 5px;
   #text-decoration: line-through; 
 }
 
