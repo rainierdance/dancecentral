@@ -11,8 +11,196 @@
         'labels': ['Latin'],
         'tip': ""
       },
+      {
+        'labels': ['Cha Cha'],
+        'tip': ""
+      },
+      {
+        'labels': ['Samba'],
+        'tip': ""
+      },
+      {
+        'labels': ['Rumba'],
+        'tip': ""
+      },
+      {
+        'labels': ['Waltz'],
+        'tip': ""
+      },
+      {
+        'labels': ['Foxtrot'],
+        'tip': ""
+      },
+      {
+        'labels': ['Quickstep'],
+        'tip': ""
+      },
+      {
+        'labels': ['Tango'],
+        'tip': ""
+      },
 */
     var danceTips = [
+      {
+        'labels': ['Tango', 'Frame', 'Lady'],
+        'tip': "Plane of LH perpendicular to ground, thumb sticks out, parallel to the ground, placed under Man with fingertips just touching his back."
+      },
+      {
+        'labels': ['Tango', 'Frame'],
+        'tip': "Lady's L upper arm 'down' on Man's forarm; L hand 'up' from beneath Man's upper arm; L elbow 'out' and extend."
+      },
+      {
+        'labels': ['Standard', 'Lady'],
+        'tip': "R arm should never go 'behind' body."
+      },
+      {
+        'labels': ['Tango'],
+        'tip': "Man's elbow should be in the crook of the Lady's elbow. Lady's elbow extends the man's frame."
+      },
+      {
+        'labels': ['Tango'],
+        'tip': "No rise and fall. Place foot, not swivel. Lady is more offset to Man."
+      },
+      {
+        'labels': ['Tango'],
+        'tip': "Different slow timing: step on 1, hold on 2 (<a href='http://www.dancecentral.info/ballroom/international-style/tango/walk'>Walks</a>); hold on 1, step on 2 (<a href='http://www.dancecentral.info/ballroom/international-style/tango/closed-promenade'>Closed Promenade</a>)."
+      },
+      {
+        'labels': ['Foxtrot'],
+        'tip': "Slow is driving step, coast on 2 Quicks. Collect before Slow."
+      },
+      {
+        'labels': ['Waltz'],
+        'tip': "Waltz is more like children's swing - up and down."
+      },
+      {
+        'labels': ['Foxtrot'],
+        'tip': "Frame rotating like monkey swinging from vine to vine."
+      },
+      {
+        'labels': ['Foxtrot'],
+        'tip': "Foxtrot is more 'flat', does not have as much rise and fall. Rise is in body and legs. Not so much in foot."
+      },
+      {
+        'labels': ['Foxtrot', 'Music'],
+        'tip': "4/4 (4 beats per bar). Accent on 1 and 3."
+      },
+      {
+        'labels': ['Tango', 'Music'],
+        'tip': "2/4 (2 beats per bar). Both beats accented."
+      },
+      {
+        'labels': ['Quickstep', 'Music'],
+        'tip': "4/4 (4 beats per bar). Accent on 1 and 3."
+      },
+      {
+        'labels': ['Waltz', 'Music'],
+        'tip': "3/4 (3 beats per bar). Accent on 1."
+      },
+      {
+        'labels': ['Waltz'],
+        'tip': "Settling/lowering at the end of 3 (2nd half beat). Smooth motion, do not drop down fast."
+      },
+      {
+        'labels': ['Waltz', 'Lady'],
+        'tip': "Sway 'forward'. 'Broken sway' will block Man."
+      },
+      {
+        'labels': ['Waltz'],
+        'tip': "1st step is driving step; 2nd step is swaying step; 3rd step is collecting/settling step, bring hips 'underneath'."
+      },
+      {
+        'labels': ['Standard'],
+        'tip': "Always stay left, especially after turning figures."
+      },
+      {
+        'labels': ['Rumba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/rumba/rumba-technique'>Back Walk</a>: track under body; point toe back; straighten knee; lower back heel; release front heel, straight front knee; rotate hip; both legs straight."
+      },
+      {
+        'labels': ['Rumba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/rumba/rumba-technique'>Fwd Walk</a>: back toe - keep pressure on IE, break ankle; track under body; brush ankle; point fwd on toe; both legs straight; push off back foot; lower front heel."
+      },
+      {
+        'labels': ['Rumba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/rumba/rumba-technique'>Rumba Walks</a>: do not step too big."
+      },
+      {
+        'labels': ['Rumba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/rumba/rumba-technique'>Cuban Rocks</a>: keep upper body as still as possible."
+      },
+      {
+        'labels': ['Rumba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/rumba/rumba-technique'>Cuban Rocks</a>: start with both legs straight, then bending one knee to send the other hip back, doing figure 8."
+      },
+      {
+        'labels': ['Rumba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/rumba/rumba-technique'>Cuban Rocks</a>: Feet distance - stand on one foot, point the other foot on floor, then step down."
+      },
+      {
+        'labels': ['Rumba', 'Music'],
+        'tip': "4/4 timingf (4 beats in a bar), accent on 1. 27 bars per minute."
+      },
+      {
+        'labels': ['Samba', 'Music'],
+        'tip': "2 beats to a bar, 2 complete bounce to a bar. Accent on 1. 50 bars per minute. 2 bar phrases."
+      },
+      {
+        'labels': ['Samba'],
+        'tip': "Samba bounce action is on ly in 1a2 3a4 basic timing and 1a2a3a4 Volta timing. Other timing does not have bounce."
+      },
+      {
+        'labels': ['Latin', 'Frame'],
+        'tip': "Try to create larger volume, slightly pushing away from each other."
+      },
+      {
+        'labels': ['Cha Cha', 'Music'],
+        'tip': "4/4 timing (4 beats in a bar), accent on 1. 30 bars per minute."
+      },
+      {
+        'labels': ['Cha Cha'],
+        'tip': "Open hand hold: Lead at Lady's waist level, do not put hand too high."
+      },
+      {
+        'labels': ['Cha Cha'],
+        'tip': "Open hand hold: Man holds Lady's hand with thumb on back of her hand, 2 fingers on her palm, with just enough grip to lead."
+      },
+      {
+        'labels': ['Cha Cha'],
+        'tip': "On steps that break back, always point front toe (still has pressure on floor)."
+      },
+      {
+        'labels': ['Cha Cha'],
+        'tip': "Fwd Runs: twist the hip to make it more interesting and attractive."
+      },
+      {
+        'labels': ['Cha Cha'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Back lock</a>: 1: back foot back, both knees straight."
+      },
+      {
+        'labels': ['Cha Cha'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Back lock</a>: &: small step slide back and cross front foot, back foot still on toe, do not drop heel."
+      },
+      {
+        'labels': ['Cha Cha'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Back lock</a>: 4: small step back, toe turned out, back knee flexed, front knee straight, point front toe. "
+      },
+      {
+        'labels': ['Cha Cha'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Fwd lock</a>: 4: front knee straight; &: sharp/quick real step on toe, hips neutral; 1: knees straight."
+      },
+      {
+        'labels': ['Cha Cha'],
+        'tip': "When continuing LF fwd lock after RF fwd lock, LF brushes to RF before stepping diagonally out again."
+      },
+      {
+        'labels': ['Cha Cha'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Types of Chasses</a>: Chasse to L/R, Compact, Fwd/Back lock, Split Cuban Break, Runs, Ronde, Twist, Slip, Runaway Chasse."
+      },
+      {
+        'labels': ['Cha Cha'],
+        'tip': "Stay on toes on 4&, bend knees, legs don't straighten till 1."
+      },
       {
         'labels': ['Practice'],
         'tip': "The <a href='http://www.dancecentral.info/ballroom/international-style/international-standard-technique#TOC-Positions-and-Shaping-with-Partner'>13-step position and shaping practice</a> is a good warmup routine."
@@ -262,19 +450,19 @@
         'tip': 'Twisting: when turns are in hips only.'
       },
       {
-        'labels': ['Latin', 'Rumba', 'Cha Cha'],
+        'labels': ['Rumba', 'Cha Cha'],
         'tip': 'Back step 2a: settle on "a", front foot naturally slide forward.'
       },
       {
-        'labels': ['Latin', 'Rumba', 'Cha Cha'],
+        'labels': ['Rumba', 'Cha Cha'],
         'tip': 'Back step: when weight is taken on back foot, point front foot, heel up, but with split weight.'
       },
       {
-        'labels': ['Latin', 'Rumba', 'Cha Cha'],
+        'labels': ['Rumba', 'Cha Cha'],
         'tip': 'Fwd 2a: "2" is picture pose, keep both legs straight, 70-30 weight, back foot turned out, heel up.'
       },
       {
-        'labels': ['Latin', 'Rumba', 'Cha Cha'],
+        'labels': ['Rumba', 'Cha Cha'],
         'tip': 'Fwd 2a: do late checking action on "a", change direction to move back.'
       },
       {
