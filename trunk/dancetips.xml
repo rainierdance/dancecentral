@@ -14,7 +14,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0223.1344";
+    var VERSION = "10.0225.0048";
     var ID_ANALYTICS = "UA-9375974-3";
 
     var inputMode = 'single';
@@ -37,6 +37,7 @@
 </head>
 
 <body>
+<span id='idOptions'></span>
 <span id='idTipsHeader'></span>
 <span id='idTipsBody'></span>
 <pre id='debugOutput' style='display:block'></pre>
