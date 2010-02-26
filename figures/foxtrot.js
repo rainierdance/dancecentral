@@ -204,7 +204,7 @@ var foxtrotFigures =
     'timing' : 'S QQ QQ QQ S',
       'follow' : [
         {
-          'eval' : 'SameFollowAs("ReverseTurn")'
+          'eval' : 'SameFollowAs("BasicWeave")'
         }
       ]
     },
@@ -237,9 +237,35 @@ var foxtrotFigures =
       'startDirection' : 'fwd',
       'timing' : 'QQ QQ QQ S',
       'follow' : [
+      {
+        'id' : 'ThreeStep'
+      },
+      {
+        'id' : 'ChangeOfDirection'
+      },
+      {
+        'id' : 'HoverTelemark'
+      },
+      {
+        'id' : 'ReverseWave',
+      },
+      {
+        'id' : 'TopSpin',
+        'comment' : 'check back after step 6'
+      },
+      {
+        'id' : 'OutsideSwivel',
+        'comment' : 'check back after step 6'
+      },
+      {
+        'id' : 'FallawayReverseAndSlipPivot',
+        'comment' : 'at corner'
+      }
+/* though book says save as Reverse Turn, we have to remove the follows for Reverse Turn after 1-4.
         {
           'eval' : 'SameFollowAs("ReverseTurn")'
         }
+*/
       ]
     },
   'ClosedTelemark' : 
