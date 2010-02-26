@@ -22,6 +22,7 @@ var showComments = true;  // whether to show preceding figures
 var generateRelativeUrl = false;  // for figure links
 
 var selectedFigureName = inputFigureName; // current selected figure name
+var routine = []; // array of figureID's in the routine
 
 //-------------------------------------------
 // one-time initialization after scripts are loaded
@@ -413,6 +414,7 @@ function pauseRoutine() {
 
 function startRoutine() {
   viewMode = 'build';
+  routine = [];
 
   // keep selected level, reset other criteria
   resetFigureListIndex();
@@ -445,7 +447,11 @@ function formatFigureList(items) {
 
   output.push('<ol>');
   items.forEach(function (item) {
-    output.push('<li>' + getFigureLink(item[0], true));
+    output.push('<li>');
+    if (contains(routine, item[0])) {
+      output.push('&#10003;');
+    }
+    output.push(getFigureLink(item[0], true));
     if (item[1] && showComments)
       output.push(' (' + item[1] + ')');
   });
@@ -459,17 +465,21 @@ function onClickFigure(figureID) {
   if (viewMode != 'build') return true; // continue with the link
 
   // update the routine list
+  routine.push(figureID);
+
   var output = [];
-  var figure = figures[figureID];
-  output.push('<li><a href="' + 
-      (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath'] + '">' + figure['name'] + '</a> &nbsp;');
-  if (figure['timing']) {
-    output.push('(' + figure['timing'] + ') &nbsp;');
-  }
-  output.push('</li>');
+  routine.forEach(function (id) {
+    var figure = figures[id];
+    output.push('<li><a href="' + 
+        (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath'] + '">' + figure['name'] + '</a> &nbsp;');
+    if (figure['timing']) {
+      output.push('(' + figure['timing'] + ') &nbsp;');
+    }
+    output.push('</li>');
+  });
+
   var element = document.getElementById('spanRoutine');
-  var content = element.innerHTML.replace(/^<ol>/, '').replace(/<\/ol>$/, '');
-  element.innerHTML = '<ol>' + content + output.join('') + '</ol>';
+  element.innerHTML = '<ol>' + output.join('') + '</ol>';
 
   // update the view to only show the selected figure, so it's easier to see what should follow.
   selectFigure(figureID);
@@ -509,7 +519,11 @@ function updateView() {
       return;
 
     counter++;
-    output.push('<span class="FigureLevel1">' + counter + '.</span> <a name="section_' + id + '"></a><span class="figure">');
+    output.push('<span class="FigureLevel1">' + counter + '.</span> ');
+    if (contains(routine, id)) {
+      output.push('&#10003;');
+    }
+    output.push(' <a name="section_' + id + '"></a><span class="figure">');
     output.push(getFigureLink(id));
     output.push('</span>');
 
