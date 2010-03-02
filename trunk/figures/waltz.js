@@ -49,41 +49,133 @@
             'name' : 'Weave From Promenade Position',
             'level' : 'Silver',
             'follow' : [
+                {
+                  'id' : 'CrossHesitation', // listed as precedes
+                  'comment' : 'when ended in PP'
+                }
               ]
           },
         'ClosedTelemark' : 
           {
             'name' : 'Closed Telemark',
             'level' : 'Silver',
+            'urlpath' : 'closed-telemark',
+            'startAlignment' : ['DC'],
+            'startFoot' : 'LF',
+            'startDirection' : 'fwd',
+            'timing' : '123',
             'follow' : [
+                {
+                  'id' : 'ClosedWing',
+                  'comment' : ''
+                },
+                {
+                  'eval' : 'MatchFigureName("Natural")',
+                  'comment' : ''
+                }
               ]
           },
-        'OpenTelemarkAndClosedHesitation' : 
+        'CrossHesitation' : 
           {
-            'name' : 'Open Telemark & Closed Hesitation',
+            'name' : 'Cross Hesitation',
+            'level' : 'Silver',
+            'urlpath' : 'open-telemark-and-cross-hesitation',
+            'startAlignment' : ['DW'],
+            'startFoot' : 'RF',
+            'startDirection' : 'fwd',
+            'timing' : '123',
+            'follow' : [
+                {
+                  'id' : 'NaturalTurn',
+                  'comment' : '4-6'
+                },
+                {
+                  'id' : 'OutsideChange',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'BackWhisk',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'BackLock',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'OutsideSpin',
+                  'comment' : ''
+                }
+              ]
+          },
+        'OpenTelemark' : 
+          {
+            'name' : 'Open Telemark',
+            'level' : 'Silver',
+            'urlpath' : 'open-telemark-and-cross-hesitation',
+            'startAlignment' : ['DC'],
+            'startFoot' : 'LF',
+            'startDirection' : 'fwd',
+            'timing' : '123',
+            'follow' : [
+                {
+                  'id' : 'ChasseFromPP',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'WeaveFromPP',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'CrossHesitation',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'Wing',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'LeftWhisk',
+                  'comment' : ''
+                }
+              ]
+          },
+        'Wing' : 
+          {
+            'name' : 'Wing',
             'level' : 'Silver',
             'follow' : [
               ]
           },
-        'OpenTelemarkAndWing' : 
+        'OpenImpetus' : 
           {
-            'name' : 'Open Telemark And Wing',
+            'name' : 'Open Impetus',
             'level' : 'Silver',
+            'urlpath' : 'open-impetus-and-cross-hesitation',
+            'startAlignment' : ['BLOD'],
+            'startFoot' : 'LF',
+            'startDirection' : 'back',
+            'timing' : '123',
             'follow' : [
-              ]
-          },
-        'OpenImpetusAndCrossHesitation' : 
-          {
-            'name' : 'Open Impetus And Cross Hesitation',
-            'level' : 'Silver',
-            'follow' : [
-              ]
-          },
-        'OpenImpetusAndWing' : 
-          {
-            'name' : 'Open Impetus And Wing',
-            'level' : 'Silver',
-            'follow' : [
+                {
+                  'id' : 'ChasseFromPP',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'WeaveFromPP',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'CrossHesitation',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'Wing',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'LeftWhisk',
+                  'comment' : ''
+                }
               ]
           },
         'OutsideSpin' : 
@@ -98,13 +190,17 @@
             'name' : 'Turning Lock',
             'level' : 'Silver',
             'follow' : [
+                {
+                  'id' : 'CrossHesitation',
+                  'comment' : 'when ended in PP'
+                }
               ]
           },
         'ClosedImpetus' : 
           {
             'name' : 'Closed Impetus',
-            'urlpath' : 'closed-impetus',
             'level' : 'Bronze',
+            'urlpath' : 'closed-impetus',
             'startAlignment' : ['BLOD', 'BDW'],
             'startFoot' : 'LF',
             'startDirection' : 'back',
@@ -175,7 +271,7 @@
                   'comment' : ''
                 },
                 {
-                  'eval' : 'MatchFigureName("Open Telemark")',
+                  'id' : 'OpenTelemark',
                   'comment' : ''
                 },
                 {
@@ -219,11 +315,11 @@
                   'comment' : 'when ending in PP'
                 },
                 {
-                  'eval' : 'MatchFigureName("Cross Hesitation")',
+                  'id' : 'LeftWhisk',
                   'comment' : 'when ending in PP'
                 },
                 {
-                  'id' : 'LeftWhisk',
+                  'id' : 'CrossHesitation', // listed as precedes
                   'comment' : 'when ending in PP'
                 }
               ]
@@ -263,7 +359,7 @@
                   'comment' : 'at corner'
                 },
                 {
-                  'eval' : 'MatchFigureName("Open Impetus")',
+                  'id' : 'OpenImpetus',
                   'comment' : 'when ending BDW'
                 },
                 {
@@ -316,6 +412,10 @@
                 {
                   'id' : 'ClosedWing',
                   'comment' : ''
+                },
+                {
+                  'id' : 'CrossHesitation', // listed as precedes
+                  'comment' : 'when ended in PP'
                 }
               ]
           },
@@ -358,7 +458,7 @@
                   'comment' : ''
                 },
                 {
-                  'eval' : 'MatchFigureName("Open Telemark")',
+                  'id' : 'OpenTelemark',
                   'comment' : ''
                 },
                 {
@@ -410,7 +510,7 @@
                   'comment' : ''
                 },
                 {
-                  'eval' : 'MatchFigureName("Open Telemark")',
+                  'id' : 'OpenTelemark',
                   'comment' : ''
                 },
                 {
@@ -446,7 +546,7 @@
                   'comment' : 'standard, or with turn at corner'
                 },
                 {
-                  'eval' : 'MatchFigureName("Open Impetus")',
+                  'id' : 'OpenImpetus',
                   'comment' : ''
                 },
                 {
@@ -486,7 +586,7 @@
                   'comment' : 'standard, or with turn at corner'
                 },
                 {
-                  'eval' : 'MatchFigureName("Open Impetus")',
+                  'id' : 'OpenImpetus',
                   'comment' : ''
                 },
                 {
@@ -542,15 +642,15 @@
                   'comment' : 'after 1-2 moving to center after Whisk turned to face DC, OR, steps 1-2 moving DC after Whisk turned to face LOD'
                 },
                 {
-                  'id' : 'OpenImpetusAndCrossHesitation',
-                  'comment' : 'Cross Hesitation'
-                },
-                {
-                  'id' : 'ClosedWing',
-                  'comment' : 'Wing ?'
+                  'id' : 'Wing',
+                  'comment' : ''
                 },
                 {
                   'id' : 'LeftWhisk',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'CrossHesitation', 
                   'comment' : ''
                 }
               ]
@@ -642,7 +742,7 @@
                   'comment' : 'after 4-6 Reverse Turn ended DC after underturned natural Spin Turn or Closed Impetus'
                 },
                 {
-                  'eval' : 'MatchFigureName("Open Telemark")',
+                  'id' : 'OpenTelemark',
                   'comment' : 'after 4-6 Reverse Turn ended DC after underturned natural Spin Turn or Closed Impetus'
                 },
                 {
@@ -678,7 +778,11 @@
                   'comment' : 'at corner'
                 },
                 {
-                  'id' : 'ClosedImpetus',  // listed as ClosedImpetu's precedes
+                  'id' : 'ClosedImpetus',  // listed as ClosedImpetus's precedes
+                  'comment' : 'after 1-3'
+                },
+                {
+                  'id' : 'OpenImpetus',  // Open Impetus has same precedes as ClosedImpetus.
                   'comment' : 'after 1-3'
                 },
                 {
@@ -706,7 +810,15 @@
                   'comment' : ''
                 },
                 {
-                  'id' : 'ProgressiveChasseToR', // LF Closed Change listed as its precede
+                  'id' : 'ProgressiveChasseToR', // RF Closed Change listed as its precede
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ClosedTelemark', // RF closed change is listed as its precedes
+                  'comment' : ''
+                },
+                {
+                  'id' : 'OpenTelemark', // RF closed change is listed as its precedes
                   'comment' : ''
                 }
               ]
