@@ -42,6 +42,34 @@
 */
     var danceTips = [
       {
+        'labels': ['Foxtrot'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/slow-foxtrot/natural-turn'>Natural Turn</a> can be danced LOD or DW, can be used in corner to change LOD."
+      },
+      {
+        'labels': ['Foxtrot', 'Lady'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/slow-foxtrot/three-step'>Three Step</a> can be danced DW or LOD."
+      },
+      {
+        'labels': ['Foxtrot', 'Lady'],
+        'tip': "In <a href='http://www.dancecentral.info/ballroom/international-style/slow-foxtrot/three-step'>Three Step</a> step 1: feet on two tracks, leave enough room for Man to step in between."
+      },
+      {
+        'labels': ['Standard'],
+        'tip': "Heel does not touch ground till the other moving foot is even with it."
+      },
+      {
+        'labels': ['Foxtrot'],
+        'tip': "In <a href='http://www.dancecentral.info/ballroom/international-style/slow-foxtrot/feather-step'>Feature Step</a>, do CBM on step 1. In <a href='http://www.dancecentral.info/ballroom/international-style/slow-foxtrot/three-step'>Three Step</a>, CBM happens gradually over 3 steps and frame is wound to left at the end of figure."
+      },
+      {
+        'labels': ['Foxtrot'],
+        'tip': "Feet are always passing in Foxtrot, so there is less rise and fall than Waltz."
+      },
+      {
+        'labels': ['Foxtrot'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/slow-foxtrot/feather-step'>Feature Step</a> can be danced LOD, DW or DC."
+      },
+      {
         'labels': ['Tango', 'Frame', 'Lady'],
         'tip': "Plane of LH perpendicular to ground, thumb sticks out, parallel to the ground, placed under Man with fingertips just touching his back."
       },
@@ -175,15 +203,15 @@
       },
       {
         'labels': ['Cha Cha'],
-        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Back lock</a>: 1: back foot back, both knees straight."
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Back lock</a>: Count '1': back foot back, both knees straight."
       },
       {
         'labels': ['Cha Cha'],
-        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Back lock</a>: &: small step slide back and cross front foot, back foot still on toe, do not drop heel."
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Back lock</a>: Count '&': small step slide back and cross front foot, back foot still on toe, do not drop heel."
       },
       {
         'labels': ['Cha Cha'],
-        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Back lock</a>: 4: small step back, toe turned out, back knee flexed, front knee straight, point front toe. "
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Back lock</a>: Count '4': small step back, toe turned out, back knee flexed, front knee straight, point front toe. "
       },
       {
         'labels': ['Cha Cha'],
@@ -294,7 +322,7 @@
         'tip': "Keep both feet in contact with floor at all times for better control, lower slowly."
       },
       {
-        'labels': ['Standard', 'Quickstep', 'Man'],
+        'labels': ['Quickstep', 'Man'],
         'tip': "Keep body elevated on QQ timing to lead Lady into a lock step. "
       },
       {
@@ -514,7 +542,7 @@
         'tip': 'Latin forward and side step: feet always turned out.'
       },
       {
-        'labels': ['Latin', 'Cha Cha'],
+        'labels': ['Cha Cha'],
         'tip': '2nd Chasse step is a lateral L and R hip movement, i.e. minimal rotation.'
       },
       {
