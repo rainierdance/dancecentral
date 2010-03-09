@@ -143,7 +143,20 @@
           {
             'name' : 'Wing',
             'level' : 'Silver',
+            'urlpath' : 'open-telemark-and-wing',
+            'startAlignment' : ['LOD'],
+            'startFoot' : 'RF',
+            'startDirection' : 'fwd',
+            'timing' : '123',
             'follow' : [
+                {
+                  'eval' : 'MatchFigureName("Reverse")',
+                  'comment' : 'taking step 1 in CBMP OP on L side'
+                },
+                {
+                  'id' : 'Whisk',
+                  'comment' : 'at corner'
+                }
               ]
           },
         'OpenImpetus' : 
@@ -189,10 +202,31 @@
           {
             'name' : 'Turning Lock',
             'level' : 'Silver',
+            'urlpath' : 'turning-lock',
+            'startAlignment' : ['BDC'],
+            'startFoot' : 'RF',
+            'startDirection' : 'back',
+            'timing' : '1&23',
             'follow' : [
                 {
                   'id' : 'CrossHesitation',
                   'comment' : 'when ended in PP'
+                },
+                {
+                  'eval' : 'MatchFigureName("Natural")',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ClosedWing',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ChasseFromPP',
+                  'comment' : 'when ending in PP' // copied from Outside change when ending in PP
+                },
+                {
+                  'id' : 'LeftWhisk',
+                  'comment' : 'when ending in PP' // copied from Outside change when ending in PP
                 }
               ]
           },
