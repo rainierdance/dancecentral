@@ -1018,6 +1018,10 @@
                    'comment' : ''
                 },
                 {
+                   'id' : 'ProgressiveWalksFwdLSP', // in notes
+                   'comment' : 'no turn on 2&3'
+                },
+                {
                    'id' : 'RopeSpinning',
                    'comment' : 'Rope Spinning after Hand to Hand to LSP - Man close RF to LF and lead Lady to turn R into her spiral action on 3 to continue with Rope Spinning'
                 },
@@ -1082,6 +1086,10 @@
                 {
                    'id' : 'Aida',
                    'comment' : ''
+                },
+                {
+                   'id' : 'ProgressiveWalksFwdRSP', // in notes
+                   'comment' : 'no turn on 2&3'
                 },
                 {
                    'id' : 'Spiral',
@@ -1502,6 +1510,10 @@
                    'comment' : '4-6, when New York LSP ends facing parter'
                 },
                 {
+                   'id' : 'ProgressiveWalksFwdRSP', // in notes
+                   'comment' : 'overturned to end fwd in RSP'
+                },
+                {
                    'id' : 'ClosedHipTwist',
                    'comment' : '4-6, when New York LSP ends facing parter'
                 },
@@ -1547,6 +1559,10 @@
                 },
                 {
                    'id' : 'SideStepRightLF'
+                },
+                {
+                   'id' : 'ProgressiveWalksFwdLSP', // in notes
+                   'comment' : 'overturned to end fwd in LSP'
                 },
                 {
                    'id' : 'CubanRockLF'
