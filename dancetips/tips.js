@@ -42,6 +42,38 @@
 */
     var danceTips = [
       {
+        'labels': ['Cha Cha Cha'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/closed-hip-twist'>Closed Hip Twist</a> step 3, count '4': throw L hip back, RF fwd, pressed, knee flexed."
+      },
+      {
+        'labels': ['Latin'],
+        'tip': "Turns should always be sharp even when music is slow."
+      },
+      {
+        'labels': ['Cha Cha Cha'],
+        'tip': "Fwd lock: front leg straight, back leg knee flexed, use ball of foot, not toes."
+      },
+      {
+        'labels': ['Latin'],
+        'tip': "Back step: straighten the back leg first before putting weight on it."
+      },
+      {
+        'labels': ['Latin'],
+        'tip': "Back step: step as big as what ball of feet can reach with both knees flexed and touch."
+      },
+      {
+        'labels': ['Standard'],
+        'tip': "Hip and moving foot are 'connected' in that they are always perpendicular."
+      },
+      {
+        'labels': ['Standard'],
+        'tip': "CBM on forward step: step straight, opposite shoulder turns to the moving the foot."
+      },
+      {
+        'labels': ['Standard'],
+        'tip': "CBM on back step: step straight, toe and hip turn together - just slightly turned in."
+      },
+      {
         'labels': ['Foxtrot'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/slow-foxtrot/natural-turn'>Natural Turn</a> can be danced LOD or DW, can be used in corner to change LOD."
       },
