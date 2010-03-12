@@ -22,3 +22,10 @@ td {
   color: gray;
 }
 
+.tipCount {
+  font-size: 0.7em;
+}
+
+.labelSection {
+  margin-left: 20px;
+}
