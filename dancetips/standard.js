@@ -34,24 +34,16 @@
         'tip': "Hip and moving foot are 'connected' in that they are always perpendicular."
       },
       {
-        'labels': ['Standard'],
-        'tip': "CBM on forward step: step straight, opposite shoulder turns to the moving the foot."
-      },
-      {
-        'labels': ['Standard'],
-        'tip': "CBM on back step: step straight, toe and hip turn together - just slightly turned in."
-      },
-      {
         'labels': ['Foxtrot'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/slow-foxtrot/natural-turn'>Natural Turn</a> can be danced LOD or DW, can be used in corner to change LOD."
       },
       {
-        'labels': ['Foxtrot', 'Lady'],
+        'labels': ['Foxtrot'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/slow-foxtrot/three-step'>Three Step</a> can be danced DW or LOD."
       },
       {
         'labels': ['Foxtrot', 'Lady'],
-        'tip': "In <a href='http://www.dancecentral.info/ballroom/international-style/slow-foxtrot/three-step'>Three Step</a> step 1: feet on two tracks, leave enough room for Man to step in between."
+        'tip': "In <a href='http://www.dancecentral.info/ballroom/international-style/slow-foxtrot/three-step'>Three Step</a> LF back on 'Q': feet on two tracks, leave enough room for Man to step in between."
       },
       {
         'labels': ['Standard'],
@@ -78,7 +70,7 @@
         'tip': "Lady's L upper arm 'down' on Man's forarm; L hand 'up' from beneath Man's upper arm; L elbow 'out' and extend."
       },
       {
-        'labels': ['Standard', 'Lady'],
+        'labels': ['Standard', 'Frame'],
         'tip': "R arm should never go 'behind' body."
       },
       {
@@ -87,7 +79,7 @@
       },
       {
         'labels': ['Tango'],
-        'tip': "No rise and fall. Place foot, not swivel. Lady is more offset to Man."
+        'tip': "No rise and fall. Place foot, not swivel. Lady is more offset to Man than other Standard dances."
       },
       {
         'labels': ['Tango'],
@@ -147,30 +139,22 @@
       },
       {
         'labels': ['Practice', 'Standard'],
-        'tip': "CBM: Step toward mirror with CBM, soft knees, shoulders and hips flat. Do not turn foot."
-      },
-      {
-        'labels': ['Practice'],
-        'tip': "Using WF: Step back with tip toe, slip weight, roll down onto ball of back foot till two feet are even, lower heel."
-      },
-      {
-        'labels': ['Practice'],
-        'tip': "Using WF: Step forward, slide heel fwd, split weight, roll fwd onto front foot, bring back foot fwd, settle, repeat."
-      },
-      {
-        'labels': ['Practice'],
-        'tip': "Step forward, slide heel forward, split weight, roll forward onto front foot, bring back foot fwd, settle, repeat."
-      },
-      {
-        'labels': ['Practice'],
         'tip': "Lead and follow with only body contact, shoulders parallel. Move around room and change body orientation."
       },
       {
-        'labels': ['Practice'],
+        'labels': ['Practice', 'Standard'],
+        'tip': "Using WF: Step back with tip toe, slip weight, roll down onto ball of back foot till two feet are even, lower heel."
+      },
+      {
+        'labels': ['Practice', 'Standard'],
+        'tip': "Using WF: Step forward, slide heel fwd, split weight, roll fwd onto front foot, bring back foot fwd, settle, repeat."
+      },
+      {
+        'labels': ['Practice', 'Lady', 'Standard'],
         'tip': "Lie face down on floor, lift head and bend back."
       },
       {
-        'labels': ['Practice'],
+        'labels': ['Practice', 'Lady', 'Standard'],
         'tip': "Stand in front of wall with some space, then try to fill the space, make contact with wall, while keeping head and foot position."
       },
       {
@@ -179,19 +163,7 @@
       },
       {
         'labels': ['Standard', 'Turns'],
-        'tip': "Heel turn: Last step, push off the back foot, the other foot does not leave the floor."
-      },
-      {
-        'labels': ['Standard', 'Turns'],
-        'tip': "Heel turn: '2&' When completing the turn, weight is on balls of both feet. Foot rise, knee flexed to absorb foot rise."
-      },
-      {
-        'labels': ['Standard', 'Turns'],
-        'tip': "Heel turn: Closing foot if parallel throughout, no weight, keep knees straight."
-      },
-      {
-        'labels': ['Standard', 'Turns'],
-        'tip': "Heel turn: Man does early rise to lead heel turn. Lady keep the straight legs and not swing back."
+        'tip': "Heel turn: Starts with CBM, step straight back with toes slightly turned in."
       },
       {
         'labels': ['Standard', 'Turns'],
@@ -199,15 +171,27 @@
       },
       {
         'labels': ['Standard', 'Turns'],
-        'tip': "Heel turn: Starts with CBM, step straight back with toes slightly turned in."
+        'tip': "Heel turn: Man does early rise to lead heel turn. Lady keep the straight legs and not swing back."
       },
       {
         'labels': ['Standard', 'Turns'],
+        'tip': "Heel turn: Closing foot in parallel throughout, no weight, keep knees straight."
+      },
+      {
+        'labels': ['Standard', 'Turns'],
+        'tip': "Heel turn: '2&' When completing the turn, weight is on balls of both feet. Foot rise, knee flexed to absorb foot rise."
+      },
+      {
+        'labels': ['Standard', 'Turns'],
+        'tip': "Heel turn: Last step, push off the back foot, the moving foot (the one starting CBM) does not leave the floor."
+      },
+      {
+        'labels': ['Standard', 'Turns', 'Lady'],
         'tip': "Pivot turns: when stepping forward, think about shaping away from partner, follow L elbow."
       },
       {
         'labels': ['Standard', 'Turns', 'Lady'],
-        'tip': "Pivot turn: Lady ends with two tracks, leaving room for Man to step."
+        'tip': "Pivot turn: Track free foot under body. Then step side and slightly back to create two tracks, leaving room for Man to step."
       },
       {
         'labels': ['Standard', 'Turns', 'Man'],
@@ -219,7 +203,7 @@
       },
       {
         'labels': ['Standard', 'Lady'],
-        'tip': "Lady never 'falls down', they move 'across'."
+        'tip': "Lady never 'falls down' when lowering, they move 'across'."
       },
       {
         'labels': ['Standard'],
@@ -239,7 +223,23 @@
       },
       {
         'labels': ['Standard'],
+        'tip': "CBM on forward step: step straight, opposite shoulder turns to the moving the foot."
+      },
+      {
+        'labels': ['Standard'],
+        'tip': "CBM on back step: step straight, toe and hip turn together - just slightly turned in."
+      },
+      {
+        'labels': ['Practice', 'Standard'],
+        'tip': "CBM: Step toward mirror with CBM, soft knees, shoulders and hips flat. Do not turn foot."
+      },
+      {
+        'labels': ['Standard'],
         'tip': "CBM: give enough room for partner to step through."
+      },
+      {
+        'labels': ['Standard'],
+        'tip': 'CBM: foot movement is the same direction, just add body turns.'
       },
       {
         'labels': ['Standard'],
@@ -270,7 +270,7 @@
         'tip': "Prepartion last step: keep shape till foot passing, that's when body is flat before next CBM step."
       },
       {
-        'labels': ['Standard'],
+        'labels': ['Standard', 'Turns'],
         'tip': "Step foot straight and then swivel (except for Tango)."
       },
       {
@@ -283,7 +283,7 @@
       },
       {
         'labels': ['Standard', 'Frame', 'Lady'],
-        'tip': "'Spiral up' the frame: Lady has slight twist to R to fit in frame such that Man doesn't break wrist."
+        'tip': "'Spiral up' the frame: Lady has slight twist to R to fit in frame such that Man doesn't break his wrist."
       },
       {
         'labels': ['Standard', 'Frame', 'Lady'],
@@ -303,7 +303,7 @@
       },
       {
         'labels': ['Standard', 'Frame', 'Lady'],
-        'tip': "Knee slight forward to counter balance bending back spine."
+        'tip': "Knee slightly forward to counter balance bending back spine."
       },
       {
         'labels': ['Standard', 'Frame', 'Lady'],
@@ -311,7 +311,7 @@
       },
       {
         'labels': ['Standard', 'Frame', 'Lady'],
-        'tip': "Do not isolate/separate/shift upper body left like in Latin. Curve body, not break body line."
+        'tip': "Do not separate/shift upper body left like in Latin. Curve body, not break body line."
       },
       {
         'labels': ['Standard', 'Frame'],
@@ -339,7 +339,7 @@
       },
       {
         'labels': ['Standard', 'Frame'],
-        'tip': "Stack up block of weight on top of each other, no shifting."
+        'tip': "Stack up block of weight on top of each other, no shifting blocks."
       },
       {
         'labels': ['Standard', 'Frame'],
@@ -355,7 +355,7 @@
       },
       {
         'labels': ['Standard', 'Frame', 'Lady'],
-        'tip': "Lady's L elbow should be even with her shoulder."
+        'tip': "Lady's L elbow should be even with her shoulder to make a line."
       },
       {
         'labels': ['Standard', 'Frame', 'Lady'],
@@ -363,7 +363,7 @@
       },
       {
         'labels': ['Standard', 'Frame', 'Lady'],
-        'tip': "From the back, Lady's arm forms a smooth curved line. No popped up shoulder or dropped elbows."
+        'tip': "From the back, Lady's arm forms a smooth curved line. No popped up shoulder or dropped down elbows."
       },
       {
         'labels': ['Standard', 'Frame', 'Lady'],
@@ -371,7 +371,7 @@
       },
       {
         'labels': ['Standard', 'Frame'],
-        'tip': 'Preparation: Man draws Lady in. Lady gives the R arm, does not draw Man in using arm/shoulder.'
+        'tip': 'Preparation: Man draws Lady in. Lady gives the R arm. Do not draw Man in using arm/shoulder.'
       },
       {
         'labels': ['Standard', 'Frame'],
@@ -382,10 +382,6 @@
         'tip': "Shoulders down and flat, don't tilt, especially during CBM and turns. (Exception: shaping)"
       },
       {
-        'labels': ['Standard'],
-        'tip': 'CBM: foot movement is the same direction, just add body turns.'
-      },
-      {
         'labels': ['Standard', 'Man'],
         'tip': 'Lead normal back step straight back, lead outside partner back step toward your elbow.'
       },
@@ -394,7 +390,7 @@
         'tip': 'Step foot straight forward, not turned out even when turning (except for Tango). This is relative to hips.'
       },
       {
-        'labels': ['Standard', 'Lady'],
+        'labels': ['Standard', 'Foot', 'Lady'],
         'tip': 'When stepping back, start with toe touching floor, show your heel to gain even bigger stride.'
       },
       {

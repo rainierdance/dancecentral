@@ -34,16 +34,12 @@
         'tip': "Turns should always be sharp even when music is slow."
       },
       {
-        'labels': ['Cha Cha'],
-        'tip': "Fwd lock: front leg straight, back leg knee flexed, use ball of foot, not toes."
-      },
-      {
         'labels': ['Latin'],
         'tip': "Back step: straighten the back leg first before putting weight on it."
       },
       {
         'labels': ['Latin'],
-        'tip': "Back step: step as big as what ball of feet can reach with both knees flexed and touch."
+        'tip': "Back step: step as big as what ball of feet can reach when moving knee is flexed and touching the other knee."
       },
       {
         'labels': ['Rumba'],
@@ -71,7 +67,7 @@
       },
       {
         'labels': ['Rumba', 'Music'],
-        'tip': "4/4 timingf (4 beats in a bar), accent on 1. 27 bars per minute."
+        'tip': "4/4 timing (4 beats in a bar), accent on 1. 27 bars per minute."
       },
       {
         'labels': ['Samba', 'Music'],
@@ -79,7 +75,7 @@
       },
       {
         'labels': ['Samba'],
-        'tip': "Samba bounce action is on ly in 1a2 3a4 basic timing and 1a2a3a4 Volta timing. Other timing does not have bounce."
+        'tip': "Samba bounce action is only in 1a2 3a4 basic timing and 1a2a3a4 Volta timing. Other timing does not have bounce."
       },
       {
         'labels': ['Latin', 'Frame'],
@@ -98,7 +94,7 @@
         'tip': "Open hand hold: Man holds Lady's hand with thumb on back of her hand, 2 fingers on her palm, with just enough grip to lead."
       },
       {
-        'labels': ['Cha Cha'],
+        'labels': ['Cha Cha', 'Rumba'],
         'tip': "On steps that break back, always point front toe (still has pressure on floor)."
       },
       {
@@ -107,7 +103,7 @@
       },
       {
         'labels': ['Cha Cha'],
-        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Back lock</a>: Count '1': back foot back, both knees straight."
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Back lock</a>: Count '4': small step back, toe turned out, back knee flexed, front knee straight, point front toe. "
       },
       {
         'labels': ['Cha Cha'],
@@ -115,11 +111,11 @@
       },
       {
         'labels': ['Cha Cha'],
-        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Back lock</a>: Count '4': small step back, toe turned out, back knee flexed, front knee straight, point front toe. "
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Back lock</a>: Count '1': back foot back, both knees straight."
       },
       {
         'labels': ['Cha Cha'],
-        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Fwd lock</a>: 4: front knee straight; &: sharp/quick real step on toe, hips neutral; 1: knees straight."
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Fwd lock</a>: 4: front knee straight; &: sharp/quick real step on ball (not toes), knee flexed; hips neutral; 1: both knees straight."
       },
       {
         'labels': ['Cha Cha'],
@@ -131,15 +127,15 @@
       },
       {
         'labels': ['Cha Cha'],
-        'tip': "Stay on toes on 4&, bend knees, legs don't straighten till 1."
+        'tip': "Chasse: Stay on ball of feet on 4&, bend knees, legs don't straighten till 1."
       },
       {
         'labels': ['Latin', 'Turns'],
-        'tip': 'Turns often start at the end of preceding step. Break "41" into "41&". Turn on "&".'
+        'tip': 'Turns often start at the end of preceding step. Break "41" into "41&". Turn on "&" sharp.'
       },
       {
-        'labels': ['Latin', 'Turns'],
-        'tip': 'All forward/backward open turns: start with step passing under body, then ending side or back.'
+        'labels': ['Latin', 'Foot'],
+        'tip': 'Moving foot from one position to another, the foot/leg must track under the body, before stepping to fwd, side or back.'
       },
       {
         'labels': ['Latin', 'Turns'],
@@ -171,7 +167,7 @@
       },
       {
         'labels': ['Latin', 'Turns'],
-        'tip': 'Turn on ball of foot, while keep foot flat.'
+        'tip': 'Turn on ball of foot, while keeping foot flat.'
       },
       {
         'labels': ['Latin', 'Foot'],
@@ -191,15 +187,7 @@
       },
       {
         'labels': ['Latin', 'Practice'],
-        'tip': 'Practice by stepping on paper and moving paper under foot.'
-      },
-      {
-        'labels': ['Latin', 'Foot'],
         'tip': 'Maintain pressure on floor for the free foot. Practice by stepping on and moving paper under foot.'
-      },
-      {
-        'labels': ['Latin', 'Standard'],
-        'tip': 'Moving foot from position to another, foot much track under body.'
       },
       {
         'labels': ['Latin', 'Foot'],
@@ -219,7 +207,7 @@
       },
       {
         'labels': ['Latin', 'Styling'],
-        'tip': 'Arms should never be static.'
+        'tip': 'Free arms should never be static.'
       },
       {
         'labels': ['Latin', 'Frame'],
@@ -232,6 +220,10 @@
       {
         'labels': ['Latin', 'Frame'],
         'tip': 'Closed Hold: forearms can touch or lean slightly forward, never bend backward. Maintain tone.'
+      },
+      {
+        'labels': ['Latin', 'Practice'],
+        'tip': 'Squat on toes, keeping upper leg parrallel to floor.'
       },
       {
         'labels': ['Latin', 'Frame'],

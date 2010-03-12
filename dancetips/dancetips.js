@@ -1,5 +1,11 @@
 var labelFilters = {}; // in filter and with value "0" means not selected.
+var labelCount = {}; // # of tips for each label
 var allLabels = [];
+var categories = {
+  'Standard' : ['Foxtrot', 'Quickstep', 'Tango', 'Waltz', 'Standard'],
+  'Latin' : ['Cha Cha', 'Rumba', 'Samba', 'Latin'],
+  'Others' : [] // to be filled with rest of the labels in initVars() 
+};
 
 //-------------------------------------------
 // one-time initialization after scripts are loaded
@@ -16,12 +22,26 @@ function initVars() {
         if (!contains(allLabels, label)) {
           allLabels.push(label);
           labelFilters[label] = "1";
+          labelCount[label] = 1;
+        } else {
+          labelCount[label]++;
         }
       });
     }
   });
   allLabels.sort();
-
+  allLabels.forEach(function (label) {
+    var categorized = false;
+    for (var type in categories) {
+      if (contains(categories[type], label)) {
+        categorized = true;
+        break;
+      }
+    }
+    if (!categorized) {
+      categories['Others'].push(label);
+    }
+  });
 }
      
 // initialize display
@@ -127,13 +147,20 @@ function displayLabels() {
   var output = [];
 
   output.push('&nbsp;<b>Labels:</b> <a href="javascript:void(0);" onclick="selectAll(true);">select all</a>');
-  output.push('&nbsp; <a href="javascript:void(0);" onclick="selectAll(false);">deselect all</a><br>');
+  output.push('&nbsp; <a href="javascript:void(0);" onclick="selectAll(false);">deselect all</a><div class=labelSection>');
 
-  allLabels.forEach(function (label) {
-    output.push('<span class="'  +
-      (isLabelSelected(label) ? 'selectedLabel' : 'nonSelectedLabel') + 
-      '" onmouseover="this.style.cursor=\'pointer\';" onclick="toggleLabel(this);">' + label + '</span>');
-  });
+  for (var type in categories) {
+    var labels = categories[type];
+    output.push('<br>' + type + ': ');
+    labels.forEach(function (label) {
+      if(!labelCount[label]) return; // no tips for this label
+      output.push('<span class="'  +
+        (isLabelSelected(label) ? 'selectedLabel' : 'nonSelectedLabel') + 
+        '" onmouseover="this.style.cursor=\'pointer\';" onclick="toggleLabel(this);">' + label + '</span> <span class="tipCount">(' + labelCount[label] + ')</span>');
+    });
+  }
+  output.push('</div>');
+
   document.getElementById('idOptions').innerHTML = output.join('&nbsp; ');
 }
 
