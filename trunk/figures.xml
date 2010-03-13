@@ -25,7 +25,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0223.1344";
+    var VERSION = "10.0312.1618";
     var ID_ANALYTICS = "UA-9375974-3";
 
     var inputDance = 'Quickstep';
@@ -81,6 +81,7 @@ Direction:
 <option>back</option>
 </select>
 </span><br>
+<span id='divShowOptions'></span>
 
 <div id='divFigureChart'> </div>
 
