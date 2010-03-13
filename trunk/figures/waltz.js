@@ -666,6 +666,12 @@
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
             'timing' : '123',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-3.png'
+            ],
             'follow' : [
                 {
                   'id' : 'ChasseFromPP',
@@ -856,6 +862,12 @@
             'startFoot' : ['RF'],
             'startDirection' : 'fwd',
             'timing' : '123',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-closed-change-rf-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-closed-change-rf-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-closed-change-rf-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-closed-change-rf-3.png'
+            ],
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Reverse")',
@@ -884,6 +896,12 @@
             'startFoot' : ['LF'],
             'startDirection' : 'fwd',
             'timing' : '123',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-closed-change-lf-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-closed-change-lf-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-closed-change-lf-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-closed-change-lf-3.png'
+            ],
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")',
