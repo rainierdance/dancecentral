@@ -19,10 +19,13 @@ var sortedIds = []; // display figures in alphabetically order
 var showPrecedes = true;  // whether to show preceding figures
 var showFollows = true;
 var showComments = true;  // whether to show preceding figures
+var showDiagram = true;  // whether to show preceding figures
 var generateRelativeUrl = false;  // for figure links
 
 var selectedFigureName = inputFigureName; // current selected figure name
 var routine = []; // array of figureID's in the routine
+
+var currentAnimatedDiagram = null;
 
 //-------------------------------------------
 // one-time initialization after scripts are loaded
@@ -117,10 +120,12 @@ function initVars() {
 
   showPrecedes = getCookie('showPrecedes') != "0";
   showFollows = getCookie('showFollows') != "0";
+  showDiagram = getCookie('showDiagram') != "0";
   */
   if (inputMode == 'routine') {
     showPrecedes = false;
     showComments = false;
+    showDiagram = false;
   }
 }
      
@@ -228,7 +233,15 @@ function updateFigureList() {
   output.push('</select>');
   output.push('&nbsp; <a href="javascript:void(0);" onclick="selectFigure(\'all\');">all</a> &nbsp;&nbsp;&nbsp; ');
 
+  document.getElementById('divFiguresList').innerHTML = output.join('');
+
+  output = [];
   output.push('Show: ');
+
+  output.push('<input type=checkbox onclick=\'showDiagram=this.checked;setCookie("showDiagram", this.checked? "1": "0");updateView();\' ');
+  output.push(showDiagram ? 'checked' : 'unchecked');
+  output.push('>Diagram &nbsp;');
+
   output.push('<input type=checkbox onclick=\'showPrecedes=this.checked;setCookie("showPrecedes", this.checked? "1": "0");updateView();\' ');
   output.push(showPrecedes ? 'checked' : 'unchecked');
   output.push('>Precedes &nbsp;');
@@ -241,7 +254,7 @@ function updateFigureList() {
   output.push(showComments ? 'checked' : 'unchecked');
   output.push('>Comments &nbsp;');
 
-  document.getElementById('divFiguresList').innerHTML = output.join('');
+  document.getElementById('divShowOptions').innerHTML = output.join('');
 
   updateView();
 }
@@ -527,6 +540,19 @@ function updateView() {
     output.push(getFigureLink(id));
     output.push('</span>');
 
+    // check and see if we should show diagram
+    if (showDiagram && figure['diagram']) {
+      output.push('<br>Diagram:');
+      output.push(' <a href="javascript:void(0);" onclick="diagramAutoShow(\'' + id + '\');">Animate</a> &nbsp;');
+      output.push(' <a href="javascript:void(0);" onclick="diagramStopShow(\'' + id + '\');">Stop</a> &nbsp;&nbsp;&nbsp;');
+      output.push(' <a href="javascript:void(0);" onclick="diagramReset(\'' + id + '\');">Start</a> &nbsp;');
+      output.push(' <a href="javascript:void(0);" onclick="diagramShowNext(\'' + id + '\');">Next step</a> &nbsp;');
+      output.push(' <a href="javascript:void(0);" onclick="diagramLast(\'' + id + '\');">Last step</a> &nbsp;');
+      output.push('  <p>');
+      output.push('  <img id="imgDiagram_' + id + '" src="' + 
+        figure['diagram'][figure['diagram'].length - 1] + '" />');
+    }
+
     var follows = getFollows(figure);
     var precedes = getPrecedes(id);
 
@@ -552,4 +578,93 @@ function updateView() {
 
   //outputDotSource(); // diagram too complicated to be useful
 }
+
+function getDiagramObj(id) {
+  var figure = figures[id];
+  var diagram = figure.diagramObj;
+  if (!diagram) { // delayed creationg
+    diagram = figure.diagramObj = new Diagram(figure['diagram'], 'imgDiagram_' + id, 1500);
+  }
+  return diagram;
+}
+
+function diagramAutoShow(id) {
+  diagramStopShow();
+  var diagram = getDiagramObj(id);
+  currentAnimatedDiagram = diagram;
+  diagram.autoShow();
+}
+
+function diagramStopShow() {
+  // at most one diagram is animating
+  if (currentAnimatedDiagram) {
+    currentAnimatedDiagram.stopShow();
+    currentAnimatedDiagram = null;
+  }
+}
+
+function diagramReset(id) {
+  var diagram = getDiagramObj(id);
+  diagram.reset();
+}
+
+function diagramShowNext(id) {
+  var diagram = getDiagramObj(id);
+  diagram.showNext();
+}
+
+function diagramLast(id) {
+  var diagram = getDiagramObj(id);
+  diagram.last();
+}
+
+/* ----------------- Diagram Class ---------------------*/
+// TODO: error handling
+
+// steps: array of diagram URLs from starting step to last step
+// imgID: the image element ID 
+// interval: in ms, animation timer interval
+function Diagram(stepURLs, imgID, interval) {
+  this.stepURLs = stepURLs;
+  this.total = stepURLs.length;
+  this.next = 0;  // index of next image to show
+  this.imgID = imgID;
+  if (interval) this.interval = interval;
+  else this.interval = 2000; // 2s
+
+  // TODO: Diagram.prototype.showNext is not working
+
+this.showNext = function() {
+  document.getElementById(this.imgID).src = this.stepURLs[this.next];
+  this.next = (this.next + 1) % this.total;
+  if (this.next == 0) {
+    this.stopShow(); // only animate one round
+  }
+}
+     
+this.autoShow = function() {
+  this.reset();
+  // TODO: remove global
+  this.timerID = setInterval("currentAnimatedDiagram.showNext()", this.interval);
+}
+     
+this.stopShow = function() {
+  if (this.timerID) {
+    clearInterval(this.timerID);
+    this.timerID = null;
+  }
+}
+
+this.reset = function() {
+  this.stopShow();
+  this.next = 0;
+  this.showNext();
+}
+
+this.last = function() {
+  this.stopShow();
+  this.next = this.total - 1;
+  this.showNext();
+}
+};
 

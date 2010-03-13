@@ -798,6 +798,15 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'timing' : '123 123',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-turn-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-turn-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-turn-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-turn-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-turn-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-turn-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-turn-6.png'
+            ],
             'follow' : [
                 {
                   'id' : 'ClosedChangeRF',
