@@ -738,6 +738,15 @@
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
             'timing' : '123 123',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-turn-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-turn-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-turn-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-turn-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-turn-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-turn-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-turn-6.png'
+            ],
             'follow' : [
                 {
                   'id' : 'ClosedChangeLF',
