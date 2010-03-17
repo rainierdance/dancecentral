@@ -642,6 +642,14 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'timing' : '1 2& 3',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-chasse-from-pp-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-chasse-from-pp-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-chasse-from-pp-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-chasse-from-pp-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-chasse-from-pp-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-chasse-from-pp-5.png'
+            ],
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")',
