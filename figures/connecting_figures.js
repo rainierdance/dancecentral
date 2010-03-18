@@ -201,8 +201,12 @@ function initDisplay() {
   } 
   document.getElementById('divVersion').innerHTML = VERSION;
 
-  document.getElementById('divRoutine').style.display = (inputMode == 'routine') ? 'block' : 'none';
-      
+  var displayStyle = (inputMode == 'routine') ? 'block' : 'none';
+  document.getElementById('divRoutine').style.display = displayStyle;
+  document.getElementById('divLevels').style.display = displayStyle;
+  document.getElementById('divFiguresList').style.display = displayStyle;
+  document.getElementById('divSelectFigure').style.display = displayStyle;
+
   updateFigureList();
 
 }
