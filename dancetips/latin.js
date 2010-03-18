@@ -22,6 +22,10 @@
 */
     danceTips = danceTips.concat([
       {
+        'labels': ['Cha Cha'],
+        'tip': "On Cuban Breaks, use the hips to counterbalance your foot movements, to allow for faster, more free movement."
+      },
+      {
         'labels': ['Cha Cha', 'Rumba'],
         'tip': "Back step on count '2': put body weight on LF and settle, which pulls the RF in and back to 'catch' the body."
       },
