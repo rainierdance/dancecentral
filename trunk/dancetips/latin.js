@@ -22,6 +22,46 @@
 */
     danceTips = danceTips.concat([
       {
+        'labels': ['Samba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/samba/volta-movements'>Volta</a>: there is hip rotation, but pendulum motion is more prominent."
+      },
+      {
+        'labels': ['Samba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/samba/volta-movements'>Volta</a>: remember 'up-side-down', front heel kisse floor and rises on '&', front leg does the work."
+      },
+      {
+        'labels': ['Samba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/samba/whisk'>Whisk - Underarm Turn to L</a>: slower turn, shape to L, stretch R, heading looking to L."
+      },
+      {
+        'labels': ['Samba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/samba/whisk'>Whisk - Underarm Turn to R</a>: sharp turn to R, body first, leg follows."
+      },
+      {
+        'labels': ['Samba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/samba/whisk'>Whisk</a>: hold on '1' as long as possible, ending CPP when stepping to R, PP when stepping to L."
+      },
+      {
+        'labels': ['Samba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/samba/samba-walks'>Samba Walk</a>: pendulum action should be more prominent than hip rotation. Stationary samba walks has more hip rotation."
+      },
+      {
+        'labels': ['Samba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/samba/samba-walks'>Samba Walk</a>: '1': does not slide back foot, just bent knee."
+      },
+      {
+        'labels': ['Samba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/samba/samba-walks'>Samba Walk</a>: slight hip rotating causing the other foot to step forward."
+      },
+      {
+        'labels': ['Samba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/samba/basic-movements'>Basic</a>: absorb bounce in body, head stays fairly flat; foot moves on 'a'."
+      },
+      {
+        'labels': ['Samba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/samba/basic-movements'>Basic</a>:  free foot postion - roll ankle down, IE of foot, every important."
+      },
+      {
         'labels': ['Cha Cha'],
         'tip': "On Cuban Breaks, use the hips to counterbalance your foot movements, to allow for faster, more free movement."
       },
