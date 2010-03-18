@@ -26,63 +26,63 @@
 */
     danceTips = danceTips.concat([
       {
-        'labels': ['Standard', 'Waltz', 'Lady'],
+        'labels': ['Waltz', 'Lady'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/double-reverse-spin'>Double Reverse Spin</a>: draw L heel in, wait till feet together, turn on R heel, legs straight, follow L elbow."
       },
       {
-        'labels': ['Standard', 'Waltz', 'Lady'],
+        'labels': ['Waltz', 'Lady'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/double-reverse-spin'>Double Reverse Spin</a>: '&' - RF side step, bigger step, stay with Man."
       },
       {
-        'labels': ['Standard', 'Waltz', 'Lady'],
+        'labels': ['Waltz', 'Lady'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/double-reverse-spin'>Double Reverse Spin</a>: amount of turn 3/4, 7/8, full turn, all depends on Man's lead."
       },
       {
-        'labels': ['Standard', 'Waltz', 'Lady'],
+        'labels': ['Waltz', 'Lady'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/closed-impetus'>Closed Impetus</a>: 2nd step is a side step, not spin."
       },
       {
-        'labels': ['Standard', 'Waltz', 'Lady'],
+        'labels': ['Waltz', 'Lady'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/chasse-from-promenade-position'>Chasse from PP</a>: body ending backing wall, feet BDW. Next step is CBMP, OP."
       },
       {
-        'labels': ['Standard', 'Waltz', 'Lady'],
+        'labels': ['Waltz', 'Lady'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/waltz-whisk'>Whisk</a>: '2': track L leg to Man's R leg, feet ending DC, but body backing wall."
       },
       {
-        'labels': ['Standard', 'Waltz', 'Lady'],
+        'labels': ['Waltz', 'Lady'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/waltz-whisk'>Whisk</a>:  head 'over the moon', last thing to turn as a result of turning L side to Man's R, not turning on its own."
       },
       {
-        'labels': ['Standard', 'Waltz', 'Lady'],
+        'labels': ['Waltz', 'Lady'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/waltz-whisk'>Whisk</a>:  head & shoulder postion - think jumping over high bar."
       },
       {
-        'labels': ['Standard', 'Waltz', 'Lady'],
+        'labels': ['Waltz', 'Lady'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/waltz-spin-turn'>Natural Spin Turn</a>: Pivot - track L leg, legs closed, follow elbow, keep leg contact, end with separate track."
       },
       {
-        'labels': ['Standard', 'Waltz', 'Lady'],
+        'labels': ['Waltz', 'Lady'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/waltz-spin-turn'>Natural Spin Turn</a>: Brush - stay on ball of feet, RF in contact with floor, collect hip, keep to R side of Man."
       },
       {
-        'labels': ['Standard', 'Waltz', 'Lady'],
+        'labels': ['Waltz', 'Lady'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/waltz-reverse-turn'>Reverse Turn</a>: Keep shoulder, head position all the same, relative to the spine. Spine sways. L elbow appears to aim upward, do not lift shoulder."
       },
       {
-        'labels': ['Standard', 'Waltz', 'Lady'],
+        'labels': ['Waltz', 'Lady'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/waltz-natural-turn'>Natural Turn</a>: '1': leave body with partner, separate hip and body, turn hip and feet, RF tracks under body before PLOD."
       },
       {
-        'labels': ['Standard', 'Waltz', 'Lady'],
+        'labels': ['Waltz', 'Lady'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/waltz-natural-turn'>Natural Turn</a>: '2': swing hip, avoid broken sway."
       },
       {
-        'labels': ['Standard', 'Waltz', 'Lady'],
+        'labels': ['Waltz', 'Lady'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/waltz-natural-turn'>Natural Turn</a>: '3': body catches up, settle, 'sit', hips underneath."
       },
       {
-        'labels': ['Standard', 'Waltz'],
+        'labels': ['Waltz'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/waltz-closed-changes'>Closed Changes</a>: a very slight turn may be made."
       },
       {
