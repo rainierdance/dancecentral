@@ -203,7 +203,6 @@ function initDisplay() {
 
   var displayStyle = (inputMode == 'routine') ? 'block' : 'none';
   document.getElementById('divRoutine').style.display = displayStyle;
-  document.getElementById('divLevels').style.display = displayStyle;
   document.getElementById('divFiguresList').style.display = displayStyle;
   document.getElementById('divSelectFigure').style.display = displayStyle;
 
@@ -307,6 +306,8 @@ function getPrecedes(figureID) {
 
   sortedIds.forEach(function (id) {
     var figure = figures[id];
+    if (!MatchLevel(figure)) return;
+
     var follows = getFollows(figure); // need to use this to expand the eval(..) values
     if (!follows) return; // continue to next
 
