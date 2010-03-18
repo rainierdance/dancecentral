@@ -480,7 +480,8 @@
                   'comment' : '1-3 Reverse Turn into Basic Weave, when ending LOD'
                 },
                 {
-                  'eval' : 'MatchFigureName("Reverse")',
+                  //'eval' : 'MatchFigureName("Reverse")', // this is not correct, some Reverse named figures don't start DC
+                  'eval' : 'MatchFigures({"startFoot" : "LF", "startAlignment" : "DC"})',
                   'comment' : 'when ending DC'
                 },
                 {
