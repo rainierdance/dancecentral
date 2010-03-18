@@ -27,6 +27,14 @@
     danceTips = danceTips.concat([
       {
         'labels': ['Standard'],
+        'tip': "Always think of counterbalancing your partner."
+      },
+      {
+        'labels': ['Standard'],
+        'tip': "When turning into promenade, the lady's head is the last thing to turn."
+      },
+      {
+        'labels': ['Standard'],
         'tip': "In turning figures, think of going <i>through</i> your partner, instead of going around."
       },
       {
