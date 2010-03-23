@@ -27,6 +27,42 @@
     danceTips = danceTips.concat([
       {
         'labels': ['Waltz', 'Lady'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/waltz-whisk'>Whisk</a>: Promenade Position: lady should not pull her R arm back, leave it to Man, tuck R shoulder under and in."
+      },
+      {
+        'labels': ['Waltz'],
+        'tip': "CMB/Torque: when hips turn with body, it's not CMB anymore."
+      },
+      {
+        'labels': ['Waltz', 'Man'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/waltz-whisk'>Whisk</a>: ending with ball of LF under Man's R shoulder."
+      },
+      {
+        'labels': ['Waltz', 'Lady'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/waltz-whisk'>Whisk</a>: ending with ball of RF under Lady's L shoulder."
+      },
+      {
+        'labels': ['Waltz'],
+        'tip': "Heel turn on RF: LF should come straight in to RF, dragging the heel, and RF should not start turning until LF is even with it. Turn smoothly on the heel of RF using the momentum of the LF coming in."
+      },
+      {
+        'labels': ['Waltz'],
+        'tip': "On figures with a lot of rotation, there is little rise, as rise slows down both rotation and momentum."
+      },
+      {
+        'labels': ['Waltz'],
+        'tip': "Figure is not complete until the heel touches the ground, and the heel doesn't touch the ground until the feet are together."
+      },
+      {
+        'labels': ['Waltz'],
+        'tip': "Delay rise until weight has been transfered on second step (though chart says 'e/o 1')."
+      },
+      {
+        'labels': ['Waltz', 'Lady'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/double-reverse-spin'>Double Reverse Spin</a>: keep body contact with partner throughout the figure, stay left."
+      },
+      {
+        'labels': ['Waltz', 'Lady'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/double-reverse-spin'>Double Reverse Spin</a>: draw L heel in, wait till feet together, turn on R heel, legs straight, follow L elbow."
       },
       {
