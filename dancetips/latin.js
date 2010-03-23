@@ -22,6 +22,10 @@
 */
     danceTips = danceTips.concat([
       {
+        'labels': ['Cha Cha'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cuban-breaks'>Cuban breaks</a>: use the hips to counterbalance foot movements, to allow for faster, free movement."
+      },
+      {
         'labels': ['Samba'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/samba/volta-movements'>Volta</a>: there is hip rotation, but pendulum motion is more prominent."
       },
