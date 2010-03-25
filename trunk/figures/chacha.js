@@ -1063,6 +1063,10 @@
                 'comment' : ''
               },
               {
+                'id' : 'ThreeChaChaChasFwd',
+                'comment' : 'in RSP, after step 2'
+              },
+              {
                 'id' : 'Fan',
                 'comment' : '6-10, Lady in line on step 6 of Fan'
               },
