@@ -2,7 +2,7 @@
 <Module>
   <ModulePrefs title="Redirect" description="Redirect to a different page">
   </ModulePrefs>
-<UserPref name="url" display_name="URL" required />
+<UserPref name="url" display_name="URL" required = "true" />
 <UserPref name="redirect" display_name="Redirect" datatype="bool" default_value = "false" />
 <Content type="html">
 <![CDATA[
@@ -10,15 +10,16 @@
 <script type="text/javascript">
   
 if (__UP_redirect__) {
-  self.location = '__UP_figureName__';
+  top.location = "__UP_url__";
 } else {
-  var html = '<iframe src="__UP_figureName__" frameborder=0 width=100% height=100% scrolling="auto"/>';
+  var html = '<iframe src="__UP_url__" frameborder=0 width=100% height=100% scrolling="auto"/>';
+//    var html = "__UP_url__";
   var element = _gel("idContent");
   element.innerHTML = html;
-  element.style.display = (hideFrame ? 'none' : 'block');
 }
 </script>
 ]]>
 </Content>
 </Module>
+
 
