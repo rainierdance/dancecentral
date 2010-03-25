@@ -22,6 +22,14 @@
 */
     danceTips = danceTips.concat([
       {
+        'labels': ['Latin'],
+        'tip': "In Latin dances, upper body needs to be really 'lifted' up from center while feet should be 'heavy' and 'sticky' on the floor."
+      },
+      {
+        'labels': ['Latin'],
+        'tip': "Posture: lifted up and forward, side image should be body line slanted forward."
+      },
+      {
         'labels': ['Cha Cha'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cuban-breaks'>Cuban breaks</a>: use the hips to counterbalance foot movements, to allow for faster, free movement."
       },
