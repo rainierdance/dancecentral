@@ -48,7 +48,20 @@
           {
             'name' : 'Weave From Promenade Position',
             'level' : 'Silver',
+            'urlpath' : 'weave-from-promenade-position',
+            'startAlignment' : ['DC'],
+            'startFoot' : 'RF',
+            'startDirection' : 'fwd',
+            'timing' : '123 123',
             'follow' : [
+                {
+                  'eval' : 'MatchFigureName("Natural")',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ClosedWing',
+                  'comment' : ''
+                },
                 {
                   'id' : 'CrossHesitation', // listed as precedes
                   'comment' : 'when ended in PP'
@@ -150,7 +163,8 @@
             'timing' : '123',
             'follow' : [
                 {
-                  'eval' : 'MatchFigureName("Reverse")',
+                  //'eval' : 'MatchFigureName("Reverse")', // not generating right figures
+                  'eval' : 'MatchFigures({"startFoot" : "LF", "startDirection" : "fwd", "startAlignment" : "DC"})',
                   'comment' : 'taking step 1 in CBMP OP on L side'
                 },
                 {
@@ -195,7 +209,24 @@
           {
             'name' : 'Outside Spin',
             'level' : 'Silver',
+            'urlpath' : 'outside-spin',
+            'startAlignment' : ['DW'],
+            'startFoot' : 'LF',
+            'startDirection' : 'back',
+            'timing' : '123',
             'follow' : [
+                {
+                  'eval' : 'MatchFigureName("Natural")',
+                  'comment' : 'when ending DW'
+                },
+                {
+                  'eval' : 'SameFollowAs("NaturalSpinTurn")',
+                  'comment' : 'when ending BDC'
+                },
+                {
+                  'id' : 'TurningLock',
+                  'comment' : 'Turning Lock to R, when ending BLOD'
+                }
               ]
           },
         'TurningLock' : 
