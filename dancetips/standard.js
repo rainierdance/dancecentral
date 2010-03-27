@@ -27,11 +27,31 @@
     danceTips = danceTips.concat([
       {
         'labels': ['Waltz', 'Lady'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/double-reverse-spin'>Double Reverse Spin</a>: step 1, straight back, don't turn hip either or turning foot to side which will be in partner's way."
+      },
+      {
+        'labels': ['Waltz', 'Lady'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/chasse-from-promenade-position'>Chasse From PP</a>: pay special attention to stay on Man's R side, not drift to center or R side."
+      },
+      {
+        'labels': ['Waltz', 'Lady'],
+        'tip': "Lady's left hand should stay at the same place on Man's R arm, especially after whisk."
+      },
+      {
+        'labels': ['Waltz', 'Lady'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/back-whisk'>Back Whisk</a>: Step 1 and 2, really drive, as Lady is on the outside."
+      },
+      {
+        'labels': ['Waltz', 'Lady'],
+        'tip': "Natural figures: after step 1, the shoulder should not stop, it needs to keep rotating and continue the flow."
+      },
+      {
+        'labels': ['Waltz', 'Lady'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/waltz-whisk'>Whisk</a>: Promenade Position: lady should not pull her R arm back, leave it to Man, tuck R shoulder under and in."
       },
       {
         'labels': ['Waltz'],
-        'tip': "CMB/Torque: when hips turn with body, it's not CMB anymore."
+        'tip': "CBM/Torque: when hips turn with body, it's not CBM anymore."
       },
       {
         'labels': ['Waltz', 'Man'],

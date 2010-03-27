@@ -22,6 +22,10 @@
 */
     danceTips = danceTips.concat([
       {
+        'labels': ['Cha Cha'],
+        'tip': "At end of each beat, especially, on 2, 3 and 1, stop sharp for a split second before moving again. Example: New York, on '2'."
+      },
+      {
         'labels': ['Latin'],
         'tip': "In Latin dances, upper body needs to be really 'lifted' up from center while feet should be 'heavy' and 'sticky' on the floor."
       },
