@@ -8,6 +8,8 @@
 <head>
   <base target="_top" />
   <LINK REL=StyleSheet HREF="http://dancecentral.googlecode.com/svn/trunk/figures/figures.css" TYPE="text/css"/>
+  <LINK REL=StyleSheet HREF="http://dancecentral.googlecode.com/svn/trunk/figures/videos/dci_video.css" TYPE="text/css"/>
+
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../utils/utils.js"></script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/connecting_figures.js"></script>
 
@@ -25,12 +27,14 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0318.0935";
+    var VERSION = "10.0327.1631";
     var ID_ANALYTICS = "UA-9375974-3";
 
     var inputDance = 'Quickstep';
     var inputFigureName = 'all';
     var inputMode = 'routine';
+
+    var danceVideos = [];
 
     if (IS_GADGET) {
       inputDance = '__UP_dance__';
@@ -49,6 +53,11 @@
       window.onload = onLoad;
     }
   </script>
+
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/videos/dci_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/videos/waltz_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/videos/rumba_video.js"></script>
+
 </head>
 
 <body>
@@ -98,9 +107,21 @@ Routine:
 </table>
 </div>
 
-<textarea id='dotOutput' rows=10 cols=100 style='display:none'></textarea>
-<pre id='debugOutput' style='display:block'></pre>
+<form id ='idSearchForm' onsubmit="updateVideoResult(); return false;" style = "display:none">
+<input type=text id='query' value='' size=40>
+<input type=button value="Search Video Clips!" onclick='updateVideoResult();'>
+</form>
 
+<table>
+<tr><td>
+<div id='divList'></div>
+</td><td>
+<div id='divPlayer'></div>
+</td></tr>
+</table>
+
+<textarea id='dotOutput' rows=10 cols=100 style='display:none'></textarea>
+<pre id='debugOutput' style='display:none'></pre>
 <div id='divVersion'></div>
 </body> 
 
