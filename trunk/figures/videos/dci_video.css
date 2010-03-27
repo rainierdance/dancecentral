@@ -1,0 +1,19 @@
+.description {
+  margin-right: 10px;
+  color: black;
+}
+
+.descriptionSelected {
+  margin-right: 10px;
+  vertical-align:top;
+  background-color: #fff4c2;
+}
+
+.title {
+  color: #0000cc;
+}
+
+.titleSelected {
+  background-color: #fff4c2;
+  color: #cc0000;
+}

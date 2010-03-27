@@ -18,8 +18,10 @@ var sortedIds = []; // display figures in alphabetically order
 
 var showPrecedes = true;  // whether to show preceding figures
 var showFollows = true;
-var showComments = true;  // whether to show preceding figures
-var showDiagram = true;  // whether to show preceding figures
+var showComments = true;  // whether to show comments
+var showDiagram = true;  // whether to show diagram
+var showVideos = true; 
+
 var generateRelativeUrl = false;  // for figure links
 
 var selectedFigureName = inputFigureName; // current selected figure name
@@ -43,6 +45,7 @@ function initVars() {
     */
     paramValue = getURLParam('mode');
     if (paramValue) inputMode = paramValue;
+
   }
 
   DANCE_MAP  = {
@@ -126,6 +129,7 @@ function initVars() {
     showPrecedes = false;
     showComments = false;
     showDiagram = false;
+    showVideos = false;
   }
 }
      
@@ -244,6 +248,10 @@ function updateFigureList() {
   output.push('<input type=checkbox onclick=\'showDiagram=this.checked;setCookie("showDiagram", this.checked? "1": "0");updateView();\' ');
   output.push(showDiagram ? 'checked' : 'unchecked');
   output.push('>Diagram &nbsp;');
+
+  output.push('<input type=checkbox onclick=\'showVideos=this.checked;setCookie("showVideos", this.checked? "1": "0");updateView();\' ');
+  output.push(showVideos ? 'checked' : 'unchecked');
+  output.push('>Videos &nbsp;');
 
   output.push('<input type=checkbox onclick=\'showPrecedes=this.checked;setCookie("showPrecedes", this.checked? "1": "0");updateView();\' ');
   output.push(showPrecedes ? 'checked' : 'unchecked');
@@ -508,7 +516,7 @@ function onClickFigure(figureID) {
 // Re-filter, re-display figure and its following figures
 function updateView() {
   var selectedFigureElement = document.getElementById('figureName');
-  selectedFigureName = selectedFigureElement.options[selectedFigureElement.selectedIndex].text;
+  selectedFigureName = selectedFigureElement.options[selectedFigureElement.selectedIndex].value;
 
   var output = [];
 
@@ -517,7 +525,7 @@ function updateView() {
     var figure = figures[id];
     if (!MatchFigure(figure)) return; // pass UI filter
 
-    if (selectedFigureName != 'all' && figure['name'] != selectedFigureName)
+    if (selectedFigureName != 'all' && (figure['name'] != selectedFigureName) && (id != selectedFigureName))
       return;
 
     var filterElement = document.getElementById('startAlignment');
@@ -580,6 +588,12 @@ function updateView() {
 
   var element = document.getElementById('divFigureChart');
   element.innerHTML = output.join('');
+
+  // single figure mode
+  if (showVideos && (selectedFigureName != 'all')) {
+    document.getElementById('query').value = selectedFigureName;
+    updateVideoResult();
+  }
 
   //outputDotSource(); // diagram too complicated to be useful
 }
