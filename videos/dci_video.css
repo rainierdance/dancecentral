@@ -1,0 +1,21 @@
+.description {
+  margin-right: 10px;
+  color: black;
+}
+
+.descriptionSelected {
+  margin-right: 10px;
+  vertical-align:top;
+}
+
+.title {
+  color: #0000cc;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.titleSelected {
+  background-color: #fff4c2;
+  text-decoration: none;
+  color: #cc0000;
+}
