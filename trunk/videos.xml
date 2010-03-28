@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="DanceCentral.info Video Clips" />
+<UserPref name="query" display_name="Query" default_value=""/>
+<Content type="html"><![CDATA[
+<head>
+  <base target="_top" />
+  <LINK REL=StyleSheet HREF="http://dancecentral.googlecode.com/svn/trunk/videos/dci_video.css" TYPE="text/css"/>
+  <LINK REL=StyleSheet HREF="http://dancecentral.googlecode.com/svn/trunk/videos/../figures/figures.css" TYPE="text/css"/>
+
+  <script type="text/javascript">
+    //-------------------------------------------
+    // globals
+    var IS_GADGET = true; 
+    var VERSION = "10.0327.1658";
+    var ID_ANALYTICS = "UA-9375974-3";
+
+    if (IS_GADGET) {
+      // does gadget specific initialization
+    }
+
+    var danceVideos = [];
+
+    function onLoad() {
+      updateVideoResult();
+      document.getElementById('divVersion').innerHTML = VERSION;
+    }
+  </script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/dci_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/waltz_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/rumba_video.js"></script>
+
+</head>
+
+<body onLoad="onLoad()">
+
+<form id ='idSearchForm' onsubmit="updateVideoResult(); return false;">
+<input type=text id='query' value='' size=40>
+<input type=button value="Search Video Clips!" onclick='updateVideoResult();'>
+</form>
+
+<table>
+<tr><td>
+<div id='divList'></div>
+</td><td>
+<div id='divPlayer'></div>
+</td></tr>
+</table>
+
+<div id='divVersion'></div>
+
+</body> 
+
+]]></Content>
+</Module>
+
