@@ -1,0 +1,48 @@
+<head>
+  <base target="_top" />
+  <LINK REL=StyleSheet HREF="dci_video.css" TYPE="text/css"/>
+  <LINK REL=StyleSheet HREF="../figures/figures.css" TYPE="text/css"/>
+
+  <script type="text/javascript">
+    //-------------------------------------------
+    // globals
+    var IS_GADGET = false; 
+    var VERSION = "$Rev$";
+    var ID_ANALYTICS = "UA-9375974-3";
+
+    if (IS_GADGET) {
+      // does gadget specific initialization
+    }
+
+    var danceVideos = [];
+
+    function onLoad() {
+      updateVideoResult();
+      document.getElementById('divVersion').innerHTML = VERSION;
+    }
+  </script>
+  <script type="text/javascript" SRC="dci_video.js"></script>
+  <script type="text/javascript" SRC="waltz_video.js"></script>
+  <script type="text/javascript" SRC="rumba_video.js"></script>
+
+</head>
+
+<body onLoad="onLoad()">
+
+<form id ='idSearchForm' onsubmit="updateVideoResult(); return false;">
+<input type=text id='query' value='' size=40>
+<input type=button value="Search Video Clips!" onclick='updateVideoResult();'>
+</form>
+
+<table>
+<tr><td>
+<div id='divList'></div>
+</td><td>
+<div id='divPlayer'></div>
+</td></tr>
+</table>
+
+<div id='divVersion'></div>
+
+</body> 
+

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="DanceCentral.info Video Clips" />
+<UserPref name="query" display_name="Query" default_value=""/>
+<Content type="html"><![CDATA[
