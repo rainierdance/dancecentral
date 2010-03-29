@@ -131,6 +131,8 @@ function initVars() {
     showDiagram = false;
     showVideos = false;
   }
+
+  initVideos();
 }
      
 //----------------------------------------     

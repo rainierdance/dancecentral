@@ -27,7 +27,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0328.1954";
+    var VERSION = "10.0329.0840";
     var ID_ANALYTICS = "UA-9375974-3";
 
     var inputDance = 'Quickstep';
@@ -56,7 +56,14 @@
 
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/dci_video.js"></script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/waltz_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/vwaltz_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/tango_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/foxtrot_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/quickstep_video.js"></script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/rumba_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/chacha_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/samba_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/ballroom_video.js"></script>
 
 </head>
 

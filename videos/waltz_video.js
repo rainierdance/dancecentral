@@ -1,5 +1,58 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Waltz Demo, Timing',
+    'description' : 'Demo by Mirko & Alessia:<ul>' +
+        '<li> Overturned Spin Turn' +
+        '<li> Turning Lock' +
+        '<li> Chasse from PP' +
+        '<li> Quick Open Reverse' +
+        '<li> Hover Corte' +
+        '<li> Back Whisk' +
+        '<li> Chasse from PP' +
+        '<li> Spin Turn' +
+        '<li> Back Lock' +
+        '<li> Left Whisk' +
+        '<li> Contracheck, recover to PP' +
+        '<li> Checked Reverse Turn from PP' +
+        '<li> Outside Spin' +
+        '<li> Half Natural' +
+        '<li> Spin Turn' +
+        '<li> Reverse Pivot' +
+        '<li> Double Reverse Spin' +
+        '<li> Fallaway Reverse, Slip Pivot' +
+        '<li> Double Reverse Spin' +
+        '<li> Reverse Turn' +
+        '<li> Left Whisk' +
+        '<li> Untwist' +
+        '<li> Back Whisk' +
+        '<li> Open Nat' +
+        '<li> Back Whisk' +
+        '<li> Open Wing' +
+        '<li> Chasse to R' +
+        '<li> Back Lock' +
+        '<li> Outside Spin' +
+        '<li> Back Lock' +
+        '<li> Spin Turn' +
+        '<li> Reverse Turn (456)' +
+        '<li> Reverse Turn' +
+        '<li> Lunge' +
+      '</ul>',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/Ve82-LCzXFI'
+  },
+  {
+    'title' : 'Waltz Basics, Timing',
+    'description' : 'Instructions by Marcus & Karen Hilton',
+    'labels' : ['DoubleReverseSpin'],
+    'url' : 'http://www.youtube.com/v/sTU55Lwc-Y4'
+  },
+  {
+    'title' : 'Waltz Showdance WSS 1998 by Marcus & Karen Hilton',
+    'description' : '9 time professional standard champion.',
+    'labels' : ['Performance'],
+    'url' : 'http://www.youtube.com/v/_gvomcBo8xI'
+  },
+  {
     'title' : 'Waltz Progressive Chasse To the Right',
     'description' : 'Instructions by Marcus & Karen Hilton',
     'labels' : ['ProgressiveChasseToR'],
