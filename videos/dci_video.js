@@ -115,7 +115,7 @@ function updateVideoResult() {
   var index = 0;
 
   videos.forEach(function (video) {
-    output.push('<li><a name="v' + index + '"><a href="#v' + index + '" class="title" id="title_' + index +
+    output.push('<li><a name="v' + index + '"><a target="_self" href="#v' + index + '" class="title" id="title_' + index +
         '" onclick="showVideo(' + index + ')">' + 
         video['title'] + '</a></a><br>');
      output.push('<table><tr><td><span class="description" id="desc_' + index + '"  >' + 
