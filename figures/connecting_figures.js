@@ -591,8 +591,11 @@ function updateView() {
 
   // single figure mode
   if (showVideos && (selectedFigureName != 'all')) {
+    document.getElementById('idVideoSection').style.visibility = 'visible';
     document.getElementById('query').value = selectedFigureName;
     updateVideoResult();
+  } else {
+    document.getElementById('idVideoSection').style.visibility = 'hidden';
   }
 
   //outputDotSource(); // diagram too complicated to be useful

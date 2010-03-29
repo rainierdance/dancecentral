@@ -27,7 +27,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0327.1734";
+    var VERSION = "10.0328.1954";
     var ID_ANALYTICS = "UA-9375974-3";
 
     var inputDance = 'Quickstep';
@@ -107,6 +107,7 @@ Routine:
 </table>
 </div>
 
+<span id='idVideoSection'>
 <form id ='idSearchForm' onsubmit="updateVideoResult(); return false;" style = "display:none">
 <input type=text id='query' value='' size=40>
 <input type=button value="Search Video Clips!" onclick='updateVideoResult();'>
@@ -119,6 +120,7 @@ Routine:
 <div id='divPlayer'></div>
 </td></tr>
 </table>
+</span>
 
 <textarea id='dotOutput' rows=10 cols=100 style='display:none'></textarea>
 <pre id='debugOutput' style='display:none'></pre>
