@@ -21,6 +21,7 @@ function clearSelection() {
   document.getElementById('divPlayer').innerHTML = '';
   document.getElementById('title_' + currentIndex).className = 'title';
   document.getElementById('desc_' + currentIndex).className = 'description';
+  document.getElementById('video_' + currentIndex).innerHTML = '';
 
   currentIndex = -1;
 }
@@ -36,7 +37,12 @@ function showVideo(index) {  // index to "videos"
 
   var output = [];
   output.push('<iframe width="480" height="385" src="' + video['url'] + '"></iframe>');
-  document.getElementById('divPlayer').innerHTML = output.join('');
+  if (videos.length > 6) {
+    document.getElementById('video_' + index).innerHTML = output.join('');
+  } else {  // small set of videos, fixed position on the right. 
+    // made it simple, could do absolute position with layering etc.
+    document.getElementById('divPlayer').innerHTML = output.join('');
+  }
 
   // hightlight title and description, so we know which one we are showing
   document.getElementById('title_' + index).className = 'titleSelected';
@@ -105,16 +111,17 @@ function updateVideoResult() {
   }
 
   // there are results
-  var output = ['Videos:<ol>'];
+  var output = ['<b>' + videos.length + '</b> related videos: <ol>'];
   var index = 0;
 
   videos.forEach(function (video) {
-    output.push('<li><span class="title" id="title_' + index +
+    output.push('<li><a name="v' + index + '"><a href="#v' + index + '" class="title" id="title_' + index +
         '" onclick="showVideo(' + index + ')">' + 
-        video['title'] + '</a></span><br>');
-     output.push('<span class="description" id="desc_' + index + '"  >' + 
-        video['description'] + '</span>');
+        video['title'] + '</a></a><br>');
+     output.push('<table><tr><td><span class="description" id="desc_' + index + '"  >' + 
+        video['description'] + '</span></td><td>');
     output.push('<span id="video_' + index + '"></span>');
+    output.push('</td></tr></table>');
     index++;
   });
 
