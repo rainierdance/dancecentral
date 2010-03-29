@@ -4,6 +4,7 @@
 <UserPref name="dance" display_name="Dance" default_value="Quickstep"/>
 <UserPref name="figureName" display_name="Figure Name" default_value="all"/>
 <UserPref name="mode" display_name="Mode" default_value=""/>
+<UserPref name="video" display_name="Show Videos" default_value=""/>
 <Content type="html"><![CDATA[
 <head>
   <base target="_top" />
@@ -27,12 +28,13 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0329.0840";
+    var VERSION = "10.0329.1359";
     var ID_ANALYTICS = "UA-9375974-3";
 
     var inputDance = 'Quickstep';
     var inputFigureName = 'all';
     var inputMode = 'routine';
+    var inputVideoMode = '';
 
     var danceVideos = [];
 
@@ -40,6 +42,7 @@
       inputDance = '__UP_dance__';
       inputFigureName = '__UP_figureName__';
       inputMode= '__UP_mode__';
+      inputVideoMode= '__UP_video__';
     }
 
     function onLoad() {     
