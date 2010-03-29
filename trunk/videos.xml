@@ -12,7 +12,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0327.1658";
+    var VERSION = "10.0329.0840";
     var ID_ANALYTICS = "UA-9375974-3";
 
     if (IS_GADGET) {
@@ -22,13 +22,21 @@
     var danceVideos = [];
 
     function onLoad() {
+      initVideos();
       updateVideoResult();
       document.getElementById('divVersion').innerHTML = VERSION;
     }
   </script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/dci_video.js"></script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/waltz_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/vwaltz_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/tango_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/foxtrot_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/quickstep_video.js"></script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/rumba_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/chacha_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/samba_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/ballroom_video.js"></script>
 
 </head>
 

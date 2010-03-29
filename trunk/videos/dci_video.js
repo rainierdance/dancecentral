@@ -4,6 +4,15 @@
 var videos; // current search results
 var currentIndex = -1;
 
+function compareVideo(video1, video2) {
+  return video1['title'] > video2['title']; // return true if 1 is 'large' than 2.
+}
+
+function initVideos() {
+  // sort them by title
+  danceVideos = danceVideos.sort(compareVideo);
+}
+
 // clear selected video (highlight, video player etc)
 function clearSelection() {
   if (currentIndex < 0) // no selection
@@ -62,7 +71,10 @@ function getSearchResult() {
         }
         // after it's split, it's exact match (case insensitive)
         for (var k = 0; k < items.length; k++) {
-          if (items[k].toLowerCase() == queryTokens[j]) {
+          //var strippedText = Regex.Replace(items[k], /^a-zA-Z0-9/g, "");
+          var strippedText = items[k].replace(/[^a-zA-Z0-9]/g, '');
+          //var strippedText = items[k];
+          if (strippedText.toLowerCase() == queryTokens[j]) {
             match = true;
             break;
           }
