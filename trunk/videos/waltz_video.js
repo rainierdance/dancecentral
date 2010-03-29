@@ -1,5 +1,41 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Standard Technique for Ladies by Heather Smith - Vol 1',
+    'description' : 'Develop center balance',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/cAjqm8pyHZY'
+  },
+  {
+    'title' : 'Standard Technique for Ladies by Heather Smith - Vol 2',
+    'description' : 'Closed Impetus movement',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/DcWDacTs7O4'
+  },
+  {
+    'title' : 'Standard Technique by Stephen & Jennifer Hillier',
+    'description' : 'Footwork, movement, collection, etc.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/vXbAlRnMGIA'
+  },
+  {
+    'title' : 'Standard Technique by Monika - Waltz',
+    'description' : 'Monika Olejnik teaches ballroom technique class at Dance Spectrum.',
+    'labels' : ['ChasseFromPP'],
+    'url' : 'http://www.youtube.com/v/RFmpqAly77o'
+  },
+  {
+    'title' : 'Standard Technique by Monika - Foxtrot',
+    'description' : 'Monika Olejnik teaches ballroom technique class at Dance Spectrum.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/jmUJRcw_PM0'
+  },
+  {
+    'title' : 'Standard Technique by Glen Weiss',
+    'description' : 'Glen Weiss, 2-time World Standard Champion, talks about how to get in correct frame. Waltz is danced as an example.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/kW-ffl7i5-c'
+  },
+  {
     'title' : 'Waltz Demo, Timing',
     'description' : 'Demo by Mirko & Alessia:<ul>' +
         '<li> Overturned Spin Turn' +

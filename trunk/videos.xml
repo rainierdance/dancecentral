@@ -12,22 +12,34 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0329.0840";
+    var VERSION = "10.0329.1254";
     var ID_ANALYTICS = "UA-9375974-3";
+
+    var inputQuery = '';
 
     if (IS_GADGET) {
       // does gadget specific initialization
+      inputQuery= '__UP_query__';
     }
 
     var danceVideos = [];
 
     function onLoad() {
+      if (!IS_GADGET) {
+        var paramValue = getURLParam('query');
+        if (paramValue) inputQuery = paramValue;
+      }
+
+      document.getElementById('query').value = inputQuery;
+ 
       initVideos();
       updateVideoResult();
+
       document.getElementById('divVersion').innerHTML = VERSION;
     }
   </script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/dci_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/../utils/utils.js"></script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/waltz_video.js"></script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/vwaltz_video.js"></script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/tango_video.js"></script>
