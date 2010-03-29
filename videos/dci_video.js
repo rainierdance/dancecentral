@@ -4,6 +4,12 @@
 var videos; // current search results
 var currentIndex = -1;
 
+var COMPACT_NUM = 6;
+
+function compactMode() {
+  return (videos && videos.length < COMPACT_NUM);
+}
+
 function compareVideo(video1, video2) {
   return video1['title'] > video2['title']; // return true if 1 is 'large' than 2.
 }
@@ -37,7 +43,7 @@ function showVideo(index) {  // index to "videos"
 
   var output = [];
   output.push('<iframe width="480" height="385" src="' + video['url'] + '"></iframe>');
-  if (videos.length > 6) {
+  if (!compactMode()) {
     document.getElementById('video_' + index).innerHTML = output.join('');
   } else {  // small set of videos, fixed position on the right. 
     // made it simple, could do absolute position with layering etc.
@@ -49,6 +55,8 @@ function showVideo(index) {  // index to "videos"
   document.getElementById('desc_' + index).className = 'descriptionSelected';
 
   currentIndex = index;
+
+  return !compactMode(); // proceed to go to local anchor, otherwise, don't scroll
 }
 
 // case insensitive search, AND releations
