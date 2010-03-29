@@ -46,6 +46,8 @@ function initVars() {
     paramValue = getURLParam('mode');
     if (paramValue) inputMode = paramValue;
 
+    paramValue = getURLParam('video');
+    if (paramValue) inputVideoMode = paramValue;
   }
 
   DANCE_MAP  = {
@@ -129,9 +131,15 @@ function initVars() {
     showPrecedes = false;
     showComments = false;
     showDiagram = false;
-    showVideos = false;
   }
 
+  if (inputVideoMode) {
+    showVideos = (inputVideoMode == 'true');
+  } else if (inputMode == 'routine') {
+    showVideos = false;
+  } else {
+    showVideos = true;
+  }
   initVideos();
 }
      

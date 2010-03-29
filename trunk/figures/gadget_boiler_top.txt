@@ -4,4 +4,5 @@
 <UserPref name="dance" display_name="Dance" default_value="Quickstep"/>
 <UserPref name="figureName" display_name="Figure Name" default_value="all"/>
 <UserPref name="mode" display_name="Mode" default_value=""/>
+<UserPref name="video" display_name="Show Videos" default_value=""/>
 <Content type="html"><![CDATA[

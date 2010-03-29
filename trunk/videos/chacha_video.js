@@ -1,5 +1,29 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Cha Cha: New York',
+    'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com. Did not include much technique.',
+    'labels' : ['NewYorkLSP', 'NewYorkRSP'],
+    'url' : 'http://www.youtube.com/v/LsU4x_YVvEQ'
+  },
+  {
+    'title' : 'Cha Cha Rountine - Bronze level',
+    'description' : 'A couple in Singapore, preparing for their competition.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/eImhD8_tzBM'
+  },
+  {
+    'title' : 'Cha Cha New York - Variation',
+    'description' : "New Yorker with Lady's turn. Demonstrated by Max Kozhevnikov & Yulia Zagoruychenko.",
+    'labels' : ['NewYorkLSP', 'NewYorkRSP'],
+    'url' : 'http://www.youtube.com/v/INzaQGhMEgY'
+  },
+  {
+    'title' : 'Cha Cha Practice Routine - Bronze Level',
+    'description' : 'Some basic bronze figures. TaiWan.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/RMjgnIMCu5A'
+  },
+  {
     'title' : 'Cha Cha: Warm Up',
     'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas.',
     'labels' : [],
@@ -50,7 +74,7 @@ danceVideos = danceVideos.concat([
   {
     'title' : 'Latin Technique: Cha Cha - Checked Action, Chasses',
     'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas.',
-    'labels' : ['OpenBasic'],
+    'labels' : [],
     'url' : 'http://www.youtube.com/v/Wsf9p2e-d18'
   },
   {
