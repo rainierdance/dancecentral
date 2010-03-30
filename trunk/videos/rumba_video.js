@@ -108,26 +108,62 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/bMmabQzQnh4'
   },
   {
-    'title' : 'Rumba Basic Bronze Routine',
-    'description' : 'All bronze figures.',
+    'title' : 'Rumba Bronze Routine from a class',
+    'description' : 'All bronze figures. Routine: <ul>' +
+      '<li> Closed Basic' +
+      '<li> Fan' +
+      '<li> Hockey Stick' +
+      '<li> Progressive Walks' +
+      '<li> Natural Top' +
+      '<li> Opening Out to Fan' +
+      '<li> Alemana' +
+      '<li> New York LSP and RSP' +
+      '<li> Switch Turns' +
+      '<li> Hand To Hand' +
+      '<li> Shoulder To Shoulder' +
+      '<li> Undearm Turn to Right' +
+      '</ul>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/XwOtNpMRXII'
   },
   {
-    'title' : 'Rumba  Routine',
-    'description' : 'Some basic figures, some are more advanced. By Alan Tornsberg & Serena Lecca',
+    'title' : 'Rumba Variations',
+    'description' : 'By Alan Tornsberg & Serena Lecca. Includes Silver, Gold figures. Routine: <ul>' +
+      '<li> Turning Basic' + 
+      '<li> Open Hip Twist' + 
+      '<li> Alemana' + 
+      '<li> Closed Hip Twist' + 
+      '<li> a lot more...' + 
+      '</ul>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/EF3mEbgCHsE'
   },
   {
-    'title' : 'Rumba Silver Routine',
-    'description' : 'Slavik and Karina.',
+    'title' : 'Rumba Bronze Routine',
+    'description' : 'By Slavik and Karina. (Video title says Silver, but these are Bronze figures.) Routine: <ul>' +
+      '<li> Alternative Basic, ending in Fan' +
+      '<li> Alemana' +
+      '<li> Closed Hip Twist' +
+      '<li> Hockey Stick' +
+      '<li> Natural Top' +
+      '<li> Natural Opening Out to Left and Right' +
+      '</ul',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/DrViOar0RDs'
   },
   {
-    'title' : 'Rumba Bronze Routine',
-    'description' : 'Slavik and Karina.',
+    'title' : 'Rumba Newcomer Routine',
+    'description' : 'By Slavik and Karina. (Video title says Bronze, but these are Newcomer figures.) Routine: <ul>' +
+      '<li> Open Basic' +
+      '<li> Closed Basic' +
+      '<li> New York' +
+      '<li> Hand To Hand' +
+      '<li> Shoulder to Shoulder' +
+      '<li> Solo Spot Turn (with brush action)' +
+      '<li> Switch Turns' +
+      '<li> Underarm Turn to Left' +
+      '<li> Underarm Turn to Right' +
+      '</ul>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/VFSpUL-ciFw'
   },

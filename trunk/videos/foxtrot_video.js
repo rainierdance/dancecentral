@@ -12,13 +12,7 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/HiKZC_q0ASo'
   },
   {
-    'title' : 'Foxtrot Feather Step, Three Step, Natural Turn',
-    'description' : 'Short routine, not much technique.',
-    'labels' : ['FeatherStep', 'ThreeStep', 'NaturalTurn'],
-    'url' : 'http://www.youtube.com/v/YeOBLMTXYpo'
-  },
-  {
-    'title' : 'Foxtrot Practice Routine',
+    'title' : 'Foxtrot Bronze Practice Routine from a class',
     'description' : 'Routine: <ul>' +
         '<li>  Feather Step' + 
         '<li>  Reverse Turn with Feather Finish' + 
@@ -46,8 +40,8 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/n-Hnhvo3BX0'
   },
   {
-    'title' : 'Foxtrot Basic Steps: practice routine',
-    'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com. Routine:<ul>' +
+    'title' : 'Foxtrot Newcomer Basic Steps',
+    'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com. Routine: <ul>' +
         '<li> Feather Step' +
         '<li> Reverse Turn' +
         '<li> Three Step' +
@@ -64,7 +58,12 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Foxtrot Basics: routine by Marcus & Karen Hilton',
-    'description' : 'Feather step, Three step, Reverse Turn, a lot of more, mostly syllabus',
+    'description' : 'Mostly syllabus. Routine: <ul>' +
+        '<li>Feather step ' +
+        '<li>Reverse Turn' +
+        '<li>Three Step' +
+        '<li>a lot of more...' +
+        '</ul>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/94JbmwxOy_0'
   },
