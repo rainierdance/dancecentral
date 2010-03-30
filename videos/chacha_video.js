@@ -42,12 +42,6 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/Zchkhm36MUg'
   },
   {
-    'title' : 'Latin Technique: Rotation in Rumba',
-    'description' : 'In Russian. Demonstrate Rumba Basic',
-    'labels' : [],
-    'url' : 'http://www.youtube.com/v/y_NH51mt_Ls'
-  },
-  {
     'title' : 'Latin Technique: 10 types of chasses',
     'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas.',
     'labels' : [],
