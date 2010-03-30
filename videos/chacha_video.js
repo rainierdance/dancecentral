@@ -1,7 +1,7 @@
 danceVideos = danceVideos.concat([
   {
     'title' : 'Cha Cha: New York',
-    'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com. Did not include much technique.',
+    'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com.',
     'labels' : ['NewYorkLSP', 'NewYorkRSP'],
     'url' : 'http://www.youtube.com/v/LsU4x_YVvEQ'
   },

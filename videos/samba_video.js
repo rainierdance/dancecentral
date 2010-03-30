@@ -18,7 +18,7 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/4-5B59InbSA'
   },
   {
-    'title' : 'Samba Warm Up, Walks',
+    'title' : 'Samba Technique: Warm Up, Walks',
     'description' : 'Demonstrated by Monika.',
     'labels' : ['Walk'],
     'url' : 'http://www.youtube.com/v/KL0lI6ydofI'
@@ -36,13 +36,13 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/lT0pQ1_ZK7E'
   },
   {
-    'title' : 'Samba Rhythm Bounce',
+    'title' : 'Samba Technique: Rhythm Bounce',
     'description' : 'Demonstrated by Monika.',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/5PchXfCpBy0'
   },
   {
-    'title' : 'Samba Basic Movements',
+    'title' : 'Samba Technique: Basic Movements',
     'description' : 'Demonstrated by Monika.',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/7sBGci3ZvLY'
