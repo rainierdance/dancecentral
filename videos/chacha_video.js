@@ -19,7 +19,33 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Cha Cha Practice Routine - Bronze Level',
-    'description' : 'Some basic bronze figures. TaiWan.',
+    'description' : 'Some basic bronze figures. TaiWan. Routine: <ul>' +
+      '<li> Closed Basic' +
+      '<li> Underarm Turn to Left' +
+      '<li> Shoulder to Shoulder' +
+      '<li> Underarm Turn to Right' +
+      '<li> New York LSP and RSP' +
+      '<li> Spot Turn' +
+      '<li> Hand To Hand' +
+      '<li> Three Cha Cha Chas Forward' +
+      '<li> Spot Turn' +
+      '<li> Three Cha Cha Chas Forward' +
+      '<li> Spot Turn' +
+      '<li> Three Cha Cha Chas Forward' +
+      '<li> Hand To Hand' +
+      '<li> Three Cha Cha Chas Forward' +
+      '<li> Hand To Hand' +
+      '<li> Fan' +
+      '<li> Hockey Stick' +
+      '<li> Open Hip Twist' +
+      '<li> Alemana' +
+      '<li> Close Hip Twist' +
+      '<li> Alemana' +
+      '<li> Close Hip Twist' +
+      '<li> Hockey Stick' +
+      '<li> Three Cha Cha Chas Back' +
+      '<li> Three Cha Cha Chas Forward' +
+      '</ul>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/RMjgnIMCu5A'
   },
