@@ -119,7 +119,8 @@ function updateVideoResult() {
   }
 
   // there are results
-  var output = ['<b>' + videos.length + '</b> related videos: <ol>'];
+  var output = ['<b>' + videos.length + '</b> related video' + 
+    (videos.length > 1 ? 's' : '') + ': <ol>'];
   var index = 0;
 
   videos.forEach(function (video) {

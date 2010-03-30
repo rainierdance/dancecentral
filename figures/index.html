@@ -110,8 +110,8 @@ Routine:
 </div>
 
 <span id='idVideoSection'>
-<form id ='idSearchForm' onsubmit="updateVideoResult(); return false;" style = "display:none">
-<input type=text id='query' value='' size=40>
+<form id ='idSearchForm' onsubmit="updateVideoResult(); getElementById('query').select(); return false;" style = "display:none">
+<input type=text id='query' value='' size=40 onFocus='this.select();'>
 <input type=button value="Search Video Clips!" onclick='updateVideoResult();'>
 </form>
 

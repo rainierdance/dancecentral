@@ -602,7 +602,7 @@ function updateView() {
   // single figure mode
   if (showVideos && (selectedFigureName != 'all')) {
     document.getElementById('idVideoSection').style.visibility = 'visible';
-    document.getElementById('query').value = selectedFigureName;
+    document.getElementById('query').value = selectedFigureName + ' ' + inputDance;
     updateVideoResult();
   } else {
     document.getElementById('idVideoSection').style.visibility = 'hidden';
