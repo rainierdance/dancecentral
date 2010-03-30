@@ -1,5 +1,11 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Waltz Open Telemark',
+    'description' : 'Instructions by Marcus & Karen Hilton',
+    'labels' : ['OpenTelemark'],
+    'url' : 'http://www.youtube.com/v/HeJMUCO8_wg'
+  },
+  {
     'title' : 'Standard Technique for Ladies by Heather Smith - Vol 1',
     'description' : 'Develop center balance',
     'labels' : [],
@@ -122,7 +128,7 @@ danceVideos = danceVideos.concat([
       '<li> Reverse Turn 123 456' +     
       '<li> Whisk And Chasse From PP 123 12&3' +               
       '<li> 123 Steps Of Natural Turn 123' +
-      '<li> Open Impetus ( End DC New LOD) 123' +              
+      '<li> Open Impetus (End DC New LOD) 123' +              
       '<li> Weave From Close im PP 123 123' +                 
       '<li> 123 Steps Of Natural Turn (End O/P) 123' +
       '<li> Back Whisk 123' +

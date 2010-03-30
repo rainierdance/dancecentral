@@ -28,7 +28,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0329.1359";
+    var VERSION = "10.0329.1810";
     var ID_ANALYTICS = "UA-9375974-3";
 
     var inputDance = 'Quickstep';
@@ -118,8 +118,8 @@ Routine:
 </div>
 
 <span id='idVideoSection'>
-<form id ='idSearchForm' onsubmit="updateVideoResult(); return false;" style = "display:none">
-<input type=text id='query' value='' size=40>
+<form id ='idSearchForm' onsubmit="updateVideoResult(); getElementById('query').select(); return false;" style = "display:none">
+<input type=text id='query' value='' size=40 onFocus='this.select();'>
 <input type=button value="Search Video Clips!" onclick='updateVideoResult();'>
 </form>
 

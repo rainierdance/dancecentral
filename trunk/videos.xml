@@ -12,7 +12,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0329.1254";
+    var VERSION = "10.0329.1811";
     var ID_ANALYTICS = "UA-9375974-3";
 
     var inputQuery = '';
@@ -54,8 +54,8 @@
 
 <body onLoad="onLoad()">
 
-<form id ='idSearchForm' onsubmit="updateVideoResult(); return false;">
-<input type=text id='query' value='' size=40>
+<form id ='idSearchForm' onsubmit="updateVideoResult(); getElementById('query').select(); return false;">
+<input type=text id='query' value='' size=40 onFocus='this.select();'>
 <input type=button value="Search Video Clips!" onclick='updateVideoResult();'>
 </form>
 
