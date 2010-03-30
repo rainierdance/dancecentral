@@ -25,7 +25,7 @@ var showVideos = true;
 var generateRelativeUrl = false;  // for figure links
 
 var selectedFigureName = inputFigureName; // current selected figure name
-var routine = []; // array of figureID's in the routine
+var routine = []; // array of RoutineStep objects
 
 var currentAnimatedDiagram = null;
 
@@ -436,16 +436,24 @@ function outputCSV() {
   document.getElementById('dotOutput').value = output.join('');
 }
 */
+
+function RoutineStep(figureID, note) {
+  this.figureID = figureID;
+  this.note = note ? note : '';
+}
+
 function continueRoutine() {
   viewMode = 'build';
   document.getElementById('idPauseRoutine').style.display = 'inline';
   document.getElementById('idContinueRoutine').style.display = 'none';
+  document.getElementById('editControls').style.display = 'inline';
 }
 
 function pauseRoutine() {
   viewMode = 'browse';
   document.getElementById('idPauseRoutine').style.display = 'none';
   document.getElementById('idContinueRoutine').style.display = 'inline';
+  document.getElementById('editControls').style.display = 'none';
 }
 
 function startRoutine() {
@@ -463,6 +471,8 @@ function startRoutine() {
   // other controls
   document.getElementById('idStartRoutine').style.display = 'inline';
   document.getElementById('idPauseRoutine').style.display = 'inline';
+  document.getElementById('deleteControls').style.display = 'none';
+  document.getElementById('editControls').style.display = 'inline';
   document.getElementById('idContinueRoutine').style.display = 'none';
 }
 
@@ -496,31 +506,70 @@ function formatFigureList(items) {
   return output.join('');
 }
 
-// when building routine, this is called when user clicks on a figure name
-function onClickFigure(figureID) {
-  if (viewMode != 'build') return true; // continue with the link
+function addFigureToRoutine() {
+  var figureID = document.getElementById('figureIdToAdd').value;
+  var note = document.getElementById('editNote').value;
 
   // update the routine list
-  routine.push(figureID);
-
-  var output = [];
-  routine.forEach(function (id) {
-    var figure = figures[id];
-    output.push('<li><a href="' + 
-        (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath'] + '">' + figure['name'] + '</a> &nbsp;');
-    if (figure['timing']) {
-      output.push('(' + figure['timing'] + ') &nbsp;');
-    }
-    output.push('</li>');
-  });
-
-  var element = document.getElementById('spanRoutine');
-  element.innerHTML = '<ol>' + output.join('') + '</ol>';
+  routine.push(new RoutineStep(figureID, note));
 
   // update the view to only show the selected figure, so it's easier to see what should follow.
   selectFigure(figureID);
 
-  return false; // not continue with <a link target
+  updateRoutineDisplay();
+}
+
+// when building routine, this is called when user clicks on a figure name
+function onClickFigure(figureID) {
+  if (viewMode != 'build') return true; // continue with the link
+
+  var figure = figures[figureID];
+
+  var output = [];
+  output.push('Next step: ');
+  output.push('<a href="' + 
+      (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath'] + '">' + figure['name'] + '</a>');
+  document.getElementById('figureNameControl').innerHTML = output.join('');
+  document.getElementById('figureIdToAdd').value = figureID;
+  var element = document.getElementById('editNote');
+  element.value = figure['timing'] ? '(' + figure['timing'] + ')': '';
+  element.select();
+
+  return false;
+}
+
+function deleteLastFigure() {
+  if (routine.length > 0) {
+    routine.pop();
+  }
+  updateRoutineDisplay();
+
+  if (routine.length > 0) {
+    selectFigure(routine[routine.length -1].figureID);
+  } else {
+    selectFigure('all');
+  }
+}
+
+function updateRoutineDisplay() {
+  var output = [];
+  routine.forEach(function (routineStep) {
+    var figure = figures[routineStep.figureID];
+    output.push('<li>');
+    output.push('<a href="' + 
+        (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath'] + '">' + figure['name'] + '</a> &nbsp;');
+    output.push(routineStep.note);
+    output.push('</li>');
+  });
+
+  var element = document.getElementById('spanRoutine');
+  element.innerHTML = 'Start:<ol>' + output.join('') + '</ol>End';
+
+  if (routine.length > 0) {
+    document.getElementById('deleteControls').style.display = 'block';
+  } else {
+    document.getElementById('deleteControls').style.display = 'none';
+  }
 }
               
 // Re-filter, re-display figure and its following figures

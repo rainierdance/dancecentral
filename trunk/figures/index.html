@@ -105,7 +105,20 @@ Routine:
 <a id='idPauseRoutine' style='display:none' href="javascript:void(0);" onclick="pauseRoutine();">Pause</a><a id='idContinueRoutine' style='display:none' href="javascript:void(0);" onclick="continueRoutine();">Continue</a> &nbsp;
 </span>
 </td></tr>
-<tr><td style="background: #fff4c2;"> <span id='spanRoutine'></span> </td> </tr>
+<tr><td style="background: #fff4c2;"> <span id='spanRoutine'></span></td></tr>
+<tr><td>
+<span id='editControls' style="display:none;">
+  <span id='deleteControls' style="display:none">
+  <a href="javascript:void(0)" onclick="deleteLastFigure()" style="text-decoration:none;float: right">delete last step</a><br>
+  </span>
+  <div id='figureNameControl'></div>
+  <form onsubmit="addFigureToRoutine(); return false;">
+  <input type=hidden id='figureIdToAdd'>
+  <span id='noteControl'>Note:&nbsp;<input type=text id='editNote' size=25>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="addFigureToRoutine()">Add!</a>
+  </span>
+  </form>
+</span>
+</td></tr>
 </table>
 </div>
 
