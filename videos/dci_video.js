@@ -11,12 +11,17 @@ function compactMode() {
 }
 
 function compareVideo(video1, video2) {
+  if (video1['url'] == video2['url']) {
+    log('Dupliate entry for: <a href="' + video1['url'] + '">' + video1['url'] + '</a> ' + video1['title']);
+  }
   return video1['title'] > video2['title']; // return true if 1 is 'large' than 2.
 }
 
 function initVideos() {
   // sort them by title
   danceVideos = danceVideos.sort(compareVideo);
+
+  // detect dup
 }
 
 // clear selected video (highlight, video player etc)

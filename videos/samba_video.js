@@ -1,5 +1,11 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Samba Technique: Samba Locks',
+    'description' : 'Demonstrated by Monika.',
+    'labels' : ['Walk'],
+    'url' : 'http://www.youtube.com/v/yy2vFPocVNs'
+  },
+  {
     'title' : 'Samba Corta Jaca',
     'description' : 'Short demonstration.',
     'labels' : ['CortaJaca'],

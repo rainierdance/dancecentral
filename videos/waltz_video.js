@@ -1,5 +1,11 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Waltz Technique: Movement',
+    'description' : 'Monika Olejnik teaches ballroom technique class at Dance Spectrum.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/jmRRX36RqJo'
+  },
+  {
     'title' : 'Waltz Open Telemark',
     'description' : 'Instructions by Marcus & Karen Hilton',
     'labels' : ['OpenTelemark'],

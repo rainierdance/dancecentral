@@ -12,7 +12,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0329.1811";
+    var VERSION = "10.0330.1806";
     var ID_ANALYTICS = "UA-9375974-3";
 
     var inputQuery = '';
@@ -67,6 +67,7 @@
 </td></tr>
 </table>
 
+<pre id='debugOutput' style='display:inline'></pre>
 <div id='divVersion'></div>
 
 </body> 
