@@ -1,5 +1,11 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Latin Technique and Styling with demo',
+    'description' : 'Demonstrated using Cha Cha. 5 points on leg action, body rhythm, arm styling, ronde, swivels.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/w98G0tPWTPQ',
+  },
+  {
     'title' : 'Latin Styling - Arm styling in Cha Cha by Jaana Knunitz',
     'description' : 'Includes different timing',
     'labels' : [],

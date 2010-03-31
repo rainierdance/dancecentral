@@ -1,5 +1,11 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Waltz Whisk and Chasse From Promenade Position',
+    'description' : 'Monika Olejnik teaches ballroom technique class at Dance Spectrum.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/DbqTHN06-vc'
+  },
+  {
     'title' : 'Waltz Technique: Movement',
     'description' : 'Monika Olejnik teaches ballroom technique class at Dance Spectrum.',
     'labels' : [],
