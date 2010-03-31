@@ -1,5 +1,23 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Cha Cha Technique: using spine',
+    'description' : 'Demonstrated by Michael & Joanna. Routine includes both basic and advanced steps.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/UTJqg3wrNYs'
+  },
+  {
+    'title' : 'Cha Cha Pratice: body roll break down',
+    'description' : 'Demonstrated by Yulia.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/k_m0UtSpcRU'
+  },
+  {
+    'title' : 'Cha Cha Pratice: ronde chasse, lock steps, body roll',
+    'description' : 'Demonstrated by Yulia.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/ItJgJiWV8xE'
+  },
+  {
     'title' : 'Cha Cha Technique: Connection with Floor',
     'description' : 'Demonstrated by Monika.',
     'labels' : [],

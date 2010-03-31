@@ -1,5 +1,23 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Rumba Technique: Swivels (brush)',
+    'description' : 'Demonstrated by Monika.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/8G_vy_u4ZcE'
+  },
+  {
+    'title' : 'Rumba Technique: Basic Movement - Hip Movement',
+    'description' : 'In Russian.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/AaQZhsCZUTY'
+  },
+  {
+    'title' : 'Rumba Technique: Basic Movement - Abdominal, Oblique, and Back',
+    'description' : 'Demonstrated by Monika.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/fMrt95CpyrY'
+  },
+  {
     'title' : 'Rumba Closed Hip Twist',
     'description' : 'Demonstrated by Monika.',
     'labels' : ['ClosedHipTwist'],
