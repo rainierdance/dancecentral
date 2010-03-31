@@ -1,5 +1,41 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Cha Cha Technique: Connection with Floor',
+    'description' : 'Demonstrated by Monika.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/3qrYZGI-RKI'
+  },
+  {
+    'title' : 'Cha Cha Basic Movement, Alemana',
+    'description' : 'Demonstrated by Monika.',
+    'labels' : ['ClosedBasic'],
+    'url' : 'http://www.youtube.com/v/7JUWUqckohM'
+  },
+  {
+    'title' : 'Cha Cha Closed Basic',
+    'description' : 'Demonstrated by Monika.',
+    'labels' : ['ClosedBasic'],
+    'url' : 'http://www.youtube.com/v/lyAL5Gt21GM'
+  },
+  {
+    'title' : 'Cha Cha Technique: Walks and Locks',
+    'description' : 'Demonstrated by Monika.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/hN0vqOVteCI'
+  },
+  {
+    'title' : 'Cha Cha Technique: Check, Ronde Chasse, and Twist',
+    'description' : 'Demonstrated by Monika.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/8nzaORdW7Gg'
+  },
+  {
+    'title' : 'Cha Cha Technique for Lock Step',
+    'description' : 'Demonstrated by Monika.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/AW7bwJ8SVHw'
+  },
+  {
     'title' : 'Cha Cha: New York',
     'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com.',
     'labels' : ['NewYorkLSP', 'NewYorkRSP'],

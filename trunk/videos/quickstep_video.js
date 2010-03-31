@@ -28,12 +28,6 @@ danceVideos = danceVideos.concat([
     'description' : 'Couple demo, not much technique.',
     'labels' : ['ForwardLock'],
     'url' : 'http://www.youtube.com/v/ZyshTQuAHFM'
-  },
-  {
-    'title' : 'Quickstep: Natural Turn, Back Lock, Running Finish',
-    'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com',
-    'labels' : ['NaturalTurn', 'BackLock', 'RunningFinish'],
-    'url' : 'http://www.youtube.com/v/Sa5VUmcCuOg'
   }
 ]);
 

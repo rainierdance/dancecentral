@@ -1,5 +1,11 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : "Tango Technique: Tango Walk, Progressive Side Step",
+    'description' : 'Demonstrated by Monika.',
+    'labels' : ['ProgressiveSideStep'],
+    'url' : 'http://www.youtube.com/v/C6KBqf7fb_M'
+  },
+  {
     'title' : "Tango: Open Reverse Turn Lady Outside",
     'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com',
     'labels' : ['OpenReverseTurnLadyOutside'],

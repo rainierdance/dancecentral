@@ -1,5 +1,35 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Rumba Closed Hip Twist',
+    'description' : 'Demonstrated by Monika.',
+    'labels' : ['ClosedHipTwist'],
+    'url' : 'http://www.youtube.com/v/TIwl2zmZwfs'
+  },
+  {
+    'title' : 'Rumba Technique: Figure 8',
+    'description' : 'Demonstrated by Monika.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/PbqE7LoPe3E'
+  },
+  {
+    'title' : 'Latin Show and Competitive Figures: Cha Cha, Rumba, Samba, Paso Doble, Jive',
+    'description' : 'Slavik and Karina. Arm Styling.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/VENWCD2V78I'
+  },
+  {
+    'title' : 'Rumba Technique: feet, knees, body action',
+    'description' : 'Demonstrated by Monika.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/HNSySs9xc-4'
+  },
+  {
+    'title' : 'Rumba Basic Movement: Close Basic, Open Basic, Basic In Place, Alternative Basic',
+    'description' : 'Demonstrated by Monika.',
+    'labels' : ['BasicMovementsClosed', 'BasicMovementsOpen'],
+    'url' : 'http://www.youtube.com/v/r4iX3cp4btc'
+  },
+  {
     'title' : 'Rumba Opening Out to Right and Left',
     'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com.',
     'labels' : ['OpeningOutToRightAndLeft'],
