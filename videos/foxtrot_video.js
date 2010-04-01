@@ -1,5 +1,11 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Standard Technique by Monika - Foxtrot',
+    'description' : 'Monika Olejnik teaches ballroom technique class at Dance Spectrum.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/jmUJRcw_PM0'
+  },
+  {
     'title' : 'Foxtrot Three Step',
     'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com',
     'labels' : ['ThreeStep'],
