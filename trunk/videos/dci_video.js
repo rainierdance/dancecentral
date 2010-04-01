@@ -4,7 +4,7 @@
 var videos; // current search results
 var currentIndex = -1;
 
-var COMPACT_NUM = 6;
+var COMPACT_NUM = 4;
 
 function compactMode() {
   return (videos && videos.length < COMPACT_NUM);
