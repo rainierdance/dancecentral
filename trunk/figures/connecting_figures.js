@@ -651,7 +651,10 @@ function updateView() {
   // single figure mode
   if (showVideos && (selectedFigureName != 'all')) {
     document.getElementById('idVideoSection').style.visibility = 'visible';
-    document.getElementById('query').value = selectedFigureName + ' ' + inputDance;
+    var danceName = inputDance;
+    if (inputDance == 'Waltz')
+      danceName = 'SlowWaltz'; // so we don't get Viennese Waltz results
+    document.getElementById('query').value = selectedFigureName + ' ' + danceName;
     updateVideoResult();
   } else {
     document.getElementById('idVideoSection').style.visibility = 'hidden';
