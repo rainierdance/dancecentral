@@ -12,10 +12,12 @@
   color: #0000cc;
   text-decoration: underline;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .titleSelected {
   background-color: #fff4c2;
   text-decoration: none;
   color: #cc0000;
+  margin-right: 10px;
 }

@@ -175,7 +175,7 @@
       },
       {
         'labels': ['Cha Cha'],
-        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Fwd lock</a>: 4: front knee straight; &: sharp/quick real step on ball (not toes), knee flexed; hips neutral; 1: both knees straight."
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/cha-cha-cha/cha-cha-technique'>Fwd lock</a>: 4: front knee straight; &: sharp/quick real step on ball (not toes), knee flexed; hips neutral; 1: push off back foot, rotate hip, end with both knees straight."
       },
       {
         'labels': ['Cha Cha'],

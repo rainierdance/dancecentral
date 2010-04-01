@@ -1,5 +1,83 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Waltz Silver Practice Routine',
+    'description' : 'Andy & Wendy Wong from The Grand Ballroom. Routine: <ul>' +
+      '<li> Natural Turn' +
+      '<li> Open Impetus' +
+      '<li> Weave from PP, ending PP' +
+      '<li> Chasse from PP (along LOD)' +
+      '<li> Natural Spin Turn (at corner)' +
+      '<li> Turning Lock, ending PP' +
+      '<li> Chasse from PP (moving across short side)' +
+      '<li> Natural Spin Turn (at corner)' +
+      '<li> Turning Lock, ending PP' +
+      '<li> Wing (2nd long side)' + 
+      '<li> Progressive Chasse to Right' + 
+      '<li> Back Lock' + 
+      '<li> Outside Spin' +
+      '<li> Turninging Lock, ending PP' +
+      '<li> Chasse from PP' +
+      '<li> Natural Spin Turn' +
+      '<li> Reverse Turn (4-6) (new LOD on short side)' +
+      '<li> Double Reverse Spin' +
+      '<li> Double Reverse Spin' +
+      '<li> Whisk (corner)' +
+      '<li> Chasse From PP' +
+      '<li> Hesitation Change' +
+      '<li> Reverse Corte ' + 
+      '<li> Outside Spin' +
+      '<li> (repeat from beginning)' +
+      '</ul>',
+    'labels' : ['HesitationChange', 'ClosedImpetus', 'OutsideChange', 'ReverseCorte'],
+    'url' : 'http://www.youtube.com/v/f8gKo_hjC5M'
+  },
+  {
+    'title' : 'Waltz Bronze Practice Routine - 1',
+    'description' : 'Andy & Wendy Wong from The Grand Ballroom. Routine: <ul>' +
+      '<li> Whisk' +
+      '<li> Chasse From Promenade (PP)' +
+      '<li> Natural Turn (123) underturned' +
+      '<li> Outside Change' +
+      '<li> Hesitation Change' + 
+      '<li> Reverse Turn' +
+      '<li> Whisk (corner)' +
+      '<li> Chasse From Promenade (PP)' +
+      '<li> Natural Turn (123) underturned' +
+      '<li> Outside Change' +
+      '<li> Natural Spin Turn (corner)' + 
+      '<li> Reverse Turn (4-6)' +
+      '<li> (repeat the long and short side routine)' +
+      '</ul>',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/YPRSbMS9fRo'
+  },
+  {
+    'title' : 'Waltz Bronze Practice Routine - 2',
+    'description' : 'Andy & Wendy Wong from The Grand Ballroom. Routine: <ul>' +
+      '<li> Hesitation Change' +
+      '<li> Reverse Turn (4-6)' +
+      '<li> Whisk' +
+      '<li> Chasse From Promenade (PP)' +
+      '<li> Natural Turn (123)' +
+      '<li> Outside Change' +
+      '<li> Half Natural' +
+      '<li> Closed Impetus' +
+      '<li> Reverse Turn' +
+      '<li> Basic Weave' +
+      '<li> Natural Spin Turn ' +
+      '<li> Whisk' +
+      '<li> Hesitation Change' +
+      '<li> Reverse Corte' +
+      '<li> Whisk' +
+      '<li> Chasse From Promenade (PP)' +
+      '<li> ...' +
+      '<li> Wing' +
+      '<li> ...' +
+      '</ul>',
+    'labels' : ['HesitationChange', 'ClosedImpetus', 'OutsideChange', 'ReverseCorte'],
+    'url' : 'http://www.youtube.com/v/v38L8iyiAR8'
+  },
+  {
     'title' : 'Waltz Whisk and Chasse From Promenade Position',
     'description' : 'Monika Olejnik teaches ballroom technique class at Dance Spectrum.',
     'labels' : [],
@@ -19,14 +97,18 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Standard Technique for Ladies by Heather Smith - Vol 1',
-    'description' : 'Develop center balance',
+    'description' : 'Heather talks about center balance and stretch:<ul><li>Find center and diagnoal stretch using a chair: stretch center back to the spin; stretch left side and arm diagonally leftwards.' +
+        '<li>Line up 4 building blocks: head, shoulder, body, hips when stretching to side, both sides stretching evenly, do not break opposite side.</ul>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/cAjqm8pyHZY'
   },
   {
     'title' : 'Standard Technique for Ladies by Heather Smith - Vol 2',
-    'description' : 'Closed Impetus movement',
-    'labels' : [],
+    'description' : 'Header explaiins how to do a proper Open Impetus to Promenade Position:<ul><li> When Man moves backwards, Lady is driving movement.' +
+        '<li> Movement smoothness and fluidity: when moving forward, flex and allow hip join to move with moving leg <b>across</b> the floor. Do not sit legs and hip on the standing foot.' +
+        '<li> Finishing: turning feet, think about leaving upper body still.' +
+        '</ul>',
+    'labels' : ['OpenImpetus'],
     'url' : 'http://www.youtube.com/v/DcWDacTs7O4'
   },
   {
