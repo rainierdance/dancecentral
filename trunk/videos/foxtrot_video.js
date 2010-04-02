@@ -1,7 +1,10 @@
 danceVideos = danceVideos.concat([
   {
     'title' : 'Standard Technique by Monika - Foxtrot',
-    'description' : 'Monika Olejnik teaches ballroom technique class at Dance Spectrum.',
+    'description' : 'Demonstrated exercise to practice movement, Feather Step, Three Step.<ul>' +
+      '<li> Basic techniques, keep head left.' +
+      '<li> As weight is transfered to the foot, start changing shape by lower shoulder slightly.' +
+      '</ul>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/jmUJRcw_PM0'
   },

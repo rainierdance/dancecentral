@@ -1,5 +1,19 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Standard Technique by Stephen & Jennifer Hillier',
+    'description' : 'Demonstration by the couple. Detailed explanation on:<ul>' +
+      '<li> Use of the knee: compress the knee forward to provide the initial movement of the body.' +
+      '<li> To provide power action, keep heel of supporting foot on floor as long as possible. Releasing early unbalances body, looks weak.' +
+      "<li> The moving leg/foot: lifting knee, delay moving foot, eventually foot will catch the body, it doesn't arrive before body." +
+      '<li> Use proper footwork: e.g. HT, T, TH (Waltz).' +
+      '<li> 2nd step: Swing action: coming through the hip; before placing foot, swing the hip.' +
+      '<li> 3rd step: using inside muscle to close feet.' +
+      '<li> Lowering is every important at end of 3rd step.' +
+      '</ul>',
+    'labels' : ['SlowWaltz'],
+    'url' : 'http://www.youtube.com/v/vXbAlRnMGIA'
+  },
+  {
     'title' : 'Waltz Silver Practice Routine',
     'description' : 'Andy & Wendy Wong from The Grand Ballroom. Routine: <ul>' +
       '<li> Natural Turn' +
@@ -79,8 +93,8 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Waltz Whisk and Chasse From Promenade Position',
-    'description' : 'Monika Olejnik teaches ballroom technique class at Dance Spectrum.',
-    'labels' : ['SlowWaltz'],
+    'description' : 'Instruction and demonstration by Monika Olejnik at a Dance Spectrum class.',
+    'labels' : ['SlowWaltz', 'ChasseFromPP'],
     'url' : 'http://www.youtube.com/v/DbqTHN06-vc'
   },
   {
@@ -91,23 +105,26 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Waltz Open Telemark',
-    'description' : 'Instructions by Marcus & Karen Hilton',
+    'description' : 'Instruction by Marcus & Karen Hilton',
     'labels' : ['SlowWaltz', 'OpenTelemark'],
     'url' : 'http://www.youtube.com/v/HeJMUCO8_wg'
   },
   {
     'title' : 'Standard Technique for Ladies by Heather Smith - Vol 2',
     'description' : 'Header explaiins how to do a proper Open Impetus to Promenade Position:<ul><li> When Man moves backwards, Lady is driving movement.' +
-        '<li> Movement smoothness and fluidity: when moving forward, flex and allow hip join to move with moving leg <b>across</b> the floor. Do not sit legs and hip on the standing foot.' +
+        '<li> Movement smoothness and fluidity: when moving forward, flex and allow hip joint to move with moving leg <b>across</b> the floor. Do not sit legs and hip on the standing foot.' +
         '<li> Finishing: turning feet, think about leaving upper body still.' +
         '</ul>',
     'labels' : ['SlowWaltz', 'OpenImpetus'],
     'url' : 'http://www.youtube.com/v/DcWDacTs7O4'
   },
   {
-    'title' : 'Standard Technique by Monika - Waltz',
-    'description' : 'Monika Olejnik teaches ballroom technique class at Dance Spectrum.',
-    'labels' : ['SlowWaltz', 'ChasseFromPP'],
+    'title' : 'Waltz Weave from Promenade Position, Chasse From PP',
+    'description' : 'Instruction and demonstration of Weave from PP, Chasse From PP. <ul>' +
+      "<li> PP: keep center to partner." +
+      "<li> Chasse: close head on '&', don't turn body" +
+      '</ul>',
+    'labels' : ['SlowWaltz', 'ChasseFromPP', 'WeaveFromPP'],
     'url' : 'http://www.youtube.com/v/RFmpqAly77o'
   },
   {
@@ -153,7 +170,7 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Waltz Basics, Timing',
-    'description' : 'Instructions by Marcus & Karen Hilton',
+    'description' : 'Instruction by Marcus & Karen Hilton',
     'labels' : ['SlowWaltz', 'DoubleReverseSpin'],
     'url' : 'http://www.youtube.com/v/sTU55Lwc-Y4'
   },
@@ -165,13 +182,13 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Waltz Progressive Chasse To the Right',
-    'description' : 'Instructions by Marcus & Karen Hilton',
+    'description' : 'Instruction by Marcus & Karen Hilton',
     'labels' : ['SlowWaltz', 'ProgressiveChasseToR'],
     'url' : 'http://www.youtube.com/v/R-70LvB9oOI'
   },
   {
     'title' : 'Waltz Outside Change, Back Check & Natural Pivot',
-    'description' : 'Instructions by Marcus & Karen Hilton',
+    'description' : 'Instruction by Marcus & Karen Hilton',
     'labels' : ['SlowWaltz', 'OutsideChange'],
     'url' : 'http://www.youtube.com/v/sTDPFmhHzA8'
   },
@@ -183,7 +200,7 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Waltz Natural Spin Turn, Overturned Turning Lock to PP',
-    'description' : 'Instructions by Marcus & Karen Hilton',
+    'description' : 'Instruction by Marcus & Karen Hilton',
     'labels' : ['SlowWaltz', 'NaturalSpinTurn', 'TurningLock'],
     'url' : 'http://www.youtube.com/v/dU1kHWdahvM'
   },
@@ -208,30 +225,30 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/rRemfZIXM0g'
   },
   {
-    'title' : 'Waltz Whisk, Chasse From Promenade, Natural Turn',
-    'description' : 'Andy & Wendy Wong from The Grand Ballroom: <ul>' +
+    'title' : 'Waltz Whisk, Chasse From Promenade, Natural Turn from OP',
+    'description' : 'Instruction and demonstration by Andy & Wendy Wong from The Grand Ballroom: <ul>' +
         '<li>Whisk ' +
         '<li>Chasse From Promenade' +
-        '<li>Natural Turn' +
+        '<li>Natural Turn from Outside Partner Position' +
         '</ul>',
     'labels' : ['SlowWaltz', 'Whisk', 'ChasseFromPP', 'NaturalTurn'],
     'url' : 'http://www.youtube.com/v/Qz7V1htqLw8'
   },
   {
     'title' : 'Waltz Reverse Turn',
-    'description' : 'This shows 1/4 in each 1-2-3 to complete a box, not as much turn as the syllabus version of Reverse Turn. Demonstrated by Andy & Wendy Wong from The Grand Ballroom',
+    'description' : 'This shows quarter turn to left to complete a box, not as described in syllabus. Good for pratice. Demonstrated by Andy & Wendy Wong from The Grand Ballroom',
     'labels' : ['SlowWaltz', 'ReverseTurn'],
     'url' : 'http://www.youtube.com/v/lmCaPPcDxR8'
   },
   {
     'title' : 'Waltz LF Closed Change',
-    'description' : 'Andy & Wendy Wong from The Grand Ballroom',
+    'description' : 'Instruction and demonstration by Andy & Wendy Wong from The Grand Ballroom. (For beginners.)',
     'labels' : ['SlowWaltz', 'ClosedChangeLF'],
     'url' : 'http://www.youtube.com/v/1Iw4x7yEfZc'
   },
   {
     'title' : 'Waltz Natural Turn, Reverse Turn, and Closed Change',
-    'description' : 'From ballroomdancers.com:<ul>' +
+    'description' : 'Demonstrations only. From ballroomdancers.com:<ul>' +
         '<li>Natural Turn' + 
         '<li>RF Closed Change' +
         '<li>Reverse Turn' +
@@ -242,13 +259,13 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Waltz Whisk',
-    'description' : 'From ballroomdancers.com',
+    'description' : 'Demonstration only. From ballroomdancers.com',
     'labels' : ['SlowWaltz', 'Whisk'],
     'url' : 'http://www.youtube.com/v/eHOgrhxFW_o'
   },
   {
     'title' : 'Waltz Chasse From Promenade',
-    'description' : 'From ballroomdancers.com',
+    'description' : 'Demonstration only. From ballroomdancers.com',
     'labels' : ['SlowWaltz', 'ChasseFromPP'],
     'url' : 'http://www.youtube.com/v/AKha1aMcqs0'
   },
