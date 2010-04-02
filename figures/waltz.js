@@ -838,11 +838,11 @@
                 },
                 {
                   'id' : 'ClosedTelemark',
-                  'comment' : 'after 4-6 Reverse Turn ended DC after underturned natural Spin Turn or Closed Impetus'
+                  'comment' : 'after 4-6 Reverse Turn ended DC after underturned Natural Spin Turn or Closed Impetus'
                 },
                 {
                   'id' : 'OpenTelemark',
-                  'comment' : 'after 4-6 Reverse Turn ended DC after underturned natural Spin Turn or Closed Impetus'
+                  'comment' : 'after 4-6 Reverse Turn ended DC after underturned Natural Spin Turn or Closed Impetus'
                 },
                 {
                   'id' : 'ContraCheck',
@@ -920,7 +920,7 @@
             ],
             'follow' : [
                 {
-                  'eval' : 'MatchFigureName("Reverse")',
+                  'eval' : 'MatchFigures({"startFoot" : "LF", "startDirection" : "fwd", "startAlignment" : "DC"})',
                   'comment' : ''
                 },
                 {
