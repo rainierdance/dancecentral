@@ -1,5 +1,23 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : "Waltz Cross Hesitation - Man's steps",
+    'description' : 'Instruction by Expert Village.',
+    'labels' : ['SlowWaltz', 'CrossHesitation'],
+    'url' : 'http://www.youtube.com/v/2zlxHPubQQk'
+  },
+  {
+    'title' : "Waltz Cross Hesitation - Lady's steps",
+    'description' : 'Instruction by Expert Village.',
+    'labels' : ['SlowWaltz', 'CrossHesitation'],
+    'url' : 'http://www.youtube.com/v/X3MAiwdHKHs'
+  },
+  {
+    'title' : 'Waltz Cross Hesitation - with partner',
+    'description' : 'Instruction by Expert Village.',
+    'labels' : ['SlowWaltz', 'CrossHesitation'],
+    'url' : 'http://www.youtube.com/v/mfWhd3CpYD4'
+  },
+  {
     'title' : 'Standard Technique by Stephen & Jennifer Hillier',
     'description' : 'Demonstration by the couple. Detailed explanation on:<ul>' +
       '<li> Use of the knee: compress the knee forward to provide the initial movement of the body.' +
@@ -42,7 +60,8 @@ danceVideos = danceVideos.concat([
       '<li> Outside Spin' +
       '<li> (repeat from beginning)' +
       '</ul>',
-    'labels' : ['SlowWaltz', 'HesitationChange', 'ClosedImpetus', 'OutsideChange', 'ReverseCorte'],
+    'labels' : ['SlowWaltz', 'HesitationChange', 'NaturalTurn', 'OpenImpetus', 'WeaveFromPP', 'ChasseFromPP', 'NaturalSpinTurn',
+      'TurningLock', 'Wing', 'ProgressiveChasseToR', 'BackLock', 'OutsideSpin', 'DoubleReverseSpin', 'Whisk', 'ReverseCorte'],
     'url' : 'http://www.youtube.com/v/f8gKo_hjC5M'
   },
   {
@@ -62,38 +81,47 @@ danceVideos = danceVideos.concat([
       '<li> Reverse Turn (4-6)' +
       '<li> (repeat the long and short side routine)' +
       '</ul>',
-    'labels' : ['SlowWaltz'],
+    'labels' : ['SlowWaltz', 'ChasseFromPP', 'OutsideChange', 'HesitationChange', 'ReverseTurn', 'NaturalSpinTurn'],
     'url' : 'http://www.youtube.com/v/YPRSbMS9fRo'
   },
   {
     'title' : 'Waltz Bronze Practice Routine - 2',
-    'description' : 'Andy & Wendy Wong from The Grand Ballroom. Routine: <ul>' +
+    'description' : 'Demonstrated by Andy & Wendy Wong from The Grand Ballroom. (Has some Silver steps.) Routine: <ul>' +
       '<li> Hesitation Change' +
-      '<li> Reverse Turn (4-6)' +
+      '<li> Reverse Turn' +
       '<li> Whisk' +
       '<li> Chasse From Promenade (PP)' +
       '<li> Natural Turn (123)' +
       '<li> Outside Change' +
-      '<li> Half Natural' +
-      '<li> Closed Impetus' +
-      '<li> Reverse Turn' +
+      '<li> Natural Spin Turn (underturned)' +
+      '<li> Reverse Turn (4-6)' +
       '<li> Basic Weave' +
       '<li> Natural Spin Turn ' +
+      '<li> Reverse Turn (4-6)' +
       '<li> Whisk' +
+      '<li> Weave From Promenade' +
       '<li> Hesitation Change' +
+      '<li> Reverse Turn (1-3)' +
       '<li> Reverse Corte' +
       '<li> Whisk' +
       '<li> Chasse From Promenade (PP)' +
-      '<li> ...' +
+      '<li> Natural Spin Turn' +
+      '<li> Reverse Turn (4-6)' +
+      '<li> Whisk' +
       '<li> Wing' +
-      '<li> ...' +
+      '<li> Progressive Chasse To Right' +
+      '<li> Outside Change' +
+      '<li> Natural Spin Turn' +
+      '<li> Reverse Turn (4-6)' +
+      '<li> LF Closed Change' +
       '</ul>',
-    'labels' : ['SlowWaltz', 'HesitationChange', 'ClosedImpetus', 'OutsideChange', 'ReverseCorte'],
+    'labels' : ['SlowWaltz', 'HesitationChange', 'ReverseTurn', 'ChasseFromPP', 'NaturalTurn', 'OutsideChange',
+      'NaturalSpinTurn', 'BasicWeave', 'WeaveFromPP', 'ReverseCorte', 'Wing', 'ProgressiveChasseToR'],
     'url' : 'http://www.youtube.com/v/v38L8iyiAR8'
   },
   {
     'title' : 'Waltz Whisk and Chasse From Promenade Position',
-    'description' : 'Instruction and demonstration by Monika Olejnik at a Dance Spectrum class.',
+    'description' : 'Instruction  by Monika Olejnik at a Dance Spectrum class.',
     'labels' : ['SlowWaltz', 'ChasseFromPP'],
     'url' : 'http://www.youtube.com/v/DbqTHN06-vc'
   },
@@ -120,7 +148,7 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Waltz Weave from Promenade Position, Chasse From PP',
-    'description' : 'Instruction and demonstration of Weave from PP, Chasse From PP. <ul>' +
+    'description' : 'Instruction  of Weave from PP, Chasse From PP. <ul>' +
       "<li> PP: keep center to partner." +
       "<li> Chasse: close head on '&', don't turn body" +
       '</ul>',
@@ -226,7 +254,7 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Waltz Whisk, Chasse From Promenade, Natural Turn from OP',
-    'description' : 'Instruction and demonstration by Andy & Wendy Wong from The Grand Ballroom: <ul>' +
+    'description' : 'Instruction  by Andy & Wendy Wong from The Grand Ballroom: <ul>' +
         '<li>Whisk ' +
         '<li>Chasse From Promenade' +
         '<li>Natural Turn from Outside Partner Position' +
@@ -242,7 +270,7 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Waltz LF Closed Change',
-    'description' : 'Instruction and demonstration by Andy & Wendy Wong from The Grand Ballroom. (For beginners.)',
+    'description' : 'Instruction  by Andy & Wendy Wong from The Grand Ballroom. (For beginners.)',
     'labels' : ['SlowWaltz', 'ClosedChangeLF'],
     'url' : 'http://www.youtube.com/v/1Iw4x7yEfZc'
   },

@@ -13,7 +13,7 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Samba Corta Jaca',
-    'description' : 'In Russian.',
+    'description' : '(non-English) ',
     'labels' : ['CortaJaca'],
     'url' : 'http://www.youtube.com/v/8mk6lw9MpiU'
   },
@@ -99,7 +99,7 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Samba Whisk',
-    'description' : 'In Russian.',
+    'description' : '(non-English) ',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/2cR7SJEuxcQ'
   },

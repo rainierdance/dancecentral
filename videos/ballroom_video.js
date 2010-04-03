@@ -19,7 +19,7 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/cAjqm8pyHZY'
   },
   {
-    'title' : 'Latin Technique and Styling with demo',
+    'title' : 'Latin Styling Demonstration',
     'description' : 'Demonstrated using Cha Cha. 5 points on leg action, body rhythm, arm styling, ronde, swivels.',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/w98G0tPWTPQ',
