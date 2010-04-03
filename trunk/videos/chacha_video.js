@@ -1,7 +1,55 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Cha Cha: Closed Hip Twist - Lady, and with partner',
+    'description' : 'Academia Pedro Sousa. (non-English)',
+    'labels' : ['ClosedHipTwist'],
+    'url' : 'http://www.youtube.com/v/03wpaGM0suM'
+  },
+  {
+    'title' : 'Cha Cha: Closed Hip Twist - Man',
+    'description' : 'Academia Pedro Sousa. (non-English)',
+    'labels' : ['ClosedHipTwist'],
+    'url' : 'http://www.youtube.com/v/pyD1q52MGfg'
+  },
+  {
+    'title' : 'Cha Cha: Closed Hip Twist - with Partner',
+    'description' : 'Academia Pedro Sousa. (non-English)',
+    'labels' : ['ClosedHipTwist'],
+    'url' : 'http://www.youtube.com/v/ICCXzcQZpNY'
+  },
+  {
+    'title' : 'Cha Cha: Short Bronze Routine',
+    'description' : 'Academia Pedro Sousa. (non-English) Routine:<ul>' +
+      '<li> Open Basic' +
+      '<li> Open Hip Twist' +
+      '<li> Fan' +
+      '<li> Hockey Stick' +
+      '<li> Natural Top' +
+      '</ul>',
+    'labels' : ['OpenHipTwist', 'Fan', 'HockeyStick', 'NaturalTop'],
+    'url' : 'http://www.youtube.com/v/IB5HKa60Ys8'
+  },
+  {
+    'title' : 'Cha Cha: Overtuned Hockey Stick, Split Cuban Break, Cuban Breaks',
+    'description' : 'Instruction by Andy & Wendy Wong.',
+    'labels' : ['HockeyStick', 'SplitCubanBreak', 'CubanBreak'],
+    'url' : 'http://www.youtube.com/v/o4POJq_vZ7U'
+  },
+  {
+    'title' : 'Cha Cha: Time Step',
+    'description' : 'Academia Pedro Sousa. (non-English)',
+    'labels' : ['SideStep'],
+    'url' : 'http://www.youtube.com/v/39nUtVGjTWw'
+  },
+  {
+    'title' : 'Cha Cha: Shoulder To Shoulder',
+    'description' : '(non-English)  Academia Pedro Sousa.',
+    'labels' : ['ShoulderToShoulder'],
+    'url' : 'http://www.youtube.com/v/8Kt2u6bt3LU'
+  },
+  {
     'title' : 'Cha Cha Technique: using spine',
-    'description' : 'Demonstrated by Michael & Joanna. Routine includes both basic and advanced steps.',
+    'description' : 'Demonstrated by Michael & Joanna. Routine uses advanced steps.',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/UTJqg3wrNYs'
   },
@@ -38,7 +86,7 @@ danceVideos = danceVideos.concat([
   {
     'title' : 'Cha Cha Technique: Walks and Locks',
     'description' : 'Demonstrated by Monika.',
-    'labels' : [],
+    'labels' : ['ThreeChaChaChas'],
     'url' : 'http://www.youtube.com/v/hN0vqOVteCI'
   },
   {
@@ -50,7 +98,7 @@ danceVideos = danceVideos.concat([
   {
     'title' : 'Cha Cha Technique for Lock Step',
     'description' : 'Demonstrated by Monika.',
-    'labels' : [],
+    'labels' : ['ThreeChaChaChas'],
     'url' : 'http://www.youtube.com/v/AW7bwJ8SVHw'
   },
   {
@@ -100,7 +148,7 @@ danceVideos = danceVideos.concat([
       '<li> Three Cha Cha Chas Back' +
       '<li> Three Cha Cha Chas Forward' +
       '</ul>',
-    'labels' : [],
+    'labels' : ['ShoulderToShoulder'],
     'url' : 'http://www.youtube.com/v/RMjgnIMCu5A'
   },
   {
@@ -116,13 +164,13 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/3RDNkR7M1wA'
   },
   {
-    'title' : 'Latin Technique: Rotation in Cha Cha',
-    'description' : 'In Russian. Demonstrate Cha Cha Basic',
+    'title' : 'Cha Cha Technique: Rotation',
+    'description' : '(non-English)  Demonstrate Cha Cha Basic',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/Zchkhm36MUg'
   },
   {
-    'title' : 'Latin Technique: 10 types of chasses',
+    'title' : 'Cha Cha Technique: 10 types of chasses',
     'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas.',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/cOJIsIF7JDc'
@@ -134,19 +182,19 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/oEy4G1NDRDI'
   },
   {
-    'title' : 'Latin Technique: Lead, Guapacha timing',
+    'title' : 'Cha Cha Technique: Lead, Guapacha timing',
     'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas.',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/5ipRsFwvONk'
   },
   {
-    'title' : 'Latin Technique: Three Cha Cha Chas (Lock Step)',
+    'title' : 'Cha Cha Technique: Three Cha Cha Chas (Lock Step)',
     'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas.',
-    'labels' : ['ThreeChaChaChasFwd', 'ThreeChaChaChasBack'],
+    'labels' : ['ThreeChaChaChas'],
     'url' : 'http://www.youtube.com/v/hUNbbCL9xBI'
   },
   {
-    'title' : 'Latin Technique: Cha Cha - Checked Action, Chasses',
+    'title' : 'Cha Cha Technique: Basic Checked Action, Chasses',
     'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas.',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/Wsf9p2e-d18'

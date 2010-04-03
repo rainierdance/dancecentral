@@ -401,15 +401,15 @@
             'follow' : [
                 {
                   'id' : 'NaturalTurn',
-                  'comment' : '4-6, ending DW or BDW new LOD?'
-                },
-                {
-                  'id' : 'HesitationChange', // derived from: Hesitation change has same precedes as Natural Turn
-                  'comment' : '4-6, ending DW or BDW new LOD?'
+                  'comment' : '4-6'
                 },
                 {
                   'id' : 'BackWhisk',
-                  'comment' : 'standard, or with turn at corner, or when ending BDW'
+                  'comment' : ''
+                },
+                {
+                  'id' : 'NaturalTurn',
+                  'comment' : '4-6 when ending BDW'
                 },
                 {
                   'id' : 'ClosedImpetus',
@@ -422,6 +422,10 @@
                 {
                   'id' : 'OutsideChange',
                   'comment' : 'at corner'
+                },
+                {
+                  'id' : 'BackWhisk',
+                  'comment' : 'Back whisk with turn at corner'
                 },
                 {
                   'id' : 'OpenImpetus',
@@ -557,31 +561,47 @@
                 },
                 {
                   'id' : 'DoubleReverseSpin',
-                  'comment' : 'when ending DW, DC, or LOD'
+                  'comment' : 'when ending DW'
                 },
                 {
                   'id' : 'ContraCheck',
                   'comment' : 'when ending DW'
                 },
                 {
+                  'id' : 'DoubleReverseSpin',
+                  'comment' : 'when ending LOD'
+                },
+                {
                   'id' : 'ReverseTurn',
-                  'comment' : '1-3 into Basic Weave, when ending LOD; or ReverseTurn when ending DC'
+                  'comment' : '1-3 into Basic Weave when ending LOD'
                 },
                 {
                   'id' : 'ProgressiveChasseToR',
-                  'comment' : 'when ending DC, OR 3/8 turn, when ending LOD'
+                  'comment' : '3/8 turn, when ending LOD'
+                },
+                {
+                  'id' : 'ProgressiveChasseToR',
+                  'comment' : 'when ending DC'
+                },
+                {
+                  'id' : 'ReverseTurn',
+                  'comment' : 'when ending DC'
+                },
+                {
+                  'id' : 'DoubleReverseSpin',
+                  'comment' : 'when ending DC'
                 },
                 {
                   'id' : 'ClosedTelemark',
-                  'comment' : ''
+                  'comment' : 'when ending DC'
                 },
                 {
                   'id' : 'OpenTelemark',
-                  'comment' : ''
+                  'comment' : 'when ending DC'
                 },
                 {
                   'id' : 'FallawayReverseAndSlipPivot',
-                  'comment' : ''
+                  'comment' : 'when ending DC'
                 }
               ]
           },

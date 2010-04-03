@@ -48,6 +48,8 @@ function showVideo(index) {  // index to "videos"
 
   var output = [];
   output.push('<iframe width="480" height="385" src="' + video['url'] + '"></iframe>');
+  output.push('<br>');
+  output.push('<a href="javascript:void(0);" onclick="clearSelection()" style="float:right">X</a>');
   if (!compactMode()) {
     document.getElementById('video_' + index).innerHTML = output.join('');
   } else {  // small set of videos, fixed position on the right. 
@@ -132,8 +134,8 @@ function updateVideoResult() {
     output.push('<li><a name="v' + index + '"><a target="_self" href="#v' + index + '" class="title" id="title_' + index +
         '" onclick="return showVideo(' + index + ')">' + 
         video['title'] + '</a></a><br>');
-     output.push('<table><tr><td><span class="description" id="desc_' + index + '"  >' + 
-        video['description'] + '</span></td><td>');
+     output.push('<table width=100%><tr><td><span class="description" id="desc_' + index + '"  >' + 
+        video['description'] + '</span></td><td align=right>');
     output.push('<span id="video_' + index + '"></span>');
     output.push('</td></tr></table>');
     index++;

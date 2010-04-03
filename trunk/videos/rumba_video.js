@@ -7,7 +7,7 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Rumba Technique: Basic Movement - Hip Movement',
-    'description' : 'In Russian.',
+    'description' : '(non-English) ',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/AaQZhsCZUTY'
   },
@@ -61,7 +61,7 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Rumba Hockey Stick',
-    'description' : 'In Russian.',
+    'description' : '(non-English) ',
     'labels' : ['HockeyStick'],
     'url' : 'http://www.youtube.com/v/gt-hoKMPEkA'
   },
@@ -103,55 +103,55 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Rumba Cucarachas',
-    'description' : 'In Russian.',
+    'description' : '(non-English) ',
     'labels' : ['Cucaracha'],
     'url' : 'http://www.youtube.com/v/wuN-u5h1cMU'
   },
   {
     'title' : 'Rumba Technique: Rotation',
-    'description' : 'In Russian. Demonstrate Rumba Basic.',
+    'description' : '(non-English)  Demonstrate Rumba Basic.',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/y_NH51mt_Ls'
   },
   {
     'title' : 'Rumba Technique: Legs - 1',
-    'description' : 'In Russian.',
+    'description' : '(non-English) ',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/dtSs3RhkNAo'
   },
   {
     'title' : 'Rumba Technique: Legs - 2',
-    'description' : 'In Russian.',
+    'description' : '(non-English) ',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/Y3lp7lvlY4s'
   },
   {
     'title' : 'Rumba Technique: Arms - 3',
-    'description' : 'In Russian.',
+    'description' : '(non-English) ',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/EaekBbp6Taw'
   },
   {
     'title' : 'Rumba Technique: Arms - 2',
-    'description' : 'In Russian.',
+    'description' : '(non-English) ',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/6LBwPEziKys'
   },
   {
     'title' : 'Rumba Technique: Arms - 1',
-    'description' : 'In Russian.',
+    'description' : '(non-English) ',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/751uEEBY08I'
   },
   {
     'title' : 'Rumba Technique: Contraction',
-    'description' : 'In Russian.',
+    'description' : '(non-English) ',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/alTI5KsMuaM'
   },
   {
     'title' : 'Rumba Walk and Basic Technique',
-    'description' : 'In Russian.',
+    'description' : '(non-English) ',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/bMmabQzQnh4'
   },
