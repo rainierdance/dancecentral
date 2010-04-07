@@ -58,7 +58,26 @@
         'ClosedTelemark' : 
           {
             'name' : 'Closed Telemark',
-            'level' : 'Silver'
+            'level' : 'Silver',
+            'urlpath' : 'closed-telemark',
+            'startAlignment' : ['DC'],
+            'startFoot' : 'LF',
+            'startDirection' : 'fwd',
+            'timing' : 'SSSS or SQQS or QQSS',
+            'follow' : [
+                {
+                  'eval' : 'MatchFigures({"startFoot" : "RF", "startAlignment" : "DW", "startDirection" : "fwd"})',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'FourQuickRun',
+                  'comment' : 'at corner, LF back with Lady OP, TH, S, into Four Quick Run'
+                },
+                {
+                  'id' : 'SixQuickRun',
+                  'comment' : 'at corner, LF back with Lady OP, TH, S, into Six Quick Run'
+                }
+              ]
           },
         'V6' : 
           {
@@ -73,7 +92,30 @@
         'RunningRightTurn' : 
           {
             'name' : 'Running Right Turn',
-            'level' : 'Silver'
+            'level' : 'Silver',
+            'urlpath' : 'running-right-turn',
+            'startAlignment' : ['DW'],
+            'startFoot' : 'RF',
+            'startDirection' : 'fwd',
+            'timing' : 'SQQ S SSS QQS S',
+            'follow' : [
+                {
+                  'eval' : 'MatchFigures({"startFoot" : "RF", "startDirection" : "fwd"})',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'QuickOpenReverse',
+                  'comment' : 'when ended DC'
+                },
+                {
+                  'id' : 'Fishtail',
+                  'comment' : 'when ended DC'
+                },
+                {
+                  'id' : 'TipsyToL',
+                  'comment' : 'Tipsy to L into 2-12 V6 DC or 2-5 Back Lock down LOD'
+                }
+              ]
           },
         'Fishtail' : 
           {
