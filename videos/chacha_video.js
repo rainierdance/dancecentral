@@ -1,5 +1,97 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Cha Cha: Bronze Practice Routine (Slow Motion)',
+    'description' : 'Academia Pedro Sousa. (non-English) Routine:<ul>' +
+      '<li> Open Basic' +
+      '<li> Open Hip Twist' +
+      '<li> Fan' +
+      '<li> Hockey Stick' +
+      '<li> Natural Top' +
+      '<li> Closed Hip Twist' +
+      '<li> Alemana' +
+      '<li> New York' +
+      '<li> Back Lock' +
+      '<li> Time Step' +
+      '</ul>',
+    'labels' : ['OpenBasic', 'OpenHipTwist', 'Alemana', 'NewYork', 'NaturalTop', 'TimeStep', 'HockeyStick', 'ClosedHipTwist'],
+    'url' : 'http://www.youtube.com/v/156NISHQSwQ'
+  },
+  {
+    'title' : 'Cha Cha: Bronze Practice Routine',
+    'description' : 'Academia Pedro Sousa. (non-English) Routine:<ul>' +
+      '<li> Closed Basic' +
+      '<li> New York' +
+      '<li> Switch Turn' +
+      '<li> Underarm Turn to Left' +
+      '<li> Underarm Turn to Right' +
+      '<li> Shoulder To Shoulder' +
+      '<li> Hand To Hand' +
+      '<li> Three Cha Cha Chas Forward (Variation)' +
+      '<li> Spot Turns' +
+      '<li> Hand To Hand' +
+      '<li> Three Cha Cha Chas Forward' +
+      '<li> Three Cha Cha Chas Back' +
+      '<li> Fan' +
+      '<li> Alemana' +
+      '<li> Time Step' +
+      '</ul>',
+    'labels' : ['Fan', 'SpotTurns', 'ThreeChaChaChas', 'Alemana', 'NewYork', 'HandToHand', 'TimeStep'],
+    'url' : 'http://www.youtube.com/v/IB5HKa60Ys8'
+  },
+  {
+    'title' : 'Cha Cha: Newcomer Practice Rountine (Slow motion)',
+    'description' : 'Academia Pedro Sousa. (non-English) Routine:<ul>' +
+      '<li> Time Step' +
+      '<li> Closed Basic' +
+      '<li> New York' +
+      '<li> Spot Turn' +
+      '<li> Underarm Turn To Left and Left' +
+      '<li> Shoulder To Shoulder' +
+      '<li> Hand To Hand' +
+      '<li> Lock Step' +
+      '<li> Spot Turn' +
+      '<li> Three Cha Cha Chas' +
+      '</ul>',
+    'labels' : ['SpotTurns', 'ShoulderToShoulder', 'NewYork', 'CloseDBasic', 'TimeStep', 'UnderarmTurn', 'HandToHand'],
+    'url' : 'http://www.youtube.com/v//kjUa_18T9WM'
+  },
+  {
+    'title' : 'Cha Cha: Hand To Hand, Spot Turn',
+    'description' : 'Academia Pedro Sousa. (non-English)',
+    'labels' : ['HandToHand', 'SpotTurn'],
+    'url' : 'http://www.youtube.com/v/LarAIW4WtRY'
+  },
+  {
+    'title' : 'Cha Cha: Shoulder To Shoulder',
+    'description' : 'Academia Pedro Sousa. (non-English)',
+    'labels' : ['ShoulderToShoulder''],
+    'url' : 'http://www.youtube.com/v/8Kt2u6bt3LU'
+  },
+  {
+    'title' : 'Cha Cha: Underarm Turn to Left and Right',
+    'description' : 'Academia Pedro Sousa. (non-English)',
+    'labels' : ['UnderarmTurn'],
+    'url' : 'http://www.youtube.com/v/0fitf0eXwBI'
+  },
+  {
+    'title' : 'Cha Cha: Spot Turn',
+    'description' : 'Academia Pedro Sousa. (non-English)',
+    'labels' : ['SpotTurn'],
+    'url' : 'http://www.youtube.com/v/QI_8CcEP-r4'
+  },
+  {
+    'title' : 'Cha Cha: Closed Basic, New York',
+    'description' : 'Academia Pedro Sousa. (non-English)',
+    'labels' : ['ClosedBasic', 'NewYork'],
+    'url' : 'http://www.youtube.com/v/2kYm40Ds6pQ'
+  },
+  {
+    'title' : 'Cha Cha: Fan, Alemana, Time Step',
+    'description' : 'Academia Pedro Sousa. (non-English)',
+    'labels' : ['TimeStep'],
+    'url' : 'http://www.youtube.com/v/tzHx05TGEC8'
+  },
+  {
     'title' : 'Cha Cha: Closed Hip Twist - Lady, and with partner',
     'description' : 'Academia Pedro Sousa. (non-English)',
     'labels' : ['ClosedHipTwist'],
@@ -18,18 +110,6 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/ICCXzcQZpNY'
   },
   {
-    'title' : 'Cha Cha: Short Bronze Routine',
-    'description' : 'Academia Pedro Sousa. (non-English) Routine:<ul>' +
-      '<li> Open Basic' +
-      '<li> Open Hip Twist' +
-      '<li> Fan' +
-      '<li> Hockey Stick' +
-      '<li> Natural Top' +
-      '</ul>',
-    'labels' : ['OpenHipTwist', 'Fan', 'HockeyStick', 'NaturalTop'],
-    'url' : 'http://www.youtube.com/v/IB5HKa60Ys8'
-  },
-  {
     'title' : 'Cha Cha: Overtuned Hockey Stick, Split Cuban Break, Cuban Breaks',
     'description' : 'Instruction by Andy & Wendy Wong.',
     'labels' : ['HockeyStick', 'SplitCubanBreak', 'CubanBreak'],
@@ -38,7 +118,7 @@ danceVideos = danceVideos.concat([
   {
     'title' : 'Cha Cha: Time Step',
     'description' : 'Academia Pedro Sousa. (non-English)',
-    'labels' : ['SideStep'],
+    'labels' : ['TimeStep'],
     'url' : 'http://www.youtube.com/v/39nUtVGjTWw'
   },
   {
@@ -177,7 +257,7 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Latin Technique: 4 types of hip actions',
-    'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas.',
+    'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas. 4 types of hip actions: settling, lateral, rotation, twisting.',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/oEy4G1NDRDI'
   },
