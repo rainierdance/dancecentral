@@ -18,9 +18,9 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/B5mkO7mg2Wc',
   },
   {
-    'title' : 'Quickstep: Tipple Chasse, Natural Turn, Back Lock, Running Finish',
+    'title' : 'Quickstep: Natural Turn, Back Lock, Running Finish',
     'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com',
-    'labels' : ['NaturalTurn', 'BackLock', 'RunningFinish', 'TippleChasse'],
+    'labels' : ['NaturalTurn', 'BackLock', 'RunningFinish', 'QuarterTurnToRight'],
     'url' : 'http://www.youtube.com/v/Sa5VUmcCuOg'
   },
   {
