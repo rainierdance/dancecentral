@@ -82,12 +82,66 @@
         'V6' : 
           {
             'name' : 'V6',
-            'level' : 'Silver'
+            'level' : 'Silver',
+            'urlpath' : 'v6',
+            'startAlignment' : ['BDC'],
+            'startFoot' : 'LF',
+            'startDirection' : 'back',
+            'timing' : 'SQQSSQQS',
+            'follow' : [
+                {
+                  'eval' : 'MatchFigures({"startFoot" : "RF", "startAlignment" : "DW", "startDirection" : "fwd"})',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'QuickOpenReverse',
+                  'comment' : 'after 6-8 of V6 overturned to LOD'
+                },
+                {
+                  'id' : 'FourQuickRun',
+                  'comment' : 'at corner, LF back with Lady OP, TH, S, into Four Quick Run'
+                },
+                {
+                  'id' : 'TipsyToL',
+                  'comment' : 'into 2-5 Back Lock down LOD'
+                },
+                {
+                  'id' : 'SixQuickRun',
+                  'comment' : 'LF back with Lady OP, TH, S, into Six Quick Run'
+                }
+              ]
           },
         'FourQuickRun' : 
           {
             'name' : 'Four Quick Run',
-            'level' : 'Silver'
+            'level' : 'Silver',
+            'urlpath' : 'four-quick-run',
+            'startAlignment' : ['BLOD'],
+            'startFoot' : 'RF',
+            'startDirection' : 'back',
+            'timing' : 'SQQQQSS',
+            'follow' : [
+                {
+                  'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'V6',
+                  'comment' : 'at corner, LF back with Lady OP, TH, S, into 2-12 V6'
+                },
+                {
+                  'id' : 'TipsyToL',
+                  'comment' : 'into 2-12 V6'
+                },
+                {
+                  'id' : 'TipsyToL',
+                  'comment' : 'into 2-5 Back Lock down LOD'
+                },
+                {
+                  'id' : 'SixQuickRun',
+                  'comment' : 'LF back with Lady OP, TH, S, into Six Quick Run'
+                }
+              ]
           },
         'RunningRightTurn' : 
           {
@@ -120,12 +174,66 @@
         'Fishtail' : 
           {
             'name' : 'Fish Tail',
-            'level' : 'Silver'
+            'level' : 'Silver',
+            'urlpath' : 'fishtail',
+            'startAlignment' : ['DC'],
+            'startFoot' : 'RF',
+            'startDirection' : 'fwd',
+            'timing' : 'SQQQQSS',
+            'follow' : [
+                {
+                  'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'FourQuickRun',
+                  'comment' : 'at corner, LF back with Lady OP, TH, S, into Four Quick Run'
+                },
+                {
+                  'id' : 'V6',
+                  'comment' : 'at corner, LF back with Lady OP, TH, S, into 2-12 V6'
+                },
+                {
+                  'id' : 'TipsyToL',
+                  'comment' : 'into 2-12 V6'
+                },
+                {
+                  'id' : 'TipsyToL',
+                  'comment' : 'into 2-5 Back Lock down LOD'
+                },
+                {
+                  'id' : 'SixQuickRun',
+                  'comment' : 'LF back with Lady OP, TH, S, into Six Quick Run'
+                }
+              ]
           },
         'QuickOpenReverse' : 
           {
             'name' : 'Quick Open Reverse',
-            'level' : 'Silver'
+            'level' : 'Silver',
+            'urlpath' : 'quick-open-reverse',
+            'startAlignment' : ['LOD'],
+            'startFoot' : 'LF',
+            'startDirection' : 'fwd',
+            'timing' : 'SQQS',
+            'follow' : [
+                {
+                  'id' : 'ProgressiveChasse',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ReversePivot',
+                  'comment' : 'after step 3'
+                },
+                {
+                  'id' : 'FourQuickRun',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'HoverCorte',
+                  'comment' : ''
+                }
+              ]
           },
         'ZigZagBackLockAndRunningFinish' : 
           {
@@ -298,7 +406,7 @@
             'timing' : 'SQQ',
             'follow' : [
                 {
-                  'eval' : 'MatchFigureName("Natural")',
+                  'eval' : 'SameFollowAs("ForwardLock")',
                   'comment' : ''
                 },
                 {
@@ -717,6 +825,10 @@
             'startDirection' : 'fwd',
             'timing' : 'SQQS',
             'follow' : [
+                {
+                  'id' : 'ForwardLock', // not listed, but it's done
+                  'comment' : ''
+                },
                 {
                   'eval' : 'MatchFigureName("Natural")',
                   'comment' : ''
