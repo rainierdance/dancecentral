@@ -714,7 +714,7 @@ function Diagram(stepURLs, imgID, interval) {
   this.next = 0;  // index of next image to show
   this.imgID = imgID;
   if (interval) this.interval = interval;
-  else this.interval = 2000; // 2s
+  else this.interval = 3000; // Animation speed
 
   // TODO: Diagram.prototype.showNext is not working
 
