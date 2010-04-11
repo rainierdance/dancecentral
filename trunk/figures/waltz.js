@@ -270,6 +270,13 @@
             'startFoot' : 'LF',
             'startDirection' : 'back',
             'timing' : '123',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-closed-impetus-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-closed-impetus-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-closed-impetus-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-closed-impetus-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-closed-impetus-4.png'
+            ],
             'follow' : [
                 {
                   'id' : 'ReverseTurn',
