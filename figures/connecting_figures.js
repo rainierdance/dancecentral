@@ -533,6 +533,11 @@ function addFigureToRoutine() {
   selectFigure(figureID);
 
   updateRoutineDisplay();
+
+  // clear the input
+  document.getElementById('figureIdToAdd').value = '';
+  document.getElementById('figureNameControl').innerHTML = '';
+  document.getElementById('editNote').value = '';
   track('/gadgets/figures/' + inputDance + '/addFigureToRoutine?figureId=' + figureID);
 }
 
@@ -558,10 +563,11 @@ function onClickFigure(figureID) {
 function deleteLastFigure() {
   if (routine.length > 0) {
     routine.pop();
+    track('/gadgets/figures/' + inputDance + '/deleteFigureFromRoutine');
   }
   updateRoutineDisplay();
 
-  if (routine.length > 0) {
+  if (routine.length > 0 && routine[routine.length -1].figureID) {
     selectFigure(routine[routine.length -1].figureID);
   } else {
     selectFigure('all');
@@ -571,10 +577,12 @@ function deleteLastFigure() {
 function updateRoutineDisplay() {
   var output = [];
   routine.forEach(function (routineStep) {
-    var figure = figures[routineStep.figureID];
     output.push('<li>');
-    output.push('<a href="' + 
+    if (routineStep.figureID) {
+      var figure = figures[routineStep.figureID];
+      output.push('<a href="' + 
         (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath'] + '">' + figure['name'] + '</a> &nbsp;');
+    }
     output.push(routineStep.note);
     output.push('</li>');
   });
