@@ -12,7 +12,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0416.1739";
+    var VERSION = "10.0416.1819";
     var ID_ANALYTICS = "UA-10550268-1";
     var pageTracker;
 
@@ -29,10 +29,10 @@
       if (!IS_GADGET) {
         var paramValue = getURLParam('query');
         if (paramValue) inputQuery = paramValue;
-      }
 
-      // show debug output
-      document.getElementById('debugOutput').style.display = 'block';
+        // show debug output
+        document.getElementById('debugOutput').style.display = 'block';
+      }
 
       document.getElementById('query').value = inputQuery;
  
@@ -44,15 +44,7 @@
   </script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/dci_video.js"></script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/../utils/utils.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/waltz_video.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/vwaltz_video.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/tango_video.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/foxtrot_video.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/quickstep_video.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/rumba_video.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/chacha_video.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/samba_video.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/ballroom_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/videos/videos_data.js"></script>
 
 </head>
 
