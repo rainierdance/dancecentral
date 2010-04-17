@@ -37,7 +37,7 @@ function clearSelection() {
   currentIndex = -1;
 }
 
-function showVideo(index) {  // index to "videos"
+function showVideo(index, flagTrack) {  // index to "videos"
   if (currentIndex == index)
       return; // reduce flicker
 
@@ -63,6 +63,7 @@ function showVideo(index) {  // index to "videos"
 
   currentIndex = index;
 
+  if (flagTrack) track('/gadgets/videos/showVideo?sv=' + video['url']);
   return !compactMode(); // proceed to go to local anchor, otherwise, don't scroll
 }
 
@@ -114,8 +115,13 @@ function getSearchResult() {
   return results;
 }
 
-function updateVideoResult() {
+function updateVideoResult(flagTrack) {
   clearSelection();
+
+  var query = document.getElementById('query').value;
+  if (flagTrack) {
+    track('/gadgets/videos/search?q=' + encodeURIComponent(query));
+  }
 
   videos = getSearchResult();
 
@@ -132,7 +138,7 @@ function updateVideoResult() {
 
   videos.forEach(function (video) {
     output.push('<li><a name="v' + index + '"><a target="_self" href="#v' + index + '" class="title" id="title_' + index +
-        '" onclick="return showVideo(' + index + ')">' + 
+        '" onclick="return showVideo(' + index + ', true)">' + 
         video['title'] + '</a></a><br>');
      output.push('<table width=100%><tr><td><span class="description" id="desc_' + index + '"  >' + 
         video['description'] + '</span></td><td align=right>');

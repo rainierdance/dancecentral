@@ -71,3 +71,14 @@ function getURLParam(paramName) {
     return values;
 }
 
+function track(path, id) {
+  if (!pageTracker && typeof _gat != 'undefined') {
+    if (!id) id = ID_ANALYTICS; // default global variable
+    pageTracker = _gat._getTracker(id);
+  }
+  if (pageTracker) {
+    pageTracker._trackPageview(path);
+  } else {
+    log(path);
+  }
+}
