@@ -8,7 +8,7 @@ fi
 
 # concat all data files
 DATAFILE=$dirname/${dirname}_data.js
-echo '// ---- DO NOT EDIT ----' >>$DATAFILE
+echo '// ---- DO NOT EDIT ----' >$DATAFILE
 datafiles=`ls $dirname/data`
 for file in $datafiles; do
   cat $dirname/$file >>$DATAFILE
