@@ -13,7 +13,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0416.1832";
+    var VERSION = "10.0416.2339";
     var ID_ANALYTICS = "UA-10550268-1";
     var pageTracker;
 
@@ -44,6 +44,10 @@
 <span id='idTipsHeader'></span>
 <span id='idTipsBody'></span>
 <pre id='debugOutput' style='display:none'></pre>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
 </body> 
 
 ]]></Content>
