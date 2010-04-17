@@ -13,7 +13,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0416.1739";
+    var VERSION = "10.0416.1819";
     var ID_ANALYTICS = "UA-10550268-1";
     var pageTracker;
 
@@ -36,8 +36,7 @@
 
     var danceTips = [];
   </script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/dancetips/standard.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/dancetips/latin.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/dancetips/dancetips_data.js"></script>
 </head>
 
 <body>
