@@ -15,7 +15,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0416.1739";
+    var VERSION = "10.0416.1844";
     var ID_ANALYTICS = "UA-10550268-1";
     var pageTracker;
 
@@ -47,27 +47,11 @@
 
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../utils/utils.js"></script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/connecting_figures.js"></script>
-
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/quickstep.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/waltz.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/vwaltz.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/tango.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/foxtrot.js"></script>
-
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/rumba.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/chacha.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/samba.js"></script>
-
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/dci_video.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/waltz_video.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/vwaltz_video.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/tango_video.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/foxtrot_video.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/quickstep_video.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/rumba_video.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/chacha_video.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/samba_video.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/ballroom_video.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/videos_data.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/figures_data.js"></script>
+
+
 
 </head>
 
