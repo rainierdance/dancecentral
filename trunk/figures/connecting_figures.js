@@ -48,6 +48,9 @@ function initVars() {
 
     paramValue = getURLParam('video');
     if (paramValue) inputVideoMode = paramValue;
+
+    // show debug output
+    document.getElementById('debugOutput').style.display = 'block';
   }
 
   DANCE_MAP  = {
@@ -234,11 +237,20 @@ function resetStartingPoint() {
   document.getElementById('startDirection').selectedIndex = 0;
 }
 
+function selectFigureFromDropdown(flagTrack) {
+  resetStartingPoint();
+  updateView();
+  
+  var selectedFigureElement = document.getElementById('figureName');
+  var figureID = selectedFigureElement.options[selectedFigureElement.selectedIndex].value;
+  if (flagTrack) track('/gadgets/figures/' + inputDance + '/selectFigureFromDropdown?figureId=' + figureID);
+}
+
 // update the list of figues in the Figures drop down, update view as well
 function updateFigureList() {
  var output = [];
 
-  output.push('Figures: <select id="figureName" onchange="resetStartingPoint();updateView();">');
+  output.push('Figures: <select id="figureName" onchange="selectFigureFromDropdown(true);">');
   output.push('<option>all</option>');
   sortedIds.forEach(function (id) {
     if (!document.getElementById(figures[id]['level']).checked) return;
@@ -248,7 +260,7 @@ function updateFigureList() {
     output.push('>' + figures[id]['name'] + '</option>');
   });
   output.push('</select>');
-  output.push('&nbsp; <a href="javascript:void(0);" onclick="selectFigure(\'all\');">all</a> &nbsp;&nbsp;&nbsp; ');
+  output.push('&nbsp; <a href="javascript:void(0);" onclick="selectFigure(\'all\', true);">all</a> &nbsp;&nbsp;&nbsp; ');
 
   document.getElementById('divFiguresList').innerHTML = output.join('');
 
@@ -294,7 +306,7 @@ function getFigureLink(figureID, inPage) {
       output.push('<a class="' + styleClass + '" style="color:' + COLOR_MAP[figure['level']] + '"');
       output.push(' onclick="return onClickFigure(\'' + figureID + '\');" ');
       if (inPage)
-        output.push(' target="_self" href="javascript:selectFigure(\'' + figureID + '\')');
+        output.push(' target="_self" href="javascript:selectFigure(\'' + figureID + '\', true)');
         //output.push(' target="_self" href="#section_' + figureID);
       else {
         output.push(' href="' + (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath']);
@@ -447,6 +459,7 @@ function continueRoutine() {
   document.getElementById('idPauseRoutine').style.display = 'inline';
   document.getElementById('idContinueRoutine').style.display = 'none';
   document.getElementById('editControls').style.display = 'inline';
+  track('/gadgets/figures/' + inputDance + '/continueRoutine');
 }
 
 function pauseRoutine() {
@@ -454,6 +467,7 @@ function pauseRoutine() {
   document.getElementById('idPauseRoutine').style.display = 'none';
   document.getElementById('idContinueRoutine').style.display = 'inline';
   document.getElementById('editControls').style.display = 'none';
+  track('/gadgets/figures/' + inputDance + '/pauseRoutine');
 }
 
 function startRoutine() {
@@ -474,10 +488,11 @@ function startRoutine() {
   document.getElementById('deleteControls').style.display = 'none';
   document.getElementById('editControls').style.display = 'inline';
   document.getElementById('idContinueRoutine').style.display = 'none';
+  track('/gadgets/figures/' + inputDance + '/startRoutine');
 }
 
 // select the specified figure in figure drop down list and update view
-function selectFigure(figureID) {
+function selectFigure(figureID, flagTrack) {
   var selectedFigureElement = document.getElementById('figureName');
   for (var i = 0; i< selectedFigureElement.options.length; i++) {
     if (selectedFigureElement.options[i].value == figureID) {
@@ -486,6 +501,7 @@ function selectFigure(figureID) {
     }
   }
   updateView();
+  if (flagTrack) track('/gadgets/figures/' + inputDance + '/selectFigure?figureId=' + figureID);
 }
 
 function formatFigureList(items) {
@@ -517,6 +533,7 @@ function addFigureToRoutine() {
   selectFigure(figureID);
 
   updateRoutineDisplay();
+  track('/gadgets/figures/' + inputDance + '/addFigureToRoutine?figureId=' + figureID);
 }
 
 // when building routine, this is called when user clicks on a figure name
@@ -615,11 +632,11 @@ function updateView() {
     // check and see if we should show diagram
     if (showDiagram && figure['diagram']) {
       output.push('<br>Diagram:');
-      output.push(' <a href="javascript:void(0);" onclick="diagramAutoShow(\'' + id + '\');">Animate</a> &nbsp;');
-      output.push(' <a href="javascript:void(0);" onclick="diagramStopShow(\'' + id + '\');">Stop</a> &nbsp;&nbsp;&nbsp;');
-      output.push(' <a href="javascript:void(0);" onclick="diagramReset(\'' + id + '\');">Start</a> &nbsp;');
-      output.push(' <a href="javascript:void(0);" onclick="diagramShowNext(\'' + id + '\');">Next step</a> &nbsp;');
-      output.push(' <a href="javascript:void(0);" onclick="diagramLast(\'' + id + '\');">Last step</a> &nbsp;');
+      output.push(' <a href="javascript:void(0);" onclick="diagramAutoShow(\'' + id + '\', true);">Animate</a> &nbsp;');
+      output.push(' <a href="javascript:void(0);" onclick="diagramStopShow(\'' + id + '\', true);">Stop</a> &nbsp;');
+      output.push(' <a href="javascript:void(0);" onclick="diagramReset(\'' + id + '\', true);">Start</a> &nbsp;');
+      output.push(' <a href="javascript:void(0);" onclick="diagramShowNext(\'' + id + '\', true);">Next step</a> &nbsp;');
+      output.push(' <a href="javascript:void(0);" onclick="diagramLast(\'' + id + '\', true);">Last step</a> &nbsp;');
       output.push('  <p>');
       output.push('  <img id="imgDiagram_' + id + '" src="' + 
         figure['diagram'][figure['diagram'].length - 1] + '" />');
@@ -650,14 +667,14 @@ function updateView() {
 
   // single figure mode
   if (showVideos && (selectedFigureName != 'all')) {
-    document.getElementById('idVideoSection').style.visibility = 'visible';
+    document.getElementById('idVideoSection').style.display = 'block';
     var danceName = inputDance;
     if (inputDance == 'Waltz')
       danceName = 'SlowWaltz'; // so we don't get Viennese Waltz results
     document.getElementById('query').value = selectedFigureName + ' ' + danceName;
     updateVideoResult();
   } else {
-    document.getElementById('idVideoSection').style.visibility = 'hidden';
+    document.getElementById('idVideoSection').style.display = 'none';
   }
 
   //outputDotSource(); // diagram too complicated to be useful
@@ -672,34 +689,39 @@ function getDiagramObj(id) {
   return diagram;
 }
 
-function diagramAutoShow(id) {
+function diagramAutoShow(id, flagTrack) {
   diagramStopShow();
   var diagram = getDiagramObj(id);
   currentAnimatedDiagram = diagram;
   diagram.autoShow();
+  if (flagTrack) track('/gadgets/figures/' + inputDance + '/' + id + '/animate');
 }
 
-function diagramStopShow() {
+function diagramStopShow(id, flagTrack) {
   // at most one diagram is animating
   if (currentAnimatedDiagram) {
     currentAnimatedDiagram.stopShow();
+    if (flagTrack) track('/gadgets/figures/' + inputDance + '/' + id + '/stop');
     currentAnimatedDiagram = null;
   }
 }
 
-function diagramReset(id) {
+function diagramReset(id, flagTrack) {
   var diagram = getDiagramObj(id);
   diagram.reset();
+  if (flagTrack) track('/gadgets/figures/' + inputDance + '/' + id + '/reset');
 }
 
-function diagramShowNext(id) {
+function diagramShowNext(id, flagTrack) {
   var diagram = getDiagramObj(id);
   diagram.showNext();
+  if (flagTrack) track('/gadgets/figures/' + inputDance + '/' + id + '/next');
 }
 
-function diagramLast(id) {
+function diagramLast(id, flagTrack) {
   var diagram = getDiagramObj(id);
   diagram.last();
+  if (flagTrack) track('/gadgets/figures/' + inputDance + '/' + id + '/last');
 }
 
 /* ----------------- Diagram Class ---------------------*/

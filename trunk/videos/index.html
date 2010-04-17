@@ -8,7 +8,8 @@
     // globals
     var IS_GADGET = false; 
     var VERSION = "$Rev$";
-    var ID_ANALYTICS = "UA-9375974-3";
+    var ID_ANALYTICS = "UA-10550268-1";
+    var pageTracker;
 
     var inputQuery = '';
 
@@ -24,6 +25,9 @@
         var paramValue = getURLParam('query');
         if (paramValue) inputQuery = paramValue;
       }
+
+      // show debug output
+      document.getElementById('debugOutput').style.display = 'block';
 
       document.getElementById('query').value = inputQuery;
  
@@ -49,9 +53,9 @@
 
 <body onLoad="onLoad()">
 
-<form id ='idSearchForm' onsubmit="updateVideoResult(); getElementById('query').select(); return false;">
+<form id ='idSearchForm' onsubmit="updateVideoResult(true); getElementById('query').select(); return false;">
 <input type=text id='query' value='' size=40 onFocus='this.select();'>
-<input type=button value="Search Video Clips!" onclick='updateVideoResult();'>
+<input type=button value="Search Video Clips!" onclick='updateVideoResult(true);'>
 </form>
 
 <table>
@@ -62,7 +66,7 @@
 </td></tr>
 </table>
 
-<pre id='debugOutput' style='display:inline'></pre>
+<pre id='debugOutput' style='display:none'></pre>
 <div id='divVersion'></div>
 
 </body> 

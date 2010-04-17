@@ -13,8 +13,9 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0310.2349";
-    var ID_ANALYTICS = "UA-9375974-3";
+    var VERSION = "10.0416.1739";
+    var ID_ANALYTICS = "UA-10550268-1";
+    var pageTracker;
 
     var inputMode = 'single';
 
@@ -43,7 +44,7 @@
 <span id='idOptions'></span>
 <span id='idTipsHeader'></span>
 <span id='idTipsBody'></span>
-<pre id='debugOutput' style='display:block'></pre>
+<pre id='debugOutput' style='display:none'></pre>
 </body> 
 
 ]]></Content>

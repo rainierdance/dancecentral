@@ -11,25 +11,13 @@
   <LINK REL=StyleSheet HREF="http://dancecentral.googlecode.com/svn/trunk/figures/figures.css" TYPE="text/css"/>
   <LINK REL=StyleSheet HREF="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/dci_video.css" TYPE="text/css"/>
 
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../utils/utils.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/connecting_figures.js"></script>
-
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/quickstep.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/waltz.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/vwaltz.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/tango.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/foxtrot.js"></script>
-
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/rumba.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/chacha.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/samba.js"></script>
-
   <script type="text/javascript">
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "10.0330.1210";
-    var ID_ANALYTICS = "UA-9375974-3";
+    var VERSION = "10.0416.1739";
+    var ID_ANALYTICS = "UA-10550268-1";
+    var pageTracker;
 
     var inputDance = 'Quickstep';
     var inputFigureName = 'all';
@@ -56,6 +44,19 @@
       window.onload = onLoad;
     }
   </script>
+
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../utils/utils.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/connecting_figures.js"></script>
+
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/quickstep.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/waltz.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/vwaltz.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/tango.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/foxtrot.js"></script>
+
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/rumba.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/chacha.js"></script>
+  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/samba.js"></script>
 
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/dci_video.js"></script>
   <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/waltz_video.js"></script>

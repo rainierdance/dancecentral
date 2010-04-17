@@ -13,6 +13,9 @@ function initVars() {
   if (!IS_GADGET) {
     var paramValue = getURLParam('mode');
     if (paramValue) inputMode = paramValue;
+
+    // show debug output
+    document.getElementById('debugOutput').style.display = 'block';
   }
 
   // get sorted labels, initialize filters
@@ -75,7 +78,7 @@ function displayOneTip(output, tip) {
   }
 }
 
-function pickTip() {
+function pickTip(flagTrack) {
   var lenTips = danceTips.length;
   var indexSelectedTip = Math.floor(Math.random() * lenTips);
 
@@ -87,31 +90,37 @@ function pickTip() {
   // actual tip
   var tip = danceTips[indexSelectedTip];
   displayOneTip(output, tip);
-  output.push('&nbsp; <span style="float:right"><a href="javascript:void(0);" onclick="pickTip();">Another one</a>');
+  output.push('&nbsp; <span style="float:right"><a href="javascript:void(0);" onclick="pickTip(true);">Another one</a>');
   output.push('&nbsp; <a target="_top" href="http://www.dancecentral.info/ballroom/international-style/dance-tips">All</a>');
 
   // boiler plate
   output.push('</td></tr></table>');
 
   document.getElementById('idTipsBody').innerHTML = output.join('');
+
+  if (flagTrack) track('/gadgets/dancetips/pickanother');
 }
 
-function selectAll(enable) {
+function selectAll(enable, flagTrack) {
   allLabels.forEach(function (label) {
     labelFilters[label] = enable ? "1" : "0"; 
   });
 
   displayLabels();
   showTips();
+
+  if (flagTrack) track('/gadgets/dancetips/' + (enable ? 'selectall' : 'deselectall'));
 }
 
-function toggleLabel(labelElement) {
+function toggleLabel(labelElement, flagTrack) {
   var label = labelElement.innerHTML;
 
   labelFilters[label] = (labelFilters[label] == "0")  ? "1" : "0";
 
   labelElement.className = isLabelSelected(label) ? 'selectedLabel' : 'nonSelectedLabel';
   showTips();
+
+  if (flagTrack) track('/gadgets/dancetips/label?select=' + labelFilters[label] + '&label=' + encodeURIComponent(label));
 }
 
 function isLabelSelected(label) {
@@ -146,8 +155,8 @@ function isTipSelected(tip) {
 function displayLabels() {
   var output = [];
 
-  output.push('&nbsp;<b>Labels:</b> <a href="javascript:void(0);" onclick="selectAll(true);">select all</a>');
-  output.push('&nbsp; <a href="javascript:void(0);" onclick="selectAll(false);">deselect all</a><div class=labelSection>');
+  output.push('&nbsp;<b>Labels:</b> <a href="javascript:void(0);" onclick="selectAll(true, true);">select all</a>');
+  output.push('&nbsp; <a href="javascript:void(0);" onclick="selectAll(false, true);">deselect all</a><div class=labelSection>');
 
   for (var type in categories) {
     var labels = categories[type];
@@ -156,7 +165,7 @@ function displayLabels() {
       if(!labelCount[label]) return; // no tips for this label
       output.push('<span class="'  +
         (isLabelSelected(label) ? 'selectedLabel' : 'nonSelectedLabel') + 
-        '" onmouseover="this.style.cursor=\'pointer\';" onclick="toggleLabel(this);">' + label + '</span> <span class="tipCount">(' + labelCount[label] + ')</span>');
+        '" onmouseover="this.style.cursor=\'pointer\';" onclick="toggleLabel(this, true);">' + label + '</span> <span class="tipCount">(' + labelCount[label] + ')</span>');
     });
   }
   output.push('</div>');

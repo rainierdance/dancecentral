@@ -62,12 +62,6 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/LarAIW4WtRY'
   },
   {
-    'title' : 'Cha Cha: Shoulder To Shoulder',
-    'description' : 'Academia Pedro Sousa. (non-English)',
-    'labels' : ['ShoulderToShoulder''],
-    'url' : 'http://www.youtube.com/v/8Kt2u6bt3LU'
-  },
-  {
     'title' : 'Cha Cha: Underarm Turn to Left and Right',
     'description' : 'Academia Pedro Sousa. (non-English)',
     'labels' : ['UnderarmTurn'],
