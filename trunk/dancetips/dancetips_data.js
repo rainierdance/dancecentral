@@ -23,6 +23,18 @@
 */
     danceTips = danceTips.concat([
       {
+        'labels': ['Rumba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/rumba/hockey-stick'>Hockey Stick</a>: Lady be patient and wait for Man on step 3. On Step 5, Man is walking with lady diagonally."
+      },
+      {
+        'labels': ['Rumba', 'Lady'],
+        'tip': "The Fan position is one the major positions for Ladies to strike a line, pose for pictures. Look at audience, use arm styling from center, elbow-wrist-hands, extend out."
+      },
+      {
+        'labels': ['Cha Cha', 'Rumba'],
+        'tip': "In New York, step 3 on count '4', track the moving foot under standing foot, do not do ronde."
+      },
+      {
         'labels': ['Cha Cha'],
         'tip': "At end of each beat, especially, on 2, 3 and 1, stop sharp for a split second before moving again. Example: New York, on '2'."
       },
@@ -319,6 +331,42 @@
 */
     danceTips = danceTips.concat([
       {
+        'labels': ['Standard', 'Lady'],
+        'tip': "Left hand: dance 'at' the Man. Do not put hand on 'top' of his arm. It's more forward. and left thubm is inline with arm."
+      },
+      {
+        'labels': ['Standard', 'Lady'],
+        'tip': "Before trying to get big topline, first work on the movement from lower part of body."
+      },
+      {
+        'labels': ['Waltz', 'Lady'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/back-whisk'>Back Whisk</a>: Step 1 and 2, really drive, as Lady is on the outside. Stay very left in Man's arms, don't get in front."
+      },
+      {
+        'labels': ['Standard', 'Waltz', 'Lady'],
+        'tip': "For <a href='http://www.dancecentral.info/ballroom/international-style/waltz/waltz-natural-spin-turn'>Natural Spin Turn</a>, <a href='http://www.dancecentral.info/ballroom/international-style/waltz/closed-impetus'>Closed Impetus</a>, use a lot of CBM when Lady is driving forward. Stay balance and push on standing foot, brush and step out. Don't cut the last step short."
+      },
+      {
+        'labels': ['Standard'],
+        'tip': "When walking back, keep middle body quite straight, don't lean upper body back, use thigh muscle to reach back, don't lock knees, use toes then roll on whole foot."
+      },
+      {
+        'labels': ['Standard', 'Waltz'],
+        'tip': "When practicing each figure, try to stop on count '3' (or '2' depending on figure) and make sure the body is balanced. Lady stretch to left."
+      },
+      {
+        'labels': ['Standard'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/international-standard-technique#TOC-Using-the-Whole-Foot'>Praticing walking</a>, the moving foot should not 'lift up' (except for Tango), maintain foot pressure on floor the whole time. It helps balance and make one more grounded."
+      },
+      {
+        'labels': ['Standard'],
+        'tip': "Before thinking about creating big topline, work on the movement first."
+      },
+      {
+        'labels': ['Frame', 'Lady'],
+        'tip': "Lady's left hand should dancing 'at' Man, not on top of the Man's right arm."
+      },
+      {
         'labels': ['Waltz', 'Lady'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/double-reverse-spin'>Double Reverse Spin</a>: step 1, straight back, don't turn hip either or turning foot to side which will be in partner's way."
       },
@@ -329,10 +377,6 @@
       {
         'labels': ['Waltz', 'Lady'],
         'tip': "Lady's left hand should stay at the same place on Man's R arm, especially after whisk."
-      },
-      {
-        'labels': ['Waltz', 'Lady'],
-        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/waltz/back-whisk'>Back Whisk</a>: Step 1 and 2, really drive, as Lady is on the outside."
       },
       {
         'labels': ['Waltz', 'Lady'],
