@@ -22,6 +22,18 @@
 */
     danceTips = danceTips.concat([
       {
+        'labels': ['Rumba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/rumba/hockey-stick'>Hockey Stick</a>: Lady be patient and wait for Man on step 3. On Step 5, Man is walking with lady diagonally."
+      },
+      {
+        'labels': ['Rumba', 'Lady'],
+        'tip': "The Fan position is one the major positions for Ladies to strike a line, pose for pictures. Look at audience, use arm styling from center, elbow-wrist-hands, extend out."
+      },
+      {
+        'labels': ['Cha Cha', 'Rumba'],
+        'tip': "In New York, step 3 on count '4', track the moving foot under standing foot, do not do ronde."
+      },
+      {
         'labels': ['Cha Cha'],
         'tip': "At end of each beat, especially, on 2, 3 and 1, stop sharp for a split second before moving again. Example: New York, on '2'."
       },
