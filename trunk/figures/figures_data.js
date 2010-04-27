@@ -2406,7 +2406,28 @@ var foxtrotFigures =
         'TipsyToL' : 
           {
             'name' : 'Tipsy To L',
-            'level' : 'Gold'
+            'level' : 'Gold',
+			'urlpath' : 'tipsy-to-right-and-left',
+			'startFoot' : 'LF',
+			'startDirection' : 'left',
+			'timing' : 'Q & Q',
+			'follow' : [
+				{
+					'id' : 'BackLock',
+					'comment' : 'steps 2-5'
+				},
+				{
+					'id' : 'TippleChasseToRight',
+					'comment': 'steps 2-8'
+				},
+				{
+					'id' : 'V6',
+					'comment' : 'steps 2-12'
+				},
+				{
+					'id' : 'TipsyToR'
+				}
+			]
           },
         'TipsyToR' : 
           {
