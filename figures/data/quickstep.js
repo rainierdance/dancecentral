@@ -33,12 +33,46 @@
         'TipsyToL' : 
           {
             'name' : 'Tipsy To L',
-            'level' : 'Gold'
+            'level' : 'Gold',
+			'urlpath' : 'tipsy-to-right-and-left',
+			'startFoot' : 'LF',
+			'startDirection' : 'left',
+			'timing' : 'Q & Q',
+			'follow' : [
+				{
+					'id' : 'BackLock',
+					'comment' : 'steps 2-5'
+				},
+				{
+					'id' : 'TippleChasseToRight',
+					'comment': 'steps 2-8'
+				},
+				{
+					'id' : 'V6',
+					'comment' : 'steps 2-12'
+				},
+				{
+					'id' : 'TipsyToR'
+				}
+			]
           },
         'TipsyToR' : 
           {
             'name' : 'Tipsy To R',
-            'level' : 'Gold'
+            'level' : 'Gold',
+			'urlpath' : 'tipsy-to-right-and-left',
+			'startFoot' : 'RF',
+			'startDirection' : 'right',
+			'timing' : 'Q & Q',
+			'follow' : [
+				{ 
+					'id' : 'ForwardLock',
+					'comment' : 'steps 2-5'
+				},
+				{
+					'id' : 'TipsyToL',
+				}
+			]
           },
         'RumbaCross' : 
           {
