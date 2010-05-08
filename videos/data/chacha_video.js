@@ -1,5 +1,17 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Cha Cha: Natural Top, Closed Hip Twist',
+    'description' : 'Instruction by Andy & Wendy Wong.',
+    'labels' : ['NaturalTop', 'ClosedHipTwist', 'ChaCha'],
+    'url' : 'http://www.youtube.com/watch?v=xqatK2FmMeQ'
+  },
+  {
+    'title' : 'Cha Cha: Fan Development, Hockey Stick',
+    'description' : 'Instruction by Andy & Wendy Wong.',
+    'labels' : ['HockeyStick', 'Fan', 'ChaCha'],
+    'url' : 'http://www.youtube.com/watch?v=zgXV5J1gebA'
+  },
+  {
     'title' : 'Cha Cha: Bronze Practice Routine (Slow Motion)',
     'description' : 'Academia Pedro Sousa. (non-English) Routine:<ul>' +
       '<li> Open Basic' +
@@ -13,7 +25,7 @@ danceVideos = danceVideos.concat([
       '<li> Back Lock' +
       '<li> Time Step' +
       '</ul>',
-    'labels' : ['OpenBasic', 'OpenHipTwist', 'Alemana', 'NewYork', 'NaturalTop', 'TimeStep', 'HockeyStick', 'ClosedHipTwist'],
+    'labels' : ['OpenBasic', 'OpenHipTwist', 'Alemana', 'NewYork', 'NaturalTop', 'TimeStep', 'HockeyStick', 'ClosedHipTwist', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/156NISHQSwQ'
   },
   {
@@ -35,7 +47,7 @@ danceVideos = danceVideos.concat([
       '<li> Alemana' +
       '<li> Time Step' +
       '</ul>',
-    'labels' : ['Fan', 'SpotTurns', 'ThreeChaChaChas', 'Alemana', 'NewYork', 'HandToHand', 'TimeStep'],
+    'labels' : ['Fan', 'SpotTurns', 'ThreeChaChaChas', 'Alemana', 'NewYork', 'HandToHand', 'TimeStep', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/IB5HKa60Ys8'
   },
   {
@@ -52,145 +64,145 @@ danceVideos = danceVideos.concat([
       '<li> Spot Turn' +
       '<li> Three Cha Cha Chas' +
       '</ul>',
-    'labels' : ['SpotTurns', 'ShoulderToShoulder', 'NewYork', 'CloseDBasic', 'TimeStep', 'UnderarmTurn', 'HandToHand'],
+    'labels' : ['SpotTurns', 'ShoulderToShoulder', 'NewYork', 'CloseDBasic', 'TimeStep', 'UnderarmTurn', 'HandToHand', 'ChaCha'],
     'url' : 'http://www.youtube.com/v//kjUa_18T9WM'
   },
   {
     'title' : 'Cha Cha: Hand To Hand, Spot Turn',
     'description' : 'Academia Pedro Sousa. (non-English)',
-    'labels' : ['HandToHand', 'SpotTurn'],
+    'labels' : ['HandToHand', 'SpotTurn', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/LarAIW4WtRY'
   },
   {
     'title' : 'Cha Cha: Underarm Turn to Left and Right',
     'description' : 'Academia Pedro Sousa. (non-English)',
-    'labels' : ['UnderarmTurn'],
+    'labels' : ['UnderarmTurn', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/0fitf0eXwBI'
   },
   {
     'title' : 'Cha Cha: Spot Turn',
     'description' : 'Academia Pedro Sousa. (non-English)',
-    'labels' : ['SpotTurn'],
+    'labels' : ['SpotTurn', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/QI_8CcEP-r4'
   },
   {
     'title' : 'Cha Cha: Closed Basic, New York',
     'description' : 'Academia Pedro Sousa. (non-English)',
-    'labels' : ['ClosedBasic', 'NewYork'],
+    'labels' : ['ClosedBasic', 'NewYork', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/2kYm40Ds6pQ'
   },
   {
     'title' : 'Cha Cha: Fan, Alemana, Time Step',
     'description' : 'Academia Pedro Sousa. (non-English)',
-    'labels' : ['TimeStep'],
+    'labels' : ['TimeStep', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/tzHx05TGEC8'
   },
   {
     'title' : 'Cha Cha: Closed Hip Twist - Lady, and with partner',
     'description' : 'Academia Pedro Sousa. (non-English)',
-    'labels' : ['ClosedHipTwist'],
+    'labels' : ['ClosedHipTwist', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/03wpaGM0suM'
   },
   {
     'title' : 'Cha Cha: Closed Hip Twist - Man',
     'description' : 'Academia Pedro Sousa. (non-English)',
-    'labels' : ['ClosedHipTwist'],
+    'labels' : ['ClosedHipTwist', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/pyD1q52MGfg'
   },
   {
     'title' : 'Cha Cha: Closed Hip Twist - with Partner',
     'description' : 'Academia Pedro Sousa. (non-English)',
-    'labels' : ['ClosedHipTwist'],
+    'labels' : ['ClosedHipTwist', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/ICCXzcQZpNY'
   },
   {
     'title' : 'Cha Cha: Overtuned Hockey Stick, Split Cuban Break, Cuban Breaks',
     'description' : 'Instruction by Andy & Wendy Wong.',
-    'labels' : ['HockeyStick', 'SplitCubanBreak', 'CubanBreak'],
+    'labels' : ['HockeyStick', 'SplitCubanBreak', 'CubanBreak', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/o4POJq_vZ7U'
   },
   {
     'title' : 'Cha Cha: Time Step',
     'description' : 'Academia Pedro Sousa. (non-English)',
-    'labels' : ['TimeStep'],
+    'labels' : ['TimeStep', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/39nUtVGjTWw'
   },
   {
     'title' : 'Cha Cha: Shoulder To Shoulder',
     'description' : '(non-English)  Academia Pedro Sousa.',
-    'labels' : ['ShoulderToShoulder'],
+    'labels' : ['ShoulderToShoulder', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/8Kt2u6bt3LU'
   },
   {
     'title' : 'Cha Cha Technique: using spine',
     'description' : 'Demonstrated by Michael & Joanna. Routine uses advanced steps.',
-    'labels' : [],
+    'labels' : ['ChaCha'],
     'url' : 'http://www.youtube.com/v/UTJqg3wrNYs'
   },
   {
     'title' : 'Cha Cha Pratice: body roll break down',
     'description' : 'Demonstrated by Yulia.',
-    'labels' : [],
+    'labels' : ['ChaCha'],
     'url' : 'http://www.youtube.com/v/k_m0UtSpcRU'
   },
   {
     'title' : 'Cha Cha Pratice: ronde chasse, lock steps, body roll',
     'description' : 'Demonstrated by Yulia.',
-    'labels' : [],
+    'labels' : ['ChaCha'],
     'url' : 'http://www.youtube.com/v/ItJgJiWV8xE'
   },
   {
     'title' : 'Cha Cha Technique: Connection with Floor',
     'description' : 'Demonstrated by Monika.',
-    'labels' : [],
+    'labels' : ['ChaCha'],
     'url' : 'http://www.youtube.com/v/3qrYZGI-RKI'
   },
   {
     'title' : 'Cha Cha Basic Movement, Alemana',
     'description' : 'Demonstrated by Monika.',
-    'labels' : ['ClosedBasic'],
+    'labels' : ['ClosedBasic', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/7JUWUqckohM'
   },
   {
     'title' : 'Cha Cha Closed Basic',
     'description' : 'Demonstrated by Monika.',
-    'labels' : ['ClosedBasic'],
+    'labels' : ['ClosedBasic', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/lyAL5Gt21GM'
   },
   {
     'title' : 'Cha Cha Technique: Walks and Locks',
     'description' : 'Demonstrated by Monika.',
-    'labels' : ['ThreeChaChaChas'],
+    'labels' : ['ThreeChaChaChas', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/hN0vqOVteCI'
   },
   {
     'title' : 'Cha Cha Technique: Check, Ronde Chasse, and Twist',
     'description' : 'Demonstrated by Monika.',
-    'labels' : [],
+    'labels' : ['ChaCha'],
     'url' : 'http://www.youtube.com/v/8nzaORdW7Gg'
   },
   {
     'title' : 'Cha Cha Technique for Lock Step',
     'description' : 'Demonstrated by Monika.',
-    'labels' : ['ThreeChaChaChas'],
+    'labels' : ['ThreeChaChaChas', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/AW7bwJ8SVHw'
   },
   {
     'title' : 'Cha Cha: New York',
     'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com.',
-    'labels' : ['NewYorkLSP', 'NewYorkRSP'],
+    'labels' : ['NewYorkLSP', 'NewYorkRSP', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/LsU4x_YVvEQ'
   },
   {
     'title' : 'Cha Cha Rountine - Bronze level',
     'description' : 'A couple in Singapore, preparing for their competition.',
-    'labels' : [],
+    'labels' : ['ChaCha'],
     'url' : 'http://www.youtube.com/v/eImhD8_tzBM'
   },
   {
     'title' : 'Cha Cha New York - Variation',
     'description' : "New Yorker with Lady's turn. Demonstrated by Max Kozhevnikov & Yulia Zagoruychenko.",
-    'labels' : ['NewYorkLSP', 'NewYorkRSP'],
+    'labels' : ['NewYorkLSP', 'NewYorkRSP', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/INzaQGhMEgY'
   },
   {
@@ -222,7 +234,7 @@ danceVideos = danceVideos.concat([
       '<li> Three Cha Cha Chas Back' +
       '<li> Three Cha Cha Chas Forward' +
       '</ul>',
-    'labels' : ['ShoulderToShoulder'],
+    'labels' : ['ShoulderToShoulder', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/RMjgnIMCu5A'
   },
   {
@@ -264,7 +276,7 @@ danceVideos = danceVideos.concat([
   {
     'title' : 'Cha Cha Technique: Three Cha Cha Chas (Lock Step)',
     'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas.',
-    'labels' : ['ThreeChaChaChas'],
+    'labels' : ['ThreeChaChaChas', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/hUNbbCL9xBI'
   },
   {
@@ -276,7 +288,7 @@ danceVideos = danceVideos.concat([
   {
     'title' : 'Cha Cha Closed Basic',
     'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas.',
-    'labels' : ['ClosedBasic'],
+    'labels' : ['ClosedBasic', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/uOroZ47kj7U'
   }
 ]);
