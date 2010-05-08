@@ -23,6 +23,22 @@
 */
     danceTips = danceTips.concat([
       {
+        'labels': ['Latin'],
+        'tip': "The feeling is the middle of body is up, the side of the body is down - which means lift, energy up, shoulders down."
+      },
+      {
+        'labels': ['Rumba'],
+        'tip': "Generally, there should not be a moment where both heels are off the floor, which made it look like it has rise and fall. On '4': whole foot. Exception: <a href='http://www.dancecentral.info/ballroom/international-style/rumba/side-steps'>side step</a> where you'd twist os ball of the foot."
+      },
+      {
+        'labels': ['Rumba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/rumba/new-york'>New York</a>: hand is at eye level, break wrist; <a href='http://www.dancecentral.info/ballroom/international-style/rumba/hand-to-hand'>Hand To Hand</a>: arm is flat, parallel to floor."
+      },
+      {
+        'labels': ['Rumba', 'Styling'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/rumba/progressive-walks'>Progress walks</a>: arm should do complete, big circle, not small, like paddling water."
+      },
+      {
         'labels': ['Rumba'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/rumba/hockey-stick'>Hockey Stick</a>: Lady be patient and wait for Man on step 3. On Step 5, Man is walking with lady diagonally."
       },
@@ -330,6 +346,30 @@
       },
 */
     danceTips = danceTips.concat([
+      {
+        'labels': ['Standard', 'Quickstep'],
+        'tip': "When <a href='http://www.dancecentral.info/ballroom/international-style/quickstep/reverse-pivot'>Reverse Pivot</a> follows When <a href='http://www.dancecentral.info/ballroom/international-style/quickstep/closed-impetus'>Closed Impetus</a>, Close Impetus's lowering only happens in the foot, not legs."
+      },
+      {
+        'labels': ['Standard', 'Quickstep'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/quickstep/reverse-pivot'>Reverse Pivot</a> has toe lead. Timing could be S or &."
+      },
+      {
+        'labels': ['Standard', 'Quickstep'],
+        'tip': "In Chassé and Lock patterns in Quickstep, the rise should continue until it peaks at the third step, stay on toe."
+      },
+      {
+        'labels': ['Standard', 'Man'],
+        'tip': "Man should keep his left elbow even with his shoulder, not forward, not back."
+      },
+      {
+        'labels': ['Standard'],
+        'tip': "Swing comes from legs and hips, not upper body."
+      },
+      {
+        'labels': ['Standard'],
+        'tip': "Man should feel Lady's weight on his wrist, her body out of his way."
+      },
       {
         'labels': ['Standard', 'Lady'],
         'tip': "Left hand: dance 'at' the Man. Do not put hand on 'top' of his arm. It's more forward. and left thubm is inline with arm."
