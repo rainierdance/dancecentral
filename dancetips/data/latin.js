@@ -22,6 +22,22 @@
 */
     danceTips = danceTips.concat([
       {
+        'labels': ['Latin'],
+        'tip': "The feeling is the middle of body is up, the side of the body is down - which means lift, energy up, shoulders down."
+      },
+      {
+        'labels': ['Rumba'],
+        'tip': "Generally, there should not be a moment where both heels are off the floor, which made it look like it has rise and fall. On '4': whole foot. Exception: <a href='http://www.dancecentral.info/ballroom/international-style/rumba/side-steps'>side step</a> where you'd twist os ball of the foot."
+      },
+      {
+        'labels': ['Rumba'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/rumba/new-york'>New York</a>: hand is at eye level, break wrist; <a href='http://www.dancecentral.info/ballroom/international-style/rumba/hand-to-hand'>Hand To Hand</a>: arm is flat, parallel to floor."
+      },
+      {
+        'labels': ['Rumba', 'Styling'],
+        'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/rumba/progressive-walks'>Progress walks</a>: arm should do complete, big circle, not small, like paddling water."
+      },
+      {
         'labels': ['Rumba'],
         'tip': "<a href='http://www.dancecentral.info/ballroom/international-style/rumba/hockey-stick'>Hockey Stick</a>: Lady be patient and wait for Man on step 3. On Step 5, Man is walking with lady diagonally."
       },
