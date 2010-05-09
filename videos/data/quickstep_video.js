@@ -1,5 +1,11 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Quickstep Technique: promenade position, Weave, etc.',
+    'description' : 'Demonstrated by Heather & Victor',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/nqWQBg4WWHE'
+  },
+  {
     'title' : 'Quickstep: Quarter Turn, Progressive Chasse, Forwarc Check Step',
     'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com',
     'labels' : ['QuarterTurnToRight', 'ProgressiveChasse'],
