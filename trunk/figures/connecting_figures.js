@@ -309,7 +309,7 @@ function getFigureLink(figureID, inPage) {
         output.push(' target="_self" href="javascript:selectFigure(\'' + figureID + '\', true)');
         //output.push(' target="_self" href="#section_' + figureID);
       else {
-        output.push(' href="' + (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath']);
+        output.push(' href="' + (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath'] + '?src=connect&figure=' + figureID);
       }
       //output.push('?tmpl=/system/app/templates/print/');
       output.push('">' + name + '</a> ');
@@ -550,7 +550,7 @@ function onClickFigure(figureID) {
   var output = [];
   output.push('Next step: ');
   output.push('<a href="' + 
-      (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath'] + '">' + figure['name'] + '</a>');
+      (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath'] + '?src=routine">' + figure['name'] + '</a>');
   document.getElementById('figureNameControl').innerHTML = output.join('');
   document.getElementById('figureIdToAdd').value = figureID;
   var element = document.getElementById('editNote');
@@ -581,7 +581,7 @@ function updateRoutineDisplay() {
     if (routineStep.figureID) {
       var figure = figures[routineStep.figureID];
       output.push('<a href="' + 
-        (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath'] + '">' + figure['name'] + '</a> &nbsp;');
+        (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath'] + '?src=routine">' + figure['name'] + '</a> &nbsp;');
     }
     output.push(routineStep.note);
     output.push('</li>');
