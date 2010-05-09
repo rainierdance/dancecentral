@@ -73,20 +73,20 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Samba Practice Routine',
-    'description' : 'Routine: <ul>' +
-        '<li> Basic 8 beats' + 
-        '<li> Whisk with underarm turn 8 beats' + 
-        '<li> Promenade/Counter Promenade 6 beats' + 
-        '<li> Side samba walk 2 beats' + 
-        '<li> Crisscross Bota Fogas 4 beats' + 
-        '<li> Crisscross Voltas 4 beats' + 
-        '<li> Crisscross Bota Fogas 4 beats' + 
-        '<li> Crisscross Voltas 4 beats' + 
-        '<li> Solo Voltas Left 4 beats' + 
-        '<li> Solo Voltas Right 4 beats' + 
-        '<li> Whisk Right with Underarm turn 2 beats' + 
-        '<li> Corta Jaca 1 2&3&4& 5 6&7&8& (SQQQQQQ SQQQQQQ) 8 beats' + 
-        '<li> Whisk to Right 2 beats' + 
+    'description' : 'Routine: <ul> ' +
+        '<li>  Basic 8 beats ' + 
+        '<li>  Whisk with underarm turn 8 beats ' + 
+        '<li>  Promenade/Counter Promenade 6 beats ' + 
+        '<li>  Side samba walk 2 beats ' + 
+        '<li>  Crisscross Bota Fogas 4 beats ' + 
+        '<li>  Crisscross Voltas 4 beats ' + 
+        '<li>  Crisscross Bota Fogas 4 beats ' + 
+        '<li>  Crisscross Voltas 4 beats ' + 
+        '<li>  Solo Voltas Left 4 beats ' + 
+        '<li>  Solo Voltas Right 4 beats ' + 
+        '<li>  Whisk Right with Underarm turn 2 beats ' + 
+        '<li>  Corta Jaca 1 2&3&4& 5 6&7&8& (SQQQQQQ SQQQQQQ) 8 beats ' + 
+        '<li>  Whisk to Right 2 beats ' + 
         '</ul>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/KOykG6jM5L0'

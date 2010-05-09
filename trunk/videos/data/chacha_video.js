@@ -3,66 +3,66 @@ danceVideos = danceVideos.concat([
     'title' : 'Cha Cha: Natural Top, Closed Hip Twist',
     'description' : 'Instruction by Andy & Wendy Wong.',
     'labels' : ['NaturalTop', 'ClosedHipTwist', 'ChaCha'],
-    'url' : 'http://www.youtube.com/watch?v=xqatK2FmMeQ'
+    'url' : 'http://www.youtube.com/v/xqatK2FmMeQ'
   },
   {
     'title' : 'Cha Cha: Fan Development, Hockey Stick',
     'description' : 'Instruction by Andy & Wendy Wong.',
     'labels' : ['HockeyStick', 'Fan', 'ChaCha'],
-    'url' : 'http://www.youtube.com/watch?v=zgXV5J1gebA'
+    'url' : 'http://www.youtube.com/v/zgXV5J1gebA'
   },
   {
     'title' : 'Cha Cha: Bronze Practice Routine (Slow Motion)',
-    'description' : 'Academia Pedro Sousa. (non-English) Routine:<ul>' +
-      '<li> Open Basic' +
-      '<li> Open Hip Twist' +
-      '<li> Fan' +
-      '<li> Hockey Stick' +
-      '<li> Natural Top' +
-      '<li> Closed Hip Twist' +
-      '<li> Alemana' +
-      '<li> New York' +
-      '<li> Back Lock' +
-      '<li> Time Step' +
+    'description' : 'Academia Pedro Sousa. (non-English) Routine:<ul> ' +
+      '<li>  Open Basic ' +
+      '<li>  Open Hip Twist ' +
+      '<li>  Fan ' +
+      '<li>  Hockey Stick ' +
+      '<li>  Natural Top ' +
+      '<li>  Closed Hip Twist ' +
+      '<li>  Alemana ' +
+      '<li>  New York ' +
+      '<li>  Back Lock ' +
+      '<li>  Time Step ' +
       '</ul>',
     'labels' : ['OpenBasic', 'OpenHipTwist', 'Alemana', 'NewYork', 'NaturalTop', 'TimeStep', 'HockeyStick', 'ClosedHipTwist', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/156NISHQSwQ'
   },
   {
     'title' : 'Cha Cha: Bronze Practice Routine',
-    'description' : 'Academia Pedro Sousa. (non-English) Routine:<ul>' +
-      '<li> Closed Basic' +
-      '<li> New York' +
-      '<li> Switch Turn' +
-      '<li> Underarm Turn to Left' +
-      '<li> Underarm Turn to Right' +
-      '<li> Shoulder To Shoulder' +
-      '<li> Hand To Hand' +
-      '<li> Three Cha Cha Chas Forward (Variation)' +
-      '<li> Spot Turns' +
-      '<li> Hand To Hand' +
-      '<li> Three Cha Cha Chas Forward' +
-      '<li> Three Cha Cha Chas Back' +
-      '<li> Fan' +
-      '<li> Alemana' +
-      '<li> Time Step' +
+    'description' : 'Academia Pedro Sousa. (non-English) Routine:<ul> ' +
+      '<li>  Closed Basic ' +
+      '<li>  New York ' +
+      '<li>  Switch Turn ' +
+      '<li>  Underarm Turn to Left ' +
+      '<li>  Underarm Turn to Right ' +
+      '<li>  Shoulder To Shoulder ' +
+      '<li>  Hand To Hand ' +
+      '<li>  Three Cha Cha Chas Forward (Variation) ' +
+      '<li>  Spot Turns ' +
+      '<li>  Hand To Hand ' +
+      '<li>  Three Cha Cha Chas Forward ' +
+      '<li>  Three Cha Cha Chas Back ' +
+      '<li>  Fan ' +
+      '<li>  Alemana ' +
+      '<li>  Time Step ' +
       '</ul>',
     'labels' : ['Fan', 'SpotTurns', 'ThreeChaChaChas', 'Alemana', 'NewYork', 'HandToHand', 'TimeStep', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/IB5HKa60Ys8'
   },
   {
     'title' : 'Cha Cha: Newcomer Practice Rountine (Slow motion)',
-    'description' : 'Academia Pedro Sousa. (non-English) Routine:<ul>' +
-      '<li> Time Step' +
-      '<li> Closed Basic' +
-      '<li> New York' +
-      '<li> Spot Turn' +
-      '<li> Underarm Turn To Left and Left' +
-      '<li> Shoulder To Shoulder' +
-      '<li> Hand To Hand' +
-      '<li> Lock Step' +
-      '<li> Spot Turn' +
-      '<li> Three Cha Cha Chas' +
+    'description' : 'Academia Pedro Sousa. (non-English) Routine:<ul> ' +
+      '<li>  Time Step ' +
+      '<li>  Closed Basic ' +
+      '<li>  New York ' +
+      '<li>  Spot Turn ' +
+      '<li>  Underarm Turn To Left and Left ' +
+      '<li>  Shoulder To Shoulder ' +
+      '<li>  Hand To Hand ' +
+      '<li>  Lock Step ' +
+      '<li>  Spot Turn ' +
+      '<li>  Three Cha Cha Chas ' +
       '</ul>',
     'labels' : ['SpotTurns', 'ShoulderToShoulder', 'NewYork', 'CloseDBasic', 'TimeStep', 'UnderarmTurn', 'HandToHand', 'ChaCha'],
     'url' : 'http://www.youtube.com/v//kjUa_18T9WM'
@@ -207,32 +207,32 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Cha Cha Practice Routine - Bronze Level',
-    'description' : 'Some basic bronze figures. TaiWan. Routine: <ul>' +
-      '<li> Closed Basic' +
-      '<li> Underarm Turn to Left' +
-      '<li> Shoulder to Shoulder' +
-      '<li> Underarm Turn to Right' +
-      '<li> New York LSP and RSP' +
-      '<li> Spot Turn' +
-      '<li> Hand To Hand' +
-      '<li> Three Cha Cha Chas Forward' +
-      '<li> Spot Turn' +
-      '<li> Three Cha Cha Chas Forward' +
-      '<li> Spot Turn' +
-      '<li> Three Cha Cha Chas Forward' +
-      '<li> Hand To Hand' +
-      '<li> Three Cha Cha Chas Forward' +
-      '<li> Hand To Hand' +
-      '<li> Fan' +
-      '<li> Hockey Stick' +
-      '<li> Open Hip Twist' +
-      '<li> Alemana' +
-      '<li> Close Hip Twist' +
-      '<li> Alemana' +
-      '<li> Close Hip Twist' +
-      '<li> Hockey Stick' +
-      '<li> Three Cha Cha Chas Back' +
-      '<li> Three Cha Cha Chas Forward' +
+    'description' : 'Some basic bronze figures. TaiWan. Routine: <ul> ' +
+      '<li>  Closed Basic ' +
+      '<li>  Underarm Turn to Left ' +
+      '<li>  Shoulder to Shoulder ' +
+      '<li>  Underarm Turn to Right ' +
+      '<li>  New York LSP and RSP ' +
+      '<li>  Spot Turn ' +
+      '<li>  Hand To Hand ' +
+      '<li>  Three Cha Cha Chas Forward ' +
+      '<li>  Spot Turn ' +
+      '<li>  Three Cha Cha Chas Forward ' +
+      '<li>  Spot Turn ' +
+      '<li>  Three Cha Cha Chas Forward ' +
+      '<li>  Hand To Hand ' +
+      '<li>  Three Cha Cha Chas Forward ' +
+      '<li>  Hand To Hand ' +
+      '<li>  Fan ' +
+      '<li>  Hockey Stick ' +
+      '<li>  Open Hip Twist ' +
+      '<li>  Alemana ' +
+      '<li>  Close Hip Twist ' +
+      '<li>  Alemana ' +
+      '<li>  Close Hip Twist ' +
+      '<li>  Hockey Stick ' +
+      '<li>  Three Cha Cha Chas Back ' +
+      '<li>  Three Cha Cha Chas Forward ' +
       '</ul>',
     'labels' : ['ShoulderToShoulder', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/RMjgnIMCu5A'

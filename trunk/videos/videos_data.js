@@ -1,21 +1,33 @@
 // ---- DO NOT EDIT ----
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Standard Technique: Take the frame with you',
+    'description' : 'Demonstrated Glen Weiss',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/anAhk5Zw-VA',
+  },
+  {
+    'title' : 'Latin Bondy Roll',
+    'description' : 'Demonstrated Monika',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/KbqHP5qIt0I',
+  },
+  {
     'title' : 'Standard Technique by Glen Weiss',
-    'description' : 'Glen Weiss, 2-time World Standard Champion, talks about how to get in correct frame. Waltz is danced as an example.<ul>' +
+    'description' : 'Glen Weiss, 2-time World Standard Champion, talks about how to get in correct frame. Waltz is danced as an example.<ul> ' +
       '<li> Stand with feet together, arms to side'+ 
-      '<li> Relax left side' +
-      '<li> Level our arms' +
-      '<li> Open our feet' +
-      '<li> Flex our knees slightly forward ' +
+      '<li> Relax left side ' +
+      '<li> Level our arms ' +
+      '<li> Open our feet ' +
+      '<li> Flex our knees slightly forward  ' +
       '</ul>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/kW-ffl7i5-c'
   },
   {
     'title' : 'Standard Technique for Ladies by Heather Smith - Vol 1',
-    'description' : 'Heather talks about center balance and stretch:<ul><li>Find center and diagnoal stretch using a chair: stretch center back to the spin; stretch left side and arm diagonally leftwards.' +
-        '<li>Line up 4 building blocks: head, shoulder, body, hips when stretching to side, both sides stretching evenly, do not break opposite side.</ul>',
+    'description' : 'Heather talks about center balance and stretch:<ul><li> Find center and diagnoal stretch using a chair: stretch center back to the spin; stretch left side and arm diagonally leftwards. ' +
+        '<li> line up 4 building blocks: head, shoulder, body, hips when stretching to side, both sides stretching evenly, do not break opposite side.</ul>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/cAjqm8pyHZY'
   },
@@ -50,66 +62,66 @@ danceVideos = danceVideos.concat([
     'title' : 'Cha Cha: Natural Top, Closed Hip Twist',
     'description' : 'Instruction by Andy & Wendy Wong.',
     'labels' : ['NaturalTop', 'ClosedHipTwist', 'ChaCha'],
-    'url' : 'http://www.youtube.com/watch?v=xqatK2FmMeQ'
+    'url' : 'http://www.youtube.com/v/xqatK2FmMeQ'
   },
   {
     'title' : 'Cha Cha: Fan Development, Hockey Stick',
     'description' : 'Instruction by Andy & Wendy Wong.',
     'labels' : ['HockeyStick', 'Fan', 'ChaCha'],
-    'url' : 'http://www.youtube.com/watch?v=zgXV5J1gebA'
+    'url' : 'http://www.youtube.com/v/zgXV5J1gebA'
   },
   {
     'title' : 'Cha Cha: Bronze Practice Routine (Slow Motion)',
-    'description' : 'Academia Pedro Sousa. (non-English) Routine:<ul>' +
-      '<li> Open Basic' +
-      '<li> Open Hip Twist' +
-      '<li> Fan' +
-      '<li> Hockey Stick' +
-      '<li> Natural Top' +
-      '<li> Closed Hip Twist' +
-      '<li> Alemana' +
-      '<li> New York' +
-      '<li> Back Lock' +
-      '<li> Time Step' +
+    'description' : 'Academia Pedro Sousa. (non-English) Routine:<ul> ' +
+      '<li>  Open Basic ' +
+      '<li>  Open Hip Twist ' +
+      '<li>  Fan ' +
+      '<li>  Hockey Stick ' +
+      '<li>  Natural Top ' +
+      '<li>  Closed Hip Twist ' +
+      '<li>  Alemana ' +
+      '<li>  New York ' +
+      '<li>  Back Lock ' +
+      '<li>  Time Step ' +
       '</ul>',
     'labels' : ['OpenBasic', 'OpenHipTwist', 'Alemana', 'NewYork', 'NaturalTop', 'TimeStep', 'HockeyStick', 'ClosedHipTwist', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/156NISHQSwQ'
   },
   {
     'title' : 'Cha Cha: Bronze Practice Routine',
-    'description' : 'Academia Pedro Sousa. (non-English) Routine:<ul>' +
-      '<li> Closed Basic' +
-      '<li> New York' +
-      '<li> Switch Turn' +
-      '<li> Underarm Turn to Left' +
-      '<li> Underarm Turn to Right' +
-      '<li> Shoulder To Shoulder' +
-      '<li> Hand To Hand' +
-      '<li> Three Cha Cha Chas Forward (Variation)' +
-      '<li> Spot Turns' +
-      '<li> Hand To Hand' +
-      '<li> Three Cha Cha Chas Forward' +
-      '<li> Three Cha Cha Chas Back' +
-      '<li> Fan' +
-      '<li> Alemana' +
-      '<li> Time Step' +
+    'description' : 'Academia Pedro Sousa. (non-English) Routine:<ul> ' +
+      '<li>  Closed Basic ' +
+      '<li>  New York ' +
+      '<li>  Switch Turn ' +
+      '<li>  Underarm Turn to Left ' +
+      '<li>  Underarm Turn to Right ' +
+      '<li>  Shoulder To Shoulder ' +
+      '<li>  Hand To Hand ' +
+      '<li>  Three Cha Cha Chas Forward (Variation) ' +
+      '<li>  Spot Turns ' +
+      '<li>  Hand To Hand ' +
+      '<li>  Three Cha Cha Chas Forward ' +
+      '<li>  Three Cha Cha Chas Back ' +
+      '<li>  Fan ' +
+      '<li>  Alemana ' +
+      '<li>  Time Step ' +
       '</ul>',
     'labels' : ['Fan', 'SpotTurns', 'ThreeChaChaChas', 'Alemana', 'NewYork', 'HandToHand', 'TimeStep', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/IB5HKa60Ys8'
   },
   {
     'title' : 'Cha Cha: Newcomer Practice Rountine (Slow motion)',
-    'description' : 'Academia Pedro Sousa. (non-English) Routine:<ul>' +
-      '<li> Time Step' +
-      '<li> Closed Basic' +
-      '<li> New York' +
-      '<li> Spot Turn' +
-      '<li> Underarm Turn To Left and Left' +
-      '<li> Shoulder To Shoulder' +
-      '<li> Hand To Hand' +
-      '<li> Lock Step' +
-      '<li> Spot Turn' +
-      '<li> Three Cha Cha Chas' +
+    'description' : 'Academia Pedro Sousa. (non-English) Routine:<ul> ' +
+      '<li>  Time Step ' +
+      '<li>  Closed Basic ' +
+      '<li>  New York ' +
+      '<li>  Spot Turn ' +
+      '<li>  Underarm Turn To Left and Left ' +
+      '<li>  Shoulder To Shoulder ' +
+      '<li>  Hand To Hand ' +
+      '<li>  Lock Step ' +
+      '<li>  Spot Turn ' +
+      '<li>  Three Cha Cha Chas ' +
       '</ul>',
     'labels' : ['SpotTurns', 'ShoulderToShoulder', 'NewYork', 'CloseDBasic', 'TimeStep', 'UnderarmTurn', 'HandToHand', 'ChaCha'],
     'url' : 'http://www.youtube.com/v//kjUa_18T9WM'
@@ -254,32 +266,32 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Cha Cha Practice Routine - Bronze Level',
-    'description' : 'Some basic bronze figures. TaiWan. Routine: <ul>' +
-      '<li> Closed Basic' +
-      '<li> Underarm Turn to Left' +
-      '<li> Shoulder to Shoulder' +
-      '<li> Underarm Turn to Right' +
-      '<li> New York LSP and RSP' +
-      '<li> Spot Turn' +
-      '<li> Hand To Hand' +
-      '<li> Three Cha Cha Chas Forward' +
-      '<li> Spot Turn' +
-      '<li> Three Cha Cha Chas Forward' +
-      '<li> Spot Turn' +
-      '<li> Three Cha Cha Chas Forward' +
-      '<li> Hand To Hand' +
-      '<li> Three Cha Cha Chas Forward' +
-      '<li> Hand To Hand' +
-      '<li> Fan' +
-      '<li> Hockey Stick' +
-      '<li> Open Hip Twist' +
-      '<li> Alemana' +
-      '<li> Close Hip Twist' +
-      '<li> Alemana' +
-      '<li> Close Hip Twist' +
-      '<li> Hockey Stick' +
-      '<li> Three Cha Cha Chas Back' +
-      '<li> Three Cha Cha Chas Forward' +
+    'description' : 'Some basic bronze figures. TaiWan. Routine: <ul> ' +
+      '<li>  Closed Basic ' +
+      '<li>  Underarm Turn to Left ' +
+      '<li>  Shoulder to Shoulder ' +
+      '<li>  Underarm Turn to Right ' +
+      '<li>  New York LSP and RSP ' +
+      '<li>  Spot Turn ' +
+      '<li>  Hand To Hand ' +
+      '<li>  Three Cha Cha Chas Forward ' +
+      '<li>  Spot Turn ' +
+      '<li>  Three Cha Cha Chas Forward ' +
+      '<li>  Spot Turn ' +
+      '<li>  Three Cha Cha Chas Forward ' +
+      '<li>  Hand To Hand ' +
+      '<li>  Three Cha Cha Chas Forward ' +
+      '<li>  Hand To Hand ' +
+      '<li>  Fan ' +
+      '<li>  Hockey Stick ' +
+      '<li>  Open Hip Twist ' +
+      '<li>  Alemana ' +
+      '<li>  Close Hip Twist ' +
+      '<li>  Alemana ' +
+      '<li>  Close Hip Twist ' +
+      '<li>  Hockey Stick ' +
+      '<li>  Three Cha Cha Chas Back ' +
+      '<li>  Three Cha Cha Chas Forward ' +
       '</ul>',
     'labels' : ['ShoulderToShoulder', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/RMjgnIMCu5A'
@@ -342,10 +354,16 @@ danceVideos = danceVideos.concat([
 
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Foxtrot Demo Routine',
+    'description' : 'Demonstrated by Mirko & Alessia',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/05SH7tKY0Tk'
+  },
+  {
     'title' : 'Standard Technique by Monika - Foxtrot',
-    'description' : 'Demonstrated exercise to practice movement, Feather Step, Three Step.<ul>' +
-      '<li> Basic techniques, keep head left.' +
-      '<li> As weight is transfered to the foot, start changing shape by lower shoulder slightly.' +
+    'description' : 'Demonstrated exercise to practice movement, Feather Step, Three Step.<ul> ' +
+      '<li>  Basic techniques, keep head left. ' +
+      '<li>  As weight is transfered to the foot, start changing shape by lower shoulder slightly. ' +
       '</ul>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/jmUJRcw_PM0'
@@ -364,27 +382,27 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Foxtrot Bronze Practice Routine from a class',
-    'description' : 'Routine: <ul>' +
-        '<li>  Feather Step' + 
-        '<li>  Reverse Turn with Feather Finish' + 
-        '<li>  Three Steps' + 
-        '<li>  Natural weave' + 
-        '<li> Three Steps' + 
-        '<li>  Natural turn with Heel Pull' + 
-        '<li>  Feather Step' + 
-        '<li>  Reverse Turn with Feather Finish' + 
-        '<li>  Three Steps' + 
-        '<li>  Natural Turn with Heel Pull' + 
-        '<li> Feather Step' + 
-        '<li> Reverse Turn with feather finish' + 
-        '<li> Three Steps' + 
-        '<li>  Natural Turn' + 
-        '<li>  Closed Impetus with Feather Finish' + 
-        '<li>  Reverse Turn with Check' + 
-        '<li>  Basic Weave' + 
-        '<li>  Three Steps' + 
-        '<li>  Natural Weave' + 
-        '<li>  Change of direction' + 
+    'description' : 'Routine: <ul> ' +
+        '<li>   Feather Step ' + 
+        '<li>   Reverse Turn with Feather Finish ' + 
+        '<li>   Three Steps ' + 
+        '<li>   Natural weave ' + 
+        '<li>  Three Steps ' + 
+        '<li>   Natural turn with Heel Pull ' + 
+        '<li>   Feather Step ' + 
+        '<li>   Reverse Turn with Feather Finish ' + 
+        '<li>   Three Steps ' + 
+        '<li>   Natural Turn with Heel Pull ' + 
+        '<li>  Feather Step ' + 
+        '<li>  Reverse Turn with feather finish ' + 
+        '<li>  Three Steps ' + 
+        '<li>   Natural Turn ' + 
+        '<li>   Closed Impetus with Feather Finish ' + 
+        '<li>   Reverse Turn with Check ' + 
+        '<li>   Basic Weave ' + 
+        '<li>   Three Steps ' + 
+        '<li>   Natural Weave ' + 
+        '<li>   Change of direction ' + 
         '</ul',
     'labels' : ['FeatherStep', 'ReverseTurn', 'ThreeStep', 'NaturalTurn', 'NaturalWeave', 'ClosedImpetusAndFeatherFinish', 'BasicWeave',
       'ChangeOfDirection'],
@@ -392,11 +410,11 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Foxtrot Newcomer Basic Steps',
-    'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com. Routine: <ul>' +
-        '<li> Feather Step' +
-        '<li> Reverse Turn' +
-        '<li> Three Step' +
-        '<li> Natural Turn' +
+    'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com. Routine: <ul> ' +
+        '<li>  Feather Step ' +
+        '<li>  Reverse Turn ' +
+        '<li>  Three Step ' +
+        '<li>  Natural Turn ' +
         '</ul',
     'labels' : ['FeatherStep', 'ReverseTurn', 'ThreeStep', 'NaturalTurn'],
     'url' : 'http://www.youtube.com/v/lVEFuQ6NVvE'
@@ -409,11 +427,11 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Foxtrot Basics: routine by Marcus & Karen Hilton',
-    'description' : 'Mostly syllabus. Routine: <ul>' +
-        '<li>Feather step ' +
-        '<li>Reverse Turn' +
-        '<li>Three Step' +
-        '<li>a lot of more...' +
+    'description' : 'Mostly syllabus. Routine: <ul> ' +
+        '<li> Feather step  ' +
+        '<li> Reverse Turn ' +
+        '<li> Three Step ' +
+        '<li> a lot of more... ' +
         '</ul>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/94JbmwxOy_0'
@@ -427,6 +445,12 @@ danceVideos = danceVideos.concat([
 ]);
 
 danceVideos = danceVideos.concat([
+  {
+    'title' : 'Quickstep Technique: promenade position, Weave, etc.',
+    'description' : 'Demonstrated by Heather & Victor',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/nqWQBg4WWHE'
+  },
   {
     'title' : 'Quickstep: Quarter Turn, Progressive Chasse, Forwarc Check Step',
     'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com',
@@ -460,6 +484,29 @@ danceVideos = danceVideos.concat([
 ]);
 
 danceVideos = danceVideos.concat([
+  {
+    'title' : 'Rumba Technique: Basic',
+    'description' : 'Demonstrated by Monika.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/eqSoTyXEpgo'
+  },
+  {
+    'title' : 'Rumba Bronze Practice Routine',
+    'description' : 'Bainbridge Ballroom Class. Rounte:<ol>  ' +
+      '<li>  Basic  ' +
+      '<li>  Fan  ' +
+      '<li>  Hockey Stick  ' +
+      '<li>  New York  ' +
+      '<li>  Hand to Hand  ' +
+      '<li>  Switch Turn  ' +
+      '<li>  Cucarachas  ' +
+      '<li>  Open Hip Twist  ' +
+      '<li>  Fan  ' +
+      '<li>  Alemana  ' +
+      '</ol>',
+    'labels' : ['HockeyStick', 'NewYork', 'HandToHand', 'SwitchTurn'],
+    'url' : 'http://www.youtube.com/v/NGSa63yR8r8'
+  },
   {
     'title' : 'Rumba Technique: Swivels (brush)',
     'description' : 'Demonstrated by Monika.',
@@ -517,7 +564,7 @@ danceVideos = danceVideos.concat([
   {
     'title' : 'Rumba Natural Top, Opening Out, Closed Hip Twist',
     'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com.',
-    'labels' : ['NaturalTop', 'NaturalOpeningOutMovement', 'ClosedHipTwist', 'Alemana'],
+    'labels' : ['NaturalTop', 'ClosedHipTwist'],
     'url' : 'http://www.youtube.com/v/xqatK2FmMeQ'
   },
   {
@@ -618,60 +665,60 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Rumba Bronze Routine from a class',
-    'description' : 'All bronze figures. Routine: <ul>' +
-      '<li> Closed Basic' +
-      '<li> Fan' +
-      '<li> Hockey Stick' +
-      '<li> Progressive Walks' +
-      '<li> Natural Top' +
-      '<li> Opening Out to Fan' +
-      '<li> Alemana' +
-      '<li> New York LSP and RSP' +
-      '<li> Switch Turns' +
-      '<li> Hand To Hand' +
-      '<li> Shoulder To Shoulder' +
-      '<li> Undearm Turn to Right' +
+    'description' : 'All bronze figures. Routine: <ul>  ' +
+      '<li>  Closed Basic  ' +
+      '<li>  Fan  ' +
+      '<li>  Hockey Stick  ' +
+      '<li>  Progressive Walks  ' +
+      '<li>  Natural Top  ' +
+      '<li>  Opening Out to Fan  ' +
+      '<li>  Alemana  ' +
+      '<li>  New York LSP and RSP  ' +
+      '<li>  Switch Turns  ' +
+      '<li>  Hand To Hand  ' +
+      '<li>  Shoulder To Shoulder  ' +
+      '<li>  Undearm Turn to Right  ' +
       '</ul>',
-    'labels' : [],
+    'labels' : ['NaturalTop', 'HockeyStick'],
     'url' : 'http://www.youtube.com/v/XwOtNpMRXII'
   },
   {
     'title' : 'Rumba Variations',
-    'description' : 'By Alan Tornsberg & Serena Lecca. Includes Silver, Gold figures. Routine: <ul>' +
-      '<li> Turning Basic' + 
-      '<li> Open Hip Twist' + 
-      '<li> Alemana' + 
-      '<li> Closed Hip Twist' + 
-      '<li> a lot more...' + 
+    'description' : 'By Alan Tornsberg & Serena Lecca. Includes Silver, Gold figures. Routine: <ul>  ' +
+      '<li>  Turning Basic  ' + 
+      '<li>  Open Hip Twist  ' + 
+      '<li>  Alemana  ' + 
+      '<li>  Closed Hip Twist  ' + 
+      '<li>  a lot more...  ' + 
       '</ul>',
-    'labels' : [],
+    'labels' : ['ClosedHipTwist'],
     'url' : 'http://www.youtube.com/v/EF3mEbgCHsE'
   },
   {
     'title' : 'Rumba Bronze Routine',
-    'description' : 'By Slavik and Karina. (Video title says Silver, but these are Bronze figures.) Routine: <ul>' +
-      '<li> Alternative Basic, ending in Fan' +
-      '<li> Alemana' +
-      '<li> Closed Hip Twist' +
-      '<li> Hockey Stick' +
-      '<li> Natural Top' +
-      '<li> Natural Opening Out to Left and Right' +
+    'description' : 'By Slavik and Karina. (Video title says Silver, but these are Bronze figures.) Routine: <ul>  ' +
+      '<li>  Alternative Basic, ending in Fan  ' +
+      '<li>  Alemana  ' +
+      '<li>  Closed Hip Twist  ' +
+      '<li>  Hockey Stick  ' +
+      '<li>  Natural Top  ' +
+      '<li>  Natural Opening Out to Left and Right  ' +
       '</ul',
-    'labels' : [],
+    'labels' : ['ClosedHipTwist'],
     'url' : 'http://www.youtube.com/v/DrViOar0RDs'
   },
   {
     'title' : 'Rumba Newcomer Routine',
-    'description' : 'By Slavik and Karina. (Video title says Bronze, but these are Newcomer figures.) Routine: <ul>' +
-      '<li> Open Basic' +
-      '<li> Closed Basic' +
-      '<li> New York' +
-      '<li> Hand To Hand' +
-      '<li> Shoulder to Shoulder' +
-      '<li> Solo Spot Turn (with brush action)' +
-      '<li> Switch Turns' +
-      '<li> Underarm Turn to Left' +
-      '<li> Underarm Turn to Right' +
+    'description' : 'By Slavik and Karina. (Video title says Bronze, but these are Newcomer figures.) Routine: <ul>  ' +
+      '<li>  Open Basic  ' +
+      '<li>  Closed Basic  ' +
+      '<li>  New York  ' +
+      '<li>  Hand To Hand  ' +
+      '<li>  Shoulder to Shoulder  ' +
+      '<li>  Solo Spot Turn (with brush action)  ' +
+      '<li>  Switch Turns  ' +
+      '<li>  Underarm Turn to Left  ' +
+      '<li>  Underarm Turn to Right  ' +
       '</ul>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/VFSpUL-ciFw'
@@ -776,20 +823,20 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Samba Practice Routine',
-    'description' : 'Routine: <ul>' +
-        '<li> Basic 8 beats' + 
-        '<li> Whisk with underarm turn 8 beats' + 
-        '<li> Promenade/Counter Promenade 6 beats' + 
-        '<li> Side samba walk 2 beats' + 
-        '<li> Crisscross Bota Fogas 4 beats' + 
-        '<li> Crisscross Voltas 4 beats' + 
-        '<li> Crisscross Bota Fogas 4 beats' + 
-        '<li> Crisscross Voltas 4 beats' + 
-        '<li> Solo Voltas Left 4 beats' + 
-        '<li> Solo Voltas Right 4 beats' + 
-        '<li> Whisk Right with Underarm turn 2 beats' + 
-        '<li> Corta Jaca 1 2&3&4& 5 6&7&8& (SQQQQQQ SQQQQQQ) 8 beats' + 
-        '<li> Whisk to Right 2 beats' + 
+    'description' : 'Routine: <ul> ' +
+        '<li>  Basic 8 beats ' + 
+        '<li>  Whisk with underarm turn 8 beats ' + 
+        '<li>  Promenade/Counter Promenade 6 beats ' + 
+        '<li>  Side samba walk 2 beats ' + 
+        '<li>  Crisscross Bota Fogas 4 beats ' + 
+        '<li>  Crisscross Voltas 4 beats ' + 
+        '<li>  Crisscross Bota Fogas 4 beats ' + 
+        '<li>  Crisscross Voltas 4 beats ' + 
+        '<li>  Solo Voltas Left 4 beats ' + 
+        '<li>  Solo Voltas Right 4 beats ' + 
+        '<li>  Whisk Right with Underarm turn 2 beats ' + 
+        '<li>  Corta Jaca 1 2&3&4& 5 6&7&8& (SQQQQQQ SQQQQQQ) 8 beats ' + 
+        '<li>  Whisk to Right 2 beats ' + 
         '</ul>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/KOykG6jM5L0'
@@ -949,46 +996,46 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Standard Technique by Stephen & Jennifer Hillier',
-    'description' : 'Demonstration by the couple. Detailed explanation on:<ul>' +
-      '<li> Use of the knee: compress the knee forward to provide the initial movement of the body.' +
-      '<li> To provide power action, keep heel of supporting foot on floor as long as possible. Releasing early unbalances body, looks weak.' +
-      "<li> The moving leg/foot: lifting knee, delay moving foot, eventually foot will catch the body, it doesn't arrive before body." +
-      '<li> Use proper footwork: e.g. HT, T, TH (Waltz).' +
-      '<li> 2nd step: Swing action: coming through the hip; before placing foot, swing the hip.' +
-      '<li> 3rd step: using inside muscle to close feet.' +
-      '<li> Lowering is every important at end of 3rd step.' +
+    'description' : 'Demonstration by the couple. Detailed explanation on:<ul> ' +
+      '<li>  Use of the knee: compress the knee forward to provide the initial movement of the body. ' +
+      '<li>  To provide power action, keep heel of supporting foot on floor as long as possible. Releasing early unbalances body, looks weak. ' +
+      "<li>  The moving leg/foot: lifting knee, delay moving foot, eventually foot will catch the body, it doesn't arrive before body." +
+      '<li>  Use proper footwork: e.g. HT, T, TH (Waltz). ' +
+      '<li>  2nd step: Swing action: coming through the hip; before placing foot, swing the hip. ' +
+      '<li>  3rd step: using inside muscle to close feet. ' +
+      '<li>  Lowering is every important at end of 3rd step. ' +
       '</ul>',
     'labels' : ['SlowWaltz'],
     'url' : 'http://www.youtube.com/v/vXbAlRnMGIA'
   },
   {
     'title' : 'Waltz Silver Practice Routine',
-    'description' : 'Andy & Wendy Wong from The Grand Ballroom. Routine: <ul>' +
-      '<li> Natural Turn' +
-      '<li> Open Impetus' +
-      '<li> Weave from PP, ending PP' +
-      '<li> Chasse from PP (along LOD)' +
-      '<li> Natural Spin Turn (at corner)' +
-      '<li> Turning Lock, ending PP' +
-      '<li> Chasse from PP (moving across short side)' +
-      '<li> Natural Spin Turn (at corner)' +
-      '<li> Turning Lock, ending PP' +
-      '<li> Wing (2nd long side)' + 
-      '<li> Progressive Chasse to Right' + 
-      '<li> Back Lock' + 
-      '<li> Outside Spin' +
-      '<li> Turninging Lock, ending PP' +
-      '<li> Chasse from PP' +
-      '<li> Natural Spin Turn' +
-      '<li> Reverse Turn (4-6) (new LOD on short side)' +
-      '<li> Double Reverse Spin' +
-      '<li> Double Reverse Spin' +
-      '<li> Whisk (corner)' +
-      '<li> Chasse From PP' +
-      '<li> Hesitation Change' +
-      '<li> Reverse Corte ' + 
-      '<li> Outside Spin' +
-      '<li> (repeat from beginning)' +
+    'description' : 'Andy & Wendy Wong from The Grand Ballroom. Routine: <ul> ' +
+      '<li>  Natural Turn ' +
+      '<li>  Open Impetus ' +
+      '<li>  Weave from PP, ending PP ' +
+      '<li>  Chasse from PP (along LOD) ' +
+      '<li>  Natural Spin Turn (at corner) ' +
+      '<li>  Turning Lock, ending PP ' +
+      '<li>  Chasse from PP (moving across short side) ' +
+      '<li>  Natural Spin Turn (at corner) ' +
+      '<li>  Turning Lock, ending PP ' +
+      '<li>  Wing (2nd long side) ' + 
+      '<li>  Progressive Chasse to Right ' + 
+      '<li>  Back Lock ' + 
+      '<li>  Outside Spin ' +
+      '<li>  Turninging Lock, ending PP ' +
+      '<li>  Chasse from PP ' +
+      '<li>  Natural Spin Turn ' +
+      '<li>  Reverse Turn (4-6) (new LOD on short side) ' +
+      '<li>  Double Reverse Spin ' +
+      '<li>  Double Reverse Spin ' +
+      '<li>  Whisk (corner) ' +
+      '<li>  Chasse From PP ' +
+      '<li>  Hesitation Change ' +
+      '<li>  Reverse Corte  ' + 
+      '<li>  Outside Spin ' +
+      '<li>  (repeat from beginning) ' +
       '</ul>',
     'labels' : ['SlowWaltz', 'HesitationChange', 'NaturalTurn', 'OpenImpetus', 'WeaveFromPP', 'ChasseFromPP', 'NaturalSpinTurn',
       'TurningLock', 'Wing', 'ProgressiveChasseToR', 'BackLock', 'OutsideSpin', 'DoubleReverseSpin', 'Whisk', 'ReverseCorte'],
@@ -996,54 +1043,54 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Waltz Bronze Practice Routine - 1',
-    'description' : 'Andy & Wendy Wong from The Grand Ballroom. Routine: <ul>' +
-      '<li> Whisk' +
-      '<li> Chasse From Promenade (PP)' +
-      '<li> Natural Turn (123) underturned' +
-      '<li> Outside Change' +
-      '<li> Hesitation Change' + 
-      '<li> Reverse Turn' +
-      '<li> Whisk (corner)' +
-      '<li> Chasse From Promenade (PP)' +
-      '<li> Natural Turn (123) underturned' +
-      '<li> Outside Change' +
-      '<li> Natural Spin Turn (corner)' + 
-      '<li> Reverse Turn (4-6)' +
-      '<li> (repeat the long and short side routine)' +
+    'description' : 'Andy & Wendy Wong from The Grand Ballroom. Routine: <ul> ' +
+      '<li>  Whisk ' +
+      '<li>  Chasse From Promenade (PP) ' +
+      '<li>  Natural Turn (123) underturned ' +
+      '<li>  Outside Change ' +
+      '<li>  Hesitation Change ' + 
+      '<li>  Reverse Turn ' +
+      '<li>  Whisk (corner) ' +
+      '<li>  Chasse From Promenade (PP) ' +
+      '<li>  Natural Turn (123) underturned ' +
+      '<li>  Outside Change ' +
+      '<li>  Natural Spin Turn (corner) ' + 
+      '<li>  Reverse Turn (4-6) ' +
+      '<li>  (repeat the long and short side routine) ' +
       '</ul>',
     'labels' : ['SlowWaltz', 'ChasseFromPP', 'OutsideChange', 'HesitationChange', 'ReverseTurn', 'NaturalSpinTurn'],
     'url' : 'http://www.youtube.com/v/YPRSbMS9fRo'
   },
   {
     'title' : 'Waltz Bronze Practice Routine - 2',
-    'description' : 'Demonstrated by Andy & Wendy Wong from The Grand Ballroom. (Has some Silver steps.) Routine: <ul>' +
-      '<li> Hesitation Change' +
-      '<li> Reverse Turn' +
-      '<li> Whisk' +
-      '<li> Chasse From Promenade (PP)' +
-      '<li> Natural Turn (123)' +
-      '<li> Outside Change' +
-      '<li> Natural Spin Turn (underturned)' +
-      '<li> Reverse Turn (4-6)' +
-      '<li> Basic Weave' +
-      '<li> Natural Spin Turn ' +
-      '<li> Reverse Turn (4-6)' +
-      '<li> Whisk' +
-      '<li> Weave From Promenade' +
-      '<li> Hesitation Change' +
-      '<li> Reverse Turn (1-3)' +
-      '<li> Reverse Corte' +
-      '<li> Whisk' +
-      '<li> Chasse From Promenade (PP)' +
-      '<li> Natural Spin Turn' +
-      '<li> Reverse Turn (4-6)' +
-      '<li> Whisk' +
-      '<li> Wing' +
-      '<li> Progressive Chasse To Right' +
-      '<li> Outside Change' +
-      '<li> Natural Spin Turn' +
-      '<li> Reverse Turn (4-6)' +
-      '<li> LF Closed Change' +
+    'description' : 'Demonstrated by Andy & Wendy Wong from The Grand Ballroom. (Has some Silver steps.) Routine: <ul> ' +
+      '<li>  Hesitation Change ' +
+      '<li>  Reverse Turn ' +
+      '<li>  Whisk ' +
+      '<li>  Chasse From Promenade (PP) ' +
+      '<li>  Natural Turn (123) ' +
+      '<li>  Outside Change ' +
+      '<li>  Natural Spin Turn (underturned) ' +
+      '<li>  Reverse Turn (4-6) ' +
+      '<li>  Basic Weave ' +
+      '<li>  Natural Spin Turn  ' +
+      '<li>  Reverse Turn (4-6) ' +
+      '<li>  Whisk ' +
+      '<li>  Weave From Promenade ' +
+      '<li>  Hesitation Change ' +
+      '<li>  Reverse Turn (1-3) ' +
+      '<li>  Reverse Corte ' +
+      '<li>  Whisk ' +
+      '<li>  Chasse From Promenade (PP) ' +
+      '<li>  Natural Spin Turn ' +
+      '<li>  Reverse Turn (4-6) ' +
+      '<li>  Whisk ' +
+      '<li>  Wing ' +
+      '<li>  Progressive Chasse To Right ' +
+      '<li>  Outside Change ' +
+      '<li>  Natural Spin Turn ' +
+      '<li>  Reverse Turn (4-6) ' +
+      '<li>  LF Closed Change ' +
       '</ul>',
     'labels' : ['SlowWaltz', 'HesitationChange', 'ReverseTurn', 'ChasseFromPP', 'NaturalTurn', 'OutsideChange',
       'NaturalSpinTurn', 'BasicWeave', 'WeaveFromPP', 'ReverseCorte', 'Wing', 'ProgressiveChasseToR'],
@@ -1069,59 +1116,59 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Standard Technique for Ladies by Heather Smith - Vol 2',
-    'description' : 'Header explaiins how to do a proper Open Impetus to Promenade Position:<ul><li> When Man moves backwards, Lady is driving movement.' +
-        '<li> Movement smoothness and fluidity: when moving forward, flex and allow hip joint to move with moving leg <b>across</b> the floor. Do not sit legs and hip on the standing foot.' +
-        '<li> Finishing: turning feet, think about leaving upper body still.' +
+    'description' : 'Header explaiins how to do a proper Open Impetus to Promenade Position:<ul><li>  When Man moves backwards, Lady is driving movement. ' +
+        '<li>  Movement smoothness and fluidity: when moving forward, flex and allow hip joint to move with moving leg <b>across</b> the floor. Do not sit legs and hip on the standing foot. ' +
+        '<li>  Finishing: turning feet, think about leaving upper body still. ' +
         '</ul>',
     'labels' : ['SlowWaltz', 'OpenImpetus'],
     'url' : 'http://www.youtube.com/v/DcWDacTs7O4'
   },
   {
     'title' : 'Waltz Weave from Promenade Position, Chasse From PP',
-    'description' : 'Instruction  of Weave from PP, Chasse From PP. <ul>' +
-      "<li> PP: keep center to partner." +
-      "<li> Chasse: close head on '&', don't turn body" +
+    'description' : 'Instruction  of Weave from PP, Chasse From PP. <ul> ' +
+      "<li>  PP: keep center to partner." +
+      "<li>  Chasse: close head on '&', don't turn body" +
       '</ul>',
     'labels' : ['SlowWaltz', 'ChasseFromPP', 'WeaveFromPP'],
     'url' : 'http://www.youtube.com/v/RFmpqAly77o'
   },
   {
     'title' : 'Waltz Demo, Timing',
-    'description' : 'Demo by Mirko & Alessia:<ul>' +
-        '<li> Overturned Spin Turn' +
-        '<li> Turning Lock' +
-        '<li> Chasse from PP' +
-        '<li> Quick Open Reverse' +
-        '<li> Hover Corte' +
-        '<li> Back Whisk' +
-        '<li> Chasse from PP' +
-        '<li> Spin Turn' +
-        '<li> Back Lock' +
-        '<li> Left Whisk' +
-        '<li> Contracheck, recover to PP' +
-        '<li> Checked Reverse Turn from PP' +
-        '<li> Outside Spin' +
-        '<li> Half Natural' +
-        '<li> Spin Turn' +
-        '<li> Reverse Pivot' +
-        '<li> Double Reverse Spin' +
-        '<li> Fallaway Reverse, Slip Pivot' +
-        '<li> Double Reverse Spin' +
-        '<li> Reverse Turn' +
-        '<li> Left Whisk' +
-        '<li> Untwist' +
-        '<li> Back Whisk' +
-        '<li> Open Nat' +
-        '<li> Back Whisk' +
-        '<li> Open Wing' +
-        '<li> Chasse to R' +
-        '<li> Back Lock' +
-        '<li> Outside Spin' +
-        '<li> Back Lock' +
-        '<li> Spin Turn' +
-        '<li> Reverse Turn (456)' +
-        '<li> Reverse Turn' +
-        '<li> Lunge' +
+    'description' : 'Demo by Mirko & Alessia:<ul> ' +
+        '<li>  Overturned Spin Turn ' +
+        '<li>  Turning Lock ' +
+        '<li>  Chasse from PP ' +
+        '<li>  Quick Open Reverse ' +
+        '<li>  Hover Corte ' +
+        '<li>  Back Whisk ' +
+        '<li>  Chasse from PP ' +
+        '<li>  Spin Turn ' +
+        '<li>  Back Lock ' +
+        '<li>  Left Whisk ' +
+        '<li>  Contracheck, recover to PP ' +
+        '<li>  Checked Reverse Turn from PP ' +
+        '<li>  Outside Spin ' +
+        '<li>  Half Natural ' +
+        '<li>  Spin Turn ' +
+        '<li>  Reverse Pivot ' +
+        '<li>  Double Reverse Spin ' +
+        '<li>  Fallaway Reverse, Slip Pivot ' +
+        '<li>  Double Reverse Spin ' +
+        '<li>  Reverse Turn ' +
+        '<li>  Left Whisk ' +
+        '<li>  Untwist ' +
+        '<li>  Back Whisk ' +
+        '<li>  Open Nat ' +
+        '<li>  Back Whisk ' +
+        '<li>  Open Wing ' +
+        '<li>  Chasse to R ' +
+        '<li>  Back Lock ' +
+        '<li>  Outside Spin ' +
+        '<li>  Back Lock ' +
+        '<li>  Spin Turn ' +
+        '<li>  Reverse Turn (456) ' +
+        '<li>  Reverse Turn ' +
+        '<li>  Lunge ' +
       '</ul>',
     'labels' : ['SlowWaltz'],
     'url' : 'http://www.youtube.com/v/Ve82-LCzXFI'
@@ -1164,30 +1211,30 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Waltz Professional Competition, 2009 China.',
-    'description' : 'Routine: <ul>' +
-      '<li> 123 Steps Of Natural Turn 123' +
-      '<li> Natural Pivot &123 (optional step)' +
-      '<li> Natural Spin turn (underturned) 123' +
-      '<li> 456 Reverse Turn ( End DC ) 123' +     
-      '<li> Reverse Turn 123 456' +     
-      '<li> Whisk And Chasse From PP 123 12&3' +               
-      '<li> 123 Steps Of Natural Turn 123' +
-      '<li> Open Impetus (End DC New LOD) 123' +              
-      '<li> Weave From Close im PP 123 123' +                 
-      '<li> 123 Steps Of Natural Turn (End O/P) 123' +
-      '<li> Back Whisk 123' +
-      '<li> Wing 123' +
-      '<li> Closed Telemark 123' +
+    'description' : 'Routine: <ul> ' +
+      '<li>  123 Steps Of Natural Turn 123 ' +
+      '<li>  Natural Pivot &123 (optional step) ' +
+      '<li>  Natural Spin turn (underturned) 123 ' +
+      '<li>  456 Reverse Turn ( End DC ) 123 ' +     
+      '<li>  Reverse Turn 123 456 ' +     
+      '<li>  Whisk And Chasse From PP 123 12&3 ' +               
+      '<li>  123 Steps Of Natural Turn 123 ' +
+      '<li>  Open Impetus (End DC New LOD) 123 ' +              
+      '<li>  Weave From Close im PP 123 123 ' +                 
+      '<li>  123 Steps Of Natural Turn (End O/P) 123 ' +
+      '<li>  Back Whisk 123 ' +
+      '<li>  Wing 123 ' +
+      '<li>  Closed Telemark 123 ' +
       '</ul>',
     'labels' : ['SlowWaltz', 'Whisk', 'ChasseFromPP', 'NaturalTurn', 'NaturalSpinTurn', 'ReverseTurn', 'OpenImpetus', 'WeaveFromPP', 'BackWhisk', 'Wing', 'ClosedTelemark' ],
     'url' : 'http://www.youtube.com/v/rRemfZIXM0g'
   },
   {
     'title' : 'Waltz Whisk, Chasse From Promenade, Natural Turn from OP',
-    'description' : 'Instruction  by Andy & Wendy Wong from The Grand Ballroom: <ul>' +
-        '<li>Whisk ' +
-        '<li>Chasse From Promenade' +
-        '<li>Natural Turn from Outside Partner Position' +
+    'description' : 'Instruction  by Andy & Wendy Wong from The Grand Ballroom: <ul> ' +
+        '<li> Whisk  ' +
+        '<li> Chasse From Promenade ' +
+        '<li> Natural Turn from Outside Partner Position ' +
         '</ul>',
     'labels' : ['SlowWaltz', 'Whisk', 'ChasseFromPP', 'NaturalTurn'],
     'url' : 'http://www.youtube.com/v/Qz7V1htqLw8'
@@ -1206,11 +1253,11 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Waltz Natural Turn, Reverse Turn, and Closed Change',
-    'description' : 'Demonstrations only. From ballroomdancers.com:<ul>' +
-        '<li>Natural Turn' + 
-        '<li>RF Closed Change' +
-        '<li>Reverse Turn' +
-        '<li>LF Closed Change' +
+    'description' : 'Demonstrations only. From ballroomdancers.com:<ul> ' +
+        '<li> Natural Turn ' + 
+        '<li> RF Closed Change ' +
+        '<li> Reverse Turn ' +
+        '<li> LF Closed Change ' +
         '</ul>',
     'labels' : ['SlowWaltz', 'NaturalTurn', 'ReverseTurn', 'ClosedChangeLF', 'ClosedChangeRF'],
     'url' : 'http://www.youtube.com/v/NyR0pntHNM0'
