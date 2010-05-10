@@ -193,7 +193,7 @@ danceVideos = danceVideos.concat([
         '<li>  Reverse Turn ' +
         '<li>  Lunge ' +
       '</ul>',
-    'labels' : ['SlowWaltz'],
+    'labels' : ['SlowWaltz', 'ReversePivot', 'DoubleReverseSpin', 'BackLock', 'ReverseTurn', 'BackWhisk', 'OutsideSpin', 'ChasseFromPP', 'TurningLock'],
     'url' : 'http://www.youtube.com/v/Ve82-LCzXFI'
   },
   {
