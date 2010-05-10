@@ -1,5 +1,31 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : "Tango: Walk",
+    'description' : 'Demonstrated by William Pino.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/wHkgUOLFtRw'
+  },
+  {
+    'title' : "Tango: Back Open Promenade", 
+    'description' : 'Demonstrated by William Pino.',
+    'labels' : ['BackOpenPromenade'],
+    'url' : 'http://www.youtube.com/v/2DvkG3il_Ks'
+  },
+  {
+    'title' : "Tango: Routine",
+    'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com. Routine: <ol> ' +
+      '<li> Walk ' +
+      '<li> Progressive Link ' +
+      '<li> Open Promenade ' +
+      '<li>  Outside Swivel ' +
+      '<li>  Promenade Link ' +
+      '<li>  Brush Tap ' +
+      '<li>  Closed Promenade' +
+      '</ol>',
+    'labels' : ['ProgressiveLink', 'OpenPromenade', 'OutiseSwivel', 'PromenadeLink', 'ClosedPromenade'],
+    'url' : 'http://www.youtube.com/v/sS0dJ54A9jQ'
+  },
+  {
     'title' : "Tango Technique: Tango Walk, Progressive Side Step",
     'description' : 'Demonstrated by Monika.',
     'labels' : ['ProgressiveSideStep'],

@@ -446,6 +446,48 @@ danceVideos = danceVideos.concat([
 
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Quickstep demo: mostly syllabus figures.',
+    'description' : 'Demonstrated by Mirko & Alessia',
+    'labels' : ['DoubleReverseSpin', 'ReversePivot'],
+    'url' : 'http://www.youtube.com/v/uf6xj2q1jvw'
+  },
+  {
+    'title' : 'Quickstep: Natural Spin Turn, V6',
+    'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com',
+    'labels' : ['NaturalSpinTurn'],
+    'url' : 'http://www.youtube.com/v/qp8K-9C-Fas'
+  },
+  {
+    'title' : 'Quickstep: Natural Turn, Tipple Chasse, Natural Turn, Back Lock, Running Finish',
+    'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com',
+    'labels' : ['NaturalTurn', 'BackLock', 'NaturalTurnAndBackLock', 'RunningFinish'],
+    'url' : 'http://www.youtube.com/v/W6kRMcVD5v8'
+  },
+  {
+    'title' : 'Quickstep: Quarter Turn to Right, Progressive Chasse, Forward Lock, Natural Turn, Tipple Chasse To Right',
+    'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com',
+    'labels' : ['QuarterTurnToRight', 'ProgressiveChasse', 'ForwardLock', 'NaturalTurn', 'TippleChasseToRight'],
+    'url' : 'http://www.youtube.com/v/xi6G9YDbW9s'
+  },
+  {
+    'title' : 'Quickstep: Natural Spin Turn, V6, Chasse to R, Six Quick Run',
+    'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com',
+    'labels' : ['NaturalSpinTurn', 'SixQuickRun'],
+    'url' : 'http://www.youtube.com/v/Dyvd1VhtvYk'
+  },
+  {
+    'title' : 'Quickstep: Natural Spin Turn, V6',
+    'description' : 'Demonstrated by Monika',
+    'labels' : ['NaturalSpinTurn'],
+    'url' : 'http://www.youtube.com/v/zAsGvBSlaLQ'
+  },
+  {
+    'title' : 'Quickstep: Natural Turn with Hesitation, Reverse Turn, Reverse Pivot, Cross Chasse',
+    'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com',
+    'labels' : ['NaturalTurnWithHesitation', 'ChasseReverseTurn', 'ReversePivot', 'CrossChasse'],
+    'url' : 'http://www.youtube.com/v/EbJxpquVo7g'
+  },
+  {
     'title' : 'Quickstep Technique: promenade position, Weave, etc.',
     'description' : 'Demonstrated by Heather & Victor',
     'labels' : [],
@@ -472,7 +514,7 @@ danceVideos = danceVideos.concat([
   {
     'title' : 'Quickstep: Natural Turn, Back Lock, Running Finish',
     'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com',
-    'labels' : ['NaturalTurn', 'BackLock', 'RunningFinish', 'QuarterTurnToRight'],
+    'labels' : ['NaturalTurn', 'BackLock', 'NaturalTurnAndBackLock', 'RunningFinish', 'QuarterTurnToRight'],
     'url' : 'http://www.youtube.com/v/Sa5VUmcCuOg'
   },
   {
@@ -875,6 +917,32 @@ danceVideos = danceVideos.concat([
 
 danceVideos = danceVideos.concat([
   {
+    'title' : "Tango: Walk",
+    'description' : 'Demonstrated by William Pino.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/wHkgUOLFtRw'
+  },
+  {
+    'title' : "Tango: Back Open Promenade", 
+    'description' : 'Demonstrated by William Pino.',
+    'labels' : ['BackOpenPromenade'],
+    'url' : 'http://www.youtube.com/v/2DvkG3il_Ks'
+  },
+  {
+    'title' : "Tango: Routine",
+    'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com. Routine: <ol> ' +
+      '<li> Walk ' +
+      '<li> Progressive Link ' +
+      '<li> Open Promenade ' +
+      '<li>  Outside Swivel ' +
+      '<li>  Promenade Link ' +
+      '<li>  Brush Tap ' +
+      '<li>  Closed Promenade' +
+      '</ol>',
+    'labels' : ['ProgressiveLink', 'OpenPromenade', 'OutiseSwivel', 'PromenadeLink', 'ClosedPromenade'],
+    'url' : 'http://www.youtube.com/v/sS0dJ54A9jQ'
+  },
+  {
     'title' : "Tango Technique: Tango Walk, Progressive Side Step",
     'description' : 'Demonstrated by Monika.',
     'labels' : ['ProgressiveSideStep'],
@@ -1170,7 +1238,7 @@ danceVideos = danceVideos.concat([
         '<li>  Reverse Turn ' +
         '<li>  Lunge ' +
       '</ul>',
-    'labels' : ['SlowWaltz'],
+    'labels' : ['SlowWaltz', 'ReversePivot', 'DoubleReverseSpin', 'BackLock', 'ReverseTurn', 'BackWhisk', 'OutsideSpin', 'ChasseFromPP', 'TurningLock'],
     'url' : 'http://www.youtube.com/v/Ve82-LCzXFI'
   },
   {
