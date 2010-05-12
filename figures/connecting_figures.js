@@ -641,8 +641,8 @@ function updateView() {
     if (showDiagram && figure['diagram']) {
       output.push('<br>Diagram:');
       output.push(' <a href="javascript:void(0);" onclick="diagramAutoShow(\'' + id + '\', true);">Animate</a> &nbsp;');
-      output.push(' <a href="javascript:void(0);" onclick="diagramStopShow(\'' + id + '\', true);">Stop</a> &nbsp;');
-      output.push(' <a href="javascript:void(0);" onclick="diagramReset(\'' + id + '\', true);">Start</a> &nbsp;');
+      output.push(' <a href="javascript:void(0);" onclick="diagramStopShow(\'' + id + '\', true);">Stop animation</a> &nbsp; &nbsp; &nbsp;');
+      output.push(' <a href="javascript:void(0);" onclick="diagramReset(\'' + id + '\', true);">Start position</a> &nbsp;');
       output.push(' <a href="javascript:void(0);" onclick="diagramShowNext(\'' + id + '\', true);">Next step</a> &nbsp;');
       output.push(' <a href="javascript:void(0);" onclick="diagramLast(\'' + id + '\', true);">Last step</a> &nbsp;');
       output.push('  <p>');
