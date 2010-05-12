@@ -449,9 +449,10 @@ function outputCSV() {
 }
 */
 
-function RoutineStep(figureID, note) {
+function RoutineStep(figureID, note, optStepName) {
   this.figureID = figureID;
   this.note = note ? note : '';
+  this.stepName = optStepName;
 }
 
 function continueRoutine() {
@@ -522,23 +523,42 @@ function formatFigureList(items) {
   return output.join('');
 }
 
+function clearRoutineInput() {
+  // clear the input
+  document.getElementById('figureIdToAdd').value = '';
+  document.getElementById('figureNameControl').innerHTML = '';
+  document.getElementById('editNote').value = '';
+  document.getElementById('divEditStepName').style.display = 'none';
+}
+
 function addFigureToRoutine() {
   var figureID = document.getElementById('figureIdToAdd').value;
   var note = document.getElementById('editNote').value;
+  var stepName = document.getElementById('stepName').value;
 
   // update the routine list
-  routine.push(new RoutineStep(figureID, note));
+  routine.push(new RoutineStep(figureID, note, stepName));
 
   // update the view to only show the selected figure, so it's easier to see what should follow.
   selectFigure(figureID);
 
   updateRoutineDisplay();
+  clearRoutineInput();
 
-  // clear the input
-  document.getElementById('figureIdToAdd').value = '';
-  document.getElementById('figureNameControl').innerHTML = '';
-  document.getElementById('editNote').value = '';
   track('/gadgets/figures/' + inputDance + '/addFigureToRoutine?figureId=' + figureID);
+}
+
+function showEditStepName() {
+  document.getElementById('divEditStepName').style.display = 'block';
+  document.getElementById('stepName').select();
+}
+
+function updateStepLinkName() {
+  var stepLink = document.getElementById('stepLink');
+  var stepName = document.getElementById('stepName').value;
+  if (stepLink) {
+    stepLink.innerHTML = stepName;
+  }
 }
 
 // when building routine, this is called when user clicks on a figure name
@@ -549,10 +569,15 @@ function onClickFigure(figureID) {
 
   var output = [];
   output.push('Next step: ');
-  output.push('<a href="' + 
-      (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath'] + '?src=routine">' + figure['name'] + '</a>');
+  output.push('<a id="stepLink" href="' + 
+      (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath'] + '?src=routine">' + figure['name'] + '</a> &nbsp;');
+  output.push('<span style="float:right">');
+  output.push('<a href="javascript:void();" title="Edit step name"  onclick="showEditStepName()" style="text-decoration:none">e</a>&nbsp;');
+  output.push('<a href="javascript:void();" title="Clear"  onclick="clearRoutineInput()" style="text-decoration:none">x</a>');
+  output.push('</span>');
   document.getElementById('figureNameControl').innerHTML = output.join('');
   document.getElementById('figureIdToAdd').value = figureID;
+  document.getElementById('stepName').value = figure['name'];
   var element = document.getElementById('editNote');
   element.value = figure['timing'] ? '(' + figure['timing'] + ')': '';
   element.select();
@@ -566,6 +591,7 @@ function deleteLastFigure() {
     track('/gadgets/figures/' + inputDance + '/deleteFigureFromRoutine');
   }
   updateRoutineDisplay();
+  clearRoutineInput();
 
   if (routine.length > 0 && routine[routine.length -1].figureID) {
     selectFigure(routine[routine.length -1].figureID);
@@ -581,7 +607,8 @@ function updateRoutineDisplay() {
     if (routineStep.figureID) {
       var figure = figures[routineStep.figureID];
       output.push('<a href="' + 
-        (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath'] + '?src=routine">' + figure['name'] + '</a> &nbsp;');
+        (generateRelativeUrl ? '' : URL_BASE) + figure['urlpath'] + '?src=routine">');
+      output.push((routineStep.stepName ? routineStep.stepName : figure['name']) + '</a> &nbsp;');
     }
     output.push(routineStep.note);
     output.push('</li>');
@@ -639,12 +666,12 @@ function updateView() {
 
     // check and see if we should show diagram
     if (showDiagram && figure['diagram']) {
-      output.push('<br>Diagram:');
+      output.push('<br>Diagram: &nbsp;');
       output.push(' <a href="javascript:void(0);" onclick="diagramAutoShow(\'' + id + '\', true);">Animate</a> &nbsp;');
-      output.push(' <a href="javascript:void(0);" onclick="diagramStopShow(\'' + id + '\', true);">Stop animation</a> &nbsp; &nbsp; &nbsp;');
+      output.push(' <a href="javascript:void(0);" onclick="diagramStopShow(\'' + id + '\', true);">Stop animation</a> &nbsp; | &nbsp;');
       output.push(' <a href="javascript:void(0);" onclick="diagramReset(\'' + id + '\', true);">Start position</a> &nbsp;');
-      output.push(' <a href="javascript:void(0);" onclick="diagramShowNext(\'' + id + '\', true);">Next step</a> &nbsp;');
-      output.push(' <a href="javascript:void(0);" onclick="diagramLast(\'' + id + '\', true);">Last step</a> &nbsp;');
+      output.push(' <a href="javascript:void(0);" onclick="diagramShowNext(\'' + id + '\', true);">Next step</a> &nbsp;  &nbsp;');
+      output.push(' <a href="javascript:void(0);" onclick="diagramLast(\'' + id + '\', true);">Full diagram</a> &nbsp;');
       output.push('  <p>');
       output.push('  <img id="imgDiagram_' + id + '" src="' + 
         figure['diagram'][figure['diagram'].length - 1] + '" />');
