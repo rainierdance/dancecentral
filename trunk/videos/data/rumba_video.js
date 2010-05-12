@@ -1,5 +1,11 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Rumba demo by champions',
+    'description' : 'Demonstrated by Michael & Joanna.',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/KCFogVBJOes'
+  },
+  {
     'title' : 'Rumba Technique: Basic',
     'description' : 'Demonstrated by Monika.',
     'labels' : [],
@@ -29,13 +35,13 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/8G_vy_u4ZcE'
   },
   {
-    'title' : 'Rumba Technique: Basic Movement - Hip Movement',
+    'title' : 'Rumba Technique: Basic Movement - Contract core, Hip Movement',
     'description' : '(non-English) ',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/AaQZhsCZUTY'
   },
   {
-    'title' : 'Rumba Technique: Basic Movement - Abdominal, Oblique, and Back',
+    'title' : 'Rumba Technique: Open Basic Movement - Contract abdominal musle',
     'description' : 'Demonstrated by Monika.',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/fMrt95CpyrY'
@@ -219,7 +225,7 @@ danceVideos = danceVideos.concat([
       '<li>  Natural Top  ' +
       '<li>  Natural Opening Out to Left and Right  ' +
       '</ul',
-    'labels' : ['ClosedHipTwist'],
+    'labels' : ['ClosedHipTwist', 'OpeningOutToRightAndLeft'],
     'url' : 'http://www.youtube.com/v/DrViOar0RDs'
   },
   {
@@ -239,7 +245,7 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/VFSpUL-ciFw'
   },
   {
-    'title' : 'Rumba Walk Warm Up',
+    'title' : 'Rumba Walk Warm Up: Forward and Backward Walk, Checked Forward Walk',
     'description' : 'Slavik and Karina does Rumba warm up, narrated by Corky Ballas.',
     'labels' : ['Technique'],
     'url' : 'http://www.youtube.com/v/SGjEuiyfNg0'
