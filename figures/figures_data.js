@@ -6146,6 +6146,10 @@ var foxtrotFigures =
                 'comment' : ''
               },
               {
+                'id' : 'ProgressiveSideStepReverseTurn',
+                'comment' : ''
+              },
+              {
                 'id' : 'ProgressiveLink',
                 'comment' : ''
               },
