@@ -21,6 +21,10 @@
                 'comment' : ''
               },
               {
+                'id' : 'ProgressiveSideStepReverseTurn',
+                'comment' : ''
+              },
+              {
                 'id' : 'ProgressiveLink',
                 'comment' : ''
               },
