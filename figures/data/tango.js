@@ -630,21 +630,49 @@
         'ReverseOutsideSwivel' :
           {
           'name' : 'Reverse Outside Swivel',
-          //'urlpath' : 'waltz-natural-turn',
+          'urlpath' : 'reverse-outside-swivel',
           'level' : 'Silver',
+          'startAligment' : 'DC',
+          'startDirection' : 'fwd',
+          'startFoot' : 'LF',
+          'timing' : 'QQSQQ',
           'follow' : [
+              {
+                'eval' : 'SameFollowAs("ClosedPromenade")'
+              }
             ]
         },
         'OutsideSwivel' :
           {
           'name' : 'Outside Swivel',
-          //'urlpath' : 'waltz-natural-turn',
+          'urlpath' : 'outside-swivel',
           'level' : 'Silver',
-          //'startAlignment' : ['DW'],
-          //'startFoot' : 'RF',
-          //'startDirection' : 'fwd',
-           'timing' : '',
+          'startAlignment' : ['center'],
+          'startFoot' : 'LF',
+          'startDirection' : 'back',
+           'timing' : 'SQQ',
           'follow' : [
+              {
+                'eval' : 'SameFollowAs("ClosedPromenade")',
+                'comment' : 'if ended DW'
+              },
+              {
+                'eval' : 'MatchFigureName("Reverse")',
+                'comment' : 'if ended DC'
+              },
+              {
+                'id' : 'FourStep',
+                'comment' : 'Overturned'
+              },
+              {
+                'id' : 'Oversway'
+              },
+              {
+                'id' : 'FallawayReverseAndSlipPivot'
+              },
+              {
+                'id' : 'FiveStep'
+              }
             ]
         },
         'FallawayPromenade' :
