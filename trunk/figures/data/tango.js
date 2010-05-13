@@ -569,37 +569,62 @@
         'PromenadeLink' :
           {
           'name' : 'Promenade Link',
-          //'urlpath' : 'waltz-natural-turn',
+          'urlpath' : 'promenade-link',
           'level' : 'Silver',
-          //'startAlignment' : ['DW'],
-          //'startFoot' : 'RF',
-          //'startDirection' : 'fwd',
-           'timing' : '',
+          'startAlignment' : ['LOD'],
+          'startFoot' : 'LF',
+          'startDirection' : 'side',
+           'timing' : 'SQQ',
           'follow' : [
+            {
+                'eval' : 'SameFollowAs("ClosedPromenade")'
+            }
             ]
         },
         'FourStep' :
           {
           'name' : 'Four Step',
-          //'urlpath' : 'waltz-natural-turn',
+          'urlpath' : 'four-step',
           'level' : 'Silver',
-          //'startAlignment' : ['DW'],
-          //'startFoot' : 'RF',
-          //'startDirection' : 'fwd',
-           'timing' : '',
+          'startAlignment' : ['Wall'],
+          'startFoot' : 'LF',
+          'startDirection' : 'fwd',
+           'timing' : 'QQQQ',
           'follow' : [
+              {
+                'eval' : 'MatchFigureName(" Promenade")',
+                'comment' : ''
+              }
             ]
         },
         'BackOpenPromenade' :
           {
           'name' : 'Back Open Promenade',
-          //'urlpath' : 'waltz-natural-turn',
+          'urlpath' : 'back-open-promenade',
           'level' : 'Silver',
-          //'startAlignment' : ['DW'],
-          //'startFoot' : 'RF',
-          //'startDirection' : 'fwd',
-           'timing' : '',
+          'startAlignment' : ['Along LOD pointing DW'],
+          'startFoot' : 'LF',
+          'startDirection' : 'side',
+           'timing' : 'SQQS',
           'follow' : [
+              {
+                'id' : 'FourStep'
+              },
+              {
+                'id' : 'ReverseOutsideSwivel'
+              },
+              {
+                'id' : 'FourStepChange'
+              },
+              {
+                'id' : 'BrushTap'
+              },
+              {
+                'id' : 'FallawayFourStep'
+              },
+              {
+                'id' : 'FiveStep'
+              }
             ]
         },
         'ReverseOutsideSwivel' :
