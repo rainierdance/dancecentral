@@ -6807,37 +6807,117 @@ var foxtrotFigures =
         'FallawayPromenade' :
           {
           'name' : 'Fallaway  Promenade',
-          //'urlpath' : 'waltz-natural-turn',
+          'urlpath' : 'fallaway-promenade',
           'level' : 'Silver',
-          //'startAlignment' : ['DW'],
-          //'startFoot' : 'RF',
-          //'startDirection' : 'fwd',
-           'timing' : '',
+          'startAlignment' : ['LOD'],
+          'startFoot' : 'LF',
+          'startDirection' : 'side',
+           'timing' : 'SQQSQQ',
           'follow' : [
+            {
+              'id' : 'ClosedPromenade'
+            },
+            {
+              'id' : 'OpenPromenade'
+            },
+            {
+              'id' : 'NaturalTwistTurn'
+            },
+            {
+              'id' : 'NaturalPromenadeTurn'
+            },
+            {
+              'id' : 'PromenadeLink',
+              'comment' : 'Reverse'
+            },
+            {
+              'id' : 'Chase'
+            }
             ]
         },
         'FourStepChange' :
           {
           'name' : 'Four Step Change',
-          //'urlpath' : 'waltz-natural-turn',
+          //'urlpath' : 'four-step-change',
           'level' : 'Silver',
-          //'startAlignment' : ['DW'],
-          //'startFoot' : 'RF',
-          //'startDirection' : 'fwd',
-           'timing' : '',
+          'startAlignment' : ['DW'],
+          'startFoot' : 'LF',
+          'startDirection' : 'fwd',
+           'timing' : 'QQQQ or QQ&S',
           'follow' : [
+            {
+              'id' : 'Walk',
+              'comment' : 'LF'
+            },
+            {
+              'eval' : 'MatchFigureName(" Reverse")'
+            },
+            {
+              'id' : 'FourStep'
+            },
+            {
+              'id' : 'ReverseOutsideSwivel'
+            },
+            {
+              'id' : 'ProgressiveLink',
+              'comment' : 'At corner'
+            },
+            {
+              'id' : 'Oversway'
+            },
+            {
+              'id' : 'FallawayReverseAndSlipPivot'
+            },
+            {
+              'id' : 'FiveStep'
+            }
             ]
         },
         'BrushTap' :
           {
           'name' : 'Brush Tap',
-          //'urlpath' : 'waltz-natural-turn',
+          //'urlpath' : 'brush-tap',
           'level' : 'Silver',
-          //'startAlignment' : ['DW'],
-          //'startFoot' : 'RF',
-          //'startDirection' : 'fwd',
-           'timing' : '',
+          'startAlignment' : ['DW'],
+          'startFoot' : 'LF',
+          'startDirection' : 'fwd',
+           'timing' : 'QQ&S',
           'follow' : [
+            {
+              'id' : 'Walk',
+              'comment' : 'LF'
+            },
+            {
+              'id' : 'ProgressiveLink'
+            },
+            {
+              'id' : 'BackCorte'
+            },
+            {
+              'id' : 'LFRock'
+            },
+            {
+              'id' : 'FourStep'
+            },
+            {
+              'id' : 'FourStepChange'
+            },
+            {
+              'eval' : 'MatchFigureName(" Reverse")',
+              'comment' : 'If ended DC'
+            },
+            {
+              'id' : 'FallawayFourStep'
+            },
+            {
+              'id' : 'Oversway'
+            },
+            {
+              'id' : 'FallawayReverseAndSlipPivot'
+            },
+            {
+              'id' : 'ContraCheck'
+            }
             ]
         },
         'FallawayFourStep' :
