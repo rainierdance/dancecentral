@@ -511,7 +511,7 @@ function formatFigureList(items) {
   output.push('<ol>');
   items.forEach(function (item) {
     output.push('<li>');
-    if (contains(routine, item[0])) {
+    if (routineContainsFigure(item[0])) {
       output.push('&#10003;');
     }
     output.push(getFigureLink(item[0], true));
@@ -529,6 +529,16 @@ function clearRoutineInput() {
   document.getElementById('figureNameControl').innerHTML = '';
   document.getElementById('editNote').value = '';
   document.getElementById('divEditStepName').style.display = 'none';
+}
+
+// routine  - array of RoutineStep
+function routineContainsFigure(figureID) {
+  for (var i = 0; i < routine.length; i++) {
+    if (routine[i].figureID == figureID) {
+      return true;
+    }
+  }
+  return false;
 }
 
 function addFigureToRoutine() {
@@ -657,7 +667,7 @@ function updateView() {
 
     counter++;
     output.push('<span class="FigureLevel1">' + counter + '.</span> ');
-    if (contains(routine, id)) {
+    if (routineContainsFigure(id)) {
       output.push('&#10003;');
     }
     output.push(' <a name="section_' + id + '"></a><span class="figure">');
