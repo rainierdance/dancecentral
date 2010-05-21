@@ -1,5 +1,11 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Rumba demo by Bryan Watson',
+    'description' : 'Mini lesson on technique: different types of walks',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/BDehS-RLEXk'
+  },
+  {
     'title' : 'Rumba demo by champions',
     'description' : 'Demonstrated by Michael & Joanna.',
     'labels' : [],
@@ -59,7 +65,7 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/PbqE7LoPe3E'
   },
   {
-    'title' : 'Latin Show and Competitive Figures: Cha Cha, Rumba, Samba, Paso Doble, Jive',
+    'title' : 'Latin Show and Competitive Figures: Cha Cha, Samba, Rumba, Paso Doble',
     'description' : 'Slavik and Karina. Arm Styling.',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/VENWCD2V78I'

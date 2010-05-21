@@ -6266,7 +6266,7 @@ var foxtrotFigures =
                 'comment' : ''
               },
               {
-                'eval' : 'MatchFigureName(" Promenade")',
+                'eval' : 'MatchFigureName("Promenade")',
                 'comment' : 'after Open Finish, place LF to side without weight leading Lady to turn to PP, count &, then proceed with the Promenade figure'
               }
             ]
@@ -6453,7 +6453,7 @@ var foxtrotFigures =
                 'comment' : ''
               },
               {
-                'eval' : 'MatchFigureName(" Promenade")',
+                'eval' : 'MatchFigureName("Promenade")',
                 'comment' : 'at end of last step of preceding figure, using Open Finish, keep feet in place and turn Lady to PP, count &'
               },
               {
@@ -6602,7 +6602,7 @@ var foxtrotFigures =
                 'comment' : ''
               },
               {
-                'eval' : 'MatchFigureName(" Promenade")',
+                'eval' : 'MatchFigureName("Promenade")',
                 'comment' : 'having placed LF to side without weight, leading Lady to to PP, count &'
               }
             ]
@@ -6662,7 +6662,7 @@ var foxtrotFigures =
            'timing' : 'S QQS QQ',
           'follow' : [
               {
-                'eval' : 'MatchFigureName(" Promenade")',
+                'eval' : 'MatchFigureName("Promenade")',
                 'comment' : ''
               },
               {
@@ -6686,7 +6686,7 @@ var foxtrotFigures =
            'timing' : 'S QQS',
           'follow' : [
               {
-                'eval' : 'MatchFigureName(" Promenade")',
+                'eval' : 'MatchFigureName("Promenade")',
                 'comment' : ''
               },
               {
@@ -6721,7 +6721,7 @@ var foxtrotFigures =
            'timing' : 'QQQQ',
           'follow' : [
               {
-                'eval' : 'MatchFigureName(" Promenade")',
+                'eval' : 'MatchFigureName("Promenade")',
                 'comment' : ''
               }
             ]

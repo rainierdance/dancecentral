@@ -32,7 +32,7 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/cAjqm8pyHZY'
   },
   {
-    'title' : 'Latin Styling Demonstration',
+    'title' : 'Latin Styling Demonstration - Portland Dancesport',
     'description' : 'Demonstrated using Cha Cha. 5 points on leg action, body rhythm, arm styling, ronde, swivels.',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/w98G0tPWTPQ',
@@ -44,14 +44,17 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/MKWHgdHoqu8',
   },
   {
-    'title' : 'Latin Styling - Arms, by Jaana Knunitz',
-    'description' : 'Arm styling in Rumba',
+    'title' : 'Latin Styling - Twisting, Arms in Rumba, by Jaana Knunitz',
+    'description' : 'Jaana describes: <ul> ' +
+      '<li> Twisting: top stays in place, collect, passing feet, straighten, rotate the the bottom, take the step.' +
+      '<li>  Arms: arms to side, create a window and back down to waist.' +
+      '</ul>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/3LQQL7_njnI'
   },
   {
-    'title' : 'Latin Styling - Core Isolations by Jaana Knunitz',
-    'description' : 'All about foot',
+    'title' : 'Latin Technique: Core Isolations by Jaana Knunitz',
+    'description' : 'Ankle and toe isolations; Latin points. (Start from 2:07)',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/pM0Lk4NuMlA'
   }
@@ -193,7 +196,7 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/8Kt2u6bt3LU'
   },
   {
-    'title' : 'Cha Cha Technique: using spine',
+    'title' : 'Cha Cha Routine: mini lecture on using spine',
     'description' : 'Demonstrated by Michael & Joanna. Routine uses advanced steps.',
     'labels' : ['ChaCha'],
     'url' : 'http://www.youtube.com/v/UTJqg3wrNYs'
@@ -241,7 +244,7 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/8nzaORdW7Gg'
   },
   {
-    'title' : 'Cha Cha Technique for Lock Step',
+    'title' : 'Cha Cha Technique: Hip movement, Lock Step (forward and backward)',
     'description' : 'Demonstrated by Monika.',
     'labels' : ['ThreeChaChaChas', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/AW7bwJ8SVHw'
@@ -316,30 +319,46 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Cha Cha Technique: 10 types of chasses',
-    'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas.',
+    'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas. <ol> ' +
+      '<li> Compact Chasse ' +
+      '<li> Forward Lock Chasse ' +
+      '<li> Back Lock Chasse ' +
+      '<li> LRL Chasse ' +
+      '<li> RLF Chasse ' +
+      '<li> Slip Chasse ' +
+      '<li> Hip Twist Chasse ' +
+      '<li> Ronde Chasse ' +
+      '<li> Progressive Chasse ' +
+      '<li> Runaway Chasse (Man does Hip Twist Chasse) ' +
+      '</ol>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/cOJIsIF7JDc'
   },
   {
     'title' : 'Latin Technique: 4 types of hip actions',
-    'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas. 4 types of hip actions: settling, lateral, rotation, twisting.',
+    'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas. 4 types of hip actions. <br><ol> ' +
+      '<li> Settling: settle over straight leg, changing weight, pushing/settling down to the floor, ribcage squeezing with hip. Powerful. '  +
+      '<li> Lateral: not as deep as settling, hips move left to right, lighter in weight, travel across, gently.'  +
+      '<li> Rotating: rotate around spiral column, ribcage is moving with hips.'  +
+      '<li> Twisting: Man settling, Lady twisting.'  +
+      '</ol>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/oEy4G1NDRDI'
   },
   {
-    'title' : 'Cha Cha Technique: Lead, Guapacha timing',
+    'title' : 'Cha Cha Closed Basic in open position, Guapacha timing',
     'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas.',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/5ipRsFwvONk'
   },
   {
-    'title' : 'Cha Cha Technique: Three Cha Cha Chas (Lock Step)',
-    'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas.',
+    'title' : 'Cha Cha Technique: Three Cha Cha Chas (Lock Step): no hold, double hand hold, alternating hands',
+    'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas. Including an options where Lady does Runaway Chasse.',
     'labels' : ['ThreeChaChaChas', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/hUNbbCL9xBI'
   },
   {
-    'title' : 'Cha Cha Technique: Basic Checked Action, Chasses',
+    'title' : 'Cha Cha Basic, RLF Chasse, LRL Chasse, Checked Action',
     'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas.',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/Wsf9p2e-d18'
@@ -527,6 +546,12 @@ danceVideos = danceVideos.concat([
 
 danceVideos = danceVideos.concat([
   {
+    'title' : 'Rumba demo by Bryan Watson',
+    'description' : 'Mini lesson on technique: different types of walks',
+    'labels' : [],
+    'url' : 'http://www.youtube.com/v/BDehS-RLEXk'
+  },
+  {
     'title' : 'Rumba demo by champions',
     'description' : 'Demonstrated by Michael & Joanna.',
     'labels' : [],
@@ -586,7 +611,7 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/PbqE7LoPe3E'
   },
   {
-    'title' : 'Latin Show and Competitive Figures: Cha Cha, Rumba, Samba, Paso Doble, Jive',
+    'title' : 'Latin Show and Competitive Figures: Cha Cha, Samba, Rumba, Paso Doble',
     'description' : 'Slavik and Karina. Arm Styling.',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/VENWCD2V78I'
