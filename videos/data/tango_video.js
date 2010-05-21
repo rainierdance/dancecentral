@@ -114,6 +114,12 @@ danceVideos = danceVideos.concat([
     'description' : 'Demonstrated by Sarolta Eke & Tamas Kassay',
     'labels' : ['ProgressiveLink'],
     'url' : 'http://www.youtube.com/v/qzCf0Tw6hOs'
+  },
+  {
+    'title': "Tango: Walks and Progressive Link -- Fallaway Promenade -- Natural Twist Turn",
+    'description' : 'Demonstrated by Andy and Wendy Wong from grandballroom.com',
+    'labels' : ['FallawayPromenade','NaturalTwistTurn'],
+    'url' : 'http://www.youtube.com/v/JodkXIcu4bU'
   }
 ]);
 
