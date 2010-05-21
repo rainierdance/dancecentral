@@ -31,7 +31,7 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/cAjqm8pyHZY'
   },
   {
-    'title' : 'Latin Styling Demonstration',
+    'title' : 'Latin Styling Demonstration - Portland Dancesport',
     'description' : 'Demonstrated using Cha Cha. 5 points on leg action, body rhythm, arm styling, ronde, swivels.',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/w98G0tPWTPQ',
@@ -43,14 +43,17 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/MKWHgdHoqu8',
   },
   {
-    'title' : 'Latin Styling - Arms, by Jaana Knunitz',
-    'description' : 'Arm styling in Rumba',
+    'title' : 'Latin Styling - Twisting, Arms in Rumba, by Jaana Knunitz',
+    'description' : 'Jaana describes: <ul> ' +
+      '<li> Twisting: top stays in place, collect, passing feet, straighten, rotate the the bottom, take the step.' +
+      '<li>  Arms: arms to side, create a window and back down to waist.' +
+      '</ul>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/3LQQL7_njnI'
   },
   {
-    'title' : 'Latin Styling - Core Isolations by Jaana Knunitz',
-    'description' : 'All about foot',
+    'title' : 'Latin Technique: Core Isolations by Jaana Knunitz',
+    'description' : 'Ankle and toe isolations; Latin points. (Start from 2:07)',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/pM0Lk4NuMlA'
   }

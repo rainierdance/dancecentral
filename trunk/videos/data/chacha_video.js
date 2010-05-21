@@ -134,7 +134,7 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/8Kt2u6bt3LU'
   },
   {
-    'title' : 'Cha Cha Technique: using spine',
+    'title' : 'Cha Cha Routine: mini lecture on using spine',
     'description' : 'Demonstrated by Michael & Joanna. Routine uses advanced steps.',
     'labels' : ['ChaCha'],
     'url' : 'http://www.youtube.com/v/UTJqg3wrNYs'
@@ -182,7 +182,7 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/8nzaORdW7Gg'
   },
   {
-    'title' : 'Cha Cha Technique for Lock Step',
+    'title' : 'Cha Cha Technique: Hip movement, Lock Step (forward and backward)',
     'description' : 'Demonstrated by Monika.',
     'labels' : ['ThreeChaChaChas', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/AW7bwJ8SVHw'
@@ -257,30 +257,46 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Cha Cha Technique: 10 types of chasses',
-    'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas.',
+    'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas. <ol> ' +
+      '<li> Compact Chasse ' +
+      '<li> Forward Lock Chasse ' +
+      '<li> Back Lock Chasse ' +
+      '<li> LRL Chasse ' +
+      '<li> RLF Chasse ' +
+      '<li> Slip Chasse ' +
+      '<li> Hip Twist Chasse ' +
+      '<li> Ronde Chasse ' +
+      '<li> Progressive Chasse ' +
+      '<li> Runaway Chasse (Man does Hip Twist Chasse) ' +
+      '</ol>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/cOJIsIF7JDc'
   },
   {
     'title' : 'Latin Technique: 4 types of hip actions',
-    'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas. 4 types of hip actions: settling, lateral, rotation, twisting.',
+    'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas. 4 types of hip actions. <br><ol> ' +
+      '<li> Settling: settle over straight leg, changing weight, pushing/settling down to the floor, ribcage squeezing with hip. Powerful. '  +
+      '<li> Lateral: not as deep as settling, hips move left to right, lighter in weight, travel across, gently.'  +
+      '<li> Rotating: rotate around spiral column, ribcage is moving with hips.'  +
+      '<li> Twisting: Man settling, Lady twisting.'  +
+      '</ol>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/oEy4G1NDRDI'
   },
   {
-    'title' : 'Cha Cha Technique: Lead, Guapacha timing',
+    'title' : 'Cha Cha Closed Basic in open position, Guapacha timing',
     'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas.',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/5ipRsFwvONk'
   },
   {
-    'title' : 'Cha Cha Technique: Three Cha Cha Chas (Lock Step)',
-    'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas.',
+    'title' : 'Cha Cha Technique: Three Cha Cha Chas (Lock Step): no hold, double hand hold, alternating hands',
+    'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas. Including an options where Lady does Runaway Chasse.',
     'labels' : ['ThreeChaChaChas', 'ChaCha'],
     'url' : 'http://www.youtube.com/v/hUNbbCL9xBI'
   },
   {
-    'title' : 'Cha Cha Technique: Basic Checked Action, Chasses',
+    'title' : 'Cha Cha Basic, RLF Chasse, LRL Chasse, Checked Action',
     'description' : 'Demonstrated by Slavik and Karina, narrated by Corky Ballas.',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/Wsf9p2e-d18'
