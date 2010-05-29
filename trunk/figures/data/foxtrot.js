@@ -271,64 +271,232 @@ var foxtrotFigures =
   'ClosedTelemark' : 
     {
       'name' : 'Closed Telemark',
+      'urlpath' : 'closed-telemark',
+      'startAlignment' : ['FDC'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'timing' : 'SQQS',
       'level' : 'Silver',
       'follow' : [
+        { 'id' : 'FeatherStep',
+          'comment' : 'Taking step 1 in CBMP, OP'
+        },
+        { 'id' : 'NaturalTurn' },
+        { 'id' : 'NaturalWeave' },
+        { 'id' : 'NaturalTelemark' },
+        { 'id' : 'HoverCross',
+          'comment' : 'at corner'
+        },
+        { 'id' : 'NaturalTwistTurn' },
+        { 'id' : 'CurvedFeatherToBackFeather' },
+        { 'id' : 'NaturalHoverTelemark' }
       ]
     },
   'OpenTelemarkAndFeatherEnding' : 
     {
       'name' : 'Open Telemark and Feather Ending',
+      'urlpath' : 'open-telemark-and-feather-ending',
+      'startAlignment' : ['FDC'],
       'level' : 'Silver',
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'timing' : 'SQQSQQS',
       'follow' : [
+        { 'eval' : 'SameFollowAs("ReverseTurn")' }
       ]
     },
   'TopSpin' : 
     {
       'name' : 'Top Spin',
+      'urlpath' : 'top-spin',
       'level' : 'Silver',
+      'startAlignment' : ['BLOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'back',
+      'timing' : 'QQQQS',
       'follow' : [
+      { 'id' : 'ReverseTurn',
+        'comment' : 'if Top Spin ended DC'
+      },
+      { 'id' : 'ClosedTelemark',
+        'comment' : 'if Top Spin ended DC'
+      },
+      { 'id' : 'OpenTelemark',
+        'comment' : 'if Top Spin ended DC'
+      },
+      { 'id' : 'ReverseWave',
+        'comment' : 'if Top Spin ended DC at corner'
+      },
+      { 'id' : 'ThreeStep',
+        'comment' : 'if Top Spin ended LOD or DW'
+      },
+      { 'id' : 'ChangeOfDirection',
+        'comment' : 'if Top Spin ended LOD or DW'
+      },
+      { 'id' : 'HoverTelemark',
+        'comment' : 'if Top Spin ended LOD or DW'
+      },
+      { 'id' : 'ReverseWave',
+        'comment' : 'if Top Spin ended LOD or DW'
+      },
+      { 'id' : 'FallawayReverseAndSlipPivot' },
+      { 'id' : 'BounceFallawayWithWeaveEnding' }
       ]
     },
   'HoverFeather' : 
     {
       'name' : 'Hover Feather',
+      'urlpath' : 'hover-feather',
       'level' : 'Silver',
+      'startAlignment' : ['FDC'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'timing' : 'QQS',
       'follow' : [
+        { 'eval' : 'SameFollowAs("FeatherStep")' }
       ]
     },
   'HoverTelemark' : 
     {
       'name' : 'Hover Telemark',
       'level' : 'Silver',
+      'urlpath' : 'hover-telemark',
+      'startAlignment' : ['DW'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'timing' : 'SQQS',
       'follow' : [
+        { 'id' : 'FeatherStep',
+          'comment' : 'step 1 in CBMP OP'
+        },
+        { 'id' : 'BasicWeave',
+          'comment' : 'LF fwd in line with partner on toe into overturned Basic Weave'
+        },
+        { 'id' : 'HoverFeather',
+          'comment' : 'steps 1-2 counted SS can be followed by Hover Feather'
+        },
+        { 'eval' : 'MatchFigureName("Natural")',
+          'comment' : 'at corner'
+        },
+        { 'id' : 'CurvedFeatherToBackFeather',
+          'comment' : 'at corner'
+        }
+      ]
+    },
+    'HoverTelemarkToPP' : 
+    {
+      'name' : 'Hover Telemark to PP',
+      'level' : 'Silver',
+      'urlpath' : 'hover-telemark-to-pp',
+      'startAlignment' : ['FDW'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'timing' : 'SQQS',
+      'follow' : [
+        { 'id' : 'NaturalWeave',
+          'comment' : 'overturned, commencing in PP'
+        },
+        { 'id' : 'FeatherEnding'
+        },
+        { 'id' : 'WeaveFromPP',
+        },
+        { 'id' : 'NaturalZigZagFromPP',
+        },
+        { 'id' : 'CurvedFeatherToBackFeather',
+          'comment' : 'at corner, starting in PP'
+        }
       ]
     },
   'NaturalTelemark' : 
     {
       'name' : 'Natural Telemark',
       'level' : 'Silver',
+      'urlpath' : 'natural-telemark',
+      'startAlignment' : ['DW'],
+      'startFoot' : 'RF',
+      'startDirection' : 'fwd',
+      'timing' : 'SQQQQS',
       'follow' : [
+        { 'id' : 'ReverseTurn' },
+        { 'id' : 'ClosedTelemark'},
+        { 'id' : 'OpenTelemark' },
+        { 'id' : 'ThreeStep', 'comment' : 'at corner' },
+        { 'id' : 'ChangeOfDirection', 'comment' : 'at corner' },
+        { 'id' : 'HoverTelemark', 'comment' : 'at corner' },
+        { 'id' : 'ReverseWave', 'comment' : 'at corner' },
+        { 'id' : 'FallawayReverseAndSlipPivot' },
+        { 'id' : 'BounceFallawayWithWeaveEnding' }
       ]
     },
   'HoverCross' : 
     {
       'name' : 'Hover Cross',
       'level' : 'Silver',
+      'urlpath' : 'hover-cross',
+      'startAlignment' : ['DW'],
+      'startFoot' : 'RF',
+      'startDirection' : 'fwd',
+      'timing' : 'SQQQQQQS',
       'follow' : [
+        { 'id' : 'ReverseTurn' },
+        { 'id' : 'ClosedTelemark' },
+        { 'id' : 'OpenTelemark' },
+        { 'id' : 'FallawayReverseAndSlipPivot' },
+        { 'id' : 'BounceFallawayWithWeaveEnding'}
       ]
     },
   'OpenTelemarkNaturalTurnOutsideSwivelAndFeatherEnding' : 
     {
       'name' : 'Open Telemark, Natural Turn, Outside Swivel and Feather Ending',
       'level' : 'Silver',
+      'urlpath' : 'open-telemark-natural-turn-outside-swivel-and-feather-ending',
+      'startAlignment' : ['DC'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
+      'timing' : 'SQQSQQSSQQS',
       'follow' : [
+        { 'id' : 'ReverseTurn' },
+        { 'id' : 'ClosedTelemark' },
+        { 'id' : 'OpenTelemark' },
+        { 'id' : 'ThreeStep',
+          'comment' : 'at corner'
+        },
+        { 'id' : 'ChangeOfDirection',
+          'comment' : 'at corner'
+        },
+        { 'id' : 'HoverTelemark',
+          'comment' : 'at corner'
+        },
+        { 'id' : 'ReverseWave',
+          'comment' : 'at corner'
+        },
+        { 'id' : 'WeaveFromPP',
+          'comment' : 'after step 7'
+        },
+        { 'id' : 'FallawayReverseAndSlipPivot' },
+        { 'id' : 'BounceFallawayWithWeaveEnding' },
+        { 'id' : 'NaturalZigZagFromPP',
+          'comment' : 'after step 7'
+        }
       ]
     },
   'OpenImpetus' : 
     {
       'name' : 'Open Impetus',
       'level' : 'Silver',
+      'urlpath' : 'open-impetus',
+      'startAlignment' : ['BLOD'],
+      'startDirection' : 'back',
+      'startFoot' : 'LF',
+      'timing' : 'SQQS',
       'follow' : [
+        { 'id' : 'FeatherEnding' },
+        { 'id' : 'WeaveFromPP' },
+        { 'id' : 'NaturalWeaveFromPP' },
+        { 'id' : 'NaturalZigZagFromPP' },
+        { 'id' : 'CurvedFeatherToBackFeather',
+          'comment' : 'starting in PP'
+        }
       ]
     },
   'WeaveFromPP' : 
