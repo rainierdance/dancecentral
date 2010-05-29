@@ -7039,7 +7039,7 @@ var foxtrotFigures =
         'FourStepChange' :
           {
           'name' : 'Four Step Change',
-          //'urlpath' : 'four-step-change',
+          'urlpath' : 'four-step-change',
           'level' : 'Silver',
           'startAlignment' : ['DW'],
           'startFoot' : 'LF',
@@ -7077,7 +7077,7 @@ var foxtrotFigures =
         'BrushTap' :
           {
           'name' : 'Brush Tap',
-          //'urlpath' : 'brush-tap',
+          'urlpath' : 'brush-tap',
           'level' : 'Silver',
           'startAlignment' : ['DW'],
           'startFoot' : 'LF',
