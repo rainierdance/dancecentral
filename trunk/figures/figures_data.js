@@ -2295,7 +2295,7 @@ var foxtrotFigures =
       { 'id' : 'ClosedTelemark',
         'comment' : 'if Top Spin ended DC'
       },
-      { 'id' : 'OpenTelemark',
+      { 'eval' : 'MatchFigureName("Open Telemark")',
         'comment' : 'if Top Spin ended DC'
       },
       { 'id' : 'ReverseWave',
@@ -2357,7 +2357,7 @@ var foxtrotFigures =
         }
       ]
     },
-    'HoverTelemarkToPP' : 
+  'HoverTelemarkToPP' : 
     {
       'name' : 'Hover Telemark to PP',
       'level' : 'Silver',
@@ -2370,7 +2370,7 @@ var foxtrotFigures =
         { 'id' : 'NaturalWeave',
           'comment' : 'overturned, commencing in PP'
         },
-        { 'id' : 'FeatherEnding'
+        { 'id' : 'FeatherStep'
         },
         { 'id' : 'WeaveFromPP',
         },
@@ -2393,7 +2393,7 @@ var foxtrotFigures =
       'follow' : [
         { 'id' : 'ReverseTurn' },
         { 'id' : 'ClosedTelemark'},
-        { 'id' : 'OpenTelemark' },
+        { 'eval' : 'MatchFigureName("OpenTelemark")' },
         { 'id' : 'ThreeStep', 'comment' : 'at corner' },
         { 'id' : 'ChangeOfDirection', 'comment' : 'at corner' },
         { 'id' : 'HoverTelemark', 'comment' : 'at corner' },
@@ -2414,7 +2414,7 @@ var foxtrotFigures =
       'follow' : [
         { 'id' : 'ReverseTurn' },
         { 'id' : 'ClosedTelemark' },
-        { 'id' : 'OpenTelemark' },
+        { 'eval' : 'MatchFigureName("OpenTelemark")' },
         { 'id' : 'FallawayReverseAndSlipPivot' },
         { 'id' : 'BounceFallawayWithWeaveEnding'}
       ]
@@ -2431,7 +2431,7 @@ var foxtrotFigures =
       'follow' : [
         { 'id' : 'ReverseTurn' },
         { 'id' : 'ClosedTelemark' },
-        { 'id' : 'OpenTelemark' },
+        { 'eval' : 'MatchFigureName("Open Telemark")' },
         { 'id' : 'ThreeStep',
           'comment' : 'at corner'
         },
@@ -2464,9 +2464,11 @@ var foxtrotFigures =
       'startFoot' : 'LF',
       'timing' : 'SQQS',
       'follow' : [
-        { 'id' : 'FeatherEnding' },
+        { 'id' : 'FeatherStep' },
         { 'id' : 'WeaveFromPP' },
-        { 'id' : 'NaturalWeaveFromPP' },
+        { 'id' : 'NaturalWeave',
+          'comment' : 'Natural Weave from PP'
+        },
         { 'id' : 'NaturalZigZagFromPP' },
         { 'id' : 'CurvedFeatherToBackFeather',
           'comment' : 'starting in PP'
@@ -2477,14 +2479,45 @@ var foxtrotFigures =
     {
       'name' : 'Weave from PP',
       'level' : 'Silver',
+      'urlpath' : 'weave-from-pp',
+      'startAlignment' : ['Pointing DC'],
+      'startDirection' : 'fwd',
+      'startFoot' : 'RF',
       'follow' : [
+        { 'id' : 'ThreeStep' },
+        { 'id' : 'ChangeOfDirection' },
+        { 'id' : 'HoverTelemark' },
+        { 'id' : 'ReverseWave' },
+        { 'id' : 'FallawayReverseAndSlipPivot',
+          'comment' : 'at corner'
+        }
       ]
     },
   'ReverseWave' : 
     {
       'name' : 'Reverse Wave',
       'level' : 'Silver',
+      'urlpath' : 'reverse-wave',
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
       'follow' : [
+        { 'id' : 'FeatherStep' },
+        { 'id' : 'BasicWeave',
+          'comment' : 'after step 4'
+        },
+        { 'id' : 'ClosedImpetusAndFeatherFinish',
+          'comment' : 'after step 6'
+        },
+        { 'id' : 'OpenImpetus',
+          'comment' : 'after step 6'
+        },
+        { 'id' : 'HoverFeather',
+          'comment' : 'after step 8'
+        },
+        { 'id' : 'CurvedFeatherToBackFeather',
+          'comment' : 'at corner'
+        }
       ]
     },
   'OutsideSwivel' : 
