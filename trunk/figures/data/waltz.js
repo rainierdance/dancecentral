@@ -610,6 +610,11 @@
             'startFoot' : 'RF',
             'startDirection' : 'back',
             'timing' : '&',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-pivot-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-pivot-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-pivot-2.png'
+            ],
             'follow' : [
                 {
                   'id' : 'ClosedChangeLF',
