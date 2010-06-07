@@ -7686,6 +7686,29 @@ var foxtrotFigures =
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'timing' : '123 123',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-1-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-1-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-1-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-1-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-1-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-1-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-1-6.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-2-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-2-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-2-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-2-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-2-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-2-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-2-6.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-3-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-3-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-3-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-3-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-3-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-3-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-hesitation-change-3-6.png'
+            ],
             'follow' : [  // its precedes is listed "As Natural Turn", so anywhere Natural Turn is listed as follow, we add HesitationChange
                 {
                   'id' : 'ReverseTurn',
@@ -7738,6 +7761,18 @@ var foxtrotFigures =
             'startFoot' : 'LF',
             'startDirection' : 'back',
             'timing' : '123',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-outside-change-1-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-outside-change-1-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-outside-change-1-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-outside-change-1-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-outside-change-1-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-outside-change-2-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-outside-change-2-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-outside-change-2-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-outside-change-2-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-outside-change-2-4.png'
+            ],
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")',
@@ -7778,6 +7813,24 @@ var foxtrotFigures =
             'startFoot' : 'RF',
             'startDirection' : 'back',
             'timing' : '123',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-corte-1-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-corte-1-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-corte-1-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-corte-1-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-corte-2-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-corte-2-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-corte-2-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-corte-2-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-corte-3-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-corte-3-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-corte-3-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-corte-3-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-corte-4-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-corte-4-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-corte-4-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-reverse-corte-4-3.png'
+            ],
             'follow' : [
                 {
                   'id' : 'NaturalTurn',
@@ -8107,10 +8160,18 @@ var foxtrotFigures =
             'startDirection' : 'fwd',
             'timing' : '123',
             'diagram' : [
-              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-0.png',
-              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-1.png',
-              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-2.png',
-              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-3.png'
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-1-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-1-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-1-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-1-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-2-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-2-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-2-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-2-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-3-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-3-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-3-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-whisk-3-3.png'
             ],
             'follow' : [
                 {
@@ -8145,14 +8206,22 @@ var foxtrotFigures =
             'startDirection' : 'fwd',
             'timing' : '123 123',
             'diagram' : [
-              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-0.png',
-              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-1.png',
-              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-2.png',
-              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-3.png',
-              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-4.png',
-              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-4.5.png',
-              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-5.png',
-              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-6.png'
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-1-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-1-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-1-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-1-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-1-4-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-1-4-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-1-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-1-6.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-2-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-2-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-2-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-2-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-2-4-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-2-4-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-2-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-natural-spin-turn-2-6.png'
             ],
             'follow' : [
                 {
@@ -8280,6 +8349,10 @@ var foxtrotFigures =
                 {
                   'eval' : 'MatchFigureName("Natural")',
                   'comment' : 'at corner'
+                },
+                {
+                  'id' : 'NaturalTurn',
+                  'comment' : 'Natural Turn can be followed by 1-3 of NaturalTurn to end backing center, then followed by Outside Change turning 1/8 to L'
                 },
                 {
                   'id' : 'HesitationChange', // derived from: Hesitation change has same precedes as Natural Turn
