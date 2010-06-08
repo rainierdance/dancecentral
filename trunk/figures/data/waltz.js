@@ -679,6 +679,14 @@
             'startFoot' : 'LF',
             'startDirection' : 'back',
             'timing' : '1 2& 3',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-back-lock-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-back-lock-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-back-lock-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-back-lock-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-back-lock-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-back-lock-5.png'
+            ],
             'follow' : [
                 {
                   'id' : 'NaturalTurn',
@@ -715,6 +723,32 @@
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
             'timing' : '1 2& 3',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-1-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-1-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-1-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-1-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-1-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-1-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-2-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-2-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-2-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-2-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-2-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-2-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-3-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-3-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-3-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-3-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-3-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-3-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-4-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-4-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-4-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-4-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-4-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-progressive-chasse-to-r-4-5.png'
+            ],
             'follow' : [
                 {
                   'id' : 'NaturalTurn',
