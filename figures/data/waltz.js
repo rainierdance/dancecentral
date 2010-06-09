@@ -510,6 +510,20 @@
             'startFoot' : 'LF',
             'startDirection' : 'back',
             'timing' : '123',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-back-whisk-1-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-back-whisk-1-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-back-whisk-1-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-back-whisk-1-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-back-whisk-2-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-back-whisk-2-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-back-whisk-2-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-back-whisk-2-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-back-whisk-3-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-back-whisk-3-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-back-whisk-3-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-back-whisk-3-3.png'
+            ],
             'follow' : [
                 {
                   'eval' : 'SameFollowAs("Whisk")'
@@ -525,6 +539,24 @@
             'startFoot' : 'RF',
             'startDirection' : 'back',
             'timing' : '123 123',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-basic-weave-1-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-basic-weave-1-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-basic-weave-1-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-basic-weave-1-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-basic-weave-1-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-basic-weave-1-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-basic-weave-1-6.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-basic-weave-1-7.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-basic-weave-2-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-basic-weave-2-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-basic-weave-2-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-basic-weave-2-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-basic-weave-2-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-basic-weave-2-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-basic-weave-2-6.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-basic-weave-2-7.png'
+            ],
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")',
@@ -556,7 +588,24 @@
             'startAlignment' : ['LOD', 'DC', 'DW'],
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
-            'timing' : '1 2& 3 or 1 2 3&',
+            'timing' : '1 2& 3',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-double-reverse-spin-1-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-double-reverse-spin-1-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-double-reverse-spin-1-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-double-reverse-spin-1-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-double-reverse-spin-1-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-double-reverse-spin-2-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-double-reverse-spin-2-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-double-reverse-spin-2-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-double-reverse-spin-2-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-double-reverse-spin-2-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-double-reverse-spin-3-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-double-reverse-spin-3-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-double-reverse-spin-3-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-double-reverse-spin-3-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-double-reverse-spin-3-4.png'
+            ],
             'follow' : [
                 {
                   'id' : 'ClosedChangeLF',
