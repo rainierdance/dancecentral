@@ -677,14 +677,29 @@ function updateView() {
     // check and see if we should show diagram
     if (showDiagram && figure['diagram']) {
       output.push('<br>Diagram: &nbsp;');
+      // each figure could have multiple variations
+      var numVariations = getDiagramNumOfVariations(id);
+      var selectedVariation = getSelectedVariation(id);
+      if (numVariations > 1) {
+        for (var n = 1; n <= numVariations; n++) {
+          output.push(' <a id="variation_' + id + '_' + (n-1));
+          output.push('" class="');
+          output.push(((n-1) == selectedVariation) ? "variationSelected" : "");
+          output.push('" href="javascript:void(0);" onclick="selectVariation(\'' + id + '\', ' + (n-1) + ');">Variation ' + n + '</a> &nbsp;');
+        }
+      }
+      output.push('<br>');
+
       output.push(' <a href="javascript:void(0);" onclick="diagramAutoShow(\'' + id + '\', true);">Animate</a> &nbsp;');
       output.push(' <a href="javascript:void(0);" onclick="diagramStopShow(\'' + id + '\', true);">Stop animation</a> &nbsp; | &nbsp;');
-      output.push(' <a href="javascript:void(0);" onclick="diagramReset(\'' + id + '\', true);">Start position</a> &nbsp;');
+      output.push(' <a href="javascript:void(0);" onclick="diagramReset(\'' + id + '\', true);">Start position</a> &nbsp; &nbsp;');
+      output.push(' <a href="javascript:void(0);" onclick="diagramShowPrevious(\'' + id + '\', true);">Previous step</a> &nbsp;  &nbsp;');
       output.push(' <a href="javascript:void(0);" onclick="diagramShowNext(\'' + id + '\', true);">Next step</a> &nbsp;  &nbsp;');
       output.push(' <a href="javascript:void(0);" onclick="diagramLast(\'' + id + '\', true);">Full diagram</a> &nbsp;');
       output.push('  <p>');
+      var stepURLs = getDiagramObj(id).stepURLs;
       output.push('  <img id="imgDiagram_' + id + '" src="' + 
-        figure['diagram'][figure['diagram'].length - 1] + '" />');
+        stepURLs[stepURLs.length - 1] + '" />');
     }
 
     var follows = getFollows(figure);
@@ -725,13 +740,59 @@ function updateView() {
   //outputDotSource(); // diagram too complicated to be useful
 }
 
+function selectVariation(figureId, variationId) {
+
+  getDiagramObj(figureId);
+  var figure = figures[figureId];
+
+  // reset previous one
+  document.getElementById('variation_' + figureId + '_' + figure.selectedVariation).className = '';
+
+  figure.selectedVariation = variationId;
+  document.getElementById('variation_' + figureId + '_' + figure.selectedVariation).className = 'variationSelected';
+
+  var diagramList = figure['diagram'];
+  figure.diagramObj = new Diagram(diagramList[variationId], 'imgDiagram_' + figureId, 1500);
+
+  diagramAutoShow(figureId, true);
+
+  track('/gadgets/figures/' + inputDance + '/selectVariation?figureId=' + figureId + '&variationId=' + variationId);
+  return false;
+}
+
+function getSelectedVariation(id) {
+  var figure = figures[id];
+  getDiagramObj(id);
+  return figure.selectedVariation;
+}
+
+function getDiagramNumOfVariations(id) {
+  var figure = figures[id];
+  var diagramList = figure['diagram'];
+  if (!diagramList || diagramList.length == 0) return 0;
+  if (diagramList[0] instanceof Array) {
+      return diagramList.length;
+  }
+  else {
+    return 1;
+  }
+}
+
 function getDiagramObj(id) {
   var figure = figures[id];
-  var diagram = figure.diagramObj;
-  if (!diagram) { // delayed creationg
-    diagram = figure.diagramObj = new Diagram(figure['diagram'], 'imgDiagram_' + id, 1500);
+  var diagramObj = figure.diagramObj;
+  if (!diagramObj) { // delayed creationg
+    figure.selectedVariation = 0; // default to first variation
+    var diagramList = figure['diagram'];
+    var diagramSteps;
+    if (diagramList && diagramList.length > 0 && (diagramList[0] instanceof Array)) {
+      diagramSteps = diagramList[0]; // multiple variations, default to show first one (standard variation)
+    } else {
+      diagramSteps = diagramList; // single variation
+    }
+    diagramObj = figure.diagramObj = new Diagram(diagramSteps, 'imgDiagram_' + id, 1500);
   }
-  return diagram;
+  return diagramObj;
 }
 
 function diagramAutoShow(id, flagTrack) {
@@ -755,6 +816,12 @@ function diagramReset(id, flagTrack) {
   var diagram = getDiagramObj(id);
   diagram.reset();
   if (flagTrack) track('/gadgets/figures/' + inputDance + '/' + id + '/reset');
+}
+
+function diagramShowPrevious(id, flagTrack) {
+  var diagram = getDiagramObj(id);
+  diagram.showPrevious();
+  if (flagTrack) track('/gadgets/figures/' + inputDance + '/' + id + '/prev');
 }
 
 function diagramShowNext(id, flagTrack) {
@@ -791,6 +858,15 @@ this.showNext = function() {
   if (this.next == 0) {
     this.stopShow(); // only animate one round
   }
+}
+     
+this.showPrevious = function() {
+  this.stopShow(); // if user clicks previous, we stop animation
+
+  var prev = (this.next + this.total - 2 ) % this.total;
+
+  document.getElementById(this.imgID).src = this.stepURLs[prev];
+  this.next = (prev + 1) % this.total;
 }
      
 this.autoShow = function() {
