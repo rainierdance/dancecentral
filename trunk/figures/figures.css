@@ -43,3 +43,12 @@ td {
 .TablePrecedesFollows td {
   padding: 4px;
 }
+
+.variationSelected {
+  padding-left: 3px;
+  padding-right: 3px;
+  background-color: #fff4c2;
+  //background-color: #ffcc7f;
+  color: #666666;
+  text-decoration: none;
+}
