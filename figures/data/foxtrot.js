@@ -27,6 +27,13 @@ var foxtrotFigures =
     'startFoot' : 'RF',
     'startDirection' : 'fwd',
     'timing' : 'SQQ',
+    'diagram' : [
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-feather-step-0.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-feather-step-1.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-feather-step-2.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-feather-step-3.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-feather-step-4.png'
+    ],
     'follow' : [
     {
       'id' : 'ThreeStep'
@@ -75,6 +82,12 @@ var foxtrotFigures =
     'startFoot' : 'RF',
     'startDirection' : 'fwd',
     'timing' : 'SQQ', // normally noted this way, not like the book
+    'diagram' : [
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-three-step-0.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-three-step-1.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-three-step-2.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-three-step-3.png'
+    ],
     'follow' : [
     {
       'id' : 'NaturalTurn'
@@ -108,6 +121,44 @@ var foxtrotFigures =
     'startFoot' : 'RF',
     'startDirection' : 'fwd',
     'timing' : 'SQQ SSS',
+    'diagram' : [
+      [
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-1-0.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-1-1.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-1-2.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-1-3.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-1-4.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-1-5.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-1-6.png'
+      ],
+      [
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-2-0.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-2-1.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-2-2.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-2-3.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-2-4.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-2-5.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-2-6.png'
+      ],
+      [
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-3-0.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-3-1.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-3-2.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-3-3.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-3-4.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-3-5.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-3-6.png'
+      ],
+      [
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-4-0.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-4-1.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-4-2.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-4-3.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-4-4.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-4-5.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-turn-4-6.png'
+      ]
+    ],
     'follow' : [
     {
       'id' : 'FeatherStep'
@@ -143,6 +194,16 @@ var foxtrotFigures =
     'startFoot' : 'LF',
     'startDirection' : 'fwd',
     'timing' : 'SQQ SQQ',
+    'diagram' : [
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-reverse-turn-0.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-reverse-turn-1.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-reverse-turn-2.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-reverse-turn-3.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-reverse-turn-4.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-reverse-turn-5.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-reverse-turn-6.png',
+      'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-reverse-turn-7.png'
+    ],
     'follow' : [
       {
         'id' : 'ThreeStep'
@@ -186,7 +247,17 @@ var foxtrotFigures =
       'startAlignment' : ['BLOD'],
       'startFoot' : 'LF',
       'startDirection' : 'back',
-    'timing' : 'SQQ SQQ',
+      'timing' : 'SQQ SQQ',
+      'diagram' : [
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-closed-impetus-0.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-closed-impetus-1.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-closed-impetus-2.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-closed-impetus-3.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-closed-impetus-4.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-closed-impetus-5.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-closed-impetus-6.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-closed-impetus-7.png'
+      ],
       'follow' : [
         {
           'eval' : 'SameFollowAs("FeatherStep")'
@@ -201,7 +272,18 @@ var foxtrotFigures =
       'startAlignment' : ['LOD'],
       'startFoot' : 'RF',
       'startDirection' : 'fwd',
-    'timing' : 'S QQ QQ QQ S',
+      'timing' : 'S QQ QQ QQ S',
+      'diagram' : [
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-weave-0.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-weave-1.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-weave-2.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-weave-3.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-weave-4.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-weave-5.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-weave-6.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-weave-7.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-natural-weave-8.png'
+       ],
       'follow' : [
         {
           'eval' : 'SameFollowAs("BasicWeave")'
@@ -217,6 +299,32 @@ var foxtrotFigures =
       'startFoot' : 'LF',
       'startDirection' : 'fwd',
       'timing' : 'SSS',
+      'diagram' : [
+        [
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-change-of-direction-1-0.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-change-of-direction-1-1.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-change-of-direction-1-2.1.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-change-of-direction-1-2.2.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-change-of-direction-1-2.3.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-change-of-direction-1-3.png'
+        ],
+        [
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-change-of-direction-2-0.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-change-of-direction-2-1.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-change-of-direction-2-2.1.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-change-of-direction-2-2.2.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-change-of-direction-2-2.3.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-change-of-direction-2-3.png'
+        ],
+        [
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-change-of-direction-3-0.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-change-of-direction-3-1.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-change-of-direction-3-2.1.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-change-of-direction-3-2.2.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-change-of-direction-3-2.3.png',
+        'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-change-of-direction-3-3.png'
+        ]
+      ],
       'follow' : [
         {
           'id' : 'FeatherStep'
@@ -236,6 +344,38 @@ var foxtrotFigures =
       'startFoot' : 'LF',
       'startDirection' : 'fwd',
       'timing' : 'QQ QQ QQ S',
+      'diagram' : [
+        [
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-1-0.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-1-1.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-1-2.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-1-3.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-1-4.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-1-5.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-1-6.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-1-7.png'
+        ],
+        [
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-2-0.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-2-1.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-2-2.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-2-3.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-2-4.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-2-5.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-2-6.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-2-7.png'
+        ],
+        [
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-3-0.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-3-1.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-3-2.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-3-3.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-3-4.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-3-5.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-3-6.png',
+          'http://www.dancecentral.info/ballroom/international-style/diagrams/foxtrot-basic-weave-3-7.png'
+        ]
+      ],
       'follow' : [
       {
         'id' : 'ThreeStep'
