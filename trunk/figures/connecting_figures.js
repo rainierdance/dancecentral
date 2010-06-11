@@ -693,8 +693,8 @@ function updateView() {
       output.push(' <a href="javascript:void(0);" onclick="diagramAutoShow(\'' + id + '\', true);">Animate</a> &nbsp;');
       output.push(' <a href="javascript:void(0);" onclick="diagramStopShow(\'' + id + '\', true);">Stop animation</a> &nbsp; | &nbsp;');
       output.push(' <a href="javascript:void(0);" onclick="diagramReset(\'' + id + '\', true);">Start position</a> &nbsp; &nbsp;');
-      output.push(' <a href="javascript:void(0);" onclick="diagramShowPrevious(\'' + id + '\', true);">Previous step</a> &nbsp;  &nbsp;');
-      output.push(' <a href="javascript:void(0);" onclick="diagramShowNext(\'' + id + '\', true);">Next step</a> &nbsp;  &nbsp;');
+      output.push(' <a href="javascript:void(0);" onclick="diagramShowPrevious(\'' + id + '\', true);">Previous</a> &nbsp;  &nbsp;');
+      output.push(' <a href="javascript:void(0);" onclick="diagramShowNext(\'' + id + '\', true);">Next</a> &nbsp;  &nbsp;');
       output.push(' <a href="javascript:void(0);" onclick="diagramLast(\'' + id + '\', true);">Full diagram</a> &nbsp;');
       output.push('  <p>');
       var stepURLs = getDiagramObj(id).stepURLs;
