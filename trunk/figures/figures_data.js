@@ -6477,6 +6477,11 @@ var foxtrotFigures =
             'startFoot' : ['LF', 'RF'],
             'startDirection' : ['fwd', 'back'],
             'timing' : 'S',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-walk-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-walk-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-walk-2.png'
+            ],
             'follow' : [ // this is not listed in book, we summarized it
               {
                 'id' : 'Walk',
@@ -6521,6 +6526,12 @@ var foxtrotFigures =
             'startFoot' : 'RF',
             'startDirection' : 'back',
             'timing' : 'QQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-closed-finish-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-closed-finish-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-closed-finish-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-closed-finish-3.png'
+            ],
             'follow' : [ // not listed, guessed
               {
                 'id' : 'Walk',
@@ -6545,6 +6556,12 @@ var foxtrotFigures =
             'startFoot' : 'RF',
             'startDirection' : 'back',
             'timing' : 'QQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-finish-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-finish-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-finish-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-finish-3.png'
+            ],
             'follow' : [
               {
                 'id' : 'Walk',
@@ -6621,6 +6638,12 @@ var foxtrotFigures =
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
            'timing' : 'QQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-progressive-side-step-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-progressive-side-step-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-progressive-side-step-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-progressive-side-step-3.png'
+          ],
           'follow' : [
               {
                 'id' : 'Walk',
@@ -6641,6 +6664,11 @@ var foxtrotFigures =
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
            'timing' : 'QQ',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-progressive-link-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-progressive-link-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-progressive-link-2.png'
+            ],
           'follow' : [
               {
                 'id' : 'ClosedPromenade',
@@ -6685,6 +6713,13 @@ var foxtrotFigures =
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
            'timing' : 'SQQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-closed-promenade-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-closed-promenade-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-closed-promenade-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-closed-promenade-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-closed-promenade-4.png'
+          ],
           'follow' : [
               {
                 'id' : 'Walk',
@@ -6757,6 +6792,16 @@ var foxtrotFigures =
           'startFoot' : 'RF',
           'startDirection' : 'fwd',
            'timing' : 'S QQS QQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-rock-turn-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-rock-turn-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-rock-turn-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-rock-turn-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-rock-turn-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-rock-turn-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-rock-turn-6.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-rock-turn-7.png'
+            ],
           'follow' : [
             {
                 'eval' : 'SameFollowAs("ClosedPromenade")'
@@ -6772,6 +6817,15 @@ var foxtrotFigures =
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
            'timing' : 'QQS QQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-reverse-turn_lady-outside-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-reverse-turn_lady-outside-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-reverse-turn_lady-outside-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-reverse-turn_lady-outside-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-reverse-turn_lady-outside-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-reverse-turn_lady-outside-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-reverse-turn_lady-outside-6.png'
+            ],
           'follow' : [
               {
                 'id' : 'Walk',
@@ -6836,6 +6890,13 @@ var foxtrotFigures =
           'startFoot' : 'LF',
           'startDirection' : 'back',
            'timing' : 'S QQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-back-corte-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-back-corte-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-back-corte-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-back-corte-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-back-corte-4.png'
+            ],
           'follow' : [
             {
                 'eval' : 'SameFollowAs("ClosedPromenade")'
