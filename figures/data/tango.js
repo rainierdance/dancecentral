@@ -446,6 +446,15 @@
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
            'timing' : 'QQS QQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-reverse-turn_lady-inline-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-reverse-turn_lady-inline-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-reverse-turn_lady-inline-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-reverse-turn_lady-inline-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-reverse-turn_lady-inline-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-reverse-turn_lady-inline-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-reverse-turn_lady-inline-6.png'
+          ],
           'follow' : [
             {
                 'eval' : 'SameFollowAs("OpenReverseTurnLadyOutside")'
@@ -461,6 +470,19 @@
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
            'timing' : 'QQSS QQS QQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-progressive-side-step-reverse-turn-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-progressive-side-step-reverse-turn-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-progressive-side-step-reverse-turn-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-progressive-side-step-reverse-turn-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-progressive-side-step-reverse-turn-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-progressive-side-step-reverse-turn-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-progressive-side-step-reverse-turn-6.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-progressive-side-step-reverse-turn-7.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-progressive-side-step-reverse-turn-8.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-progressive-side-step-reverse-turn-9.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-progressive-side-step-reverse-turn-10.png'
+          ],
           'follow' : [
             {
                 'eval' : 'SameFollowAs("OpenReverseTurnLadyOutside")'
@@ -476,6 +498,13 @@
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
            'timing' : 'SQQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-promenade-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-promenade-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-promenade-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-promenade-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-open-promenade-4.png'
+            ],
           'follow' : [
               {
                 'id' : 'Walk',
@@ -552,6 +581,12 @@
           'startFoot' : 'LF',
           'startDirection' : 'back',
            'timing' : 'QQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-rock-lf-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-rock-lf-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-rock-lf-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-rock-lf-3.png'
+            ],
           'follow' : [
               {
                 'id' : 'OpenFinish',
@@ -576,6 +611,12 @@
           'startFoot' : 'RF',
           'startDirection' : 'back',
            'timing' : 'QQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-rock-rf-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-rock-rf-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-rock-rf-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-rock-rf-3.png'
+            ],
           'follow' : [
               {
                 'id' : 'BackCorte',
@@ -596,6 +637,35 @@
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
            'timing' : 'S QQS QQ',
+            'diagram' : [
+              [
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-1-0.png',
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-1-1.png',
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-1-2.png',
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-1-3.png',
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-1-4.png',
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-1-5.png',
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-1-6.png'
+              ],
+              [
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-2-0.png',
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-2-1.png',
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-2-2.png',
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-2-3.png',
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-2-4.png',
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-2-5.png',
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-2-6.png'
+              ],
+              [
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-3-0.png',
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-3-1.png',
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-3-2.png',
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-3-3.png',
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-3-4.png',
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-3-5.png',
+                'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-twist-turn-3-6.png'
+              ]
+            ],
           'follow' : [
               {
                 'eval' : 'MatchFigureName("Promenade")',
@@ -620,6 +690,14 @@
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
            'timing' : 'S QQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-promenade-turn-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-promenade-turn-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-promenade-turn-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-promenade-turn-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-promenade-turn-4.1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/tango-natural-promenade-turn-4.2.png'
+            ],
           'follow' : [
               {
                 'eval' : 'MatchFigureName("Promenade")',
