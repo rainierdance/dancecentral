@@ -75,7 +75,7 @@ function initVars() {
       'type' : 'standard'
     },
     'VWaltz' : {
-      'urlprefix' : 'vwaltz',
+      'urlprefix' : 'viennese-waltz',
       'figures' : vwaltzFigures,
       'type' : 'standard'
     },

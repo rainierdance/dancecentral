@@ -7493,12 +7493,19 @@ var foxtrotFigures =
       {
         'RFForwardChange' : 
           {
-            'name' : 'RF Forward Change',
+            'name' : 'RF Forward Change (Natural to Reverse)',
             'level' : 'Bronze',
             'startAlignment' : ['DC'],
             'startFoot' : ['RF'],
             'startDirection' : 'fwd',
             'timing' : '123',
+            'urlpath' : 'natural-to-reverse',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-natural-to-reverse-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-natural-to-reverse-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-natural-to-reverse-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-natural-to-reverse-3.png'
+            ],
             'follow' : [
                 {
                   'id' : 'ReverseTurn',
@@ -7508,12 +7515,19 @@ var foxtrotFigures =
           },
         'LFForwardChange' : 
           {
-            'name' : 'LF Forward Change',
+            'name' : 'LF Forward Change (Reverse To Natural)',
             'level' : 'Bronze',
             'startAlignment' : ['DW'],
             'startFoot' : ['LF'],
             'startDirection' : 'fwd',
             'timing' : '123',
+            'urlpath' : 'reverse-to-natural',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-reverse-to-natural-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-reverse-to-natural-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-reverse-to-natural-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-reverse-to-natural-3.png'
+            ],
             'follow' : [
                 {
                   'id' : 'NaturalTurn',
@@ -7598,6 +7612,16 @@ var foxtrotFigures =
             'startFoot' : ['LF'],
             'startDirection' : 'fwd',
             'timing' : '123',
+            'urlpath' : 'reverse-turn',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-reverse-turn-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-reverse-turn-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-reverse-turn-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-reverse-turn-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-reverse-turn-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-reverse-turn-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-reverse-turn-6.png'
+            ],
             'follow' : [
                 {
                   'id' : 'LFForwardChange',
@@ -7629,6 +7653,16 @@ var foxtrotFigures =
             'startFoot' : ['RF'],
             'startDirection' : 'fwd',
             'timing' : '123',
+            'urlpath' : 'natural-turn',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-natural-turn-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-natural-turn-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-natural-turn-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-natural-turn-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-natural-turn-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-natural-turn-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-natural-turn-6.png'
+            ],
             'follow' : [
                 {
                   'id' : 'RFForwardChange',
