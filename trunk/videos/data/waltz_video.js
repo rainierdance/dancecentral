@@ -1,5 +1,25 @@
 danceVideos = danceVideos.concat([
   {
+    'title' : "Waltz Bronze Performance/Practice Routine - Simeon Stoynov",
+    'description' : 'Bronze Routine: <br>' +
+      '<ol>' +
+      '<li>  Natural Spin Turn ' +
+      '<li>  Reverse Turn 4-6 ' +
+      '<li>  Double Reverse Spin ' +
+      '<li>  Double Reverse Spin ' +
+      '<li>  Progressive Chasse To Right ' +
+      '<li>  Back Lock ' +
+      '<li>  Closed Impetus ' +
+      '<li>  Reverse Pivot ' +
+      '<li>  Reverse Turn 1-3 ' +
+      '<li>  Reverse Corte ' +
+      '<li>  Outside Change ' +
+      '<li>  Chasse from Promenade Position' +
+      '</ol>',
+    'labels' : ['SlowWaltz', 'CrossHesitation'],
+    'url' : 'http://www.youtube.com/v/-KsMGs-Pz3M'
+  },
+  {
     'title' : "Waltz Cross Hesitation - Man's steps",
     'description' : 'Instruction by Expert Village.',
     'labels' : ['SlowWaltz', 'CrossHesitation'],
