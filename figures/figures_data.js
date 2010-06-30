@@ -7513,6 +7513,50 @@ var foxtrotFigures =
                 }
               ]
           },
+        'LFBackwardChange' : 
+          {
+            'name' : 'LF Backward Change (Natural to Reverse)',
+            'level' : 'Bronze',
+            'startAlignment' : ['BDC'],
+            'startFoot' : ['LF'],
+            'startDirection' : 'back',
+            'timing' : '123',
+            'urlpath' : 'natural-to-reverse',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-natural-to-reverse-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-natural-to-reverse-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-natural-to-reverse-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-natural-to-reverse-3.png'
+            ],
+            'follow' : [
+                {
+                  'id' : 'ReverseTurn',
+                  'comment' : 'follow with 4-6 Reverse Turn'
+                }
+              ]
+          },
+        'RFBackwardChange' : 
+          {
+            'name' : 'RF Backward Change (Reverse To Natural)',
+            'level' : 'Bronze',
+            'startAlignment' : ['BDW'],
+            'startFoot' : ['RF'],
+            'startDirection' : 'back',
+            'timing' : '123',
+            'urlpath' : 'reverse-to-natural',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-reverse-to-natural-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-reverse-to-natural-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-reverse-to-natural-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-reverse-to-natural-3.png'
+            ],
+            'follow' : [
+                {
+                  'id' : 'NaturalTurn',
+                  'comment' : 'follow with 4-6 Natural Turn'
+                }
+              ]
+          },
         'LFForwardChange' : 
           {
             'name' : 'LF Forward Change (Reverse To Natural)',
@@ -7611,7 +7655,7 @@ var foxtrotFigures =
             'startAlignment' : ['DW'],
             'startFoot' : ['LF'],
             'startDirection' : 'fwd',
-            'timing' : '123',
+            'timing' : '123 123',
             'urlpath' : 'reverse-turn',
             'diagram' : [
               'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-reverse-turn-0.png',
@@ -7640,8 +7684,8 @@ var foxtrotFigures =
                   'comment' : ''
                 },
                 {
-                  'id' : 'ReverseTurn',
-                  'comment' : '1-3 Reverse Turn followed by Backward Change Step, then 4-6 of natural Turn'
+                  'id' : 'RFBackwardChange',
+                  'comment' : 'after 1-3 Reverse Turn, do Backward Change, then 4-6 of Natural Turn'
                 }
               ]
           },
@@ -7652,7 +7696,7 @@ var foxtrotFigures =
             'startAlignment' : ['DC'],
             'startFoot' : ['RF'],
             'startDirection' : 'fwd',
-            'timing' : '123',
+            'timing' : '123 123',
             'urlpath' : 'natural-turn',
             'diagram' : [
               'http://www.dancecentral.info/ballroom/international-style/diagrams/vwaltz-natural-turn-0.png',
@@ -7677,8 +7721,8 @@ var foxtrotFigures =
                   'comment' : ''
                 },
                 {
-                  'id' : 'NaturalTurn',
-                  'comment' : '1-3 Natural Turn followed by Backward Change Step then 4-6 of Reverse Turn'
+                  'id' : 'LFBackwardChange',
+                  'comment' : 'after 1-3 Natural Turn, do Backward Change Step, then 4-6 of Reverse Turn'
                 }
               ]
           }
