@@ -6,6 +6,12 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/uf6xj2q1jvw'
   },
   {
+    'title' : 'Quickstep demo',
+    'description' : 'Demonstrated by Marcus and Karen Hilton',
+    'labels' : ['DoubleReverseSpin'],
+    'url' : 'http://www.youtube.com/v/mike0D1a06I'
+  },
+  {
     'title' : 'Quickstep: Natural Spin Turn, V6',
     'description' : 'Demonstrated by Andy & Wendy Wong from grandballroom.com',
     'labels' : ['NaturalSpinTurn'],
