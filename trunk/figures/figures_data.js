@@ -3151,6 +3151,17 @@ var foxtrotFigures =
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'timing' : 'SQQ SQQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-and-back-lock-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-and-back-lock-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-and-back-lock-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-and-back-lock-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-and-back-lock-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-and-back-lock-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-and-back-lock-6.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-and-back-lock-7.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-and-back-lock-8.png'
+             ],
             'follow' : [
                 {
                   'id' : 'ClosedImpetus'
@@ -3175,6 +3186,29 @@ var foxtrotFigures =
             'startFoot' : 'LF',
             'startDirection' : 'back',
             'timing' : 'SQQ',
+            'diagram' : [
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-running-finish-1-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-running-finish-1-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-running-finish-1-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-running-finish-1-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-running-finish-1-4.png'
+              ],
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-running-finish-2-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-running-finish-2-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-running-finish-2-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-running-finish-2-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-running-finish-2-4.png'
+              ],
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-running-finish-3-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-running-finish-3-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-running-finish-3-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-running-finish-3-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-running-finish-3-4.png'
+              ]
+              ],
             'follow' : [
                 {
                   'eval' : 'SameFollowAs("ForwardLock")',
@@ -3794,6 +3828,24 @@ var foxtrotFigures =
             'startFoot' : 'RF',
             'startDirection' : 'back',
             'timing' : 'SQQS',
+            'diagram' : [
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-1-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-1-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-1-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-1-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-1-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-1-5.png'
+              ],
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-2-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-2-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-2-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-2-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-2-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-2-5.png'
+              ]
+            ],
             'follow' : [
                 {
                   'eval' : 'MatchFigures({"startFoot": "RF", "startDirection": "fwd", "startAlignment": "DW"})',
