@@ -371,6 +371,29 @@
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
             'timing' : 'SSQQ',
+            'diagram' : [
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-double-reverse-spin-1-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-double-reverse-spin-1-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-double-reverse-spin-1-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-double-reverse-spin-1-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-double-reverse-spin-1-4.png'
+              ],
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-double-reverse-spin-2-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-double-reverse-spin-2-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-double-reverse-spin-2-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-double-reverse-spin-2-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-double-reverse-spin-2-4.png'
+              ],
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-double-reverse-spin-3-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-double-reverse-spin-3-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-double-reverse-spin-3-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-double-reverse-spin-3-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-double-reverse-spin-3-4.png'
+              ]
+            ],
             'follow' : [
                 {
                   'id' : 'ChasseReverseTurn'
@@ -519,6 +542,40 @@
             'startFoot' : 'RF',
             'startDirection' : 'back',
             'timing' : 'SQQS',
+            'diagram' : [
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-1-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-1-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-1-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-1-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-1-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-1-5.png'
+              ],
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-2-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-2-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-2-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-2-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-2-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-2-5.png'
+              ],
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-3-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-3-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-3-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-3-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-3-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-3-5.png'
+              ],
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-4-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-4-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-4-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-4-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-4-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-progressive-chasse-to-r-4-5.png'
+              ]
+            ],
             'follow' : [
                 {
                   'id' : 'ClosedImpetus'
@@ -558,6 +615,11 @@
             'startFoot' : 'RF',
             'startDirection' : 'back',
             'timing' : 'S or &',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-reverse-pivot-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-reverse-pivot-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-reverse-pivot-2.png'
+            ],
             'follow' : [
                 {
                   'id' : 'ChasseReverseTurn'
@@ -601,6 +663,14 @@
             'startFoot' : 'LF',
             'startDirection' : 'back',
             'timing' : 'SQQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-forward-lock-back-lock-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-forward-lock-back-lock-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-forward-lock-back-lock-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-forward-lock-back-lock-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-forward-lock-back-lock-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-forward-lock-back-lock-5.png'
+             ],
             'follow' : [
                 {
                   'id' : 'ClosedImpetus',
@@ -628,6 +698,13 @@
             'startFoot' : 'LF',
             'startDirection' : 'back',
             'timing' : 'SSS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-closed-impetus-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-closed-impetus-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-closed-impetus-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-closed-impetus-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-closed-impetus-4.png'
+            ],
             'follow' : [
                 {
                   'id' : 'ReversePivot',
@@ -666,6 +743,12 @@
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
             'timing' : 'SQQ',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-chasse-reverse-turn-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-chasse-reverse-turn-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-chasse-reverse-turn-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-chasse-reverse-turn-3.png'
+            ],
             'follow' : [
                 {
                   'id': 'ProgressiveChasse'
@@ -714,6 +797,28 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'timing' : 'SQQ SSS',
+            'diagram' : [
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-spin-turn-1-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-spin-turn-1-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-spin-turn-1-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-spin-turn-1-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-spin-turn-1-4.1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-spin-turn-1-4.2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-spin-turn-1-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-spin-turn-1-6.png'
+              ],
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-spin-turn-2-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-spin-turn-2-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-spin-turn-2-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-spin-turn-2-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-spin-turn-2-4.1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-spin-turn-2-4.2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-spin-turn-2-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-spin-turn-2-6.png'
+              ]
+            ],
             'follow' : [
                 {
                   'id' : 'ProgressiveChasse'
@@ -751,6 +856,35 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'timing' : 'SQQ SSS',
+            'diagram' : [
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-1-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-1-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-1-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-1-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-1-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-1-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-1-6.png'
+              ],
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-2-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-2-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-2-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-2-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-2-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-2-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-2-6.png'
+              ],
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-3-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-3-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-3-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-3-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-3-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-3-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-with-hesitation-3-6.png'
+              ]
+            ],
             'follow' : [
                 {
                   'id' : 'ChasseReverseTurn'
@@ -817,6 +951,13 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'timing' : 'SQQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-quarter-turn-to-right-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-quarter-turn-to-right-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-quarter-turn-to-right-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-quarter-turn-to-right-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-quarter-turn-to-right-4.png'
+            ],
             'follow' : [
                 {
                   'id' : 'ProgressiveChasse',
@@ -858,6 +999,14 @@
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'timing' : 'SQQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-forward-lock-back-lock-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-forward-lock-back-lock-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-forward-lock-back-lock-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-forward-lock-back-lock-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-forward-lock-back-lock-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-forward-lock-back-lock-5.png'
+             ],
             'follow' : [
                 {
                   'id' : 'ForwardLock', // not listed, but it's done
