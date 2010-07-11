@@ -21,6 +21,12 @@ danceVideos = danceVideos.concat([
     'url' : 'http://www.youtube.com/v/-KsMGs-Pz3M'
   },
   {
+    'title' : 'Basic Waltz Demo - Mirko Gozzoli and Alessia Betti',
+    'description' : 'Demo of various Waltz syllabus figures',
+    'labels' : ['SlowWaltz', 'DoubleReverseSpin', 'NaturalSpinturn'],
+    'url' : 'http://www.youtube.com/v/Ve82-LCzXFI'
+  },
+  {
     'title' : "Waltz Cross Hesitation - Man's steps",
     'description' : 'Instruction by Expert Village.',
     'labels' : ['SlowWaltz', 'CrossHesitation'],
