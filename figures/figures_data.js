@@ -3492,6 +3492,14 @@ var foxtrotFigures =
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'timing' : 'SQQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-pivot-turn-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-pivot-turn-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-pivot-turn-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-pivot-turn-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-pivot-turn-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-pivot-turn-5.png'
+            ],
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")'
@@ -3621,6 +3629,26 @@ var foxtrotFigures =
             'startFoot' : 'RF',
             'startDirection' : 'fwd',
             'timing' : 'SQQ SSS',
+            'diagram' : [
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-1-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-1-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-1-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-1-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-1-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-1-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-1-6.png'
+              ],
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-2-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-2-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-2-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-2-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-2-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-2-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-natural-turn-2-6.png'
+              ]
+            ],
             'follow' : [
                 {
                   'id' : 'ClosedImpetus',
