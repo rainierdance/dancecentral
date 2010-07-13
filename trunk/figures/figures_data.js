@@ -3269,6 +3269,28 @@ var foxtrotFigures =
               'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-2-6.png',
               'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-2-7.png',
               'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-2-8.png'
+              ],
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-3-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-3-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-3-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-3-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-3-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-3-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-3-6.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-3-7.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-3-8.png'
+              ],
+              [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-4-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-4-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-4-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-4-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-4-4.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-4-5.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-4-6.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-4-7.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-tipple-chasse-to-right-4-8.png'
               ]
             ],
             'follow' : [
