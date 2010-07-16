@@ -2725,6 +2725,14 @@ var foxtrotFigures =
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
             'timing' : 'SSSS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-change-of-direction-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-change-of-direction-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-change-of-direction-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-change-of-direction-3.1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-change-of-direction-3.2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-change-of-direction-4.png'
+            ],
             'follow' : [
                 {
                   'id' : 'ChasseReverseTurn'
@@ -2992,6 +3000,19 @@ var foxtrotFigures =
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
             'timing' : 'SS SQQS SQQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-zig-zag-back-lock-running-finish-00.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-zig-zag-back-lock-running-finish-01.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-zig-zag-back-lock-running-finish-02.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-zig-zag-back-lock-running-finish-03.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-zig-zag-back-lock-running-finish-04.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-zig-zag-back-lock-running-finish-05.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-zig-zag-back-lock-running-finish-06.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-zig-zag-back-lock-running-finish-07.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-zig-zag-back-lock-running-finish-08.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-zig-zag-back-lock-running-finish-09.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-zig-zag-back-lock-running-finish-10.png'
+            ],
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")'
@@ -3013,6 +3034,13 @@ var foxtrotFigures =
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
             'timing' : 'SQQ',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-cross-chasse-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-cross-chasse-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-cross-chasse-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-cross-chasse-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-cross-chasse-4.png'
+            ],
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")'
@@ -3034,6 +3062,13 @@ var foxtrotFigures =
             'startFoot' : 'RF',
             'startDirection' : 'back',
             'timing' : 'SQQS',
+            'diagram' : [
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-heel-pivot-0.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-heel-pivot-1.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-heel-pivot-2.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-heel-pivot-3.png',
+              'http://www.dancecentral.info/ballroom/international-style/diagrams/quickstep-heel-pivot-4.png'
+            ],
             'follow' : [
                 {
                   'eval' : 'MatchFigureName("Natural")'
