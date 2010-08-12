@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="Checkout store" height="500" width="800" scrolling="true">
+  <ModulePrefs title="Checkout store" height="5000" width="800" scrolling="true">
     <Require feature="opensocial-0.8"/>
     <Optional feature="content-rewrite">
       <Param name="include-tags"/>
@@ -45,7 +45,7 @@
       .product-price { text-align: center; }
       .product-description { font-size: .8em; }
       .product-image { width: 7em; }
-      .out-of-stock { font-size: 1em; color: gray; text-align: center; }
+      .out-of-stock { font-size: 0.8em; color: gray; text-align: center; }
       #search-box { width: 100%; }
     </style>
 
