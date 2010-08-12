@@ -61,7 +61,7 @@
          data-template="product-list-template"
          data-uri="__UP_data_source__">
       <tr class="product" style="display:none;" jsselect="rows">
-        <td class="image"><a jsvalues=".href:$this.imagelink || $this.image_link">
+        <td class="image"><a target="imgProduct" jsvalues=".href:$this.imagelink || $this.image_link">
           <img jsdisplay="$this.imagelink || $this.image_link"
                class="product-image" jsvalues=".src:$this.imagelink || $this.image_link" border="0" /></a>
         </td>
