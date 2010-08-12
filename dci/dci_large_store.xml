@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs title="Checkout store" height="500" width="800" scrolling="true">
+    <Require feature="opensocial-0.8"/>
+    <Optional feature="content-rewrite">
+      <Param name="include-tags"/>
+    </Optional>
+  </ModulePrefs>
+<UserPref name="textcolor" display_name="Text Color" default_value="#000000"/>
+  <UserPref name='data_source' display_name='Data Source Url' required='true'
+     default_value="http://spreadsheets.google.com/pub?key=0AgVCB1DVT80ccl8tQXZKc0RTSVZCNXFoa0JzSHJ4alE"/>
+  <UserPref name="merchant_id" display_name="Google Checkout Merchant ID"
+     required="true"/>
+  <UserPref name="sandbox"
+            display_name="Use Sandbox Account?"
+            datatype="enum"
+            default_value="false">
+    <EnumValue value="false" display_value="No"/>
+    <EnumValue value="true" display_value="Yes"/>
+  </UserPref>
+  <UserPref name="currency"
+            display_name="Currency:"
+            datatype="enum"
+            default_value="USD">
+    <EnumValue value="USD" display_value="USD"/>
+    <EnumValue value="GBP" display_value="GBP"/>
+  </UserPref>
+  <Content type="html">
+<![CDATA[
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="p3p" content='CP="CAO PSA OUR" policyref="/w3c/p3p.xml"' />
+
+    <style type="text/css">
+      body { font-family: arial, sans-serif; margin-top: 2em; color: __UP_textcolor__ ;}
+
+      #product-list { width: 100%; border-collapse: collapse; }
+      #product-list td { vertical-align: top; padding: 5px; }
+
+      .googlecart-add-button { margin: auto; }
+      .option-display { margin: auto; text-align: center; padding-bottom: 5px; font-size: 0.8em;}
+
+      .product-price, .product-title { font-size: 0.9em; font-weight: bold;}
+      .product-price { text-align: center; }
+      .product-description { font-size: .8em; }
+      .product-image { width: 7em; }
+      .out-of-stock { font-size: 1em; color: gray; text-align: center; }
+      #search-box { width: 100%; }
+    </style>
+
+    <script>
+    function runQuery(dataId, text) {
+      googlestore.queryHelper(dataId).set({'query-q' : text}).execute();
+    }
+    </script>
+  </head>
+
+  <body>
+    <table id="product-list" class="data-onload"
+         data-template="product-list-template"
+         data-uri="__UP_data_source__">
+      <tr class="product" style="display:none;" jsselect="rows">
+        <td class="image"><a jsvalues=".href:$this.imagelink || $this.image_link">
+          <img jsdisplay="$this.imagelink || $this.image_link"
+               class="product-image" jsvalues=".src:$this.imagelink || $this.image_link" border="0" /></a>
+        </td>
+        <td class="description">
+          <div class="product-title" jscontent="title"
+               jsvalues="product-digital:$this.digital || 'false'"></div>
+          <div class="product-description" jscontent="$this.content"></div>
+        </td>
+        <td jsvalues="$quantity:parseInt($this.quantity)">
+          <!-- Undefined or empty $this.quantity sets $quantity to NaN and is
+               treated as infinite inventory. -->
+          <div class="product-price" jscontent="price"
+               jsvalues="googlecart-max-quantity: $quantity || ''"></div>
+          <div jsdisplay="($quantity>0 || isNaN($quantity))">
+            <div class="option-display" jsdisplay="$this.option">
+              <span jsdisplay="$this.option_name || $this.optionname"
+                    jscontent="$this.option_name || $this.optionname"></span>
+              <select>
+                <option class="product-attr-option"
+                        jsselect="$this.option && $this.option.split(',')"
+                        jscontent="$this"></option>
+              </select>
+            </div>
+            <div class="googlecart-add-button"
+                 title="add to cart" role="button" tabindex="0" ></div>
+          </div>
+          <div jsdisplay="$quantity<=0" class="out-of-stock">Sold Out</div>
+          <input type="hidden" class="product-shipping" jsvalues=".value:$this.shipping||0" />
+          <input type="hidden" class="product-sku"
+                 jsvalues=".value:$this.sku||''" />
+        </td>
+      </tr>
+    </table>
+
+    <!-- this is the script for Mashup Helper -->
+    <script type="text/javascript" src="http://checkout.google.com/seller/gsg/beta2/mashup-helper.js"></script>
+
+    <!-- this is the script for shopping cart -->
+    <script type="text/javascript"  id="googlecart-script"
+      src="http://checkout.google.com/seller/gsc/v2_2/cart.js?integration=store-gadget&mid=__UP_merchant_id__"
+      currency="__UP_currency__"
+      aid="UA-18020-28"
+      post-cart-to-sandbox="__UP_sandbox__"
+      widget-target="_self">
+    </script>
+  </body>
+</html>
+]]>
+  </Content>
+</Module>
+
+
+
