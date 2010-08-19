@@ -7892,6 +7892,7 @@ var foxtrotFigures =
         'ReverseFleckerl' : 
           {
             'name' : 'Reverse Fleckerl',
+            'urlpath' : 'reverse-fleckerl',
             'level' : 'Silver',
             'startAlignment' : ['LOD'],
             'startFoot' : ['LF'],
@@ -7919,6 +7920,7 @@ var foxtrotFigures =
         'NaturalFleckerl' : 
           {
             'name' : 'Natural Fleckerl',
+            'urlpath' : 'natural-fleckerl',
             'level' : 'Gold',
             'startAlignment' : ['LOD'],
             'startFoot' : ['RF'],
@@ -7943,6 +7945,7 @@ var foxtrotFigures =
           {
             'name' : 'Contra Check',
             'level' : 'Gold',
+            'urlpath' : 'contra-check',
             'startAlignment' : ['LOD'],
             'startFoot' : ['LF'],
             'startDirection' : 'fwd',

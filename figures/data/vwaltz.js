@@ -93,6 +93,7 @@
         'ReverseFleckerl' : 
           {
             'name' : 'Reverse Fleckerl',
+            'urlpath' : 'reverse-fleckerl',
             'level' : 'Silver',
             'startAlignment' : ['LOD'],
             'startFoot' : ['LF'],
@@ -120,6 +121,7 @@
         'NaturalFleckerl' : 
           {
             'name' : 'Natural Fleckerl',
+            'urlpath' : 'natural-fleckerl',
             'level' : 'Gold',
             'startAlignment' : ['LOD'],
             'startFoot' : ['RF'],
@@ -144,6 +146,7 @@
           {
             'name' : 'Contra Check',
             'level' : 'Gold',
+            'urlpath' : 'contra-check',
             'startAlignment' : ['LOD'],
             'startFoot' : ['LF'],
             'startDirection' : 'fwd',
