@@ -25,7 +25,7 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Standard Technique for Ladies by Heather Smith - Vol 1',
-    'description' : 'Heather talks about center balance and stretch:<ul><li> Find center and diagnoal stretch using a chair: stretch center back to the spin; stretch left side and arm diagonally leftwards. ' +
+    'description' : 'Heather talks about center balance and stretch:<ul><li> Find center and diagnoal stretch using a chair: stretch center back to the spine; stretch left side and arm diagonally leftwards. ' +
         '<li> line up 4 building blocks: head, shoulder, body, hips when stretching to side, both sides stretching evenly, do not break opposite side.</ul>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/cAjqm8pyHZY'
