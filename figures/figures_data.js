@@ -2190,7 +2190,7 @@ var foxtrotFigures =
         'comment' : '1-4 Reverse Turn to end BDW, check, and Basic Weave'
       },
       {
-        'id' : 'BasicWeave',
+        'id' : 'ReverseTurn',
         'comment' : '1-4 Reverse Turn to end BLOD near corner, check and Basic Weave turning 1/8, 1/8, 3/8; or 1/4, 1/8, 3/4; to end DW of new LOD'
       },
       {
