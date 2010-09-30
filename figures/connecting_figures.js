@@ -89,6 +89,11 @@ function initVars() {
       'figures' : sambaFigures,
       'type' : 'latin'
     },
+    'Jive' : {
+      'urlprefix' : 'jive',
+      'figures' : jiveFigures,
+      'type' : 'latin'
+    },
     'Rumba' : {
       'urlprefix' : 'rumba',
       'figures' : rumbaFigures,
