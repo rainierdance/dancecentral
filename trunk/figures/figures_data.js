@@ -2713,6 +2713,161 @@ var foxtrotFigures =
 };
 
     //-------------------------------------------
+    // JIVE FIGURES
+/*
+        'foo' : 
+         {
+            'name' : 'foo',
+            'urlpath' : 'foo',
+            'level' : 'Newcomer',
+            'follow' : [
+             ]
+        },
+*/
+    var jiveFigures = {
+        'FallawayRock' : 
+         {
+            'name' : 'Fallaway Rock',
+            'urlpath' : 'fallaway-rock',
+            'level' : 'Newcomer',
+            'startAlignment' : ['Closed Position'],
+            'timing' : 'QQ QaQ QaQ',
+            'follow' : [
+             ]
+        },
+        'FallawayThrowaway' : 
+         {
+            'name' : 'Fallaway Throwaway',
+            'urlpath' : 'fallaway-throwaway',
+            'level' : 'Newcomer',
+            'startAlignment' : ['Closed Position'],
+            'timing' : 'QQ QaQ QaQ',
+            'follow' : [
+             ]
+        },
+        'Link' : 
+         {
+            'name' : 'Link',
+            'urlpath' : 'link',
+            'level' : 'Newcomer',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QaQ',
+            'follow' : [
+             ]
+        },
+        'ChangeOfPlacesRightToLeft' : 
+         {
+            'name' : 'Change of Places Right to Left',
+            'urlpath' : 'change-of-places-right-to-left',
+            'level' : 'Newcomer',
+            'startAlignment' : ['Closed Position'],
+            'timing' : 'QQ QaQ QaQ',
+            'follow' : [
+             ]
+        },
+        'ChangeOfPlacesLeftToRight' : 
+         {
+            'name' : 'Change of Places Left to Right',
+            'urlpath' : 'change-of-places-left-to-right',
+            'level' : 'Newcomer',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QaQ',
+            'follow' : [
+             ]
+        },
+        'ChangeOfHandsBehindBack' : 
+         {
+            'name' : 'Change of Hands Behind Back',
+            'urlpath' : 'change-of-hands-behind-back',
+            'level' : 'Newcomer',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QaQ',
+            'follow' : [
+             ]
+        },
+        'HipBump' : 
+         {
+            'name' : 'Hip Bump',
+            'urlpath' : 'hip-bump',
+            'level' : 'Newcomer',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ a QaQ',
+            'follow' : [
+             ]
+        },
+        'AmericanSpin' : 
+         {
+            'name' : 'American Spin',
+            'urlpath' : 'american-spin',
+            'level' : 'Bronze',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QaQ',
+            'follow' : [
+             ]
+        },
+        'Walks' : 
+         {
+            'name' : 'Walks',
+            'urlpath' : 'walks',
+            'level' : 'Bronze',
+            'startAlignment' : ['Closed Position'],
+            'timing' : 'QQ QaQ QaQ SS QQQQ',
+            'follow' : [
+             ]
+        },
+        'StopAndGo' : 
+         {
+            'name' : 'Stop and Go',
+            'urlpath' : 'stop-and-go',
+            'level' : 'Bronze',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QQ QaQ',
+            'follow' : [
+             ]
+        },
+        'Mooch' : 
+         {
+            'name' : 'Mooch',
+            'urlpath' : 'mooch',
+            'level' : 'Bronze',
+            'startAlignment' : ['Closed Position'],
+            'timing' : 'QQ QQQQ QQ QaQ QQ QQQQQQ QaQ',
+            'follow' : [
+             ]
+        },
+        'Whip' : 
+         {
+            'name' : 'Whip',
+            'urlpath' : 'whip',
+            'level' : 'Bronze',
+            'startAlignment' : ['Closed Position'],
+            'timing' : 'QQ QaQ',
+            'follow' : [
+             ]
+        },
+        'WhipThrowaway' : 
+         {
+            'name' : 'Whip Throwaway',
+            'urlpath' : 'whip-throwaway',
+            'level' : 'Bronze',
+            'startAlignment' : ['Closed Position'],
+            'timing' : 'QQ QaQ',
+            'follow' : [
+             ]
+        },
+        'BasicInPlace' : 
+         {
+            'name' : 'Basic In Place',
+            'urlpath' : 'basic-in-place',
+            'level' : 'Newcomer',
+            'startAlignment' : ['Closed Position'],
+            'timing' : 'QQ QaQ QaQ',
+            'follow' : [
+             ]
+        }
+    };
+
+    //-------------------------------------------
     // QUICKSTEP FIGURES
     var quickstepFigures = 
       {
