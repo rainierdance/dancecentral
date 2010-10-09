@@ -2,4 +2,5 @@
 <Module>
 <ModulePrefs title="DanceCentral.info Figure Overview" />
 <UserPref name="dance" display_name="Dance" default_value="waltz"/>
+<UserPref name="figureHeight" display_name="Frame height per figure" default_value="1000"/>
 <Content type="html"><![CDATA[
