@@ -1,0 +1,218 @@
+<head>
+  <base target="_top" />
+  <STYLE TYPE="text/css"> P.breakhere {page-break-before: always} </STYLE>
+
+  <script type="text/javascript">
+    //-------------------------------------------
+    // globals
+    var IS_GADGET = false; 
+    var VERSION = "$Rev$";
+    var ID_ANALYTICS = "UA-10550268-1";
+    var pageTracker;
+
+    var inputDance = 'waltz';
+
+    if (IS_GADGET) {
+      inputDance = '__UP_dance__';
+    }
+
+    function onLoad() {     
+      updateView(inputDance);
+    }
+
+    if (IS_GADGET) {
+      _IG_RegisterOnloadHandler(onLoad);
+    } else {
+      window.onload = onLoad;
+    }
+
+    var dancepages = {
+      'waltz' : [
+        'waltz-technique',
+        'waltz-closed-changes',
+        'waltz-natural-turn',
+        'waltz-reverse-turn',
+        'waltz-natural-spin-turn',
+        'waltz-whisk',
+        'chasse-from-promenade-position',
+        'closed-impetus',
+        'hesitation-change',
+        'outside-change',
+        'reverse-corte',
+        'back-whisk',
+        'basic-weave',
+        'double-reverse-spin',
+        'reverse-pivot',
+        'back-lock',
+        'progressive-chasse-to-r'
+      ], 
+      'viennese-waltz' : [
+        'technique',
+        'natural-turn',
+        'reverse-turn',
+        'natural-to-reverse',
+        'reverse-to-natural',
+        'reverse-fleckerl',
+        'contra-check',
+        'natural-fleckerl'
+      ],
+      'slow-foxtrot' : [
+        'technique',
+        'feather-step',
+        'three-step',
+        'natural-turn',
+        'reverse-turn',
+        'closed-impetus',
+        'natural-weave',
+        'change-of-direction',
+        'basic-weave'
+      ],
+      'quickstep' : [
+        'quarter-turn-to-right',
+        'natural-turn',
+        'natural-turn-with-hesitation',
+        'natural-pivot-turn',
+        'natural-spin-turn',
+        'progressive-chasse',
+        'chasse-reverse-turn',
+        'forward-lock',
+        'heel-pivot-quarter-turn-to-left',
+        'closed-impetus',
+        'back-lock',
+        'reverse-pivot',
+        'progressive-chasse-to-r',
+        'tipple-chasse-to-r',
+        'running-finish',
+        'natural-turn-and-back-lock',
+        'double-reverse-spin',
+        'zig-zag-back-lock-and-running-finish',
+        'cross-chasse',
+        'change-of-direction'
+      ],
+      'cha-cha-cha' : [
+        'cha-cha-technique',
+        'cha-cha-basic',
+        'new-york',
+        'spot-turn',
+        'shoulder-to-shoulder',
+        'hand-to-hand',
+        'three-cha-cha-chas',
+        'side-step',
+        'there-and-back',
+        'time-step',
+        'fan',
+        'alemana',
+        'hockey-stick',
+        'natural-top',
+        'natural-opening-out-movement',
+        'closed-hip-twist'
+      ],
+      'rumba' : [
+        'rumba-technique',
+        'basic-movements',
+        'cucarachas',
+        'new-york',
+        'spot-turns',
+        'shoulder-to-shoulder',
+        'hand-to-hand',
+        'progressive-walks',
+        'side-steps',
+        'cuban-rocks',
+        'fan',
+        'alemana',
+        'hockey-stick',
+        'natural-top',
+        'opening-out-to-right-and-left',
+        'natural-opening-out-movement',
+        'closed-hip-twist'
+      ],
+      'jive' : [
+        'technique',
+        'basic-in-place',
+        'fallaway-rock',
+        'fallaway-throwaway',
+        'link',
+        'change-of-places-right-to-left',
+        'change-of-places-left-to-right',
+        'change-of-hands-behind-back',
+        'hip-bump',
+        'american-spin',
+        'walks',
+        'stop-and-go',
+        'mooch',
+        'whip',
+        'whip-throwaway'
+      ],
+      'samba' : [
+        'samba-technique',
+        'basic-movements',
+        'whisk',
+        'samba-walks',
+        'rhythm-bounce',
+        'volta-movements',
+        'traveling-bota-fogos-forward',
+        'criss-cross-bota-fogos-shadow-bota-fogos',
+        'traveling-bota-fogos-back',
+        'bota-fogos-to-promenade-and-counter-promenade',
+        'criss-cross-voltas',
+        'solo-spot-volta',
+        'foot-changes',
+        'shadow-travelling-volta',
+        'reverse-turn',
+        'corta-jaca',
+        'closed-rocks'
+      ],
+      'tango' : [
+        'tango-technique',
+        'walk',
+        'open-finish',
+        'progressive-side-step',
+        'progressive-link',
+        'closed-promenade',
+        'rock-turn',
+        'open-reverse-turn-lady-outside',
+        'back-corte',
+        'open-reverse-turn-lady-inside',
+        'progressive-side-step-reverse-turn',
+        'open-promenade',
+        'lf-and-rf-rocks',
+        'natural-twist-turn',
+        'natural-promenade-turn'
+      ]
+    };
+    
+    function updateView(dancename) {
+      var id = 'summaryDiv';
+      var output = [];
+      var pages = dancepages[dancename];
+    
+      for (var i in pages) {
+        output.push('<iframe src="http://www.dancecentral.info/ballroom/international-style/' +
+          dancename + '/' + pages[i] + '?tmpl=%2Fsystem%2Fapp%2Ftemplates%2Fprint%2F" ' +
+          ' width="100%" height=1500 border=0 marginwidth=0 marginheight=0></iframe>');
+        output.push('<p class="breakhere">');
+      }
+    
+      document.getElementById(id).innerHTML = output.join('');
+    }
+
+  </script>
+</head>
+
+<body leftmargin=20 rightmargin=30 onload="updateView('waltz');">
+Dance:
+<select onchange='updateView(this.options[this.selectedIndex].value);'>
+<option value="waltz">Waltz</option>
+<option value="quickstep">Quickstep</option>
+<option value="tango">Tango</option>
+<option value="slow-foxtrot">Foxtrot</option>
+<option value="viennese-waltz">Viennese Waltz</option>
+<option value="rumba">Rumba</option>
+<option value="cha-cha-cha">Cha Cha Cha</option>
+<option value="samba">Samba</option>
+<option value="jive">Jive</option>
+</select>
+<div id='summaryDiv'>
+</div>
+
+</body>

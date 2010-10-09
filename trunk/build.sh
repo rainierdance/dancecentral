@@ -8,11 +8,13 @@ fi
 
 # concat all data files
 DATAFILE=$dirname/${dirname}_data.js
-echo '// ---- DO NOT EDIT ----' >$DATAFILE
-datafiles=`ls $dirname/data`
-for file in $datafiles; do
-  cat $dirname/data/$file >>$DATAFILE
-done
+if [ -d $dirname/data ]; then
+  echo '// ---- DO NOT EDIT ----' >$DATAFILE
+  datafiles=`ls $dirname/data`
+  for file in $datafiles; do
+    cat $dirname/data/$file >>$DATAFILE
+  done
+fi
 
 TMP=tmp.xml
 cat $dirname/gadget_boiler_top.txt >$TMP

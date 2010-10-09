@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="DanceCentral.info Figure Overview" />
+<UserPref name="dance" display_name="Dance" default_value="waltz"/>
+<Content type="html"><![CDATA[
