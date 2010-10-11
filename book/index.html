@@ -36,6 +36,19 @@
       window.onload = onLoad;
     }
 
+    var danceUrlPrefix = {
+      'waltz' : 'http://www.dancecentral.info/ballroom/international-style/waltz',
+      'slow-foxtrot' : 'http://www.dancecentral.info/ballroom/international-style/slow-foxtrot',
+      'quickstep' : 'http://www.dancecentral.info/ballroom/international-style/quickstep',
+      'tango' : 'http://www.dancecentral.info/ballroom/international-style/tango',
+      'viennese-waltz' : 'http://www.dancecentral.info/ballroom/international-style/viennese-waltz',
+      'samba' : 'http://www.dancecentral.info/ballroom/international-style/samba',
+      'rumba' : 'http://www.dancecentral.info/ballroom/international-style/rumba',
+      'jive' : 'http://www.dancecentral.info/ballroom/international-style/jive',
+      'cha-cha-cha' : 'http://www.dancecentral.info/ballroom/international-style/cha-cha-cha',
+      'west-coast-swing' : 'http://www.dancecentral.info/ballroom/club-dances/west-coast-swing'
+    };
+
     var dancepages = {
       'waltz' : [
         'waltz-technique',
@@ -188,6 +201,22 @@
         'lf-and-rf-rocks',
         'natural-twist-turn',
         'natural-promenade-turn'
+      ],
+      'west-coast-swing' : [
+        'starter-step',
+        'throwout',
+        'sugar-push',
+        'underarm-turn',
+        'left-side-pass',
+        'right-side-pass',
+        'turning-basic',
+        'basic-tuck-turn',
+        'sweetheart-whip',
+        'basic-whip',
+        'inside-whip',
+        '2-hand-tuck-turn',
+        'sugar-tuck',
+        'twin-cities'
       ]
     };
     
@@ -197,8 +226,8 @@
       var pages = dancepages[dancename];
     
       for (var i in pages) {
-        output.push('<iframe src="http://www.dancecentral.info/ballroom/international-style/' +
-          dancename + '/' + pages[i] + '?tmpl=%2Fsystem%2Fapp%2Ftemplates%2Fprint%2F" ' +
+        output.push('<iframe src="' + danceUrlPrefix[dancename] +
+          '/' + pages[i] + '?tmpl=%2Fsystem%2Fapp%2Ftemplates%2Fprint%2F" ' +
           ' width="100%" height=' + inputFigureHeight +'  border=0 marginwidth=0 marginheight=0></iframe>');
         output.push('<p class="breakhere">');
       }
@@ -221,6 +250,7 @@ Dance:
 <option value="cha-cha-cha">Cha Cha Cha</option>
 <option value="samba">Samba</option>
 <option value="jive">Jive</option>
+<option value="west-coast-swing">West Coast Swing</option>
 </select>
 <div id='summaryDiv'>
 </div>
