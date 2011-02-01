@@ -69,7 +69,7 @@ danceVideos = danceVideos.concat([
     'title' : 'Quickstep: Quarter Turn, Progressive Chasse, Forward Lock',
     'description' : 'Couple demo, not much technique.',
     'labels' : ['ForwardLock', 'QuarterTurnToRight', 'ProgressiveChasse'],
-    'url' : 'http://www.youtube.com/v/B5mkO7mg2Wc',
+    'url' : 'http://www.youtube.com/v/B5mkO7mg2Wc'
   },
   {
     'title' : 'Quickstep: Natural Turn, Back Lock, Running Finish',

@@ -3,13 +3,13 @@ danceVideos = danceVideos.concat([
     'title' : 'Standard Technique: Take the frame with you',
     'description' : 'Demonstrated Glen Weiss',
     'labels' : [],
-    'url' : 'http://www.youtube.com/v/anAhk5Zw-VA',
+    'url' : 'http://www.youtube.com/v/anAhk5Zw-VA'
   },
   {
     'title' : 'Latin Bondy Roll',
     'description' : 'Demonstrated Monika',
     'labels' : [],
-    'url' : 'http://www.youtube.com/v/KbqHP5qIt0I',
+    'url' : 'http://www.youtube.com/v/KbqHP5qIt0I'
   },
   {
     'title' : 'Standard Technique by Glen Weiss',
@@ -34,13 +34,13 @@ danceVideos = danceVideos.concat([
     'title' : 'Latin Styling Demonstration - Portland Dancesport',
     'description' : 'Demonstrated using Cha Cha. 5 points on leg action, body rhythm, arm styling, ronde, swivels.',
     'labels' : [],
-    'url' : 'http://www.youtube.com/v/w98G0tPWTPQ',
+    'url' : 'http://www.youtube.com/v/w98G0tPWTPQ'
   },
   {
     'title' : 'Latin Styling - Arm styling in Cha Cha by Jaana Knunitz',
     'description' : 'Includes different timing',
     'labels' : [],
-    'url' : 'http://www.youtube.com/v/MKWHgdHoqu8',
+    'url' : 'http://www.youtube.com/v/MKWHgdHoqu8'
   },
   {
     'title' : 'Latin Styling - Twisting, Arms in Rumba, by Jaana Knunitz',
