@@ -4,13 +4,13 @@ danceVideos = danceVideos.concat([
     'title' : 'Standard Technique: Take the frame with you',
     'description' : 'Demonstrated Glen Weiss',
     'labels' : [],
-    'url' : 'http://www.youtube.com/v/anAhk5Zw-VA',
+    'url' : 'http://www.youtube.com/v/anAhk5Zw-VA'
   },
   {
     'title' : 'Latin Bondy Roll',
     'description' : 'Demonstrated Monika',
     'labels' : [],
-    'url' : 'http://www.youtube.com/v/KbqHP5qIt0I',
+    'url' : 'http://www.youtube.com/v/KbqHP5qIt0I'
   },
   {
     'title' : 'Standard Technique by Glen Weiss',
@@ -26,7 +26,7 @@ danceVideos = danceVideos.concat([
   },
   {
     'title' : 'Standard Technique for Ladies by Heather Smith - Vol 1',
-    'description' : 'Heather talks about center balance and stretch:<ul><li> Find center and diagnoal stretch using a chair: stretch center back to the spin; stretch left side and arm diagonally leftwards. ' +
+    'description' : 'Heather talks about center balance and stretch:<ul><li> Find center and diagnoal stretch using a chair: stretch center back to the spine; stretch left side and arm diagonally leftwards. ' +
         '<li> line up 4 building blocks: head, shoulder, body, hips when stretching to side, both sides stretching evenly, do not break opposite side.</ul>',
     'labels' : [],
     'url' : 'http://www.youtube.com/v/cAjqm8pyHZY'
@@ -35,13 +35,13 @@ danceVideos = danceVideos.concat([
     'title' : 'Latin Styling Demonstration - Portland Dancesport',
     'description' : 'Demonstrated using Cha Cha. 5 points on leg action, body rhythm, arm styling, ronde, swivels.',
     'labels' : [],
-    'url' : 'http://www.youtube.com/v/w98G0tPWTPQ',
+    'url' : 'http://www.youtube.com/v/w98G0tPWTPQ'
   },
   {
     'title' : 'Latin Styling - Arm styling in Cha Cha by Jaana Knunitz',
     'description' : 'Includes different timing',
     'labels' : [],
-    'url' : 'http://www.youtube.com/v/MKWHgdHoqu8',
+    'url' : 'http://www.youtube.com/v/MKWHgdHoqu8'
   },
   {
     'title' : 'Latin Styling - Twisting, Arms in Rumba, by Jaana Knunitz',
@@ -534,7 +534,7 @@ danceVideos = danceVideos.concat([
     'title' : 'Quickstep: Quarter Turn, Progressive Chasse, Forward Lock',
     'description' : 'Couple demo, not much technique.',
     'labels' : ['ForwardLock', 'QuarterTurnToRight', 'ProgressiveChasse'],
-    'url' : 'http://www.youtube.com/v/B5mkO7mg2Wc',
+    'url' : 'http://www.youtube.com/v/B5mkO7mg2Wc'
   },
   {
     'title' : 'Quickstep: Natural Turn, Back Lock, Running Finish',
