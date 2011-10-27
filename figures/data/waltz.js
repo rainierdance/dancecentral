@@ -44,6 +44,42 @@
             'follow' : [
               ]
           },
+        'DragHesitation' : 
+          {
+            'name' : 'Drag Hesitation',
+            'level' : 'Silver',
+            'urlpath' : 'drag-hesitation',
+            'startAlignment' : ['LOD'],
+            'startFoot' : 'LF',
+            'startDirection' : 'fwd',
+            'timing' : '123',
+            'follow' : [
+                {
+                  'id' : 'NaturalTurn',
+                  'comment' : '4-6'
+                },
+                {
+                  'id' : 'BackWhisk',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'BackLock',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ClosedImpetus',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'OpenImpetus',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'OutsideSpin',
+                  'comment' : 'underturned, turning 3/4'
+                }
+              ]
+          },
         'WeaveFromPP' : 
           {
             'name' : 'Weave From Promenade Position',
@@ -166,6 +202,10 @@
                   //'eval' : 'MatchFigureName("Reverse")', // not generating right figures
                   'eval' : 'MatchFigures({"startFoot" : "LF", "startDirection" : "fwd", "startAlignment" : "DC"})',
                   'comment' : 'taking step 1 in CBMP OP on L side'
+                },
+                {
+                  'id' : 'DragHesitation',
+                  'comment' : ''
                 },
                 {
                   'id' : 'Whisk',
@@ -343,6 +383,10 @@
               ]
             ],
             'follow' : [  // its precedes is listed "As Natural Turn", so anywhere Natural Turn is listed as follow, we add HesitationChange
+                {
+                  'id' : 'DragHesitation',
+                  'comment' : ''
+                },
                 {
                   'id' : 'ReverseTurn',
                   'comment' : ''
@@ -641,6 +685,10 @@
               ]
             ],
             'follow' : [
+                {
+                  'id' : 'DragHesitation',
+                  'comment' : ''
+                },
                 {
                   'id' : 'ClosedChangeLF',
                   'comment' : 'when ending DW'
@@ -1041,6 +1089,10 @@
             ],
             'follow' : [
                 {
+                  'id' : 'DragHesitation',
+                  'comment' : 'After normal Reverse Turn, or 4-6 Reverse Turn after Natural Spin Turn or Closed Impetus'
+                },
+                {
                   'id' : 'ClosedChangeLF',
                   'comment' : ''
                 },
@@ -1159,6 +1211,10 @@
               'http://www.dancecentral.info/ballroom/international-style/diagrams/waltz-closed-change-rf-3.png'
             ],
             'follow' : [
+                {
+                  'id' : 'DragHesitation',
+                  'comment' : ''
+                },
                 {
                   'eval' : 'MatchFigures({"startFoot" : "LF", "startDirection" : "fwd", "startAlignment" : "DC"})',
                   'comment' : ''
