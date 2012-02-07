@@ -18,6 +18,14 @@
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
 <script>
+function escapeHtml(text) {
+  if (text == null) {
+    return '';
+  }
+  //return _hesc(text);
+  return text;
+}
+
 /**
  * Load the APIs and run sendStudentQuery when the load is complete
  */
