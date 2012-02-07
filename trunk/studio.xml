@@ -145,16 +145,23 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0206.1640";
+var VERSION = "12.0206.2114";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
-var gAllStudents = [];
-var gAllSignInTypes = [];
+// everyone who signed liability waiver, including all teachers and students
+// read from data file
+var gAllEntities = [];	 
+
+// read from data file, current ongoing classes
 var gAllClasses = [];
-var gAllTeachers = [];
+
+// read from data file, used to populate private lesson teacher drop down
+var gAllTeachers = []; 
+
+var gAllSignInTypes = []; // value,display pair
 var gAllRateTypes = [];
-var gSelectedStudent = null;
+var gSelectedEntity = null; // Entity object
 var gSelectedSignInTypeValue = null;
 
 ////////////////////////////////////////////////////////////////////////
@@ -166,18 +173,20 @@ function formatDate(dateObj) {
 }
 
 ////////////////////////////////////////////////////////////////////////
-// Many UI objects are of this type (Value, Display)
+// Many objects are of this type (Value, Display)
 function ValueDisplay(value, display) {
   this.value = value;
   this.display = display;
 }
 
+//TODO: add more properties later
 function Teacher(name) {
   this.name = name;
 }
 
-function Student(firstName, lastName, address, city, zip, email, phone,
-    referrer, guardian, note, creatTime, gender, teacher, liabilityDate, photoDate, index) {
+function Entity(firstName, lastName, address, city, zip, email, phone,
+    referrer, guardian, note, creatTime, gender, teacher, liabilityDate,
+    photoDate, index) {
   this.firstName = firstName;
   this.lastName = lastName;
   this.address = address;
@@ -194,29 +203,30 @@ function Student(firstName, lastName, address, city, zip, email, phone,
   this.liabilityDate = liabilityDate;
   this.photoDate =  photoDate;
 
-  this.index = index;
+  this.index = index; // object's index to gAllEntities
 }
 
-Student.prototype.getName = function() {
+// returns full name of the Entity (Entity or Teacher)
+Entity.prototype.getName = function() {
   return this.firstName + ' ' + this.lastName;
 }
 
-// returns an array of Student objects that matches the keyword in student's name
+// returns an array of Entity objects who's full name contains the keyword
 // case insensitive comparison
-function getMatchingStudents(keyword) {
-  if (!keyword || keyword.length == 0) return gAllStudents;
+function getMatchingEntities(keyword) {
+  if (!keyword || keyword.length == 0) return gAllEntities;
 
   var results = [];
-  for (var i = 0; i < gAllStudents.length; i++) {
-    var fullname = gAllStudents[i].firstName.toLowerCase() + ' ' + gAllStudents[i].lastName.toLowerCase();
+  for (var i = 0; i < gAllEntities.length; i++) {
+    var fullname = gAllEntities[i].firstName.toLowerCase() + ' ' + gAllEntities[i].lastName.toLowerCase();
     if (fullname.indexOf(keyword.toLowerCase()) != -1)
-        results.push(gAllStudents[i]);
+        results.push(gAllEntities[i]);
   }
   return results;
 }
 
 // returns detailed student information in html
-function getStudentDetails(student) {
+function getEntityDetails(student) {
   var html = ['<table>'];   // start the HTML output string
   html.push('<tr><td>Name</td><td>');
   html.push(escapeHtml(student.firstName));
@@ -254,6 +264,7 @@ function getStudentDetails(student) {
   html.push(escapeHtml(student.guardian));
   html.push('</td></tr>');
 
+  // alert if liability waiver is  due.
   var signDate = new Date(student.liabilityDate);
   var flag = ((new Date()).getTime() - signDate.getTime() > 6 * 28 * 24 * 60 * 60 * 1000);
   html.push('<tr><td>Liability Waiver Date</td><td>');
@@ -277,82 +288,65 @@ function getStudentDetails(student) {
 }
 
 // display student details, no visibility change
-function showStudentDetails(index) {
-  var details = getStudentDetails(gAllStudents[index]);
+function showEntityDetails(index) {
+  var details = getEntityDetails(gAllEntities[index]);
 
-  _gel('idStudentDetails').innerHTML = details;
+  _gel('idEntityDetails').innerHTML = details;
 }
 
 ////////////////////////////////////////////////////////////////////////
-// Search student
-function refreshSearchResult(students) {
+// Display search result
+function refreshSearchResult(entities) {
   var html = [];   // start the HTML output string
-  for (var i = 0; i < students.length; i++) {
-    html.push((i+1) + '&nbsp;<a href="javascript:void(0)" onclick="selectStudent(' + students[i].index + ')" onmouseover="showStudentDetails(' + students[i].index + ')">' +
-       students[i].getName() + '</a><br>');
+  for (var i = 0; i < entities.length; i++) {
+    html.push((i+1) + '&nbsp;<a href="javascript:void(0)" onclick="selectEntity(' + 
+      entities[i].index + ')" onmouseover="showEntityDetails(' + entities[i].index + ')">' +
+      entities[i].getName() + '</a><br>');
   }
-  _gel('idStudentList').innerHTML = html.join('');
+  _gel('idEntityList').innerHTML = html.join('');
 
   // clear details panel
-   _gel('idStudentDetails').innerHTML = '';
+  _gel('idEntityDetails').innerHTML = '';
 
   // show search result
   _gel('idSearchResult').style.display = '';
 
   // hide sign in panel
-  _gel('idStudentHeader').style.display = 'none';
-  _gel('idSignInHeader').style.display = 'none';
+  _gel('idEntityHeader').style.display = 'none';
   _gel('idSignInPanel').style.display = 'none';
 }
 
 function changeKeyword(keyword) {
-  var students = getMatchingStudents(keyword);
-  refreshSearchResult(students);
+  var entities = getMatchingEntities(keyword);
+  refreshSearchResult(entities);
 }
 
 ////////////////////////////////////////////////////////////////////////
-// Select and Sign in student
-function selectStudent(index) {
-  var selectedStudentIndex = index;
-  gSelectedStudent = gAllStudents[selectedStudentIndex];
+// Select a student and show header
+function selectEntity(index) {
+  gSelectedEntity = gAllEntities[index];
 
-  var element;
+  _gel('idSearchResult').style.display = 'none';
 
-  element = _gel('idSearchResult');
-  element.style.display = 'none';
+  clearFields();
 
-  // reset form
-  _gel("ss-form").reset();
-  _gel("idFormPrep").reset();
+  _gel('fieldName').innerHTML = gSelectedEntity.getName();
 
-  element = _gel('fieldName');
-  element.innerHTML = gSelectedStudent.getName();
+  // initial selection of sign in types
+  var element = _gel('fieldType');
+  var html = [];
+  var len = gAllSignInTypes.length;
+  for (var i = 0; i< len; i++ ) {
+    html.push('<a href="javascript:void(0)" onClick="changeSignInType(\'' +
+      gAllSignInTypes[i].value+ '\')"/>' + gAllSignInTypes[i].display + '</a> &nbsp;&nbsp;');
+  }
+  element.innerHTML = html.join('');
 
-  _gel('idStudentHeader').style.display = '';
-
-  showSignIn();
+  _gel('idEntityHeader').style.display = '';
+  _gel('idSignInPanel').style.display = 'None';
 }
 
-////////////////////////////////////////////////////////////////////////
-function showBuy() {
-  _gel("trTeacher").style.display='None';
-  _gel("trLength").style.display='None';
-  _gel("trClasses").style.display='None';
-  _gel('trPackages').style.display = '';
-  _gel('trPayment').style.display = '';
-  _gel('trDateTime').style.display = 'None';
-
-  fillInRateTypes();
-}
-
-////////////////////////////////////////////////////////////////////////
-function showSignIn() {
-  var element;
-
-  _gel('idSignInHeader').style.display = '';
-  _gel('trDateTime').style.display = '';
-  _gel('trPackages').style.display = 'None';
-
+function fillInDateTime() {
   // fill in common fields for all types of sign in
   var now = new Date();
   element = _gel('entry_prep_date'); // Date
@@ -398,14 +392,12 @@ function showSignIn() {
    if (option.value == value)
     option.selected = true;
   }
-
-  changeSignInType('Group');
 }
 
 function changeSignInType(signInTypeValue) {
   gSelectedSignInTypeValue = signInTypeValue;
 
-  element = _gel('fieldType');
+  // re-render to highlight the currently selected sign in type
   var html = [];
   var len = gAllSignInTypes.length;
   for (var i = 0; i< len; i++ ) {
@@ -416,14 +408,11 @@ function changeSignInType(signInTypeValue) {
       gAllSignInTypes[i].value+ '\')"/>' + gAllSignInTypes[i].display + '</a> &nbsp;&nbsp;');
     }
   }
-  element.innerHTML = html.join('');
+  _gel('fieldType').innerHTML = html.join('');
 
-  // show sign in panel
-  _gel('idSignInPanel').style.display = '';
+  clearFields();  // don't want to reset here, keep date
 
-  // reset form
-  _gel("ss-form").reset();
-  clearFields();  // don't want to reset here, keep date, type selection
+  fillInDateTime();
 
   if (signInTypeValue.indexOf('Group') == 0) {
     signInGroup();
@@ -433,10 +422,11 @@ function changeSignInType(signInTypeValue) {
     signInPractice();
   } else if (signInTypeValue.indexOf('Private') == 0) {
     signInPrivateLesson();
-  } else if (signInTypeValue.indexOf('Buy') == 0) {
-    showBuy();
+  } else if (signInTypeValue.indexOf('Payment') == 0) {
+    logPayment();
   }
-  // TODO: others
+
+  _gel('idSignInPanel').style.display = '';
 }
 
 // clear the fields - we don't want to sign in with extra fields
@@ -447,8 +437,11 @@ function clearFields() {
   _gel('fieldClasses').innerHTML=''
   _gel('fieldRate').innerHTML=''
 
-  var frmSubmit = _gel('idFrameSubmit');
-  frmSubmit.src = 'about:blank';
+  // reset form
+  _gel("ss-form").reset();
+  _gel("idFormPrep").reset();
+
+  _gel('idFrameSubmit').src = 'about:blank';
 }
 
 function signInGroup(hidePayment) {
@@ -459,6 +452,7 @@ function signInGroup(hidePayment) {
   _gel("trPayment").style.display=(hidePayment ? 'None' : '');
   _gel('trPackages').style.display = 'None';
   _gel('trDateTime').style.display = '';
+  _gel("trRateType").style.display='';
 
   fillInRateTypes();
   fillInClasses(true);
@@ -472,6 +466,7 @@ function signInPractice() {
   _gel('trPackages').style.display = 'None';
   _gel('trPayment').style.display = '';
   _gel('trDateTime').style.display = '';
+  _gel("trRateType").style.display='';
 
   fillInRateTypes();
   fillInLength();
@@ -485,10 +480,20 @@ function signInPrivateLesson() {
   _gel('trPackages').style.display = 'None';
   _gel('trPayment').style.display = 'None';
   _gel('trDateTime').style.display = '';
+  _gel("trRateType").style.display='None';
 
-  fillInRateTypes();
   fillInTeachers();
   fillInLength();
+}
+
+function logPayment() {
+  _gel("trTeacher").style.display='None';
+  _gel("trLength").style.display='None';
+  _gel("trClasses").style.display='None';
+  _gel('trPackages').style.display = '';
+  _gel('trPayment').style.display = '';
+  _gel('trDateTime').style.display = 'None';
+  _gel("trRateType").style.display='None';
 }
 
 var dayMapping = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
@@ -498,10 +503,6 @@ function isTodaysClass(classId) {
 }
 
 function fillInClasses(onlyToday) {
-  var element;
-
-  // preset some fields
-  element = _gel('fieldClasses');
   var html = [];
   var selectedClasses = [];
   var len = gAllClasses.length;
@@ -519,27 +520,23 @@ function fillInClasses(onlyToday) {
     html.push('<input type="checkbox" name="eventName" value="' + selectedClasses[i].value+ '" id="' + idLabel + '" /><label for="' + 
       idLabel + '">&nbsp;' + selectedClasses[i].display + "</label><br>");
   }
-  element.innerHTML = html.join('');
+  _gel('fieldClasses').innerHTML = html.join('');
 }
 
 function fillInTeachers() {
-  var element;
-
-  element = _gel('fieldTeachers');
   var html = ['<select id="selectTeacher">'];
   var len = gAllTeachers.length;
   html.push('<option value="" /> -- Pick -- &nbsp;&nbsp;');
   for (var i = 0; i< len; i++ ) {
     html.push('<option value="' + gAllTeachers[i].name+ '" ' + 
-      ((gAllTeachers[i].name == gSelectedStudent.teacher) ? 'selected="selected"' : '') +
+      ((gAllTeachers[i].name == gSelectedEntity.teacher) ? 'selected="selected"' : '') +
       '/>' + gAllTeachers[i].name + " &nbsp;&nbsp;&nbsp;&nbsp;");
   }
   html.push('</select>');
-  element.innerHTML = html.join('');
+  _gel('fieldTeachers').innerHTML = html.join('');
 }
 
 function fillInRateTypes() {
-  var element = _gel('fieldRate');
   var html = ['<table cellspacing=4>'];
   var len = gAllRateTypes.length;
   var cols = 0;
@@ -556,140 +553,173 @@ function fillInRateTypes() {
       if (cols == 0) html.push('</tr>');
     }
   }
-  if (cntTypes == 0) {
-    _gel("trRateType").style.display='None';  // no available rate types, hide it all
-  } else {
-    _gel("trRateType").style.display='';
-    element.innerHTML = html.join('');
-  }
+  _gel('fieldRate').innerHTML = html.join('');
 }
 
 function fillInLength() {
   _gel('entry_prep_length').value = '1';
 }
 
-function updateTotal() {
-  var value;
+// update the total $ amount
+// Basic pricing logic is built-in, can be manually changed
+function updateSeriesTotal() {
+  var value, amount;
 
   // pricing for group series
   value = parseInt(_gel('entry_prep_payment_num_series').value);
-  if (!isNaN(value)) 
+  if (!isNaN(value)) {
     if (value >= 2) {
-      _gel('entry_prep_payment_amt_series').value = 70 + (value-2) * 25;
+      amount = 70 + (value-2) * 25;
     } else {
-      _gel('entry_prep_payment_amt_series').value = 40;
+      amount = 40 * value;
     }
+    _gel('entry_prep_payment_amt_series').value = amount;
+  }
   else {
     _gel('entry_prep_payment_amt_series').value = '';
     _gel('entry_prep_payment_num_series').value = '';
   }
+  updateTotal();
+}
 
+function updatePunchTotal() {
+  var value, amount;
   // pricing for punch cards
   value = parseInt(_gel('entry_prep_payment_num_punch').value);
   if (!isNaN(value)) {
     if (value >= 10)
-      _gel('entry_prep_payment_amt_punch').value = value * 8;
+      amount = value * 8;
     else 
-      _gel('entry_prep_payment_amt_punch').value = value * 10;
-  }
-  else {
+      amount = value * 10;
+    _gel('entry_prep_payment_amt_punch').value = amount;
+  } else {
     _gel('entry_prep_payment_amt_punch').value = '';
     _gel('entry_prep_payment_num_punch').value = '';
   }
+  updateTotal();
+}
 
-
+function updatePrivateTotal() {
+  var value, amount;
   // pricing for private lessons
   value = parseInt(_gel('entry_prep_payment_num_private').value);
   if (!isNaN(value)) {
     if (value >= 10)
-      _gel('entry_prep_payment_amt_private').value = value * 55;
+      amount = value * 55;
     else if (value >=5) {
-      _gel('entry_prep_payment_amt_private').value = value * 60;
+      amount = value * 60;
     } else {
-      _gel('entry_prep_payment_amt_private').value = value * 65; // there could be other discount code
+      amount = value * 65;
     }
-  }
-  else {
+    _gel('entry_prep_payment_amt_private').value = amount;
+  } else {
     _gel('entry_prep_payment_amt_private').value = '';
     _gel('entry_prep_payment_num_private').value = '';
   }
+  updateTotal();
+}
 
+function updateWeddingTotal() {
+  var value, amount;
   // pricing for wedding
   value = parseInt(_gel('entry_prep_payment_num_wedding').value);
   if (!isNaN(value)) {
     if (value >= 10)
-      _gel('entry_prep_payment_amt_wedding').value = value * 55;
+      amount = value * 55;
     else if (value >=5) {
-      _gel('entry_prep_payment_amt_wedding').value = value * 60;
+      amount = value * 60;
     } else {
-      _gel('entry_prep_payment_amt_wedding').value = value * 65; // there could be other discount code
+      amount = value * 65;
     }
-  }
-  else {
+    _gel('entry_prep_payment_amt_wedding').value = amount;
+  } else {
     _gel('entry_prep_payment_amt_wedding').value = '';
     _gel('entry_prep_payment_num_wedding').value = '';
   }
+  updateTotal();
+}
 
-
+function updatePracticeTotal() {
+  var value, amount;
   // pricing for practice
   value = parseInt(_gel('entry_prep_payment_num_practice').value);
   if (!isNaN(value)) {
-    _gel('entry_prep_payment_amt_practice').value = value * 40; // there is student discount
+    amount = value * 40; // there is student discount
+    _gel('entry_prep_payment_amt_practice').value = amount;
   }
   else {
     _gel('entry_prep_payment_amt_practice').value = '';
     _gel('entry_prep_payment_num_practice').value = '';
   }
+  updateTotal();
+}
 
-  // pricing for practice
+function updateFloorTotal() {
+  var value, amount;
+  // pricing for floor
   value = parseInt(_gel('entry_prep_payment_num_floor').value);
   if (!isNaN(value)) {
-    _gel('entry_prep_payment_amt_floor').value = value * 10;
+    amount = value * 10;
+    _gel('entry_prep_payment_amt_floor').value = amount;
   }
   else {
     _gel('entry_prep_payment_amt_floor').value = '';
     _gel('entry_prep_payment_num_floor').value = '';
   }
+  updateTotal();
+}
 
+function updateChildrenTotal() {
+  var value, amount;
   // pricing for children's program
   value = parseInt(_gel('entry_prep_payment_num_child').value);
   if (!isNaN(value)) {
     if (value > 1)
-      _gel('entry_prep_payment_amt_child').value = 60 + (value-1) * 45;
+      amount = 60 + (value-1) * 45;
     else {
-      _gel('entry_prep_payment_amt_child').value = 60;
+      amount = 60 * value; // could be zero
     }
-  }
-  else {
+    _gel('entry_prep_payment_amt_child').value = amount;
+  } else {
     _gel('entry_prep_payment_amt_child').value = '';
     _gel('entry_prep_payment_num_child').value = '';
   }
+  updateTotal();
+}
 
+function updateYouthTotal() {
   // pricing for Youth
   value = parseInt(_gel('entry_prep_payment_num_youth').value);
   if (!isNaN(value)) {
     if (value > 1)
-      _gel('entry_prep_payment_amt_youth').value = 90 + (value-1) * 50;
+      amount = 90 + (value-1) * 50;
     else {
-      _gel('entry_prep_payment_amt_youth').value = 90;
+      amount = 90 * value; // could be zero
    }
-  }
-  else {
+   _gel('entry_prep_payment_amt_youth').value = amount;
+  } else {
     _gel('entry_prep_payment_amt_youth').value = '';
     _gel('entry_prep_payment_num_youth').value = '';
   }
+  updateTotal();
+}
 
+function updateTotal() {
+  // recalculate the grand total
+  var suffix = ['series', 'punch', 'private', 'wedding', 'practice', 'floor', 'child', 'youth'];
+  var amount = 0;
+  for (var i = 0; i < suffix.length; i++) {
+   if (_gel('entry_prep_payment_amt_' + suffix[i]) &&
+       _gel('entry_prep_payment_amt_' + suffix[i]).value) {
+        amount += parseInt(_gel('entry_prep_payment_amt_' + suffix[i]).value); }
+  }
+  _gel('entry_prep_payment_total').value = amount;
 }
 
 function onSignIn() {
-  element = _gel('entry_0');
-  element.value = gSelectedStudent.getName();
-
-  element = _gel('entry_4');
-  element.value = gSelectedSignInTypeValue;
-
-  element = _gel('entry_6');
-  element.value = _gel('entry_prep_date').value;
+  _gel('entry_0').value = gSelectedEntity.getName();
+  _gel('entry_4').value = gSelectedSignInTypeValue;
+  _gel('entry_6').value = _gel('entry_prep_date').value;
 
   var select = _gel('startTimeHour');
   var value = select.options[select.selectedIndex].value;
@@ -698,9 +728,9 @@ function onSignIn() {
   select = _gel('startTimeAmPm');
   value += select.options[select.selectedIndex].value;
 
-  element = _gel('entry_8'); // start time
-  element.value = value;
+  _gel('entry_8').value = value; // start time
 
+  // classes, concatenated with ,
   var len;
   var values = [];
 
@@ -720,7 +750,6 @@ function onSignIn() {
   select = _gel('selectTeacher');
   if (select && select.options)
     _gel('entry_3').value = select.options[select.selectedIndex].value;
-
 
   var radioOptions = formPrep.rRate;
   if (radioOptions) {
@@ -775,31 +804,32 @@ function onSignIn() {
 
 </script> 
 
-Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" onKeyUp='changeKeyword(this.value)'>
-&nbsp;&nbsp; <a href="" target="_top">New Student</a>
+<!--- UI elements --->
 
+<!-- Search header, always shown -->
+Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" onKeyUp='changeKeyword(this.value)'>
+&nbsp;&nbsp; <a href="https://sites.google.com/a/ariaballroom.com/studio/new-registration" target="_top">New Registration</a>
+
+<!-- Search result list + each participant details -->
 <table cellspacing=15 id='idSearchResult'>
 <tr><td valign=top nowrap>
-<div id="idStudentList" style="overflow: auto;">
-<img src="http://www.google.com/ig/images/spinner.gif" />
-</div>
+<div id="idEntityList" style="overflow: auto;"><img src="http://www.google.com/ig/images/spinner.gif" /></div>
 </td>
-<td valign=top> <div id='idStudentDetails'></div> </td>
+<td valign=top> <div id='idEntityDetails'></div></td>
 </tr>
 </table>
 
-<form onSubmit="return onSignIn()" id="idFormPrep">
-
-<div id="idStudentHeader">
+<div id="idEntityHeader">
 <span id="fieldName" style="font-weight:bold;font-size:1.1em;line-height:2;padding-left:20px"></span>
-</div>
-<div id="idSignInHeader" style="display:none">
 <div id="fieldType"></div>
-
 </div>
+
+<! -- Preparation form, used by UI to eventually calculate what should be posted to spreasheet  -->
+<form onSubmit="return onSignIn()" id="idFormPrep">
 
 <div id="idSignInPanel" style="display:none">
 <hr style="background-color:rgb(204,204,204);border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;height:1px">
+
 <table border=0 cellspacing=5>
 
 <tr id="trDateTime"><td width=150>Date and Time</td><td>
@@ -829,6 +859,7 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 <option>pm</option>
 </select>
 </td</tr>
+
 <tr id="trClasses"><td>Classes <a href="javascript:void(0)" onclick="fillInClasses(false)">show all</a></td><td>
 <span id="fieldClasses"></span>
 </td></tr>
@@ -848,22 +879,22 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 <tr id="trPackages"><td>Series, Packages</td>
 <td><span id="fieldPackage">
 <table>
-<tr><td><input type='text' value="" id="entry_prep_payment_num_series" size=3 onchange="updateTotal()"> Number of Group Series sessions </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_series" size=3></td></tr>
-<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_punch" size=3  onchange="updateTotal()"> Number of Punch Card classes </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_punch" size=3></td></tr>
-<tr><td><input type='text' value="" id="entry_prep_payment_num_private" size=3 onchange="updateTotal()"> Number of Private Lessons </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_private" size=3></td></tr>
-<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_wedding"  onchange="updateTotal()" size=3> Number of Lessons for Wedding Dance </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_wedding" size=3></td></tr>
-<tr><td><input type='text' value="" id="entry_prep_payment_num_child" size=3  onchange="updateTotal()"> Number of students in Children's Program </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_child" size=3></td></tr>
-<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_youth"  onchange="updateTotal()" size=3> Number of students in Youth Program </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_youth" size=3></td></tr>
-<tr><td><input type='text' value="" id="entry_prep_payment_num_practice" size=3  onchange="updateTotal()"> Number of dancers for Monthly Practice </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_practice" size=3></td></tr>
-<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_floor"  onchange="updateTotal()" size=3> Number of lessons for Floor Fees </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_floor" size=3></td></tr>
+<tr><td><input type='text' value="" id="entry_prep_payment_num_series" size=3 onchange="updateSeriesTotal()"> Number of Group Series sessions </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_series" onchange="updateTotal()" size=3></td></tr>
+<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_punch" size=3  onchange="updatePunchTotal()"> Number of Punch Card classes </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_punch" onchange="updateTotal()" size=3></td></tr>
+<tr><td><input type='text' value="" id="entry_prep_payment_num_private" size=3 onchange="updatePrivateTotal()"> Number of Private Lessons </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_private" onchange="updateTotal()" size=3></td></tr>
+<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_wedding"  onchange="updateWeddingTotal()" onchange="updateTotal()" size=3> Number of Lessons for Wedding Dance </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_wedding" onchange="updateTotal()" size=3></td></tr>
+<tr><td><input type='text' value="" id="entry_prep_payment_num_child" size=3  onchange="updateChildrenTotal()"> Number of students in Children's Program </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_child" onchange="updateTotal()" size=3></td></tr>
+<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_youth"  onchange="updateYouthTotal()" onchange="updateTotal()" size=3> Number of students in Youth Program </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_youth" onchange="updateTotal()" size=3></td></tr>
+<tr><td><input type='text' value="" id="entry_prep_payment_num_practice" size=3  onchange="updatePracticeTotal()"> Number of dancers for Monthly Practice </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_practice" onchange="updateTotal()" size=3></td></tr>
+<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_floor"  onchange="updateFloorTotal()" onchange="updateTotal()" size=3> Number of lessons for Floor Fees </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_floor" onchange="updateTotal()" size=3></td></tr>
 </table>
 </span>
 </td>
@@ -882,12 +913,17 @@ Payment discount: <input type='text' value="" id="entry_prep_payment_discount" s
 <textarea name="entry.5.single" rows="3" cols="50"  id="entry_prep_note"></textarea>
 </td></tr>
 </table>
+
 <input type="submit" name="submit" value="Sign In">
 </form>
 
-<!-- Debug, normally hidden -->
+<!-- End of preparation form>
+
+<!-- Normally hidden, the actual form used to post to Google Spreadsheet -->
 <div style="display:None">
-<form target="frmSubmit" action="https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?hl=en_US&amp;formkey=dC1ScmpPZF9pWG9qQ1JraWkyMi1GZmc6MQ&amp;ifq" method="POST" id="ss-form">
+<form target="frmSubmit" 
+  action="https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?hl=en_US&amp;formkey=dC1ScmpPZF9pWG9qQ1JraWkyMi1GZmc6MQ&amp;ifq" 
+  method="POST" id="ss-form">
 Name: <input type="text" name="entry.0.single" value=""  id="entry_0"><br>
 Type: <input type="text" name="entry.4.single" value=""  id="entry_4"><br>
 Date: <input type="text" name="entry.6.single" value=""  id="entry_6"><br>
@@ -926,28 +962,30 @@ Note: <textarea name="entry.5.single" rows="8" cols="75"  id="entry_5"></textare
 <div>
 <iframe name="frmSubmit" id='idFrameSubmit' width=500 height=200 frameborder=0 scrolling=no></iframe>
 </div>
+
 </div>
 
 <script>
-// sign in type values need to match prefix of group classes
+// The value of each SignInType is used to map Group classes' value and RateType values 
+// to filter the classes rate types to display
+
 gAllSignInTypes.push(new ValueDisplay('Group', 'Group Classes & Parties'));
-gAllSignInTypes.push(new ValueDisplay('Youth', 'Youth'));
+gAllSignInTypes.push(new ValueDisplay('Youth', 'Youth & Children'));
 gAllSignInTypes.push(new ValueDisplay('Private', 'Private Lesson'));
 gAllSignInTypes.push(new ValueDisplay('Practice', 'Practice'));
-gAllSignInTypes.push(new ValueDisplay('Buy', 'Pay Fees / Buy Packages'));
+gAllSignInTypes.push(new ValueDisplay('Payment', 'Pay Fees / Packages'));
 
 gAllRateTypes.push(new ValueDisplay('Group-Series-PrePaid', 'Group Series Rate (Pre-Paid)'));
-gAllRateTypes.push(new ValueDisplay('Group-DropIn', 'Group DropIn Rate'));
 gAllRateTypes.push(new ValueDisplay('Group-Punch-PrePaid', 'Punch Card (Pre-Paid)'));
+gAllRateTypes.push(new ValueDisplay('Group-DropIn', 'Group DropIn Rate'));
 gAllRateTypes.push(new ValueDisplay('Group-Party-Class-1', 'Party and Class Rate'));
 gAllRateTypes.push(new ValueDisplay('Group-Party-Only', 'Party Only'));
 gAllRateTypes.push(new ValueDisplay('Group-Round', 'Competitive Round Rate'));
 gAllRateTypes.push(new ValueDisplay('Group-Free', 'Free'));
 
-gAllRateTypes.push(new ValueDisplay('Practice-DropIn', 'Practice - Drop In'));
 gAllRateTypes.push(new ValueDisplay('Practice-PrePaid-Monthly', 'Practice - Monthly (Pre-Paid)'));
+gAllRateTypes.push(new ValueDisplay('Practice-DropIn', 'Practice - Drop In'));
 gAllRateTypes.push(new ValueDisplay('Practice-Free', 'Practice - Free'));
-
 </script>
 
 
