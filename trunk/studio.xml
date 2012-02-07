@@ -110,7 +110,7 @@ function handleStudentQueryResponse(response) {
    * Process all Rows in the specified range
    */
   for (var row = 0; row < data.getNumberOfRows(); row++) {
-    gAllStudents.push(new Student(
+    gAllEntities.push(new Entity(
       data.getFormattedValue(row,1), //firstName
       data.getFormattedValue(row,2), //lastname
       data.getFormattedValue(row,7), //address
@@ -130,7 +130,7 @@ function handleStudentQueryResponse(response) {
     ));
   }
 
-  refreshSearchResult(gAllStudents);
+  refreshSearchResult(gAllEntities);
 }
 </script>
 
@@ -145,7 +145,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0206.2114";
+var VERSION = "12.0206.2116";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
