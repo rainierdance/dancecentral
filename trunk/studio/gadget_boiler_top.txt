@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="DanceCentral.info Studio Management"
+             description="DanceCentral.info Studio Management"
+             author="DanceCentral.info"
+             >
+<Require feature="idi"/>
+<Require feature="setprefs" />
+<Require feature="locked-domain" />
+</ModulePrefs>
+<UserPref name="studentDataUrl" display_name="Student Data url"
+          required="true"/>
+<UserPref name="teacherDataUrl" display_name="Teacher Data url"
+          required="true"/>
+<UserPref name="classesDataUrl" display_name="Classes Data url"
+          required="true"/>
+<Content type="html"><![CDATA[
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
+<script>
+/**
+ * Load the APIs and run sendStudentQuery when the load is complete
+ */
+var gadgetHelper = null;
+_IG_RegisterOnloadHandler(loadVisualizationAPI);
+function loadVisualizationAPI() {
+  google.load("visualization", "1");
+  google.setOnLoadCallback(sendTeacherQuery);
+}
+
+/**
+ * Create a query (shaped by the Gadget's user preferences), then
+ * send it to the spreadsheet data source. Also give the name of a
+ * function ("handleQueryResponse") to run once the spreadsheet data
+ * is retrieved:
+ */
+var prefs = new _IG_Prefs(); // User preferences
+
+function sendTeacherQuery() {
+  prefs.set('_table_query_url', prefs.getString('teacherDataUrl'));
+  gadgetHelper = new google.visualization.GadgetHelper();
+  var query = gadgetHelper.createQueryFromPrefs(prefs);
+  query.send(handleTeacherQueryResponse);
+}
+
+function handleTeacherQueryResponse(response) {
+  if (!gadgetHelper.validateResponse(response)) {
+    return;     // Default error handling was done, just leave.
+  }
+  var data = response.getDataTable();
+  for (var row = 0; row < data.getNumberOfRows(); row++) {
+    gAllTeachers.push(new Teacher(
+      data.getFormattedValue(row,1) //name
+    ));
+  }
+
+  sendClassesQuery();
+}
+
+function sendClassesQuery() {
+  prefs.set('_table_query_url', prefs.getString('classesDataUrl'));
+  gadgetHelper = new google.visualization.GadgetHelper();
+  var query = gadgetHelper.createQueryFromPrefs(prefs);
+  query.send(handleClassesQueryResponse);
+}
+
+function handleClassesQueryResponse(response) {
+  if (!gadgetHelper.validateResponse(response)) {
+    return;     // Default error handling was done, just leave.
+  }
+  var data = response.getDataTable();
+  for (var row = 0; row < data.getNumberOfRows(); row++) {
+    gAllClasses.push(new ValueDisplay(
+      data.getFormattedValue(row,0), //value
+      data.getFormattedValue(row,1) //display
+    ));
+  }
+  sendStudentQuery();
+}
+
+function sendStudentQuery() {
+  prefs.set('_table_query_url', prefs.getString('studentDataUrl'));
+  gadgetHelper = new google.visualization.GadgetHelper();
+  var query = gadgetHelper.createQueryFromPrefs(prefs);
+  query.send(handleStudentQueryResponse);
+}
+
+/**
+ * The core logic. Process the spreadsheet data however you want.
+ * In this case, we create HTML to be presented back to the user.
+ * We'll use inline comments to provide a step-by-step description
+ * of what we're doing:
+ */
+function handleStudentQueryResponse(response) {
+
+  /**
+   * Use the visualization GadgetHelper class to handle errors
+   */
+  if (!gadgetHelper.validateResponse(response)) {
+    return;     // Default error handling was done, just leave.
+  }
+
+  /**
+   * GET THE DATA FROM THE SPREADSHEET - sorry to scream in caps, but
+   * this is a key step
+   */
+  var data = response.getDataTable();
+
+  /**
+   * Process all Rows in the specified range
+   */
+  for (var row = 0; row < data.getNumberOfRows(); row++) {
+    gAllStudents.push(new Student(
+      data.getFormattedValue(row,1), //firstName
+      data.getFormattedValue(row,2), //lastname
+      data.getFormattedValue(row,7), //address
+      data.getFormattedValue(row,8), //city
+      data.getFormattedValue(row,9), //zip
+      data.getFormattedValue(row,3), //email
+      data.getFormattedValue(row,4), //phone
+      data.getFormattedValue(row,5), //referrer
+      data.getFormattedValue(row,10), //guardian
+      data.getFormattedValue(row,14), //note
+      data.getFormattedValue(row,0), //createTime
+      data.getFormattedValue(row,11), //gender
+      data.getFormattedValue(row,6), //primary teacher
+      data.getFormattedValue(row,12), //liability date
+      data.getFormattedValue(row,13), //photo consent date
+      row
+    ));
+  }
+
+  refreshSearchResult(gAllStudents);
+}
+</script>
+

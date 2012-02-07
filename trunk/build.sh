@@ -27,6 +27,7 @@ sed -e "s/var VERSION = .*$/var VERSION = \"$TIMESTAMP\";/g" | \
 sed -e "s#HREF=\"#HREF=\"http://dancecentral.googlecode.com/svn/trunk/$dirname/#" | \
 sed -e "s#SRC=\"#SRC=\"http://dancecentral.googlecode.com/svn/trunk/$dirname/#" | \
 sed -e "/src=\"data/d" | \
+sed -e "/localonly/d" | \
 sed -e "s#<!--DATA-->#<script type=\"text/javascript\" SRC=\"http://dancecentral.googlecode.com/svn/trunk/$DATAFILE\"></script>#" \
 > $dirname.xml
 
