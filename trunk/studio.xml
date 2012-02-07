@@ -18,6 +18,14 @@
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
 <script>
+function escapeHtml(text) {
+  if (text == null) {
+    return '';
+  }
+  //return _hesc(text);
+  return text;
+}
+
 /**
  * Load the APIs and run sendStudentQuery when the load is complete
  */
@@ -145,7 +153,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0206.2116";
+var VERSION = "12.0207.0824";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
