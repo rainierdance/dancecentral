@@ -161,7 +161,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0208.1438";
+var VERSION = "12.0208.1508";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -521,7 +521,7 @@ function logPayment() {
 var dayMapping = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 function isTodaysClass(classId) {
   var dayOfWeek = new Date().getDay(); // 0-6
-  return (classId.indexOf('-' + dayMapping[dayOfWeek] + '-') != -1);
+  return (classId.indexOf('_' + dayMapping[dayOfWeek] + '_') != -1);
 }
 
 var categoryFilters = {
