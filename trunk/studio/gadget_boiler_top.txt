@@ -87,7 +87,7 @@ function handleClassesQueryResponse(response) {
         data.getFormattedValue(row,6),
         data.getFormattedValue(row,7),
         data.getFormattedValue(row,8)
-        ]},
+        ]),
       data.getFormattedValue(row,1) //display
     ));
   }

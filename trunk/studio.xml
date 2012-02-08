@@ -87,7 +87,7 @@ function handleClassesQueryResponse(response) {
         data.getFormattedValue(row,6),
         data.getFormattedValue(row,7),
         data.getFormattedValue(row,8)
-        ]},
+        ]),
       data.getFormattedValue(row,1) //display
     ));
   }
@@ -161,7 +161,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0208.1435";
+var VERSION = "12.0208.1438";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
