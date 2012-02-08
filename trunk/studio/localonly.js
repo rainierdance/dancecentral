@@ -25,31 +25,31 @@ gAllTeachers.push(new Teacher('Kora Stoynova'));
 gAllTeachers.push(new Teacher('Simeon Stoynov'));
 gAllTeachers.push(new Teacher('Jeff Chen'));
 
-gAllClasses.push(new ValueDisplay('Series-2012-03-05-MON-19-15-INTL-WALTZ-1', 'Wednesday Waltz Level 1'));
-gAllClasses.push(new ValueDisplay('Series-2012-03-05-WED-19-15-INTL-TANGO-1', 'Wednesday Tango Level 1'));
-gAllClasses.push(new ValueDisplay('Series-2012-03-05-TUE-19-15-INTL-RUMBA-1', 'Thursday Rumba Level 1'));
-gAllClasses.push(new ValueDisplay('Series-2012-03-05-THU-19-15-INTL-VWALTZ-1', 'Thursday V.Waltz Level 1'));
-gAllClasses.push(new ValueDisplay('DropIn-YYYY-MM-DD-FRI-19-15-CLUB-HUSTLE-0', 'Friday Party'));
-gAllClasses.push(new ValueDisplay('DropIn-YYYY-MM-DD-SAT-19-15-CLUB-2STEP-0', 'Saturday 2 Step'));
+gAllClasses.push(new ValueDisplay('Series_3/5/2012_WED_7:15-PM_American-Smooth_Waltz_Level-1', 'Wednesday Waltz Level 1'));
+gAllClasses.push(new ValueDisplay('Series_2012_03_05_WED_19_15_INTL_TANGO_1', 'Wednesday Tango Level 1'));
+gAllClasses.push(new ValueDisplay('Series_2012_03_05_TUE_19_15_INTL_RUMBA_1', 'Thursday Rumba Level 1'));
+gAllClasses.push(new ValueDisplay('Series_2012_03_05_THU_19_15_INTL_VWALTZ_1', 'Thursday V.Waltz Level 1'));
+gAllClasses.push(new ValueDisplay('DropIn_YYYY_MM_DD_FRI_19_15_CLUB_HUSTLE_0', 'Friday Party'));
+gAllClasses.push(new ValueDisplay('DropIn_YYYY_MM_DD_SAT_19_15_CLUB_2STEP_0', 'Saturday 2 Step'));
 
-gAllClasses.push(new ValueDisplay('Party-YYYY-MM-DD-THU-21-30', 'Ballroom Party Thursday'));
-gAllClasses.push(new ValueDisplay('Party-YYYY-MM-DD-FRI-20-45', 'Salsa Party Friday'));
-gAllClasses.push(new ValueDisplay('Party-YYYY-MM-DD-SAT-20-00', 'Ballroom Party Saturday'));
-gAllClasses.push(new ValueDisplay('Party-YYYY-MM-DD-SUN-20-00', 'WC Swing Party Sunday'));
+gAllClasses.push(new ValueDisplay('Party_YYYY_MM_DD_THU_21_30', 'Ballroom Party Thursday'));
+gAllClasses.push(new ValueDisplay('Party_YYYY_MM_DD_FRI_20_45', 'Salsa Party Friday'));
+gAllClasses.push(new ValueDisplay('Party_YYYY_MM_DD_SAT_20_00', 'Ballroom Party Saturday'));
+gAllClasses.push(new ValueDisplay('Party_YYYY_MM_DD_SUN_20_00', 'WC Swing Party Sunday'));
 
-gAllClasses.push(new ValueDisplay('Children-2012-03-05-MON-LEVEL-1', "Children's Program - Monday Level 1"));
-gAllClasses.push(new ValueDisplay('Children-2012-03-05-WED-LEVEL-1', "Children's Program - Wednesday Level 1"));
+gAllClasses.push(new ValueDisplay('Children_2012_03_05_MON_LEVEL_1', "Children's Program _ Monday Level 1"));
+gAllClasses.push(new ValueDisplay('Children_2012_03_05_WED_LEVEL_1', "Children's Program _ Wednesday Level 1"));
 
-gAllClasses.push(new ValueDisplay('Youth-2012-03-05-MON-17-30-LEVEL-1', 'Youth - Monday Level 1'));
-gAllClasses.push(new ValueDisplay('Youth-2012-03-05-MON-17-30-LEVEL-2', 'Youth - Monday Level 2'));
-gAllClasses.push(new ValueDisplay('Youth-2012-03-05-TUE-17-30-LEVEL-3', 'Youth - Tuesday Level 3'));
-gAllClasses.push(new ValueDisplay('Youth-2012-03-05-TUE-17-30-LEVEL-4', 'Youth - Tuesday Level 4'));
-gAllClasses.push(new ValueDisplay('Youth-2012-03-05-WED-17-30-LEVEL-1', 'Youth - Wednesday Level 1'));
-gAllClasses.push(new ValueDisplay('Youth-2012-03-05-WED-17-30-LEVEL-2', 'Youth - Wednesday Level 2'));
-gAllClasses.push(new ValueDisplay('Youth-2012-03-05-TUE-17-30-LEVEL-3', 'Youth - Tuesday Level 3'));
-gAllClasses.push(new ValueDisplay('Youth-2012-03-05-THU-17-30-LEVEL-3', 'Youth - Thursday Level 3'));
-gAllClasses.push(new ValueDisplay('Youth-2012-03-05-THU-17-30-LEVEL-4', 'Youth - Thursday Level 4'));
-gAllClasses.push(new ValueDisplay('Youth-2012-03-05-FRI-17-30-COND', 'Youth - Friday Conditioning'));
+gAllClasses.push(new ValueDisplay('Youth_2012_03_05_MON_17_30_LEVEL_1', 'Youth _ Monday Level 1'));
+gAllClasses.push(new ValueDisplay('Youth_2012_03_05_MON_17_30_LEVEL_2', 'Youth _ Monday Level 2'));
+gAllClasses.push(new ValueDisplay('Youth_2012_03_05_TUE_17_30_LEVEL_3', 'Youth _ Tuesday Level 3'));
+gAllClasses.push(new ValueDisplay('Youth_2012_03_05_TUE_17_30_LEVEL_4', 'Youth _ Tuesday Level 4'));
+gAllClasses.push(new ValueDisplay('Youth_2012_03_05_WED_17_30_LEVEL_1', 'Youth _ Wednesday Level 1'));
+gAllClasses.push(new ValueDisplay('Youth_2012_03_05_WED_17_30_LEVEL_2', 'Youth _ Wednesday Level 2'));
+gAllClasses.push(new ValueDisplay('Youth_2012_03_05_TUE_17_30_LEVEL_3', 'Youth _ Tuesday Level 3'));
+gAllClasses.push(new ValueDisplay('Youth_2012_03_05_THU_17_30_LEVEL_3', 'Youth _ Thursday Level 3'));
+gAllClasses.push(new ValueDisplay('Youth_2012_03_05_THU_17_30_LEVEL_4', 'Youth _ Thursday Level 4'));
+gAllClasses.push(new ValueDisplay('Youth_2012_03_05_FRI_17_30_COND', 'Youth _ Friday Conditioning'));
 
-gAllClasses.push(new ValueDisplay('Round-YYYY-MM-DD-SUN-16-30-Standard', 'Standard Round'));
-gAllClasses.push(new ValueDisplay('Round-YYYY-MM-DD-SUN-17-15-Latin', 'Latin Round'));
+gAllClasses.push(new ValueDisplay('Round_YYYY_MM_DD_SUN_16_30_Standard', 'Standard Round'));
+gAllClasses.push(new ValueDisplay('Round_YYYY_MM_DD_SUN_17_15_Latin', 'Latin Round'));

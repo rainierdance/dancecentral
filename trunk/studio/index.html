@@ -369,7 +369,7 @@ function logPayment() {
 var dayMapping = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 function isTodaysClass(classId) {
   var dayOfWeek = new Date().getDay(); // 0-6
-  return (classId.indexOf('-' + dayMapping[dayOfWeek] + '-') != -1);
+  return (classId.indexOf('_' + dayMapping[dayOfWeek] + '_') != -1);
 }
 
 var categoryFilters = {
