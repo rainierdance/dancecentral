@@ -79,7 +79,15 @@ function handleClassesQueryResponse(response) {
   var data = response.getDataTable();
   for (var row = 0; row < data.getNumberOfRows(); row++) {
     gAllClasses.push(new ValueDisplay(
-      data.getFormattedValue(row,0), //value
+      getClassID([
+        data.getFormattedValue(row,2),
+        data.getFormattedValue(row,3),
+        data.getFormattedValue(row,4),
+        data.getFormattedValue(row,5),
+        data.getFormattedValue(row,6),
+        data.getFormattedValue(row,7),
+        data.getFormattedValue(row,8)
+        ]},
       data.getFormattedValue(row,1) //display
     ));
   }
