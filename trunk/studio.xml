@@ -79,7 +79,15 @@ function handleClassesQueryResponse(response) {
   var data = response.getDataTable();
   for (var row = 0; row < data.getNumberOfRows(); row++) {
     gAllClasses.push(new ValueDisplay(
-      data.getFormattedValue(row,0), //value
+      getClassID([
+        data.getFormattedValue(row,2),
+        data.getFormattedValue(row,3),
+        data.getFormattedValue(row,4),
+        data.getFormattedValue(row,5),
+        data.getFormattedValue(row,6),
+        data.getFormattedValue(row,7),
+        data.getFormattedValue(row,8)
+        ]},
       data.getFormattedValue(row,1) //display
     ));
   }
@@ -153,7 +161,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0207.0824";
+var VERSION = "12.0208.1435";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -170,7 +178,7 @@ var gAllTeachers = [];
 var gAllSignInTypes = []; // value,display pair
 var gAllRateTypes = [];
 var gSelectedEntity = null; // Entity object
-var gSelectedSignInTypeValue = null;
+var gSelectedSignInTypeIndex = null;
 
 ////////////////////////////////////////////////////////////////////////
 <!-- Utilities -->
@@ -178,6 +186,11 @@ function formatDate(dateObj) {
   return dateObj.getFullYear() + '-' +
    ('' + (100 + dateObj.getMonth() + 1)).substring(1) + '-' +
    ('' + (100 + dateObj.getDate())).substring(1);
+}
+
+// return the class ID of the format Series-2012-03-05-MON-19-15-AM-WALTZ-1
+function getClassID (keys) {
+  return keys.join('_').replace(/ /g, '-');
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -345,8 +358,8 @@ function selectEntity(index) {
   var html = [];
   var len = gAllSignInTypes.length;
   for (var i = 0; i< len; i++ ) {
-    html.push('<a href="javascript:void(0)" onClick="changeSignInType(\'' +
-      gAllSignInTypes[i].value+ '\')"/>' + gAllSignInTypes[i].display + '</a> &nbsp;&nbsp;');
+    html.push('<a href="javascript:void(0)" onClick="changeSignInType(' +
+      i + ')"/>' + gAllSignInTypes[i].display + '</a> &nbsp;&nbsp;');
   }
   element.innerHTML = html.join('');
 
@@ -402,18 +415,19 @@ function fillInDateTime() {
   }
 }
 
-function changeSignInType(signInTypeValue) {
-  gSelectedSignInTypeValue = signInTypeValue;
+function changeSignInType(signInTypeIndex) {
+  gSelectedSignInTypeIndex = signInTypeIndex;
+  var signInTypeValue = gAllSignInTypes[gSelectedSignInTypeIndex].value;
 
   // re-render to highlight the currently selected sign in type
   var html = [];
   var len = gAllSignInTypes.length;
   for (var i = 0; i< len; i++ ) {
-    if (gAllSignInTypes[i].value == gSelectedSignInTypeValue) {
+    if (gAllSignInTypes[i].value == signInTypeValue) {
       html.push('<b>' + gAllSignInTypes[i].display + '</b> &nbsp;&nbsp;');
     } else {
-    html.push('<a href="javascript:void(0)" onClick="changeSignInType(\'' +
-      gAllSignInTypes[i].value+ '\')"/>' + gAllSignInTypes[i].display + '</a> &nbsp;&nbsp;');
+    html.push('<a href="javascript:void(0)" onClick="changeSignInType(' +
+      i + ')"/>' + gAllSignInTypes[i].display + '</a> &nbsp;&nbsp;');
     }
   }
   _gel('fieldType').innerHTML = html.join('');
@@ -510,15 +524,26 @@ function isTodaysClass(classId) {
   return (classId.indexOf('-' + dayMapping[dayOfWeek] + '-') != -1);
 }
 
+var categoryFilters = {
+  'Group' : ['Series', 'DropIn', 'Party', 'Round'],
+  'Youth' : ['Children', 'Youth']
+}
+
 function fillInClasses(onlyToday) {
   var html = [];
   var selectedClasses = [];
   var len = gAllClasses.length;
+  var categoryFilter = categoryFilters[gAllSignInTypes[gSelectedSignInTypeIndex].value];
   for (var i = 0; i< len; i++) {
-    if (gAllClasses[i].value.indexOf(gSelectedSignInTypeValue) == 0) {
-      // check today's classes by default
-      if (!onlyToday || isTodaysClass(gAllClasses[i].value))
+    if (!onlyToday || isTodaysClass(gAllClasses[i].value)){
+      if (!categoryFilter || categoryFilter.length == 0)  // no filter, take all
         selectedClasses.push(gAllClasses[i]);
+      for (var j=0; j<categoryFilter.length; j++ ) {
+        if (gAllClasses[i].value.indexOf(categoryFilter[j]) == 0) {
+          selectedClasses.push(gAllClasses[i]);
+          break;
+        }
+      }
     }
   }
 
@@ -550,7 +575,7 @@ function fillInRateTypes() {
   var cols = 0;
   var cntTypes = 0;
   for (var i = 0; i< len; i++ ) {
-    if (gAllRateTypes[i].value.indexOf(gSelectedSignInTypeValue) == 0) {
+    if (gAllRateTypes[i].value.indexOf(gAllSignInTypes[gSelectedSignInTypeIndex].value) == 0) {
       if (cols == 0) html.push('<tr>');
       var label = "idRate" + i;
       html.push('<td><input type=radio name="rRate" id="' + label+ '" value="' + 
@@ -726,7 +751,7 @@ function updateTotal() {
 
 function onSignIn() {
   _gel('entry_0').value = gSelectedEntity.getName();
-  _gel('entry_4').value = gSelectedSignInTypeValue;
+  _gel('entry_4').value = gAllSignInTypes[gSelectedSignInTypeIndex].value;
   _gel('entry_6').value = _gel('entry_prep_date').value;
 
   var select = _gel('startTimeHour');
