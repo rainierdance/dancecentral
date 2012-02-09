@@ -80,15 +80,15 @@ function handleClassesQueryResponse(response) {
   for (var row = 0; row < data.getNumberOfRows(); row++) {
     gAllClasses.push(new ValueDisplay(
       getClassID([
-        data.getFormattedValue(row,2),
+        data.getFormattedValue(row,1),
+        data.getFormattedValue(row,2) ? data.getFormattedValue(row,3) : 'YYYY-MM-DD', // date will be replaced
         data.getFormattedValue(row,3),
         data.getFormattedValue(row,4),
         data.getFormattedValue(row,5),
         data.getFormattedValue(row,6),
-        data.getFormattedValue(row,7),
-        data.getFormattedValue(row,8)
+        data.getFormattedValue(row,7)
         ]),
-      data.getFormattedValue(row,1) //display
+      data.getFormattedValue(row,0) //display, class name
     ));
   }
   sendStudentQuery();
@@ -161,7 +161,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0208.1508";
+var VERSION = "12.0209.0956";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
