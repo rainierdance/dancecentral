@@ -161,7 +161,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0209.1154";
+var VERSION = "12.0209.1208";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1070,6 +1070,7 @@ gAllRateTypes.push(new ValueDisplay('Group-Series-PrePaid', 'Group Series Rate (
 gAllRateTypes.push(new ValueDisplay('Group-Punch-PrePaid', 'Punch Card (Pre-Paid)'));
 gAllRateTypes.push(new ValueDisplay('Group-DropIn', 'Group DropIn Rate'));
 gAllRateTypes.push(new ValueDisplay('Group-Free', 'Free'));
+gAllRateTypes.push(new ValueDisplay('Group-Teach', 'Teach the class'));
 gAllRateTypes.push(new ValueDisplay('Party-Only', 'Party Only: $10'));
 gAllRateTypes.push(new ValueDisplay('Party-Class-1', 'Party with 1 class discount: $5'));
 gAllRateTypes.push(new ValueDisplay('Party-Class-2', 'Party free with 2 classes'));
