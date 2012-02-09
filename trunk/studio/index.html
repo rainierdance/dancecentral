@@ -224,6 +224,25 @@ function fillInDateTime() {
   var start = now;
   var hour = start.getHours();
   var min = start.getMinutes();
+
+  // use text box
+  var value = (hour >= 12 ? 'pm' : 'am');
+  if (hour > 12) {
+    hour = hour -12;
+  }
+
+  element = _gel('startTimeAmPm');
+  var len = element.options.length;
+  for ( var i=0; i<len; i++) {
+   var option = element.options[i];
+   if (option.value == value)
+    option.selected = true;
+  }
+
+  _gel('startTimeHour').value = hour;
+  _gel('startTimeMin').value = min;
+
+/* changed to use textbox, exact time of sign in
   var start_min = (min - (min % 15)+15) % 60;
   var start_hour = hour;
   if (min > start_min) start_hour++; // advance hour
@@ -261,6 +280,7 @@ function fillInDateTime() {
    if (option.value == value)
     option.selected = true;
   }
+*/
 }
 
 function changeSignInType(signInTypeIndex) {
@@ -286,8 +306,10 @@ function changeSignInType(signInTypeIndex) {
 
   if (signInTypeValue.indexOf('Group') == 0) {
     signInGroup();
+  } else if (signInTypeValue.indexOf('Party') == 0) {
+    signInGroup();
   } else if (signInTypeValue.indexOf('Youth') == 0) {
-    signInGroup(true); // hide payment
+    signInYouth();
   } else if (signInTypeValue.indexOf('Practice') == 0) {
     signInPractice();
   } else if (signInTypeValue.indexOf('Private') == 0) {
@@ -304,6 +326,7 @@ function clearFields() {
   // reset fields that are hidden
   _gel('fieldTeachers').innerHTML=''
   _gel('entry_prep_length').value='';
+  _gel('entry_prep_length_hr').value='';
   _gel('fieldClasses').innerHTML=''
   _gel('fieldRate').innerHTML=''
 
@@ -314,17 +337,30 @@ function clearFields() {
   _gel('idFrameSubmit').src = 'about:blank';
 }
 
-function signInGroup(hidePayment) {
+function signInGroup() {
   // hide unused fields
   _gel("trTeacher").style.display='None';
   _gel("trLength").style.display='None';
   _gel("trClasses").style.display='';
-  _gel("trPayment").style.display=(hidePayment ? 'None' : '');
+  _gel("trPayment").style.display='';
   _gel('trPackages').style.display = 'None';
   _gel('trDateTime').style.display = '';
   _gel("trRateType").style.display='';
 
   fillInRateTypes();
+  fillInClasses(true);
+}
+
+function signInYouth(hidePayment) {
+  // hide unused fields
+  _gel("trTeacher").style.display='None';
+  _gel("trLength").style.display='None';
+  _gel("trClasses").style.display='';
+  _gel("trPayment").style.display='None';
+  _gel('trPackages').style.display = 'None';
+  _gel('trDateTime').style.display = '';
+  _gel("trRateType").style.display='None';
+
   fillInClasses(true);
 }
 
@@ -373,7 +409,8 @@ function isTodaysClass(classId) {
 }
 
 var categoryFilters = {
-  'Group' : ['Series', 'DropIn', 'Party', 'Round'],
+  'Group' : ['Series', 'DropIn'],
+  'Party' : ['Party', 'Round'],
   'Youth' : ['Children', 'Youth']
 }
 
@@ -602,12 +639,19 @@ function onSignIn() {
   _gel('entry_4').value = gAllSignInTypes[gSelectedSignInTypeIndex].value;
   _gel('entry_6').value = _gel('entry_prep_date').value;
 
-  var select = _gel('startTimeHour');
-  var value = select.options[select.selectedIndex].value;
+  var select, value;
+/*
+  select = _gel('startTimeHour');
+  value = select.options[select.selectedIndex].value;
   select = _gel('startTimeMin');
   value += ':' + select.options[select.selectedIndex].value;
   select = _gel('startTimeAmPm');
-  value += select.options[select.selectedIndex].value;
+*/
+  // do text box
+  select = _gel('startTimeAmPm');
+  value = _gel('startTimeHour').value + ':' +
+    _gel('startTimeMin').value + 
+   select.options[select.selectedIndex].value;
 
   _gel('entry_8').value = value; // start time
 
@@ -625,7 +669,7 @@ function onSignIn() {
   }
 
   // replace placeholder date
-  var valueClasses = values.join(',').replace(/YYYY-MM-DD/g,  _gel('entry_prep_date').value);
+  var valueClasses = values.join(', ').replace(/YYYY-MM-DD/g,  _gel('entry_prep_date').value);
   _gel('entry_9').value = valueClasses;
 
   select = _gel('selectTeacher');
@@ -643,7 +687,14 @@ function onSignIn() {
     }
   }
 
-  _gel('entry_11').value = _gel('entry_prep_length').value;
+  // private lessons, 1 hr lesson is logged as 1.5 in sign in log
+  value = parseInt(_gel('entry_prep_length').value);
+  var value_hr = parseInt(_gel('entry_prep_length_hr').value);
+  var length = 0;
+  if (!isNaN(value)) length += value;
+  if (!isNaN(value_hr)) length += (value_hr * 1.5);
+
+  _gel('entry_11').value = (length > 0) ? length : '';
   _gel('entry_5').value = _gel('entry_prep_note').value;
 
   _gel('entry_12').value = _gel('entry_prep_payment_total').value;
@@ -715,6 +766,9 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 
 <tr id="trDateTime"><td width=150>Date and Time</td><td>
 <input type="text" name="entry.6.single" value=""  id="entry_prep_date"> &nbsp;
+<input type="text" value=""  id="startTimeHour" size=2> : 
+<input type="text" value=""  id="startTimeMin" size=2> 
+<!-- changed to use text box
 <select id='startTimeHour'>
 <option>12</option>
 <option>1</option>
@@ -735,10 +789,12 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 <option>30</option>
 <option>45</option>
 </select>
+!-->
 <select id='startTimeAmPm'>
 <option>am</option>
 <option>pm</option>
 </select>
+
 </td</tr>
 
 <tr id="trClasses"><td>Classes <a href="javascript:void(0)" onclick="fillInClasses(false)">show all</a></td><td>
@@ -750,7 +806,8 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 </td></tr>
 
 <tr id="trLength"><td>Length</td><td>
-<input type="text" name="entry.6.single" value=""  id="entry_prep_length" size=5><br>
+<input type="text" name="entry.6.single" value=""  id="entry_prep_length" size=3> 45-min lesson &nbsp; &nbsp; &nbsp;
+<input type="text" value=""  id="entry_prep_length_hr" size=3> 1-hour lesson<br>
 </td></tr>
 
 <tr id="trRateType"><td>Rate type</td><td>
@@ -801,7 +858,7 @@ Payment discount: <input type='text' value="" id="entry_prep_payment_discount" s
 <!-- End of preparation form>
 
 <!-- Normally hidden, the actual form used to post to Google Spreadsheet -->
-<div style="display:None">
+<div style="display:visible">
 <form target="frmSubmit" 
   action="https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?hl=en_US&amp;formkey=dC1ScmpPZF9pWG9qQ1JraWkyMi1GZmc6MQ&amp;ifq" 
   method="POST" id="ss-form">
@@ -850,7 +907,8 @@ Note: <textarea name="entry.5.single" rows="8" cols="75"  id="entry_5"></textare
 // The value of each SignInType is used to map Group classes' value and RateType values 
 // to filter the classes rate types to display
 
-gAllSignInTypes.push(new ValueDisplay('Group', 'Group Classes & Parties'));
+gAllSignInTypes.push(new ValueDisplay('Group', 'Group Classes'));
+gAllSignInTypes.push(new ValueDisplay('Party', 'Parties and Rounds'));
 gAllSignInTypes.push(new ValueDisplay('Youth', 'Youth & Children'));
 gAllSignInTypes.push(new ValueDisplay('Private', 'Private Lesson'));
 gAllSignInTypes.push(new ValueDisplay('Practice', 'Practice'));
@@ -859,10 +917,12 @@ gAllSignInTypes.push(new ValueDisplay('Payment', 'Pay Fees / Packages'));
 gAllRateTypes.push(new ValueDisplay('Group-Series-PrePaid', 'Group Series Rate (Pre-Paid)'));
 gAllRateTypes.push(new ValueDisplay('Group-Punch-PrePaid', 'Punch Card (Pre-Paid)'));
 gAllRateTypes.push(new ValueDisplay('Group-DropIn', 'Group DropIn Rate'));
-gAllRateTypes.push(new ValueDisplay('Group-Party-Class-1', 'Party and Class Rate'));
-gAllRateTypes.push(new ValueDisplay('Group-Party-Only', 'Party Only'));
-gAllRateTypes.push(new ValueDisplay('Group-Round', 'Competitive Round Rate'));
 gAllRateTypes.push(new ValueDisplay('Group-Free', 'Free'));
+gAllRateTypes.push(new ValueDisplay('Party-Only', 'Party Only: $10'));
+gAllRateTypes.push(new ValueDisplay('Party-Class-1', 'Party with 1 class discount: $5'));
+gAllRateTypes.push(new ValueDisplay('Party-Class-2', 'Party free with 2 classes'));
+gAllRateTypes.push(new ValueDisplay('Party-Round', 'Competitive Round'));
+gAllRateTypes.push(new ValueDisplay('Party-Free', 'Free'));
 
 gAllRateTypes.push(new ValueDisplay('Practice-PrePaid-Monthly', 'Practice - Monthly (Pre-Paid)'));
 gAllRateTypes.push(new ValueDisplay('Practice-DropIn', 'Practice - Drop In'));
