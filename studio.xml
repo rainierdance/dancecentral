@@ -161,7 +161,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0209.1208";
+var VERSION = "12.0209.1343";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -689,6 +689,7 @@ function updatePrivateTotal() {
   updateTotal();
 }
 
+/*
 function updateWeddingTotal() {
   var value, amount;
   // pricing for wedding
@@ -708,6 +709,7 @@ function updateWeddingTotal() {
   }
   updateTotal();
 }
+*/
 
 function updatePracticeTotal() {
   var value, amount;
@@ -774,14 +776,63 @@ function updateYouthTotal() {
   updateTotal();
 }
 
+//var packageSuffix = ['series', 'punch', 'private', 'wedding', 'practice', 'floor', 'child', 'youth'];
+var packageSuffix = ['series', 'punch', 'private', 'practice', 'floor', 'child', 'youth'];
+//TODO: update
+var specials = {
+  'Wedding' : [ // array of [#, $] for each type in the package Suffix
+   [0, 0], //series
+   [0, 0], //punch
+   [2, 99], //private
+//   [2, 99], //wedding
+   [0, 0], //practice
+   [0, 0], //floor
+   [0, 0], //child
+   [0, 0], //youth
+  ],
+  'Intro' : [
+   [1, 13], //series
+   [4, 13], //punch
+   [1, 24], //private
+//   [0, 0], //wedding
+   [0, 0], //practice
+   [0, 0], //floor
+   [0, 0], //child
+   [0, 0], //youth
+  ],
+  'None' : [
+   [0, 0], //series
+   [0, 0], //punch
+   [0, 0], //private
+//   [0, 0], //wedding
+   [0, 0], //practice
+   [0, 0], //floor
+   [0, 0], //child
+   [0, 0], //youth
+  ]
+}
+
+function onSpecial(keySpecial) {
+  var special = specials[keySpecial];
+  for (var i = 0; i < packageSuffix.length; i++) {
+   _gel('entry_prep_payment_num_' + packageSuffix[i]).value = (special[i][0] == 0 ? '' : special[i][0]);
+   _gel('entry_prep_payment_amt_' + packageSuffix[i]).value = (special[i][1] == 0 ? '' : special[i][1]);
+  }
+  if (keySpecial != 'None') {
+    _gel('entry_prep_payment_discount').value = keySpecial + ' Special';
+  } else {
+    _gel('entry_prep_payment_discount').value = '';
+  }
+  updateTotal();
+}
+
 function updateTotal() {
   // recalculate the grand total
-  var suffix = ['series', 'punch', 'private', 'wedding', 'practice', 'floor', 'child', 'youth'];
   var amount = 0;
-  for (var i = 0; i < suffix.length; i++) {
-   if (_gel('entry_prep_payment_amt_' + suffix[i]) &&
-       _gel('entry_prep_payment_amt_' + suffix[i]).value) {
-        amount += parseInt(_gel('entry_prep_payment_amt_' + suffix[i]).value); }
+  for (var i = 0; i < packageSuffix.length; i++) {
+   if (_gel('entry_prep_payment_amt_' + packageSuffix[i]) &&
+       _gel('entry_prep_payment_amt_' + packageSuffix[i]).value) {
+        amount += parseInt(_gel('entry_prep_payment_amt_' + packageSuffix[i]).value); }
   }
   _gel('entry_prep_payment_total').value = amount;
 }
@@ -865,7 +916,7 @@ function onSignIn() {
   _gel('entry_14').value = _gel('entry_prep_payment_num_series').value;
   _gel('entry_15').value = _gel('entry_prep_payment_num_punch').value;
   _gel('entry_16').value = _gel('entry_prep_payment_num_private').value;
-  _gel('entry_17').value = _gel('entry_prep_payment_num_wedding').value;
+//  _gel('entry_17').value = _gel('entry_prep_payment_num_wedding').value;
   _gel('entry_18').value = _gel('entry_prep_payment_num_child').value;
   _gel('entry_19').value = _gel('entry_prep_payment_num_youth').value;
   _gel('entry_20').value = _gel('entry_prep_payment_num_practice').value;
@@ -873,7 +924,7 @@ function onSignIn() {
   _gel('entry_22').value = _gel('entry_prep_payment_amt_series').value;
   _gel('entry_23').value = _gel('entry_prep_payment_amt_punch').value;
   _gel('entry_24').value = _gel('entry_prep_payment_amt_private').value;
-  _gel('entry_25').value = _gel('entry_prep_payment_amt_wedding').value;
+//  _gel('entry_25').value = _gel('entry_prep_payment_amt_wedding').value;
   _gel('entry_26').value = _gel('entry_prep_payment_amt_child').value;
   _gel('entry_27').value = _gel('entry_prep_payment_amt_youth').value;
   _gel('entry_28').value = _gel('entry_prep_payment_amt_practice').value;
@@ -971,31 +1022,42 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 <table>
 <tr><td><input type='text' value="" id="entry_prep_payment_num_series" size=3 onchange="updateSeriesTotal()"> Number of Group Series sessions </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_series" onchange="updateTotal()" size=3></td></tr>
-<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_punch" size=3  onchange="updatePunchTotal()"> Number of Punch Card classes </td>
+<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_punch" size=3  onchange="updatePunchTotal()"> Number of Punch Cards</td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_punch" onchange="updateTotal()" size=3></td></tr>
 <tr><td><input type='text' value="" id="entry_prep_payment_num_private" size=3 onchange="updatePrivateTotal()"> Number of Private Lessons </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_private" onchange="updateTotal()" size=3></td></tr>
-<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_wedding"  onchange="updateWeddingTotal()" onchange="updateTotal()" size=3> Number of Lessons for Wedding Dance </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_wedding" onchange="updateTotal()" size=3></td></tr>
-<tr><td><input type='text' value="" id="entry_prep_payment_num_child" size=3  onchange="updateChildrenTotal()"> Number of students in Children's Program </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_child" onchange="updateTotal()" size=3></td></tr>
 <tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_youth"  onchange="updateYouthTotal()" onchange="updateTotal()" size=3> Number of students in Youth Program </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_youth" onchange="updateTotal()" size=3></td></tr>
-<tr><td><input type='text' value="" id="entry_prep_payment_num_practice" size=3  onchange="updatePracticeTotal()"> Number of dancers for Monthly Practice </td>
+<tr><td><input type='text' value="" id="entry_prep_payment_num_child" size=3  onchange="updateChildrenTotal()"> Number of students in Children's Program </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_child" onchange="updateTotal()" size=3></td></tr>
+<tr  style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_practice" size=3  onchange="updatePracticeTotal()"> Number of dancers for Monthly Practice </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_practice" onchange="updateTotal()" size=3></td></tr>
-<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_floor"  onchange="updateFloorTotal()" onchange="updateTotal()" size=3> Number of lessons for Floor Fees </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_floor" onchange="updateTotal()" size=3></td></tr>
+<tr><td><input type='text' value="" id="entry_prep_payment_num_floor"  onchange="updateFloorTotal()" onchange="updateTotal()" size=3> Number of lessons for Floor Fees </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_floor" onchange="updateTotal()" size=3>
+</td>
+</tr>
+<!--
+<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_wedding"  onchange="updateWeddingTotal()" onchange="updateTotal()" size=3> Number of Lessons for Wedding Dance </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_wedding" onchange="updateTotal()" size=3></td></tr>
+-->
 </table>
+<p>
+Specials:<br>
+<input type='radio' value="Intro" name="rSpecial" id='labelSpecialIntro' onclick="onSpecial('Intro')"> <label for="labelSpecialIntro">Introductory Special</label>
+&nbsp; &nbsp; &nbsp;
+<input type='radio' value="Wedding" name="rSpecial" id='labelSpecialWedding' onclick="onSpecial('Wedding')"> <label for="labelSpecialWedding">Wedding Special</label>
+&nbsp; &nbsp; &nbsp;
+<input type='radio' value="None" name="rSpecial" id='labelSpecialNone' onclick="onSpecial('None')" checked> <label for="labelSpecialNone">None</label>
 </span>
 </td>
 </tr>
 
 <tr id="trPayment"><td>Total Payment</td><td>
-<input type='text' value="" id="entry_prep_payment_total" size=6>&nbsp;&nbsp;
+<input type='text' value="" id="entry_prep_payment_total" size=6 readonly>&nbsp;&nbsp;
 <input type='radio' value="Cash" name="rPaymentMethod" id='labelPrepMethodCash' ><label for="labelPrepMethodCash">Cash</label> &nbsp;&nbsp;
 <input type='radio' value="Check" name="rPaymentMethod" id='labelPrepMethodCheck' ><label for="labelPrepMethodCheck">Check</label>&nbsp;&nbsp; 
 <input type='radio' value="CreditCard" name="rPaymentMethod" id='labelPrepMethodCC' ><label for="labelPrepMethodCC">Credit Card</label><br>
-Payment discount: <input type='text' value="" id="entry_prep_payment_discount" size=10>&nbsp;&nbsp;
+Payment discount: <input type='text' value="" id="entry_prep_payment_discount" size=40>&nbsp;&nbsp;
 
 </td></tr>
 
@@ -1010,7 +1072,7 @@ Payment discount: <input type='text' value="" id="entry_prep_payment_discount" s
 <!-- End of preparation form>
 
 <!-- Normally hidden, the actual form used to post to Google Spreadsheet -->
-<div style="display:None">
+<div style="display:visiable">
 <form target="frmSubmit" 
   action="https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?hl=en_US&amp;formkey=dC1ScmpPZF9pWG9qQ1JraWkyMi1GZmc6MQ&amp;ifq" 
   method="POST" id="ss-form">
@@ -1067,13 +1129,14 @@ gAllSignInTypes.push(new ValueDisplay('Practice', 'Practice'));
 gAllSignInTypes.push(new ValueDisplay('Payment', 'Pay Fees / Packages'));
 
 gAllRateTypes.push(new ValueDisplay('Group-Series-PrePaid', 'Group Series Rate (Pre-Paid)'));
-gAllRateTypes.push(new ValueDisplay('Group-Punch-PrePaid', 'Punch Card (Pre-Paid)'));
+gAllRateTypes.push(new ValueDisplay('Group-PunchCard-PrePaid', 'Punch Card (Pre-Paid)'));
 gAllRateTypes.push(new ValueDisplay('Group-DropIn', 'Group DropIn Rate'));
 gAllRateTypes.push(new ValueDisplay('Group-Free', 'Free'));
-gAllRateTypes.push(new ValueDisplay('Group-Teach', 'Teach the class'));
+gAllRateTypes.push(new ValueDisplay('Group-Teach', 'Teach the Class'));
 gAllRateTypes.push(new ValueDisplay('Party-Only', 'Party Only: $10'));
 gAllRateTypes.push(new ValueDisplay('Party-Class-1', 'Party with 1 class discount: $5'));
 gAllRateTypes.push(new ValueDisplay('Party-Class-2', 'Party free with 2 classes'));
+gAllRateTypes.push(new ValueDisplay('Party-PunchCard-PrePaid', 'Punch Card (Pre-Paid)'));
 gAllRateTypes.push(new ValueDisplay('Party-Round', 'Competitive Round'));
 gAllRateTypes.push(new ValueDisplay('Party-Free', 'Free'));
 
