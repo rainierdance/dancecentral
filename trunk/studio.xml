@@ -161,7 +161,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0209.1343";
+var VERSION = "12.0211.0935";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1072,7 +1072,7 @@ Payment discount: <input type='text' value="" id="entry_prep_payment_discount" s
 <!-- End of preparation form>
 
 <!-- Normally hidden, the actual form used to post to Google Spreadsheet -->
-<div style="display:visiable">
+<div style="display:none">
 <form target="frmSubmit" 
   action="https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?hl=en_US&amp;formkey=dC1ScmpPZF9pWG9qQ1JraWkyMi1GZmc6MQ&amp;ifq" 
   method="POST" id="ss-form">
@@ -1133,6 +1133,7 @@ gAllRateTypes.push(new ValueDisplay('Group-PunchCard-PrePaid', 'Punch Card (Pre-
 gAllRateTypes.push(new ValueDisplay('Group-DropIn', 'Group DropIn Rate'));
 gAllRateTypes.push(new ValueDisplay('Group-Free', 'Free'));
 gAllRateTypes.push(new ValueDisplay('Group-Teach', 'Teach the Class'));
+gAllRateTypes.push(new ValueDisplay('Group-ED-PunchCard-PrePaid', 'Emotions DanceSport Punch Card'));
 gAllRateTypes.push(new ValueDisplay('Party-Only', 'Party Only: $10'));
 gAllRateTypes.push(new ValueDisplay('Party-Class-1', 'Party with 1 class discount: $5'));
 gAllRateTypes.push(new ValueDisplay('Party-Class-2', 'Party free with 2 classes'));
