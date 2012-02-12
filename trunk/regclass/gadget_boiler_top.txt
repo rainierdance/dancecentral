@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="DanceCentral.info Studio Management - Classes"
+             description="DanceCentral.info Studio Management"
+             author="DanceCentral.info"
+             >
+<Require feature="idi"/>
+<Require feature="setprefs" />
+<Require feature="locked-domain" />
+</ModulePrefs>
+<UserPref name="classesDataUrl" display_name="Classes Data url"
+          required="true"/>
+<Content type="html"><![CDATA[
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
+<script>
+function escapeHtml(text) {
+  if (text == null) {
+    return '';
+  }
+  //return _hesc(text);
+  return text;
+}
+
+/**
+ * Load the APIs and run sendStudentQuery when the load is complete
+ */
+var gadgetHelper = null;
+_IG_RegisterOnloadHandler(loadVisualizationAPI);
+function loadVisualizationAPI() {
+  google.load("visualization", "1");
+  google.setOnLoadCallback(sendClassesQuery);
+}
+
+/**
+ * Create a query (shaped by the Gadget's user preferences), then
+ * send it to the spreadsheet data source. Also give the name of a
+ * function ("handleQueryResponse") to run once the spreadsheet data
+ * is retrieved:
+ */
+var prefs = new _IG_Prefs(); // User preferences
+
+function sendClassesQuery() {
+  prefs.set('_table_query_url', prefs.getString('classesDataUrl'));
+  gadgetHelper = new google.visualization.GadgetHelper();
+  var query = gadgetHelper.createQueryFromPrefs(prefs);
+  query.send(handleClassesQueryResponse);
+}
+
+function handleClassesQueryResponse(response) {
+  if (!gadgetHelper.validateResponse(response)) {
+    return;     // Default error handling was done, just leave.
+  }
+  var data = response.getDataTable();
+  for (var row = 0; row < data.getNumberOfRows(); row++) {
+    gAllClasses.push({
+      'title' : data.getFormattedValue(row,0),
+      'category' : data.getFormattedValue(row,1), 
+      'start_date' : data.getFormattedValue(row,2), // could be empty
+      'day_of_week' :data.getFormattedValue(row,3),
+      'start_time' : data.getFormattedValue(row,4),
+      'style': data.getFormattedValue(row,5),
+      'dance_name' : data.getFormattedValue(row,6),
+      'level' : data.getFormattedValue(row,7), 
+      'description' : data.getFormattedValue(row,8)
+    });
+  }
+
+  showClasses();
+}
+
+</script>
+
