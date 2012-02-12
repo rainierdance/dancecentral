@@ -53,7 +53,7 @@ function handleClassesQueryResponse(response) {
   }
   var data = response.getDataTable();
   for (var row = 0; row < data.getNumberOfRows(); row++) {
-    var cateogry = data.getFormattedValue(row,1);
+    var category = data.getFormattedValue(row,1);
     if (category == 'Youth' || category == 'Children') continue;
     gAllClasses.push({
       'title' : data.getFormattedValue(row,0),

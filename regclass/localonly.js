@@ -36,7 +36,46 @@ gAllClasses.push({
   'start_date': '2/5/2012',
   'day_of_week': 'TUE',
   'start_time': '2:00 PM',
-  'style': 'International Latin, International Standard',
+  'style': 'International Standard',
+  'dance_name': 'Rumba',
+  'level':'Level 1',
+  'description': 'ISTD syllabus figures and technique for Jive at the "Associate" or "Bronze" level. Prerequisite is Level 1 Jive.',
+  'teacher' : 'Simeon',
+  'bio' : 'http://foo'
+  });
+gAllClasses.push({
+  'title' : 'Intl. Latin Level 1 - Rumba',
+  'category' : 'DropIn',
+  'start_date': '2/5/2012',
+  'day_of_week': 'Wednesday',
+  'start_time': '2:00 PM',
+  'style': 'International Standard',
+  'dance_name': 'Rumba',
+  'level':'Level 1',
+  'description': 'ISTD syllabus figures and technique for Jive at the "Associate" or "Bronze" level. Prerequisite is Level 1 Jive.',
+  'teacher' : 'Simeon',
+  'bio' : 'http://foo'
+  });
+gAllClasses.push({
+  'title' : 'Intl. Latin Level 1 - Rumba',
+  'category' : 'DropIn',
+  'start_date': '2/5/2012',
+  'day_of_week': 'Thursday',
+  'start_time': '2:00 PM',
+  'style': 'International Standard',
+  'dance_name': 'Rumba',
+  'level':'Level 1',
+  'description': 'ISTD syllabus figures and technique for Jive at the "Associate" or "Bronze" level. Prerequisite is Level 1 Jive.',
+  'teacher' : 'Simeon',
+  'bio' : 'http://foo'
+  });
+gAllClasses.push({
+  'title' : 'Intl. Latin Level 1 - Rumba',
+  'category' : 'DropIn',
+  'start_date': '2/5/2012',
+  'day_of_week': 'Friday',
+  'start_time': '2:00 PM',
+  'style': 'International Standard',
   'dance_name': 'Rumba',
   'level':'Level 1',
   'description': 'ISTD syllabus figures and technique for Jive at the "Associate" or "Bronze" level. Prerequisite is Level 1 Jive.',
