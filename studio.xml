@@ -78,8 +78,7 @@ function handleClassesQueryResponse(response) {
   }
   var data = response.getDataTable();
   for (var row = 0; row < data.getNumberOfRows(); row++) {
-    gAllClasses.push(new ValueDisplay(
-      getClassID([
+    var keys = [
         data.getFormattedValue(row,1),
         data.getFormattedValue(row,2) ? data.getFormattedValue(row,3) : 'YYYY-MM-DD', // date will be replaced
         data.getFormattedValue(row,3),
@@ -87,8 +86,10 @@ function handleClassesQueryResponse(response) {
         data.getFormattedValue(row,5),
         data.getFormattedValue(row,6),
         data.getFormattedValue(row,7)
-        ]),
-      data.getFormattedValue(row,0) //display, class name
+        ];
+    gAllClasses.push(new ValueDisplay(
+      getClassID(keys),
+      getClassSignInNamePrefix(keys) + ' ' + data.getFormattedValue(row,0) //display, class name
     ));
   }
   sendStudentQuery();
@@ -161,7 +162,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0211.0935";
+var VERSION = "12.0212.0051";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -191,6 +192,10 @@ function formatDate(dateObj) {
 // return the class ID of the format Series-2012-03-05-MON-19-15-AM-WALTZ-1
 function getClassID (keys) {
   return keys.join('_').replace(/ /g, '-');
+}
+
+function getClassSignInNamePrefix(keys) {
+  return keys[2] + ' ' + keys[3] ; // Monday 7:15PM
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -554,7 +559,15 @@ function logPayment() {
   _gel("trRateType").style.display='None';
 }
 
-var dayMapping = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+var dayMapping = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday'
+];
 function isTodaysClass(classId) {
   var dayOfWeek = new Date().getDay(); // 0-6
   return (classId.indexOf('_' + dayMapping[dayOfWeek] + '_') != -1);

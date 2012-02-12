@@ -78,8 +78,7 @@ function handleClassesQueryResponse(response) {
   }
   var data = response.getDataTable();
   for (var row = 0; row < data.getNumberOfRows(); row++) {
-    gAllClasses.push(new ValueDisplay(
-      getClassID([
+    var keys = [
         data.getFormattedValue(row,1),
         data.getFormattedValue(row,2) ? data.getFormattedValue(row,3) : 'YYYY-MM-DD', // date will be replaced
         data.getFormattedValue(row,3),
@@ -87,8 +86,10 @@ function handleClassesQueryResponse(response) {
         data.getFormattedValue(row,5),
         data.getFormattedValue(row,6),
         data.getFormattedValue(row,7)
-        ]),
-      data.getFormattedValue(row,0) //display, class name
+        ];
+    gAllClasses.push(new ValueDisplay(
+      getClassID(keys),
+      getClassSignInNamePrefix(keys) + ' ' + data.getFormattedValue(row,0) //display, class name
     ));
   }
   sendStudentQuery();
