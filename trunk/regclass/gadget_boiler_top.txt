@@ -63,8 +63,8 @@ function handleClassesQueryResponse(response) {
       'dance_name' : data.getFormattedValue(row,6),
       'level' : data.getFormattedValue(row,7), 
       'description' : data.getFormattedValue(row,8),
-      'description' : data.getFormattedValue(row,9),
-      'description' : data.getFormattedValue(row,10)
+      'teacher' : data.getFormattedValue(row,9),
+      'bio' : data.getFormattedValue(row,10)
     });
   }
 
