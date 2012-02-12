@@ -41,6 +41,10 @@ function getClassID (keys) {
   return keys.join('_').replace(/ /g, '-');
 }
 
+function getClassSignInNamePrefix(keys) {
+  return keys[2] + ' ' + keys[3] ; // Monday 7:15PM
+}
+
 ////////////////////////////////////////////////////////////////////////
 // Many objects are of this type (Value, Display)
 function ValueDisplay(value, display) {

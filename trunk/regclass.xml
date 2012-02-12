@@ -62,11 +62,13 @@ function handleClassesQueryResponse(response) {
       'style': data.getFormattedValue(row,5),
       'dance_name' : data.getFormattedValue(row,6),
       'level' : data.getFormattedValue(row,7), 
-      'description' : data.getFormattedValue(row,8)
+      'description' : data.getFormattedValue(row,8),
+      'description' : data.getFormattedValue(row,9),
+      'description' : data.getFormattedValue(row,10)
     });
   }
 
-  showClasses();
+  showFilters();
 }
 
 </script>
@@ -82,7 +84,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0212.0028";
+var VERSION = "12.0212.0051";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -176,13 +178,13 @@ function updateFilter() {
 function showClassDetails(index) {
   var groupClass = resultList[index];
   var html = [];
-  html.push('<div style="font-weight:bold">' + groupClass['title'] + '</div>');
+  html.push('<div style="font-weight:bold">' + groupClass['title'] + '</div><p>');
   html.push('Category: ' + groupClass['category'] + '<br>');
   html.push('Start date: ' + groupClass['start_date'] + ' ' +  groupClass['day_of_week'] + 
     ' ' + groupClass['start_time'] + '<br>');
   html.push('Style: ' + groupClass['style'] + ' ' + groupClass['dance_name'] + '<br>');
   html.push('Level: ' + groupClass['level'] + '<br>');
-  html.push('Teacher: <a href="' + groupClass['bio'] + '" target="_blank">' + groupClass['teacher'] + '</a><br>');
+  html.push('Teacher: <a href="' + groupClass['bio'] + '" target="_blank">' + groupClass['teacher'] + '</a><p>');
   html.push(groupClass['description'] + '<br>');
   _gel('idEntityDetails').innerHTML = html.join('');
 }
