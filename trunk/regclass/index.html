@@ -5,6 +5,8 @@ td, body {
   font-size: 0.8em;
 }
 a:hover {text-decoration: underline; color: red; background: #fafad2;}
+.errMsg {background-color: #ffe6cc; border: 2px solid #c43b1d; padding: 2px;}
+.good {background-color: #ffffff; border: 0px; padding: 0px;}
 </style>
 
 <script>
@@ -110,13 +112,22 @@ function showClassDetails(index) {
   var html = [];
   html.push('<div style="font-weight:bold">' + groupClass['title'] + '</div><p>');
   html.push('Category: ' + groupClass['category'] + '<br>');
-  html.push('Start date: ' + groupClass['start_date'] + ' ' +  groupClass['day_of_week'] + 
+  html.push('Class time: ' + groupClass['start_date'] + ' ' +  groupClass['day_of_week'] + 
     ' ' + groupClass['start_time'] + '<br>');
   html.push('Style: ' + groupClass['style'] + ' ' + groupClass['dance_name'] + '<br>');
   html.push('Level: ' + groupClass['level'] + '<br>');
   html.push('Teacher: <a href="' + groupClass['bio'] + '" target="_blank">' + groupClass['teacher'] + '</a><p>');
   html.push(groupClass['description'] + '<br>');
   _gel('idEntityDetails').innerHTML = html.join('');
+
+  // fill in Sign Up Panel
+  //clean up from before
+  _gel('idFrameSubmit').src = 'about:blank';
+  _gel('entry_7').value = ''; // clean up the note, leave other fields.
+
+  _gel('signUpClassName').innerHTML = groupClass['title'];
+  _gel('entry_4').value = groupClass['title']; 
+  _gel('signUpPanel').style.display = '';
 }
 
 var filterKeys = {
@@ -169,9 +180,28 @@ function showAllClasses() {
   // reset
   _gel('fmFilter').reset();
   _gel('idEntityDetails').innerHTML = '';
+  _gel('signUpPanel').style.display = 'None';
 
   // display all classes
   showClasses();
+}
+
+// return true to submit the form
+function checkData() {
+  if (!_gel('entry_0').value) { // need name
+   _gel('inputName').className = 'errMsg';
+   return false;
+  }
+   _gel('inputName').className = 'good';
+
+  if (!_gel('group_1_1').checked && !_gel('group_1_2').checked) { // need lead and follow
+   _gel('inputGender').className = 'errMsg';
+   return false;
+  }
+   _gel('inputGender').className = 'good';
+
+  _gel('entry_7').value = ''; // clean previous error
+  return true;
 }
 
 </script> 
@@ -191,165 +221,34 @@ Narrow down your classes by selecting the check boxes. &nbsp; &nbsp; &nbsp;
 <tr><td valign=top nowrap>
 <div id="idEntityList" style="overflow: auto;"><img src="http://www.google.com/ig/images/spinner.gif" /></div>
 </td>
-<td valign=top> <div id='idEntityDetails'></div></td>
-</tr>
-</table>
-
 </form>
-
-<div id="idEntityHeader">
-<span id="fieldName" style="font-weight:bold;font-size:1.1em;line-height:2;padding-left:20px"></span>
-<div id="fieldType"></div>
-</div>
-
-<! -- Preparation form, used by UI to eventually calculate what should be posted to spreasheet  -->
-<form onSubmit="return onSignIn()" id="idFormPrep">
-
-<div id="idSignInPanel" style="display:none">
-<hr style="background-color:rgb(204,204,204);border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;height:1px">
-
-<table border=0 cellspacing=5>
-
-<tr id="trDateTime"><td width=150>Date and Time</td><td>
-<input type="text" name="entry.6.single" value=""  id="entry_prep_date"> &nbsp;
-<input type="text" value=""  id="startTimeHour" size=2> : 
-<input type="text" value=""  id="startTimeMin" size=2> 
-<!-- changed to use text box
-<select id='startTimeHour'>
-<option>12</option>
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
-<option>6</option>
-<option>7</option>
-<option>8</option>
-<option>9</option>
-<option>10</option>
-<option>11</option>
-</select>
-<select id='startTimeMin'>
-<option>00</option>
-<option>15</option>
-<option>30</option>
-<option>45</option>
-</select>
-!-->
-<select id='startTimeAmPm'>
-<option>am</option>
-<option>pm</option>
-</select>
-
-</td</tr>
-
-<tr id="trClasses"><td>Classes <a href="javascript:void(0)" onclick="fillInClasses(false)">show all</a></td><td>
-<span id="fieldClasses"></span>
-</td></tr>
-
-<tr id="trTeacher"><td>Private lesson teacher</td><td>
-<span id="fieldTeachers"></span>
-</td></tr>
-
-<tr id="trLength"><td>Length</td><td>
-<input type="text" name="entry.6.single" value=""  id="entry_prep_length" size=3> 45-min lesson &nbsp; &nbsp; &nbsp;
-<input type="text" value=""  id="entry_prep_length_hr" size=3> 1-hour lesson<br>
-</td></tr>
-
-<tr id="trRateType"><td>Rate type</td><td>
-<span id="fieldRate"></span>
-</td></tr>
-
-<tr id="trPackages"><td>Series, Packages</td>
-<td><span id="fieldPackage">
-<table>
-<tr><td><input type='text' value="" id="entry_prep_payment_num_series" size=3 onchange="updateSeriesTotal()"> Number of Group Series sessions </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_series" onchange="updateTotal()" size=3></td></tr>
-<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_punch" size=3  onchange="updatePunchTotal()"> Number of Punch Cards</td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_punch" onchange="updateTotal()" size=3></td></tr>
-<tr><td><input type='text' value="" id="entry_prep_payment_num_private" size=3 onchange="updatePrivateTotal()"> Number of Private Lessons </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_private" onchange="updateTotal()" size=3></td></tr>
-<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_youth"  onchange="updateYouthTotal()" onchange="updateTotal()" size=3> Number of students in Youth Program </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_youth" onchange="updateTotal()" size=3></td></tr>
-<tr><td><input type='text' value="" id="entry_prep_payment_num_child" size=3  onchange="updateChildrenTotal()"> Number of students in Children's Program </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_child" onchange="updateTotal()" size=3></td></tr>
-<tr  style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_practice" size=3  onchange="updatePracticeTotal()"> Number of dancers for Monthly Practice </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_practice" onchange="updateTotal()" size=3></td></tr>
-<tr><td><input type='text' value="" id="entry_prep_payment_num_floor"  onchange="updateFloorTotal()" onchange="updateTotal()" size=3> Number of lessons for Floor Fees </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_floor" onchange="updateTotal()" size=3>
-</td>
-</tr>
-<!--
-<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_wedding"  onchange="updateWeddingTotal()" onchange="updateTotal()" size=3> Number of Lessons for Wedding Dance </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_wedding" onchange="updateTotal()" size=3></td></tr>
--->
-</table>
-<p>
-Specials:<br>
-<input type='radio' value="Intro" name="rSpecial" id='labelSpecialIntro' onclick="onSpecial('Intro')"> <label for="labelSpecialIntro">Introductory Special</label>
-&nbsp; &nbsp; &nbsp;
-<input type='radio' value="Wedding" name="rSpecial" id='labelSpecialWedding' onclick="onSpecial('Wedding')"> <label for="labelSpecialWedding">Wedding Special</label>
-&nbsp; &nbsp; &nbsp;
-<input type='radio' value="None" name="rSpecial" id='labelSpecialNone' onclick="onSpecial('None')" checked> <label for="labelSpecialNone">None</label>
-</span>
-</td>
-</tr>
-
-<tr id="trPayment"><td>Total Payment</td><td>
-<input type='text' value="" id="entry_prep_payment_total" size=6 readonly>&nbsp;&nbsp;
-<input type='radio' value="Cash" name="rPaymentMethod" id='labelPrepMethodCash' ><label for="labelPrepMethodCash">Cash</label> &nbsp;&nbsp;
-<input type='radio' value="Check" name="rPaymentMethod" id='labelPrepMethodCheck' ><label for="labelPrepMethodCheck">Check</label>&nbsp;&nbsp; 
-<input type='radio' value="CreditCard" name="rPaymentMethod" id='labelPrepMethodCC' ><label for="labelPrepMethodCC">Credit Card</label><br>
-Payment discount: <input type='text' value="" id="entry_prep_payment_discount" size=40>&nbsp;&nbsp;
-
-</td></tr>
-
-<tr><td valign=top>Note</td><td>
-<textarea name="entry.5.single" rows="3" cols="50"  id="entry_prep_note"></textarea>
-</td></tr>
-</table>
-
-<input type="submit" name="submit" value="Sign In">
-</form>
-
-<!-- End of preparation form>
-
-<!-- Normally hidden, the actual form used to post to Google Spreadsheet -->
-<div style="display:none">
+<td valign=top>
+<div id='idEntityDetails'></div>
+<div id='signUpPanel' style="display:None">
 <form target="frmSubmit" 
-  action="https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?hl=en_US&amp;formkey=dC1ScmpPZF9pWG9qQ1JraWkyMi1GZmc6MQ&amp;ifq" 
-  method="POST" id="ss-form">
-Name: <input type="text" name="entry.0.single" value=""  id="entry_0"><br>
-Type: <input type="text" name="entry.4.single" value=""  id="entry_4"><br>
-Date: <input type="text" name="entry.6.single" value=""  id="entry_6"><br>
-Start time: <input type="text" name="entry.8.single" value=""  id="entry_8"><br>
-Class/Party  name: <input type="text" name="entry.9.single" value=""  id="entry_9" size=160><br>
-Teacher: <input type="text" name="entry.3.single" value=""  id="entry_3"><br>
-Length:<input type="text" name="entry.11.single" value=""  id="entry_11"><br>
-Rate type: <input type="text" name="entry.10.single" value=""  id="entry_10"><br>
-Amount: <input type="text" name="entry.12.single" value=""  id="entry_12"><br>
-Payment method: <input type="text" name="entry.13.single" value=""  id="entry_13"><br>
-Payment discount: <input type="text" name="entry.30.single" value=""  id="entry_30"><br>
-# of Group Series: <input type="text" name="entry.14.single" value=""  id="entry_14"><br>
-# of Punch Card: <input type="text" name="entry.15.single" value=""  id="entry_15"><br>
-# of Private Lessons: <input type="text" name="entry.16.single" value=""  id="entry_16"><br>
-# of Wedding Lessons: <input type="text" name="entry.17.single" value=""  id="entry_17"><br>
-# of Children's Program: <input type="text" name="entry.18.single" value=""  id="entry_18"><br>
-# of Youth Program: <input type="text" name="entry.19.single" value=""  id="entry_19"><br>
-# of Montly Practice: <input type="text" name="entry.20.single" value=""  id="entry_20"><br>
-# of Lessons for Floore Fees: <input type="text" name="entry.21.single" value=""  id="entry_21"><br>
-$ of Group Series: <input type="text" name="entry.22.single" value=""  id="entry_22"><br>
-$ of Punch Card: <input type="text" name="entry.23.single" value=""  id="entry_23"><br>
-$ of Private Lessons: <input type="text" name="entry.24.single" value=""  id="entry_24"><br>
-$ of Wedding Lessons: <input type="text" name="entry.25.single" value=""  id="entry_25"><br>
-$ of Children's Program: <input type="text" name="entry.26.single" value=""  id="entry_26"><br>
-$ of Youth Program: <input type="text" name="entry.27.single" value=""  id="entry_27"><br>
-$ of Montly Practice: <input type="text" name="entry.28.single" value=""  id="entry_28"><br>
-$ of Lessons for Floore Fees: <input type="text" name="entry.29.single" value=""  id="entry_29"><br>
-Note: <textarea name="entry.5.single" rows="8" cols="75"  id="entry_5"></textarea><br>
+  action="https://spreadsheets.google.com/a/ariaballroom.com/spreadsheet/formResponse?pli=1&amp;hl=en&amp;key=0Ajd3OhcxW1E9dDBrVDhLRGdlQ0ZiSndDaXAyMldzY2c&amp;embedded=true&amp;ifq"
+  method="POST" id="ss-form" onSubmit="return checkData()">
+<b>Sign up now for this class to reserve your spot:</b> <p>
+Class: <span id='signUpClassName' style="font-weight:normal"></span><br>
+<span id="inputName">
+Your name: <input type="text" name="entry.0.single" value="" class="ss-q-short" id="entry_0" size=30> &nbsp;</span> 
+<span id="inputGender">
+<input type="radio" name="entry.1.group" value="Lead" class="ss-q-radio" id="group_1_1"><label for="group_1_1"> Lead</label> &nbsp; &nbsp;
+<input type="radio" name="entry.1.group" value="Follow" class="ss-q-radio" id="group_1_2"><label for="group_1_2">Follow</label> &nbsp; </span><br>
+
+In case we need to reach you about class changes, how can we reach you? (Optional)<br>
+Email: <input type="text" name="entry.2.single" value="" class="ss-q-short" id="entry_2" size=40>
+Phone: <input type="text" name="entry.6.single" value="" class="ss-q-short" id="entry_6" size=15><br>
+<input type="hidden" name="entry.4.single" value="" class="ss-q-short" id="entry_4"> <!-- class name -->
+Question? Commments? Leave us a note:<br>
+<textarea name="entry.7.single" rows="3" cols="50" class="ss-q-long" id="entry_7"></textarea>
+<br>
 <input type="hidden" name="pageNumber" value="0">
 <input type="hidden" name="backupCache" value="">
-<input type="submit" name="submit" value="Submit" id='btnSubmit'>
+
+
+<input type="submit" name="submit" value="Submit">
+
 </form>
 </div>
 
@@ -358,7 +257,9 @@ Note: <textarea name="entry.5.single" rows="8" cols="75"  id="entry_5"></textare
 <iframe name="frmSubmit" id='idFrameSubmit' width=500 height=200 frameborder=0 scrolling=no></iframe>
 </div>
 
-</div>
+</td>
+</tr>
+</table>
 
 <script type="text/javascript" SRC="localonly.js"></script>
 
