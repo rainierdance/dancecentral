@@ -125,7 +125,6 @@ function showClassDetails(index) {
   _gel('idFrameSubmit').src = 'about:blank';
   _gel('entry_7').value = ''; // clean up the note, leave other fields.
 
-  _gel('signUpClassName').innerHTML = groupClass['title'];
   _gel('entry_4').value = groupClass['title']; 
   _gel('signUpPanel').style.display = '';
 }
@@ -213,23 +212,23 @@ function checkData() {
 Narrow down your classes by selecting the check boxes. &nbsp; &nbsp; &nbsp; 
 <a href="javascript:void(0)" onclick="showAllClasses()">Show all classes</a></div>
 <p>
-<form id="fmFilter">
 <div id='filterSelection'></div>
 
 <!-- Search result list + each participant details -->
 <table cellspacing=15 id='idSearchResult'>
 <tr><td valign=top nowrap>
+<form id="fmFilter">
 <div id="idEntityList" style="overflow: auto;"><img src="http://www.google.com/ig/images/spinner.gif" /></div>
-</td>
 </form>
+</td>
 <td valign=top>
 <div id='idEntityDetails'></div>
+
 <div id='signUpPanel' style="display:None">
 <form target="frmSubmit" 
   action="https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?formkey=dDBrVDhLRGdlQ0ZiSndDaXAyMldzY2c6MQ&amp;ifq" 
   method="POST" id="ss-form" onSubmit="return checkData()">
 <b>Sign up now for this class to reserve your spot:</b> <p>
-Class: <span id='signUpClassName' style="font-weight:normal"></span><br>
 <span id="inputName">
 Your name: <input type="text" name="entry.0.single" value="" class="ss-q-short" id="entry_0" size=30> &nbsp;</span> 
 <span id="inputGender">
@@ -257,6 +256,7 @@ Question? Commments? Leave us a note:<br>
 <iframe name="frmSubmit" id='idFrameSubmit' width=500 height=200 frameborder=0 scrolling=no></iframe>
 </div>
 
+</div>
 </td>
 </tr>
 </table>
