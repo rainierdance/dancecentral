@@ -82,8 +82,9 @@ function showClasses(filter) {
   var html = [];
   for (var i = 0; i < resultList.length; i++) {
     html.push('<a href="javascript:void(0)" onclick="showClassDetails(' +
-      i + ')" onmouseover="showClassDetails(' + i + ')">' +
-      resultList[i]['title'] + '</a><br>');
+      i + ')" +' + 
+//      ' onmouseover="showClassDetails(' + i + ')"' +  
+      ' >' + resultList[i]['title'] + '</a><br>');
   }
   _gel('idEntityList').innerHTML = html.join('');
 }
@@ -152,7 +153,7 @@ function showFilters() {
   }
 
   var keyNo = 0;
-  var html = ['<table cellspacing=0 cellpadding=0>'];
+  var html = ['<table cellspacing=2 cellpadding=0>'];
   for (var key in filterKeys) {
     var len = gAllFilters[key].length;
     html.push('<tr><td valign=top>' + filterKeys[key] + '</td><td>');
@@ -209,7 +210,7 @@ function checkData() {
 
 <!-- Search header, always shown -->
 <div style="float:normal">
-Narrow down your classes by selecting the check boxes. &nbsp; &nbsp; &nbsp; 
+Narrow down your choices by checking the boxes. &nbsp; &nbsp; &nbsp; 
 <a href="javascript:void(0)" onclick="showAllClasses()">Show all classes</a></div>
 <p>
 <div id='filterSelection'></div>
@@ -233,11 +234,11 @@ Narrow down your classes by selecting the check boxes. &nbsp; &nbsp; &nbsp;
 Your name: <input type="text" name="entry.0.single" value="" class="ss-q-short" id="entry_0" size=30> &nbsp;</span> 
 <span id="inputGender">
 <input type="radio" name="entry.1.group" value="Lead" class="ss-q-radio" id="group_1_1"><label for="group_1_1"> Lead</label> &nbsp; &nbsp;
-<input type="radio" name="entry.1.group" value="Follow" class="ss-q-radio" id="group_1_2"><label for="group_1_2">Follow</label> &nbsp; </span><br>
+<input type="radio" name="entry.1.group" value="Follow" class="ss-q-radio" id="group_1_2"><label for="group_1_2">Follow</label> &nbsp; </span><p>
 
 In case we need to reach you about class changes, how can we reach you? (Optional)<br>
 Email: <input type="text" name="entry.2.single" value="" class="ss-q-short" id="entry_2" size=40>
-Phone: <input type="text" name="entry.6.single" value="" class="ss-q-short" id="entry_6" size=15><br>
+Phone: <input type="text" name="entry.6.single" value="" class="ss-q-short" id="entry_6" size=15><p>
 <input type="hidden" name="entry.4.single" value="" class="ss-q-short" id="entry_4"> <!-- class name -->
 Question? Commments? Leave us a note:<br>
 <textarea name="entry.7.single" rows="3" cols="50" class="ss-q-long" id="entry_7"></textarea>
