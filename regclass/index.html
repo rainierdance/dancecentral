@@ -31,9 +31,14 @@ function formatDate(dateObj) {
 
 var resultList = null;
 
+function sortClass(class1, class2) {
+  return class1['title'] > class2['title'];
+}
+
 // filter: key: possible values (each key: or)
 function filterClasses(filter) {
-  if (!filter) return gAllClasses;
+  if (!filter) return gAllClasses.sort(sortClass);
+
   var classes = [];
   for (var i = 0; i < gAllClasses.length; i++ ) {
     var match = true;
@@ -61,7 +66,7 @@ function filterClasses(filter) {
     if (match) classes.push(gAllClasses[i]);
   }
 
-  return classes;
+  return classes.sort(sortClass);
 }
 
 function showClasses(filter) {
@@ -115,10 +120,10 @@ function showClassDetails(index) {
 }
 
 var filterKeys = {
-  'teacher' : 'Teacher',
-  'level' : 'Level' ,
-  'day_of_week' : 'Day of Week',
-  'style' : 'Style'
+  'style' : 'Style',
+  'level' : 'Level', //there are very few classes after user filter by styel
+  // 'day_of_week' : 'Day of Week',
+  //'teacher' : 'Teacher',  // maybe later
 }; 
 
 function showFilters() {
@@ -137,7 +142,7 @@ function showFilters() {
   }
 
   var keyNo = 0;
-  var html = ['<table cellspacing=2>'];
+  var html = ['<table cellspacing=0 cellpadding=0>'];
   for (var key in filterKeys) {
     var len = gAllFilters[key].length;
     html.push('<tr><td valign=top>' + filterKeys[key] + '</td><td>');
@@ -174,10 +179,12 @@ function showAllClasses() {
 <!--- UI elements --->
 
 <!-- Search header, always shown -->
-<div style="float:normal">Classes: <a href="javascript:void(0)" onclick="showAllClasses()">show all</a></div>
+<div style="float:normal">
+Narrow down your classes by selecting the check boxes. &nbsp; &nbsp; &nbsp; 
+<a href="javascript:void(0)" onclick="showAllClasses()">Show all classes</a></div>
+<p>
 <form id="fmFilter">
 <div id='filterSelection'></div>
-</form>
 
 <!-- Search result list + each participant details -->
 <table cellspacing=15 id='idSearchResult'>
@@ -187,6 +194,8 @@ function showAllClasses() {
 <td valign=top> <div id='idEntityDetails'></div></td>
 </tr>
 </table>
+
+</form>
 
 <div id="idEntityHeader">
 <span id="fieldName" style="font-weight:bold;font-size:1.1em;line-height:2;padding-left:20px"></span>
