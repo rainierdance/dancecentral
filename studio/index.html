@@ -402,7 +402,15 @@ function logPayment() {
   _gel("trRateType").style.display='None';
 }
 
-var dayMapping = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+var dayMapping = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday'
+];
 function isTodaysClass(classId) {
   var dayOfWeek = new Date().getDay(); // 0-6
   return (classId.indexOf('_' + dayMapping[dayOfWeek] + '_') != -1);
