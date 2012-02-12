@@ -53,7 +53,7 @@ function handleClassesQueryResponse(response) {
   }
   var data = response.getDataTable();
   for (var row = 0; row < data.getNumberOfRows(); row++) {
-    var cateogry = data.getFormattedValue(row,1);
+    var category = data.getFormattedValue(row,1);
     if (category == 'Youth' || category == 'Children') continue;
     gAllClasses.push({
       'title' : data.getFormattedValue(row,0),
@@ -86,7 +86,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0212.0116";
+var VERSION = "12.0212.0127";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -214,16 +214,20 @@ function showFilters() {
   }
 
   var keyNo = 0;
-  var html = ['<table>'];
+  var html = ['<table cellspacing=2>'];
   for (var key in filterKeys) {
     var len = gAllFilters[key].length;
-    html.push('<tr><td>' + filterKeys[key] + '</td><td>');
-    for (var i = 0; i<len; i++) {
+    html.push('<tr><td valign=top>' + filterKeys[key] + '</td><td>');
+    html.push('<table>');
+    for (var i = 0; i<len; i++) { // 4 options in a row
+      if (i % 4 == 0) html.push('<tr>');
       var idLabel = 'key' + keyNo + '_' + i;
-      html.push('<input type="checkbox" name="filterChk' + key + 
+      html.push('<td><input type="checkbox" name="filterChk' + key + 
         '" onclick="updateFilter()" value="' + gAllFilters[key][i]+ '" id="' + idLabel + '" /><label for="' +
-        idLabel + '">&nbsp;' + gAllFilters[key][i] + "</label> &nbsp; &nbsp; ");
+        idLabel + '">&nbsp;' + gAllFilters[key][i] + "</label> &nbsp; </td>");
+      if (i % 4 == 3) html.push('</tr>');
     }
+    html.push('</table>');
     keyNo++;
     html.push('</td></tr>');
   }
@@ -247,7 +251,7 @@ function showAllClasses() {
 <!--- UI elements --->
 
 <!-- Search header, always shown -->
-Classes: <a href="javascript:void(0)" onclick="showAllClasses()">show all</a><br>
+<div style="float:normal">Classes: <a href="javascript:void(0)" onclick="showAllClasses()">show all</a></div>
 <form id="fmFilter">
 <div id='filterSelection'></div>
 </form>
