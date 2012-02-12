@@ -53,6 +53,8 @@ function handleClassesQueryResponse(response) {
   }
   var data = response.getDataTable();
   for (var row = 0; row < data.getNumberOfRows(); row++) {
+    var cateogry = data.getFormattedValue(row,1);
+    if (category == 'Youth' || category == 'Children') continue;
     gAllClasses.push({
       'title' : data.getFormattedValue(row,0),
       'category' : data.getFormattedValue(row,1), 
@@ -84,7 +86,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0212.0058";
+var VERSION = "12.0212.0116";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
