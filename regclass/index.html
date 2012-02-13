@@ -19,6 +19,14 @@ var VERSION = "$Rev$";
 // read from data file, current ongoing classes
 var gAllClasses = [];
 var gAllFilters = {};
+var resultList = null;
+var filterKeys = {
+  'style' : 'Style',
+  'level' : 'Level' //there are very few classes after user filter by style
+  // 'day_of_week' : 'Day of Week',
+  //'teacher' : 'Teacher',  // maybe later
+}; 
+
 
 ////////////////////////////////////////////////////////////////////////
 <!-- Utilities -->
@@ -30,8 +38,6 @@ function formatDate(dateObj) {
 
 ////////////////////////////////////////////////////////////////////////
 // 
-
-var resultList = null;
 
 function sortClass(class1, class2) {
   return class1['title'] > class2['title'];
@@ -141,12 +147,13 @@ function showClassDetails(index) {
   _gel('signUpPanel').style.display = '';
 }
 
-var filterKeys = {
-  'style' : 'Style',
-  'level' : 'Level', //there are very few classes after user filter by styel
-  // 'day_of_week' : 'Day of Week',
-  //'teacher' : 'Teacher',  // maybe later
-}; 
+function indexOf(obj, value) {
+  if (!obj) return -1;
+  for (var i = 0; i < obj.length; i++) {
+    if (obj[i] == value) { return i; }
+  }
+  return -1;
+}
 
 function showFilters() {
   // fill in the filters
@@ -162,7 +169,7 @@ function showFilters() {
       // trim spaces
       for (var j = 0; j<values.length; j++) {
         var value = values[j].replace(/^\s+|\s+$/g,"");
-        if (gAllClasses[i][key] && (gAllFilters[key].indexOf(value) == -1)) {
+        if (gAllClasses[i][key] && (indexOf(gAllFilters[key], value) == -1)) {
           gAllFilters[key].push(value);
         }
       }
