@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0212.1248";
+var VERSION = "12.0212.2205";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -130,10 +130,15 @@ function filterClasses(filter) {
      var found = false;
      if (len != 0) { // if non is selected, it's match
        for (var j=0; j < len; j++) { // if found a match, true
-         if (gAllClasses[i][key] == values[j]) {
-           found = true;
-           break;
+         var class_values = gAllClasses[i][key].split(',');
+         for (var k = 0; k<class_values.length; k++) {
+           var class_value = class_values[j].replace(/^\s+|\s+$/g,"");
+           if (class_value == values[j]) {
+             found = true;
+             break;
+           }
          }
+         if (found) break;
        }
      } else {
        found = true;
@@ -169,6 +174,7 @@ function showClasses(filter) {
 
 function updateFilter() {
   _gel('idEntityDetails').innerHTML = ''; // clear details, as result will change
+  _gel('signUpPanel').style.display = 'None';
 
   // get filters from checkbox
   var fmFilter = _gel('fmFilter');
@@ -190,13 +196,18 @@ function showClassDetails(index) {
   var groupClass = resultList[index];
   var html = [];
   html.push('<div style="font-weight:bold">' + groupClass['title'] + '</div><p>');
-  html.push('Category: ' + groupClass['category'] + '<br>');
-  html.push('Class time: ' + groupClass['start_date'] + ' ' +  groupClass['day_of_week'] + 
+  html.push('<div style="border: 1px solid #cc0000; padding: 2px;"><table width=100% border=0 style="border-collapse:collapse" cellspacing=4 cellpadding=2 ><tr>');
+  html.push('<td valign=top>Category: ' + groupClass['category'] + (groupClass['category'] == 'Series' ? ' (4 classes)' : '') + '<br>');
+  html.push('Style: ' + groupClass['style'] + ' ' + groupClass['dance_name'] + '</td>');
+  html.push('<td valign=top align=left>' + (groupClass['start_date'] ? 'Starting ' + groupClass['start_date'] : '') + ' ' +  groupClass['day_of_week'] + 
     ' ' + groupClass['start_time'] + '<br>');
-  html.push('Style: ' + groupClass['style'] + ' ' + groupClass['dance_name'] + '<br>');
-  html.push('Level: ' + groupClass['level'] + '<br>');
-  html.push('Teacher: <a href="' + groupClass['bio'] + '" target="_blank">' + groupClass['teacher'] + '</a><p>');
-  html.push(groupClass['description'] + '<br>');
+  html.push((groupClass['level'] ?  groupClass['level'] : 'Level: Any')+ '<br>');
+  if (groupClass['teacher']) {
+    html.push('Instructor: <a href="' + groupClass['bio'] + '" target="_blank">' + groupClass['teacher'] + '</a>');
+  }
+  html.push('</td><tr></table></div>');
+
+  html.push('<p>' + groupClass['description'] + '<br>');
   _gel('idEntityDetails').innerHTML = html.join('');
 
   // fill in Sign Up Panel
@@ -224,8 +235,14 @@ function showFilters() {
   var key;
   for (var i = 0; i < gAllClasses.length; i++) {
     for (var key in filterKeys) {
-      if (gAllClasses[i][key] && (gAllFilters[key].indexOf(gAllClasses[i][key]) == -1)) {
-        gAllFilters[key].push(gAllClasses[i][key]);
+      // ',' can be used as delimiter if a class has more than 1 value for the key
+      var values = gAllClasses[i][key].split(',');
+      // trim spaces
+      for (var j = 0; j<values.length; j++) {
+        var value = values[j].replace(/^\s+|\s+$/g,"");
+        if (gAllClasses[i][key] && (gAllFilters[key].indexOf(value) == -1)) {
+          gAllFilters[key].push(value);
+        }
       }
     }
   }
@@ -314,7 +331,7 @@ Your name: <input type="text" name="entry.0.single" value="" class="ss-q-short" 
 <input type="radio" name="entry.1.group" value="Lead" class="ss-q-radio" id="group_1_1"><label for="group_1_1"> Lead</label> &nbsp; &nbsp;
 <input type="radio" name="entry.1.group" value="Follow" class="ss-q-radio" id="group_1_2"><label for="group_1_2">Follow</label> &nbsp; </span><p>
 
-In case we need to reach you about class changes, how can we reach you? (Optional)<br>
+In case of class changes, how can we reach you? (Optional)<br>
 Email: <input type="text" name="entry.2.single" value="" class="ss-q-short" id="entry_2" size=40>
 Phone: <input type="text" name="entry.6.single" value="" class="ss-q-short" id="entry_6" size=15><p>
 <input type="hidden" name="entry.4.single" value="" class="ss-q-short" id="entry_4"> <!-- class name -->

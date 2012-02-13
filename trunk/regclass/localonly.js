@@ -23,11 +23,11 @@ gAllClasses.push({
   'start_date': '3/5/2012',
   'day_of_week': 'MON',
   'start_time': '8:00 PM',
-  'style': 'International Latin',
+  'style': 'International Latin, International Standard',
   'dance_name': 'Jive',
   'level':'Level 2',
   'description': 'ISTD syllabus figures and technique for Jive at the "Associate" or "Bronze" level. Prerequisite is Level 1 Jive.',
-  'teacher' : 'Kora',
+  'teacher' : '',
   'bio' : 'http://foo'
   });
 gAllClasses.push({
@@ -36,9 +36,9 @@ gAllClasses.push({
   'start_date': '2/5/2012',
   'day_of_week': 'TUE',
   'start_time': '2:00 PM',
-  'style': 'International Standard',
+  'style': 'International Latin',
   'dance_name': 'Rumba',
-  'level':'Level 1',
+  'level':'',
   'description': 'ISTD syllabus figures and technique for Jive at the "Associate" or "Bronze" level. Prerequisite is Level 1 Jive.',
   'teacher' : 'Simeon',
   'bio' : 'http://foo'
