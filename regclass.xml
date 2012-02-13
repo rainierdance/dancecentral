@@ -14,6 +14,13 @@
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
 <script>
+////////////////////////////////////////////////////////////////////////
+// Globals
+
+// read from data file, current ongoing classes
+var gAllClasses = [];
+var gAllFilters = {};
+
 function escapeHtml(text) {
   if (text == null) {
     return '';
@@ -90,13 +97,6 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 <script>
 var IS_GADGET = true;
 var VERSION = "12.0212.2223";
-
-////////////////////////////////////////////////////////////////////////
-// Globals
-
-// read from data file, current ongoing classes
-var gAllClasses = [];
-var gAllFilters = {};
 
 ////////////////////////////////////////////////////////////////////////
 <!-- Utilities -->
