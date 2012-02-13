@@ -15,7 +15,6 @@ function escapeHtml(text) {
   return text;
 }
 
-
 // initialization for local testing
 gAllClasses.push({
   'title' : 'Monday 8:00pm Intl. Latin Level 2 - Jive',
