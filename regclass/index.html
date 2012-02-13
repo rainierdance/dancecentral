@@ -120,7 +120,7 @@ function showClassDetails(index) {
   html.push('<div style="font-weight:bold">' + groupClass['title'] + '</div><p>');
   html.push('<div style="border: 1px solid #cc0000; padding: 2px;"><table width=100% border=0 style="border-collapse:collapse" cellspacing=4 cellpadding=2 ><tr>');
   html.push('<td valign=top>Category: ' + groupClass['category'] + (groupClass['category'] == 'Series' ? ' (4 classes)' : '') + '<br>');
-  html.push('Style: ' + groupClass['style'] + ' ' + groupClass['dance_name'] + '</td>');
+  html.push('groupClass['style'] + ' ' + groupClass['dance_name'] + '</td>');
   html.push('<td valign=top align=left>' + (groupClass['start_date'] ? 'Starting ' + groupClass['start_date'] : '') + ' ' +  groupClass['day_of_week'] + 
     ' ' + groupClass['start_time'] + '<br>');
   html.push((groupClass['level'] ?  groupClass['level'] : 'Level: Any')+ '<br>');
@@ -173,7 +173,7 @@ function showFilters() {
   var html = ['<table cellspacing=2 cellpadding=0>'];
   for (var key in filterKeys) {
     var len = gAllFilters[key].length;
-    html.push('<tr><td valign=top>' + filterKeys[key] + '</td><td>');
+    html.push('<tr><td valign=center>' + filterKeys[key] + '</td><td>');
     html.push('<table>');
     for (var i = 0; i<len; i++) { // 4 options in a row
       if (i % 4 == 0) html.push('<tr>');
