@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0212.2215";
+var VERSION = "12.0212.2220";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -198,7 +198,7 @@ function showClassDetails(index) {
   html.push('<div style="font-weight:bold">' + groupClass['title'] + '</div><p>');
   html.push('<div style="border: 1px solid #cc0000; padding: 2px;"><table width=100% border=0 style="border-collapse:collapse" cellspacing=4 cellpadding=2 ><tr>');
   html.push('<td valign=top>Category: ' + groupClass['category'] + (groupClass['category'] == 'Series' ? ' (4 classes)' : '') + '<br>');
-  html.push('groupClass['style'] + ' ' + groupClass['dance_name'] + '</td>');
+  html.push(groupClass['style'] + ' ' + groupClass['dance_name'] + '</td>');
   html.push('<td valign=top align=left>' + (groupClass['start_date'] ? 'Starting ' + groupClass['start_date'] : '') + ' ' +  groupClass['day_of_week'] + 
     ' ' + groupClass['start_time'] + '<br>');
   html.push((groupClass['level'] ?  groupClass['level'] : 'Level: Any')+ '<br>');
