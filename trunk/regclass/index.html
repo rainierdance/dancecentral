@@ -124,7 +124,7 @@ function showClassDetails(index) {
   var groupClass = resultList[index];
   var html = [];
   html.push('<div style="font-weight:bold">' + groupClass['title'] + '</div><p>');
-  html.push('<div style="border: 1px solid #cc0000; padding: 2px;"><table width=100% border=0 style="border-collapse:collapse" cellspacing=4 cellpadding=2 ><tr>');
+  html.push('<div style="border: 1px solid #cc0000; padding: 2px; line-height:1.3"><table width=100% border=0 style="border-collapse:collapse" cellspacing=4 cellpadding=2 ><tr>');
   html.push('<td valign=top>Category: ' + groupClass['category'] + (groupClass['category'] == 'Series' ? ' (4 classes)' : '') + '<br>');
   html.push(groupClass['style'] + ' ' + groupClass['dance_name'] + '</td>');
   html.push('<td valign=top align=left>' + (groupClass['start_date'] ? 'Starting ' + groupClass['start_date'] : '') + ' ' +  groupClass['day_of_week'] + 
@@ -135,7 +135,7 @@ function showClassDetails(index) {
   }
   html.push('</td><tr></table></div>');
 
-  html.push('<p>' + groupClass['description'] + '<br>');
+  html.push('<p><span style="line-height:1.3">' + groupClass['description'] + '</span><br>');
   _gel('idEntityDetails').innerHTML = html.join('');
 
   // fill in Sign Up Panel
@@ -244,7 +244,7 @@ Narrow down your choices by checking the boxes. &nbsp; &nbsp; &nbsp;
 <!-- Search result list + each participant details -->
 <table cellspacing=10 id='idSearchResult'>
 <tr><td valign=top nowrap>
-<div id="idEntityList" style="overflow: auto;"><img src="http://www.google.com/ig/images/spinner.gif" /></div>
+<div id="idEntityList" style="overflow: auto;line-height:1.3"><img src="http://www.google.com/ig/images/spinner.gif" /></div>
 </td>
 <td valign=top>
 <div id='idEntityDetails'></div>
