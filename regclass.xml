@@ -76,7 +76,7 @@ function handleClassesQueryResponse(response) {
 
 </script>
 
-<body onload='onLoad()'>
+<body>
 <style>
 td, body {
   font-family: Arial, sans-serif;
@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0213.2354";
+var VERSION = "12.0214.0049";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -271,7 +271,7 @@ function showFilters() {
   var html = ['<table cellspacing=2 cellpadding=0>'];
   for (var key in filterKeys) {
     var len = gAllFilters[key].length;
-    html.push('<tr><td valign=center><span style="color:rgb(204,0,0); font-size:12pt; font-weight:bold">' + filterKeys[key][0] + '</span></td><td>');
+    html.push('<tr><td valign=center><span style="color:rgb(204,0,0); font-size:10pt; font-weight:bold">' + filterKeys[key][0] + '&nbsp;&nbsp; </span></td><td>');
     html.push('<table>');
     for (var i = 0; i<len; i++) { // 4 options in a row
       if (i % filterKeys[key][1] == 0) html.push('<tr>');

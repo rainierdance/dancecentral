@@ -1,7 +1,4 @@
 <!--Only included for local test -->
-function onLoad() {
-  showFilters();
-}
 
 function _gel(id) {
   return document.getElementById(id);
@@ -81,3 +78,5 @@ gAllClasses.push({
   'teacher' : 'Simeon',
   'bio' : 'http://foo'
   });
+
+document.onload = showFilters();
