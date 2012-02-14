@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0213.1331";
+var VERSION = "12.0213.2111";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -137,6 +137,8 @@ function filterClasses(filter) {
      if (len != 0) { // if non is selected, it's match
        for (var j=0; j < len; j++) { // if found a match, true
          var class_values = gAllClasses[i][key].split(',');
+         if (class_values.length == 0)
+           found = true; // any level class match any selected values
          for (var k = 0; k<class_values.length; k++) {
            var class_value = class_values[k].replace(/^\s+|\s+$/g,"");
            if (class_value == values[j]) {
