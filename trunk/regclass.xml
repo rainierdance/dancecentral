@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0213.2347";
+var VERSION = "12.0213.2354";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -99,9 +99,9 @@ var gAllClasses = [];
 var gAllFilters = {};
 var resultList = null;
 var filterKeys = {
-  'style' : 'Style',
-  'level' : 'Level', //there are very few classes after user filter by style
-  'day_of_week' : 'Day'
+  'style' : ['Style', 4], // how many per row
+  'level' : ['Level', 4], //there are very few classes after user filter by style
+  'day_of_week' : ['Day', 7]
   //'teacher' : 'Teacher',  // maybe later
 }; 
 
@@ -271,15 +271,15 @@ function showFilters() {
   var html = ['<table cellspacing=2 cellpadding=0>'];
   for (var key in filterKeys) {
     var len = gAllFilters[key].length;
-    html.push('<tr><td valign=center><span style="color:rgb(204,0,0); font-size:12pt; font-weight:bold">' + filterKeys[key] + '</span></td><td>');
+    html.push('<tr><td valign=center><span style="color:rgb(204,0,0); font-size:12pt; font-weight:bold">' + filterKeys[key][0] + '</span></td><td>');
     html.push('<table>');
     for (var i = 0; i<len; i++) { // 4 options in a row
-      if (i % 4 == 0) html.push('<tr>');
+      if (i % filterKeys[key][1] == 0) html.push('<tr>');
       var idLabel = 'key' + keyNo + '_' + i;
       html.push('<td><input type="checkbox" name="filterChk' + key + 
         '" onclick="updateFilter()" value="' + gAllFilters[key][i]+ '" id="' + idLabel + '" /><label for="' +
         idLabel + '">&nbsp;' + gAllFilters[key][i] + "</label> &nbsp; </td>");
-      if (i % 4 == 3) html.push('</tr>');
+      if (i % 4 == (filterKeys[key][1]-1)) html.push('</tr>');
     }
     html.push('</table>');
     keyNo++;
