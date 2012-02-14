@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0213.2111";
+var VERSION = "12.0213.2211";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -136,9 +136,11 @@ function filterClasses(filter) {
      var found = false;
      if (len != 0) { // if non is selected, it's match
        for (var j=0; j < len; j++) { // if found a match, true
-         var class_values = gAllClasses[i][key].split(',');
-         if (class_values.length == 0)
+         if (gAllClasses[i][key] == '') {
            found = true; // any level class match any selected values
+           break;
+         }
+         var class_values = gAllClasses[i][key].split(',');
          for (var k = 0; k<class_values.length; k++) {
            var class_value = class_values[k].replace(/^\s+|\s+$/g,"");
            if (class_value == values[j]) {
@@ -207,7 +209,7 @@ function showClassDetails(index) {
   html.push('<div style="border: 1px solid #cc0000; padding: 2px; line-height:1.3"><table width=100% border=0 style="border-collapse:collapse" cellspacing=4 cellpadding=2 ><tr>');
   html.push('<td valign=top>Category: ' + groupClass['category'] + (groupClass['category'] == 'Series' ? ' (4 classes)' : '') + '<br>');
   html.push(groupClass['style'] + ' ' + groupClass['dance_name'] + '</td>');
-  html.push('<td valign=top align=left>' + (groupClass['start_date'] ? 'Starting ' + groupClass['start_date'] : '') + ' ' +  groupClass['day_of_week'] + 
+  html.push('<td valign=top align=left>' + (groupClass['category'] == 'Series' ? 'Starting ' + groupClass['start_date'] : '') + ' ' +  groupClass['day_of_week'] + 
     ' ' + groupClass['start_time'] + '<br>');
   html.push((groupClass['level'] ?  groupClass['level'] : 'Level: Any')+ '<br>');
   if (groupClass['teacher']) {
