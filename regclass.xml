@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0213.2228";
+var VERSION = "12.0213.2240";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -117,13 +117,22 @@ function formatDate(dateObj) {
 ////////////////////////////////////////////////////////////////////////
 // 
 
-function sortClass(class1, class2) {
-  return class1['title'] > class2['title'];
+function sortClasses(classes) {
+  var sorted = [];
+  for (var i = 0; i< classes.length; i++) {
+    for (var j=0; j < sorted.length; j++) {
+      if (classes[i]['title'] < sorted[j]['title']) {
+        break; 
+      }
+    }
+    sorted.splice(j, 0, classes[i]);
+  }
+  return sorted;
 }
 
 // filter: key: possible values (each key: or)
 function filterClasses(filter) {
-  if (!filter) return gAllClasses.sort(sortClass);
+  if (!filter) return sortClasses(gAllClasses);
 
   var classes = [];
   for (var i = 0; i < gAllClasses.length; i++ ) {
@@ -161,7 +170,7 @@ function filterClasses(filter) {
     if (match) classes.push(gAllClasses[i]);
   }
 
-  return classes.sort(sortClass);
+  return sortClasses(classes);
 }
 
 function showClasses(filter) {
