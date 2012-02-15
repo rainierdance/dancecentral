@@ -40,9 +40,9 @@ gAllClasses.push({
   'bio' : 'http://foo'
   });
 gAllClasses.push({
-  'title' : 'Intl. Latin Level 1 - Rumba',
+  'title' : 'Intl. Latin Level 1 - weekly drop in',
   'category' : 'DropIn',
-  'start_date': '2/5/2012',
+  'start_date': '',
   'day_of_week': 'Wednesday',
   'start_time': '2:00 PM',
   'style': 'International Standard',
