@@ -109,11 +109,13 @@ function showClasses(filter) {
       i + ')" +' + 
 //      ' onmouseover="showClassDetails(' + i + ')"' +  
       ' >' + resultList[i]['title'] + '</a> &nbsp;&nbsp;');
+/*
     if (resultList[i]['category'] == 'Series') {
       html.push('(Starting ' + resultList[i]['start_date'] +')');
     } else if (resultList[i]['start_date']) {
       html.push('(' + resultList[i]['start_date'] +')');
     }
+*/
     html.push('<br>');
   }
   _gel('idEntityList').innerHTML = html.join('');
