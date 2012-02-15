@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0214.2155";
+var VERSION = "12.0214.2157";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -186,11 +186,11 @@ function showClasses(filter) {
     html.push('<a href="javascript:void(0)" onclick="showClassDetails(' +
       i + ')" +' + 
 //      ' onmouseover="showClassDetails(' + i + ')"' +  
-      ' >' + resultList[i]['title'] + '</a> ');
+      ' >' + resultList[i]['title'] + '</a> &nbsp;&nbsp;');
     if (resultList[i]['category'] == 'Series') {
       html.push('(Starting ' + resultList[i]['start_date'] +')');
     } else if (resultList[i]['start_date']) {
-      html.push('( ' + resultList[i]['start_date'] +')');
+      html.push('(' + resultList[i]['start_date'] +')');
     }
     html.push('<br>');
   }
