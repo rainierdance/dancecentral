@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0214.0049";
+var VERSION = "12.0214.2142";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -218,8 +218,8 @@ function showClassDetails(index) {
   html.push('<div style="border: 1px solid #cc0000; padding: 2px; line-height:1.3"><table width=100% border=0 style="border-collapse:collapse" cellspacing=4 cellpadding=2 ><tr>');
   html.push('<td valign=top>Category: ' + groupClass['category'] + (groupClass['category'] == 'Series' ? ' (4 classes)' : '') + '<br>');
   html.push(groupClass['style'] + ' ' + groupClass['dance_name'] + '</td>');
-  html.push('<td valign=top align=left>' + (groupClass['category'] == 'Series' ? 'Starting ' : '') + groupClass['start_date'] + ' ' +  groupClass['day_of_week'] + 
-    ' ' + groupClass['start_time'] + '<br>');
+  html.push('<td valign=top align=left>' + (groupClass['category'] == 'Series' ? 'Starting ' : '') + groupClass['start_date'] + ' <b>' +  groupClass['day_of_week'] + 
+    '</b> ' + groupClass['start_time'] + '<br>');
   html.push((groupClass['level'] ?  groupClass['level'] : 'Level: Any')+ '<br>');
   if (groupClass['teacher']) {
     html.push('Instructor: <a href="' + groupClass['bio'] + '" target="_blank">' + groupClass['teacher'] + '</a>');
@@ -328,7 +328,7 @@ function checkData() {
 <div style="float:normal">
 Narrow down your choices by checking the boxes. &nbsp; &nbsp; &nbsp; 
 <a href="javascript:void(0)" onclick="showAllClasses()">Show all classes</a></div>
-<p>
+<br style="line-height:1.8">
 <form id="fmFilter">
 <div id='filterSelection'></div>
 </form>
