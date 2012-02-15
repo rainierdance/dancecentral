@@ -108,11 +108,11 @@ function showClasses(filter) {
     html.push('<a href="javascript:void(0)" onclick="showClassDetails(' +
       i + ')" +' + 
 //      ' onmouseover="showClassDetails(' + i + ')"' +  
-      ' >' + resultList[i]['title'] + '</a> ');
+      ' >' + resultList[i]['title'] + '</a> &nbsp;&nbsp;');
     if (resultList[i]['category'] == 'Series') {
       html.push('(Starting ' + resultList[i]['start_date'] +')');
     } else if (resultList[i]['start_date']) {
-      html.push('( ' + resultList[i]['start_date'] +')');
+      html.push('(' + resultList[i]['start_date'] +')');
     }
     html.push('<br>');
   }
