@@ -80,7 +80,7 @@ function handleClassesQueryResponse(response) {
   for (var row = 0; row < data.getNumberOfRows(); row++) {
     var keys = [
         data.getFormattedValue(row,1),
-        data.getFormattedValue(row,2) ? data.getFormattedValue(row,3) : 'YYYY-MM-DD', // date will be replaced
+        data.getFormattedValue(row,2) ? data.getFormattedValue(row,2) : 'YYYY-MM-DD', // date will be replaced
         data.getFormattedValue(row,3),
         data.getFormattedValue(row,4),
         data.getFormattedValue(row,5),
