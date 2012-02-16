@@ -80,7 +80,7 @@ function handleClassesQueryResponse(response) {
   for (var row = 0; row < data.getNumberOfRows(); row++) {
     var keys = [
         data.getFormattedValue(row,1),
-        data.getFormattedValue(row,2) ? data.getFormattedValue(row,3) : 'YYYY-MM-DD', // date will be replaced
+        data.getFormattedValue(row,2) ? data.getFormattedValue(row,2) : 'YYYY-MM-DD', // date will be replaced
         data.getFormattedValue(row,3),
         data.getFormattedValue(row,4),
         data.getFormattedValue(row,5),
@@ -162,7 +162,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0216.1254";
+var VERSION = "12.0216.1255";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
