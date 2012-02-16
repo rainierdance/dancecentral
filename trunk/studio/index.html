@@ -42,7 +42,7 @@ function getClassID (keys) {
 }
 
 function getClassSignInNamePrefix(keys) {
-  return keys[2] + ' ' + keys[3] ; // Monday 7:15PM
+  return (keys[0] + ' ' + keys[1] + ' ' + keys[2] + ' ' + keys[3]).replace(/YYYY-MM-DD/, '');
 }
 
 ////////////////////////////////////////////////////////////////////////
