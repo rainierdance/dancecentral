@@ -5,6 +5,7 @@ td, body {
   font-size: 0.8em;
 }
 a:hover {text-decoration: underline; color: red; background: #fafad2;}
+.errMsg {background-color: #ffe6cc; border: 2px solid #c43b1d; padding: 2px;}
 </style>
 
 <script>
@@ -27,6 +28,7 @@ var gAllSignInTypes = []; // value,display pair
 var gAllRateTypes = [];
 var gSelectedEntity = null; // Entity object
 var gSelectedSignInTypeIndex = null;
+var gErrElement;
 
 ////////////////////////////////////////////////////////////////////////
 <!-- Utilities -->
@@ -333,6 +335,7 @@ function clearFields() {
   _gel('entry_prep_length_hr').value='';
   _gel('fieldClasses').innerHTML=''
   _gel('fieldRate').innerHTML=''
+  if (_gel(gErrElement)) _gel(gErrElement).className = '';
 
   // reset form
   _gel("ss-form").reset();
@@ -733,6 +736,78 @@ function updateTotal() {
   _gel('entry_prep_payment_total').value = amount;
 }
 
+function checkField(elemIdValue, elemIdErr) {
+   if (_gel(elemIdValue).value == '') {
+    _gel(elemIdErr).className = 'errMsg';
+    gErrElement = elemIdErr;
+    return false;
+   }
+   _gel(elemIdErr).className = '';
+  return true;
+}
+
+function validateInput() {
+  // clear previous error
+  if (_gel(gErrElement)) _gel(gErrElement).className = '';
+
+  var signInType = _gel('entry_4').value;
+  // validation is different for different sign in type 
+  if (signInType == 'Group') {
+   // if paid on spot, $, method.
+   if (!checkField('entry_6', 'entry_prep_date') ||
+       !checkField('entry_9', 'trClasses') ||
+       !checkField('entry_10', 'trRateType')
+      ) 
+    return false;
+   if (_gel('entry_10').value == 'Group-Drop-in') { // check payment
+     if (!checkField('entry_12', 'entry_prep_payment_total') ||
+         !checkField('entry_13', 'paymentMethods')
+        ) 
+      return false;
+   }
+  } else if (signInType == 'Party') {
+   if (!checkField('entry_6', 'entry_prep_date') ||
+       !checkField('entry_9', 'trClasses') ||
+       !checkField('entry_10', 'trRateType')) 
+    return false;
+
+   if ((_gel('entry_10').value == 'Party-Class-1') ||
+       (_gel('entry_10').value == 'Party-Only') ||
+       (_gel('entry_10').value == 'Party-Round')) {
+     if (!checkField('entry_12', 'entry_prep_payment_total') ||
+         !checkField('entry_13', 'paymentMethods')
+        ) 
+      return false;
+    }
+  } else if (signInType == 'Youth') {
+   if (!checkField('entry_6', 'entry_prep_date') ||
+       !checkField('entry_9', 'trClasses'))
+    return false;
+  } else if (signInType == 'Private') {
+   if (!checkField('entry_6', 'entry_prep_date') ||
+       !checkField('entry_3', 'trTeacher') ||
+       !checkField('entry_11', 'trLength'))  // lesson length
+    return false;
+  } else if (signInType == 'Practice') {
+   if (!checkField('entry_11', 'trLength') ||
+       !checkField('entry_10', 'trRateType')) 
+    return false;
+
+   if (_gel('entry_10').value == 'Practice-Drop-in') {
+     if (!checkField('entry_12', 'entry_prep_payment_total') ||
+         !checkField('entry_13', 'paymentMethods')
+        ) 
+      return false;
+    }
+  } else if (signInType == 'Payment') { // very simple check
+   if (!checkField('entry_12', 'entry_prep_payment_total') ||
+       !checkField('entry_13', 'paymentMethods')
+      ) 
+      return false;
+  }
+  return true;
+}
+
 function onSignIn() {
   _gel('entry_0').value = gSelectedEntity.getName();
   _gel('entry_4').value = gAllSignInTypes[gSelectedSignInTypeIndex].value;
@@ -829,8 +904,9 @@ function onSignIn() {
   _gel('entry_31').value = _gel('entry_prep_payment_num_parties').value;
   _gel('entry_32').value = _gel('entry_prep_payment_amt_parties').value;
 
-  // TODO: validate input
-  _gel('btnSubmit').click();
+  if (validateInput()) {
+    _gel('btnSubmit').click();
+  }
 
   return false;
 }
@@ -955,10 +1031,13 @@ Specials:<br>
 </tr>
 
 <tr id="trPayment"><td>Total Payment</td><td>
-<input type='text' value="" id="entry_prep_payment_total" size=6 readonly>&nbsp;&nbsp;
+<input type='text' value="" id="entry_prep_payment_total" size=6>&nbsp;&nbsp;
+<span id='paymentMethods'>
 <input type='radio' value="Cash" name="rPaymentMethod" id='labelPrepMethodCash' ><label for="labelPrepMethodCash">Cash</label> &nbsp;&nbsp;
 <input type='radio' value="Check" name="rPaymentMethod" id='labelPrepMethodCheck' ><label for="labelPrepMethodCheck">Check</label>&nbsp;&nbsp; 
-<input type='radio' value="CreditCard" name="rPaymentMethod" id='labelPrepMethodCC' ><label for="labelPrepMethodCC">Credit Card</label><br>
+<input type='radio' value="CreditCard" name="rPaymentMethod" id='labelPrepMethodCC' ><label for="labelPrepMethodCC">Credit Card</label> &nbsp;
+</span>
+<br>
 Payment discount: <input type='text' value="" id="entry_prep_payment_discount" size=40>&nbsp;&nbsp;
 
 </td></tr>
