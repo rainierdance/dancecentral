@@ -110,9 +110,11 @@ function showClasses(filter) {
      '</tr>'];
   for (var i = 0; i < resultList.length; i++) {
     var groupClass = resultList[i];
-    html.push('<tr width=50%' + ((i % 2 == 0) ? '' : ' style="background:whitesmoke"') + '><td width=50%>');
+    html.push('<tr width=50%' + ((i % 2 == 0) ? '' : ' style="background:whitesmoke"') + 
+      '  onclick="toggleClassDetail(' + i + ')" ' + 
+      '><td width=50%>');
     var link = '<a href="javascript:void(0)" onclick="toggleClassDetail(' +
-      i + ')" +' + 
+      i + ')" ' + 
 //      ' onmouseover="showClassDetails(' + i + ')"' +  
       ' >';
     // arrows
