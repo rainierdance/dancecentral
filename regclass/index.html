@@ -104,13 +104,13 @@ function showClasses(filter) {
    return;
   }
     
-  var html = ['<table cellpadding=5 border=1 style="border-collapse:collapse"><tr style="font-weight:bold"><td>Class</td>' +
+  var html = ['<table width=100% cellpadding=5 border=1 style="border-collapse:collapse"><tr style="font-weight:bold"><td>Class</td>' +
      '<td>Time</td><td>Level</td><td>Instructor</td>' +
-     '<td>Category</td><td>Style</td>' +
+     '<td>Category</td>' +
      '</tr>'];
   for (var i = 0; i < resultList.length; i++) {
     var groupClass = resultList[i];
-    html.push('<tr><td>');
+    html.push('<tr width=50%' + ((i % 2 == 0) ? '' : ' style="background:whitesmoke"') + '><td width=50%>');
     var link = '<a href="javascript:void(0)" onclick="toggleClassDetail(' +
       i + ')" +' + 
 //      ' onmouseover="showClassDetails(' + i + ')"' +  
@@ -130,8 +130,9 @@ function showClasses(filter) {
       html.push('<a href="' + groupClass['bio'] + '" target="_blank">' + groupClass['teacher'] + '</a>');
     }
     html.push('</td>');
-    html.push('<td>' + groupClass['category'] + (groupClass['category'] == 'Series' ? ' (4 classes)' : '') + '</td>');
-    html.push('<td>' + groupClass['style'] + '</td>');
+    //html.push('<td>' + groupClass['category'] + (groupClass['category'] == 'Series' ? ' (4 classes)' : '') + '</td>');
+    html.push('<td>' + groupClass['category'] + '</td>');
+    //html.push('<td>' + groupClass['style'] + '</td>');
     html.push('</tr>');
   }
   html.push('</table>');
