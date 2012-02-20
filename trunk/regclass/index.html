@@ -103,22 +103,50 @@ function showClasses(filter) {
    return;
   }
     
-  var html = [];
+  var html = ['<table cellpadding=5 border=1 style="border-collapse:collapse"><tr style="font-weight:bold"><td>Class</td>' +
+     '<td>Time</td><td>Level</td><td>Instructor</td>' +
+     '<td>Category</td><td>Style</td>' +
+     '</tr>'];
   for (var i = 0; i < resultList.length; i++) {
-    html.push('<a href="javascript:void(0)" onclick="showClassDetails(' +
+    var groupClass = resultList[i];
+    html.push('<tr><td>');
+    var link = '<a href="javascript:void(0)" onclick="toggleClassDetail(' +
       i + ')" +' + 
 //      ' onmouseover="showClassDetails(' + i + ')"' +  
-      ' >' + resultList[i]['title'] + '</a> &nbsp;&nbsp;');
-/*
-    if (resultList[i]['category'] == 'Series') {
-      html.push('(Starting ' + resultList[i]['start_date'] +')');
-    } else if (resultList[i]['start_date']) {
-      html.push('(' + resultList[i]['start_date'] +')');
+      ' >';
+    // arrows
+    html.push(link);
+    html.push('<img valign=middle src="bullet_arrow_right.png" border=0 id="classImg' + i + '"></a> &nbsp;');
+    html.push(link + resultList[i]['title'] + '</a>');
+   
+    html.push('<div id="class' + i + '">lots of description ehre</div></td>');
+   
+    html.push('<td>' + (groupClass['category'] == 'Series' ? 'Starting ' : '') + 
+              groupClass['start_date'] + ' <b>' +  groupClass['day_of_week'] + '</b> ' + groupClass['start_time'] + '</td>');
+    html.push('<td>' + (groupClass['level'] ?  groupClass['level'] : 'Level: Any')+ '</td>');
+    html.push('<td>');
+    if (groupClass['teacher']) {
+      html.push('<a href="' + groupClass['bio'] + '" target="_blank">' + groupClass['teacher'] + '</a>');
     }
-*/
-    html.push('<br>');
+    html.push('</td>');
+    html.push('<td>' + groupClass['category'] + (groupClass['category'] == 'Series' ? ' (4 classes)' : '') + '</td>');
+    html.push('<td>' + groupClass['style'] + '</td>');
+    html.push('</tr>');
   }
+  html.push('</table>');
   _gel('idEntityList').innerHTML = html.join('');
+}
+
+function toggleClassDetail(index) {
+  var element = _gel("class" + index);
+  if (element.style.display.toLowerCase() == 'none') {
+    element.style.display = '';
+    _gel("classImg" + index).src = 'bullet_arrow_down.png';
+  }
+  else {
+    element.style.display = 'None';
+    _gel("classImg" + index).src = 'bullet_arrow_right.png';
+  }
 }
 
 function updateFilter() {
