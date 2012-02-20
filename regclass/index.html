@@ -26,6 +26,7 @@ var filterKeys = {
   'day_of_week' : ['Day', 7]
   //'teacher' : 'Teacher',  // maybe later
 }; 
+var URL_BASE = 'http://dancecentral.googlecode.com/svn/trunk/regclass/';
 
 
 ////////////////////////////////////////////////////////////////////////
@@ -116,7 +117,7 @@ function showClasses(filter) {
       ' >';
     // arrows
     html.push(link);
-    html.push('<img valign=middle src="bullet_arrow_right.png" border=0 id="classImg' + i + '"></a> &nbsp;');
+    html.push('<img valign=middle src="' + URL_BASE + 'bullet_arrow_right.png" border=0 id="classImg' + i + '"></a> &nbsp;');
     html.push(link + resultList[i]['title'] + '</a>');
    
     html.push('<div id="class' + i + '" style="display:None">' + groupClass['description'] + '</div></td>');
@@ -141,11 +142,11 @@ function toggleClassDetail(index) {
   var element = _gel("class" + index);
   if (element.style.display.toLowerCase() == 'none') {
     element.style.display = '';
-    _gel("classImg" + index).src = 'bullet_arrow_down.png';
+    _gel("classImg" + index).src = URL_BASE + 'bullet_arrow_down.png';
   }
   else {
     element.style.display = 'None';
-    _gel("classImg" + index).src = 'bullet_arrow_right.png';
+    _gel("classImg" + index).src = URL_BASE + 'bullet_arrow_right.png';
   }
 }
 
