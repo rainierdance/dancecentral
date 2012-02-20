@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0220.0052";
+var VERSION = "12.0220.0055";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -197,7 +197,7 @@ function showClasses(filter) {
     html.push('<img valign=middle src="bullet_arrow_right.png" border=0 id="classImg' + i + '"></a> &nbsp;');
     html.push(link + resultList[i]['title'] + '</a>');
    
-    html.push('<div id="class' + i + '">lots of description ehre</div></td>');
+    html.push('<div id="class' + i + '" style="display:None">' + groupClass['description'] + '</div></td>');
    
     html.push('<td>' + (groupClass['category'] == 'Series' ? 'Starting ' : '') + 
               groupClass['start_date'] + ' <b>' +  groupClass['day_of_week'] + '</b> ' + groupClass['start_time'] + '</td>');
