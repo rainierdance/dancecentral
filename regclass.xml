@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0221.0204";
+var VERSION = "12.0221.1052";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -216,7 +216,7 @@ function freshSelectedClassesDisplay() {
   if (gSelectedClasses.length == 0) {
     _gel('idSelectedClasses').innerHTML = '';
   } else {
-    var html = [];
+    var html = ['<span style="color:rgb(204,0,0)">Selected classes:</span><p><div style="margin-left:5px;">'];
     var classes = sortClasses(gAllClasses);
     for (var i = 0; i<classes.length; i++) {
       var groupClass = classes[i];
@@ -229,6 +229,7 @@ function freshSelectedClassesDisplay() {
       //html.push('<img valign=middle src="' + URL_BASE + 'remove_icon.png" border=0>');
       html.push('</a><br>');
     }
+    html.push('</div>');
     _gel('idSelectedClasses').innerHTML = html.join('');
   }
 
@@ -419,12 +420,11 @@ Narrow down your choices by checking the boxes. &nbsp; &nbsp; &nbsp;
 
 <table cellspacing=10 id='idSearchResult'>
 <tr><td valign=top nowrap>
-<b>Select the classes you are interested:</b><p>
-<div style="margin-left:5px" id="idSelectedClasses"></div><p>
+<div id="idSelectedClasses"></div><p>
 </td>
 
 <td valign=top>
-<div id='signUpPanel' style="display:None; border: 1px solid #cc0000; padding: 5px; line-height:1.3">
+<div id='signUpPanel' style="display:None; border: 1px solid #cc0000; padding: 5px;>
 <form target="frmSubmit" 
   action="https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?formkey=dDBrVDhLRGdlQ0ZiSndDaXAyMldzY2c6MQ&amp;ifq" 
   method="POST" id="ss-form" onSubmit="return checkData()">
@@ -432,9 +432,9 @@ Narrow down your choices by checking the boxes. &nbsp; &nbsp; &nbsp;
 <input type="hidden" name="entry.4.single" value="" class="ss-q-short" id="entry_4"> 
 Your name: <input type="text" name="entry.0.single" value="" class="ss-q-short" id="entry_0" size=25> &nbsp;</span> 
 <span id="inputGender">
-<input type="radio" name="entry.1.group" value="Lead" class="ss-q-radio" id="group_1_1"><label for="group_1_1"> Lead</label> &nbsp; &nbsp;
-<input type="radio" name="entry.1.group" value="Follow" class="ss-q-radio" id="group_1_2"><label for="group_1_2">Follow</label> &nbsp; </span><p>
-Email/Phone (Optional): <input type="text" name="entry.2.single" value="" class="ss-q-short" id="entry_2" size=25>
+<input type="radio" name="entry.1.group" value="Lead" class="ss-q-radio" id="group_1_1"><label for="group_1_1">Lead</label> &nbsp; 
+<input type="radio" name="entry.1.group" value="Follow" class="ss-q-radio" id="group_1_2"><label for="group_1_2">Follow</label></span><p>
+Email: <input type="text" name="entry.2.single" value="" class="ss-q-short" id="entry_2" size=30>
 
 <!--
 In case of class changes, how can we reach you? (Optional)<br>
@@ -445,12 +445,9 @@ Question? Commments? Leave us a note:<br>
 -->
 <input type="hidden" name="pageNumber" value="0">
 <input type="hidden" name="backupCache" value="">
-
 <input type="submit" name="submit" value="Sign up!">
-
 </form>
 </div>
-
 
 </div>
 </td>
@@ -458,6 +455,7 @@ Question? Commments? Leave us a note:<br>
 </table>
 
 <!-- Search result list + each participant details -->
+<b>Check the classes you'd like to pre-register for:</b><p>
 <div id="idEntityList" style="overflow: auto;line-height:1.3"><img src="http://www.google.com/ig/images/spinner.gif" /></div>
 
 <!-- Visible to make sure form post is successful -->
