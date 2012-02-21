@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0221.1223";
+var VERSION = "12.0221.1226";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -173,7 +173,8 @@ function filterClasses(filter) {
       if (time1 < (time2 - 24 * 60 * 60 * 1000)) { // give  a day
         match = false;
       }
-    } else if (filter) { // check matching
+    }
+    if (match && filter) { // if there is filter check filter
       for (var key in filter) {
        //  AND relation, if not a match, break out
        // check each filter value
