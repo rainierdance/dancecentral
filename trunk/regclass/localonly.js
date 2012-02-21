@@ -17,7 +17,7 @@ gAllClasses.push({
   'title' : 'H Monday 8:00pm Intl. Latin Level 2 - Jive ANY',
   'category' : 'Series',
   'start_date': '3/5/2012',
-  'day_of_week': 'MON',
+  'day_of_week': 'Monday',
   'start_time': '8:00 PM',
   'style': 'International Latin, International Standard',
   'dance_name': 'Jive',
@@ -30,7 +30,7 @@ gAllClasses.push({
   'title' : 'Intl. Latin Level 1 - Rumba',
   'category' : 'DropIn',
   'start_date': '3/5/2012',
-  'day_of_week': 'TUE',
+  'day_of_week': 'Tuesday',
   'start_time': '2:00 PM',
   'style': 'International Latin',
   'dance_name': 'Rumba',
@@ -40,10 +40,10 @@ gAllClasses.push({
   'bio' : 'http://foo'
   });
 gAllClasses.push({
-  'title' : 'Intl. Latin Level 1 - weekly drop in',
+  'title' : 'A Intl. Latin Level 1 - weekly drop in',
   'category' : 'DropIn',
   'start_date': '',
-  'day_of_week': 'Wednesday',
+  'day_of_week': 'Thursday',
   'start_time': '2:00 PM',
   'style': 'International Standard',
   'dance_name': 'Rumba',
