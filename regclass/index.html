@@ -37,6 +37,15 @@ function formatDate(dateObj) {
    ('' + (100 + dateObj.getDate())).substring(1);
 }
 
+function getClassID(classObj) {
+  return classObj['category'] + ' ' +
+    classObj['start_date'] + ' ' +
+    classObj['day_of_week'] + ' ' +
+    classObj['start_time'] + ' ' +
+    classObj['title']; // contains style, dance and level
+
+}
+
 ////////////////////////////////////////////////////////////////////////
 // 
 
@@ -130,9 +139,14 @@ function freshSelectedClassesDisplay() {
     _gel('idSelectedClasses').innerHTML = '';
   } else {
     var html = [];
-    for (var i = 0; i<gSelectedClasses.length; i++) {
-      html.push(gSelectedClasses[i]);
-      html.push(' &nbsp; <a style="text-decoration: none" href="javascript:void(0)" onclick="removeClass(' + i + ')">');
+    var classes = sortClasses(gAllClasses);
+    for (var i = 0; i<classes.length; i++) {
+      var groupClass = classes[i];
+      var index = indexOf(gSelectedClasses, getClassID(groupClass));
+      if (index == -1) continue;
+      // selected
+      html.push(getClassID(groupClass));
+      html.push(' &nbsp; <a style="text-decoration: none" href="javascript:void(0)" onclick="removeClass(' + index + ')">');
       html.push('x');
       //html.push('<img valign=middle src="' + URL_BASE + 'remove_icon.png" border=0>');
       html.push('</a><br>');
@@ -168,8 +182,8 @@ function showClasses(filter) {
 //      '  onclick="toggleClassDetail(' + i + ')" ' + 
       '>');
     html.push('<td width=55%>');
-    html.push('<input type=checkbox name="chkClass" value="' + resultList[i]['title'] + '" onclick="toggleClass(this)" ' +
-      (indexOf(gSelectedClasses, groupClass['title']) == -1 ? '' : 'checked') +
+    html.push('<input type=checkbox name="chkClass" value="' + getClassID(groupClass) + '" onclick="toggleClass(this)" ' +
+      (indexOf(gSelectedClasses, getClassID(groupClass)) == -1 ? '' : 'checked') +
       '> &nbsp;');
     var link = '<a href="javascript:void(0)" onclick="toggleClassDetail(' +
       i + ')" ' + ' >';
