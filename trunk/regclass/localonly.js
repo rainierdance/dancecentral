@@ -27,9 +27,9 @@ gAllClasses.push({
   'bio' : 'http://foo'
   });
 gAllClasses.push({
-  'title' : 'Intl. Latin Level 1 - Rumba',
-  'category' : 'DropIn',
-  'start_date': '3/5/2012',
+  'title' : 'Past Intl. Latin Level 1 - Rumba',
+  'category' : 'Drop-in',
+  'start_date': '2/20/2012',
   'day_of_week': 'Tuesday',
   'start_time': '2:00 PM',
   'style': 'International Latin',
@@ -41,7 +41,7 @@ gAllClasses.push({
   });
 gAllClasses.push({
   'title' : 'A Intl. Latin Level 1 - weekly drop in',
-  'category' : 'DropIn',
+  'category' : 'Drop-in',
   'start_date': '',
   'day_of_week': 'Thursday',
   'start_time': '2:00 PM',
@@ -54,7 +54,7 @@ gAllClasses.push({
   });
 gAllClasses.push({
   'title' : 'B Intl. Latin Level 1 - weekly drop in',
-  'category' : 'DropIn',
+  'category' : 'Drop-in',
   'start_date': '',
   'day_of_week': 'Wednesday',
   'start_time': '2:00 PM',
@@ -67,8 +67,8 @@ gAllClasses.push({
   });
 gAllClasses.push({
   'title' : 'Z Intl. A test Latin Level 1 - Rumba',
-  'category' : 'DropIn',
-  'start_date': '2/5/2012',
+  'category' : 'Drop-in',
+  'start_date': '4/5/2012',
   'day_of_week': 'Thursday',
   'start_time': '2:00 PM',
   'style': 'International Standard',
@@ -80,8 +80,8 @@ gAllClasses.push({
   });
 gAllClasses.push({
   'title' : 'A Intl. Latin Level 1 - weekly drop in',
-  'category' : 'DropIn',
-  'start_date': '2/5/2012',
+  'category' : 'Drop-in',
+  'start_date': '4/5/2012',
   'day_of_week': 'Friday',
   'start_time': '2:00 PM',
   'style': 'International Standard',
