@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0220.1118";
+var VERSION = "12.0221.0112";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -105,7 +105,7 @@ var filterKeys = {
   //'teacher' : 'Teacher',  // maybe later
 }; 
 var URL_BASE = 'http://dancecentral.googlecode.com/svn/trunk/regclass/';
-
+var gSelectedClasses = [];
 
 ////////////////////////////////////////////////////////////////////////
 <!-- Utilities -->
@@ -174,6 +174,57 @@ function filterClasses(filter) {
   return sortClasses(classes);
 }
 
+function removeClass(index) {
+  // uncheck in the list
+
+  var fmClass = _gel('fmClass');
+  var options = fmClass['chkClass'];
+  var len = options.length;
+  for (var i=0; i<len; i++) {
+    if (options[i].value == gSelectedClasses[index] && options[i].checked)
+      options[i].checked = false;
+  }
+
+  gSelectedClasses.splice(index, 1);
+
+  freshSelectedClassesDisplay();
+}
+
+function toggleClass(chkClass) {
+  var checked = chkClass.checked;
+  var index = indexOf(gSelectedClasses, chkClass.value);
+  if (index == -1) {
+    gSelectedClasses.push(chkClass.value);
+  } else {
+    gSelectedClasses.splice(index, 1);
+  }
+
+  freshSelectedClassesDisplay();
+}
+
+function freshSelectedClassesDisplay() {
+  // refresh selected classes
+  if (gSelectedClasses.length == 0) {
+    _gel('idSelectedClasses').innerHTML = '';
+  } else {
+    var html = [];
+    for (var i = 0; i<gSelectedClasses.length; i++) {
+      html.push(gSelectedClasses[i]);
+      html.push(' &nbsp; <a style="text-decoration: none" href="javascript:void(0)" onclick="removeClass(' + i + ')">');
+      html.push('x');
+      //html.push('<img valign=middle src="' + URL_BASE + 'remove_icon.png" border=0>');
+      html.push('</a><br>');
+    }
+    _gel('idSelectedClasses').innerHTML = html.join('');
+  }
+
+  if (gSelectedClasses.length > 0) {
+    _gel('signUpPanel').style.display = '';
+  } else {
+    _gel('signUpPanel').style.display = 'None';
+  }
+}
+
 function showClasses(filter) {
   resultList = filterClasses(filter)
 
@@ -182,19 +233,22 @@ function showClasses(filter) {
    return;
   }
     
-  var html = ['<table width=100% cellpadding=5 border=1 style="border-collapse:collapse"><tr style="font-weight:bold"><td>Class</td>' +
+  var html = ['<form id="fmClass">'];
+  html.push('<table width=100% cellpadding=5 border=1 style="border-collapse:collapse"><tr style="font-weight:bold"><td>Class</td>' +
      '<td>Time</td><td>Level</td><td>Instructor</td>' +
      '<td>Category</td>' +
-     '</tr>'];
+     '</tr>');
   for (var i = 0; i < resultList.length; i++) {
     var groupClass = resultList[i];
     html.push('<tr width=50%' + ((i % 2 == 0) ? '' : ' style="background:whitesmoke"') + 
-      '  onclick="toggleClassDetail(' + i + ')" ' + 
-      '><td width=50%>');
+//      '  onclick="toggleClassDetail(' + i + ')" ' + 
+      '>');
+    html.push('<td width=55%>');
+    html.push('<input type=checkbox name="chkClass" value="' + resultList[i]['title'] + '" onclick="toggleClass(this)" ' +
+      (indexOf(gSelectedClasses, groupClass['title']) == -1 ? '' : 'checked') +
+      '> &nbsp;');
     var link = '<a href="javascript:void(0)" onclick="toggleClassDetail(' +
-      i + ')" ' + 
-//      ' onmouseover="showClassDetails(' + i + ')"' +  
-      ' >';
+      i + ')" ' + ' >';
     // arrows
     html.push(link);
     html.push('<img valign=middle src="' + URL_BASE + 'bullet_arrow_right.png" border=0 id="classImg' + i + '"></a> &nbsp;');
@@ -216,7 +270,7 @@ function showClasses(filter) {
     //html.push('<td>' + groupClass['style'] + '</td>');
     html.push('</tr>');
   }
-  html.push('</table>');
+  html.push('</table></form>');
   _gel('idEntityList').innerHTML = html.join('');
 }
 
@@ -233,7 +287,6 @@ function toggleClassDetail(index) {
 }
 
 function updateFilter() {
-  _gel('idEntityDetails').innerHTML = ''; // clear details, as result will change
   _gel('signUpPanel').style.display = 'None';
 
   // get filters from checkbox
@@ -250,33 +303,6 @@ function updateFilter() {
   }
 
   showClasses(filter);
-}
-
-function showClassDetails(index) {
-  var groupClass = resultList[index];
-  var html = [];
-  html.push('<div style="font-weight:bold">' + groupClass['title'] + '</div><p>');
-  html.push('<div style="border: 1px solid #cc0000; padding: 2px; line-height:1.3"><table width=100% border=0 style="border-collapse:collapse" cellspacing=4 cellpadding=2 ><tr>');
-  html.push('<td valign=top>Category: ' + groupClass['category'] + (groupClass['category'] == 'Series' ? ' (4 classes)' : '') + '<br>');
-  html.push(groupClass['style'] + ' ' + groupClass['dance_name'] + '</td>');
-  html.push('<td valign=top align=left>' + (groupClass['category'] == 'Series' ? 'Starting ' : '') + groupClass['start_date'] + ' <b>' +  groupClass['day_of_week'] + 
-    '</b> ' + groupClass['start_time'] + '<br>');
-  html.push((groupClass['level'] ?  groupClass['level'] : 'Level: Any')+ '<br>');
-  if (groupClass['teacher']) {
-    html.push('Instructor: <a href="' + groupClass['bio'] + '" target="_blank">' + groupClass['teacher'] + '</a>');
-  }
-  html.push('</td><tr></table></div>');
-
-  html.push('<p><span style="line-height:1.3">' + groupClass['description'] + '</span><br>');
-  _gel('idEntityDetails').innerHTML = html.join('');
-
-  // fill in Sign Up Panel
-  //clean up from before
-  _gel('idFrameSubmit').src = 'about:blank';
-  _gel('entry_7').value = ''; // clean up the note, leave other fields.
-
-  _gel('entry_4').value = groupClass['title']; 
-  _gel('signUpPanel').style.display = '';
 }
 
 function indexOf(obj, value) {
@@ -336,15 +362,18 @@ function showFilters() {
 function showAllClasses() {
   // reset
   _gel('fmFilter').reset();
-  _gel('idEntityDetails').innerHTML = '';
-  _gel('signUpPanel').style.display = 'None';
+  _gel('idFrameSubmit').src = 'about:blank';
 
   // display all classes
+  freshSelectedClassesDisplay();
+
   showClasses();
 }
 
 // return true to submit the form
 function checkData() {
+  _gel('entry_4').value = gSelectedClasses.join(',');
+
   if (!_gel('entry_0').value) { // need name
    _gel('inputName').className = 'errMsg';
    return false;
@@ -357,7 +386,8 @@ function checkData() {
   }
    _gel('inputGender').className = 'good';
 
-  _gel('entry_7').value = ''; // clean previous error
+  //_gel('entry_7').value = ''; // clean previous note
+  _gel('idEntityList').innerHTML = '';
   return true;
 }
 
@@ -374,52 +404,53 @@ Narrow down your choices by checking the boxes. &nbsp; &nbsp; &nbsp;
 <div id='filterSelection'></div>
 </form>
 
-<!-- Search result list + each participant details -->
-<div id="idEntityList" style="overflow: auto;line-height:1.3"><img src="http://www.google.com/ig/images/spinner.gif" /></div>
-
 <table cellspacing=10 id='idSearchResult'>
 <tr><td valign=top nowrap>
+<b>Select the classes you are interested:</b><p>
+<div style="margin-left:20px" id="idSelectedClasses"></div><p>
 </td>
-<td valign=top>
-<div id='idEntityDetails'></div>
 
-<div id='signUpPanel' style="display:None">
+<td valign=top>
+<div id='signUpPanel' style="display:None; border: 1px solid #cc0000; padding: 5px; line-height:1.3">
 <form target="frmSubmit" 
   action="https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?formkey=dDBrVDhLRGdlQ0ZiSndDaXAyMldzY2c6MQ&amp;ifq" 
   method="POST" id="ss-form" onSubmit="return checkData()">
-<b>Sign up now for this class to reserve your spot:</b> <p>
 <span id="inputName">
+<input type="hidden" name="entry.4.single" value="" class="ss-q-short" id="entry_4"> 
 Your name: <input type="text" name="entry.0.single" value="" class="ss-q-short" id="entry_0" size=30> &nbsp;</span> 
 <span id="inputGender">
 <input type="radio" name="entry.1.group" value="Lead" class="ss-q-radio" id="group_1_1"><label for="group_1_1"> Lead</label> &nbsp; &nbsp;
 <input type="radio" name="entry.1.group" value="Follow" class="ss-q-radio" id="group_1_2"><label for="group_1_2">Follow</label> &nbsp; </span><p>
+Email/Phone (Optional): <input type="text" name="entry.2.single" value="" class="ss-q-short" id="entry_2" size=30>
 
+<!--
 In case of class changes, how can we reach you? (Optional)<br>
-Email: <input type="text" name="entry.2.single" value="" class="ss-q-short" id="entry_2" size=40>
 Phone: <input type="text" name="entry.6.single" value="" class="ss-q-short" id="entry_6" size=15><p>
-<input type="hidden" name="entry.4.single" value="" class="ss-q-short" id="entry_4"> <!-- class name -->
 Question? Commments? Leave us a note:<br>
 <textarea name="entry.7.single" rows="3" cols="50" class="ss-q-long" id="entry_7"></textarea>
 <br>
+-->
 <input type="hidden" name="pageNumber" value="0">
 <input type="hidden" name="backupCache" value="">
 
-
-<input type="submit" name="submit" value="Submit">
+<input type="submit" name="submit" value="Sign up!">
 
 </form>
 </div>
 
-<!-- Visible to make sure form post is successful -->
-<div>
-<iframe name="frmSubmit" id='idFrameSubmit' width=500 height=200 frameborder=0 scrolling=no></iframe>
-</div>
 
 </div>
 </td>
 </tr>
 </table>
 
+<!-- Search result list + each participant details -->
+<div id="idEntityList" style="overflow: auto;line-height:1.3"><img src="http://www.google.com/ig/images/spinner.gif" /></div>
+
+<!-- Visible to make sure form post is successful -->
+<div>
+<iframe name="frmSubmit" id='idFrameSubmit' width=500 height=200 frameborder=0 scrolling=no></iframe>
+</div>
 
 </body>
 ]]></Content>

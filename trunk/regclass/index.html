@@ -114,7 +114,7 @@ function removeClass(index) {
 
 function toggleClass(chkClass) {
   var checked = chkClass.checked;
-  var index = gSelectedClasses.indexOf(chkClass.value);
+  var index = indexOf(gSelectedClasses, chkClass.value);
   if (index == -1) {
     gSelectedClasses.push(chkClass.value);
   } else {
@@ -132,8 +132,9 @@ function freshSelectedClassesDisplay() {
     var html = [];
     for (var i = 0; i<gSelectedClasses.length; i++) {
       html.push(gSelectedClasses[i]);
-      html.push(' &nbsp; <a href="javascript:void(0)" onclick="removeClass(' + i + ')">;
-      html.push('<img valign=middle src="' + URL_BASE + 'remove_icon.png" border=0>');
+      html.push(' &nbsp; <a style="text-decoration: none" href="javascript:void(0)" onclick="removeClass(' + i + ')">');
+      html.push('x');
+      //html.push('<img valign=middle src="' + URL_BASE + 'remove_icon.png" border=0>');
       html.push('</a><br>');
     }
     _gel('idSelectedClasses').innerHTML = html.join('');
@@ -166,7 +167,7 @@ function showClasses(filter) {
       '>');
     html.push('<td width=55%>');
     html.push('<input type=checkbox name="chkClass" value="' + resultList[i]['title'] + '" onclick="toggleClass(this)" ' +
-      (gSelectedClasses.indexOf(groupClass['title']) == -1 ? '' : 'checked') +
+      (indexOf(gSelectedClasses, groupClass['title']) == -1 ? '' : 'checked') +
       '> &nbsp;');
     var link = '<a href="javascript:void(0)" onclick="toggleClassDetail(' +
       i + ')" ' + ' >';
