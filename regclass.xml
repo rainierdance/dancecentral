@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0221.0117";
+var VERSION = "12.0221.0133";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -228,6 +228,8 @@ function freshSelectedClassesDisplay() {
 function showClasses(filter) {
   resultList = filterClasses(filter)
 
+  _gel('idFrameSubmit').src = 'about:blank'; // clear from previous
+
   if (resultList.length == 0) {
     _gel('idEntityList').innerHTML = 'No matching classes.'
    return;
@@ -360,7 +362,6 @@ function showFilters() {
 function showAllClasses() {
   // reset
   _gel('fmFilter').reset();
-  _gel('idFrameSubmit').src = 'about:blank';
 
   // display all classes
   freshSelectedClassesDisplay();
