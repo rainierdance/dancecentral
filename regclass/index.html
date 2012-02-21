@@ -28,6 +28,7 @@ var filterKeys = {
 }; 
 var URL_BASE = 'http://dancecentral.googlecode.com/svn/trunk/regclass/';
 var gSelectedClasses = [];
+var dayOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 ////////////////////////////////////////////////////////////////////////
 <!-- Utilities -->
@@ -56,7 +57,11 @@ function sortClasses(classes) {
     for (var j=0; j < sorted.length; j++) {
       if (!classes[i]['start_date'] && !sorted[j]['start_date']) {
         // both don't have start date, use title
-        if (classes[i]['title'] < sorted[j]['title']) break;
+        // check day of week
+        var index1 = indexOf(dayOfWeek, classes[i]['day_of_week']);
+        var index2 = indexOf(dayOfWeek, sorted[j]['day_of_week']);
+        if (index1 < index2) break;
+        if ((index1 == index2) && (classes[i]['title'] < sorted[j]['title'])) break;
       } else if (classes[i]['start_date'] && sorted[j]['start_date']) {
         // compare start date first
         date1 = new Date(classes[i]['start_date']).getTime();
@@ -66,7 +71,7 @@ function sortClasses(classes) {
           if (classes[i]['title'] < sorted[j]['title']) break;
         }
       } else {
-       if (!classes[i]['start_date']) {
+       if (classes[i]['start_date']) {
          break;
        }
       }
