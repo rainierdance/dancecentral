@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0221.1221";
+var VERSION = "12.0221.1223";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -288,7 +288,7 @@ function showClasses(filter) {
     html.push('<tr width=50%' + ((i % 2 == 0) ? '' : ' style="background:whitesmoke"') + 
 //      '  onclick="toggleClassDetail(' + i + ')" ' + 
       '>');
-    html.push('<td width=55%>');
+    html.push('<td width=50%>');
     html.push('<input type=checkbox name="chkClass" value="' + getClassID(groupClass) + '" onclick="toggleClass(this)" ' +
       (indexOf(gSelectedClasses, getClassID(groupClass)) == -1 ? '' : 'checked') +
       '> &nbsp;');
