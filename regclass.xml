@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0221.0112";
+var VERSION = "12.0221.0117";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -287,8 +287,6 @@ function toggleClassDetail(index) {
 }
 
 function updateFilter() {
-  _gel('signUpPanel').style.display = 'None';
-
   // get filters from checkbox
   var fmFilter = _gel('fmFilter');
   var filter = {};
