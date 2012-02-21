@@ -66,7 +66,7 @@ gAllClasses.push({
   'bio' : 'http://foo'
   });
 gAllClasses.push({
-  'title' : 'Intl. Latin Level 1 - Rumba',
+  'title' : 'Intl. B Latin Level 1 - Rumba',
   'category' : 'DropIn',
   'start_date': '2/5/2012',
   'day_of_week': 'Friday',
