@@ -51,10 +51,24 @@ function getClassID(classObj) {
 
 function sortClasses(classes) {
   var sorted = [];
+  var date1, date2;
   for (var i = 0; i< classes.length; i++) {
     for (var j=0; j < sorted.length; j++) {
-      if (classes[i]['title'] < sorted[j]['title']) {
-        break; 
+      if (!classes[i]['start_date'] && !sorted[j]['start_date']) {
+        // both don't have start date, use title
+        if (classes[i]['title'] < sorted[j]['title']) break;
+      } else if (classes[i]['start_date'] && sorted[j]['start_date']) {
+        // compare start date first
+        date1 = new Date(classes[i]['start_date']).getTime();
+        date2 = new Date(sorted[j]['start_date']).getTime();
+        if (date1 < date2) break;
+        if (date1 == date2) {
+          if (classes[i]['title'] < sorted[j]['title']) break;
+        }
+      } else {
+       if (!classes[i]['start_date']) {
+         break;
+       }
       }
     }
     sorted.splice(j, 0, classes[i]);
@@ -198,7 +212,7 @@ function showClasses(filter) {
     html.push('<td>' + (groupClass['category'] == 'Series' ? 'Starting ' : '') + 
               groupClass['start_date'] + (groupClass['start_date']? '<br>' : ''));
     html.push(' <b>' +  groupClass['day_of_week'] + '</b> ' + groupClass['start_time'] + '</td>');
-    html.push('<td>' + (groupClass['level'] ?  groupClass['level'] : 'Level: Any')+ '</td>');
+    html.push('<td>' + (groupClass['level'] ?  groupClass['level'] : 'Any')+ '</td>');
     html.push('<td>');
     if (groupClass['teacher']) {
       html.push('<a href="' + groupClass['bio'] + '" target="_blank">' + groupClass['teacher'] + '</a>');
