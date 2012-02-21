@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0221.1157";
+var VERSION = "12.0221.1221";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -133,25 +133,27 @@ function sortClasses(classes) {
   var date1, date2;
   for (var i = 0; i< classes.length; i++) {
     for (var j=0; j < sorted.length; j++) {
-      if (!classes[i]['start_date'] && !sorted[j]['start_date']) {
-        // both don't have start date, use title
-        // check day of week
-        var index1 = indexOf(dayOfWeek, classes[i]['day_of_week']);
-        var index2 = indexOf(dayOfWeek, sorted[j]['day_of_week']);
-        if (index1 < index2) break;
-        if ((index1 == index2) && (classes[i]['title'] < sorted[j]['title'])) break;
-      } else if (classes[i]['start_date'] && sorted[j]['start_date']) {
-        // compare start date first
-        date1 = new Date(classes[i]['start_date']).getTime();
-        date2 = new Date(sorted[j]['start_date']).getTime();
-        if (date1 < date2) break;
-        if (date1 == date2) {
+      var index1 = indexOf(dayOfWeek, classes[i]['day_of_week']);
+      var index2 = indexOf(dayOfWeek, sorted[j]['day_of_week']);
+      if (index1 < index2) break;
+      if (index1 == index2) {
+        if (!classes[i]['start_date'] && !sorted[j]['start_date']) {
+          // both don't have start date, use title
+          // check day of week
           if (classes[i]['title'] < sorted[j]['title']) break;
+        } else if (classes[i]['start_date'] && sorted[j]['start_date']) {
+          // compare start date first
+          date1 = new Date(classes[i]['start_date']).getTime();
+          date2 = new Date(sorted[j]['start_date']).getTime();
+          if (date1 < date2) break;
+          if (date1 == date2) {
+            if (classes[i]['title'] < sorted[j]['title']) break;
+          }
+        } else {
+         if (classes[i]['start_date']) {
+           break;
+         }
         }
-      } else {
-       if (classes[i]['start_date']) {
-         break;
-       }
       }
     }
     sorted.splice(j, 0, classes[i]);
@@ -161,40 +163,47 @@ function sortClasses(classes) {
 
 // filter: key: possible values (each key: or)
 function filterClasses(filter) {
-  if (!filter) return sortClasses(gAllClasses);
-
   var classes = [];
   for (var i = 0; i < gAllClasses.length; i++ ) {
     var match = true;
-    for (var key in filter) {
-     //  AND relation, if not a match, break out
-     // check each filter value
-     var values = filter[key];
-     var len = values.length;
-     var found = false;
-     if (len != 0) { // if non is selected, it's match
-       for (var j=0; j < len; j++) { // if found a match, true
-         if (gAllClasses[i][key] == '') {
-           found = true; // any level class match any selected values
-           break;
-         }
-         var class_values = gAllClasses[i][key].split(',');
-         for (var k = 0; k<class_values.length; k++) {
-           var class_value = class_values[k].replace(/^\s+|\s+$/g,"");
-           if (class_value == values[j]) {
-             found = true;
+    if (gAllClasses[i]['category'] != 'Series' && gAllClasses[i]['start_date']) {
+      // check if it's a past dropin class
+      var time1 = new Date(gAllClasses[i]['start_date']).getTime();
+      var time2 = new Date().getTime();
+      if (time1 < (time2 - 24 * 60 * 60 * 1000)) { // give  a day
+        match = false;
+      }
+    } else if (filter) { // check matching
+      for (var key in filter) {
+       //  AND relation, if not a match, break out
+       // check each filter value
+       var values = filter[key];
+       var len = values.length;
+       var found = false;
+       if (len != 0) { // if non is selected, it's match
+         for (var j=0; j < len; j++) { // if found a match, true
+           if (gAllClasses[i][key] == '') {
+             found = true; // any level class match any selected values
              break;
            }
+           var class_values = gAllClasses[i][key].split(',');
+           for (var k = 0; k<class_values.length; k++) {
+             var class_value = class_values[k].replace(/^\s+|\s+$/g,"");
+             if (class_value == values[j]) {
+               found = true;
+               break;
+             }
+           }
+           if (found) break;
          }
-         if (found) break;
+       } else {
+         found = true;
        }
-     } else {
-       found = true;
-     }
-     if (!found) {
-       match = false;
-       break;
-     }
+       if (!found) {
+         match = false;
+         break;
+       }
+      }
     }
     if (match) classes.push(gAllClasses[i]);
   }
@@ -290,7 +299,7 @@ function showClasses(filter) {
     html.push('<img valign=middle src="' + URL_BASE + 'bullet_arrow_right.png" border=0 id="classImg' + i + '"></a> &nbsp;');
     html.push(link + resultList[i]['title'] + '</a>');
    
-    html.push('<div id="class' + i + '" style="display:None">' + groupClass['description'] + '</div></td>');
+    html.push('<div id="class' + i + '" style="margin-top:4px; display:None">' + groupClass['description'] + '</div></td>');
    
     html.push('<td>' + (groupClass['category'] == 'Series' ? 'Starting ' : '') + 
               groupClass['start_date'] + (groupClass['start_date']? '<br>' : ''));
