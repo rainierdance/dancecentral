@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0221.1147";
+var VERSION = "12.0221.1149";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -400,7 +400,7 @@ function showAllClasses() {
 
 // return true to submit the form
 function checkData() {
-  _gel('entry_4').value = gSelectedClasses.join(',');
+  _gel('entry_4').value = gSelectedClasses.join(', ');
 
   if (!_gel('entry_0').value) { // need name
    _gel('inputName').className = 'errMsg';
