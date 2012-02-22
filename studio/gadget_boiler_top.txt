@@ -88,7 +88,8 @@ function handleClassesQueryResponse(response) {
         data.getFormattedValue(row,7)
         ];
     gAllClasses.push(new ValueDisplay(
-      getClassID(keys),
+      getClassSignInNamePrefix(keys) + ' ' + data.getFormattedValue(row,0), // using same meaningful name
+      //getClassID(keys),
       getClassSignInNamePrefix(keys) + ' ' + data.getFormattedValue(row,0) //display, class name
     ));
   }
