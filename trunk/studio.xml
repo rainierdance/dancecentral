@@ -88,7 +88,8 @@ function handleClassesQueryResponse(response) {
         data.getFormattedValue(row,7)
         ];
     gAllClasses.push(new ValueDisplay(
-      getClassID(keys),
+      getClassSignInNamePrefix(keys) + ' ' + data.getFormattedValue(row,0), // using same meaningful name
+      //getClassID(keys),
       getClassSignInNamePrefix(keys) + ' ' + data.getFormattedValue(row,0) //display, class name
     ));
   }
@@ -163,7 +164,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0217.0025";
+var VERSION = "12.0222.0002";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
