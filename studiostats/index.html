@@ -1,0 +1,61 @@
+<body onload='onLoad()'>
+<style>
+td, body {
+  font-family: Arial, sans-serif;
+  font-size: 0.8em;
+}
+a:hover {text-decoration: underline; color: red; background: #fafad2;}
+.errMsg {background-color: #ffe6cc; border: 2px solid #c43b1d; padding: 2px;}
+</style>
+
+<script>
+var IS_GADGET = false;
+var VERSION = "$Rev$";
+
+////////////////////////////////////////////////////////////////////////
+// Globals
+// everyone who signed liability waiver, including all teachers and students
+// read from data file
+var gAllEntities = [];	 
+
+// read from data file, current ongoing classes
+var gAllClasses = [];
+
+// read from data file, used to populate private lesson teacher drop down
+var gAllTeachers = []; 
+
+var gAllSignInTypes = []; // value,display pair
+var gAllRateTypes = [];
+var gSelectedEntity = null; // Entity object
+var gSelectedSignInTypeIndex = null;
+var gErrElement;
+
+////////////////////////////////////////////////////////////////////////
+<!-- Utilities -->
+function formatDate(dateObj) {
+  return dateObj.getFullYear() + '-' +
+   ('' + (100 + dateObj.getMonth() + 1)).substring(1) + '-' +
+   ('' + (100 + dateObj.getDate())).substring(1);
+}
+
+
+////////////////////////////////////////////////////////////////////////
+function initData() {
+  var html = [];
+  for (var i=0; i< gAllEntities.length; i++) {
+   html.push(gAllEntities[i].join(", "));
+   html.push('<p>');
+  }
+  html.push(gAllEntities.length);
+  _gel('idEntityList').innerHTML = html.join('');
+}
+
+</script> 
+
+<!--- UI elements --->
+
+<div id="idEntityList" style="overflow: auto;"><img src="http://www.google.com/ig/images/spinner.gif" /></div>
+
+<script type="text/javascript" SRC="localonly.js"></script>
+
+</body>
