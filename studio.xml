@@ -80,18 +80,17 @@ function handleClassesQueryResponse(response) {
   for (var row = 0; row < data.getNumberOfRows(); row++) {
     var keys = [
         data.getFormattedValue(row,1),
-        //data.getFormattedValue(row,2) ? data.getFormattedValue(row,2) : 'YYYY-MM-DD', // date will be replaced
-        'YYYY-MM-DD', // always log the real date
+        data.getFormattedValue(row,2) ? data.getFormattedValue(row,2) : 'YYYY-MM-DD', // date will be replaced
         data.getFormattedValue(row,3),
         data.getFormattedValue(row,4),
         data.getFormattedValue(row,5),
         data.getFormattedValue(row,6),
-        data.getFormattedValue(row,7)
+        data.getFormattedValue(row,7),
+        data.getFormattedValue(row,0)
         ];
     gAllClasses.push(new ValueDisplay(
-      getClassSignInNamePrefix(keys) + ' ' + data.getFormattedValue(row,0), // using same meaningful name
-      //getClassID(keys),
-      getClassSignInNamePrefix(keys) + ' ' + data.getFormattedValue(row,0) //display, class name
+      getClassID(keys),
+      getClassSignInNamePrefix(keys)
     ));
   }
   sendStudentQuery();
@@ -165,7 +164,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0227.1016";
+var VERSION = "12.0227.1056";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -193,13 +192,14 @@ function formatDate(dateObj) {
    ('' + (100 + dateObj.getDate())).substring(1);
 }
 
-// return the class ID of the format Series-2012-03-05-MON-19-15-AM-WALTZ-1
+//value has date holder
 function getClassID (keys) {
-  return keys.join('_').replace(/ /g, '-');
+  return (keys[0] + ' YYYY-MM-DD ' + keys[2] + ' ' + keys[3] + ' ' + keys[7]);
 }
 
+// display name removes the Drop in date placeholder
 function getClassSignInNamePrefix(keys) {
-  return (keys[0] + ' ' + keys[1] + ' ' + keys[2] + ' ' + keys[3]);
+  return (keys[0] + ' ' + keys[1] + ' ' + keys[2] + ' ' + keys[3] + ' ' + keys[7]).replace(/YYYY-MM-DD/g, '');
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -521,8 +521,9 @@ function signInYouth(hidePayment) {
   _gel("trPayment").style.display='None';
   _gel('trPackages').style.display = 'None';
   _gel('trDateTime').style.display = '';
-  _gel("trRateType").style.display='None';
+  _gel("trRateType").style.display='';
 
+  fillInRateTypes();
   fillInClasses(true);
 }
 
@@ -934,10 +935,13 @@ function validateInput() {
         ) 
       return false;
     }
+
   } else if (signInType == 'Youth') {
    if (!checkField('entry_6', 'entry_prep_date') ||
-       !checkField('entry_9', 'trClasses'))
+       !checkField('entry_9', 'trClasses') ||
+       !checkField('entry_10', 'trRateType'))
     return false;
+
   } else if (signInType == 'Private') {
    if (!checkField('entry_6', 'entry_prep_date') ||
        !checkField('entry_3', 'trTeacher') ||
@@ -1266,9 +1270,13 @@ gAllSignInTypes.push(new ValueDisplay('Private', 'Private Lesson'));
 gAllSignInTypes.push(new ValueDisplay('Practice', 'Practice'));
 gAllSignInTypes.push(new ValueDisplay('Payment', 'Pay Fees / Packages'));
 
+gAllRateTypes.push(new ValueDisplay('Youth-Take-Class', 'Take class'));
+gAllRateTypes.push(new ValueDisplay('Youth-Teach-Class', 'Teach class'));
+
 gAllRateTypes.push(new ValueDisplay('Group-Series-PrePaid', 'Group Series Rate (Pre-Paid)'));
 gAllRateTypes.push(new ValueDisplay('Group-Drop-in-Package-PrePaid', 'Drop-in Package (Pre-Paid)'));
 gAllRateTypes.push(new ValueDisplay('Group-Drop-in', 'Group Drop-in Rate'));
+gAllRateTypes.push(new ValueDisplay('Group-Youth-Children', 'Youth and Children\'s Program'));
 gAllRateTypes.push(new ValueDisplay('Group-Free', 'Free'));
 gAllRateTypes.push(new ValueDisplay('Group-Teach', 'Teach the Class'));
 gAllRateTypes.push(new ValueDisplay('Group-ED-PunchCard-PrePaid', 'Emotions DanceSport Punch Card'));
