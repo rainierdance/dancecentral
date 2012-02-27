@@ -80,7 +80,8 @@ function handleClassesQueryResponse(response) {
   for (var row = 0; row < data.getNumberOfRows(); row++) {
     var keys = [
         data.getFormattedValue(row,1),
-        data.getFormattedValue(row,2) ? data.getFormattedValue(row,2) : 'YYYY-MM-DD', // date will be replaced
+        //data.getFormattedValue(row,2) ? data.getFormattedValue(row,2) : 'YYYY-MM-DD', // date will be replaced
+        'YYYY-MM-DD', // always log the real date
         data.getFormattedValue(row,3),
         data.getFormattedValue(row,4),
         data.getFormattedValue(row,5),
@@ -164,7 +165,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0222.0006";
+var VERSION = "12.0227.0935";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -997,7 +998,7 @@ function onSignIn() {
   }
 
   // replace placeholder date
-  var valueClasses = values.join(', ').replace(/YYYY-MM-DD/g,  _gel('entry_prep_date').value);
+  var valueClasses = values.join(',').replace(/YYYY-MM-DD/g,  _gel('entry_prep_date').value);
   _gel('entry_9').value = valueClasses;
 
   select = _gel('selectTeacher');
@@ -1162,7 +1163,7 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_practice" onchange="updateTotal()" size=3></td></tr>
 <tr><td><input type='text' value="" id="entry_prep_payment_num_practice_students" size=3  onchange="updatePracticeStudentTotal()"> Number of dancers for Monthly Practice (Students) </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_practice_students" onchange="updateTotal()" size=3></td></tr>
-<tr  style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_floor"  onchange="updateFloorTotal()" onchange="updateTotal()" size=3> Number of lessons for Floor Fees </td>
+<tr  style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_floor"  onchange="updateFloorTotal()" onchange="updateTotal()" size=3> Number of lessons for Floor Fees (Independent)</td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_floor" onchange="updateTotal()" size=3>
 </td>
 </tr>

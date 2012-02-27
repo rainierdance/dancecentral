@@ -55,7 +55,7 @@ function handleDataQueryResponse(response) {
   for (var row = 0; row < data.getNumberOfRows(); row++) {
     var cols = [];
     for (var col = 0; col < data.getNumberOfColumns(); col++) {
-      cols.push(data.getFormattedValue(row,col));
+      cols.push(data.getFormattedValue(row,col).replace(/^\s+|\s+$/g,""));
     }
     gAllEntities.push(cols);
   }
