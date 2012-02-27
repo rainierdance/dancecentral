@@ -18,17 +18,53 @@ var VERSION = "$Rev$";
 // read from data file
 var gAllEntities = [];	 
 
-// read from data file, current ongoing classes
 var gAllClasses = [];
-
-// read from data file, used to populate private lesson teacher drop down
 var gAllTeachers = []; 
+var gAllStudents = []; 
 
-var gAllSignInTypes = []; // value,display pair
-var gAllRateTypes = [];
-var gSelectedEntity = null; // Entity object
-var gSelectedSignInTypeIndex = null;
-var gErrElement;
+var statsTeachers = {};
+var statsStudents = {};
+var statsClasses = {};
+
+var headerStr = "Timestamp,Name,Activity Type,Date,Start Time,Classes,Length,Private Lesson Teacher,Rate Type,Note,Total Amount,Payment Method,Number of Group Series Sessions,Number of Punch Card Classes,Number of Private Lessons,Number of Monthly Practice (Students),Children's Program,Youth Program,Monthly Practice (Non-Students),Number of lessons for Floor Fee (Independent),Amount for Group Series,Amount for Punch Card,Amount for Private Lessons,Amount for Monthly Practice (Students),Amount for Children's Program,Amount for Youth Program,Amount for Monthly Practice (Non-Students),Amount for Floor Fee (Independent),Payment Discount,Number of Party Passes,Amount for Party Passes";
+
+var colHeaders = headerStr.split(',');
+
+var INDEX_TIMESTAMP = colHeaders.indexOf('Timestamp');
+var INDEX_NAME = colHeaders.indexOf('Name');
+var INDEX_SIGNIN_TYPE = colHeaders.indexOf('Activity Type');
+var INDEX_DATE = colHeaders.indexOf('Date');
+var INDEX_TIME = colHeaders.indexOf('Start Time');
+var INDEX_CLASSES = colHeaders.indexOf('Classes');
+var INDEX_LENGTH = colHeaders.indexOf('Length');
+var INDEX_TEACHER = colHeaders.indexOf('Private Lesson Teacher');
+var INDEX_RATE_TYPE = colHeaders.indexOf('Rate Type');
+var INDEX_NOTE = colHeaders.indexOf('Note');
+
+var INDEX_AMOUNT_TOTAL = colHeaders.indexOf('Total Amount');
+var INDEX_PAYMENT_METHOD = colHeaders.indexOf('Payment Method');
+var INDEX_PAYMENT_DISCOUNT = colHeaders.indexOf('Payment Discount');
+
+var INDEX_PAYEMNT_NUM_SERIES = colHeaders.indexOf('Number of Group Series Sessions');
+var INDEX_PAYMENT_NUM_DROPIN = colHeaders.indexOf('Number of Punch Card Classes');
+var INDEX_PAYMENT_NUM_PRIVATE = colHeaders.indexOf('Number of Private Lessons');
+var INDEX_PAYMENT_NUM_PRACTICE_STUDENTS = colHeaders.indexOf('Number of Monthly Practice (Students)');
+var INDEX_PAYMENT_NUM_CHILDREN = colHeaders.indexOf('Children\'s Program');
+var INDEX_PAYMENT_NUM_YOUTH = colHeaders.indexOf('Youth Program');
+var INDEX_PAYEMNT_NUM_PRACTICE_NON_STUDENTS = colHeaders.indexOf('Monthly Practice (Non-Students)');
+var INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES = colHeaders.indexOf('Number of lessons for Floor Fee (Independent)');
+var INDEX_PAYEMNT_NUM_PARTIES = colHeaders.indexOf('Number of Party Passes');
+
+var INDEX_PAYEMNT_AMT_SERIES = colHeaders.indexOf('Amount for Group Series');
+var INDEX_PAYMENT_AMT_DROPIN = colHeaders.indexOf('Amount for Punch Card');
+var INDEX_PAYMENT_AMT_PRIVATE = colHeaders.indexOf('Amount for Private Lessons');
+var INDEX_PAYMENT_AMT_PRACTICE_STUDENTS = colHeaders.indexOf('Amount for Monthly Practice (Students)');
+var INDEX_PAYMENT_AMT_CHILDREN = colHeaders.indexOf('Amount for Children\'s Program');
+var INDEX_PAYMENT_AMT_YOUTH = colHeaders.indexOf('Amount for Youth Program');
+var INDEX_PAYEMNT_AMT_PRACTICE_NON_STUDENTS = colHeaders.indexOf('Amount for Monthly Practice (Non-Students)');
+var INDEX_PAYMENT_AMT_INDEPENDENT_FLOOR_FEES = colHeaders.indexOf('Amount for Floor Fee (Independent)');
+var INDEX_PAYEMNT_AMT_PARTIES = colHeaders.indexOf('Amount for Party Passes');
+
 
 ////////////////////////////////////////////////////////////////////////
 <!-- Utilities -->
@@ -39,14 +75,169 @@ function formatDate(dateObj) {
 }
 
 
+function getEntryDetail(entry) {
+/*
+  var html = [];
+  html.push(entry[INDEX_TIMESTAMP] + ' ');
+  html.push(entry[INDEX_NAME] + ' ');
+  html.push(entry[INDEX_SIGNIN_TYPE] + ' ');
+  html.push(entry[INDEX_DATE] + ' ');
+  html.push(entry[INDEX_TIME] + ' ');
+  html.push(entry[INDEX_CLASSES] + ' ');
+  html.push(entry[INDEX_LENGTH] + ' ');
+  html.push(entry[INDEX_TEACHER] + ' ');
+  html.push(entry[INDEX_RATE_TYPE] + ' ');
+  html.push(entry[INDEX_NOTE] + ' ');
+
+  html.push(entry[INDEX_AMOUNT_TOTAL] + ' ');
+  html.push(entry[INDEX_PAYMENT_METHOD] + ' ');
+  html.push(entry[INDEX_PAYMENT_DISCOUNT] + ' ');
+
+  html.push(entry[INDEX_PAYEMNT_NUM_SERIES] + ' ');
+  html.push(entry[INDEX_PAYMENT_NUM_DROPIN] + ' ');
+  html.push(entry[INDEX_PAYMENT_NUM_PRIVATE] + ' ');
+  html.push(entry[INDEX_PAYMENT_NUM_PRACTICE_STUDENTS] + ' ');
+  html.push(entry[INDEX_PAYMENT_NUM_CHILDREN] + ' ');
+  html.push(entry[INDEX_PAYMENT_NUM_YOUTH] + ' ');
+  html.push(entry[INDEX_PAYEMNT_NUM_PRACTICE_NON_STUDENTS] + ' ');
+  html.push(entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES] + ' ');
+  html.push(entry[INDEX_PAYEMNT_NUM_PARTIES] + ' ');
+
+  html.push(entry[INDEX_PAYEMNT_AMT_SERIES] + ' ');
+  html.push(entry[INDEX_PAYMENT_AMT_DROPIN] + ' ');
+  html.push(entry[INDEX_PAYMENT_AMT_PRIVATE] + ' ');
+  html.push(entry[INDEX_PAYMENT_AMT_PRACTICE_STUDENTS] + ' ');
+  html.push(entry[INDEX_PAYMENT_AMT_CHILDREN] + ' ');
+  html.push(entry[INDEX_PAYMENT_AMT_YOUTH] + ' ');
+  html.push(entry[INDEX_PAYEMNT_AMT_PRACTICE_NON_STUDENTS] + ' ');
+  html.push(entry[INDEX_PAYMENT_AMT_INDEPENDENT_FLOOR_FEES] + ' ');
+  html.push(entry[INDEX_PAYEMNT_AMT_PARTIES] + ' ');
+
+  return html.join('');
+*/
+  return entry.join(',');
+}
+
 ////////////////////////////////////////////////////////////////////////
 function initData() {
-  var html = [];
+  var html = ['Records:<ol>'];
   for (var i=0; i< gAllEntities.length; i++) {
-   html.push(gAllEntities[i].join(", "));
-   html.push('<p>');
+    html.push('<li> ' + getEntryDetail(gAllEntities[i]));
+
+    var entryDate = gAllEntities[i][INDEX_DATE].replace(/^\s+|\s+$/g,"");
+    var entryTime = gAllEntities[i][INDEX_TIME].replace(/^\s+|\s+$/g,"");
+    var classes = gAllEntities[i][INDEX_CLASSES].split(',');
+    var student = gAllEntities[i][INDEX_NAME].replace(/^\s+|\s+$/g,"");
+    var teacher = gAllEntities[i][INDEX_TEACHER].replace(/^\s+|\s+$/g,"");
+    var signInType = gAllEntities[i][INDEX_SIGNIN_TYPE].replace(/^\s+|\s+$/g,"");
+    var rateType = gAllEntities[i][INDEX_RATE_TYPE].replace(/^\s+|\s+$/g,"");
+    var numFloorFees = parseInt(gAllEntities[i][INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]);
+    if ((rateType == 'Group-Teach') || !isNaN(numFloorFees)) { // teacher sign in
+      teacher = student;
+      student = null;
+    }
+
+    if (teacher) {
+      if (!statsTeachers[teacher]) statsTeachers[teacher] = {};
+      var stat = statsTeachers[teacher];
+      if (rateType == 'Group-Teach') { // group classes taught
+        if (!stat['Group-Teach']) stat['Group-Teach'] = [];
+        var statGroup = stat['Group-Teach'];
+        if (classes && classes.length > 0) {
+          for (var j = 0; j < classes.length; j++) {
+            var groupClass = classes[j].replace(/^\s+|\s+$/g,"");
+            if (!groupClass) continue; // skip empty ones
+            // a teacher's group class stats contains an array of group class names
+            // can be used to index on group class stats 
+            statGroup.push(groupClass);
+          }
+        }
+      } else if (!isNaN(numFloorFees)) { // paid floor fees
+        var amtFloorFees = parseFloat(gAllEntities[i][INDEX_PAYMENT_AMT_INDEPENDENT_FLOOR_FEES]);
+        if (!isNaN(amtFloorFees)) {
+          if (!stat['FloorFees']) stat['FloorFees'] = [];
+          var statFloorFees = stat['FloorFees'];
+          statFloorFees.push([entryDate, numFloorFees, amtFloorFees]);
+        } else {
+          //TODO: wrong entry
+        }
+      } else if (signInType == 'Private') { // taught a private lesson
+        var length = parseInt(gAllEntities[i][INDEX_LENGTH]);
+        if (!isNaN(length)) {
+          if (!stat['Private']) stat['Private'] = [];
+          var statPrivate = stat['Private'];
+          statPrivate.push([entryDate, entryTime, student, length]);
+        } else {
+          //TODO: wrong entry
+        }
+      } else {
+        // shouldn't have gotten here.
+      }
+    }
+
+    if (student) { // student record
+      if (!statsStudents[student]) statsStudents[student] = [];
+      statsStudents[student].push(gAllEntities[i]);  //TODO
+    }
+
+    if (classes && classes.length > 0) {
+      for (var j = 0; j < classes.length; j++) {
+        var groupClass = classes[j].replace(/^\s+|\s+$/g,"");
+        if (!groupClass) continue; // skip empty ones
+        if (!statsClasses[groupClass]) statsClasses[groupClass] = [];
+        statsClasses[groupClass].push(gAllEntities[i]);  //TODO
+      }
+    }
   }
-  html.push(gAllEntities.length);
+
+  html.push('</ol>');
+
+  var line = '<hr style="background-color:rgb(204,204,204);border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;height:1px">';
+
+  html.push(line);
+  for (var key in statsStudents) {
+    html.push('<br> Student: ' + key);
+  }
+  html.push('<p>');
+
+  html.push(line);
+  for (var key in statsTeachers) {
+    html.push('<br> Teacher: ' + key + '<br>');
+    var stat = statsTeachers[key];
+
+    // group
+    var statGroup = stat['Group-Teach'];
+    html.push('Group Classes taught:<ol>');
+    for (var i = 0; statGroup && i< statGroup.length; i++) {
+      html.push('<li> ' + statGroup[i]);
+    }
+    html.push('</ol>');
+
+    // prviate
+    var statPrivate = stat['Private'];
+    html.push('Private Lessons taught:<ol>');
+    for (var i = 0; statPrivate && i< statPrivate.length; i++) {
+      html.push('<li> ' + statPrivate[i]);
+    }
+    html.push('</ol>');
+
+    // floor fees paid
+    var statFloorFees = stat['FloorFees'];
+    html.push('Floor Fees Paid:<ol>');
+    for (var i = 0; statFloorFees && i< statFloorFees.length; i++) {
+      html.push('<li> ' + statFloorFees[i]);
+    }
+    html.push('</ol>');
+  }
+  html.push('<p>');
+  html.push(line);
+
+  for (var key in statsClasses) {
+    html.push('<br> Class: ' + key);
+  }
+  html.push('<p>');
+
+  html.push(line);
   _gel('idEntityList').innerHTML = html.join('');
 }
 
