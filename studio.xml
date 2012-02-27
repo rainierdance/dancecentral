@@ -165,7 +165,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0227.0935";
+var VERSION = "12.0227.1006";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1163,7 +1163,7 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_practice" onchange="updateTotal()" size=3></td></tr>
 <tr><td><input type='text' value="" id="entry_prep_payment_num_practice_students" size=3  onchange="updatePracticeStudentTotal()"> Number of dancers for Monthly Practice (Students) </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_practice_students" onchange="updateTotal()" size=3></td></tr>
-<tr  style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_floor"  onchange="updateFloorTotal()" onchange="updateTotal()" size=3> Number of lessons for Floor Fees (Independent)</td>
+<tr  style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_floor"  onchange="updateFloorTotal()" size=3> Number of lessons for Floor Fees (Independent)</td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_floor" onchange="updateTotal()" size=3>
 </td>
 </tr>
