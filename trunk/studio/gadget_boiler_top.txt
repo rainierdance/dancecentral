@@ -80,18 +80,17 @@ function handleClassesQueryResponse(response) {
   for (var row = 0; row < data.getNumberOfRows(); row++) {
     var keys = [
         data.getFormattedValue(row,1),
-        //data.getFormattedValue(row,2) ? data.getFormattedValue(row,2) : 'YYYY-MM-DD', // date will be replaced
-        'YYYY-MM-DD', // always log the real date
+        data.getFormattedValue(row,2) ? data.getFormattedValue(row,2) : 'YYYY-MM-DD', // date will be replaced
         data.getFormattedValue(row,3),
         data.getFormattedValue(row,4),
         data.getFormattedValue(row,5),
         data.getFormattedValue(row,6),
-        data.getFormattedValue(row,7)
+        data.getFormattedValue(row,7),
+        data.getFormattedValue(row,0)
         ];
     gAllClasses.push(new ValueDisplay(
-      getClassSignInNamePrefix(keys) + ' ' + data.getFormattedValue(row,0), // using same meaningful name
-      //getClassID(keys),
-      getClassSignInNamePrefix(keys) + ' ' + data.getFormattedValue(row,0) //display, class name
+      getClassID(keys),
+      getClassSignInNamePrefix(keys)
     ));
   }
   sendStudentQuery();
