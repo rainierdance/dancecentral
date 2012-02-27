@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0227.0958";
+var VERSION = "12.0227.1111";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -181,7 +181,7 @@ function getEntryDetail(entry) {
 
   return html.join('');
 */
-  return entry.join(',');
+  return entry.join(';');
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -198,7 +198,7 @@ function initData() {
     var signInType = gAllEntities[i][INDEX_SIGNIN_TYPE].replace(/^\s+|\s+$/g,"");
     var rateType = gAllEntities[i][INDEX_RATE_TYPE].replace(/^\s+|\s+$/g,"");
     var numFloorFees = parseInt(gAllEntities[i][INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]);
-    if ((rateType == 'Group-Teach') || !isNaN(numFloorFees)) { // teacher sign in
+    if ((rateType.indexOf('Teach') != -1) || !isNaN(numFloorFees)) { // teacher sign in
       teacher = student;
       student = null;
     }
@@ -206,9 +206,9 @@ function initData() {
     if (teacher) {
       if (!statsTeachers[teacher]) statsTeachers[teacher] = {};
       var stat = statsTeachers[teacher];
-      if (rateType == 'Group-Teach') { // group classes taught
-        if (!stat['Group-Teach']) stat['Group-Teach'] = [];
-        var statGroup = stat['Group-Teach'];
+      if (rateType.indexOf('Teach') != -1) { // group classes taught
+        if (!stat['Teach']) stat['Teach'] = [];
+        var statGroup = stat['Teach'];
         if (classes && classes.length > 0) {
           for (var j = 0; j < classes.length; j++) {
             var groupClass = classes[j].replace(/^\s+|\s+$/g,"");
@@ -268,11 +268,11 @@ function initData() {
 
   html.push(line);
   for (var key in statsTeachers) {
-    html.push('<br> Teacher: ' + key + '<br>');
+    html.push('<br> <b>Teacher: ' + key + '</b><br>');
     var stat = statsTeachers[key];
 
     // group
-    var statGroup = stat['Group-Teach'];
+    var statGroup = stat['Teach'];
     html.push('Group Classes taught:<ol>');
     for (var i = 0; statGroup && i< statGroup.length; i++) {
       html.push('<li> ' + statGroup[i]);
