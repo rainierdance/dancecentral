@@ -165,7 +165,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0227.1006";
+var VERSION = "12.0227.1016";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -199,7 +199,7 @@ function getClassID (keys) {
 }
 
 function getClassSignInNamePrefix(keys) {
-  return (keys[0] + ' ' + keys[1] + ' ' + keys[2] + ' ' + keys[3]).replace(/YYYY-MM-DD/, '');
+  return (keys[0] + ' ' + keys[1] + ' ' + keys[2] + ' ' + keys[3]);
 }
 
 ////////////////////////////////////////////////////////////////////////
