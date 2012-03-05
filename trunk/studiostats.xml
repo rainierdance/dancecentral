@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0305.1122";
+var VERSION = "12.0305.1131";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -257,10 +257,11 @@ function initData() {
 
 function showStudentStats() {
   var html = [];
-  html.push(line);
 
   for (var key in statsStudents) {
-    html.push('<br> Student: ' + key);
+    html.push('<br>');
+    html.push(line);
+    html.push('<b>' + key + '</b>');
     var statStudent = statsStudents[key];
 /*
       // each student's stats: {signInType, []}
@@ -357,11 +358,12 @@ function showStudentStats() {
 
 function showPaymentStats() {
   var html = [];
-  html.push(line);
 
   for (var key in statsPayment) {
-   var entries = statsPayment[key]; // key is signInType
-   html.push(key + "<br>");
+    html.push('<br>');
+    html.push(line);
+    html.push('<b>' + key + '</b><p>');
+    var entries = statsPayment[key]; // key is signInType
    html.push('<ol>');
    for (var i = 0 ; i<entries.length; i++) {
      var entry = entries[i];
@@ -422,9 +424,11 @@ function showPaymentStats() {
 
 function showTeacherStats() {
   var html = [];
-  html.push(line);
   for (var key in statsTeachers) {
-    html.push('<br> <b>Teacher: ' + key + '</b><br>');
+    html.push('<br>');
+    html.push(line);
+    html.push('<b>' + key + '</b><p>');
+
     var stat = statsTeachers[key];
 
     // group
@@ -457,9 +461,10 @@ function showTeacherStats() {
 
 function showClassesStats() {
   var html = [];
-  html.push(line);
   for (var key in statsClasses) {
-    html.push('<br> Class: ' + key);
+    html.push('<br>');
+    html.push(line);
+    html.push('<b>' + key + '</b><p>');
     var statGroup = statsClasses[key];
     html.push('<ol>');
     for (var i = 0; i < statGroup.length; i++) {
