@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0306.0128";
+var VERSION = "12.0306.0150";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -304,7 +304,7 @@ function showStudentStats() {
          } else if (type == 'Payment') {
             html.push('<li> ' + entry[INDEX_DATE] + ' ' + 
               entry[INDEX_TIME] + ' Total: $' + 
-              entry[INDEX_AMOUNT_TOTAL]
+              entry[INDEX_AMOUNT_TOTAL] + ' '
             );
             // itemize the total
             if (entry[INDEX_SIGNIN_TYPE] != 'Payment') {
