@@ -119,6 +119,8 @@ function initData() {
             if (!groupClass) continue; // skip empty ones
             // a teacher's group class stats contains an array of group class names
             // can be used to index on group class stats 
+            // a teacher's floor fee stats contains an array of [date, # of lessons, $]
+            // a teacher's Private stats: array of [date, time, student, length]
             statGroup.push(groupClass);
           }
         } else {
@@ -195,7 +197,7 @@ function showStudentStats() {
   for (var key in statsStudents) {
     html.push('<br>');
     html.push(line);
-    html.push('<b>' + key + '</b>');
+    html.push('<b>' + key + '</b><p>'); // student name
     var statStudent = statsStudents[key];
 /*
       // each student's stats: {signInType, []}
@@ -209,7 +211,9 @@ function showStudentStats() {
 */
     for (var type in statStudent) {
       var entries = statStudent[type];
-      html.push('<ol>');
+      if (entries.length == 0) continue;
+      html.push('<i>' + type + '</i>'); // student name
+      html.push('<ol>'); // each sign in type
       for (var i = 0 ; i < entries.length; i++) {
          var entry = entries[i]; // full log line
          var classes = entry[INDEX_CLASSES].split(',');
@@ -223,7 +227,7 @@ function showStudentStats() {
          } else if (type == 'Private') {
             html.push('<li>' + entry[INDEX_DATE] + ' ' + 
               // entry[INDEX_TIME] + ' ' + 
-              entry[INDEX_TEACHER] + ' ' + entry[INDEX_LENGTH]);
+              entry[INDEX_TEACHER] + ' ' + entry[INDEX_LENGTH] + ' lesson');
          } else if (type == 'Practice') {
             html.push('<li>' + entry[INDEX_DATE] + ' ' + 
               entry[INDEX_TIME] + ' ' + 
@@ -238,46 +242,37 @@ function showStudentStats() {
             );
             // itemize the total
             if (entry[INDEX_SIGNIN_TYPE] != 'Payment') {
-              html.push('<br>' + 
+              html.push(' ' + 
                 rateDisplayMapping[entry[INDEX_RATE_TYPE]] + ' ' +
                 entry[INDEX_CLASSES].split(',').join(' &nbsp;'));
             } else { // straight payment
               if (entry[INDEX_PAYMENT_NUM_SERIES]) {
-                html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_SERIES] + ' Series Group Classes $' + 
-                  entry[INDEX_PAYMENT_AMT_SERIES]);
-              }
+                html.push(entry[INDEX_PAYMENT_NUM_SERIES] + ' Series Group Classes, &nbsp; ' );  
+              }   
               if (entry[INDEX_PAYMENT_NUM_DROPIN]) {
-                html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_DROPIN] + ' DropIn Group Classes $' + 
-                  entry[INDEX_PAYMENT_AMT_DROPIN]);
-              }
+                html.push( entry[INDEX_PAYMENT_NUM_DROPIN] + ' DropIn Group Classes, &nbsp; ' );  
+              }   
               if (entry[INDEX_PAYMENT_NUM_PRIVATE]) {
-                html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_PRIVATE] + ' Private Lessons $' + 
-                  entry[INDEX_PAYMENT_AMT_PRIVATE]);
-              }
+                html.push( entry[INDEX_PAYMENT_NUM_PRIVATE] + ' Private Lessons, &nbsp; ' );  
+              }   
               if (entry[INDEX_PAYMENT_NUM_PRACTICE_STUDENTS]) {
-                html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_PRACTICE_STUDENTS] + ' Monthly Practice (Students) $' + 
-                  entry[INDEX_PAYMENT_AMT_PRACTICE_STUDENTS]);
-              }
+                html.push( entry[INDEX_PAYMENT_NUM_PRACTICE_STUDENTS] + ' Monthly Practice (Students), &nbsp; ' );  
+              }   
               if (entry[INDEX_PAYMENT_NUM_PRACTICE_NON_STUDENTS]) {
-                html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_PRACTICE_NON_STUDENTS] + ' Monthly Practice (Non-Students) $' + 
-                  entry[INDEX_PAYMENT_AMT_PRACTICE_NON_STUDENTS]);
-              }
+                html.push( entry[INDEX_PAYMENT_NUM_PRACTICE_NON_STUDENTS] + ' Monthly Practice (Non-Students), &nbsp; ' );  
+              }   
               if (entry[INDEX_PAYMENT_NUM_CHILDREN]) {
-                html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_CHILDREN] + ' Children\'s Program $' + 
-                  entry[INDEX_PAYMENT_AMT_CHILDREN]);
-              }
+                html.push( entry[INDEX_PAYMENT_NUM_CHILDREN] + ' Children\'s Program, &nbsp; ' );  
+              }   
               if (entry[INDEX_PAYMENT_NUM_YOUTH]) {
-                html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_YOUTH] + ' Youth Program $' + 
-                  entry[INDEX_PAYMENT_AMT_YOUTH]);
-              }
+                html.push( entry[INDEX_PAYMENT_NUM_YOUTH] + ' Youth Program, &nbsp; ' );  
+              }   
               if (entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]) {
-                html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES] + ' Floor Fees (Independents) $' + 
-                  entry[INDEX_PAYMENT_AMT_INDEPENDENT_FLOOR_FEES]);
-              }
+                html.push( entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES] + ' Floor Fees (Independents), &nbsp; ' );  
+              }   
               if (entry[INDEX_PAYMENT_NUM_PARTIES]) {
-                html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_PARTIES] + ' Parties $' + 
-                  entry[INDEX_PAYMENT_AMT_PARTIES]);
-              }
+                html.push( entry[INDEX_PAYMENT_NUM_PARTIES] + ' Parties, &nbsp; ' );  
+              }   
             }
          
          } else { //TODO: wrong place
@@ -298,64 +293,62 @@ function showPaymentStats() {
     html.push(line);
     html.push('<b>' + key + '</b><p>');
     var entries = statsPayment[key]; // key is signInType
-   html.push('<ol>');
+   html.push('<table cellpadding=2>');
    for (var i = 0 ; i<entries.length; i++) {
      var entry = entries[i];
-            html.push('<li> ' + entry[INDEX_DATE] + ' ' + 
-              entry[INDEX_NAME] + ' ' +
-              entry[INDEX_TIME] + ' Total: $' + 
-              entry[INDEX_AMOUNT_TOTAL]
+            html.push('<tr><td>' + (i+1) + '</td><td> ' + entry[INDEX_DATE] + '</td><td> ' + 
+              entry[INDEX_NAME] + '</td><td>$' +
+              entry[INDEX_AMOUNT_TOTAL] + '</td>'
             );
             // itemize the total
             if (entry[INDEX_SIGNIN_TYPE] != 'Payment') {
-              html.push('<br>' + 
+              html.push('<td>' + 
                 rateDisplayMapping[entry[INDEX_RATE_TYPE]] + ' ' +
-                entry[INDEX_CLASSES].split(',').join(' &nbsp;'));
+                entry[INDEX_CLASSES].split(',').join(', &nbsp;') + '</td>');
             } else { // straight payment
+              html.push('<td>');
               if (entry[INDEX_PAYMENT_NUM_SERIES]) {
-                html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_SERIES] + ' Series Group Classes $' + 
-                  entry[INDEX_PAYMENT_AMT_SERIES]);
+                html.push(entry[INDEX_PAYMENT_NUM_SERIES] + ' Series Group Classes, &nbsp; ' ); 
               }
               if (entry[INDEX_PAYMENT_NUM_DROPIN]) {
-                html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_DROPIN] + ' DropIn Group Classes $' + 
-                  entry[INDEX_PAYMENT_AMT_DROPIN]);
+                html.push( entry[INDEX_PAYMENT_NUM_DROPIN] + ' DropIn Group Classes, &nbsp; ' ); 
               }
               if (entry[INDEX_PAYMENT_NUM_PRIVATE]) {
-                html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_PRIVATE] + ' Private Lessons $' + 
-                  entry[INDEX_PAYMENT_AMT_PRIVATE]);
+                html.push( entry[INDEX_PAYMENT_NUM_PRIVATE] + ' Private Lessons, &nbsp; ' ); 
               }
               if (entry[INDEX_PAYMENT_NUM_PRACTICE_STUDENTS]) {
-                html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_PRACTICE_STUDENTS] + ' Monthly Practice (Students) $' + 
-                  entry[INDEX_PAYMENT_AMT_PRACTICE_STUDENTS]);
+                html.push( entry[INDEX_PAYMENT_NUM_PRACTICE_STUDENTS] + ' Monthly Practice (Students), &nbsp; ' ); 
               }
               if (entry[INDEX_PAYMENT_NUM_PRACTICE_NON_STUDENTS]) {
-                html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_PRACTICE_NON_STUDENTS] + ' Monthly Practice (Non-Students) $' + 
-                  entry[INDEX_PAYMENT_AMT_PRACTICE_NON_STUDENTS]);
+                html.push( entry[INDEX_PAYMENT_NUM_PRACTICE_NON_STUDENTS] + ' Monthly Practice (Non-Students), &nbsp; ' ); 
               }
               if (entry[INDEX_PAYMENT_NUM_CHILDREN]) {
-                html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_CHILDREN] + ' Children\'s Program $' + 
-                  entry[INDEX_PAYMENT_AMT_CHILDREN]);
+                html.push( entry[INDEX_PAYMENT_NUM_CHILDREN] + ' Children\'s Program, &nbsp; ' ); 
               }
               if (entry[INDEX_PAYMENT_NUM_YOUTH]) {
-                html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_YOUTH] + ' Youth Program $' + 
-                  entry[INDEX_PAYMENT_AMT_YOUTH]);
+                html.push( entry[INDEX_PAYMENT_NUM_YOUTH] + ' Youth Program, &nbsp; ' ); 
               }
               if (entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]) {
-                html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES] + ' Floor Fees (Independents) $' + 
-                  entry[INDEX_PAYMENT_AMT_INDEPENDENT_FLOOR_FEES]);
+                html.push( entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES] + ' Floor Fees (Independents), &nbsp; ' ); 
               }
               if (entry[INDEX_PAYMENT_NUM_PARTIES]) {
-                html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_PARTIES] + ' Parties $' + 
-                  entry[INDEX_PAYMENT_AMT_PARTIES]);
+                html.push( entry[INDEX_PAYMENT_NUM_PARTIES] + ' Parties, &nbsp; ' ); 
               }
+              html.push('</td></tr>');
             }
        }
-       html.push('</ol>');
+       html.push('</table>');
   }
 
   _gel('idEntityList').innerHTML = html.join('');
 }
 
+/*
+            // a teacher's group class stats contains an array of group class names
+            // can be used to index on group class stats 
+            // a teacher's floor fee stats contains an array of [date, # of lessons, $]
+            // a teacher's Private stats: array of [date, time, student, length]
+*/
 function showTeacherStats() {
   var html = [];
   for (var key in statsTeachers) {
@@ -373,21 +366,26 @@ function showTeacherStats() {
     }
     html.push('</ol>');
 
-    // prviate
+    // private
     var statPrivate = stat['Private'];
-    html.push('Private Lessons taught:<ol>');
+    html.push('Private Lessons taught:<table cellpadding=2>');
     for (var i = 0; statPrivate && i< statPrivate.length; i++) {
-      html.push('<li> ' + statPrivate[i]);
+      html.push('<tr><td>' + statPrivate[i][0] + '</td><td>' +
+       statPrivate[i][1] + '</td><td>' +
+       statPrivate[i][2] + '</td><td>' +
+       statPrivate[i][3] + '</td></tr>');
     }
-    html.push('</ol>');
+    html.push('</table><p>');
 
     // floor fees paid
     var statFloorFees = stat['FloorFees'];
-    html.push('Floor Fees Paid:<ol>');
+    html.push('Floor Fees Paid:<table cellpadding=2>');
     for (var i = 0; statFloorFees && i< statFloorFees.length; i++) {
-      html.push('<li> ' + statFloorFees[i]);
+      html.push('<tr><td>' + statFloorFees[i][0] + '</td><td>' +
+       statFloorFees[i][1] + ' lessons</td><td>$' +
+       statFloorFees[i][2] + '</td></tr>');
     }
-    html.push('</ol>');
+    html.push('</table>');
   }
 
   _gel('idEntityList').innerHTML = html.join('');
@@ -400,12 +398,13 @@ function showClassesStats() {
     html.push(line);
     html.push('<b>' + key + '</b><p>');
     var statGroup = statsClasses[key];
-    html.push('<ol>');
+    html.push('<table cellpadding=2>');
     for (var i = 0; i < statGroup.length; i++) {
       var rateDisplay = rateDisplayMapping[statGroup[i][1]];
-      html.push('<li>' + statGroup[i][0] + ' ' + (rateDisplay ? rateDisplay : ' ') + ' ' + statGroup[i][2]);
+      html.push('<tr><td>' + (i+1) + '</td><td>' + statGroup[i][0] + '</td><td> ' + (rateDisplay ? rateDisplay : ' ') + 
+        '</td><td>' + (statGroup[i][2] ? '$' + statGroup[i][2] : '') + '</td></tr>');
     }
-    html.push('</ol>');
+    html.push('</table>');
   }
   _gel('idEntityList').innerHTML = html.join('');
 }
