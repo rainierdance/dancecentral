@@ -34,8 +34,8 @@ gAllEntities.push("2/27/2012 9:59:34;Jackie Wu;Group;2/27/2012;9:59;Series Tuesd
 gAllEntities.push("2/27/2012 10:07:19;Simeon Stoynov;Payment;2/27/2012;10:07;;;;;;20;Cash;;;;;;;;2;;;;;;;;20;;;".split(';'));
 gAllEntities.push("2/27/2012 10:07:33;Kora Stoynova;Payment;2/27/2012;10:07;;;;;;50;Cash;;;;;;;;5;;;;;;;;50;;;".split(';'));
 gAllEntities.push("2/27/2012 10:07:49;Simeon Stoynov;Payment;2/27/2012;10:07;;;;;;20;Check;;;;;;;;2;;;;;;;;20;;;".split(';'));
-gAllEntities.push("2/27/2012 10:07:56;Simeon Stoynov;Group;2/27/2012;10:07;Series Monday 8:45 PM Intl. Standard Level 2 - Quickstep;;;Group-Teach;;;;;;;;;;;;;;;;;;;;;;".split(';'));
-gAllEntities.push("2/27/2012 10:13:45;Simeon Stoynov;Group;2/20/2012;10:07;Series Monday 7:15 PM Am. Smooth Level 1 - Waltz,Series Monday 8:00 PM Am. Rhythm Level 1 - EC Swing,Series Monday 8:45 PM Intl. Standard Level 2 - Quickstep;;;Group-Teach;;;;;;;;;;;;;;;;;;;;;;".split(';'));
+gAllEntities.push("2/27/2012 10:07:56;Simeon Stoynov;Teach;2/27/2012;10:07;Series Monday 8:45 PM Intl. Standard Level 2 - Quickstep;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
+gAllEntities.push("2/27/2012 10:13:45;Simeon Stoynov;Teach;2/20/2012;10:07;Series Monday 7:15 PM Am. Smooth Level 1 - Waltz,Series Monday 8:00 PM Am. Rhythm Level 1 - EC Swing,Series Monday 8:45 PM Intl. Standard Level 2 - Quickstep;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/27/2012 10:14:35;Jackie Wu;Private;2/27/2012;10:14;;1;Simeon Stoynov;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/27/2012 10:14:39;Jackie Wu;Private;2/22/2012;10:14;;1;Simeon Stoynov;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/27/2012 10:48:14;Jackie Wu;Youth;2/27/2012;10:47;Children_2012_03_05_MON_LEVEL_1,Youth_2012_03_05_WED_17_30_LEVEL_1;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
@@ -43,4 +43,4 @@ gAllEntities.push("2/27/2012 10:49:48;Rachel Wu;Youth;2/27/2012;10:49;Children_2
 gAllEntities.push("2/27/2012 11:00:47;Lorenzo Farris;Group;2/27/2012;11:00;Series 2012-02-27 Monday 7:15 PM Am. Smooth Level 1 - Waltz,Series 2012-02-27 Monday 8:45 PM Intl. Standard Level 2 - Quickstep;;;Group-Series-PrePaid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/27/2012 11:01:16;Lorenzo Farris;Group;2/28/2012;11:00;Series 2012-02-28 Tuesday 7:15 PM Am. Smooth Level 3 - Foxtrot;;;Group-Series-PrePaid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/27/2012 11:01:52;Fiona Farris;Youth;2/27/2012;11:01;Children 2012-02-27 Monday 4:00 PM Children's Program Level 1;;;Youth-Take-Class;;;;;;;;;;;;;;;;;;;;;;".split(';'));
-gAllEntities.push("2/27/2012 11:02:03;Violeta Abramova;Youth;2/27/2012;11:01;Children 2012-02-27 Monday 4:00 PM Children's Program Level 1;;;Youth-Teach-Class;;;;;;;;;;;;;;;;;;;;;;".split(';'));
+gAllEntities.push("2/27/2012 11:02:03;Violeta Abramova;Teach;2/27/2012;11:01;Children 2012-02-27 Monday 4:00 PM Children's Program Level 1;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));

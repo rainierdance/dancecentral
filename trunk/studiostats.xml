@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0306.0153";
+var VERSION = "12.0306.0948";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -167,7 +167,7 @@ function initData() {
     var rateType = gAllEntities[i][INDEX_RATE_TYPE].replace(/^\s+|\s+$/g,"");
     var amtTotalPayment = gAllEntities[i][INDEX_AMOUNT_TOTAL].replace(/^\s+|\s+$/g,"");
     var numFloorFees = parseInt(gAllEntities[i][INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]);
-    if ((rateType.indexOf('Teach') != -1) || !isNaN(numFloorFees)) { // teacher sign in
+    if ((signInType == 'Teach') || !isNaN(numFloorFees)) { // teacher sign in
       teacher = student;
       student = null;
     }
@@ -176,7 +176,7 @@ function initData() {
       if (!statsTeachers[teacher]) statsTeachers[teacher] = {};
       var stat = statsTeachers[teacher];
       var errMsg = '';
-      if (rateType.indexOf('Teach') != -1) { // group classes taught
+      if (signInType == 'Teach') { // group classes taught
         if (!stat['Teach']) stat['Teach'] = [];
         var statGroup = stat['Teach'];
         if (classes && classes.length > 0) {
@@ -241,7 +241,7 @@ function initData() {
       for (var j = 0; j < classes.length; j++) {
         var groupClass = classes[j].replace(/^\s+|\s+$/g,"");
         if (!groupClass) continue; // skip empty ones
-        if (rateType.indexOf('Teach') != -1) continue; // not counting teacher SignIns.
+        if (signInType == 'Teach') continue; // not counting teacher SignIns.
         // each Group class, stats is {Class Name, [[Student Name, rate type, $], ...}
         if (!statsClasses[groupClass]) statsClasses[groupClass] = [];
         statsClasses[groupClass].push([student, rateType, amtTotalPayment]); 
@@ -477,15 +477,11 @@ function showClassesStats() {
 
 // sync with studio sign in
 
-rateDisplayMapping['Youth-Take-Class'] = '' ; // don't show anything
-rateDisplayMapping['Youth-Teach-Class'] = 'Teach class';
-
 rateDisplayMapping['Group-Series-PrePaid'] = 'Group Series Rate (Pre-Paid)';
 rateDisplayMapping['Group-Drop-in-Package-PrePaid'] = 'Drop-in Package (Pre-Paid)';
 rateDisplayMapping['Group-Drop-in'] = 'Group Drop-in Rate';
 rateDisplayMapping['Group-Youth-Children'] = 'Youth and Children\'s Program';
 rateDisplayMapping['Group-Free'] = 'Free';
-rateDisplayMapping['Group-Teach'] = 'Teach the Class';
 rateDisplayMapping['Group-ED-PunchCard-PrePaid'] = 'Emotions DanceSport Punch Card';
 rateDisplayMapping['Party-Only'] = 'Party Only';
 rateDisplayMapping['Party-Class-1'] = 'Party with 1 class discount';
