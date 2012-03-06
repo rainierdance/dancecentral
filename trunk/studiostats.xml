@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0306.0150";
+var VERSION = "12.0306.0153";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -298,13 +298,13 @@ function showStudentStats() {
             html.push('<li>' + entry[INDEX_DATE] + ' ' + 
               entry[INDEX_TIME] + ' ' + 
               entry[INDEX_LENGTH] + ' ' + 
-              entry[INDEX_RATE_TYPE] + ' ' + 
-              entry[INDEX_AMOUNT_TOTAL] 
+              entry[INDEX_RATE_TYPE] + ' <b>' + 
+              entry[INDEX_AMOUNT_TOTAL] + '</b>'
             );
          } else if (type == 'Payment') {
             html.push('<li> ' + entry[INDEX_DATE] + ' ' + 
-              entry[INDEX_TIME] + ' Total: $' + 
-              entry[INDEX_AMOUNT_TOTAL] + ' '
+              entry[INDEX_TIME] + ' Total: <b>$' + 
+              entry[INDEX_AMOUNT_TOTAL] + '</b> '
             );
             // itemize the total
             if (entry[INDEX_SIGNIN_TYPE] != 'Payment') {
@@ -363,8 +363,8 @@ function showPaymentStats() {
    for (var i = 0 ; i<entries.length; i++) {
      var entry = entries[i];
             html.push('<tr><td>' + (i+1) + '</td><td> ' + entry[INDEX_DATE] + '</td><td> ' + 
-              entry[INDEX_NAME] + '</td><td>$' +
-              entry[INDEX_AMOUNT_TOTAL] + '</td>'
+              entry[INDEX_NAME] + '</td><td><b>$' +
+              entry[INDEX_AMOUNT_TOTAL] + '</b></td>'
             );
             // itemize the total
             if (entry[INDEX_SIGNIN_TYPE] != 'Payment') {
