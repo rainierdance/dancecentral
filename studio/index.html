@@ -333,7 +333,6 @@ function clearFields() {
   // reset fields that are hidden
   _gel('fieldTeachers').innerHTML=''
   _gel('entry_prep_length').value='';
-  _gel('entry_prep_length_hr').value='';
   _gel('fieldClasses').innerHTML=''
   _gel('fieldRate').innerHTML=''
   if (_gel(gErrElement)) _gel(gErrElement).className = '';
@@ -492,7 +491,7 @@ function fillInRateTypes() {
 }
 
 function fillInLength() {
-  _gel('entry_prep_length').value = '1';
+  _gel('entry_prep_length').value = '45';
 }
 
 // update the total $ amount
@@ -664,9 +663,9 @@ function updateYouthTotal() {
   value = parseInt(_gel('entry_prep_payment_num_youth').value);
   if (!isNaN(value)) {
     if (value > 1)
-      amount = 90 + (value-1) * 50;
+      amount = 80 + (value-1) * 50;
     else {
-      amount = 90 * value; // could be zero
+      amount = 80 * value; // could be zero
    }
    _gel('entry_prep_payment_amt_youth').value = amount;
   } else {
@@ -868,10 +867,8 @@ function onSignIn() {
 
   // private lessons, 1 hr lesson is logged as 1.5 in sign in log
   value = parseInt(_gel('entry_prep_length').value);
-  var value_hr = parseInt(_gel('entry_prep_length_hr').value);
   var length = 0;
-  if (!isNaN(value)) length += value;
-  if (!isNaN(value_hr)) length += (value_hr * 1.5);
+  if (!isNaN(value)) length = value;
 
   _gel('entry_11').value = (length > 0) ? length : '';
   _gel('entry_5').value = _gel('entry_prep_note').value;
@@ -988,8 +985,7 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 </td></tr>
 
 <tr id="trLength"><td>Length</td><td>
-<input type="text" name="entry.6.single" value=""  id="entry_prep_length" size=3> 45-min lesson &nbsp; &nbsp; &nbsp;
-<input type="text" value=""  id="entry_prep_length_hr" size=3> 1-hour lesson<br>
+<input type="text" name="entry.6.single" value=""  id="entry_prep_length" size=3> min
 </td></tr>
 
 <tr id="trRateType"><td>Rate type</td><td>
@@ -999,6 +995,7 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 <tr id="trPackages"><td>Series, Packages</td>
 <td><span id="fieldPackage">
 <table>
+<tr><td colspan=2>Student: </td></tr>
 <tr><td><input type='text' value="" id="entry_prep_payment_num_series" size=3 onchange="updateSeriesTotal()"> Number of Group Series sessions </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_series" onchange="updateTotal()" size=3></td></tr>
 <tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_punch" size=3  onchange="updateDropInClassTotal()"> Number of Group Drop-in Classes</td>
@@ -1013,12 +1010,17 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_practice" onchange="updateTotal()" size=3></td></tr>
 <tr><td><input type='text' value="" id="entry_prep_payment_num_practice_students" size=3  onchange="updatePracticeStudentTotal()"> Number of dancers for Monthly Practice (Students) </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_practice_students" onchange="updateTotal()" size=3></td></tr>
+
+<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_parties" size=3  onchange="updatePartyTotal()"> Number of Party Passes </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_parties" onchange="updateTotal()" size=3></td></tr>
+
+<tr><td colspan=2>Teacher: </td></tr>
+
 <tr  style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_floor"  onchange="updateFloorTotal()" size=3> Number of lessons for Floor Fees (Independent)</td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_floor" onchange="updateTotal()" size=3>
 </td>
 </tr>
-<tr><td><input type='text' value="" id="entry_prep_payment_num_parties" size=3  onchange="updatePartyTotal()"> Number of Party Passes </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_parties" onchange="updateTotal()" size=3></td></tr>
+
 <!--
 <tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_wedding"  onchange="updateWeddingTotal()" onchange="updateTotal()" size=3> Number of Lessons for Wedding Dance </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_wedding" onchange="updateTotal()" size=3></td></tr>
