@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="DanceCentral.info Studio Management - New Registration"
+             description="DanceCentral.info Studio Management"
+             author="DanceCentral.info"
+             >
+<Require feature="idi"/>
+<Require feature="setprefs" />
+<Require feature="locked-domain" />
+</ModulePrefs>
+<Content type="html"><![CDATA[
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
+<script>
+function escapeHtml(text) {
+  if (text == null) {
+    return '';
+  }
+  //return _hesc(text);
+  return text;
+}
+
+var gadgetHelper = null;
+_IG_RegisterOnloadHandler(onLoad);
+
+</script>
+

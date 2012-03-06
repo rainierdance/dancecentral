@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="DanceCentral.info Studio Management - New Registration"
+             description="DanceCentral.info Studio Management"
+             author="DanceCentral.info"
+             >
+<Require feature="idi"/>
+<Require feature="setprefs" />
+<Require feature="locked-domain" />
+</ModulePrefs>
+<Content type="html"><![CDATA[
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
+<script>
+function escapeHtml(text) {
+  if (text == null) {
+    return '';
+  }
+  //return _hesc(text);
+  return text;
+}
+
+var gadgetHelper = null;
+_IG_RegisterOnloadHandler(onLoad);
+
+</script>
+
+<body onLoad='onLoad()'>
+<style>
+td, body {
+  font-family: Arial, sans-serif;
+  font-size: 0.8em;
+}
+a:hover {text-decoration: underline; color: red; background: #fafad2;}
+.errMsg {background-color: #ffe6cc; border: 2px solid #c43b1d; padding: 2px;}
+</style>
+
+<script>
+var IS_GADGET = true;
+var VERSION = "12.0306.1025";
+
+function onLoad() {
+  // fill in default date
+  var now = new Date();
+  var dateStr = 
+   ('' + (100 + now.getMonth() + 1)).substring(1) + '/' +
+   ('' + (100 + now.getDate())).substring(1) + '/' +
+   now.getFullYear();
+
+  _gel('entry_11').value = dateStr;
+}
+
+</script>
+
+<div style='line-height:2'>
+<form action="https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?formkey=dF9PbmlrUFVjLXZlbXNnUWhiRkVqaGc6MQ&amp;ifq" method="POST" id="ss-form">
+
+<b>First Name</b>: <input type="text" name="entry.0.single" value="" class="ss-q-short" id="entry_0"> 
+<b>Last Name</b>: <input type="text" name="entry.1.single" value="" class="ss-q-short" id="entry_1"> &nbsp; 
+<b>Gender</b>: <input type="radio" name="entry.10.group" value="Male" class="ss-q-radio" id="group_10_1">
+Male</label> &nbsp; 
+<input type="radio" name="entry.10.group" value="Female" class="ss-q-radio" id="group_10_2">
+Female</label> <br>
+
+Parent or Guardian&#39;s Name:
+<input type="text" name="entry.9.single" value="" class="ss-q-short" id="entry_9">
+ (if participant is minor)
+
+<br>
+
+Address:
+<input type="text" name="entry.6.single" value="" class="ss-q-short" id="entry_6" size=30>
+City:
+<input type="text" name="entry.7.single" value="" class="ss-q-short" id="entry_7">
+Zip
+<input type="text" name="entry.8.single" value="" class="ss-q-short" id="entry_8" size=6>
+
+<br>
+Referrer:
+
+<input type="text" name="entry.4.single" value="" class="ss-q-short" id="entry_4">
+Primary Teacher:
+<input type="text" name="entry.5.single" value="" class="ss-q-short" id="entry_5">
+
+
+<br>
+
+Email:
+<input type="text" name="entry.2.single" value="" class="ss-q-short" id="entry_2" size=40>
+Phone Number:
+<input type="text" name="entry.3.single" value="" class="ss-q-short" id="entry_3">
+
+
+<br>
+Liability Waiver Date: 
+<input type="text" name="entry.11.single" value="" class="ss-q-short" id="entry_11"> 
+
+Photo Consent Date:
+<input type="text" name="entry.12.single" value="" class="ss-q-short" id="entry_12">
+
+<br>
+
+
+Note:<br>
+<textarea name="entry.13.single" rows="4" cols="50" class="ss-q-long" id="entry_13"></textarea>
+
+<br>
+
+<input type="hidden" name="pageNumber" value="0">
+<input type="hidden" name="backupCache" value="">
+
+<input type="submit" name="submit" value="Submit"></div></div></form>
+
+</div>
+
+
+</body>
+]]></Content>
+</Module>
+
