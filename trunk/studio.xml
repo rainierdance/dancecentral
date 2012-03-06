@@ -128,7 +128,7 @@ function handleStudentQueryResponse(response) {
    * Process all Rows in the specified range
    */
   for (var row = 0; row < data.getNumberOfRows(); row++) {
-    gAllEntities.push(new Entity(
+    addEntityInOrder(new Entity(
       data.getFormattedValue(row,1), //firstName
       data.getFormattedValue(row,2), //lastname
       data.getFormattedValue(row,7), //address
@@ -164,7 +164,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0306.0948";
+var VERSION = "12.0306.1102";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -234,6 +234,15 @@ function Entity(firstName, lastName, address, city, zip, email, phone,
   this.photoDate =  photoDate;
 
   this.index = index; // object's index to gAllEntities
+}
+
+function addEntityInOrder(entity) {
+  for (var i=0; i<gAllEntities.length; i++) {
+    if (gAllEntities[i].getName() < entity.getName()) continue;
+    // insert here
+    break;
+  }
+  gAllEntities.splice(i, 0, entity);
 }
 
 // returns full name of the Entity (Entity or Teacher)
@@ -327,6 +336,8 @@ function showEntityDetails(index) {
 ////////////////////////////////////////////////////////////////////////
 // Display search result
 function refreshSearchResult(entities) {
+  _gel('idTopSearchPanel').style.display = '';
+
   var html = [];   // start the HTML output string
   for (var i = 0; i < entities.length; i++) {
     html.push((i+1) + '&nbsp;<a href="javascript:void(0)" onclick="selectEntity(' + 
@@ -1092,8 +1103,10 @@ function onSignIn() {
 <!--- UI elements --->
 
 <!-- Search header, always shown -->
+<div id='idTopSearchPanel' style='display:None'>
 Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" onKeyUp='changeKeyword(this.value)'>
 &nbsp;&nbsp; <a href="https://sites.google.com/a/ariaballroom.com/studio/new-registration" target="_top">New Registration</a>
+</div>
 
 <!-- Search result list + each participant details -->
 <table cellspacing=15 id='idSearchResult'>
