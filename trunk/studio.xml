@@ -164,7 +164,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0306.1102";
+var VERSION = "12.0306.1107";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -233,7 +233,6 @@ function Entity(firstName, lastName, address, city, zip, email, phone,
   this.liabilityDate = liabilityDate;
   this.photoDate =  photoDate;
 
-  this.index = index; // object's index to gAllEntities
 }
 
 function addEntityInOrder(entity) {
@@ -243,6 +242,8 @@ function addEntityInOrder(entity) {
     break;
   }
   gAllEntities.splice(i, 0, entity);
+  // object's index to gAllEntities
+  entity.index = i;  // resorted
 }
 
 // returns full name of the Entity (Entity or Teacher)
