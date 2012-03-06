@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0305.1131";
+var VERSION = "12.0306.0026";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -330,7 +330,7 @@ function showStudentStats() {
               }
               if (entry[INDEX_PAYMENT_NUM_CHILDREN]) {
                 html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_CHILDREN] + ' Children\'s Program $' + 
-                  entry[INDEX_PAYMENT_AMT_CHILDDREN]);
+                  entry[INDEX_PAYMENT_AMT_CHILDREN]);
               }
               if (entry[INDEX_PAYMENT_NUM_YOUTH]) {
                 html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_YOUTH] + ' Youth Program $' + 
@@ -400,7 +400,7 @@ function showPaymentStats() {
               }
               if (entry[INDEX_PAYMENT_NUM_CHILDREN]) {
                 html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_CHILDREN] + ' Children\'s Program $' + 
-                  entry[INDEX_PAYMENT_AMT_CHILDDREN]);
+                  entry[INDEX_PAYMENT_AMT_CHILDREN]);
               }
               if (entry[INDEX_PAYMENT_NUM_YOUTH]) {
                 html.push('<br>$' +  entry[INDEX_PAYMENT_NUM_YOUTH] + ' Youth Program $' + 
