@@ -164,7 +164,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0306.1107";
+var VERSION = "12.0306.1311";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -244,6 +244,11 @@ function addEntityInOrder(entity) {
   gAllEntities.splice(i, 0, entity);
   // object's index to gAllEntities
   entity.index = i;  // resorted
+  for (var j = i+1; j < gAllEntities.length; j++) {
+    gAllEntities[j].index = j;  // resorted
+  }
+
+  return i;
 }
 
 // returns full name of the Entity (Entity or Teacher)
@@ -346,6 +351,13 @@ function refreshSearchResult(entities) {
       entities[i].getName() + '</a><br>');
   }
   _gel('idEntityList').innerHTML = html.join('');
+  if (entities.length == 0) {
+    // show new student
+    _gel('idIsNewPanel').style.display = '';
+  } else {
+    _gel('idIsNewPanel').style.display = 'None';
+    _gel('idIsNew').checked = false;
+  }
 
   // clear details panel
   _gel('idEntityDetails').innerHTML = '';
@@ -364,6 +376,19 @@ function changeKeyword(keyword) {
 }
 
 ////////////////////////////////////////////////////////////////////////
+//
+function addAndSelectEntity() {
+  var value = _gel('idKeyword').value.split(' ');
+  var first = value[0];
+  var last = value[1]? value[1] : '';
+
+  var entity = new Entity(first, last, '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+
+  var index = addEntityInOrder(entity);
+
+  selectEntity(index);
+}
+
 // Select a student and show header
 function selectEntity(index) {
   gSelectedEntity = gAllEntities[index];
@@ -372,7 +397,8 @@ function selectEntity(index) {
 
   clearFields();
 
-  _gel('fieldName').innerHTML = gSelectedEntity.getName();
+  //_gel('fieldName').innerHTML = gSelectedEntity.getName();
+  _gel('idKeyword').value = gSelectedEntity.getName();
 
   // initial selection of sign in types
   var element = _gel('fieldType');
@@ -1105,8 +1131,9 @@ function onSignIn() {
 
 <!-- Search header, always shown -->
 <div id='idTopSearchPanel' style='display:None'>
-Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" onKeyUp='changeKeyword(this.value)'>
-&nbsp;&nbsp; <a href="https://sites.google.com/a/ariaballroom.com/studio/new-registration" target="_top">New Registration</a>
+Name: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" onKeyUp='changeKeyword(this.value)'>
+<span id='idIsNewPanel' style="display:None"><input id='idIsNew' type=checkbox onclick='addAndSelectEntity()'><label for="idIsNew">Add as a new student</label></span>
+<p>
 </div>
 
 <!-- Search result list + each participant details -->
@@ -1119,7 +1146,7 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 </table>
 
 <div id="idEntityHeader">
-<span id="fieldName" style="font-weight:bold;font-size:1.1em;line-height:3;padding-left:20px"></span>
+<!--<span id="fieldName" style="font-weight:bold;font-size:1.1em;line-height:3;padding-left:20px"></span> //-->
 <div id="fieldType"></div>
 </div>
 
@@ -1288,6 +1315,9 @@ Note: <textarea name="entry.5.single" rows="8" cols="75"  id="entry_5"></textare
 </form>
 </div>
 
+<div style="display:none">
+</div>
+
 <!-- Visible to make sure form post is successful -->
 <div>
 <iframe name="frmSubmit" id='idFrameSubmit' width=500 height=200 frameborder=0 scrolling=no></iframe>
@@ -1313,10 +1343,9 @@ gAllSignInTypes.push(new ValueDisplay('Teach', 'Teach Group Classes'));
 gAllRateTypes.push(new ValueDisplay('Group-Series-PrePaid', 'Group Series Rate (Pre-Paid)'));
 gAllRateTypes.push(new ValueDisplay('Group-Drop-in-Package-PrePaid', 'Drop-in Package (Pre-Paid)'));
 gAllRateTypes.push(new ValueDisplay('Group-Drop-in', 'Group Drop-in Rate'));
-gAllRateTypes.push(new ValueDisplay('Group-Youth-Children', 'Youth and Children\'s Program'));
 gAllRateTypes.push(new ValueDisplay('Group-Free', 'Free'));
-//gAllRateTypes.push(new ValueDisplay('Group-Teach', 'Teach the Class'));
 gAllRateTypes.push(new ValueDisplay('Group-ED-PunchCard-PrePaid', 'Emotions DanceSport Punch Card'));
+
 gAllRateTypes.push(new ValueDisplay('Party-Only', 'Party Only: $10'));
 gAllRateTypes.push(new ValueDisplay('Party-Class-1', 'Party with 1 class discount: $5'));
 gAllRateTypes.push(new ValueDisplay('Party-Class-2', 'Party free with 2 classes'));
