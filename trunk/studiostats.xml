@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0306.0111";
+var VERSION = "12.0306.0128";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -293,7 +293,7 @@ function showStudentStats() {
          } else if (type == 'Private') {
             html.push('<li>' + entry[INDEX_DATE] + ' ' + 
               // entry[INDEX_TIME] + ' ' + 
-              entry[INDEX_TEACHER] + ' ' + entry[INDEX_LENGTH] + ' lesson');
+              entry[INDEX_TEACHER] + ' ' + entry[INDEX_LENGTH] + ' min lesson');
          } else if (type == 'Practice') {
             html.push('<li>' + entry[INDEX_DATE] + ' ' + 
               entry[INDEX_TIME] + ' ' + 
@@ -439,7 +439,7 @@ function showTeacherStats() {
       html.push('<tr><td>' + statPrivate[i][0] + '</td><td>' +
        statPrivate[i][1] + '</td><td>' +
        statPrivate[i][2] + '</td><td>' +
-       statPrivate[i][3] + '</td></tr>');
+       statPrivate[i][3] + ' min lesson</td></tr>');
     }
     html.push('</table><p>');
 
