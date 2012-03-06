@@ -315,6 +315,8 @@ function changeSignInType(signInTypeIndex) {
     signInGroup();
   } else if (signInTypeValue.indexOf('Party') == 0) {
     signInGroup();
+  } else if (signInTypeValue.indexOf('Teach') == 0) {
+    signInTeach();
   } else if (signInTypeValue.indexOf('Youth') == 0) {
     signInYouth();
   } else if (signInTypeValue.indexOf('Practice') == 0) {
@@ -358,6 +360,19 @@ function signInGroup() {
   fillInClasses(true);
 }
 
+function signInTeach() {
+  // hide unused fields
+  _gel("trTeacher").style.display='None';
+  _gel("trLength").style.display='None';
+  _gel("trClasses").style.display='';
+  _gel("trPayment").style.display='None';
+  _gel('trPackages').style.display = 'None';
+  _gel('trDateTime').style.display = '';
+  _gel("trRateType").style.display='None';
+
+  fillInClasses(true);
+}
+
 function signInYouth(hidePayment) {
   // hide unused fields
   _gel("trTeacher").style.display='None';
@@ -366,9 +381,9 @@ function signInYouth(hidePayment) {
   _gel("trPayment").style.display='None';
   _gel('trPackages').style.display = 'None';
   _gel('trDateTime').style.display = '';
-  _gel("trRateType").style.display='';
+  _gel("trRateType").style.display='None';
 
-  fillInRateTypes();
+  //fillInRateTypes();
   fillInClasses(true);
 }
 
@@ -427,6 +442,7 @@ function isTodaysClass(classId) {
 var categoryFilters = {
   'Group' : ['Series', 'Drop-in'],
   'Party' : ['Party', 'Round'],
+  'Teach' : ['Series', 'Drop-in', 'Children', 'Youth'],
   'Youth' : ['Children', 'Youth']
 }
 
@@ -766,6 +782,10 @@ function validateInput() {
         ) 
       return false;
    }
+  } else if (signInType == 'Teach') {
+   if (!checkField('entry_6', 'entry_prep_date') ||
+       !checkField('entry_9', 'trClasses'))
+    return false;
   } else if (signInType == 'Party') {
    if (!checkField('entry_6', 'entry_prep_date') ||
        !checkField('entry_9', 'trClasses') ||
@@ -1117,16 +1137,17 @@ gAllSignInTypes.push(new ValueDisplay('Youth', 'Youth & Children'));
 gAllSignInTypes.push(new ValueDisplay('Private', 'Private Lesson'));
 gAllSignInTypes.push(new ValueDisplay('Practice', 'Practice'));
 gAllSignInTypes.push(new ValueDisplay('Payment', 'Pay Fees / Packages'));
+gAllSignInTypes.push(new ValueDisplay('Teach', 'Teach Group Classes'));
 
-gAllRateTypes.push(new ValueDisplay('Youth-Take-Class', 'Take class'));
-gAllRateTypes.push(new ValueDisplay('Youth-Teach-Class', 'Teach class'));
+//gAllRateTypes.push(new ValueDisplay('Youth-Take-Class', 'Take class'));
+//gAllRateTypes.push(new ValueDisplay('Youth-Teach-Class', 'Teach class'));
 
 gAllRateTypes.push(new ValueDisplay('Group-Series-PrePaid', 'Group Series Rate (Pre-Paid)'));
 gAllRateTypes.push(new ValueDisplay('Group-Drop-in-Package-PrePaid', 'Drop-in Package (Pre-Paid)'));
 gAllRateTypes.push(new ValueDisplay('Group-Drop-in', 'Group Drop-in Rate'));
 gAllRateTypes.push(new ValueDisplay('Group-Youth-Children', 'Youth and Children\'s Program'));
 gAllRateTypes.push(new ValueDisplay('Group-Free', 'Free'));
-gAllRateTypes.push(new ValueDisplay('Group-Teach', 'Teach the Class'));
+//gAllRateTypes.push(new ValueDisplay('Group-Teach', 'Teach the Class'));
 gAllRateTypes.push(new ValueDisplay('Group-ED-PunchCard-PrePaid', 'Emotions DanceSport Punch Card'));
 gAllRateTypes.push(new ValueDisplay('Party-Only', 'Party Only: $10'));
 gAllRateTypes.push(new ValueDisplay('Party-Class-1', 'Party with 1 class discount: $5'));
