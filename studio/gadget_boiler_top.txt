@@ -128,7 +128,7 @@ function handleStudentQueryResponse(response) {
    * Process all Rows in the specified range
    */
   for (var row = 0; row < data.getNumberOfRows(); row++) {
-    gAllEntities.push(new Entity(
+    addEntityInOrder(new Entity(
       data.getFormattedValue(row,1), //firstName
       data.getFormattedValue(row,2), //lastname
       data.getFormattedValue(row,7), //address
