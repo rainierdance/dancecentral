@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0306.1837";
+var VERSION = "12.0307.0044";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -544,6 +544,10 @@ function updateClassStats(optSelect) {
     return;
   }
   var selected = optSelect.options[optSelect.selectedIndex].value;
+  updateClassStatsWithName(selected);
+}
+
+function updateClassStatsWithName(selected) {
   var stat = statsClasses[selected];
   _gel('idEntityList').innerHTML = getClassDisplay(selected, stat);
 
@@ -563,10 +567,38 @@ function showClassesStats() {
   for (var i = 0; i< sortedList.length; i++) {
     html.push('<option>' + sortedList[i]);
   }
-  html.push('</select> &nbsp; <a href="javascript:void(0)" onclick="showClassesStatsOverview()">Show overview</a>');
+  html.push('</select> &nbsp;');
+  html.push(' <a href="javascript:void(0)" onclick="showClassesStatsSummary()">Show summary</a>');
+  html.push(' <a href="javascript:void(0)" onclick="showClassesStatsOverview()">Show all details</a>');
   _gel('idSelect').innerHTML = html.join('');
 
-  showClassesStatsOverview();
+  showClassesStatsSummary();
+}
+
+function showClassesStatsSummary() {
+  _gel('idPick').selectedIndex = 0;
+
+  // sort by count
+  var cnt = 0;
+  var sortedList = [];
+  for (var key in statsClasses) {
+    for (var i = 0; i< sortedList.length; i++) {
+      if (statsClasses[key].length > sortedList[i][1]) break;
+    }
+    sortedList.splice(i, 0, [key, statsClasses[key].length]);
+    cnt += statsClasses[key].length;
+  }
+
+  var html = [];
+  html.push('Total participants: <b>' + cnt + '</b><p>');
+  html.push('<table cellpadding=4 style="border-collapse:collapse;" border=1>');
+  for (var i = 0; i<sortedList.length; i++) {
+   html.push('<tr><td><a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + sortedList[i][0] + 
+     '\')">' + sortedList[i][0] + '</a></td><td>' + sortedList[i][1] + '</td></tr>');
+  }
+  html.push('</table>');
+
+  _gel('idEntityList').innerHTML = html.join('');
 }
 
 function showClassesStatsOverview() {
