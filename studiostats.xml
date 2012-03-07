@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0306.1026";
+var VERSION = "12.0306.1837";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -257,14 +257,53 @@ function initData() {
 
 }
 
+function updateStudentStats(optSelect) {
+  if (optSelect.selectedIndex == 0) {
+    showStudentStatsOverview();
+    return;
+  }
+  var selected = optSelect.options[optSelect.selectedIndex].value;
+  var statStudent = statsStudents[selected];
+  _gel('idEntityList').innerHTML = getStudentDisplay(selected, statStudent);
+
+}
+
 function showStudentStats() {
+  var sortedStudents = [];
+  for (var key in statsStudents) {
+   for (var i = 0; i< sortedStudents.length; i++) {
+     if (sortedStudents[i] > key) break;
+   }
+   sortedStudents.splice(i, 0, key);
+  }
+
+  var html = ['<p><select id="idPick" onchange="updateStudentStats(this)">'];
+  html.push('<option>' + ' --- Pick a student ---');
+  for (var i = 0; i< sortedStudents.length; i++) {
+    html.push('<option>' + sortedStudents[i]);
+  }
+  html.push('</select> &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsOverview()">Show overview</a>');
+  _gel('idSelect').innerHTML = html.join('');
+  
+  showStudentStatsOverview();
+}
+
+function showStudentStatsOverview() {
+  // reset select box
+  _gel('idPick').selectedIndex = 0;
+
   var html = [];
 
   for (var key in statsStudents) {
-    html.push('<br>');
+    html.push(getStudentDisplay(key, statsStudents[key]));
+  }
+  _gel('idEntityList').innerHTML = html.join('');
+}
+
+function getStudentDisplay(student, statStudent) {
+    var html = [];
     html.push(line);
-    html.push('<b>' + key + '</b><p>'); // student name
-    var statStudent = statsStudents[key];
+    html.push('<b>' + student + '</b><p>'); // student name
 /*
       // each student's stats: {signInType, []}
       // Group: [class name, rate Type, amount]
@@ -348,12 +387,12 @@ function showStudentStats() {
       }
       html.push('</ol>');
     }
-  }
-
-  _gel('idEntityList').innerHTML = html.join('');
+  return html.join('');
 }
 
 function showPaymentStats() {
+  _gel('idSelect').innerHTML = '';
+
   var html = [];
 
   for (var key in statsPayment) {
@@ -419,14 +458,53 @@ function showPaymentStats() {
             // a teacher's floor fee stats contains an array of [date, # of lessons, $]
             // a teacher's Private stats: array of [date, time, student, length]
 */
+
+function updateTeacherStats(optSelect) {
+  if (optSelect.selectedIndex == 0) {
+    showTeacherStatsOverview();
+    return;
+  }
+  var selected = optSelect.options[optSelect.selectedIndex].value;
+  var stat = statsTeachers[selected];
+  _gel('idEntityList').innerHTML = getDisplayTeacher(selected, stat);
+}
+
 function showTeacherStats() {
+  var sortedList = [];
+  for (var key in statsTeachers) {
+   for (var i = 0; i< sortedList.length; i++) {
+     if (sortedList[i] > key) break;
+   }
+   sortedList.splice(i, 0, key);
+  }
+
+  var html = ['<p><select id="idPick" onchange="updateTeacherStats(this)">'];
+  html.push('<option>' + ' --- Pick a teacher ---');
+  for (var i = 0; i< sortedList.length; i++) {
+    html.push('<option>' + sortedList[i]);
+  }
+  html.push('</select> &nbsp; <a href="javascript:void(0)" onclick="showTeacherStatsOverview()">Show overview</a>');
+  _gel('idSelect').innerHTML = html.join('');
+
+  showTeacherStatsOverview();
+}
+
+function showTeacherStatsOverview() {
+  _gel('idPick').selectedIndex = 0;
+
   var html = [];
   for (var key in statsTeachers) {
-    html.push('<br>');
+    var stat = statsTeachers[key];
+    html.push(getDisplayTeacher(key, stat));
+  }
+  _gel('idEntityList').innerHTML = html.join('');
+}
+
+function getDisplayTeacher(key, stat) {
+  var html = [];
     html.push(line);
     html.push('<b>' + key + '</b><p>');
 
-    var stat = statsTeachers[key];
 
     // group
     var statGroup = stat['Teach'];
@@ -456,14 +534,53 @@ function showTeacherStats() {
        statFloorFees[i][2] + '</td></tr>');
     }
     html.push('</table>');
-  }
 
-  _gel('idEntityList').innerHTML = html.join('');
+  return html.join('');
+}
+
+function updateClassStats(optSelect) {
+  if (optSelect.selectedIndex == 0) {
+    showClassesStatsOverview();
+    return;
+  }
+  var selected = optSelect.options[optSelect.selectedIndex].value;
+  var stat = statsClasses[selected];
+  _gel('idEntityList').innerHTML = getClassDisplay(selected, stat);
+
 }
 
 function showClassesStats() {
+  var sortedList = [];
+  for (var key in statsClasses) {
+   for (var i = 0; i< sortedList.length; i++) {
+     if (sortedList[i] > key) break;
+   }
+   sortedList.splice(i, 0, key);
+  }
+
+  var html = ['<p><select id="idPick" onchange="updateClassStats(this)">'];
+  html.push('<option>' + ' --- Pick a class ---');
+  for (var i = 0; i< sortedList.length; i++) {
+    html.push('<option>' + sortedList[i]);
+  }
+  html.push('</select> &nbsp; <a href="javascript:void(0)" onclick="showClassesStatsOverview()">Show overview</a>');
+  _gel('idSelect').innerHTML = html.join('');
+
+  showClassesStatsOverview();
+}
+
+function showClassesStatsOverview() {
+  _gel('idPick').selectedIndex = 0;
+
   var html = [];
   for (var key in statsClasses) {
+   html.push(getClassDisplay(key, statsClasses[key]));
+  }
+  _gel('idEntityList').innerHTML = html.join('');
+}
+
+function getClassDisplay(key, statGroup) {
+   var html = [];
     html.push('<br>');
     html.push(line);
     html.push('<b>' + key + '</b><p>');
@@ -475,8 +592,7 @@ function showClassesStats() {
         '</td><td>' + (statGroup[i][2] ? '$' + statGroup[i][2] : '') + '</td></tr>');
     }
     html.push('</table>');
-  }
-  _gel('idEntityList').innerHTML = html.join('');
+    return html.join('');
 }
 
 // sync with studio sign in
@@ -503,9 +619,12 @@ rateDisplayMapping['Practice-Free'] = 'Practice - Free';
 <!--- UI elements --->
 <div id='idControlPanel' style="display:None">
 <a href="javascript:void(0)" onclick="showStudentStats();">Student stats</a> &nbsp; | &nbsp; 
-<a href="javascript:void(0)" onclick="showTeacherStats();">Teacher stats</a> &nbsp; | &nbsp; 
 <a href="javascript:void(0)" onclick="showClassesStats();">Classes and Party stats</a> &nbsp; | &nbsp; 
+<a href="javascript:void(0)" onclick="showTeacherStats();">Teacher stats</a> &nbsp; | &nbsp; 
 <a href="javascript:void(0)" onclick="showPaymentStats();">Payment stats</a>
+</div>
+
+<div id='idSelect'>
 </div>
 
 <div id="idEntityList" style="overflow: auto;"><img src="http://www.google.com/ig/images/spinner.gif" /></div>
