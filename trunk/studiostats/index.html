@@ -202,6 +202,11 @@ function updateStudentStats(optSelect) {
 
 }
 
+function updateStudentStatsWithName(selected) {
+  var statStudent = statsStudents[selected];
+  _gel('idEntityList').innerHTML = getStudentDisplay(selected, statStudent);
+}
+
 function showStudentStats() {
   var sortedStudents = [];
   for (var key in statsStudents) {
@@ -216,10 +221,58 @@ function showStudentStats() {
   for (var i = 0; i< sortedStudents.length; i++) {
     html.push('<option>' + sortedStudents[i]);
   }
-  html.push('</select> &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsOverview()">Show overview</a>');
+  html.push('</select>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsSummary()">Show summary</a>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsOverview()">Show all details</a>');
   _gel('idSelect').innerHTML = html.join('');
   
-  showStudentStatsOverview();
+  showStudentStatsSummary();
+}
+
+function showStudentStatsSummary() {
+  // reset select box
+  _gel('idPick').selectedIndex = 0;
+
+  var html = [];
+
+  html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
+  html.push('<tr style="font-weight:bold"><td>Student</td><td>Group Classes</td>' +
+   '<td>Parties</td><td>Youth Classes</td><td>Private Lessons</td><td>Practice</td></tr>');
+
+  for (var key in statsStudents) {
+    var stat = statsStudents[key]; // signInType, array of logs
+    //group, youth could have signed in multiple classes
+    var entries = stat['Group'];
+
+    var cntGroup = 0;
+    for (var i=0; entries && i < entries.length; i++) {
+      var entry = entries[i];
+      var classes = entry[INDEX_CLASSES].split(',');
+      cntGroup += classes.length;
+    }
+
+    var cntYouth = 0;
+    entries = stat['Youth'];
+    for (var i=0; entries && i < entries.length; i++) {
+      var entry = entries[i];
+      var classes = entry[INDEX_CLASSES].split(',');
+      cntYouth += classes.length;
+    }
+
+    html.push('<tr><td><a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + key +
+      '\')">' + key + '</a></td>');
+         var classes = entry[INDEX_CLASSES].split(',');
+    html.push('<td>' + (cntGroup == 0 ? ' ' : cntGroup) + '</td>');
+    html.push('<td>' + (stat['Party'] ? stat['Party'].length : ' ') + '</td>');
+    html.push('<td>' + (cntYouth == 0 ? ' ' : cntYouth) + '</td>');
+    html.push('<td>' + (stat['Private'] ? stat['Private'].length : ' ') + '</td>');
+    html.push('<td>' + (stat['Practice'] ? stat['Practice'].length : ' ') + '</td>');
+    //TODO: payment total
+    html.push('</tr>');
+  }
+  html.push('</table>');
+
+  _gel('idEntityList').innerHTML = html.join('');
 }
 
 function showStudentStatsOverview() {
@@ -417,10 +470,56 @@ function showTeacherStats() {
   for (var i = 0; i< sortedList.length; i++) {
     html.push('<option>' + sortedList[i]);
   }
-  html.push('</select> &nbsp; <a href="javascript:void(0)" onclick="showTeacherStatsOverview()">Show overview</a>');
+  html.push('</select>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showTeacherStatsSummary()">Show summary</a>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showTeacherStatsOverview()">Show all details</a>');
   _gel('idSelect').innerHTML = html.join('');
 
-  showTeacherStatsOverview();
+  showTeacherStatsSummary();
+}
+
+function showTeacherStatsSummary() {
+  _gel('idPick').selectedIndex = 0;
+
+  var html = [];
+
+  html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
+  html.push('<tr style="font-weight:bold"><td>Teacher</td><td>Group Classes</td>' +
+    '<td>Private Lessons</td><td>Paid Floor Fees: #</td><td>Paid Floor Fees: $</td></tr>');
+
+  // [teacher name, [group cnt, private cnt, floor fees paid]]
+  for (var key in statsTeachers) {
+    var stat = statsTeachers[key];
+
+    var statGroup = stat['Teach'];
+    var cntGroup = statGroup? statGroup.length : 0;
+
+    var statPrivate = stat['Private'];
+    var cntPrivate = statPrivate? statPrivate.length : 0;
+
+    var statFloorFees = stat['Floor Fees'];
+    var cntFloorFeesNum = 0;
+    var cntFloorFeesAmt = 0;
+    for (var i=0; statFloorFees && i<statFloorFees.length; i++) {
+      cntFloorFeesNum += statFloorFees[i][1];
+      cntFloorFeesAmt += statFloorFees[i][2];
+    }
+
+   html.push('<tr><td><a href="javascript:void(0)" onclick="updateTeacherStatsWithName(\'' + key + 
+     '\')">' + key + '</a></td><td>' + (cntGroup == 0 ? "&nbsp;" : cntGroup) + '</td>' +
+     '<td>' + (cntPrivate==0 ? "&nbsp;" : cntPrivate) + '</td><td>' + 
+     (cntFloorFeesNum==0? "&nbsp;" : cntFloorFeesNum) + '</td><td>' + 
+     (cntFloorFeesAmt==0? "&nbsp;" : cntFloorFeesAmt) + '</td>');
+   html.push('</tr>');
+  }
+  html.push('</table>');
+
+  _gel('idEntityList').innerHTML = html.join('');
+}
+
+function updateTeacherStatsWithName(selected) {
+  var stat = statsTeachers[selected];
+  _gel('idEntityList').innerHTML = getDisplayTeacher(selected, stat);
 }
 
 function showTeacherStatsOverview() {
@@ -501,9 +600,9 @@ function showClassesStats() {
   for (var i = 0; i< sortedList.length; i++) {
     html.push('<option>' + sortedList[i]);
   }
-  html.push('</select> &nbsp;');
-  html.push(' <a href="javascript:void(0)" onclick="showClassesStatsSummary()">Show summary</a>');
-  html.push(' <a href="javascript:void(0)" onclick="showClassesStatsOverview()">Show all details</a>');
+  html.push('</select>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showClassesStatsSummary()">Show summary</a>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showClassesStatsOverview()">Show all details</a>');
   _gel('idSelect').innerHTML = html.join('');
 
   showClassesStatsSummary();
@@ -524,8 +623,8 @@ function showClassesStatsSummary() {
   }
 
   var html = [];
-  html.push('Total participants: <b>' + cnt + '</b><p>');
-  html.push('<table cellpadding=4 style="border-collapse:collapse;" border=1>');
+  html.push('Total: <b>' + cnt + '</b><p>');
+  html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
   for (var i = 0; i<sortedList.length; i++) {
    html.push('<tr><td><a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + sortedList[i][0] + 
      '\')">' + sortedList[i][0] + '</a></td><td>' + sortedList[i][1] + '</td></tr>');
