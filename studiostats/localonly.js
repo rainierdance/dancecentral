@@ -34,7 +34,7 @@ gAllEntities.push("2/27/2012 9:59:34;Jackie Wu;Group;2/27/2012;9:59;Series Tuesd
 gAllEntities.push("2/27/2012 10:07:19;Simeon Stoynov;Payment;2/27/2012;10:07;;;;;;20;Cash;;;;;;;;2;;;;;;;;20;;;".split(';'));
 gAllEntities.push("2/27/2012 10:07:33;Kora Stoynova;Payment;2/27/2012;10:07;;;;;;50;Cash;;;;;;;;5;;;;;;;;50;;;".split(';'));
 gAllEntities.push("2/27/2012 10:07:49;Simeon Stoynov;Payment;2/27/2012;10:07;;;;;;20;Check;;;;;;;;2;;;;;;;;20;;;".split(';'));
-gAllEntities.push("2/27/2012 10:07:56;Simeon Stoynov;Teach;2/27/2012;10:07;Series Monday 8:45 PM Intl. Standard Level 2 - Quickstep;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
+gAllEntities.push("2/27/2012 10:07:56;Simeon Stoynov;Teach;2/27/2012;10:07;Series Monday 8:45 PM Intl. Standard Level 2 - Quickstep,Series Monday 7:15 PM Am. Smooth Level 1 - Waltz;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/27/2012 10:13:45;Simeon Stoynov;Teach;2/20/2012;10:07;Series Monday 7:15 PM Am. Smooth Level 1 - Waltz,Series Monday 8:00 PM Am. Rhythm Level 1 - EC Swing,Series Monday 8:45 PM Intl. Standard Level 2 - Quickstep;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/27/2012 10:14:35;Jackie Wu;Private;2/27/2012;10:14;;1;Simeon Stoynov;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/27/2012 10:14:39;Jackie Wu;Private;2/22/2012;10:14;;1;Simeon Stoynov;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
