@@ -261,7 +261,6 @@ function showStudentStatsSummary() {
 
     html.push('<tr><td><a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + key +
       '\')">' + key + '</a></td>');
-         var classes = entry[INDEX_CLASSES].split(',');
     html.push('<td>' + (cntGroup == 0 ? ' ' : cntGroup) + '</td>');
     html.push('<td>' + (stat['Party'] ? stat['Party'].length : ' ') + '</td>');
     html.push('<td>' + (cntYouth == 0 ? ' ' : cntYouth) + '</td>');
