@@ -841,8 +841,7 @@ function validateInput() {
 
   } else if (signInType == 'Youth') {
    if (!checkField('entry_6', 'entry_prep_date') ||
-       !checkField('entry_9', 'trClasses') ||
-       !checkField('entry_10', 'trRateType'))
+       !checkField('entry_9', 'trClasses'))
     return false;
 
   } else if (signInType == 'Private') {
