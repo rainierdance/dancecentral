@@ -164,7 +164,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0307.0025";
+var VERSION = "12.0310.2353";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1052,8 +1052,12 @@ function onSignIn() {
   var classes = formPrep.eventName;
   if (classes) {
     len = classes.length;
-    for (var i=0; i<len; i++) {
-      if (classes[i].checked) values.push(classes[i].value);
+    if (len) {
+      for (var i=0; i<len; i++) {
+        if (classes[i].checked) values.push(classes[i].value);
+      }
+    } else { // single checkbox, classes won't have length property
+      if (classes.checked) values.push(classes.value);
     }
   }
 
@@ -1130,8 +1134,8 @@ function onSignIn() {
 
 <!-- Search header, always shown -->
 <div id='idTopSearchPanel' style='display:None'>
-Name: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" onKeyUp='changeKeyword(this.value)'>
-<span id='idIsNewPanel' style="display:None"><input id='idIsNew' type=checkbox onclick='addAndSelectEntity()'><label for="idIsNew">Add as a new student</label></span>
+Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" onKeyUp='changeKeyword(this.value)'>
+<span id='idIsNewPanel' style="display:None"><input id='idIsNew' type=checkbox onclick='addAndSelectEntity()'><label for="idIsNew">Sign in as a new student</label></span>
 <p>
 </div>
 
