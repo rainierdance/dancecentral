@@ -513,6 +513,11 @@ function showTeacherStatsSummary() {
   }
 
   // [teacher name, [group cnt, private cnt, floor fees paid]]
+  var cntGroupTotal = 0;
+  var cntPrivateTotal = 0;
+  var cntFloorFeeNumTotal = 0;
+  var cntFloorFeeAmtTotal = 0;
+
   for (var j=0; j<sortedList.length; j++) {
     var key = sortedList[j];
 //  for (var key in statsTeachers) {
@@ -520,9 +525,11 @@ function showTeacherStatsSummary() {
 
     var statGroup = stat['Teach'];
     var cntGroup = statGroup? statGroup.length : 0;
+    cntGroupTotal += cntGroup;
 
     var statPrivate = stat['Private'];
     var cntPrivate = statPrivate? statPrivate.length : 0;
+    cntPrivateTotal += cntPrivate;
 
     var statFloorFees = stat['Floor Fees'];
     var cntFloorFeesNum = 0;
@@ -531,6 +538,8 @@ function showTeacherStatsSummary() {
       cntFloorFeesNum += statFloorFees[i][1];
       cntFloorFeesAmt += statFloorFees[i][2];
     }
+    cntFloorFeeNumTotal += cntFloorFeesNum;
+    cntFloorFeeAmtTotal += cntFloorFeesAmt;
 
    html.push('<tr><td><a href="javascript:void(0)" onclick="updateTeacherStatsWithName(\'' + (key) + 
      '\')">' + key + '</a></td><td>' + (cntGroup == 0 ? "&nbsp;" : cntGroup) + '</td>' +
@@ -539,6 +548,11 @@ function showTeacherStatsSummary() {
      (cntFloorFeesAmt==0? "&nbsp;" : cntFloorFeesAmt) + '</td>');
    html.push('</tr>');
   }
+  html.push('<tr><td><b>Total</b></td><td>' + cntGroupTotal + 
+   '</td><td>' + cntPrivateTotal + "</td><td>" +
+   (cntFloorFeeNumTotal==0 ? '&nbsp;' : cntFloorFeeNumTotal) + '</td><td>' +
+   (cntFloorFeeAmtTotal==0 ? '&nbsp;' : cntFloorFeeAmtTotal)+ '</td></tr>');
+
   html.push('</table>');
 
   _gel('idEntityList').innerHTML = html.join('');
