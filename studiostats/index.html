@@ -244,8 +244,14 @@ function showStudentStatsSummary() {
   var html = [];
 
   html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
-  html.push('<tr style="font-weight:bold"><td>Student</td><td>Group Classes</td>' +
-   '<td>Parties</td><td>Youth Classes</td><td>Private Lessons</td><td>Practice</td></tr>');
+  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Student</td><td>Group Classes</td>' +
+   '<td>Parties</td><td>Youth Classes</td><td>Private Lessons</td><td>Practice</td><td>Total</td></tr>');
+
+  var cntGroupTotal = 0;
+  var cntPartyTotal = 0;
+  var cntYouthTotal = 0;
+  var cntPrivateTotal = 0;
+  var cntPracticeTotal = 0;
 
   for (var j=0; j<sortedList.length; j++) {
     var key = sortedList[j];
@@ -253,12 +259,16 @@ function showStudentStatsSummary() {
     //group, youth could have signed in multiple classes
     var entries = stat['Group'];
 
+    var studentTotal = 0;
+
     var cntGroup = 0;
     for (var i=0; entries && i < entries.length; i++) {
       var entry = entries[i];
       var classes = entry[INDEX_CLASSES].split(',');
       cntGroup += classes.length;
     }
+    cntGroupTotal += cntGroup;
+    studentTotal += cntGroup;
 
     var cntYouth = 0;
     entries = stat['Youth'];
@@ -267,17 +277,42 @@ function showStudentStatsSummary() {
       var classes = entry[INDEX_CLASSES].split(',');
       cntYouth += classes.length;
     }
+    cntYouthTotal += cntYouth;
+    studentTotal += cntYouth;
 
-    html.push('<tr><td><a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) +
+    html.push('<tr><td>' + (j+1) + 
+      '</td><td><a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) +
       '\')">' + key + '</a></td>');
     html.push('<td>' + (cntGroup == 0 ? ' ' : cntGroup) + '</td>');
     html.push('<td>' + (stat['Party'] ? stat['Party'].length : ' ') + '</td>');
     html.push('<td>' + (cntYouth == 0 ? ' ' : cntYouth) + '</td>');
     html.push('<td>' + (stat['Private'] ? stat['Private'].length : ' ') + '</td>');
     html.push('<td>' + (stat['Practice'] ? stat['Practice'].length : ' ') + '</td>');
+
+    if (stat['Party']) {
+     cntPartyTotal += stat['Party'].length;
+     studentTotal += stat['Party'].length;
+    }
+    if (stat['Private']) {
+      cntPrivateTotal += stat['Private'].length;
+      studentTotal += stat['Private'].length;
+    }
+    if (stat['Practice']) {
+      cntPracticeTotal += stat['Practice'].length;
+      studentTotal += stat['Practice'].length;
+    }
+
+    html.push('<td>' + studentTotal + '</td>');
     //TODO: payment total
     html.push('</tr>');
   }
+
+  html.push('<tr style="font-weight:bold"><td>&nbsp;</td>' +
+    '<td>Total</td><td>' + cntGroupTotal + '</td>' +
+   '<td>' + cntPartyTotal + '</td><td>' + cntYouthTotal + 
+   '</td><td>' + cntPrivateTotal + '</td><td>' + cntPracticeTotal + '</td><td>' +
+   (cntGroupTotal + cntPartyTotal + cntYouthTotal + cntPrivateTotal + cntPracticeTotal) + '</td></tr>');
+
   html.push('</table>');
 
   _gel('idEntityList').innerHTML = html.join('');
@@ -501,7 +536,7 @@ function showTeacherStatsSummary() {
   var html = [];
 
   html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
-  html.push('<tr style="font-weight:bold"><td>Teacher</td><td>Group Classes</td>' +
+  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Teacher</td><td>Group Classes</td>' +
     '<td>Private Lessons</td><td>Paid Floor Fees: #</td><td>Paid Floor Fees: $</td></tr>');
 
   var sortedList = [];
@@ -541,14 +576,15 @@ function showTeacherStatsSummary() {
     cntFloorFeeNumTotal += cntFloorFeesNum;
     cntFloorFeeAmtTotal += cntFloorFeesAmt;
 
-   html.push('<tr><td><a href="javascript:void(0)" onclick="updateTeacherStatsWithName(\'' + (key) + 
+   html.push('<tr><td>' + (j+1) + 
+     '</td><td><a href="javascript:void(0)" onclick="updateTeacherStatsWithName(\'' + (key) + 
      '\')">' + key + '</a></td><td>' + (cntGroup == 0 ? "&nbsp;" : cntGroup) + '</td>' +
      '<td>' + (cntPrivate==0 ? "&nbsp;" : cntPrivate) + '</td><td>' + 
      (cntFloorFeesNum==0? "&nbsp;" : cntFloorFeesNum) + '</td><td>' + 
      (cntFloorFeesAmt==0? "&nbsp;" : cntFloorFeesAmt) + '</td>');
    html.push('</tr>');
   }
-  html.push('<tr style="font-weight:bold"><td><b>Total</b></td><td>' + cntGroupTotal + 
+  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td><b>Total</b></td><td>' + cntGroupTotal + 
    '</td><td>' + cntPrivateTotal + "</td><td>" +
    (cntFloorFeeNumTotal==0 ? '&nbsp;' : cntFloorFeeNumTotal) + '</td><td>' +
    (cntFloorFeeAmtTotal==0 ? '&nbsp;' : cntFloorFeeAmtTotal)+ '</td></tr>');
@@ -646,7 +682,7 @@ function showClassesStats() {
   }
 
   var html = ['<p><select id="idPick" onchange="updateClassStats(this)">'];
-  html.push('<option>' + ' --- Pick a class ---');
+  html.push('<option>' + ' --- Pick a class, party ---');
   for (var i = 0; i< sortedList.length; i++) {
     html.push('<option>' + sortedList[i]);
   }
@@ -680,7 +716,8 @@ function showClassesStatsSummary() {
   html.push('Total: <b>' + cnt + '</b><p>');
   html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
   for (var i = 0; i<sortedList.length; i++) {
-   html.push('<tr><td><a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(sortedList[i][0]) + 
+   html.push('<tr><td>' + (i+1) + 
+     '</td><td><a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(sortedList[i][0]) + 
      '\')">' + sortedList[i][0] + '</a></td><td>' + sortedList[i][1] + '</td></tr>');
   }
   html.push('</table>');
