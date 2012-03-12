@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0311.1805";
+var VERSION = "12.0311.1810";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -618,8 +618,17 @@ function updateTeacherStatsWithName(selected) {
 function showTeacherStatsOverview() {
   _gel('idPick').selectedIndex = 0;
 
-  var html = [];
+  var sortedList = [];
   for (var key in statsTeachers) {
+   for (var i = 0; i< sortedList.length; i++) {
+     if (sortedList[i] > key) break;
+   }
+   sortedList.splice(i, 0, key);
+  }
+
+  var html = [];
+  for (var i=0; i<sortedList.length; i++) {
+    var key = sortedList[i];
     var stat = statsTeachers[key];
     html.push(getDisplayTeacher(key, stat));
   }
