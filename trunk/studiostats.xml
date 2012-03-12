@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0311.1728";
+var VERSION = "12.0311.1805";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -299,13 +299,22 @@ function showStudentStatsSummary() {
   // reset select box
   _gel('idPick').selectedIndex = 0;
 
+  var sortedList = [];
+  for (var key in statsStudents) {
+   for (var i = 0; i< sortedList.length; i++) {
+     if (sortedList[i] > key) break;
+   }
+   sortedList.splice(i, 0, key);
+  }
+
   var html = [];
 
   html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
   html.push('<tr style="font-weight:bold"><td>Student</td><td>Group Classes</td>' +
    '<td>Parties</td><td>Youth Classes</td><td>Private Lessons</td><td>Practice</td></tr>');
 
-  for (var key in statsStudents) {
+  for (var j=0; j<sortedList.length; j++) {
+    var key = sortedList[j];
     var stat = statsStudents[key]; // signInType, array of logs
     //group, youth could have signed in multiple classes
     var entries = stat['Group'];
@@ -325,7 +334,7 @@ function showStudentStatsSummary() {
       cntYouth += classes.length;
     }
 
-    html.push('<tr><td><a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + key +
+    html.push('<tr><td><a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) +
       '\')">' + key + '</a></td>');
     html.push('<td>' + (cntGroup == 0 ? ' ' : cntGroup) + '</td>');
     html.push('<td>' + (stat['Party'] ? stat['Party'].length : ' ') + '</td>');
@@ -346,7 +355,16 @@ function showStudentStatsOverview() {
 
   var html = [];
 
+  var sortedList = [];
   for (var key in statsStudents) {
+   for (var i = 0; i< sortedList.length; i++) {
+     if (sortedList[i] > key) break;
+   }
+   sortedList.splice(i, 0, key);
+  }
+
+  for (var i=0; i<sortedList.length; i++) {
+    var key = sortedList[i];
     html.push(getStudentDisplay(key, statsStudents[key]));
   }
   _gel('idEntityList').innerHTML = html.join('');
@@ -552,8 +570,18 @@ function showTeacherStatsSummary() {
   html.push('<tr style="font-weight:bold"><td>Teacher</td><td>Group Classes</td>' +
     '<td>Private Lessons</td><td>Paid Floor Fees: #</td><td>Paid Floor Fees: $</td></tr>');
 
-  // [teacher name, [group cnt, private cnt, floor fees paid]]
+  var sortedList = [];
   for (var key in statsTeachers) {
+   for (var i = 0; i< sortedList.length; i++) {
+     if (sortedList[i] > key) break;
+   }
+   sortedList.splice(i, 0, key);
+  }
+
+  // [teacher name, [group cnt, private cnt, floor fees paid]]
+  for (var j=0; j<sortedList.length; j++) {
+    var key = sortedList[j];
+//  for (var key in statsTeachers) {
     var stat = statsTeachers[key];
 
     var statGroup = stat['Teach'];
@@ -570,7 +598,7 @@ function showTeacherStatsSummary() {
       cntFloorFeesAmt += statFloorFees[i][2];
     }
 
-   html.push('<tr><td><a href="javascript:void(0)" onclick="updateTeacherStatsWithName(\'' + key + 
+   html.push('<tr><td><a href="javascript:void(0)" onclick="updateTeacherStatsWithName(\'' + (key) + 
      '\')">' + key + '</a></td><td>' + (cntGroup == 0 ? "&nbsp;" : cntGroup) + '</td>' +
      '<td>' + (cntPrivate==0 ? "&nbsp;" : cntPrivate) + '</td><td>' + 
      (cntFloorFeesNum==0? "&nbsp;" : cntFloorFeesNum) + '</td><td>' + 
@@ -673,6 +701,10 @@ function showClassesStats() {
   showClassesStatsSummary();
 }
 
+function escapeParam(input) {
+  return input.replace(/'/g, "\\'");
+}
+
 function showClassesStatsSummary() {
   _gel('idPick').selectedIndex = 0;
 
@@ -691,7 +723,7 @@ function showClassesStatsSummary() {
   html.push('Total: <b>' + cnt + '</b><p>');
   html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
   for (var i = 0; i<sortedList.length; i++) {
-   html.push('<tr><td><a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + sortedList[i][0] + 
+   html.push('<tr><td><a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(sortedList[i][0]) + 
      '\')">' + sortedList[i][0] + '</a></td><td>' + sortedList[i][1] + '</td></tr>');
   }
   html.push('</table>');
