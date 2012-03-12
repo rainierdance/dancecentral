@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0307.0951";
+var VERSION = "12.0311.1728";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -703,9 +703,20 @@ function showClassesStatsOverview() {
   _gel('idPick').selectedIndex = 0;
 
   var html = [];
+
+  var sortedList = [];
   for (var key in statsClasses) {
+    for (var i = 0; i< sortedList.length; i++) {
+      if (sortedList[i] > key) break;
+    }
+    sortedList.splice(i, 0, key);
+  }
+
+  for (var i=0; i<sortedList.length; i++) {
+   key = sortedList[i];
    html.push(getClassDisplay(key, statsClasses[key]));
   }
+
   _gel('idEntityList').innerHTML = html.join('');
 }
 
@@ -716,10 +727,22 @@ function getClassDisplay(key, statGroup) {
     html.push('<b>' + key + '</b><p>');
     var statGroup = statsClasses[key];
     html.push('<table cellpadding=2>');
-    for (var i = 0; i < statGroup.length; i++) {
-      var rateDisplay = rateDisplayMapping[statGroup[i][1]];
-      html.push('<tr><td>' + (i+1) + '</td><td>' + statGroup[i][0] + '</td><td> ' + (rateDisplay ? rateDisplay : ' ') + 
-        '</td><td>' + (statGroup[i][2] ? '$' + statGroup[i][2] : '') + '</td></tr>');
+
+    // each Group class, stats is {Class Name, [[Student Name, rate type, $], ...}
+    // sort by participant name 0-inex
+
+    var sortedList = [];
+  for (var i = 0; i < statGroup.length; i++) {
+    for (var j = 0; j< sortedList.length; j++) {
+      if (sortedList[j][0] > statGroup[i][0]) break;
+    }
+    sortedList.splice(j, 0, statGroup[i]);
+  }
+
+    for (var i = 0; i < sortedList.length; i++) {
+      var rateDisplay = rateDisplayMapping[sortedList[i][1]];
+      html.push('<tr><td>' + (i+1) + '</td><td>' + sortedList[i][0] + '</td><td> ' + (rateDisplay ? rateDisplay : ' ') + 
+        '</td><td>' + (sortedList[i][2] ? '$' + sortedList[i][2] : '') + '</td></tr>');
     }
     html.push('</table>');
     return html.join('');
