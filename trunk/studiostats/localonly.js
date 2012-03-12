@@ -23,6 +23,7 @@ gAllEntities.push("2/22/2012 0:07:49;Jackie Wu;Group;2/22/2012;;Series 3/5/2012 
 gAllEntities.push("2/22/2012 15:47:58;Lorenzo Farris;Group;2/22/2012;15:47;Series 3/5/2012 Wednesday 8:00 PM Intl. Latin Level 3 - Paso Doble;;;Group-Drop-in-Package-PrePaid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/22/2012 15:48:18;Lorenzo Farris;Party;2/22/2012;15:48;Party Thursday 9:30 PM Ballroom Practice Party;;;Party-Only;;10;Cash;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/22/2012 15:48:25;Lorenzo Farris;Youth;2/22/2012;15:48;Children 3/5/2012 Wednesday 4:00 PM Children's Program Level 1;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
+gAllEntities.push("2/27/2012 11:02:03;Violeta Abramova;Teach;2/27/2012;11:01;Children 2012-02-27 Monday 4:00 PM Children's Program Level 1;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/22/2012 15:48:29;Lorenzo Farris;Private;2/22/2012;15:48;;1;Kora Stoynova;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/22/2012 15:48:35;Lorenzo Farris;Practice;2/22/2012;15:48;;1;;Practice-Free;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/22/2012 15:48:42;Lorenzo Farris;Payment;2/22/2012;15:48;;;;;;50;Cash;;4;1;;;;;;;16;21;;;;;;Intro Special;4;13".split(';'));
@@ -43,4 +44,3 @@ gAllEntities.push("2/27/2012 10:49:48;Rachel Wu;Youth;2/27/2012;10:49;Children_2
 gAllEntities.push("2/27/2012 11:00:47;Lorenzo Farris;Group;2/27/2012;11:00;Series 2012-02-27 Monday 7:15 PM Am. Smooth Level 1 - Waltz,Series 2012-02-27 Monday 8:45 PM Intl. Standard Level 2 - Quickstep;;;Group-Series-PrePaid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/27/2012 11:01:16;Lorenzo Farris;Group;2/28/2012;11:00;Series 2012-02-28 Tuesday 7:15 PM Am. Smooth Level 3 - Foxtrot;;;Group-Series-PrePaid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/27/2012 11:01:52;Fiona Farris;Youth;2/27/2012;11:01;Children 2012-02-27 Monday 4:00 PM Children's Program Level 1;;;Youth-Take-Class;;;;;;;;;;;;;;;;;;;;;;".split(';'));
-gAllEntities.push("2/27/2012 11:02:03;Violeta Abramova;Teach;2/27/2012;11:01;Children 2012-02-27 Monday 4:00 PM Children's Program Level 1;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
