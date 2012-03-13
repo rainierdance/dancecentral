@@ -649,7 +649,7 @@ function getDisplayTeacher(key, stat) {
     }
 
     for (var i = 0; i<sortedList .length; i++) {
-      html.push('<tr><td>' + sortedList[i][0] + '</td><td>' +
+      html.push('<tr><td>' + (i+1) + '</td><td>' + sortedList[i][0] + '</td><td>' +
        sortedList[i][1] + '</td><td>' +
        sortedList[i][2] + '</td><td>' +
        sortedList[i][3] + ' min lesson</td></tr>');
