@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0313.0136";
+var VERSION = "12.0313.0219";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -577,7 +577,7 @@ function showPaymentStats() {
        html.push('</table>');
        var totalStr = ['<p>Total:'];
        for (var method in cntTotal) {
-        totalStr.push(method + ' $' + cntTotal[method]);
+        totalStr.push(method + ' <b>$' + cntTotal[method] + '</b>');
        }
        html.push(totalStr.join(' &nbsp; &nbsp; &nbsp; '));
 

@@ -511,7 +511,7 @@ function showPaymentStats() {
        html.push('</table>');
        var totalStr = ['<p>Total:'];
        for (var method in cntTotal) {
-        totalStr.push(method + ' $' + cntTotal[method]);
+        totalStr.push(method + ' <b>$' + cntTotal[method] + '</b>');
        }
        html.push(totalStr.join(' &nbsp; &nbsp; &nbsp; '));
 
