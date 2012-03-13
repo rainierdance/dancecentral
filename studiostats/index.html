@@ -454,13 +454,21 @@ function showPaymentStats() {
     html.push(line);
     html.push('<b>' + key + '</b><p>');
     var entries = statsPayment[key]; // key is signInType
+
+   var cntTotal= {}; //method, total
+
    html.push('<table cellpadding=2>');
    for (var i = 0 ; i<entries.length; i++) {
      var entry = entries[i];
             html.push('<tr><td>' + (i+1) + '</td><td> ' + entry[INDEX_DATE] + '</td><td> ' + 
               entry[INDEX_NAME] + '</td><td><b>$' +
-              entry[INDEX_AMOUNT_TOTAL] + '</b></td>'
+              entry[INDEX_AMOUNT_TOTAL] + '</b></td><td>' +
+              entry[INDEX_PAYMENT_METHOD] + '</td>'
             );
+            var method = entry[INDEX_PAYMENT_METHOD];
+            if (!cntTotal[method]) cntTotal[method] = 0;
+            cntTotal[method] += parseFloat(entry[INDEX_AMOUNT_TOTAL]);
+
             // itemize the total
             if (entry[INDEX_SIGNIN_TYPE] != 'Payment') {
               html.push('<td>' + 
@@ -501,6 +509,12 @@ function showPaymentStats() {
             }
        }
        html.push('</table>');
+       var totalStr = ['<p>Total:'];
+       for (var method in cntTotal) {
+        totalStr.push(method + ' $' + cntTotal[method]);
+       }
+       html.push(totalStr.join(' &nbsp; &nbsp; &nbsp; '));
+
   }
 
   _gel('idEntityList').innerHTML = html.join('');
