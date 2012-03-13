@@ -432,7 +432,7 @@ function getStudentDisplay(student, statStudent) {
               if (entry[INDEX_PAYMENT_NUM_PARTIES]) {
                 itemsPaid.push( entry[INDEX_PAYMENT_NUM_PARTIES] + ' Parties');  
               }   
-                itemsPaid.push('"' + entry[INDEX_NOTE] + '" ');  
+                itemsPaid.push(entry[INDEX_NOTE] );  
               html.push(itemsPaid.join(', &nbsp;'));
             }
          
