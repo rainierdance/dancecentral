@@ -164,7 +164,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0310.2353";
+var VERSION = "12.0313.0052";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -613,7 +613,7 @@ function logPayment() {
   _gel("trClasses").style.display='None';
   _gel('trPackages').style.display = '';
   _gel('trPayment').style.display = '';
-  _gel('trDateTime').style.display = 'None';
+  _gel('trDateTime').style.display = '';
   _gel("trRateType").style.display='None';
 }
 
