@@ -379,7 +379,9 @@ function getStudentDisplay(student, statStudent) {
          if (type == 'Group' || type == 'Party' || type == 'Youth') {
            if (classes && classes.length > 0) {
              for (var j = 0; j < classes.length; j++) {
-               html.push('<li>' + classes[j]);
+               var classNameStr = classes[j];
+               html.push('<li> <a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(classNameStr) + '\')">' + 
+                  classNameStr + '</a>');
              }
            }
          } else if (type == 'Private') {
@@ -461,7 +463,8 @@ function showPaymentStats() {
    for (var i = 0 ; i<entries.length; i++) {
      var entry = entries[i];
             html.push('<tr><td>' + (i+1) + '</td><td> ' + entry[INDEX_DATE] + '</td><td> ' + 
-              entry[INDEX_NAME] + '</td><td><b>$' +
+                '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (entry[INDEX_NAME]) +
+                '\')">' + entry[INDEX_NAME] + '</a></td><td><b>$' +
               entry[INDEX_AMOUNT_TOTAL] + '</b></td><td>' +
               entry[INDEX_PAYMENT_METHOD] + '</td>'
             );
@@ -658,7 +661,8 @@ function getDisplayTeacher(key, stat) {
     var statGroup = stat['Teach'];
     html.push('Group Classes taught:<ol>');
     for (var i = 0; statGroup && i< statGroup.length; i++) {
-      html.push('<li> ' + statGroup[i]);
+      html.push('<li> <a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(statGroup[i]) + '\')">' + 
+       statGroup[i] + '</a>');
     }
     html.push('</ol>');
 
@@ -800,7 +804,7 @@ function getClassDisplay(key, statGroup) {
     // sort by participant name 0-inex
 
     var sortedList = [];
-  for (var i = 0; i < statGroup.length; i++) {
+   for (var i = 0; statGroup && i<statGroup.length; i++) {
     for (var j = 0; j< sortedList.length; j++) {
       if (sortedList[j][0] > statGroup[i][0]) break;
     }
@@ -809,7 +813,10 @@ function getClassDisplay(key, statGroup) {
 
     for (var i = 0; i < sortedList.length; i++) {
       var rateDisplay = rateDisplayMapping[sortedList[i][1]];
-      html.push('<tr><td>' + (i+1) + '</td><td>' + sortedList[i][0] + '</td><td> ' + (rateDisplay ? rateDisplay : ' ') + 
+      html.push('<tr><td>' + (i+1) + '</td><td>' + 
+                '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (sortedList[i][0]) +
+                '\')">' + sortedList[i][0] + '</a>' +
+                '</td><td> ' + (rateDisplay ? rateDisplay : ' ') + 
         '</td><td>' + (sortedList[i][2] ? '$' + sortedList[i][2] : '') + '</td></tr>');
     }
     html.push('</table>');
