@@ -17,7 +17,7 @@ function escapeHtml(text) {
 
 
 //gAllEntities.push("log".split(';'));
-gAllEntities.push("2/22/2012 0:04:01;Jackie Wu;Group;2/22/2012;;Series 3/5/2012 Tuesday 7:15 PM Am. Smooth Level 3 - Foxtrot;;;Group-Series-PrePaid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
+gAllEntities.push("2/22/2012 0:04:01;Rachel Wu;Group;2/22/2012;;Series Monday 8:00 PM Am. Rhythm Level 1 - EC Swing,Series 3/5/2012 Tuesday 7:15 PM Am. Smooth Level 3 - Foxtrot;;;Group-Series-PrePaid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/22/2012 0:07:28;Jackie Wu;Group;2/22/2012;;Series 3/5/2012 Wednesday 8:45 PM Intl. Standard Level 3 - Foxtrot;;;Group-Free;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/22/2012 0:07:49;Jackie Wu;Group;2/22/2012;;Series 3/5/2012 Tuesday 7:15 PM Am. Smooth Level 3 - Foxtrot;;;Group-Free;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/22/2012 15:47:58;Lorenzo Farris;Group;2/22/2012;15:47;Series 3/5/2012 Wednesday 8:00 PM Intl. Latin Level 3 - Paso Doble;;;Group-Drop-in-Package-PrePaid;;;;;;;;;;;;;;;;;;;;;;".split(';'));

@@ -156,11 +156,18 @@ function getEntityDetails(student) {
   html.push('</td></tr>');
 
   // alert if liability waiver is  due.
-  var signDate = new Date(student.liabilityDate);
-  var flag = ((new Date()).getTime() - signDate.getTime() > 6 * 28 * 24 * 60 * 60 * 1000);
+  var flag = false;
+  if (!student.liabilityDate || student.liabilityDate.length == 0)
+    flag = true;
+  else {
+    var signDate = new Date(student.liabilityDate);
+     flag = (new Date()).getTime() - signDate.getTime() > 6 * 28 * 24 * 60 * 60 * 1000;
+  }
+     // or there is TODO in note
+
   html.push('<tr><td>Liability Waiver Date</td><td>');
-  if (flag) html.push('<font style="font-weight:bold; color:red;">');
-  html.push(escapeHtml(student.liabilityDate));
+  if (flag) html.push('<font style="font-weight:bold; background:red; color:yellow;">');
+  html.push(escapeHtml('&nbsp; ' + student.liabilityDate) + '&nbsp;');
   if (flag) html.push('</font>');
   html.push('</td></tr>');
 
@@ -171,7 +178,13 @@ function getEntityDetails(student) {
   html.push(escapeHtml(student.creatTime));
   html.push('</td></tr>');
   html.push('<tr><td>Note</td><td>');
+  flag = false;
+  if (student.note.indexOf('TODO') !=-1) {
+    flag = true; 
+    html.push('<font style="font-weight:bold; background:red; color:yellow;">');
+  }
   html.push(escapeHtml(student.note));
+  if (flag) html.push('</fong>');
   html.push('</td></tr>');
   html.push('</table>');
 
