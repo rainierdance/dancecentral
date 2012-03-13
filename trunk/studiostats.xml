@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0313.1016";
+var VERSION = "12.0313.1024";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -725,7 +725,9 @@ function getDisplayTeacher(key, stat) {
 
     // group
     var statGroup = stat['Teach'];
-    html.push('Group Classes taught:<ol>');
+    if (statGroup && statGroup.length > 0)
+      html.push('Group Classes taught:');
+    html.push('<ol>');
     for (var i = 0; statGroup && i< statGroup.length; i++) {
       html.push('<li> <a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(statGroup[i]) + '\')">' + 
        statGroup[i] + '</a>');
@@ -734,7 +736,9 @@ function getDisplayTeacher(key, stat) {
 
     // private
     var statPrivate = stat['Private'];
-    html.push('Private Lessons taught:<table cellpadding=2>');
+    if (statPrivate && statPrivate.length > 0)
+      html.push('Private Lessons taught:');
+    html.push('<table cellpadding=2>');
 
     // sort this by date and time
     var sortedList = [];
@@ -758,7 +762,9 @@ function getDisplayTeacher(key, stat) {
 
     // floor fees paid
     var statFloorFees = stat['FloorFees'];
-    html.push('Floor Fees Paid:<table cellpadding=2>');
+    if (statFloorFees && statFloorFees.length > 0)
+      html.push('Floor Fees Paid:');
+    html.push('<table cellpadding=2>');
     for (var i = 0; statFloorFees && i< statFloorFees.length; i++) {
       html.push('<tr><td>' + statFloorFees[i][0] + '</td><td>' +
        statFloorFees[i][1] + ' lessons</td><td>$' +
