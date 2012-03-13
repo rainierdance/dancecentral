@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0312.0936";
+var VERSION = "12.0312.1822";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -702,11 +702,23 @@ function getDisplayTeacher(key, stat) {
     // private
     var statPrivate = stat['Private'];
     html.push('Private Lessons taught:<table cellpadding=2>');
+
+    // sort this by date and time
+    var sortedList = [];
     for (var i = 0; statPrivate && i< statPrivate.length; i++) {
-      html.push('<tr><td>' + statPrivate[i][0] + '</td><td>' +
-       statPrivate[i][1] + '</td><td>' +
-       statPrivate[i][2] + '</td><td>' +
-       statPrivate[i][3] + ' min lesson</td></tr>');
+      for (var j=0; j<sortedList.length; j++) {
+        var date1 = new Date(sortedList[j][0] + ' ' + sortedList[j][1]);
+        var date2 = new Date(statPrivate[i][0] + ' ' + statPrivate[i][1]);
+        if (date1 > date2) break;
+      }
+      sortedList.splice(j, 0, statPrivate[i]);
+    }
+
+    for (var i = 0; i<sortedList .length; i++) {
+      html.push('<tr><td>' + sortedList[i][0] + '</td><td>' +
+       sortedList[i][1] + '</td><td>' +
+       sortedList[i][2] + '</td><td>' +
+       sortedList[i][3] + ' min lesson</td></tr>');
     }
     html.push('</table><p>');
 

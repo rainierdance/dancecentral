@@ -24,12 +24,12 @@ gAllEntities.push("2/22/2012 15:47:58;Lorenzo Farris;Group;2/22/2012;15:47;Serie
 gAllEntities.push("2/22/2012 15:48:18;Lorenzo Farris;Party;2/22/2012;15:48;Party Thursday 9:30 PM Ballroom Practice Party;;;Party-Only;;10;Cash;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/22/2012 15:48:25;Lorenzo Farris;Youth;2/22/2012;15:48;Children 3/5/2012 Wednesday 4:00 PM Children's Program Level 1;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/27/2012 11:02:03;Violeta Abramova;Teach;2/27/2012;11:01;Children 2012-02-27 Monday 4:00 PM Children's Program Level 1;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
-gAllEntities.push("2/22/2012 15:48:29;Lorenzo Farris;Private;2/22/2012;15:48;;1;Kora Stoynova;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
+gAllEntities.push("2/22/2012 15:48:29;Lorenzo Farris;Private;2/22/2012;15:48;;1;Simeon Stoynov;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/22/2012 15:48:35;Lorenzo Farris;Practice;2/22/2012;15:48;;1;;Practice-Free;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/22/2012 15:48:42;Lorenzo Farris;Payment;2/22/2012;15:48;;;;;;50;Cash;;4;1;;;;;;;16;21;;;;;;Intro Special;4;13".split(';'));
 gAllEntities.push("2/22/2012 15:48:46;Lorenzo Farris;Payment;2/22/2012;15:48;;;;;;65;Check;;;3;;;;;;;;65;;;;;;Wedding Special;;".split(';'));
 gAllEntities.push("2/22/2012 15:48:59;Lorenzo Farris;Payment;2/22/2012;15:48;;;;;;65;CreditCard;;;3;;;;;;;;65;;;;;;Wedding Special;;".split(';'));
-gAllEntities.push("2/22/2012 18:25:06;Jackie Wu;Private;2/22/2012;18:25;;1;Simeon Stoynov;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
+gAllEntities.push("2/22/2012 18:25:06;Jackie Wu;Private;2/22/2012;12:25;;1;Simeon Stoynov;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/22/2012 18:27:03;Jackie Wu;Group;2/22/2012;18:26;Series 3/5/2012 Wednesday 7:15 PM Am. Smooth Level 2 - V. Waltz, Series 3/5/2012 Wednesday 8:00 PM Am. Rhythm Level 2 - Rumba;;;Group-ED-PunchCard-PrePaid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/27/2012 9:59:34;Jackie Wu;Group;2/27/2012;9:59;Series Tuesday 8:00 PM Am. Rhythm Level 3 - Cha Cha,Series Wednesday 8:00 PM Am. Rhythm Level 2 - Rumba,Drop-in Saturday 7:15 PM Cha Cha;;;Group-Free;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllEntities.push("2/27/2012 10:07:19;Simeon Stoynov;Payment;2/27/2012;10:07;;;;;;20;Cash;;;;;;;;2;;;;;;;;20;;;".split(';'));
