@@ -164,7 +164,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0313.2024";
+var VERSION = "12.0314.1642";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -356,6 +356,8 @@ function showEntityDetails(index) {
 // Display search result
 function refreshSearchResult(entities) {
   _gel('idTopSearchPanel').style.display = '';
+
+  _gel('idFrameSubmit').src = 'about:blank'; // in case of previous submit
 
   var html = [];   // start the HTML output string
   for (var i = 0; i < entities.length; i++) {

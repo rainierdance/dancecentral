@@ -16,6 +16,7 @@ var VERSION = "$Rev$";
 // Globals
 // everyone who signed liability waiver, including all teachers and students
 // read from data file
+var gAllRawEntities = [];	 
 var gAllEntities = [];	 
 
 var gAllClasses = [];
@@ -79,6 +80,14 @@ function formatDate(dateObj) {
    ('' + (100 + dateObj.getDate())).substring(1);
 }
 
+function formatDateWithSlash(dateObj) {
+  var str =  
+   ('' + (100 + dateObj.getMonth() + 1)).substring(1) + '/' +
+   ('' + (100 + dateObj.getDate())).substring(1) + '/' +
+   dateObj.getFullYear();
+  return str;
+}
+
 
 function getEntryDetail(entry) {
   return entry.join(';');
@@ -86,19 +95,58 @@ function getEntryDetail(entry) {
 
 ////////////////////////////////////////////////////////////////////////
 function initData() {
+  // indicate we are ready, replace spinning imag
+  _gel('idEntityList').innerHTML = '';
+  _gel('idControlPanel').style.display = '';
+
+  //getStats();
+}
+
+function getStats() {
+
+  var startDate = new Date(_gel('idStartDate').value);
+  var endDate = new Date(_gel('idEndDate').value);
+
+  if (isNaN(startDate.getTime())) { // invalid for some reason, clear out field
+   _gel('idStartDate').value = '';
+   startDate = new Date('1/1/2012'); // from very beginning
+  }
+  if (isNaN(endDate.getTime())) { // invalid for some reason, clear out field
+   _gel('idEndDate').value = '';
+   endDate = new Date('12/31/2020'); // far future
+  }
+
+  // new Date(with just date) always uses midnight which screws things up when it's day light saving
+  startDate.setTime(startDate.getTime() + 2*60*60*1000); // starting adding 2 hours
+  endDate.setTime(endDate.getTime() + 22*60*60*1000); // ending, before midnight
+
+   _gel('idStartDate').value = formatDateWithSlash(startDate);
+   _gel('idEndDate').value = formatDateWithSlash(endDate);
 
     // sort this by date and time
-    var sortedList = [];
-    for (var i = 0; i< gAllEntities.length; i++) {
-      for (var j=0; j<sortedList.length; j++) {
-        var date1 = new Date(sortedList[j][INDEX_DATE] + ' ' + sortedList[j][INDEX_TIME]);
-        var date2 = new Date(gAllEntities[i][INDEX_DATE] + ' ' + gAllEntities[i][INDEX_TIME]);
+    gAllEntities = [];
+    for (var i = 0; i< gAllRawEntities.length; i++) {
+      // check date range
+      var date2 = new Date(gAllRawEntities[i][INDEX_DATE] + ' ' + gAllRawEntities[i][INDEX_TIME]);
+      if (date2 < startDate || date2 > endDate) continue;
+
+      for (var j=0; j<gAllEntities.length; j++) {
+        var date1 = new Date(gAllEntities[j][INDEX_DATE] + ' ' + gAllEntities[j][INDEX_TIME]);
         if (date1 < date2) break;
       }
-      sortedList.splice(j, 0, gAllEntities[i]);
+      gAllEntities.splice(j, 0, gAllRawEntities[i]);
     }
 
-  gAllEntities = sortedList;
+  // reset stats
+
+  gAllClasses = [];
+  gAllTeachers = []; 
+  gAllStudents = []; 
+
+  statsTeachers = {};
+  statsStudents = {};
+  statsClasses = {};
+  statsPayment = {}; // type is the key
 
   var html = [];
   //html.push('Records:<ol>');
@@ -199,9 +247,9 @@ function initData() {
 
   //html.push('</ol>');
 
-  // indicate we are ready, replace spinning imag
+  _gel('idStatsLinks').style.display = '';
   _gel('idEntityList').innerHTML = '';
-  _gel('idControlPanel').style.display = '';
+  _gel('idSelect').innerHTML = '';
 
 }
 
@@ -598,7 +646,7 @@ function showTeacherStatsSummary() {
     var cntPrivate = statPrivate? statPrivate.length : 0;
     cntPrivateTotal += cntPrivate;
 
-    var statFloorFees = stat['Floor Fees'];
+    var statFloorFees = stat['FloorFees'];
     var cntFloorFeesNum = 0;
     var cntFloorFeesAmt = 0;
     for (var i=0; statFloorFees && i<statFloorFees.length; i++) {
@@ -852,10 +900,19 @@ rateDisplayMapping['Practice-Free'] = 'Practice - Free';
 
 <!--- UI elements --->
 <div id='idControlPanel' style="display:None">
+Period Starting (MM/DD/YYYY): 
+<input type=text id='idStartDate' size=12>   
+Ending (MM/DD/YYYY):
+<input type=text id='idEndDate' size=12>
+<input type=submit value='Get Stats!' onclick="getStats()">
+<p>
+
+<div id='idStatsLinks' style="display:None">
 <a href="javascript:void(0)" onclick="showStudentStats();">Student stats</a> &nbsp; | &nbsp; 
 <a href="javascript:void(0)" onclick="showClassesStats();">Classes and Party stats</a> &nbsp; | &nbsp; 
 <a href="javascript:void(0)" onclick="showTeacherStats();">Teacher stats</a> &nbsp; | &nbsp; 
 <a href="javascript:void(0)" onclick="showPaymentStats();">Payment stats</a>
+</div>
 </div>
 
 <div id='idSelect'>
