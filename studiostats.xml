@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0313.1024";
+var VERSION = "12.0313.1939";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -794,7 +794,7 @@ function showClassesStats() {
   var sortedList = [];
   for (var key in statsClasses) {
    for (var i = 0; i< sortedList.length; i++) {
-     if (sortedList[i] > key) break;
+     if (sortedList[i].replace(/^[^ ]* /g, '') > key.replace(/^[^ ]* /g, '')) break;
    }
    sortedList.splice(i, 0, key);
   }
@@ -802,7 +802,7 @@ function showClassesStats() {
   var html = ['<p><select id="idPick" onchange="updateClassStats(this)">'];
   html.push('<option>' + ' --- Pick a class, party ---');
   for (var i = 0; i< sortedList.length; i++) {
-    html.push('<option>' + sortedList[i]);
+    html.push('<option value="' + sortedList[i] + '">' + sortedList[i]);
   }
   html.push('</select>');
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showClassesStatsSummary()">Show summary</a>');
@@ -819,12 +819,12 @@ function escapeParam(input) {
 function showClassesStatsSummary() {
   _gel('idPick').selectedIndex = 0;
 
-  // sort by count
+  // sort by name
   var cnt = 0;
   var sortedList = [];
   for (var key in statsClasses) {
     for (var i = 0; i< sortedList.length; i++) {
-      if (statsClasses[key].length > sortedList[i][1]) break;
+      if (key.replace(/^[^ ]* /g, '') <= sortedList[i][0].replace(/^[^ ]* /g, '')) break;
     }
     sortedList.splice(i, 0, [key, statsClasses[key].length]);
     cnt += statsClasses[key].length;
