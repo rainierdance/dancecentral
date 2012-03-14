@@ -203,6 +203,8 @@ function showEntityDetails(index) {
 function refreshSearchResult(entities) {
   _gel('idTopSearchPanel').style.display = '';
 
+  _gel('idFrameSubmit').src = 'about:blank'; // in case of previous submit
+
   var html = [];   // start the HTML output string
   for (var i = 0; i < entities.length; i++) {
     html.push((i+1) + '&nbsp;<a href="javascript:void(0)" onclick="selectEntity(' + 
