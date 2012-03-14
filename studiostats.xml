@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0313.1941";
+var VERSION = "12.0313.2025";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -159,7 +159,7 @@ function initData() {
       for (var j=0; j<sortedList.length; j++) {
         var date1 = new Date(sortedList[j][INDEX_DATE] + ' ' + sortedList[j][INDEX_TIME]);
         var date2 = new Date(gAllEntities[i][INDEX_DATE] + ' ' + gAllEntities[i][INDEX_TIME]);
-        if (date1 > date2) break;
+        if (date1 < date2) break;
       }
       sortedList.splice(j, 0, gAllEntities[i]);
     }
