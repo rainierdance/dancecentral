@@ -902,7 +902,7 @@ function showClassesStatsSummary() {
     // check how many are paid
     // key is class name
     var cntPaid = 0;
-    for (var j=0; j< statsClasses[key].length; i++) {
+    for (var j=0; j< statsClasses[key].length; j++) {
       if (statsClasses[key][j][1] == 'Paid') cntPaid++; 
     }
     sortedList.splice(i, 0, [key, statsClasses[key].length, cntPaid]);
