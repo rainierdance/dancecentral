@@ -552,8 +552,7 @@ function showPaymentStats() {
                 '><td>' + (i+1) + '</td><td> ' + entry[INDEX_DATE] + '</td><td> ' + 
                 '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (entry[INDEX_NAME]) +
                 '\')">' + entry[INDEX_NAME] + '</a></td><td><b>$' +
-              entry[INDEX_AMOUNT_TOTAL] + '</b></td><td>' +
-              entry[INDEX_PAYMENT_METHOD] + '</td>'
+              entry[INDEX_AMOUNT_TOTAL] + '</b></td>'
             );
             cntTotal += parseFloat(entry[INDEX_AMOUNT_TOTAL]);
 
