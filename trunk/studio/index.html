@@ -404,7 +404,7 @@ function signInGroup() {
   _gel("trTeacher").style.display='None';
   _gel("trLength").style.display='None';
   _gel("trClasses").style.display='';
-  _gel("trPayment").style.display='';
+  _gel("trPayment").style.display='None';
   _gel('trPackages').style.display = 'None';
   _gel('trDateTime').style.display = '';
   _gel("trRateType").style.display='';
@@ -446,7 +446,7 @@ function signInPractice() {
   _gel("trLength").style.display='';
   _gel("trClasses").style.display='None';
   _gel('trPackages').style.display = 'None';
-  _gel('trPayment').style.display = '';
+  _gel('trPayment').style.display = 'None';
   _gel('trDateTime').style.display = '';
   _gel("trRateType").style.display='';
 
@@ -662,22 +662,21 @@ function updateWeddingTotal() {
 }
 */
 
-function updatePracticeStudentTotal() {
+function updateDropinPracticeTotal() {
   var value, amount;
-  // pricing for student practice fee
-  value = parseInt(_gel('entry_prep_payment_num_practice_students').value);
+  value = parseInt(_gel('entry_prep_payment_num_dropin_practice').value);
   if (!isNaN(value)) {
-    amount = value * 20; // there is student discount
-    _gel('entry_prep_payment_amt_practice_students').value = amount;
+    amount = value * 10; // drop in practice
+    _gel('entry_prep_payment_amt_dropin_practice').value = amount;
   }
   else {
-    _gel('entry_prep_payment_amt_practice_students').value = '';
-    _gel('entry_prep_payment_num_practice_students').value = '';
+    _gel('entry_prep_payment_amt_dropin_practice').value = '';
+    _gel('entry_prep_payment_num_dropin_practice').value = '';
   }
   updateTotal();
 }
 
-function updatePracticeNonStudentTotal() {
+function updatePracticeTotal() {
   var value, amount;
   // pricing for practice
   value = parseInt(_gel('entry_prep_payment_num_practice').value);
@@ -742,7 +741,7 @@ function updateYouthTotal() {
   updateTotal();
 }
 
-var packageSuffix = ['series', 'punch', 'private', 'practice', 'floor', 'child', 'youth', 'practice_students', 'parties'];
+var packageSuffix = ['series', 'punch', 'private', 'practice', 'floor', 'child', 'youth', 'dropin_practice', 'parties'];
 var specials = {
   'Wedding' : [ // array of [#, $] for each type in the package Suffix
    [0, 0], //series
@@ -946,7 +945,7 @@ function onSignIn() {
   _gel('entry_14').value = _gel('entry_prep_payment_num_series').value;
   _gel('entry_15').value = _gel('entry_prep_payment_num_punch').value;
   _gel('entry_16').value = _gel('entry_prep_payment_num_private').value;
-  _gel('entry_17').value = _gel('entry_prep_payment_num_practice_students').value;
+  _gel('entry_17').value = _gel('entry_prep_payment_num_dropin_practice').value;
   _gel('entry_18').value = _gel('entry_prep_payment_num_child').value;
   _gel('entry_19').value = _gel('entry_prep_payment_num_youth').value;
   _gel('entry_20').value = _gel('entry_prep_payment_num_practice').value;
@@ -954,7 +953,7 @@ function onSignIn() {
   _gel('entry_22').value = _gel('entry_prep_payment_amt_series').value;
   _gel('entry_23').value = _gel('entry_prep_payment_amt_punch').value;
   _gel('entry_24').value = _gel('entry_prep_payment_amt_private').value;
-  _gel('entry_25').value = _gel('entry_prep_payment_amt_practice_students').value;
+  _gel('entry_25').value = _gel('entry_prep_payment_amt_dropin_practice').value;
   _gel('entry_26').value = _gel('entry_prep_payment_amt_child').value;
   _gel('entry_27').value = _gel('entry_prep_payment_amt_youth').value;
   _gel('entry_28').value = _gel('entry_prep_payment_amt_practice').value;
@@ -1056,9 +1055,9 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 <td><span id="fieldPackage">
 <table>
 <tr><td colspan=2>Student: </td></tr>
-<tr><td><input type='text' value="" id="entry_prep_payment_num_series" size=3 onchange="updateSeriesTotal()"> Number of Group Series sessions </td>
+<tr><td><input type='text' value="" id="entry_prep_payment_num_series" size=3 onchange="updateSeriesTotal()"> Number of Series sessions </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_series" onchange="updateTotal()" size=3></td></tr>
-<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_punch" size=3  onchange="updateDropInClassTotal()"> Number of Group Drop-in Classes</td>
+<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_punch" size=3  onchange="updateDropInClassTotal()"> Number of Drop-in Classes</td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_punch" onchange="updateTotal()" size=3></td></tr>
 <tr><td><input type='text' value="" id="entry_prep_payment_num_private" size=3 onchange="updatePrivateTotal()"> Number of Private Lessons </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_private" onchange="updateTotal()" size=3></td></tr>
@@ -1066,12 +1065,12 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_youth" onchange="updateTotal()" size=3></td></tr>
 <tr><td><input type='text' value="" id="entry_prep_payment_num_child" size=3  onchange="updateChildrenTotal()"> Number of students in Children's Program </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_child" onchange="updateTotal()" size=3></td></tr>
-<tr  style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_practice" size=3  onchange="updatePracticeNonStudentTotal()"> Number of dancers for Monthly Practice (Non-Students) </td>
+<tr  style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_practice" size=3  onchange="updatePracticeTotal()"> Number of dancers for Monthly Practice </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_practice" onchange="updateTotal()" size=3></td></tr>
-<tr><td><input type='text' value="" id="entry_prep_payment_num_practice_students" size=3  onchange="updatePracticeStudentTotal()"> Number of dancers for Monthly Practice (Students) </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_practice_students" onchange="updateTotal()" size=3></td></tr>
+<tr><td><input type='text' value="" id="entry_prep_payment_num_dropin_practice" size=3  onchange="updateDropinPracticeTotal()"> Number of Drop-in Practice </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_dropin_practice" onchange="updateTotal()" size=3></td></tr>
 
-<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_parties" size=3  onchange="updatePartyTotal()"> Number of Party Passes </td>
+<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_parties" size=3  onchange="updatePartyTotal()"> Number of Parties </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_parties" onchange="updateTotal()" size=3></td></tr>
 
 <tr><td colspan=2>Teacher: </td></tr>
@@ -1180,7 +1179,7 @@ gAllSignInTypes.push(new ValueDisplay('Group', 'Classes and Parties'));
 gAllSignInTypes.push(new ValueDisplay('Youth', 'Youth & Children'));
 gAllSignInTypes.push(new ValueDisplay('Private', 'Private Lesson'));
 gAllSignInTypes.push(new ValueDisplay('Practice', 'Practice'));
-gAllSignInTypes.push(new ValueDisplay('Payment', 'Pay Fees / Packages'));
+gAllSignInTypes.push(new ValueDisplay('Payment', 'Payment'));
 gAllSignInTypes.push(new ValueDisplay('Teach', 'Teach Group Classes'));
 
 gAllRateTypes.push(new ValueDisplay('Paid', 'Paid'));
