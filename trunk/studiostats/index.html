@@ -420,47 +420,47 @@ function getStudentItemizedPaymentDisplay(entry) {
       num = entry[INDEX_PAYMENT_NUM_SERIES];
       amt = entry[INDEX_PAYMENT_AMT_SERIES];
 
-      itemsPaid.push(' &nbsp; ' + num + ' Series Classes for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num/4).toFixed(1) + ' per');
+      itemsPaid.push(' &nbsp; ' + num + ' Series Classes for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per class');
     }   
     if (entry[INDEX_PAYMENT_NUM_DROPIN]) {
       num = entry[INDEX_PAYMENT_NUM_DROPIN];
       amt = entry[INDEX_PAYMENT_AMT_DROPIN];
-      itemsPaid.push(' &nbsp; ' + num + ' Dropin Classes for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
+      itemsPaid.push(' &nbsp; ' + num + ' Dropin Classes for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per class');
     }   
     if (entry[INDEX_PAYMENT_NUM_PRIVATE]) {
       num = entry[INDEX_PAYMENT_NUM_PRIVATE];
       amt = entry[INDEX_PAYMENT_AMT_PRIVATE];
-      itemsPaid.push(' &nbsp; ' + num + ' Private Lessons for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
+      itemsPaid.push(' &nbsp; ' + num + ' Private Lessons for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per lesson');
     }   
     if (entry[INDEX_PAYMENT_NUM_DROPIN_PRACTICE]) {
       num = entry[INDEX_PAYMENT_NUM_DROPIN_PRACTICE];
       amt = entry[INDEX_PAYMENT_AMT_DROPIN_PRACTICE];
-      itemsPaid.push(' &nbsp; ' + num + ' Dropin Practice for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
+      itemsPaid.push(' &nbsp; ' + num + ' Dropin Practice for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per class');
     }   
     if (entry[INDEX_PAYMENT_NUM_MONTHLY_PRACTICE]) {
       num = entry[INDEX_PAYMENT_NUM_MONTHLY_PRACTICE];
       amt = entry[INDEX_PAYMENT_AMT_MONTHLY_PRACTICE];
-      itemsPaid.push(' &nbsp; ' + num + ' Monthly Practice for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
+      itemsPaid.push(' &nbsp; ' + num + ' Monthly Practice for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per student');
     }   
     if (entry[INDEX_PAYMENT_NUM_CHILDREN]) {
       num = entry[INDEX_PAYMENT_NUM_CHILDREN];
       amt = entry[INDEX_PAYMENT_AMT_CHILDREN];
-      itemsPaid.push(' &nbsp; ' + num + ' Children\'s Program for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
+      itemsPaid.push(' &nbsp; ' + num + ' Children\'s Program for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per student');
     }   
     if (entry[INDEX_PAYMENT_NUM_YOUTH]) {
       num = entry[INDEX_PAYMENT_NUM_YOUTH];
       amt = entry[INDEX_PAYMENT_AMT_YOUTH];
-      itemsPaid.push(' &nbsp; ' + num + ' Youth Program for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
+      itemsPaid.push(' &nbsp; ' + num + ' Youth Program for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per student');
     }   
     if (entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]) {
       num = entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES];
       amt = entry[INDEX_PAYMENT_AMT_INDEPENDENT_FLOOR_FEES];
-      itemsPaid.push(' &nbsp; ' + num + ' Lessons, Floor Fees paid total <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
+      itemsPaid.push(' &nbsp; ' + num + ' Lessons, Floor Fees paid total <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per class');
     }   
     if (entry[INDEX_PAYMENT_NUM_PARTIES]) {
       num = entry[INDEX_PAYMENT_NUM_PARTIES];
       amt = entry[INDEX_PAYMENT_AMT_PARTIES];
-      itemsPaid.push(' &nbsp; ' + num + ' Parties for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
+      itemsPaid.push(' &nbsp; ' + num + ' Parties for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per party');
     }   
     if (entry[INDEX_PAYMENT_DISCOUNT]) {
       itemsPaid.push(entry[INDEX_PAYMENT_DISCOUNT]);  
@@ -510,8 +510,10 @@ function getStudentDisplay(student, statStudent) {
                html.push('<li> <a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(classNameStr) + '\')">' + 
                   classNameStr + '</a> ' + entry[INDEX_RATE_TYPE]);
                if (entry[INDEX_RATE_TYPE] != 'Free') {
-                 if (classNameStr.indexOf('Series') == 0) cntSeriesTaken += 1;
-                 if (classNameStr.indexOf('Drop-in') == 0) cntDropinTaken += 1;
+                 if (classNameStr.indexOf('Series') != -1) 
+                   cntSeriesTaken += 1;
+                 if (classNameStr.indexOf('Drop-in') != -1) 
+                   cntDropinTaken += 1;
                }
              }
            }
@@ -541,16 +543,22 @@ function getStudentDisplay(student, statStudent) {
               html.push('<br>' + getStudentItemizedPaymentDisplay(entry));
             }
             var num = entry[INDEX_PAYMENT_NUM_PRIVATE];
-            if (num)  num = parseInt(num);
-            cntPrivatePaid += num;
+            if (num)  {
+              num = parseInt(num);
+              cntPrivatePaid += num;
+             }
 
             num = entry[INDEX_PAYMENT_NUM_DROPIN];
-            if (num)  num = parseInt(num);
-            cntDropinPaid += num;
+            if (num) {
+              num = parseInt(num);
+              cntDropinPaid += num;
+            }
 
             num = entry[INDEX_PAYMENT_NUM_SERIES];
-            if (num)  num = parseInt(num);
-            cntSeriesPaid += num;
+            if (num)  {
+              num = parseInt(num);
+              cntSeriesPaid += num;
+            }
          
          } else { //TODO: wrong place
          }
@@ -558,10 +566,10 @@ function getStudentDisplay(student, statStudent) {
       html.push('</ol>');
     }
 
-  htmlSummary.push('<b>Summary</b> (4 classes in one Series.)<p>');
+  htmlSummary.push('<b>Summary</b><p>');
   htmlSummary.push('<table cellpadding=3>');
   htmlSummary.push('<tr style="font-weight:bold"><td>Type</td><td>Bought</td><td>Taken</td><td>Balance</td></tr>');
-  htmlSummary.push('<tr><td>Series classes</td><td>' + (cntSeriesPaid * 4) + '</td><td>' + cntSeriesTaken + '</td><td>' + (cntSeriesPaid*4-cntSeriesTaken) + '</td></tr>');
+  htmlSummary.push('<tr><td>Series classes</td><td>' + (cntSeriesPaid) + '</td><td>' + cntSeriesTaken + '</td><td>' + (cntSeriesPaid-cntSeriesTaken) + '</td></tr>');
   htmlSummary.push('<tr><td>Dropin classes</td><td>' + cntDropinPaid + '</td><td>' + cntDropinTaken + '</td><td>' + (cntDropinPaid-cntDropinTaken) +'</td></tr>');
   htmlSummary.push('<tr><td>Private lessons</td><td>' + cntPrivatePaid + '</td><td>' + cntPrivateTaken + '</td><td>' + (cntPrivatePaid-cntPrivateTaken) +'</td></tr>');
   htmlSummary.push('</table><p>');
