@@ -899,6 +899,8 @@ function showClassesStatsSummary() {
     for (var i = 0; i< sortedList.length; i++) {
       if (key.replace(/^[^ ]* /g, '') > sortedList[i][0].replace(/^[^ ]* /g, '')) break;
     }
+    sortedList.splice(i, 0, [key, statsClasses[key].length, cntPaid]);
+
     // check how many are paid
     // key is class name
     var cntPaid = 0;
@@ -917,7 +919,6 @@ function showClassesStatsSummary() {
       cntTotalRound++;
       cntTotalRoundPaid += cntPaid;
     }
-    sortedList.splice(i, 0, [key, statsClasses[key].length, cntPaid]);
     cnt += statsClasses[key].length;
   }
 
@@ -938,7 +939,7 @@ function showClassesStatsSummary() {
   for (var i = 0; i<sortedList.length; i++) {
    html.push('<tr><td>' + (i+1) + 
      '</td><td><a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(sortedList[i][0]) + 
-     '\')">' + sortedList[i][0] + '</a></td><td>' + sortedList[i][1] + '</td><td>' + sortedList[i][2] + '</td></tr>');
+     '\')">' + sortedList[i][0] + '</a></td><td>' + sortedList[i][1] + '</td><td>' + (sortedList[i][2] > 0 ? sortedList[i][2] : '') + '</td></tr>');
   }
   html.push('</table>');
 
