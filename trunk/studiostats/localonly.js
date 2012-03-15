@@ -26,8 +26,7 @@ gAllRawEntities.push("2/22/2012 15:48:25;Lorenzo Farris;Youth;2/22/2012;15:48;Ch
 gAllRawEntities.push("2/27/2012 11:02:03;Violeta Abramova;Teach;2/27/2012;11:01;Children 2012-02-27 Monday 4:00 PM Children's Program Level 1;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/23/2012 15:48:29;Lorenzo Farris;Private;2/22/2012;15:48;;1;Simeon Stoynov;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/24/2012 15:48:35;Lorenzo Farris;Practice;2/22/2012;15:48;;1;;Practice-Free;;;;;;;;;;;;;;;;;;;;;;".split(';'));
-gAllRawEntities.push("2/25/2012 15:48:42;Lorenzo Farris;Payment;1/22/2012;15:48;;;;;;50;Cash;;4;1;;;;;;;16;21;;;;;;Intro Special;4;13".split(';'));
-gAllRawEntities.push("2/22/2012 15:48:46;Lorenzo Farris;Payment;2/22/2012;15:48;;;;;;65;Check;;;3;;;;;;;;65;;;;;;Wedding Special;;".split(';'));
+gAllRawEntities.push("2/22/2012 15:48:46;Lorenzo Farris;Payment;2/22/2012;15:48;;;;;Special;65;Check;;;3;;;;;;;;65;;;;;;Wedding Special;;".split(';'));
 gAllRawEntities.push("2/22/2012 15:48:59;Lorenzo Farris;Payment;3/25/2012;15:48;;;;;;65;CreditCard;;;3;;;;;;;;65;;;;;;Wedding Special;;".split(';'));
 gAllRawEntities.push("2/22/2012 18:25:06;Jackie Wu;Private;2/20/2012;12:25;;1;Simeon Stoynov;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/22/2012 18:27:03;Jackie Wu;Group;2/22/2012;18:26;Series 3/5/2012 Wednesday 7:15 PM Am. Smooth Level 2 - V. Waltz, Series 3/5/2012 Wednesday 8:00 PM Am. Rhythm Level 2 - Rumba;;;Group-ED-PunchCard-PrePaid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
@@ -44,3 +43,5 @@ gAllRawEntities.push("2/27/2012 10:49:48;Rachel Wu;Youth;2/27/2012;10:49;Childre
 gAllRawEntities.push("2/27/2012 11:00:47;Lorenzo Farris;Group;2/27/2012;11:00;Series 2012-02-27 Monday 7:15 PM Am. Smooth Level 1 - Waltz,Series 2012-02-27 Monday 8:45 PM Intl. Standard Level 2 - Quickstep;;;Group-Series-PrePaid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/27/2012 11:01:16;Lorenzo Farris;Group;2/28/2012;11:00;Series 2012-02-28 Tuesday 7:15 PM Am. Smooth Level 3 - Foxtrot;;;Group-Series-PrePaid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/27/2012 11:01:52;Fiona Farris;Youth;2/27/2012;11:01;Children 2012-02-27 Monday 4:00 PM Children's Program Level 1;;;Youth-Take-Class;;;;;;;;;;;;;;;;;;;;;;".split(';'));
+gAllRawEntities.push("2/25/2012 15:48:42;Jackie Wu;Payment;1/22/2012;15:48;;;;;Some note here;50;Cash;;4;1;;;;;;;16;21;;;;;;Intro Special;4;13".split(';'));
+gAllRawEntities.push("3/14/2012 22:39:13;Jackie Wu;Payment;3/14/2012;22:21;;;;;;1103;;1;2;3;7;5;4;6;;40.2;24;197;70;240;230;240;;;8;64".split(';'));
