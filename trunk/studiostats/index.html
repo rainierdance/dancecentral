@@ -508,7 +508,7 @@ function getStudentDisplay(student, statStudent) {
              for (var j = 0; j < classes.length; j++) {
                var classNameStr = classes[j];
                html.push('<li> <a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(classNameStr) + '\')">' + 
-                  classNameStr + '</a>');
+                  classNameStr + '</a> ' + entry[INDEX_RATE_TYPE]);
                if (entry[INDEX_RATE_TYPE] != 'Free') {
                  if (classNameStr.indexOf('Series') == 0) cntSeriesTaken += 1;
                  if (classNameStr.indexOf('Drop-in') == 0) cntDropinTaken += 1;
@@ -558,7 +558,7 @@ function getStudentDisplay(student, statStudent) {
       html.push('</ol>');
     }
 
-  htmlSummary.push('<b>Summary</b> (There are 4 classes in one Series.)<p>');
+  htmlSummary.push('<b>Summary</b> (4 classes in one Series.)<p>');
   htmlSummary.push('<table cellpadding=3>');
   htmlSummary.push('<tr style="font-weight:bold"><td>Type</td><td>Bought</td><td>Taken</td><td>Balance</td></tr>');
   htmlSummary.push('<tr><td>Series classes</td><td>' + (cntSeriesPaid * 4) + '</td><td>' + cntSeriesTaken + '</td><td>' + (cntSeriesPaid*4-cntSeriesTaken) + '</td></tr>');
