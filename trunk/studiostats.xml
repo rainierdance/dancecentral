@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0314.2341";
+var VERSION = "12.0314.2357";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -618,8 +618,7 @@ function showPaymentStats() {
                 '><td>' + (i+1) + '</td><td> ' + entry[INDEX_DATE] + '</td><td> ' + 
                 '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (entry[INDEX_NAME]) +
                 '\')">' + entry[INDEX_NAME] + '</a></td><td><b>$' +
-              entry[INDEX_AMOUNT_TOTAL] + '</b></td><td>' +
-              entry[INDEX_PAYMENT_METHOD] + '</td>'
+              entry[INDEX_AMOUNT_TOTAL] + '</b></td>'
             );
             cntTotal += parseFloat(entry[INDEX_AMOUNT_TOTAL]);
 
