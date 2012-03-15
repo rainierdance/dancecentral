@@ -461,7 +461,9 @@ function getStudentItemizedPaymentDisplay(entry) {
       amt = entry[INDEX_PAYMENT_AMT_PARTIES];
       itemsPaid.push(' &nbsp; ' + num + ' Parties for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
     }   
-    itemsPaid.push(entry[INDEX_PAYMENT_DISCOUNT]);  
+    if (entry[INDEX_PAYMENT_DISCOUNT]) {
+      itemsPaid.push(entry[INDEX_PAYMENT_DISCOUNT]);  
+    }
     itemsPaid.push(entry[INDEX_NOTE] );  
     return itemsPaid.join('<br>');
 }
@@ -543,7 +545,7 @@ function showPaymentStats() {
 
    var cntTotal= 0
 
-   html.push('<table cellpadding=2>');
+   html.push('<table cellpadding=3>');
    for (var i = 0 ; i<entries.length; i++) {
      var entry = entries[i];
             html.push('<tr' +  (i % 2 == 0 ? '' : ' style="background:whitesmoke"') +
