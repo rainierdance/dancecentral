@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="DanceCentral.info Studio Management"
+             description="DanceCentral.info Studio Management"
+             author="DanceCentral.info"
+             >
+<Require feature="idi"/>
+<Require feature="setprefs" />
+<Require feature="locked-domain" />
+</ModulePrefs>
+<UserPref name="dataUrl" display_name="Data url"
+          required="true"/>
+<Content type="html"><![CDATA[
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
+<script>
+function escapeHtml(text) {
+  if (text == null) {
+    return '';
+  }
+  //return _hesc(text);
+  return text;
+}
+
+/**
+ * Load the APIs and run sendStudentQuery when the load is complete
+ */
+var gadgetHelper = null;
+_IG_RegisterOnloadHandler(loadVisualizationAPI);
+function loadVisualizationAPI() {
+  google.load("visualization", "1");
+  google.setOnLoadCallback(sendDataQuery);
+}
+
+/**
+ * Create a query (shaped by the Gadget's user preferences), then
+ * send it to the spreadsheet data source. Also give the name of a
+ * function ("handleQueryResponse") to run once the spreadsheet data
+ * is retrieved:
+ */
+var prefs = new _IG_Prefs(); // User preferences
+
+function sendDataQuery() {
+  prefs.set('_table_query_url', prefs.getString('dataUrl'));
+  gadgetHelper = new google.visualization.GadgetHelper();
+  var query = gadgetHelper.createQueryFromPrefs(prefs);
+  query.send(handleDataQueryResponse);
+}
+
+function handleDataQueryResponse(response) {
+  if (!gadgetHelper.validateResponse(response)) {
+    return;     // Default error handling was done, just leave.
+  }
+  var data = response.getDataTable();
+  for (var row = 0; row < data.getNumberOfRows(); row++) {
+    var cols = [];
+    for (var col = 0; col < data.getNumberOfColumns(); col++) {
+      cols.push(data.getFormattedValue(row,col).replace(/^\s+|\s+$/g,""));
+    }
+    gAllRawEntities.push(cols);
+  }
+
+  initData();
+}
+</script>
+
