@@ -507,8 +507,9 @@ function getStudentDisplay(student, statStudent) {
            if (classes && classes.length > 0) {
              for (var j = 0; j < classes.length; j++) {
                var classNameStr = classes[j];
-               html.push('<li> <a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(classNameStr) + '\')">' + 
-                  classNameStr + '</a> ' + entry[INDEX_RATE_TYPE]);
+               html.push('<li> ' + entry[INDEX_RATE_TYPE] + 
+                  ' <a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(classNameStr) + '\')">' + 
+                  classNameStr + '</a> ');
                if (entry[INDEX_RATE_TYPE] != 'Free') {
                  if (classNameStr.indexOf('Series') != -1) 
                    cntSeriesTaken += 1;
