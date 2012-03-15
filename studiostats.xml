@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0315.1424";
+var VERSION = "12.0315.1427";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -968,7 +968,7 @@ function showClassesStatsSummary() {
     // check how many are paid
     // key is class name
     var cntPaid = 0;
-    for (var j=0; j< statsClasses[key].length; i++) {
+    for (var j=0; j< statsClasses[key].length; j++) {
       if (statsClasses[key][j][1] == 'Paid') cntPaid++; 
     }
     sortedList.splice(i, 0, [key, statsClasses[key].length, cntPaid]);
