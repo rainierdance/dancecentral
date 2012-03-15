@@ -575,10 +575,12 @@ function updateSeriesTotal() {
       amount = 40 * value;
     }
     _gel('entry_prep_payment_amt_series').value = amount;
+    _gel('entry_prep_payment_num_series_classes').value = value * 4; // default 4 classes in one series
   }
   else {
     _gel('entry_prep_payment_amt_series').value = '';
     _gel('entry_prep_payment_num_series').value = '';
+    _gel('entry_prep_payment_num_series_classes').value = '';
   }
   updateTotal();
 }
@@ -828,13 +830,6 @@ function validateInput() {
        !checkField('entry_10', 'trRateType')
       ) 
     return false;
-/*
-   // not enforcing now
-   if (_gel('entry_10').value == 'Paid') { // check payment
-     if (!checkField('entry_12', 'entry_prep_payment_total'))
-      return false;
-   }
-*/
   } else if (signInType == 'Teach') {
    if (!checkField('entry_6', 'entry_prep_date') ||
        !checkField('entry_9', 'trClasses'))
@@ -853,15 +848,10 @@ function validateInput() {
    if (!checkField('entry_11', 'trLength') ||
        !checkField('entry_10', 'trRateType')) 
     return false;
-/* not enforcing
-   if (_gel('entry_10').value == 'Paid') {
-     if (!checkField('entry_12', 'entry_prep_payment_total'))
-      return false;
-    }
-*/
   } else if (signInType == 'Payment') { // very simple check
-   if (!checkField('entry_12', 'entry_prep_payment_total'))
+   if (!checkField('entry_12', 'entry_prep_payment_total')) { // need to validate numbers 
       return false;
+   }
   }
   return true;
 }
@@ -944,7 +934,7 @@ function onSignIn() {
   }
 
   // payment related entries
-  _gel('entry_14').value = _gel('entry_prep_payment_num_series').value;
+  _gel('entry_14').value = _gel('entry_prep_payment_num_series_classes').value;
   _gel('entry_15').value = _gel('entry_prep_payment_num_punch').value;
   _gel('entry_16').value = _gel('entry_prep_payment_num_private').value;
   _gel('entry_17').value = _gel('entry_prep_payment_num_dropin_practice').value;
@@ -1057,7 +1047,8 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 <td><span id="fieldPackage">
 <table>
 <tr><td colspan=2>Student: </td></tr>
-<tr><td><input type='text' value="" id="entry_prep_payment_num_series" size=3 onchange="updateSeriesTotal()"> Number of Series sessions </td>
+<tr><td><input type='text' value="" id="entry_prep_payment_num_series" size=3 onchange="updateSeriesTotal()"> Number of Series sessions, total of
+<input type='text' id='entry_prep_payment_num_series_classes' size=4> classes</td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_series" onchange="updateTotal()" size=3></td></tr>
 <tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_punch" size=3  onchange="updateDropInClassTotal()"> Number of Drop-in Classes</td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_punch" onchange="updateTotal()" size=3></td></tr>
