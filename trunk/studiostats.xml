@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0315.1052";
+var VERSION = "12.0315.1410";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -951,21 +951,60 @@ function showClassesStatsSummary() {
   // sort by name
   var cnt = 0;
   var sortedList = [];
+
+  var cntTotalGroup = 0;
+  var cntTotalParty = 0;
+  var cntTotalRound = 0;
+
+  // paid students
+  var cntTotalGroupPaid = 0;
+  var cntTotalPartyPaid = 0;
+  var cntTotalRoundPaid = 0;
+
   for (var key in statsClasses) {
     for (var i = 0; i< sortedList.length; i++) {
       if (key.replace(/^[^ ]* /g, '') > sortedList[i][0].replace(/^[^ ]* /g, '')) break;
     }
-    sortedList.splice(i, 0, [key, statsClasses[key].length]);
+    // check how many are paid
+    // key is class name
+    var cntPaid = 0;
+    for (var i=0; i< statsClasses[key].length; i++) {
+      if (statsClasses[key][i][1] == 'Paid') cntPaid++; 
+    }
+    if (key.indexOf('Series') != -1 || key.indexOf('Drop-in') != -1) {
+      cntTotalGroup++;
+      cntTotalGroupPaid += cntPaid;
+    }
+    if (key.indexOf('Party') != -1) {
+      cntTotalParty++;
+      cntTotalPartyPaid += cntPaid;
+    }
+    if (key.indexOf('Round') != -1) {
+      cntTotalRound++;
+      cntTotalRoundPaid += cntPaid;
+    }
+    sortedList.splice(i, 0, [key, statsClasses[key].length, cntPaid]);
     cnt += statsClasses[key].length;
   }
 
   var html = [];
-  html.push('Total: <b>' + cnt + '</b><p>');
+  html.push('<b>Summary</b><p>');
+  html.push('<table cellpadding=4 style="border-collapse:collapse;" bordercolor="lightgray" border=1>');
+  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Total number of classes/parties</td><td>Total Paid Students</td><td>Average # of students/per event</td></tr>');
+  if (cntTotalGroup > 0) 
+     html.push('<tr><td>Group and Series</td><td>' + cntTotalGroup + '</td><td>' + cntTotalGroupPaid + '</td><td>' + (cntTotalGroupPaid/cntTotalGroup).toFixed(0) + '</td></tr>');
+  if (cntTotalParty > 0) 
+    html.push('<tr><td>Parties</td><td>' + cntTotalParty + '</td><td>' + cntTotalPartyPaid + '</td><td>' + (cntTotalPartyPaid/cntTotalParty).toFixed(0) + '</td></tr>');
+  if (cntTotalRound > 0)
+    html.push('<tr><td>Rounds</td><td>' + cntTotalRound + '</td><td>' + cntTotalRoundPaid + '</td><td>' + (cntTotalRoundPaid/cntTotalRound).toFixed(0) + '</td></tr>');
+
+  html.push('</table><p>'); 
   html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
+  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Class</td><td>Total</td><td>Paid</td></tr>');
   for (var i = 0; i<sortedList.length; i++) {
    html.push('<tr><td>' + (i+1) + 
      '</td><td><a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(sortedList[i][0]) + 
-     '\')">' + sortedList[i][0] + '</a></td><td>' + sortedList[i][1] + '</td></tr>');
+     '\')">' + sortedList[i][0] + '</a></td><td>' + sortedList[i][1] + '</td><td>' + sortedList[i][2] + '</td></tr>');
   }
   html.push('</table>');
 
