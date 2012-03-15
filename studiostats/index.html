@@ -461,6 +461,7 @@ function getStudentItemizedPaymentDisplay(entry) {
       amt = entry[INDEX_PAYMENT_AMT_PARTIES];
       itemsPaid.push(' &nbsp; ' + num + ' Parties for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
     }   
+    itemsPaid.push(entry[INDEX_PAYMENT_DISCOUNT]);  
     itemsPaid.push(entry[INDEX_NOTE] );  
     return itemsPaid.join('<br>');
 }
