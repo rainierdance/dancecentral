@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0315.0053";
+var VERSION = "12.0315.0121";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -319,6 +319,7 @@ function getStats() {
   _gel('idEntityList').innerHTML = '';
   _gel('idSelect').innerHTML = '';
 
+  showClassesStats();
 }
 
 function updateStudentStats(optSelect) {
@@ -574,8 +575,10 @@ function getStudentDisplay(student, statStudent) {
                var classNameStr = classes[j];
                html.push('<li> <a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(classNameStr) + '\')">' + 
                   classNameStr + '</a>');
-               if (classNameStr.indexOf('Series') == 0) cntSeriesTaken += 1;
-               if (classNameStr.indexOf('Dropin') == 0) cntDropinTaken += 1;
+               if (entry[INDEX_RATE_TYPE] != 'Free') {
+                 if (classNameStr.indexOf('Series') == 0) cntSeriesTaken += 1;
+                 if (classNameStr.indexOf('Drop-in') == 0) cntDropinTaken += 1;
+               }
              }
            }
          } else if (type == 'Private') {
