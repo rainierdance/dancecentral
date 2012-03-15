@@ -164,7 +164,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0314.1832";
+var VERSION = "12.0314.1833";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1329,7 +1329,7 @@ Note: <textarea name="entry.5.single" rows="8" cols="75"  id="entry_5"></textare
 // The value of each SignInType is used to map Group classes' value and RateType values 
 // to filter the classes rate types to display
 
-gAllSignInTypes.push(new ValueDisplay('Group', 'Group Classes'));
+gAllSignInTypes.push(new ValueDisplay('Group', 'Classes and Parties'));
 //gAllSignInTypes.push(new ValueDisplay('Party', 'Parties and Rounds'));
 gAllSignInTypes.push(new ValueDisplay('Youth', 'Youth & Children'));
 gAllSignInTypes.push(new ValueDisplay('Private', 'Private Lesson'));
