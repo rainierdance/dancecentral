@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0314.2357";
+var VERSION = "12.0315.0053";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -535,9 +535,20 @@ function getStudentItemizedPaymentDisplay(entry) {
 }
 
 function getStudentDisplay(student, statStudent) {
+    var cntDropinPaid = 0;
+    var cntPrivatePaid = 0;
+    var cntSeriesPaid = 0;
+    var cntDropinTaken = 0;
+    var cntPrivateTaken = 0;
+    var cntSeriesTaken = 0;
+
+    var htmlSummary = [];
+
+    htmlSummary.push(line);
+    htmlSummary.push('<b>' + student + '</b><p>'); // student name
+
     var html = [];
     html.push(line);
-    html.push('<b>' + student + '</b><p>'); // student name
 /*
       // each student's stats: {signInType, []}
       // Group: [class name, rate Type, amount]
@@ -563,12 +574,15 @@ function getStudentDisplay(student, statStudent) {
                var classNameStr = classes[j];
                html.push('<li> <a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(classNameStr) + '\')">' + 
                   classNameStr + '</a>');
+               if (classNameStr.indexOf('Series') == 0) cntSeriesTaken += 1;
+               if (classNameStr.indexOf('Dropin') == 0) cntDropinTaken += 1;
              }
            }
          } else if (type == 'Private') {
             html.push('<li>' + entry[INDEX_DATE] + ' ' + 
               // entry[INDEX_TIME] + ' ' + 
               entry[INDEX_TEACHER] + ' ' + entry[INDEX_LENGTH] + ' min lesson');
+            cntPrivateTaken +=1;
          } else if (type == 'Practice') {
             html.push('<li>' + entry[INDEX_DATE] + ' ' + 
               entry[INDEX_TIME] + ' ' + 
@@ -589,13 +603,33 @@ function getStudentDisplay(student, statStudent) {
             } else { // straight payment
               html.push('<br>' + getStudentItemizedPaymentDisplay(entry));
             }
+            var num = entry[INDEX_PAYMENT_NUM_PRIVATE];
+            if (num)  num = parseInt(num);
+            cntPrivatePaid += num;
+
+            num = entry[INDEX_PAYMENT_NUM_DROPIN];
+            if (num)  num = parseInt(num);
+            cntDropinPaid += num;
+
+            num = entry[INDEX_PAYMENT_NUM_SERIES];
+            if (num)  num = parseInt(num);
+            cntSeriesPaid += num;
          
          } else { //TODO: wrong place
          }
       }
       html.push('</ol>');
     }
-  return html.join('');
+
+  htmlSummary.push('<b>Summary</b> (There are 4 classes in one Series.)<p>');
+  htmlSummary.push('<table cellpadding=3>');
+  htmlSummary.push('<tr style="font-weight:bold"><td>Type</td><td>Bought</td><td>Taken</td><td>Balance</td></tr>');
+  htmlSummary.push('<tr><td>Series classes</td><td>' + (cntSeriesPaid * 4) + '</td><td>' + cntSeriesTaken + '</td><td>' + (cntSeriesPaid*4-cntSeriesTaken) + '</td></tr>');
+  htmlSummary.push('<tr><td>Dropin classes</td><td>' + cntDropinPaid + '</td><td>' + cntDropinTaken + '</td><td>' + (cntDropinPaid-cntDropinTaken) +'</td></tr>');
+  htmlSummary.push('<tr><td>Private lessons</td><td>' + cntPrivatePaid + '</td><td>' + cntPrivateTaken + '</td><td>' + (cntPrivatePaid-cntPrivateTaken) +'</td></tr>');
+  htmlSummary.push('</table><p>');
+
+  return htmlSummary.join('') + html.join('');
 }
 
 function showPaymentStats() {
