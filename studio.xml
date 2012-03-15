@@ -164,7 +164,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0314.2030";
+var VERSION = "12.0314.2324";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -741,11 +741,13 @@ function updatePartyTotal() {
   var value, amount;
   value = parseInt(_gel('entry_prep_payment_num_parties').value);
   if (!isNaN(value)) {
+/*
     if (value >= 10)
       amount = value * 6;
     else if (value >= 5)
       amount = value * 8; 
     else 
+*/
       amount = value * 10; 
     _gel('entry_prep_payment_amt_parties').value = amount;
   } else {

@@ -587,11 +587,13 @@ function updatePartyTotal() {
   var value, amount;
   value = parseInt(_gel('entry_prep_payment_num_parties').value);
   if (!isNaN(value)) {
+/*
     if (value >= 10)
       amount = value * 6;
     else if (value >= 5)
       amount = value * 8; 
     else 
+*/
       amount = value * 10; 
     _gel('entry_prep_payment_amt_parties').value = amount;
   } else {

@@ -30,7 +30,7 @@ var statsPayment = {}; // type is the key
 
 var line = '<hr style="background-color:rgb(204,204,204);border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;height:1px">';
 
-var headerStr = "Timestamp,Name,Activity Type,Date,Start Time,Classes,Length,Private Lesson Teacher,Rate Type,Note,Total Amount,Payment Method,Number of Group Series Sessions,Number of Punch Card Classes,Number of Private Lessons,Number of Monthly Practice (Students),Children's Program,Youth Program,Monthly Practice (Non-Students),Number of lessons for Floor Fee (Independent),Amount for Group Series,Amount for Punch Card,Amount for Private Lessons,Amount for Monthly Practice (Students),Amount for Children's Program,Amount for Youth Program,Amount for Monthly Practice (Non-Students),Amount for Floor Fee (Independent),Payment Discount,Number of Party Passes,Amount for Party Passes";
+var headerStr = "Timestamp,Name,Activity Type,Date,Start Time,Classes,Length,Private Lesson Teacher,Rate Type,Note,Total Amount,Payment Method,Number of Group Series Sessions,Number of Punch Card Classes,Number of Private Lessons,Number of DropIn Practice,Number of Children's Program,Number of Youth Program,Number of Monthly Practice,Number of lessons for Floor Fee (Independent),Amount for Group Series,Amount for Punch Card,Amount for Private Lessons,Amount for DropIn Practice,Amount for Children's Program,Amount for Youth Program,Amount for Monthly Practice,Amount for Floor Fee (Independent),Payment Discount,Number of Party Passes,Amount for Party Passes"
 
 var colHeaders = headerStr.split(',');
 
@@ -52,20 +52,20 @@ var INDEX_PAYMENT_DISCOUNT = colHeaders.indexOf('Payment Discount');
 var INDEX_PAYMENT_NUM_SERIES = colHeaders.indexOf('Number of Group Series Sessions');
 var INDEX_PAYMENT_NUM_DROPIN = colHeaders.indexOf('Number of Punch Card Classes');
 var INDEX_PAYMENT_NUM_PRIVATE = colHeaders.indexOf('Number of Private Lessons');
-var INDEX_PAYMENT_NUM_PRACTICE_STUDENTS = colHeaders.indexOf('Number of Monthly Practice (Students)');
-var INDEX_PAYMENT_NUM_CHILDREN = colHeaders.indexOf('Children\'s Program');
-var INDEX_PAYMENT_NUM_YOUTH = colHeaders.indexOf('Youth Program');
-var INDEX_PAYMENT_NUM_PRACTICE_NON_STUDENTS = colHeaders.indexOf('Monthly Practice (Non-Students)');
+var INDEX_PAYMENT_NUM_DROPIN_PRACTICE = colHeaders.indexOf('Number of DropIn Practice');
+var INDEX_PAYMENT_NUM_CHILDREN = colHeaders.indexOf('Number of Children\'s Program');
+var INDEX_PAYMENT_NUM_YOUTH = colHeaders.indexOf('Number of Youth Program');
+var INDEX_PAYMENT_NUM_MONTHLY_PRACTICE = colHeaders.indexOf('Number of Monthly Practice');
 var INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES = colHeaders.indexOf('Number of lessons for Floor Fee (Independent)');
 var INDEX_PAYMENT_NUM_PARTIES = colHeaders.indexOf('Number of Party Passes');
 
 var INDEX_PAYMENT_AMT_SERIES = colHeaders.indexOf('Amount for Group Series');
 var INDEX_PAYMENT_AMT_DROPIN = colHeaders.indexOf('Amount for Punch Card');
 var INDEX_PAYMENT_AMT_PRIVATE = colHeaders.indexOf('Amount for Private Lessons');
-var INDEX_PAYMENT_AMT_PRACTICE_STUDENTS = colHeaders.indexOf('Amount for Monthly Practice (Students)');
+var INDEX_PAYMENT_AMT_DROPIN_PRACTICE = colHeaders.indexOf('Amount for DropIn Practice');
 var INDEX_PAYMENT_AMT_CHILDREN = colHeaders.indexOf('Amount for Children\'s Program');
 var INDEX_PAYMENT_AMT_YOUTH = colHeaders.indexOf('Amount for Youth Program');
-var INDEX_PAYMENT_AMT_PRACTICE_NON_STUDENTS = colHeaders.indexOf('Amount for Monthly Practice (Non-Students)');
+var INDEX_PAYMENT_AMT_MONTHLY_PRACTICE = colHeaders.indexOf('Amount for Monthly Practice');
 var INDEX_PAYMENT_AMT_INDEPENDENT_FLOOR_FEES = colHeaders.indexOf('Amount for Floor Fee (Independent)');
 var INDEX_PAYMENT_AMT_PARTIES = colHeaders.indexOf('Amount for Party Passes');
 
@@ -210,6 +210,10 @@ function getStats() {
         // shouldn't have gotten here.
         //TODO: wrong entry
       }
+      if (signInType == 'Payment') { //  either specific payment type, or drop in payment
+        if (!statsPayment[signInType]) statsPayment[signInType] = [];
+        statsPayment[signInType].push(gAllEntities[i]);
+      }
     }
 
     if (student) { // student record
@@ -264,7 +268,12 @@ function updateStudentStats(optSelect) {
 
 function updateStudentStatsWithName(selected) {
   var statStudent = statsStudents[selected];
-  _gel('idEntityList').innerHTML = getStudentDisplay(selected, statStudent);
+  if (!statStudent) {
+    // check if it's teacher
+    updateTeacherStatsWithName(selected);
+  } else {
+    _gel('idEntityList').innerHTML = getStudentDisplay(selected, statStudent);
+  }
 }
 
 function showStudentStats() {
@@ -402,6 +411,60 @@ function showStudentStatsOverview() {
   _gel('idEntityList').innerHTML = html.join('');
 }
 
+function getStudentItemizedPaymentDisplay(entry) {
+    var itemsPaid = [];
+    var num, amt;
+
+    if (entry[INDEX_PAYMENT_NUM_SERIES]) {
+      num = entry[INDEX_PAYMENT_NUM_SERIES];
+      amt = entry[INDEX_PAYMENT_AMT_SERIES];
+
+      itemsPaid.push(' &nbsp; ' + num + ' Series Classes for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num/4).toFixed(1) + ' per');
+    }   
+    if (entry[INDEX_PAYMENT_NUM_DROPIN]) {
+      num = entry[INDEX_PAYMENT_NUM_DROPIN];
+      amt = entry[INDEX_PAYMENT_AMT_DROPIN];
+      itemsPaid.push(' &nbsp; ' + num + ' Dropin Classes for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
+    }   
+    if (entry[INDEX_PAYMENT_NUM_PRIVATE]) {
+      num = entry[INDEX_PAYMENT_NUM_PRIVATE];
+      amt = entry[INDEX_PAYMENT_AMT_PRIVATE];
+      itemsPaid.push(' &nbsp; ' + num + ' Private Lessons for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
+    }   
+    if (entry[INDEX_PAYMENT_NUM_DROPIN_PRACTICE]) {
+      num = entry[INDEX_PAYMENT_NUM_DROPIN_PRACTICE];
+      amt = entry[INDEX_PAYMENT_AMT_DROPIN_PRACTICE];
+      itemsPaid.push(' &nbsp; ' + num + ' Dropin Practice for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
+    }   
+    if (entry[INDEX_PAYMENT_NUM_MONTHLY_PRACTICE]) {
+      num = entry[INDEX_PAYMENT_NUM_MONTHLY_PRACTICE];
+      amt = entry[INDEX_PAYMENT_AMT_MONTHLY_PRACTICE];
+      itemsPaid.push(' &nbsp; ' + num + ' Monthly Practice for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
+    }   
+    if (entry[INDEX_PAYMENT_NUM_CHILDREN]) {
+      num = entry[INDEX_PAYMENT_NUM_CHILDREN];
+      amt = entry[INDEX_PAYMENT_AMT_CHILDREN];
+      itemsPaid.push(' &nbsp; ' + num + ' Children\'s Program for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
+    }   
+    if (entry[INDEX_PAYMENT_NUM_YOUTH]) {
+      num = entry[INDEX_PAYMENT_NUM_YOUTH];
+      amt = entry[INDEX_PAYMENT_AMT_YOUTH];
+      itemsPaid.push(' &nbsp; ' + num + ' Youth Program for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
+    }   
+    if (entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]) {
+      num = entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES];
+      amt = entry[INDEX_PAYMENT_AMT_INDEPENDENT_FLOOR_FEES];
+      itemsPaid.push(' &nbsp; ' + num + ' Lessons, Floor Fees paid total <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
+    }   
+    if (entry[INDEX_PAYMENT_NUM_PARTIES]) {
+      num = entry[INDEX_PAYMENT_NUM_PARTIES];
+      amt = entry[INDEX_PAYMENT_AMT_PARTIES];
+      itemsPaid.push(' &nbsp; ' + num + ' Parties for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
+    }   
+    itemsPaid.push(entry[INDEX_NOTE] );  
+    return itemsPaid.join('<br>');
+}
+
 function getStudentDisplay(student, statStudent) {
     var html = [];
     html.push(line);
@@ -455,36 +518,7 @@ function getStudentDisplay(student, statStudent) {
                 entry[INDEX_RATE_TYPE] + ' ' +
                 entry[INDEX_CLASSES].split(',').join(' &nbsp;'));
             } else { // straight payment
-              var itemsPaid = [];
-              if (entry[INDEX_PAYMENT_NUM_SERIES]) {
-                itemsPaid.push(entry[INDEX_PAYMENT_NUM_SERIES] + ' Series Group Classes');  
-              }   
-              if (entry[INDEX_PAYMENT_NUM_DROPIN]) {
-                itemsPaid.push( entry[INDEX_PAYMENT_NUM_DROPIN] + ' DropIn Group Classes');  
-              }   
-              if (entry[INDEX_PAYMENT_NUM_PRIVATE]) {
-                itemsPaid.push( entry[INDEX_PAYMENT_NUM_PRIVATE] + ' Private Lessons');  
-              }   
-              if (entry[INDEX_PAYMENT_NUM_PRACTICE_STUDENTS]) {
-                itemsPaid.push( entry[INDEX_PAYMENT_NUM_PRACTICE_STUDENTS] + ' Monthly Practice (Students)');  
-              }   
-              if (entry[INDEX_PAYMENT_NUM_PRACTICE_NON_STUDENTS]) {
-                itemsPaid.push( entry[INDEX_PAYMENT_NUM_PRACTICE_NON_STUDENTS] + ' Monthly Practice (Non-Students)');  
-              }   
-              if (entry[INDEX_PAYMENT_NUM_CHILDREN]) {
-                itemsPaid.push( entry[INDEX_PAYMENT_NUM_CHILDREN] + ' Children\'s Program');  
-              }   
-              if (entry[INDEX_PAYMENT_NUM_YOUTH]) {
-                itemsPaid.push( entry[INDEX_PAYMENT_NUM_YOUTH] + ' Youth Program');  
-              }   
-              if (entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]) {
-                itemsPaid.push( entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES] + ' Floor Fees (Independents)');  
-              }   
-              if (entry[INDEX_PAYMENT_NUM_PARTIES]) {
-                itemsPaid.push( entry[INDEX_PAYMENT_NUM_PARTIES] + ' Parties');  
-              }   
-                itemsPaid.push(entry[INDEX_NOTE] );  
-              html.push(itemsPaid.join(', &nbsp;'));
+              html.push('<br>' + getStudentItemizedPaymentDisplay(entry));
             }
          
          } else { //TODO: wrong place
@@ -511,7 +545,8 @@ function showPaymentStats() {
    html.push('<table cellpadding=2>');
    for (var i = 0 ; i<entries.length; i++) {
      var entry = entries[i];
-            html.push('<tr><td>' + (i+1) + '</td><td> ' + entry[INDEX_DATE] + '</td><td> ' + 
+            html.push('<tr' +  (i % 2 == 0 ? '' : ' style="background:whitesmoke"') +
+                '><td>' + (i+1) + '</td><td> ' + entry[INDEX_DATE] + '</td><td> ' + 
                 '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (entry[INDEX_NAME]) +
                 '\')">' + entry[INDEX_NAME] + '</a></td><td><b>$' +
               entry[INDEX_AMOUNT_TOTAL] + '</b></td><td>' +
@@ -526,35 +561,7 @@ function showPaymentStats() {
                 entry[INDEX_CLASSES].split(',').join(', &nbsp;') + '</td>');
             } else { // straight payment
               html.push('<td>');
-              var itemsPaid = [];
-              if (entry[INDEX_PAYMENT_NUM_SERIES]) {
-                itemsPaid.push(entry[INDEX_PAYMENT_NUM_SERIES] + ' Series Group Classes'); 
-              }
-              if (entry[INDEX_PAYMENT_NUM_DROPIN]) {
-                itemsPaid.push( entry[INDEX_PAYMENT_NUM_DROPIN] + ' DropIn Group Classes'); 
-              }
-              if (entry[INDEX_PAYMENT_NUM_PRIVATE]) {
-                itemsPaid.push( entry[INDEX_PAYMENT_NUM_PRIVATE] + ' Private Lessons'); 
-              }
-              if (entry[INDEX_PAYMENT_NUM_PRACTICE_STUDENTS]) {
-                itemsPaid.push( entry[INDEX_PAYMENT_NUM_PRACTICE_STUDENTS] + ' Monthly Practice (Students)'); 
-              }
-              if (entry[INDEX_PAYMENT_NUM_PRACTICE_NON_STUDENTS]) {
-                itemsPaid.push( entry[INDEX_PAYMENT_NUM_PRACTICE_NON_STUDENTS] + ' Monthly Practice (Non-Students)'); 
-              }
-              if (entry[INDEX_PAYMENT_NUM_CHILDREN]) {
-                itemsPaid.push( entry[INDEX_PAYMENT_NUM_CHILDREN] + ' Children\'s Program'); 
-              }
-              if (entry[INDEX_PAYMENT_NUM_YOUTH]) {
-                itemsPaid.push( entry[INDEX_PAYMENT_NUM_YOUTH] + ' Youth Program'); 
-              }
-              if (entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]) {
-                itemsPaid.push( entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES] + ' Floor Fees (Independents)'); 
-              }
-              if (entry[INDEX_PAYMENT_NUM_PARTIES]) {
-                itemsPaid.push( entry[INDEX_PAYMENT_NUM_PARTIES] + ' Parties'); 
-              }
-              html.push(itemsPaid.join(', &nbsp;'));
+              html.push(getStudentItemizedPaymentDisplay(entry));
               html.push('</td></tr>');
             }
        }
