@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0314.2324";
+var VERSION = "12.0314.2335";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -527,6 +527,7 @@ function getStudentItemizedPaymentDisplay(entry) {
       amt = entry[INDEX_PAYMENT_AMT_PARTIES];
       itemsPaid.push(' &nbsp; ' + num + ' Parties for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per');
     }   
+    itemsPaid.push(entry[INDEX_PAYMENT_DISCOUNT]);  
     itemsPaid.push(entry[INDEX_NOTE] );  
     return itemsPaid.join('<br>');
 }
