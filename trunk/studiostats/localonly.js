@@ -17,7 +17,6 @@ function escapeHtml(text) {
 
 
 //gAllRawEntities.push("log".split(';'));
-/*
 gAllRawEntities.push("2/22/2012 0:04:01;Rachel Wu;Group;2/22/2012;;Series Monday 8:00 PM Am. Rhythm Level 1 - EC Swing,Series 3/5/2012 Tuesday 7:15 PM Am. Smooth Level 3 - Foxtrot;;;Paid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 
 
@@ -26,7 +25,7 @@ gAllRawEntities.push("2/22/2012 15:48:18;Lorenzo Farris;Group;2/22/2012;15:48;Pa
 gAllRawEntities.push("2/22/2012 15:48:25;Lorenzo Farris;Youth;2/22/2012;15:48;Children 3/5/2012 Wednesday 4:00 PM Children's Program Level 1;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/27/2012 11:02:03;Violeta Abramova;Teach;2/27/2012;11:01;Children 2012-02-27 Monday 4:00 PM Children's Program Level 1;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/23/2012 15:48:29;Lorenzo Farris;Private;2/22/2012;15:48;;1;Simeon Stoynov;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
-gAllRawEntities.push("2/24/2012 15:48:35;Lorenzo Farris;Practice;2/22/2012;15:48;;1;;Practice-Free;;;;;;;;;;;;;;;;;;;;;;".split(';'));
+gAllRawEntities.push("2/24/2012 15:48:35;Lorenzo Farris;Practice;2/22/2012;15:48;;1;;Practice-Free;TODO practice;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/22/2012 15:48:46;Lorenzo Farris;Payment;2/22/2012;15:48;;;;;Special;65;Check;;;3;;;;;;;;65;;;;;;Wedding Special;;".split(';'));
 gAllRawEntities.push("2/22/2012 15:48:59;Lorenzo Farris;Payment;3/25/2012;15:48;;;;;;65;CreditCard;;;3;;;;;;;;65;;;;;;Wedding Special;;".split(';'));
 
@@ -41,14 +40,13 @@ gAllRawEntities.push("2/27/2012 11:00:47;Lorenzo Farris;Group;2/27/2012;11:00;Se
 gAllRawEntities.push("2/27/2012 11:01:16;Lorenzo Farris;Group;2/28/2012;11:00;Series 2012-02-28 Tuesday 7:15 PM Am. Smooth Level 3 - Foxtrot;;;Paid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/27/2012 11:01:52;Fiona Farris;Youth;2/27/2012;11:01;Children 2012-02-27 Monday 4:00 PM Children's Program Level 1;;;Youth-Take-Class;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 
-*/
-gAllRawEntities.push("2/25/2012 15:48:42;Jackie Wu;Payment;1/22/2012;15:48;;;;;Some note here;50;Cash;;4;1;;;;;;;16;21;;;;;;Intro Special;4;13".split(';'));
+gAllRawEntities.push("2/25/2012 15:48:42;Jackie Wu;Payment;1/22/2012;15:48;;;;;Some TODO note here;50;Cash;;4;1;;;;;;;16;21;;;;;;Intro Special;4;13".split(';'));
 gAllRawEntities.push("3/14/2012 22:39:13;Jackie Wu;Payment;3/14/2012;22:21;;;;;;1103;;1;2;3;7;5;4;6;;40.2;24;197;70;240;230;240;;;8;64".split(';'));
 gAllRawEntities.push("2/27/2012 9:59:34;Jackie Wu;Group;2/27/2012;9:59;Series Tuesday 8:00 PM Am. Rhythm Level 3 - Cha Cha,Series Wednesday 8:00 PM Am. Rhythm Level 2 - Rumba,Drop-in Saturday 7:15 PM Cha Cha;;;Paid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
-gAllRawEntities.push("2/22/2012 0:07:28;Jackie Wu;Group;2/22/2012;;Series 3/5/2012 Wednesday 8:45 PM Intl. Standard Level 3 - Foxtrot;;;Free;;;;;;;;;;;;;;;;;;;;;;".split(';'));
+gAllRawEntities.push("2/22/2012 0:07:28;Jackie Wu;Group;2/22/2012;;Series 3/5/2012 Wednesday 8:45 PM Intl. Standard Level 3 - Foxtrot;;;Free;TODO group;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/22/2012 0:07:49;Jackie Wu;Group;2/22/2012;;Series 3/5/2012 Tuesday 7:15 PM Am. Smooth Level 3 - Foxtrot;;;Free;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/22/2012 18:25:06;Jackie Wu;Private;2/20/2012;12:25;;1;Simeon Stoynov;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/22/2012 18:27:03;Jackie Wu;Group;2/22/2012;18:26;Series 3/5/2012 Wednesday 7:15 PM Am. Smooth Level 2 - V. Waltz, Series 3/5/2012 Wednesday 8:00 PM Am. Rhythm Level 2 - Rumba;;;Paid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
-gAllRawEntities.push("2/27/2012 10:14:35;Jackie Wu;Private;2/27/2012;10:14;;1;Simeon Stoynov;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
+gAllRawEntities.push("2/27/2012 10:14:35;Jackie Wu;Private;2/27/2012;10:14;;1;Simeon Stoynov;;TODO here;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/27/2012 10:14:39;Jackie Wu;Private;2/22/2012;10:14;;1;Simeon Stoynov;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
-gAllRawEntities.push("2/27/2012 10:48:14;Jackie Wu;Youth;2/27/2012;10:47;Children_2012_03_05_MON_LEVEL_1,Youth_2012_03_05_WED_17_30_LEVEL_1;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
+gAllRawEntities.push("2/27/2012 10:48:14;Jackie Wu;Youth;2/27/2012;10:47;Children_2012_03_05_MON_LEVEL_1,Youth_2012_03_05_WED_17_30_LEVEL_1;;;;TODO some;;;;;;;;;;;;;;;;;;;;;".split(';'));
