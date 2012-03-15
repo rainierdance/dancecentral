@@ -164,7 +164,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0314.1642";
+var VERSION = "12.0314.1832";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -647,8 +647,8 @@ function isTodaysClass(classId) {
 }
 
 var categoryFilters = {
-  'Group' : ['Series', 'Drop-in'],
-  'Party' : ['Party', 'Round'],
+  'Group' : ['Series', 'Drop-in', 'Party', 'Round'],
+//  'Party' : ['Party', 'Round'],
   'Teach' : ['Series', 'Drop-in', 'Children', 'Youth'],
   'Youth' : ['Children', 'Youth']
 }
@@ -699,7 +699,6 @@ function fillInRateTypes() {
   var cols = 0;
   var cntTypes = 0;
   for (var i = 0; i< len; i++ ) {
-    if (gAllRateTypes[i].value.indexOf(gAllSignInTypes[gSelectedSignInTypeIndex].value) == 0) {
       if (cols == 0) html.push('<tr>');
       var label = "idRate" + i;
       html.push('<td><input type=radio name="rRate" id="' + label+ '" value="' + 
@@ -708,7 +707,6 @@ function fillInRateTypes() {
       cols = ((cols + 1) % 3);
       cntTypes++;
       if (cols == 0) html.push('</tr>');
-    }
   }
   _gel('fieldRate').innerHTML = html.join('');
 }
@@ -976,38 +974,24 @@ function validateInput() {
 
   var signInType = _gel('entry_4').value;
   // validation is different for different sign in type 
-  if (signInType == 'Group') {
+  if (signInType == 'Group') { // include parties
    // if paid on spot, $, method.
    if (!checkField('entry_6', 'entry_prep_date') ||
        !checkField('entry_9', 'trClasses') ||
        !checkField('entry_10', 'trRateType')
       ) 
     return false;
-   if (_gel('entry_10').value == 'Group-Drop-in') { // check payment
-     if (!checkField('entry_12', 'entry_prep_payment_total') ||
-         !checkField('entry_13', 'paymentMethods')
-        ) 
+/*
+   // not enforcing now
+   if (_gel('entry_10').value == 'Paid') { // check payment
+     if (!checkField('entry_12', 'entry_prep_payment_total'))
       return false;
    }
+*/
   } else if (signInType == 'Teach') {
    if (!checkField('entry_6', 'entry_prep_date') ||
        !checkField('entry_9', 'trClasses'))
     return false;
-  } else if (signInType == 'Party') {
-   if (!checkField('entry_6', 'entry_prep_date') ||
-       !checkField('entry_9', 'trClasses') ||
-       !checkField('entry_10', 'trRateType')) 
-    return false;
-
-   if ((_gel('entry_10').value == 'Party-Class-1') ||
-       (_gel('entry_10').value == 'Party-Only') ||
-       (_gel('entry_10').value == 'Party-Round')) {
-     if (!checkField('entry_12', 'entry_prep_payment_total') ||
-         !checkField('entry_13', 'paymentMethods')
-        ) 
-      return false;
-    }
-
   } else if (signInType == 'Youth') {
    if (!checkField('entry_6', 'entry_prep_date') ||
        !checkField('entry_9', 'trClasses'))
@@ -1022,17 +1006,14 @@ function validateInput() {
    if (!checkField('entry_11', 'trLength') ||
        !checkField('entry_10', 'trRateType')) 
     return false;
-
-   if (_gel('entry_10').value == 'Practice-Drop-in') {
-     if (!checkField('entry_12', 'entry_prep_payment_total') ||
-         !checkField('entry_13', 'paymentMethods')
-        ) 
+/* not enforcing
+   if (_gel('entry_10').value == 'Paid') {
+     if (!checkField('entry_12', 'entry_prep_payment_total'))
       return false;
     }
+*/
   } else if (signInType == 'Payment') { // very simple check
-   if (!checkField('entry_12', 'entry_prep_payment_total') ||
-       !checkField('entry_13', 'paymentMethods')
-      ) 
+   if (!checkField('entry_12', 'entry_prep_payment_total'))
       return false;
   }
   return true;
@@ -1272,6 +1253,7 @@ Specials:<br>
 
 <tr id="trPayment"><td>Total Payment</td><td>
 <input type='text' value="" id="entry_prep_payment_total" size=6>&nbsp;&nbsp;
+<span id='idPaymentMethods' style='display:none'>
 <span id='paymentMethods'>
 <input type='radio' value="Cash" name="rPaymentMethod" id='labelPrepMethodCash' ><label for="labelPrepMethodCash">Cash</label> &nbsp;&nbsp;
 <input type='radio' value="Check" name="rPaymentMethod" id='labelPrepMethodCheck' ><label for="labelPrepMethodCheck">Check</label>&nbsp;&nbsp; 
@@ -1279,7 +1261,7 @@ Specials:<br>
 </span>
 <br>
 Payment discount: <input type='text' value="" id="entry_prep_payment_discount" size=40>&nbsp;&nbsp;
-
+</span>
 </td></tr>
 
 <tr><td valign=top>Note</td><td>
@@ -1348,32 +1330,17 @@ Note: <textarea name="entry.5.single" rows="8" cols="75"  id="entry_5"></textare
 // to filter the classes rate types to display
 
 gAllSignInTypes.push(new ValueDisplay('Group', 'Group Classes'));
-gAllSignInTypes.push(new ValueDisplay('Party', 'Parties and Rounds'));
+//gAllSignInTypes.push(new ValueDisplay('Party', 'Parties and Rounds'));
 gAllSignInTypes.push(new ValueDisplay('Youth', 'Youth & Children'));
 gAllSignInTypes.push(new ValueDisplay('Private', 'Private Lesson'));
 gAllSignInTypes.push(new ValueDisplay('Practice', 'Practice'));
 gAllSignInTypes.push(new ValueDisplay('Payment', 'Pay Fees / Packages'));
 gAllSignInTypes.push(new ValueDisplay('Teach', 'Teach Group Classes'));
 
-//gAllRateTypes.push(new ValueDisplay('Youth-Take-Class', 'Take class'));
-//gAllRateTypes.push(new ValueDisplay('Youth-Teach-Class', 'Teach class'));
+gAllRateTypes.push(new ValueDisplay('Paid', 'Paid'));
+gAllRateTypes.push(new ValueDisplay('Free', 'Free'));
+gAllRateTypes.push(new ValueDisplay('Other', 'Other (enter note)'));
 
-gAllRateTypes.push(new ValueDisplay('Group-Series-PrePaid', 'Group Series Rate (Pre-Paid)'));
-gAllRateTypes.push(new ValueDisplay('Group-Drop-in-Package-PrePaid', 'Drop-in Package (Pre-Paid)'));
-gAllRateTypes.push(new ValueDisplay('Group-Drop-in', 'Group Drop-in Rate'));
-gAllRateTypes.push(new ValueDisplay('Group-Free', 'Free'));
-gAllRateTypes.push(new ValueDisplay('Group-ED-PunchCard-PrePaid', 'Emotions DanceSport Punch Card'));
-
-gAllRateTypes.push(new ValueDisplay('Party-Only', 'Party Only'));
-gAllRateTypes.push(new ValueDisplay('Party-Class-1', 'Party with 1 class discount'));
-gAllRateTypes.push(new ValueDisplay('Party-Class-2', 'Party free with 2 classes'));
-gAllRateTypes.push(new ValueDisplay('Party-Pass-PrePaid', 'Party Pass (Pre-Paid)'));
-gAllRateTypes.push(new ValueDisplay('Party-Round', 'Competitive Round'));
-gAllRateTypes.push(new ValueDisplay('Party-Free', 'Free'));
-
-gAllRateTypes.push(new ValueDisplay('Practice-PrePaid-Monthly', 'Practice - Monthly (Pre-Paid)'));
-gAllRateTypes.push(new ValueDisplay('Practice-Drop-in', 'Practice - Drop-in'));
-gAllRateTypes.push(new ValueDisplay('Practice-Free', 'Practice - Free'));
 </script>
 
 

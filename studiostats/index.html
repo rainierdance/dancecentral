@@ -28,8 +28,6 @@ var statsStudents = {};
 var statsClasses = {};
 var statsPayment = {}; // type is the key
 
-var rateDisplayMapping = {};
-
 var line = '<hr style="background-color:rgb(204,204,204);border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;height:1px">';
 
 var headerStr = "Timestamp,Name,Activity Type,Date,Start Time,Classes,Length,Private Lesson Teacher,Rate Type,Note,Total Amount,Payment Method,Number of Group Series Sessions,Number of Punch Card Classes,Number of Private Lessons,Number of Monthly Practice (Students),Children's Program,Youth Program,Monthly Practice (Non-Students),Number of lessons for Floor Fee (Independent),Amount for Group Series,Amount for Punch Card,Amount for Private Lessons,Amount for Monthly Practice (Students),Amount for Children's Program,Amount for Youth Program,Amount for Monthly Practice (Non-Students),Amount for Floor Fee (Independent),Payment Discount,Number of Party Passes,Amount for Party Passes";
@@ -220,11 +218,11 @@ function getStats() {
       // each student's stats: {signInType, [full log entries]}
       if (!statStudent[signInType]) statStudent[signInType] = [];
 
-      if (signInType == 'Payment' ||  amtTotalPayment != '') { //  either specific payment type, or drop in payment
+      if (signInType == 'Payment') { //  either specific payment type, or drop in payment
         if (!statStudent['Payment']) statStudent['Payment'] = [];
         statStudent['Payment'].push(gAllEntities[i]);
  
-        // do payment stats at the same time
+        // do student payment stats at the same time
         if (!statsPayment[signInType]) statsPayment[signInType] = [];
         statsPayment[signInType].push(gAllEntities[i]);
 
@@ -306,11 +304,11 @@ function showStudentStatsSummary() {
   var html = [];
 
   html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
-  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Student</td><td>Group Classes</td>' +
-   '<td>Parties</td><td>Youth Classes</td><td>Private Lessons</td><td>Practice</td><td>Total</td></tr>');
+  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Student</td><td>Classes and Parties</td>' +
+   '<td>Youth Classes</td><td>Private Lessons</td><td>Practice</td><td>Total</td></tr>');
 
   var cntGroupTotal = 0;
-  var cntPartyTotal = 0;
+  //var cntPartyTotal = 0;
   var cntYouthTotal = 0;
   var cntPrivateTotal = 0;
   var cntPracticeTotal = 0;
@@ -346,15 +344,17 @@ function showStudentStatsSummary() {
       '</td><td><a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) +
       '\')">' + key + '</a></td>');
     html.push('<td>' + (cntGroup == 0 ? ' ' : cntGroup) + '</td>');
-    html.push('<td>' + (stat['Party'] ? stat['Party'].length : ' ') + '</td>');
+//    html.push('<td>' + (stat['Party'] ? stat['Party'].length : ' ') + '</td>');
     html.push('<td>' + (cntYouth == 0 ? ' ' : cntYouth) + '</td>');
     html.push('<td>' + (stat['Private'] ? stat['Private'].length : ' ') + '</td>');
     html.push('<td>' + (stat['Practice'] ? stat['Practice'].length : ' ') + '</td>');
 
+/*
     if (stat['Party']) {
      cntPartyTotal += stat['Party'].length;
      studentTotal += stat['Party'].length;
     }
+*/
     if (stat['Private']) {
       cntPrivateTotal += stat['Private'].length;
       studentTotal += stat['Private'].length;
@@ -371,9 +371,10 @@ function showStudentStatsSummary() {
 
   html.push('<tr style="font-weight:bold"><td>&nbsp;</td>' +
     '<td>Total</td><td>' + cntGroupTotal + '</td>' +
-   '<td>' + cntPartyTotal + '</td><td>' + cntYouthTotal + 
+//   '<td>' + cntPartyTotal + '</td>' +
+   '<td>' + cntYouthTotal + 
    '</td><td>' + cntPrivateTotal + '</td><td>' + cntPracticeTotal + '</td><td>' +
-   (cntGroupTotal + cntPartyTotal + cntYouthTotal + cntPrivateTotal + cntPracticeTotal) + '</td></tr>');
+   (cntGroupTotal + cntYouthTotal + cntPrivateTotal + cntPracticeTotal) + '</td></tr>');
 
   html.push('</table>');
 
@@ -451,7 +452,7 @@ function getStudentDisplay(student, statStudent) {
             // itemize the total
             if (entry[INDEX_SIGNIN_TYPE] != 'Payment') {
               html.push(' ' + 
-                rateDisplayMapping[entry[INDEX_RATE_TYPE]] + ' ' +
+                entry[INDEX_RATE_TYPE] + ' ' +
                 entry[INDEX_CLASSES].split(',').join(' &nbsp;'));
             } else { // straight payment
               var itemsPaid = [];
@@ -505,7 +506,7 @@ function showPaymentStats() {
     html.push('<b>' + key + '</b><p>');
     var entries = statsPayment[key]; // key is signInType
 
-   var cntTotal= {}; //method, total
+   var cntTotal= 0
 
    html.push('<table cellpadding=2>');
    for (var i = 0 ; i<entries.length; i++) {
@@ -516,14 +517,12 @@ function showPaymentStats() {
               entry[INDEX_AMOUNT_TOTAL] + '</b></td><td>' +
               entry[INDEX_PAYMENT_METHOD] + '</td>'
             );
-            var method = entry[INDEX_PAYMENT_METHOD];
-            if (!cntTotal[method]) cntTotal[method] = 0;
-            cntTotal[method] += parseFloat(entry[INDEX_AMOUNT_TOTAL]);
+            cntTotal += parseFloat(entry[INDEX_AMOUNT_TOTAL]);
 
             // itemize the total
             if (entry[INDEX_SIGNIN_TYPE] != 'Payment') {
               html.push('<td>' + 
-                rateDisplayMapping[entry[INDEX_RATE_TYPE]] + ' ' +
+                entry[INDEX_RATE_TYPE] + ' ' +
                 entry[INDEX_CLASSES].split(',').join(', &nbsp;') + '</td>');
             } else { // straight payment
               html.push('<td>');
@@ -560,12 +559,7 @@ function showPaymentStats() {
             }
        }
        html.push('</table>');
-       var totalStr = ['<p>Total:'];
-       for (var method in cntTotal) {
-        totalStr.push(method + ' <b>$' + cntTotal[method] + '</b>');
-       }
-       html.push(totalStr.join(' &nbsp; &nbsp; &nbsp; '));
-
+       html.push('<p>Total: <b>$' + cntTotal + '</b>');
   }
 
   _gel('idEntityList').innerHTML = html.join('');
@@ -866,7 +860,7 @@ function getClassDisplay(key, statGroup) {
   }
 
     for (var i = 0; i < sortedList.length; i++) {
-      var rateDisplay = rateDisplayMapping[sortedList[i][1]];
+      var rateDisplay = sortedList[i][1];
       html.push('<tr><td>' + (i+1) + '</td><td>' + 
                 '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (sortedList[i][0]) +
                 '\')">' + sortedList[i][0] + '</a>' +
@@ -876,25 +870,6 @@ function getClassDisplay(key, statGroup) {
     html.push('</table>');
     return html.join('');
 }
-
-// sync with studio sign in
-
-rateDisplayMapping['Group-Series-PrePaid'] = 'Group Series Rate (Pre-Paid)';
-rateDisplayMapping['Group-Drop-in-Package-PrePaid'] = 'Drop-in Package (Pre-Paid)';
-rateDisplayMapping['Group-Drop-in'] = 'Group Drop-in Rate';
-rateDisplayMapping['Group-Youth-Children'] = 'Youth and Children\'s Program';
-rateDisplayMapping['Group-Free'] = 'Free';
-rateDisplayMapping['Group-ED-PunchCard-PrePaid'] = 'Emotions DanceSport Punch Card';
-rateDisplayMapping['Party-Only'] = 'Party Only';
-rateDisplayMapping['Party-Class-1'] = 'Party with 1 class discount';
-rateDisplayMapping['Party-Class-2'] = 'Party free with 2 classes';
-rateDisplayMapping['Party-Pass-PrePaid'] = 'Party Pass (Pre-Paid)';
-rateDisplayMapping['Party-Round'] = 'Competitive Round';
-rateDisplayMapping['Party-Free'] = 'Free';
-
-rateDisplayMapping['Practice-PrePaid-Monthly'] = 'Practice - Monthly (Pre-Paid)';
-rateDisplayMapping['Practice-Drop-in'] = 'Practice - Drop-in';
-rateDisplayMapping['Practice-Free'] = 'Practice - Free';
 
 </script> 
 
