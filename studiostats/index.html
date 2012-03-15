@@ -899,14 +899,14 @@ function showClassesStatsSummary() {
     for (var i = 0; i< sortedList.length; i++) {
       if (key.replace(/^[^ ]* /g, '') > sortedList[i][0].replace(/^[^ ]* /g, '')) break;
     }
-    sortedList.splice(i, 0, [key, statsClasses[key].length, cntPaid]);
-
     // check how many are paid
     // key is class name
     var cntPaid = 0;
-    for (var i=0; i< statsClasses[key].length; i++) {
-      if (statsClasses[key][i][1] == 'Paid') cntPaid++; 
+    for (var j=0; j< statsClasses[key].length; i++) {
+      if (statsClasses[key][j][1] == 'Paid') cntPaid++; 
     }
+    sortedList.splice(i, 0, [key, statsClasses[key].length, cntPaid]);
+
     if (key.indexOf('Series') != -1 || key.indexOf('Drop-in') != -1) {
       cntTotalGroup++;
       cntTotalGroupPaid += cntPaid;
