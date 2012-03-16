@@ -494,7 +494,7 @@ function getStudentDisplay(student, statStudent) {
     htmlSummary.push('<b>' + student + '</b> &nbsp; &nbsp; ' + startDate + ' ~ ' + endDate + '<p>'); // student name
 
     var html = [];
-    html.push(line);
+    //html.push(line);
 /*
       // each student's stats: {signInType, []}
       // Group: [class name, rate Type, amount]
@@ -597,14 +597,17 @@ function getStudentDisplay(student, statStudent) {
     }
 
   htmlSummary.push('<b>Summary</b><p>');
-  htmlSummary.push('<table cellpadding=3>');
+  htmlSummary.push('<table cellpadding=4 style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
   htmlSummary.push('<tr style="font-weight:bold"><td>Type</td><td>Bought</td><td>Taken</td><td>Balance</td></tr>');
-  htmlSummary.push('<tr><td>Series classes</td><td>' + (cntSeriesPaid) + '</td><td>' + cntSeriesTaken + '</td><td>' + (cntSeriesPaid-cntSeriesTaken) + '</td></tr>');
-  htmlSummary.push('<tr><td>Dropin classes</td><td>' + cntDropinPaid + '</td><td>' + cntDropinTaken + '</td><td>' + (cntDropinPaid-cntDropinTaken) +'</td></tr>');
-  htmlSummary.push('<tr><td>Private lessons</td><td>' + cntPrivatePaid + '</td><td>' + cntPrivateTaken + '</td><td>' + (cntPrivatePaid-cntPrivateTaken) +'</td></tr>');
-  htmlSummary.push('<tr><td>Monthly practice</td><td>' + cntMonthlyPracticePaid + '</td><td>&nbsp;</td><td>&nbsp;</td></tr>');
-  htmlSummary.push('<tr><td>Youth Program</td><td>' + cntMonthlyYouthPaid + '</td><td>&nbsp;</td><td>&nbsp;</td></tr>');
-  htmlSummary.push('<tr><td>Children\'s Program</td><td>' + cntMonthlyChildProgramPaid + '</td><td>&nbsp;</td><td>&nbsp;</td></tr>');
+  htmlSummary.push('<tr align=right><td align=left>Series classes</td><td>' + (cntSeriesPaid) + '</td><td>' + cntSeriesTaken + '</td><td>' + (cntSeriesPaid-cntSeriesTaken) + '</td></tr>');
+  htmlSummary.push('<tr align=right><td  align=left>Dropin classes</td><td>' + cntDropinPaid + '</td><td>' + cntDropinTaken + '</td><td>' + (cntDropinPaid-cntDropinTaken) +'</td></tr>');
+  htmlSummary.push('<tr align=right><td  align=left>Private lessons</td><td>' + cntPrivatePaid + '</td><td>' + cntPrivateTaken + '</td><td>' + (cntPrivatePaid-cntPrivateTaken) +'</td></tr>');
+  if (cntMonthlyPracticePaid > 0)
+    htmlSummary.push('<tr  align=right><td  align=left>Monthly practice</td><td>' + cntMonthlyPracticePaid + '</td><td>&nbsp;</td><td>&nbsp;</td></tr>');
+  if (cntMonthlyYouthPaid > 0) 
+    htmlSummary.push('<tr align=right><td align=left>Youth Program</td><td>' + cntMonthlyYouthPaid + '</td><td>&nbsp;</td><td>&nbsp;</td></tr>');
+  if (cntMonthlyChildProgramPaid > 0) 
+    htmlSummary.push('<tr align=right><td align=left>Children\'s Program</td><td>' + cntMonthlyChildProgramPaid + '</td><td>&nbsp;</td><td>&nbsp;</td></tr>');
   htmlSummary.push('</table><p>');
 
   return htmlSummary.join('') + html.join('');
