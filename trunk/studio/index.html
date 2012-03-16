@@ -487,8 +487,13 @@ var dayMapping = [
   'Friday',
   'Saturday'
 ];
+
 function isTodaysClass(classId) {
-  var dayOfWeek = new Date().getDay(); // 0-6
+  // var dayOfWeek = new Date().getDay(); // 0-6
+  // get date from input box, for back filling
+  var dateValue = _gel('entry_prep_date').value.replace(/-/g, '/');
+  var signDate = new Date(dateValue);
+  var dayOfWeek = signDate.getDay();
   return (classId.indexOf(' ' + dayMapping[dayOfWeek] + ' ') != -1);
 }
 
@@ -995,7 +1000,7 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 <table border=0 cellspacing=5>
 
 <tr id="trDateTime"><td width=150>Date and Time</td><td>
-<input type="text" name="entry.6.single" value=""  id="entry_prep_date"> &nbsp;
+<input type="text" name="entry.6.single" value=""  id="entry_prep_date" onchange="fillInClasses(true)"> &nbsp;
 <input type="text" value=""  id="startTimeHour" size=2> : 
 <input type="text" value=""  id="startTimeMin" size=2> 
 <!-- changed to use text box
