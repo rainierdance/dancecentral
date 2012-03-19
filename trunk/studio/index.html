@@ -807,7 +807,7 @@ function updateTotal() {
   for (var i = 0; i < packageSuffix.length; i++) {
    if (_gel('entry_prep_payment_amt_' + packageSuffix[i]) &&
        _gel('entry_prep_payment_amt_' + packageSuffix[i]).value) {
-        amount += parseInt(_gel('entry_prep_payment_amt_' + packageSuffix[i]).value); }
+        amount += parseFloat(_gel('entry_prep_payment_amt_' + packageSuffix[i]).value); }
   }
   _gel('entry_prep_payment_total').value = amount;
 }

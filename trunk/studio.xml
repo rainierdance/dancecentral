@@ -164,7 +164,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0316.1224";
+var VERSION = "12.0319.1246";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -961,7 +961,7 @@ function updateTotal() {
   for (var i = 0; i < packageSuffix.length; i++) {
    if (_gel('entry_prep_payment_amt_' + packageSuffix[i]) &&
        _gel('entry_prep_payment_amt_' + packageSuffix[i]).value) {
-        amount += parseInt(_gel('entry_prep_payment_amt_' + packageSuffix[i]).value); }
+        amount += parseFloat(_gel('entry_prep_payment_amt_' + packageSuffix[i]).value); }
   }
   _gel('entry_prep_payment_total').value = amount;
 }
