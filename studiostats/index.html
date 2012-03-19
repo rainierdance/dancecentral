@@ -527,11 +527,19 @@ AllClassesStats.prototype.getSummaryDisplay = function () {
   var cntTotalGroup = 0;
   var cntTotalParty = 0;
   var cntTotalRound = 0;
+  var cntTotalYouth = 0;
+  var cntTotalChildren = 0;
 
   // paid students
   var cntTotalGroupPaid = 0;
   var cntTotalPartyPaid = 0;
   var cntTotalRoundPaid = 0;
+
+  var cntTotalGroupParticipants = 0;
+  var cntTotalPartyParticipants = 0;
+  var cntTotalRoundParticipants = 0;
+  var cntTotalYouthParticipants = 0;
+  var cntTotalChildrenParticipants = 0;
 
   var sortedList = []; // get per class summary count
 
@@ -548,27 +556,57 @@ AllClassesStats.prototype.getSummaryDisplay = function () {
     if (key.indexOf('Series') != -1 || key.indexOf('Drop-in') != -1) {
       cntTotalGroup++;
       cntTotalGroupPaid += cntPaid;
+      cntTotalGroupParticipants += statGroup.length;
     }
     if (key.indexOf('Party') != -1) {
       cntTotalParty++;
       cntTotalPartyPaid += cntPaid;
+      cntTotalPartyParticipants += statGroup.length;
     }
     if (key.indexOf('Round') != -1) {
       cntTotalRound++;
       cntTotalRoundPaid += cntPaid;
+      cntTotalRoundParticipants += statGroup.length;
+    }
+    if (key.indexOf('Youth') != -1) {
+      cntTotalYouth++;
+      cntTotalYouthParticipants += statGroup.length;
+    }
+    if (key.indexOf('Children') != -1) {
+      cntTotalChildren++;
+      cntTotalChildrenParticipants += statGroup.length;
     }
   }
 
   var html = [];
   html.push('<b>Summary</b><p>');
   html.push('<table cellpadding=4 style="border-collapse:collapse;" bordercolor="lightgray" border=1>');
-  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Total number of events</td><td>Total Paid Students</td><td>Average # of students/per event</td></tr>');
-  if (cntTotalGroup > 0) 
-     html.push('<tr><td>Group and Series</td><td>' + cntTotalGroup + '</td><td>' + cntTotalGroupPaid + '</td><td>' + (cntTotalGroupPaid/cntTotalGroup).toFixed(0) + '</td></tr>');
-  if (cntTotalParty > 0) 
-    html.push('<tr><td>Parties</td><td>' + cntTotalParty + '</td><td>' + cntTotalPartyPaid + '</td><td>' + (cntTotalPartyPaid/cntTotalParty).toFixed(0) + '</td></tr>');
-  if (cntTotalRound > 0)
-    html.push('<tr><td>Rounds</td><td>' + cntTotalRound + '</td><td>' + cntTotalRoundPaid + '</td><td>' + (cntTotalRoundPaid/cntTotalRound).toFixed(0) + '</td></tr>');
+  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Number of Events</td><td>Total Students</td><td>Total Paid</td><td>Paid / Event</td></tr>');
+  if (cntTotalGroup > 0) {
+     html.push('<tr><td>Group and Series</td><td>' + cntTotalGroup + 
+       '</td><td>' + cntTotalGroupParticipants + 
+       '</td><td>' + cntTotalGroupPaid + '</td><td>' + (cntTotalGroupPaid/cntTotalGroup).toFixed(0) + '</td></tr>');
+  }
+  if (cntTotalParty > 0)  {
+    html.push('<tr><td>Parties</td><td>' + cntTotalParty + 
+       '</td><td>' + cntTotalPartyParticipants + 
+     '</td><td>' + cntTotalPartyPaid + '</td><td>' + (cntTotalPartyPaid/cntTotalParty).toFixed(0) + '</td></tr>');
+  }
+  if (cntTotalRound > 0) {
+    html.push('<tr><td>Rounds</td><td>' + cntTotalRound + 
+     '</td><td>' + cntTotalRoundParticipants + 
+     '</td><td>' + cntTotalRoundPaid + '</td><td>' + (cntTotalRoundPaid/cntTotalRound).toFixed(0) + '</td></tr>');
+  }
+  if (cntTotalYouth > 0) {
+    html.push('<tr><td>Youth</td><td>' + cntTotalYouth + 
+     '</td><td>' + cntTotalYouthParticipants + 
+     '</td><td>&nbsp;</td><td>&nbsp;</td></tr>');
+  }
+  if (cntTotalChildren > 0) {
+    html.push('<tr><td>Children</td><td>' + cntTotalChildren + 
+     '</td><td>' + cntTotalChildrenParticipants + 
+     '</td><td>&nbsp;</td><td>&nbsp;</td></tr>');
+  }
 
   html.push('</table><p>'); 
   html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
