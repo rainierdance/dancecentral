@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0319.1246";
+var VERSION = "12.0319.1359";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -350,7 +350,7 @@ function TeacherStats(name) {
   this.name = name;
   // key: type, (Teach | Private | FloorFees)
 /*
-  Teach: [group class1, group class2, ..]
+  Teach: [[group class1,, note]...]
   Private: [ [entryDate, entryTime, student, length], ... ]
   FloorFees: [ [entryDate, numFloorFees, amtFloorFees], ...]
 */
@@ -416,7 +416,33 @@ TeacherStats.prototype.addEntry = function(entry) {
 // get summary data
 TeacherStats.prototype.getGroupTotal = function() {
   var statGroup = this.stat['Teach'];
-  return statGroup? statGroup.length : 0;
+  var cnt = 0;
+  for (var i = 0; statGroup && i< statGroup.length; i++) {
+    if (statGroup[i][0].indexOf('Series') != -1 ||
+        statGroup[i][0].indexOf('Drop') != -1 )
+      cnt++;
+  }
+  return cnt;
+}
+
+TeacherStats.prototype.getYouthTotal = function() {
+  var statGroup = this.stat['Teach'];
+  var cnt = 0;
+  for (var i = 0; statGroup && i< statGroup.length; i++) {
+    if (statGroup[i][0].indexOf('Youth') != -1)
+      cnt++;
+  }
+  return cnt;
+}
+
+TeacherStats.prototype.getChildrenTotal = function() {
+  var statGroup = this.stat['Teach'];
+  var cnt = 0;
+  for (var i = 0; statGroup && i< statGroup.length; i++) {
+    if (statGroup[i][0].indexOf('Children') != -1)
+      cnt++;
+  }
+  return cnt;
 }
 
 TeacherStats.prototype.getPrivateTotal = function() {
@@ -873,14 +899,15 @@ function showStudentStatsSummary() {
   var html = [];
 
   html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
-  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Student</td><td>Classes and Parties</td>' +
-   '<td>Youth Classes</td><td>Private Lessons</td><td>Practice</td><td>Total</td></tr>');
+  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Student</td><td>Classes & Parties</td>' +
+   '<td>Youth and Children</td><td>Private Lessons</td><td>Practice</td><td>Total SignIn\'s</td><td>Payment</td></tr>');
 
   var cntGroupTotal = 0;
   //var cntPartyTotal = 0;
   var cntYouthTotal = 0;
   var cntPrivateTotal = 0;
   var cntPracticeTotal = 0;
+  var cntPaymentTotal = 0;
 
   for (var j=0; j<sortedList.length; j++) {
     var key = sortedList[j];
@@ -909,7 +936,7 @@ function showStudentStatsSummary() {
     cntYouthTotal += cntYouth;
     studentTotal += cntYouth;
 
-    html.push('<tr><td>' + (j+1) + 
+    html.push('<tr align=right><td>' + (j+1) + 
       '</td><td><a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) +
       '\')">' + key + '</a></td>');
     html.push('<td>' + (cntGroup == 0 ? ' ' : cntGroup) + '</td>');
@@ -931,16 +958,28 @@ function showStudentStatsSummary() {
     }
 
     html.push('<td>' + studentTotal + '</td>');
+
+    var amtTotal = 0;
+    entries = statStudent.getStatForSignInType('Payment');
+    for (var i=0; entries && i < entries.length; i++) {
+      var entry = entries[i];
+      var amt = parseFloat(trimLR(entry[INDEX_AMOUNT_TOTAL]));
+      amtTotal += amt;
+    }
+    cntPaymentTotal += amtTotal;
+
+    html.push('<td>$' + amtTotal + '</td>');
+
     //TODO: payment total
     html.push('</tr>');
   }
 
-  html.push('<tr style="font-weight:bold"><td>&nbsp;</td>' +
+  html.push('<tr align=right style="font-weight:bold"><td>&nbsp;</td>' +
     '<td>Total</td><td>' + cntGroupTotal + '</td>' +
 //   '<td>' + cntPartyTotal + '</td>' +
    '<td>' + cntYouthTotal + 
    '</td><td>' + cntPrivateTotal + '</td><td>' + cntPracticeTotal + '</td><td>' +
-   (cntGroupTotal + cntYouthTotal + cntPrivateTotal + cntPracticeTotal) + '</td></tr>');
+   (cntGroupTotal + cntYouthTotal + cntPrivateTotal + cntPracticeTotal) + '</td><td>$' + cntPaymentTotal + '</td></tr>');
 
   html.push('</table>');
 
@@ -1060,9 +1099,12 @@ function showTeacherStatsSummary() {
 
   html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
   html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Teacher</td><td>Group Classes</td>' +
+    '<td>Youth</td><td>Children</td>' +
     '<td>Private Lessons</td><td>Paid Floor Fees: #</td><td>Paid Floor Fees: $</td></tr>');
 
   var cntGroupTotal = 0;
+  var cntYouthTotal = 0;
+  var cntChildrenTotal = 0;
   var cntPrivateTotal = 0;
   var cntFloorFeeNumTotal = 0;
   var cntFloorFeeAmtTotal = 0;
@@ -1073,6 +1115,12 @@ function showTeacherStatsSummary() {
 
     var cntGroup = stat.getGroupTotal();
     cntGroupTotal += cntGroup;
+
+    var cntYouth = stat.getYouthTotal();
+    cntYouthTotal += cntYouth;
+
+    var cntChildren = stat.getChildrenTotal();
+    cntChildrenTotal += cntChildren;
 
     var cntPrivate = stat.getPrivateTotal();
     cntPrivateTotal += cntPrivate;
@@ -1087,6 +1135,8 @@ function showTeacherStatsSummary() {
    html.push('<tr><td>' + (j+1) + 
      '</td><td><a href="javascript:void(0)" onclick="updateTeacherStatsWithName(\'' + (teacher) + 
      '\')">' + teacher + '</a></td><td>' + (cntGroup == 0 ? "&nbsp;" : cntGroup) + '</td>' +
+     '<td>' + (cntYouth==0 ? "&nbsp;" : cntYouth) + '</td>' + 
+     '<td>' + (cntChildren==0 ? "&nbsp;" : cntChildren) + '</td>' + 
      '<td>' + (cntPrivate==0 ? "&nbsp;" : cntPrivate) + '</td><td>' + 
      (cntFloorFeesNum==0? "&nbsp;" : cntFloorFeesNum) + '</td><td>' + 
      (cntFloorFeesAmt==0? "&nbsp;" : cntFloorFeesAmt) + '</td>');
@@ -1094,6 +1144,8 @@ function showTeacherStatsSummary() {
   }
 
   html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td><b>Total</b></td><td>' + cntGroupTotal + 
+   '</td><td>' + cntYouthTotal + 
+   '</td><td>' + cntChildrenTotal + 
    '</td><td>' + cntPrivateTotal + "</td><td>" +
    (cntFloorFeeNumTotal==0 ? '&nbsp;' : cntFloorFeeNumTotal) + '</td><td>' +
    (cntFloorFeeAmtTotal==0 ? '&nbsp;' : cntFloorFeeAmtTotal)+ '</td></tr>');
