@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0319.1359";
+var VERSION = "12.0320.1114";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -730,6 +730,7 @@ PaymentsStats.prototype.getDisplay = function (entry) {
   html.push('<p>');
 
   var cntPaymentTotal= 0;
+  var result = [0, 0.0, 0, 0.0, 0, 0.0];
 
   html.push('<table cellpadding=4  style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
   for (var i = 0 ; i<this.stats.length; i++) {
@@ -743,13 +744,15 @@ PaymentsStats.prototype.getDisplay = function (entry) {
     cntPaymentTotal += parseFloat(entry[INDEX_AMOUNT_TOTAL]);
 
     html.push('<td>');
-    html.push(getStudentItemizedPaymentDisplay(entry));
+    html.push(getStudentItemizedPaymentDisplay(entry, result));
     html.push('</td></tr>');
   }
   html.push('</table>');
-  html.push('<p>Total: <b>$' + cntPaymentTotal + '</b>');
-
-  return html.join('');
+  return '<p>Total: <b>$' + cntPaymentTotal + '</b><br>' +
+     'Series classes: ' + result[0] + ' for $' + result[1] + ' &nbsp; &nbsp; &nbsp; ' +
+     'Dropin classes: ' + result[2] + ' for $' + result[3] + ' &nbsp; &nbsp; &nbsp; ' +
+     'Private classes: ' + result[4] + ' for $' + result[5] + '<br>' +
+     html.join('');
 
 }
 
@@ -1001,24 +1004,37 @@ function showStudentStatsOverview() {
   _gel('idEntityList').innerHTML = html.join('');
 }
 
-function getStudentItemizedPaymentDisplay(entry) {
+// result: [series, series$, dropin, dropin$, private, private$]
+function getStudentItemizedPaymentDisplay(entry, result) {
   var itemsPaid = [];
   var num, amt;
 
   if (entry[INDEX_PAYMENT_NUM_SERIES]) {
-    num = entry[INDEX_PAYMENT_NUM_SERIES];
-    amt = entry[INDEX_PAYMENT_AMT_SERIES];
+    num = parseInt(entry[INDEX_PAYMENT_NUM_SERIES]);
+    amt = parseFloat(entry[INDEX_PAYMENT_AMT_SERIES]);
     itemsPaid.push(''+ num + ' Series Classes for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per class');
+    if (result) {
+     result[0] += num;
+     result[1] += amt;
+    }
   }   
   if (entry[INDEX_PAYMENT_NUM_DROPIN]) {
-    num = entry[INDEX_PAYMENT_NUM_DROPIN];
-    amt = entry[INDEX_PAYMENT_AMT_DROPIN];
+    num = parseInt(entry[INDEX_PAYMENT_NUM_DROPIN]);
+    amt = parseFloat(entry[INDEX_PAYMENT_AMT_DROPIN]);
     itemsPaid.push(''+ num + ' Dropin Classes for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per class');
+    if (result) {
+     result[2] += num;
+     result[3] += amt;
+    }
   }   
   if (entry[INDEX_PAYMENT_NUM_PRIVATE]) {
-    num = entry[INDEX_PAYMENT_NUM_PRIVATE];
-    amt = entry[INDEX_PAYMENT_AMT_PRIVATE];
+    num = parseInt(entry[INDEX_PAYMENT_NUM_PRIVATE]);
+    amt = parseFloat(entry[INDEX_PAYMENT_AMT_PRIVATE]);
     itemsPaid.push(''+ num + ' Private Lessons for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(1) + ' per lesson');
+    if (result) {
+     result[4] += num;
+     result[5] += amt;
+    }
   }   
   if (entry[INDEX_PAYMENT_NUM_DROPIN_PRACTICE]) {
     num = entry[INDEX_PAYMENT_NUM_DROPIN_PRACTICE];
