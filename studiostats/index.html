@@ -242,8 +242,10 @@ StudentStats.prototype.getDisplay = function() {
   htmlSummary.push('<b>Summary</b><p>');
   htmlSummary.push('<table cellpadding=4 style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
   htmlSummary.push('<tr style="font-weight:bold"><td>Type</td><td>Bought</td><td>Taken</td><td>Balance</td></tr>');
-  htmlSummary.push('<tr align=right><td align=left>Series classes</td><td>' + (cntSeriesPaid) + '</td><td>' + cntSeriesTaken + '</td><td>' + (cntSeriesPaid-cntSeriesTaken) + '</td></tr>');
-  htmlSummary.push('<tr align=right><td  align=left>Dropin classes</td><td>' + cntDropinPaid + '</td><td>' + cntDropinTaken + '</td><td>' + (cntDropinPaid-cntDropinTaken) +'</td></tr>');
+  htmlSummary.push('<tr align=right><td align=left>Series and Dropins</td><td>' + (cntSeriesPaid + cntDropinPaid) + 
+        '</td><td>' + (cntSeriesTaken + cntDropinTaken) +
+        '</td><td>' + (cntDropinPaid + cntSeriesPaid-cntSeriesTaken -cntDropinTaken) + '</td></tr>');
+//  htmlSummary.push('<tr align=right><td  align=left>Dropin classes</td><td>' + cntDropinPaid + '</td><td>' + cntDropinTaken + '</td><td>' + (cntDropinPaid-cntDropinTaken) +'</td></tr>');
   htmlSummary.push('<tr align=right><td  align=left>Private lessons</td><td>' + cntPrivatePaid + '</td><td>' + cntPrivateTaken + '</td><td>' + (cntPrivatePaid-cntPrivateTaken) +'</td></tr>');
   if (cntMonthlyPracticePaid > 0)
     htmlSummary.push('<tr  align=right><td  align=left>Monthly practice</td><td>' + cntMonthlyPracticePaid + '</td><td>&nbsp;</td><td>&nbsp;</td></tr>');
