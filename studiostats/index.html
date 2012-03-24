@@ -617,27 +617,27 @@ AllClassesStats.prototype.getSummaryDisplay = function () {
   html.push('<table cellpadding=4 style="border-collapse:collapse;" bordercolor="lightgray" border=1>');
   html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Number of Events</td><td>Total Students</td><td>Total Paid</td><td>Paid / Event</td></tr>');
   if (cntTotalGroup > 0) {
-     html.push('<tr><td>Group and Series</td><td>' + cntTotalGroup + 
+     html.push('<tr align=right><td>Group and Series</td><td>' + cntTotalGroup + 
        '</td><td>' + cntTotalGroupParticipants + 
        '</td><td>' + cntTotalGroupPaid + '</td><td>' + (cntTotalGroupPaid/cntTotalGroup).toFixed(0) + '</td></tr>');
   }
   if (cntTotalParty > 0)  {
-    html.push('<tr><td>Parties</td><td>' + cntTotalParty + 
+    html.push('<tr align=right><td>Parties</td><td>' + cntTotalParty + 
        '</td><td>' + cntTotalPartyParticipants + 
      '</td><td>' + cntTotalPartyPaid + '</td><td>' + (cntTotalPartyPaid/cntTotalParty).toFixed(0) + '</td></tr>');
   }
   if (cntTotalRound > 0) {
-    html.push('<tr><td>Rounds</td><td>' + cntTotalRound + 
+    html.push('<tr align=right><td>Rounds</td><td>' + cntTotalRound + 
      '</td><td>' + cntTotalRoundParticipants + 
      '</td><td>' + cntTotalRoundPaid + '</td><td>' + (cntTotalRoundPaid/cntTotalRound).toFixed(0) + '</td></tr>');
   }
   if (cntTotalYouth > 0) {
-    html.push('<tr><td>Youth</td><td>' + cntTotalYouth + 
+    html.push('<tr align=right><td>Youth</td><td>' + cntTotalYouth + 
      '</td><td>' + cntTotalYouthParticipants + 
      '</td><td>&nbsp;</td><td>&nbsp;</td></tr>');
   }
   if (cntTotalChildren > 0) {
-    html.push('<tr><td>Children</td><td>' + cntTotalChildren + 
+    html.push('<tr align=right><td>Children</td><td>' + cntTotalChildren + 
      '</td><td>' + cntTotalChildrenParticipants + 
      '</td><td>&nbsp;</td><td>&nbsp;</td></tr>');
   }
@@ -646,7 +646,7 @@ AllClassesStats.prototype.getSummaryDisplay = function () {
   html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
   html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Class</td><td>Total</td><td>Paid</td></tr>');
   for (var i = 0; i<sortedList.length; i++) {
-   html.push('<tr><td>' + (i+1) +
+   html.push('<tr align=right><td>' + (i+1) +
      '</td><td><a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(sortedList[i][0]) +
      '\')">' + sortedList[i][0] + '</a></td><td>' + sortedList[i][1] + '</td><td>' + (sortedList[i][2] > 0 ? sortedList[i][2] : '') + '</td></tr>');
   }
@@ -691,9 +691,9 @@ PaymentsStats.prototype.getDisplay = function (entry) {
   }
   html.push('</table>');
   return '<p>Total: <b>$' + cntPaymentTotal + '</b><br>' +
-     'Series classes: ' + result[0] + ' for $' + result[1] + ' &nbsp; &nbsp; &nbsp; ' +
-     'Dropin classes: ' + result[2] + ' for $' + result[3] + ' &nbsp; &nbsp; &nbsp; ' +
-     'Private classes: ' + result[4] + ' for $' + result[5] + '<br>' +
+     'Series classes: ' + result[0] + ' for $' + result[1].toFixed(2) + ' &nbsp; &nbsp; &nbsp; ' +
+     'Dropin classes: ' + result[2] + ' for $' + result[3].toFixed(2) + ' &nbsp; &nbsp; &nbsp; ' +
+     'Private classes: ' + result[4].toFixed(2) + ' for $' + result[5].toFixed(2) + '<br>' +
      html.join('');
 
 }
