@@ -61,6 +61,7 @@ var statsTeachers;
 var statsStudents;
 var statsClasses;
 var allStatsClasses;
+var allStatsTeachers;
 var statsPayment;
 
 var accounts = {}; // key student, value: StudentAccount
@@ -145,8 +146,8 @@ StudentStats.prototype.updateAccounts = function() {
          var classNameStr = trimLR(classes[j]);
          if (classNameStr.indexOf('Party') != -1) continue; // skip party
          if (classNameStr.indexOf('Round') != -1) continue; // skip party
-         var statClass = allStatsClasses.getStat(classNameStr);
          var amt = account.takeClass(1);
+         var statClass = allStatsClasses.getStat(classNameStr);
          statClass.updateAmount(this.name, amt);
        }
      }
@@ -157,7 +158,9 @@ StudentStats.prototype.updateAccounts = function() {
      var entry = entries[i]; // full log line
      var len = parseInt(entry[INDEX_LENGTH]);
      var num = (len/45);
-     account.takeLesson(num);
+     var amt = account.takeLesson(num);
+     var statTeacher = allStatsTeachers.getStat(entry[INDEX_TEACHER]);
+     statTeacher.updateAmount(entry, amt);
   }
 }
 
@@ -362,7 +365,7 @@ function TeacherStats(name) {
   // key: type, (Teach | Private | FloorFees)
 /*
   Teach: [[group class1, note]...]
-  Private: [ [entryDate, entryTime, student, length], ... ]
+  Private: [ [entryDate, entryTime, student, length, amt], ... ]
   FloorFees: [ [entryDate, numFloorFees, amtFloorFees], ...]
 */
   this.stat = {};
@@ -370,6 +373,53 @@ function TeacherStats(name) {
 
 TeacherStats.prototype.getName = function() {
   return this.name;
+}
+
+TeacherStats.prototype.updateAmount = function(entry, amt) {
+  var date = entry[INDEX_DATE];
+  var time = entry[INDEX_TIME];
+  var student = entry[INDEX_NAME];
+  var len = entry[INDEX_LENGTH];
+
+  var statPrivate = this.stat['Private'];
+  for (var i = 0; statPrivate && i<statPrivate .length; i++) {
+    var info = statPrivate[i];
+    if (info[0] == date && info[1] == time && info[2] == student && info[3] == len) {
+      info[5] = amt;
+    }
+  }
+}
+
+TeacherStats.prototype.getLessonAmountFromEntry = function(entry) {
+  var date = entry[INDEX_DATE];
+  var time = entry[INDEX_TIME];
+  var student = entry[INDEX_NAME];
+  var len = entry[INDEX_LENGTH];
+
+  return this.getAmount(date, time, student, len);
+}
+
+TeacherStats.prototype.getLessonAmountFromInfo = function(info) {
+  var date = info[0];
+  var time = info[1];
+  var student = info[2];
+  var len = info[3];
+
+  return this.getAmount(date, time, student, len);
+}
+
+
+TeacherStats.prototype.getAmount = function(date, time, student, len) {
+  var amt = 0;
+  var statPrivate = this.stat['Private'];
+  for (var i = 0; statPrivate && i<statPrivate .length; i++) {
+    var info = statPrivate[i];
+    if (info[0] == date && info[1] == time && info[2] == student && info[3] == len) {
+      amt = info[5];
+      break;
+    }
+  }
+  return amt;
 }
 
 TeacherStats.prototype.getStatForSignInType = function(type) {
@@ -430,7 +480,7 @@ TeacherStats.prototype.getGroupTotal = function() {
   var cnt = 0;
   for (var i = 0; statGroup && i< statGroup.length; i++) {
     if (statGroup[i][0].indexOf('Series') != -1 ||
-        statGroup[i][0].indexOf('Drop') != -1 )
+        statGroup[i][0].indexOf('Drop-in') != -1 )
       cnt++;
   }
   return cnt;
@@ -477,6 +527,20 @@ TeacherStats.prototype.getFloorFeeTotal = function() {
   return  [cntFloorFeesNum, cntFloorFeesAmt];
 }
 
+//  Private: [ [entryDate, entryTime, student, length, amt], ... ]
+function getLessonAmount(teacher, info) {
+  var stat = allStatsTeachers.getStat(teacher);
+  // find entry that matches info and return amt
+  return stat.getLessonAmountFromInfo(info);
+}
+
+function getLessonAmountFromEntry(entry) {
+  var teacher = entry[INDEX_TEACHER];
+  var stat = allStatsTeachers.getStat(teacher);
+  // find entry that matches info and return amt
+  return stat.getLessonAmountFromEntry(entry);
+}
+
 TeacherStats.prototype.getDisplay = function() {
   var html = [];
 
@@ -486,15 +550,20 @@ TeacherStats.prototype.getDisplay = function() {
   var statGroup = this.stat['Teach'];
   if (statGroup && statGroup.length > 0)
     html.push('Group Classes taught:');
+  var amtTotal = 0;
   html.push('<ol>');
   for (var i = 0; statGroup && i< statGroup.length; i++) {
     var groupClassStat = allStatsClasses.getStat(statGroup[i][0]);
-    html.push('<li> $' +
-      groupClassStat.getTotalAmount().toFixed(2) + ' ' + 
+    var amt = groupClassStat.getTotalAmount();
+    if (amt > 0) amtTotal += amt;
+    html.push('<li> ' +
+      ((amt > 0) ? '$' + amt.toFixed(2) : '') + ' ' + 
       '<a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(statGroup[i][0]) + '\')">' + 
      statGroup[i][0] + '</a> ' + highlightTODO(statGroup[i][1]));
   }
   html.push('</ol>');
+  if (amtTotal > 0) html.push('Total group classes: <b>$' + amtTotal.toFixed(2) + '</b>');
+  html.push('<p>');
 
   // private
   var statPrivate = this.stat['Private'];
@@ -504,14 +573,23 @@ TeacherStats.prototype.getDisplay = function() {
 
   var sortedList = statPrivate; // already sorted in reverse chronological order
 
+  amtTotal = 0;
   for (var i = 0; sortedList && i<sortedList .length; i++) {
-    html.push('<tr><td>' + (i+1) + '</td><td>' + sortedList[i][0] + '</td><td>' +
+    //TODO: clean this up later
+    var amt = getLessonAmount(this.name, sortedList[i]);
+    if (amt > 0) amtTotal += amt;
+
+    html.push('<tr><td>' + (i+1) + '</td><td>' + 
+     (amt > 0 ? '$' + amt.toFixed(2) : '') + '</td><td>' +
+     sortedList[i][0] + '</td><td>' +
      sortedList[i][1] + '</td><td>' +
     '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (sortedList[i][2]) + '\')">' +
      sortedList[i][2] + '</a></td><td>' +
      sortedList[i][3] + ' min lesson</td>' + '<td>' + highlightTODO(sortedList[i][4]) + '</tr>');
   }
-  html.push('</table><p>');
+  html.push('</table>');
+  if (amtTotal > 0) html.push('Total private lessons: <b>$' + amtTotal.toFixed(2) + '</b>');
+  html.push('<p>');
 
   // floor fees paid
   var statFloorFees = this.stat['Payment'];
@@ -679,6 +757,7 @@ AllClassesStats.prototype.getSummaryDisplay = function () {
   var cntTotalRoundParticipants = 0;
   var cntTotalYouthParticipants = 0;
   var cntTotalChildrenParticipants = 0;
+  var groupAmtTotal = 0;
 
   var sortedList = []; // get per class summary count
 
@@ -688,15 +767,17 @@ AllClassesStats.prototype.getSummaryDisplay = function () {
     var key = this.sortedClasses[i];
     var statGroup = this.stats[key].stat;
     for (var j=0; j< statGroup.length; j++) {
-      if (statGroup[j][1] == 'Paid') cntPaid++; 
+      if (statGroup[j][1] == 'Paid') cntPaid++;  //JW
     }
     var stat = allStatsClasses.getStat(key);
-    sortedList.splice(i, 0, [key, statGroup.length, cntPaid, stat.getTotalAmount()]);
+    var amt = stat.getTotalAmount();
+    sortedList.splice(i, 0, [key, statGroup.length, cntPaid, amt]);
 
     if (key.indexOf('Series') != -1 || key.indexOf('Drop-in') != -1) {
       cntTotalGroup++;
       cntTotalGroupPaid += cntPaid;
       cntTotalGroupParticipants += statGroup.length;
+      if (amt > 0) groupAmtTotal += amt;
     }
     if (key.indexOf('Party') != -1) {
       cntTotalParty++;
@@ -721,34 +802,37 @@ AllClassesStats.prototype.getSummaryDisplay = function () {
   var html = [];
   html.push('<b>Summary</b><p>');
   html.push('<table cellpadding=4 style="border-collapse:collapse;" bordercolor="lightgray" border=1>');
-  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Number of Events</td><td>Total Students</td><td>Total Paid</td><td>Paid / Event</td></tr>');
+  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Number of Events</td><td>Total Students</td><td>Total Paid #</td><td>Paid #/ Event</td><td>Total Paid $</td></tr>');
+
   if (cntTotalGroup > 0) {
      html.push('<tr align=right><td>Group and Series</td><td>' + cntTotalGroup + 
        '</td><td>' + cntTotalGroupParticipants + 
-       '</td><td>' + cntTotalGroupPaid + '</td><td>' + (cntTotalGroupPaid/cntTotalGroup).toFixed(0) + '</td></tr>');
+       '</td><td>' + cntTotalGroupPaid + '</td><td>' + (cntTotalGroupPaid/cntTotalGroup).toFixed(0) + '</td><td>' +
+       ((groupAmtTotal > 0) ? '$' + groupAmtTotal.toFixed(2) : '&nbsp;') + '</td></tr>');
   }
   if (cntTotalParty > 0)  {
     html.push('<tr align=right><td>Parties</td><td>' + cntTotalParty + 
        '</td><td>' + cntTotalPartyParticipants + 
-     '</td><td>' + cntTotalPartyPaid + '</td><td>' + (cntTotalPartyPaid/cntTotalParty).toFixed(0) + '</td></tr>');
+     '</td><td>' + cntTotalPartyPaid + '</td><td>' + (cntTotalPartyPaid/cntTotalParty).toFixed(0) + '</td><td>&nbsp;</td></tr>');
   }
   if (cntTotalRound > 0) {
     html.push('<tr align=right><td>Rounds</td><td>' + cntTotalRound + 
      '</td><td>' + cntTotalRoundParticipants + 
-     '</td><td>' + cntTotalRoundPaid + '</td><td>' + (cntTotalRoundPaid/cntTotalRound).toFixed(0) + '</td></tr>');
+     '</td><td>' + cntTotalRoundPaid + '</td><td>' + (cntTotalRoundPaid/cntTotalRound).toFixed(0) + '</td><td>&nbsp;</td></tr>');
   }
   if (cntTotalYouth > 0) {
     html.push('<tr align=right><td>Youth</td><td>' + cntTotalYouth + 
      '</td><td>' + cntTotalYouthParticipants + 
-     '</td><td>&nbsp;</td><td>&nbsp;</td></tr>');
+     '</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>');
   }
   if (cntTotalChildren > 0) {
     html.push('<tr align=right><td>Children</td><td>' + cntTotalChildren + 
      '</td><td>' + cntTotalChildrenParticipants + 
-     '</td><td>&nbsp;</td><td>&nbsp;</td></tr>');
+     '</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>');
   }
 
   html.push('</table><p>'); 
+
   html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
   html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Class</td><td>Total #</td><td>Paid #</td><td>Paid $</td></tr>');
   for (var i = 0; i<sortedList.length; i++) {
@@ -1010,6 +1094,7 @@ function processStatsWithTimeRestrict(startDate, endDate) {
   if (initAccounts) {
     // check taking classes, go through all classes taken.
     allStatsClasses = statsClasses;
+    allStatsTeachers = statsTeachers;
     statsStudents.updateAccounts();
   }
   // clear display
@@ -1068,15 +1153,17 @@ function showStudentStatsSummary() {
   var html = [];
 
   html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
-  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Student</td><td>Classes & Parties</td>' +
-   '<td>Youth and Children</td><td>Private Lessons</td><td>Practice</td><td>Total SignIn\'s</td><td>Payment</td></tr>');
+  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Student</td><td>Classes</td><td>Classes $</td><td>Parties/Rounds</td>' +
+   '<td>Youth/Child</td><td>Private Lessons</td><td>Lesson $</td><td>Practice</td><td>Total SignIn\'s</td><td>Payment</td></tr>');
 
   var cntGroupTotal = 0;
-  //var cntPartyTotal = 0;
+  var cntPartyTotal = 0;
   var cntYouthTotal = 0;
   var cntPrivateTotal = 0;
   var cntPracticeTotal = 0;
   var cntPaymentTotal = 0;
+  var amtGroupTotal = 0;
+  var amtLessonTotal = 0;
 
   for (var j=0; j<sortedList.length; j++) {
     var key = sortedList[j];
@@ -1087,12 +1174,25 @@ function showStudentStatsSummary() {
     var studentTotal = 0;
 
     var cntGroup = 0;
+    var cntParty = 0;
+    var amtGroup = 0;
+    var amtLesson = 0;
     for (var i=0; entries && i < entries.length; i++) {
       var entry = entries[i];
       var classes = trimLR(entry[INDEX_CLASSES]).split(',');
-      cntGroup += classes.length;
+      // cntGroup += classes.length; // separate group and party
+      for (var k=0; classes && k < classes.length; k++) {
+        if (classes[k].indexOf('Series') != -1 || classes[k].indexOf('Drop-in') != -1) {
+          cntGroup++; //JW
+          var amt = allStatsClasses.getStat(trimLR(classes[k])).getAmount(key);
+          if (amt > 0) { amtGroup += amt; amtGroupTotal += amt;}
+        }
+        else
+          cntParty++;
+      }
     }
     cntGroupTotal += cntGroup;
+    cntPartyTotal += cntParty;
     studentTotal += cntGroup;
 
     var cntYouth = 0;
@@ -1108,13 +1208,20 @@ function showStudentStatsSummary() {
     html.push('<tr align=right><td>' + (j+1) + 
       '</td><td><a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) +
       '\')">' + key + '</a></td>');
-    html.push('<td>' + (cntGroup == 0 ? ' ' : cntGroup) + '</td>');
+    html.push('<td>' + (cntGroup == 0 ? ' ' : cntGroup) +  '</td><td>' + (amtGroup >0 ? '$' + amtGroup.toFixed(2) : ' ') + '</td>');
+    html.push('<td>' + (cntParty == 0 ? ' ' : cntParty) + '</td>');
     html.push('<td>' + (cntYouth == 0 ? ' ' : cntYouth) + '</td>');
 
     var statType = statStudent.getStatForSignInType('Private');
     var privateLessonMin = 0;
     for (var i=0; statType && i<statType.length; i++) {
       privateLessonMin += parseFloat(statType[i][INDEX_LENGTH]);
+
+      var amt = getLessonAmountFromEntry(statType[i]);
+      if (amt > 0) {
+       amtLesson += amt; amtLessonTotal += amt;
+      }
+
     }
     var privateLessonNum = (privateLessonMin/45);
 
@@ -1122,6 +1229,7 @@ function showStudentStatsSummary() {
     studentTotal += privateLessonNum;
 
     html.push('<td>' + privateLessonNum.toFixed(2) + '</td>');
+    html.push('<td>' + (amtLesson > 0 ? '$' + amtLesson.toFixed(2) : '') + '</td>');
 
     statType = statStudent.getStatForSignInType('Practice');
     html.push('<td>' + (statType ? statType.length : ' ') + '</td>');
@@ -1149,11 +1257,14 @@ function showStudentStatsSummary() {
   }
 
   html.push('<tr align=right style="font-weight:bold"><td>&nbsp;</td>' +
-    '<td>Total</td><td>' + cntGroupTotal + '</td>' +
-//   '<td>' + cntPartyTotal + '</td>' +
+    '<td>Total</td><td>' + cntGroupTotal + '</td><td>' + (amtGroupTotal > 0 ? '$' + amtGroupTotal.toFixed(2) : '') + '</td>' +
+   '<td>' + cntPartyTotal + '</td>' +
    '<td>' + cntYouthTotal + 
-   '</td><td>' + cntPrivateTotal.toFixed(2) + '</td><td>' + cntPracticeTotal + '</td><td>' +
-   (cntGroupTotal + cntYouthTotal + cntPrivateTotal + cntPracticeTotal).toFixed(2) + '</td><td>$' + cntPaymentTotal.toFixed(2) + '</td></tr>');
+   '</td><td>' + cntPrivateTotal.toFixed(2) + 
+   '</td><td>' + (amtLessonTotal >0 ? '$' + amtLessonTotal.toFixed(2) : '') +
+   '</td><td>' + cntPracticeTotal + '</td><td>' +
+   (cntGroupTotal + cntPartyTotal + cntYouthTotal + cntPrivateTotal + cntPracticeTotal).toFixed(2) + 
+   '</td><td>$' + cntPaymentTotal.toFixed(2) + '</td></tr>');
 
   html.push('</table>');
 
@@ -1287,7 +1398,9 @@ function showTeacherStatsSummary() {
   html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
   html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Teacher</td><td>Group Classes</td>' +
     '<td>Youth</td><td>Children</td>' +
-    '<td>Private Lessons</td><td>Paid Floor Fees: #</td><td>Paid Floor Fees: $</td></tr>');
+    '<td>Private Lessons</td>' +
+  //  '<td>Paid Floor Fees: #</td><td>Paid Floor Fees: $</td> +
+    '</tr>');
 
   var cntGroupTotal = 0;
   var cntYouthTotal = 0;
@@ -1324,18 +1437,22 @@ function showTeacherStatsSummary() {
      '\')">' + teacher + '</a></td><td>' + (cntGroup == 0 ? "&nbsp;" : cntGroup) + '</td>' +
      '<td>' + (cntYouth==0 ? "&nbsp;" : cntYouth) + '</td>' + 
      '<td>' + (cntChildren==0 ? "&nbsp;" : cntChildren) + '</td>' + 
-     '<td>' + (cntPrivate==0 ? "&nbsp;" : cntPrivate.toFixed(2)) + '</td><td>' + 
-     (cntFloorFeesNum==0? "&nbsp;" : cntFloorFeesNum) + '</td><td>' + 
-     (cntFloorFeesAmt==0? "&nbsp;" : cntFloorFeesAmt) + '</td>');
+     '<td>' + (cntPrivate==0 ? "&nbsp;" : cntPrivate.toFixed(2)) + '</td>'
+//   +  '<td>' + 
+//     (cntFloorFeesNum==0? "&nbsp;" : cntFloorFeesNum) + '</td><td>' + 
+//     (cntFloorFeesAmt==0? "&nbsp;" : cntFloorFeesAmt) + '</td>' 
+     );
    html.push('</tr>');
   }
 
   html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td><b>Total</b></td><td>' + cntGroupTotal + 
    '</td><td>' + cntYouthTotal + 
    '</td><td>' + cntChildrenTotal + 
-   '</td><td>' + cntPrivateTotal.toFixed(2) + "</td><td>" +
-   (cntFloorFeeNumTotal==0 ? '&nbsp;' : cntFloorFeeNumTotal) + '</td><td>' +
-   (cntFloorFeeAmtTotal==0 ? '&nbsp;' : cntFloorFeeAmtTotal)+ '</td></tr>');
+   '</td><td>' + cntPrivateTotal.toFixed(2) + "</td>" +
+//  "<td>" +
+//   (cntFloorFeeNumTotal==0 ? '&nbsp;' : cntFloorFeeNumTotal) + '</td><td>' +
+//   (cntFloorFeeAmtTotal==0 ? '&nbsp;' : cntFloorFeeAmtTotal)+ '</td>' +
+    '</tr>');
 
   html.push('</table>');
 
