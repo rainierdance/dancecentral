@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0325.0311";
+var VERSION = "12.0325.0359";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -356,18 +356,18 @@ StudentStats.prototype.getDisplay = function() {
   htmlSummary.push('<table cellpadding=4 style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
   htmlSummary.push('<tr style="font-weight:bold"><td>Type</td><td>Bought #</td><td>Bought $</td><td>Taken #</td><td>Taken $</td><td>Balance #</td><td>Balance $</td></tr>');
   htmlSummary.push('<tr align=right><td align=left>Series and Dropins</td><td>' + account.groupPayment.numBought +
-        '</td><td>' + account.groupPayment.amtBought.toFixed(2) +
+        '</td><td>$' + account.groupPayment.amtBought.toFixed(2) +
         '</td><td>' + account.groupPayment.numUsed +
-        '</td><td>' + account.groupPayment.amtUsed.toFixed(2) +
+        '</td><td>$' + account.groupPayment.amtUsed.toFixed(2) +
         '</td><td>' + (account.groupPayment.numBought - account.groupPayment.numUsed)+
-        '</td><td>' + (account.groupPayment.amtBought - account.groupPayment.amtUsed).toFixed(2)+
+        '</td><td>$' + (account.groupPayment.amtBought - account.groupPayment.amtUsed).toFixed(2)+
         '</td></tr>');
   htmlSummary.push('<tr align=right><td align=left>Private lessons</td><td>' + account.privatePayment.numBought +
-        '</td><td>' + account.privatePayment.amtBought.toFixed(2) +
+        '</td><td>$' + account.privatePayment.amtBought.toFixed(2) +
         '</td><td>' + account.privatePayment.numUsed.toFixed(2) +
-        '</td><td>' + account.privatePayment.amtUsed.toFixed(2) +
+        '</td><td>$' + account.privatePayment.amtUsed.toFixed(2) +
         '</td><td>' + (account.privatePayment.numBought - account.privatePayment.numUsed).toFixed(2)+
-        '</td><td>' + (account.privatePayment.amtBought - account.privatePayment.amtUsed).toFixed(2)+
+        '</td><td>$' + (account.privatePayment.amtBought - account.privatePayment.amtUsed).toFixed(2)+
         '</td></tr>');
 
   htmlSummary.push('</table><p>');
@@ -426,7 +426,7 @@ function TeacherStats(name) {
   this.name = name;
   // key: type, (Teach | Private | FloorFees)
 /*
-  Teach: [[group class1,, note]...]
+  Teach: [[group class1, note]...]
   Private: [ [entryDate, entryTime, student, length], ... ]
   FloorFees: [ [entryDate, numFloorFees, amtFloorFees], ...]
 */
@@ -553,7 +553,10 @@ TeacherStats.prototype.getDisplay = function() {
     html.push('Group Classes taught:');
   html.push('<ol>');
   for (var i = 0; statGroup && i< statGroup.length; i++) {
-    html.push('<li> <a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(statGroup[i][0]) + '\')">' + 
+    var groupClassStat = statsClasses.getStat(statGroup[i][0]);
+    html.push('<li> $' +
+      groupClassStat.getTotalAmount().toFixed(2) + ' ' + 
+      '<a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(statGroup[i][0]) + '\')">' + 
      statGroup[i][0] + '</a> ' + highlightTODO(statGroup[i][1]));
   }
   html.push('</ol>');
@@ -638,10 +641,22 @@ ClassStats.prototype.updateAmount = function(name, amt) {
   }
 }
 
+ClassStats.prototype.getTotalAmount = function() {
+  if (this.name.indexOf('Party') != -1) return 0;
+  if (this.name.indexOf('Round') != -1) return 0;
+
+  var amt = 0;
+  for (var i=0; i<this.stat.length; i++) {
+    if (this.stat[i][2]) 
+      amt += this.stat[i][2];
+  }
+  return amt;
+}
+
 ClassStats.prototype.getAmount = function(name) {
   for (var i=0; i<this.stat.length; i++) {
     if (this.stat[i][0] == name)
-      return this.stat[i][2];
+      return (this.stat[i][2] ? parseFloat(this.stat[i][2]) : 0);
   }
 }
 
@@ -650,7 +665,8 @@ ClassStats.prototype.getDisplay = function() {
 
   html.push('<br>');
   html.push(LINE);
-  html.push('<b>' + this.name + '</b><p>');
+  html.push('<b>' + this.name + '</b>  ' + 
+    ((this.getTotalAmount() > 0) ? '$' + this.getTotalAmount().toFixed(2) : '' ) + '<p>');
 
   var statGroup = this.stats;
 
@@ -658,11 +674,12 @@ ClassStats.prototype.getDisplay = function() {
 
   for (var i = 0; i < this.stat.length; i++) {
     var rateDisplay = this.stat[i][1];
+    var amt = this.stat[i][2] ? parseFloat(this.stat[i][2]) : 0;
     html.push('<tr><td>' + (i+1) + '</td><td>' + 
               '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (this.stat[i][0]) +
               '\')">' + this.stat[i][0] + '</a>' +
               '</td><td> ' + (rateDisplay ? rateDisplay : ' ') + 
-      '</td><td>' + (this.stat[i][2] && (this.stat[i][2] > 0) ? '$' + this.stat[i][2].toFixed(2) : '') + '</td><td>' +
+      '</td><td>' + ((amt > 0) ? '$' + amt.toFixed(2) : '') + '</td><td>' +
       highlightTODO(this.stat[i][3]) + '</td>' +
       '</tr>');
   }
@@ -737,7 +754,7 @@ AllClassesStats.prototype.getSummaryDisplay = function () {
     for (var j=0; j< statGroup.length; j++) {
       if (statGroup[j][1] == 'Paid') cntPaid++; 
     }
-    sortedList.splice(i, 0, [key, statGroup.length, cntPaid]);
+    sortedList.splice(i, 0, [key, statGroup.length, cntPaid, this.stats[key].getTotalAmount()]);
 
     if (key.indexOf('Series') != -1 || key.indexOf('Drop-in') != -1) {
       cntTotalGroup++;
@@ -796,11 +813,14 @@ AllClassesStats.prototype.getSummaryDisplay = function () {
 
   html.push('</table><p>'); 
   html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
-  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Class</td><td>Total</td><td>Paid</td></tr>');
+  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Class</td><td>Total #</td><td>Paid #</td><td>Paid $</td></tr>');
   for (var i = 0; i<sortedList.length; i++) {
    html.push('<tr align=right><td>' + (i+1) +
      '</td><td><a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(sortedList[i][0]) +
-     '\')">' + sortedList[i][0] + '</a></td><td>' + sortedList[i][1] + '</td><td>' + (sortedList[i][2] > 0 ? sortedList[i][2] : '') + '</td></tr>');
+     '\')">' + sortedList[i][0] + '</a></td><td>' + sortedList[i][1] + '</td><td>' + 
+     (sortedList[i][2] > 0 ? sortedList[i][2] : '') + 
+     '</td><td>' + ((sortedList[i][3] && sortedList[i][3] > 0) ? '$' + sortedList[i][3].toFixed(2) : '') + 
+     '</td></tr>');
   }
 
   html.push('</table>');
