@@ -231,7 +231,7 @@ StudentStats.prototype.getDisplay = function() {
        } else if (type == 'Payment') {
           html.push('<li> ' + entry[INDEX_DATE] + ' ' 
              + ' <b>$' + 
-            entry[INDEX_AMOUNT_TOTAL].toFixed(2) + '</b> '
+            entry[INDEX_AMOUNT_TOTAL] + '</b> '
           );
           // itemize the total
           if (entry[INDEX_SIGNIN_TYPE] != 'Payment') {
@@ -299,7 +299,7 @@ StudentStats.prototype.getDisplay = function() {
   htmlSummary.push('<tr align=right><td align=left>Private lessons</td><td>' + account.privatePayment.numBought +
         '</td><td>' + account.privatePayment.amtBought.toFixed(2) +
         '</td><td>' + account.privatePayment.numUsed.toFixed(2) +
-        '</td><td>' + account.privatePayment.amtUsed.toFixed(2).toFixed(2) +
+        '</td><td>' + account.privatePayment.amtUsed.toFixed(2) +
         '</td><td>' + (account.privatePayment.numBought - account.privatePayment.numUsed).toFixed(2)+
         '</td><td>' + (account.privatePayment.amtBought - account.privatePayment.amtUsed).toFixed(2)+
         '</td></tr>');
