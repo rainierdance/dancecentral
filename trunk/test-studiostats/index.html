@@ -60,6 +60,7 @@ var INDEX_PAYMENT_AMT_PARTIES = 30;
 var statsTeachers;
 var statsStudents;
 var statsClasses;
+var allStatsClasses;
 var statsPayment;
 
 var accounts = {}; // key student, value: StudentAccount
@@ -144,7 +145,7 @@ StudentStats.prototype.updateAccounts = function() {
          var classNameStr = trimLR(classes[j]);
          if (classNameStr.indexOf('Party') != -1) continue; // skip party
          if (classNameStr.indexOf('Round') != -1) continue; // skip party
-         var statClass = statsClasses.getStat(classNameStr);
+         var statClass = allStatsClasses.getStat(classNameStr);
          var amt = account.takeClass(1);
          statClass.updateAmount(this.name, amt);
        }
@@ -202,7 +203,7 @@ StudentStats.prototype.getDisplay = function() {
          if (classes && classes.length > 0) {
            for (var j = 0; j < classes.length; j++) {
              var classNameStr = trimLR(classes[j]);
-             var statClass = statsClasses.getStat(classNameStr);
+             var statClass = allStatsClasses.getStat(classNameStr);
               var amt = statClass.getAmount(student);
              html.push('<li> ' + entry[INDEX_RATE_TYPE] + 
                 (amt ? ' $' + amt.toFixed(2) + ' ' : '') +
@@ -487,7 +488,7 @@ TeacherStats.prototype.getDisplay = function() {
     html.push('Group Classes taught:');
   html.push('<ol>');
   for (var i = 0; statGroup && i< statGroup.length; i++) {
-    var groupClassStat = statsClasses.getStat(statGroup[i][0]);
+    var groupClassStat = allStatsClasses.getStat(statGroup[i][0]);
     html.push('<li> $' +
       groupClassStat.getTotalAmount().toFixed(2) + ' ' + 
       '<a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(statGroup[i][0]) + '\')">' + 
@@ -599,8 +600,9 @@ ClassStats.prototype.getDisplay = function() {
 
   html.push('<br>');
   html.push(LINE);
+  var stat = allStatsClasses.getStat(this.name);
   html.push('<b>' + this.name + '</b>  ' + 
-    ((this.getTotalAmount() > 0) ? '$' + this.getTotalAmount().toFixed(2) : '' ) + '<p>');
+    ((stat.getTotalAmount() > 0) ? '$' + stat.getTotalAmount().toFixed(2) : '' ) + '<p>');
 
   var statGroup = this.stats;
 
@@ -688,7 +690,8 @@ AllClassesStats.prototype.getSummaryDisplay = function () {
     for (var j=0; j< statGroup.length; j++) {
       if (statGroup[j][1] == 'Paid') cntPaid++; 
     }
-    sortedList.splice(i, 0, [key, statGroup.length, cntPaid, this.stats[key].getTotalAmount()]);
+    var stat = allStatsClasses.getStat(key);
+    sortedList.splice(i, 0, [key, statGroup.length, cntPaid, stat.getTotalAmount()]);
 
     if (key.indexOf('Series') != -1 || key.indexOf('Drop-in') != -1) {
       cntTotalGroup++;
@@ -920,6 +923,7 @@ function initData() {
 
   processStatsWithTimeRestrict(null, null); // all stats
 
+
   // get per students account information, this is only done one time
 }
 
@@ -1005,6 +1009,7 @@ function processStatsWithTimeRestrict(startDate, endDate) {
 
   if (initAccounts) {
     // check taking classes, go through all classes taken.
+    allStatsClasses = statsClasses;
     statsStudents.updateAccounts();
   }
   // clear display
