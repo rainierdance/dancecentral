@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0325.2101";
+var VERSION = "12.0325.2159";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -739,7 +739,8 @@ ClassStats.prototype.getTotalAmount = function() {
   var amt = 0;
   for (var i=0; i<this.stat.length; i++) {
     if (this.stat[i][2]) 
-      amt += this.stat[i][2];
+      if (this.stat[i][2] > 0)
+        amt += this.stat[i][2];
   }
   return amt;
 }

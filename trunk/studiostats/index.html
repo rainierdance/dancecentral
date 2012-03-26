@@ -673,7 +673,8 @@ ClassStats.prototype.getTotalAmount = function() {
   var amt = 0;
   for (var i=0; i<this.stat.length; i++) {
     if (this.stat[i][2]) 
-      amt += this.stat[i][2];
+      if (this.stat[i][2] > 0)
+        amt += this.stat[i][2];
   }
   return amt;
 }
