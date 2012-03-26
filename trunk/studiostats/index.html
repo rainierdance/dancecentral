@@ -212,7 +212,8 @@ StudentStats.prototype.getDisplay = function() {
              var statClass = allStatsClasses.getStat(classNameStr);
               var amt = statClass.getAmount(student);
              html.push('<li> ' + entry[INDEX_RATE_TYPE] + 
-                (amt ? ' $' + amt.toFixed(2) + ' ' : '') +
+                (amt > 0 ? ' $' + amt.toFixed(2) + ' ' : 
+                   (type == 'Group' && entry[INDEX_RATE_TYPE] == 'Paid' ? ' <font style="color:red">UNPAID</font>' : '')) +
                 ' <a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(classNameStr) + '\')">' + 
                 classNameStr + '</a> ' + highlightTODO(entry[INDEX_NOTE]));
              if (entry[INDEX_RATE_TYPE] == 'Paid') {
@@ -225,7 +226,7 @@ StudentStats.prototype.getDisplay = function() {
          }
        } else if (type == 'Private') { //JW
           var amt = getLessonAmountFromEntry(entry);
-          html.push('<li>' + (amt > 0 ? '$' + amt.toFixed(2) : '') + ' <b>' + entry[INDEX_DATE] + '</b> ' + 
+          html.push('<li>' + (amt > 0 ? '$' + amt.toFixed(2) : '<font style="color:red">UNPAID</font>') + ' <b>' + entry[INDEX_DATE] + '</b> ' + 
             entry[INDEX_TIME] + ' ' + 
             entry[INDEX_TEACHER] + ' ' + entry[INDEX_LENGTH] + ' min lesson ' + highlightTODO(entry[INDEX_NOTE]));
           cntPrivateTakenMin += parseInt(trimLR(entry[INDEX_LENGTH]));
@@ -586,7 +587,7 @@ TeacherStats.prototype.getDisplay = function() {
     if (amt > 0) amtTotal += amt;
 
     html.push('<tr><td>' + (i+1) + '</td><td>' + 
-     (amt > 0 ? '$' + amt.toFixed(2) : '') + '</td><td>' +
+     (amt > 0 ? '$' + amt.toFixed(2) : '<font style="color:red">UNPAID</font>') + '</td><td>' +
      sortedList[i][0] + '</td><td>' +
      sortedList[i][1] + '</td><td>' +
     '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (sortedList[i][2]) + '\')">' +
@@ -699,7 +700,7 @@ ClassStats.prototype.getDisplay = function() {
               '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (this.stat[i][0]) +
               '\')">' + this.stat[i][0] + '</a>' +
               '</td><td> ' + (rateDisplay ? rateDisplay : ' ') + 
-      '</td><td>' + ((amt > 0) ? '$' + amt.toFixed(2) : '') + '</td><td>' +
+      '</td><td>' + ((amt > 0) ? '$' + amt.toFixed(2) : (rateDisplay == 'Paid' ? '<font style="color:red">UNPAID</font>' : '')) + '</td><td>' +
       highlightTODO(this.stat[i][3]) + '</td>' +
       '</tr>');
   }
