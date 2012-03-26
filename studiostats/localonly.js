@@ -21,7 +21,7 @@ gAllRawEntities.push("2/22/2012 0:04:01;Rachel Wu;Group;2/22/2012;;Series Monday
 
 
 gAllRawEntities.push("2/22/2012 15:47:58;Lorenzo Farris;Group;2/22/2012;15:47;Series 3/5/2012 Wednesday 8:00 PM Intl. Latin Level 3 - Paso Doble;;;Paid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
-gAllRawEntities.push("2/22/2012 15:48:18;Lorenzo Farris;Group;2/22/2012;15:48;Party Thursday 9:30 PM Ballroom Practice Party;;;Party-Only;;10;Cash;;;;;;;;;;;;;;;;;;;".split(';'));
+gAllRawEntities.push("2/22/2012 15:48:18;Lorenzo Farris;Group;2/22/2012;15:48;Party Thursday 9:30 PM Ballroom Practice Party;;;Paid;;;Cash;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/22/2012 15:48:25;Lorenzo Farris;Youth;2/22/2012;15:48;Children 3/5/2012 Wednesday 4:00 PM Children's Program Level 1;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/27/2012 11:02:03;Violeta Abramova;Teach;2/27/2012;11:01;Children 2012-02-27 Monday 4:00 PM Children's Program Level 1;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/23/2012 15:48:29;Lorenzo Farris;Private;2/22/2012;15:48;;1;Simeon Stoynov;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
