@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0325.2313";
+var VERSION = "12.0325.2316";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1066,10 +1066,6 @@ StudentAccount.prototype.takeClass = function(num) {
 
 StudentAccount.prototype.takeLesson = function(num) {
   return this.privatePayment.takeOut(num);
-}
-
-StudentAccount.prototype.isOverdue = function() {
-  return this.privatePayment.overdue || this.groupPayment.overdue;
 }
 
 StudentAccount.prototype.isOverdue = function() {

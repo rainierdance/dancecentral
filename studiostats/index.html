@@ -1006,10 +1006,6 @@ StudentAccount.prototype.isOverdue = function() {
   return this.privatePayment.overdue || this.groupPayment.overdue;
 }
 
-StudentAccount.prototype.isOverdue = function() {
-  return this.privatePayment.overdue || this.groupPayment.overdue;
-}
-
 
 // factory method to get StudentAccount, create one if none exist
 function getStudentAccount(name) {
