@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0325.2053";
+var VERSION = "12.0325.2101";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -234,6 +234,11 @@ StudentStats.prototype.updateAccounts = function() {
   }
 }
 
+function isGroupClass(name) {
+  return (name.indexOf('Series') != -1 ||
+        name.indexOf('Drop-in') != -1 );
+}
+
 StudentStats.prototype.getDisplay = function() {
   var student = this.name;
 
@@ -279,7 +284,7 @@ StudentStats.prototype.getDisplay = function() {
               var amt = statClass.getAmount(student);
              html.push('<li> ' + entry[INDEX_RATE_TYPE] + 
                 (amt > 0 ? ' $' + amt.toFixed(2) + ' ' : 
-                   (type == 'Group' && entry[INDEX_RATE_TYPE] == 'Paid' ? ' <font style="color:red">UNPAID</font>' : '')) +
+                   (isGroupClass(classNameStr) && entry[INDEX_RATE_TYPE] == 'Paid' ? ' <font style="color:red">UNPAID</font>' : '')) +
                 ' <a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(classNameStr) + '\')">' + 
                 classNameStr + '</a> ' + highlightTODO(entry[INDEX_NOTE]));
              if (entry[INDEX_RATE_TYPE] == 'Paid') {
@@ -766,7 +771,7 @@ ClassStats.prototype.getDisplay = function() {
               '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (this.stat[i][0]) +
               '\')">' + this.stat[i][0] + '</a>' +
               '</td><td> ' + (rateDisplay ? rateDisplay : ' ') + 
-      '</td><td>' + ((amt > 0) ? '$' + amt.toFixed(2) : (rateDisplay == 'Paid' ? '<font style="color:red">UNPAID</font>' : '')) + '</td><td>' +
+      '</td><td>' + ((amt > 0) ? '$' + amt.toFixed(2) : (isGroupClass(this.stat[i][0]) && rateDisplay == 'Paid' ? '<font style="color:red">UNPAID</font>' : '')) + '</td><td>' +
       highlightTODO(this.stat[i][3]) + '</td>' +
       '</tr>');
   }
