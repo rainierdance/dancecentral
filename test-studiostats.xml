@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0325.1547";
+var VERSION = "12.0325.1818";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -150,10 +150,14 @@ function formatDateWithSlash(dateObj) {
 
 // trim left and right space
 function trimLR(input) {
+  if (!input) {
+    return '';
+  }
   return input.replace(/^\s+|\s+$/g,"");
 }
 
 function highlightTODO(input) {
+  if (!input) return '';
   return input.replace(/TODO/g, '<span style="font-weight:bold;background:#fafad2;color:red">TODO<\/span>');
 }
 
@@ -223,7 +227,7 @@ StudentStats.prototype.updateAccounts = function() {
   for (var i = entries.length - 1 ; i >= 0; i--) {
      var entry = entries[i]; // full log line
      var len = parseInt(entry[INDEX_LENGTH]);
-     var num = (len/45);
+     var num = parseFloat((len/45).toFixed(2));
      var amt = account.takeLesson(num);
      var statTeacher = allStatsTeachers.getStat(entry[INDEX_TEACHER]);
      statTeacher.updateAmount(entry, amt);
@@ -286,8 +290,9 @@ StudentStats.prototype.getDisplay = function() {
              }
            }
          }
-       } else if (type == 'Private') {
-          html.push('<li>' + entry[INDEX_DATE] + ' ' + 
+       } else if (type == 'Private') { //JW
+          var amt = getLessonAmountFromEntry(entry);
+          html.push('<li>' + (amt > 0 ? '$' + amt.toFixed(2) : '') + ' <b>' + entry[INDEX_DATE] + '</b> ' + 
             entry[INDEX_TIME] + ' ' + 
             entry[INDEX_TEACHER] + ' ' + entry[INDEX_LENGTH] + ' min lesson ' + highlightTODO(entry[INDEX_NOTE]));
           cntPrivateTakenMin += parseInt(trimLR(entry[INDEX_LENGTH]));
