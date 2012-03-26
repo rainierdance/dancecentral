@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0325.2159";
+var VERSION = "12.0325.2217";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -772,9 +772,11 @@ ClassStats.prototype.getDisplay = function() {
               '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (this.stat[i][0]) +
               '\')">' + this.stat[i][0] + '</a>' +
               '</td><td> ' + (rateDisplay ? rateDisplay : ' ') + 
-      '</td><td>' + ((amt > 0) ? '$' + amt.toFixed(2) : (isGroupClass(this.stat[i][0]) && rateDisplay == 'Paid' ? '<font style="color:red">UNPAID</font>' : '')) + '</td><td>' +
-      highlightTODO(this.stat[i][3]) + '</td>' +
-      '</tr>');
+           '</td><td>' + 
+           ((amt > 0) ? '$' + amt.toFixed(2) : 
+             (isGroupClass(this.name) && rateDisplay == 'Paid' ? '<font style="color:red">UNPAID</font>' : '')) + 
+            '</td><td>' + highlightTODO(this.stat[i][3]) + '</td>' +
+          '</tr>');
   }
 
   html.push('</table>');

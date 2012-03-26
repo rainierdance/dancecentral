@@ -706,9 +706,11 @@ ClassStats.prototype.getDisplay = function() {
               '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (this.stat[i][0]) +
               '\')">' + this.stat[i][0] + '</a>' +
               '</td><td> ' + (rateDisplay ? rateDisplay : ' ') + 
-      '</td><td>' + ((amt > 0) ? '$' + amt.toFixed(2) : (isGroupClass(this.stat[i][0]) && rateDisplay == 'Paid' ? '<font style="color:red">UNPAID</font>' : '')) + '</td><td>' +
-      highlightTODO(this.stat[i][3]) + '</td>' +
-      '</tr>');
+           '</td><td>' + 
+           ((amt > 0) ? '$' + amt.toFixed(2) : 
+             (isGroupClass(this.name) && rateDisplay == 'Paid' ? '<font style="color:red">UNPAID</font>' : '')) + 
+            '</td><td>' + highlightTODO(this.stat[i][3]) + '</td>' +
+          '</tr>');
   }
 
   html.push('</table>');
