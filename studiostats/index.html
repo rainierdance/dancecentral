@@ -701,7 +701,7 @@ ClassStats.prototype.getDisplay = function() {
 
   for (var i = 0; i < this.stat.length; i++) {
     var rateDisplay = this.stat[i][1];
-    var amt = this.stat[i][2] ? parseFloat(this.stat[i][2]) : 0;
+    var amt = allStatsClasses.getStat(this.name).getAmount(this.stat[i][0]);
     html.push('<tr><td>' + (i+1) + '</td><td>' + 
               '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (this.stat[i][0]) +
               '\')">' + this.stat[i][0] + '</a>' +
@@ -899,8 +899,8 @@ PaymentsStats.prototype.getDisplay = function (entry) {
   }
   html.push('</table>');
   return '<p>Total: <b>$' + cntPaymentTotal.toFixed(2) + '</b><br>' +
-     'Series classes: ' + result[0] + ' for $' + result[1].toFixed(2) + ' &nbsp; &nbsp; &nbsp; ' +
-     'Dropin classes: ' + result[2] + ' for $' + result[3].toFixed(2) + ' &nbsp; &nbsp; &nbsp; ' +
+     'Series and Dropin classes: ' + (result[0] + result[2]) + ' for $' + 
+     (result[1] + result[3]).toFixed(2) + ' &nbsp; &nbsp; &nbsp; ' +
      'Private classes: ' + result[4].toFixed(2) + ' for $' + result[5].toFixed(2) + '<br>' +
      html.join('');
 
@@ -1000,6 +1000,10 @@ StudentAccount.prototype.takeClass = function(num) {
 
 StudentAccount.prototype.takeLesson = function(num) {
   return this.privatePayment.takeOut(num);
+}
+
+StudentAccount.prototype.isOverdue = function() {
+  return this.privatePayment.overdue || this.groupPayment.overdue;
 }
 
 StudentAccount.prototype.isOverdue = function() {
@@ -1155,6 +1159,7 @@ function showStudentStats() {
   html.push('</select>');
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsSummary()">Show summary</a>');
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsOverview()">Show all details</a>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsOverdue()">Show Overdue Students</a>');
   _gel('idSelect').innerHTML = html.join('');
   
   showStudentStatsSummary();
@@ -1283,6 +1288,26 @@ function showStudentStatsSummary() {
 
   html.push('</table>');
 
+  _gel('idEntityList').innerHTML = html.join('');
+}
+
+function showStudentsOverdue() {
+  // reset select box
+  _gel('idPick').selectedIndex = 0;
+
+  var html = [];
+
+  var sortedList = statsStudents.getSortedStudentsList();
+  var total = 0;
+  for (var i=0; i<sortedList.length; i++) {
+    var key = sortedList[i];
+    var account = getStudentAccount(key);
+    if (!account.isOverdue()) continue;
+    total++;
+    html.push(statsStudents.getStat(key).getDisplay());
+  }
+  html.push(LINE);
+  html.push('<b>Total Overdue</b>: ' + total + ' students.');
   _gel('idEntityList').innerHTML = html.join('');
 }
 
