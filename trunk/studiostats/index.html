@@ -206,6 +206,7 @@ StudentStats.prototype.getDisplay = function() {
     html.push('<i>' + type + '</i>'); // student name
 
     html.push('<table cellpadding=2>'); // each sign in type
+    var position = 0;
     for (var i = 0 ; i < entries.length; i++) {
        var entry = entries[i]; // full log line
        var classes = entry[INDEX_CLASSES].split(',');
@@ -216,11 +217,12 @@ StudentStats.prototype.getDisplay = function() {
              var classNameStr = trimLR(classes[j]);
              var statClass = allStatsClasses.getStat(classNameStr);
               var amt = statClass.getAmount(student);
-             html.push('<tr><td>' + (i+1) + '</td><td>' + entry[INDEX_RATE_TYPE] +  '</td><td>' +
-                (amt > 0 ? ' $' + amt.toFixed(2) + ' ' : 
-                   (isGroupClass(classNameStr) && entry[INDEX_RATE_TYPE] == 'Paid' ? ' <font style="color:red">UNPAID</font>' : '')) +
-                + '</td><td>' +
-                ' <a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(classNameStr) + '\')">' + 
+             position++;
+             html.push('<tr><td>' + (position) + '</td><td>' + entry[INDEX_RATE_TYPE] +  '</td><td>');
+             html.push((amt && amt > 0 ? ' $' + amt.toFixed(2) + ' ' : 
+                   (isGroupClass(classNameStr) && entry[INDEX_RATE_TYPE] == 'Paid' ? ' <font style="color:red">UNPAID</font>' : '')));
+             html.push('</td><td>' +
+                '<a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(classNameStr) + '\')">' + 
                 classNameStr + '</a></td><td>' + highlightTODO(entry[INDEX_NOTE]) + '</td></tr>');
              if (entry[INDEX_RATE_TYPE] == 'Paid') {
                if (classNameStr.indexOf('Series') != -1) 
@@ -680,6 +682,7 @@ ClassStats.prototype.getAmount = function(name) {
     if (this.stat[i][0] == name)
       return (this.stat[i][2] ? parseFloat(this.stat[i][2]) : 0);
   }
+  return 0;
 }
 
 ClassStats.prototype.getDisplay = function() {
