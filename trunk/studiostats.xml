@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0325.2316";
+var VERSION = "12.0327.1352";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -271,7 +271,7 @@ StudentStats.prototype.getDisplay = function() {
     if (entries.length == 0) continue;
     html.push('<i>' + type + '</i>'); // student name
 
-    html.push('<ol>'); // each sign in type
+    html.push('<table cellpadding=2>'); // each sign in type
     for (var i = 0 ; i < entries.length; i++) {
        var entry = entries[i]; // full log line
        var classes = entry[INDEX_CLASSES].split(',');
@@ -282,11 +282,12 @@ StudentStats.prototype.getDisplay = function() {
              var classNameStr = trimLR(classes[j]);
              var statClass = allStatsClasses.getStat(classNameStr);
               var amt = statClass.getAmount(student);
-             html.push('<li> ' + entry[INDEX_RATE_TYPE] + 
+             html.push('<tr><td>' + (i+1) + '</td><td>' + entry[INDEX_RATE_TYPE] +  '</td><td>' +
                 (amt > 0 ? ' $' + amt.toFixed(2) + ' ' : 
                    (isGroupClass(classNameStr) && entry[INDEX_RATE_TYPE] == 'Paid' ? ' <font style="color:red">UNPAID</font>' : '')) +
+                + '</td><td>' +
                 ' <a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(classNameStr) + '\')">' + 
-                classNameStr + '</a> ' + highlightTODO(entry[INDEX_NOTE]));
+                classNameStr + '</a></td><td>' + highlightTODO(entry[INDEX_NOTE]) + '</td></tr>');
              if (entry[INDEX_RATE_TYPE] == 'Paid') {
                if (classNameStr.indexOf('Series') != -1) 
                  cntSeriesTaken += 1;
@@ -297,30 +298,25 @@ StudentStats.prototype.getDisplay = function() {
          }
        } else if (type == 'Private') { //JW
           var amt = getLessonAmountFromEntry(entry);
-          html.push('<li>' + (amt > 0 ? '$' + amt.toFixed(2) : '<font style="color:red">UNPAID</font>') + ' <b>' + entry[INDEX_DATE] + '</b> ' + 
-            entry[INDEX_TIME] + ' ' + 
-            entry[INDEX_TEACHER] + ' ' + entry[INDEX_LENGTH] + ' min lesson ' + highlightTODO(entry[INDEX_NOTE]));
+          html.push('<tr><td>' + (i+1) + '</td><td>' +
+              (amt > 0 ? '$' + amt.toFixed(2) : '<font style="color:red">UNPAID</font>') + '</td><td><b>' + entry[INDEX_DATE] + '</b></td><td>' + 
+            entry[INDEX_TIME] + '</td><td>' + 
+            entry[INDEX_TEACHER] + '</td><td>' + entry[INDEX_LENGTH] + ' min lesson </td><td>' + highlightTODO(entry[INDEX_NOTE]) + '</td></tr>');
           cntPrivateTakenMin += parseInt(trimLR(entry[INDEX_LENGTH]));
        } else if (type == 'Practice') {
-          html.push('<li>' + entry[INDEX_DATE] + ' ' + 
-            entry[INDEX_TIME] + ' ' + 
-            entry[INDEX_LENGTH] + ' ' + 
-            entry[INDEX_RATE_TYPE] + ' <b>' + 
-            entry[INDEX_AMOUNT_TOTAL] + '</b>'  + highlightTODO(entry[INDEX_NOTE])
+          html.push('<tr><td>' + (i+1) + entry[INDEX_DATE] + '</td><td>' + 
+            entry[INDEX_TIME] + '</td><td>' + 
+            entry[INDEX_LENGTH] + '</td><td>' + 
+            entry[INDEX_RATE_TYPE] + '</td><td><b>' + 
+            entry[INDEX_AMOUNT_TOTAL] + '</b></td><td>'  + highlightTODO(entry[INDEX_NOTE] + '</td></tr>')
           );
        } else if (type == 'Payment') {
-          html.push('<li> ' + entry[INDEX_DATE] + ' ' 
+          html.push('<tr><td>' + entry[INDEX_DATE] + '</td><td>' 
              + ' <b>$' + 
-            entry[INDEX_AMOUNT_TOTAL] + '</b> '
+            entry[INDEX_AMOUNT_TOTAL] + '</b></td>'
           );
-          // itemize the total
-          if (entry[INDEX_SIGNIN_TYPE] != 'Payment') {
-            html.push(' ' + 
-              entry[INDEX_RATE_TYPE] + ' ' +
-              entry[INDEX_CLASSES].split(',').join(' &nbsp;'));
-          } else { // straight payment
-            html.push('<br>' + getStudentItemizedPaymentDisplay(entry));
-          }
+          html.push('<td>' + getStudentItemizedPaymentDisplay(entry) + '</td></tr>');
+
           var num = entry[INDEX_PAYMENT_NUM_PRIVATE];
           if (num)  {
             num = parseFloat(num);
@@ -360,7 +356,7 @@ StudentStats.prototype.getDisplay = function() {
        } else { //TODO: wrong place
        }
     }
-    html.push('</ol>');
+    html.push('</table>');
   }
 
   // student's summary
@@ -629,17 +625,17 @@ TeacherStats.prototype.getDisplay = function() {
   if (statGroup && statGroup.length > 0)
     html.push('Group Classes taught:');
   var amtTotal = 0;
-  html.push('<ol>');
+  html.push('<table cellpadding=2>');//JW
   for (var i = 0; statGroup && i< statGroup.length; i++) {
     var groupClassStat = allStatsClasses.getStat(statGroup[i][0]);
     var amt = groupClassStat.getTotalAmount();
     if (amt > 0) amtTotal += amt;
-    html.push('<li> ' +
-      ((amt > 0) ? '$' + amt.toFixed(2) : '') + ' ' + 
+    html.push('<tr><td>' + (i+1) + '</td><td>' +
+      ((amt > 0) ? '$' + amt.toFixed(2) : '') + '</td><td>' + 
       '<a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(statGroup[i][0]) + '\')">' + 
-     statGroup[i][0] + '</a> ' + highlightTODO(statGroup[i][1]));
+     statGroup[i][0] + '</a> ' + highlightTODO(statGroup[i][1]) + '</td></tr>');
   }
-  html.push('</ol>');
+  html.push('</table>');
   if (amtTotal > 0) html.push('Total group classes: <b>$' + amtTotal.toFixed(2) + '</b>');
   html.push('<p>');
 
@@ -1189,6 +1185,10 @@ function processStatsWithTimeRestrict(startDate, endDate) {
 
 //////////////////////////////////////
 // select a student from drop down
+function updateReportTime() {
+  _gel('reportTime').innerHTML = '<p>' + LINE + 'Report time: ' + new Date().toString();
+}
+
 function updateStudentStats(optSelect) {
   if (optSelect.selectedIndex == 0) {
     showStudentStatsSummary();
@@ -1205,6 +1205,7 @@ function updateStudentStatsWithName(selected) {
     // check if it's teacher
     updateTeacherStatsWithName(selected);
   } else {
+    updateReportTime();
     _gel('idEntityList').innerHTML = stat.getDisplay();
   }
 }
@@ -1350,6 +1351,7 @@ function showStudentStatsSummary() {
 
   html.push('</table>');
 
+  updateReportTime();
   _gel('idEntityList').innerHTML = html.join('');
 }
 
@@ -1370,6 +1372,7 @@ function showStudentsOverdue() {
   }
   html.push(LINE);
   html.push('<b>Total Overdue</b>: ' + total + ' students.');
+  updateReportTime();
   _gel('idEntityList').innerHTML = html.join('');
 }
 
@@ -1385,14 +1388,16 @@ function showStudentStatsOverview() {
     var key = sortedList[i];
     html.push(statsStudents.getStat(key).getDisplay());
   }
+  updateReportTime();
   _gel('idEntityList').innerHTML = html.join('');
 }
 
 // result: [series, series$, dropin, dropin$, private, private$]
 function getStudentItemizedPaymentDisplay(entry, result) {
-  var itemsPaid = [];
+  var html = ['<table cellpadding=0 cellspacing=0><tr><td>'];
   var num, amt;
 
+  var itemsPaid = [];
   if (entry[INDEX_PAYMENT_NUM_SERIES]) {
     num = parseInt(entry[INDEX_PAYMENT_NUM_SERIES]);
     amt = parseFloat(entry[INDEX_PAYMENT_AMT_SERIES]);
@@ -1451,14 +1456,14 @@ function getStudentItemizedPaymentDisplay(entry, result) {
     itemsPaid.push(''+ num + ' Parties for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per party');
   }   
 
-  var html = ['<div style="margin-left:20">' + itemsPaid.join('<br>') + '</div>'];
+  html.push(itemsPaid.join('<br>') + '</td></tr><tr><td style=""><i>');
 
-  var notes = [];
   if (entry[INDEX_PAYMENT_DISCOUNT]) {
-    notes.push(entry[INDEX_PAYMENT_DISCOUNT]);  
+    html.push(entry[INDEX_PAYMENT_DISCOUNT] + '<br>');  
   }
-  notes.push(highlightTODO(entry[INDEX_NOTE]));
-  return html + notes.join('<br>');
+  html.push(highlightTODO(entry[INDEX_NOTE]));
+  html.push('</i></td></tr></table>');
+  return html.join('');
 }
 
 
@@ -1468,6 +1473,7 @@ function showPaymentStats() {
   _gel('idSelect').innerHTML = '';
 
   var html = statsPayment.getDisplay();
+  updateReportTime();
   _gel('idEntityList').innerHTML = html;
 }
 
@@ -1558,6 +1564,7 @@ function showTeacherStatsSummary() {
 
   html.push('</table>');
 
+  updateReportTime();
   _gel('idEntityList').innerHTML = html.join('');
 }
 
@@ -1573,6 +1580,7 @@ function updateTeacherStats(optSelect) {
 
 function updateTeacherStatsWithName(selected) {
   var stat = statsTeachers.getStat(selected);
+  updateReportTime();
   _gel('idEntityList').innerHTML = stat.getDisplay();
 }
 
@@ -1588,6 +1596,7 @@ function showTeacherStatsOverview() {
     var stat = statsTeachers.getStat(teacher);
     html.push(stat.getDisplay());
   }
+  updateReportTime();
   _gel('idEntityList').innerHTML = html.join('');
 }
 
@@ -1615,6 +1624,7 @@ function showClassesStatsSummary() {
   _gel('idPick').selectedIndex = 0;
 
   var html = statsClasses.getSummaryDisplay();
+  updateReportTime();
   _gel('idEntityList').innerHTML = html;
 }
 
@@ -1631,6 +1641,7 @@ function showClassesStatsOverview() {
    html.push(stat.getDisplay());
   }
 
+  updateReportTime();
   _gel('idEntityList').innerHTML = html.join('');
 }
 
@@ -1646,6 +1657,7 @@ function updateClassStats(optSelect) {
 
 function updateClassStatsWithName(selected) {
   var stat = statsClasses.getStat(selected);
+  updateReportTime();
   _gel('idEntityList').innerHTML = stat.getDisplay();
 
 }
@@ -1673,6 +1685,7 @@ Ending (MM/DD/YYYY):
 </div>
 
 <div id="idEntityList" style="overflow: auto;"><img src="http://www.google.com/ig/images/spinner.gif" /></div>
+<div id='reportTime'></div>
 
 
 </body>
