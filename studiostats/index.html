@@ -203,7 +203,7 @@ StudentStats.prototype.getDisplay = function() {
   for (var type in this.stat) {
     var entries = this.getStatForSignInType(type);
     if (entries.length == 0) continue;
-    html.push('<i>' + type + '</i>'); // student name
+    html.push('<p><i>' + type + '</i>'); // student name
 
     html.push('<table cellpadding=2>'); // each sign in type
     var position = 0;
@@ -218,7 +218,7 @@ StudentStats.prototype.getDisplay = function() {
              var statClass = allStatsClasses.getStat(classNameStr);
               var amt = statClass.getAmount(student);
              position++;
-             html.push('<tr><td>' + (position) + '</td><td>' + entry[INDEX_RATE_TYPE] +  '</td><td>');
+             html.push('<tr valign=top><td>' + (position) + '</td><td>' + entry[INDEX_RATE_TYPE] +  '</td><td>');
              html.push((amt && amt > 0 ? ' $' + amt.toFixed(2) + ' ' : 
                    (isGroupClass(classNameStr) && entry[INDEX_RATE_TYPE] == 'Paid' ? ' <font style="color:red">UNPAID</font>' : '')));
              html.push('</td><td>' +
@@ -234,20 +234,20 @@ StudentStats.prototype.getDisplay = function() {
          }
        } else if (type == 'Private') { //JW
           var amt = getLessonAmountFromEntry(entry);
-          html.push('<tr><td>' + (i+1) + '</td><td>' +
+          html.push('<tr valign=top><td>' + (i+1) + '</td><td>' +
               (amt > 0 ? '$' + amt.toFixed(2) : '<font style="color:red">UNPAID</font>') + '</td><td><b>' + entry[INDEX_DATE] + '</b></td><td>' + 
             entry[INDEX_TIME] + '</td><td>' + 
             entry[INDEX_TEACHER] + '</td><td>' + entry[INDEX_LENGTH] + ' min lesson </td><td>' + highlightTODO(entry[INDEX_NOTE]) + '</td></tr>');
           cntPrivateTakenMin += parseInt(trimLR(entry[INDEX_LENGTH]));
        } else if (type == 'Practice') {
-          html.push('<tr><td>' + (i+1) + entry[INDEX_DATE] + '</td><td>' + 
+          html.push('<tr valign=top><td>' + (i+1) + entry[INDEX_DATE] + '</td><td>' + 
             entry[INDEX_TIME] + '</td><td>' + 
             entry[INDEX_LENGTH] + '</td><td>' + 
             entry[INDEX_RATE_TYPE] + '</td><td><b>' + 
             entry[INDEX_AMOUNT_TOTAL] + '</b></td><td>'  + highlightTODO(entry[INDEX_NOTE] + '</td></tr>')
           );
        } else if (type == 'Payment') {
-          html.push('<tr><td>' + entry[INDEX_DATE] + '</td><td>' 
+          html.push('<tr valign=top><td>' + entry[INDEX_DATE] + '</td><td>' 
              + ' <b>$' + 
             entry[INDEX_AMOUNT_TOTAL] + '</b></td>'
           );
