@@ -1183,9 +1183,9 @@ function showStudentStats() {
     html.push('<option>' + sortedStudents[i]);
   }
   html.push('</select>');
-  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsSummary()">Show summary</a>');
-  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsOverview()">Show all details</a>');
-  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsOverdue()">Show Overdue Students - Details</a>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsSummary()">Summary</a>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsOverview()">All Students Details</a>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsOverdue()">Overdue Students - Details</a>');
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsOverdueNames()">Overdue Students - Names Only</a>');
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsPositiveNames()">Students with Positive Balance</a>');
   _gel('idSelect').innerHTML = html.join('');
@@ -1325,7 +1325,7 @@ function showStudentsPositiveNames() {
   _gel('idPick').selectedIndex = 0;
 
   var html = ['<table cellpadding=2>'];
-  html.push('<tr><td></td><td>Student</td><td>Private Lessons</td><td>Group Classees</td></tr>');
+  html.push('<tr><td></td><td>Student</td><td>Private Lessons Balance</td><td>Group Classes Balance</td></tr>');
 
   var sortedList = statsStudents.getSortedStudentsList();
   var total = 0;
@@ -1336,8 +1336,8 @@ function showStudentsPositiveNames() {
     total++
     html.push('<tr><td>' + (total) + '</td><td>' + 
       '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) + '\')">' + key + '</a></td>');
-    html.push('<td>' + account.getPrivateBalance().toFixed(2) + '</td>');
-    html.push('<td>' + account.getGroupBalance() + '</td>');
+    html.push('<td align=right>' + account.getPrivateBalance().toFixed(2) + '</td>');
+    html.push('<td align=right>' + account.getGroupBalance() + '</td>');
     html.push('</tr>');
   }
 
@@ -1352,7 +1352,7 @@ function showStudentsOverdueNames() {
   _gel('idPick').selectedIndex = 0;
 
   var html = ['<table cellpadding=2>'];
-  html.push('<tr><td></td><td>Student</td><td>Private Lessons</td><td>Group Classees</td></tr>');
+  html.push('<tr><td></td><td>Student</td><td>Private Lessons Balance</td><td>Group Classes Balance</td></tr>');
 
   var sortedList = statsStudents.getSortedStudentsList();
   var total = 0;
@@ -1363,8 +1363,8 @@ function showStudentsOverdueNames() {
     total++
     html.push('<tr><td>' + (total) + '</td><td>' + 
       '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) + '\')">' + key + '</a></td>');
-    html.push('<td>' + account.getPrivateBalance().toFixed(2) + '</td>');
-    html.push('<td>' + account.getGroupBalance() + '</td>');
+    html.push('<td  align=right>' + account.getPrivateBalance().toFixed(2) + '</td>');
+    html.push('<td  align=right>' + account.getGroupBalance() + '</td>');
     html.push('</tr>');
   }
 
