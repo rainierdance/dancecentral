@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0328.0457";
+var VERSION = "12.0328.0950";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -524,7 +524,11 @@ TeacherStats.prototype.addEntry = function(entry) {
         var groupClass = trimLR(classes[j]);
         if (!groupClass) continue; // skip empty ones
         // a teacher's group class stats contains an array of group class names
-        stat.push([groupClass, note]); // class name already indicates date and time
+        // insert in order
+        for (var k=0; k<stat.length; k++) {
+          if (stat[k][0] >groupClass) break;
+        }
+        stat.splice(k, 0, [groupClass, note]); // class name already indicates date and time
       }
     } else {
       //TODO: wrong entry
