@@ -213,7 +213,7 @@ StudentStats.prototype.getDisplay = function() {
 
        if (type == 'Group' || type == 'Party' || type == 'Youth') {
          if (classes && classes.length > 0) {
-           classes.sort();
+           classes.reverse();
            for (var j = 0; j < classes.length; j++) {
              var classNameStr = trimLR(classes[j]);
              var statClass = allStatsClasses.getStat(classNameStr);
