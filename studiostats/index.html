@@ -741,6 +741,11 @@ AllClassesStats.prototype.getSortedClasses = function () {
 }
 
 AllClassesStats.prototype.addEntry = function (entry) {
+  var type = trimLR(entry[INDEX_SIGNIN_TYPE]);
+  if (type != 'Group' && type != 'Youth') {
+    return;  // TODO: workaround for bug, group class column has value for private lesson entries
+  }
+
   var classes = trimLR(entry[INDEX_CLASSES]).split(',');
 
   var amtTotalPayment = trimLR(entry[INDEX_AMOUNT_TOTAL]);
