@@ -17,6 +17,7 @@ function escapeHtml(text) {
 
 
 //gAllRawEntities.push("log".split(';'));
+/*
 gAllRawEntities.push("2/22/2012 0:04:01;Rachel Wu;Group;2/22/2012;;Series Monday 8:00 PM Am. Rhythm Level 1 - EC Swing,Series 3/5/2012 Tuesday 7:15 PM Am. Smooth Level 3 - Foxtrot;;;Paid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 
 
@@ -68,4 +69,9 @@ gAllRawEntities.push("3/22/2012 12:44:01;Diane Johnson;Private;3/22/2012;23:45:0
 gAllRawEntities.push("3/25/2012 17:01:14;Diane Johnson;Payment;3/15/2012;11:45:00;;;;;EDS floor fee;12;;;;1;;;;;;;;12".split(';'));
 gAllRawEntities.push("3/25/2012 17:01:44;Diane Johnson;Payment;3/15/2012;13:45:00;;;;;EDS floor fee;16;;;;1.33;;;;;;;;16".split(';'));
 gAllRawEntities.push("3/26/2012 17:01:44;Diane Johnson;Payment;3/16/2012;13:45:00;;;;;EDS floor fee;32;;;;2.67;;;;;;;;32".split(';'));
+*/
 
+gAllRawEntities.push('3/23/2012 19:39:40;Alex and Natalia Gorobets;Group;3/22/2012;19:15:00;Drop-in 2012-03-22 Thursday 7:15 PM Latin Technique,Drop-in 2012-03-22 Thursday 8:00 PM Standard Technique;;;Paid;Alex'.split(';'));
+gAllRawEntities.push('3/19/2012 10:49:54;Alex and Natalia Gorobets;Payment;3/16/2012;10:49:00;;;;;Natalia Gorobets paid 3, 1 is recorded under Evvy.;12;;;2;;;;;;;;12'.split(';'));
+gAllRawEntities.push('3/23/2012 19:39:26;Alex and Natalia Gorobets;Group;3/22/2012;19:15:00;Drop-in 2012-03-22 Thursday 7:15 PM Latin Technique,Drop-in 2012-03-22 Thursday 8:00 PM Standard Technique;;;Paid;Natalia'.split(';'));
+gAllRawEntities.push('3/26/2012 18:28:02;Alex and Natalia Gorobets;Payment;3/23/2012;18:27:00;;;;;March special;6;;;1;;;;;;;;6'.split(';'));
