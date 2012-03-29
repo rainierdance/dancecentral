@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0329.1102";
+var VERSION = "12.0329.1106";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1557,7 +1557,7 @@ function getStudentItemizedPaymentDisplay(entry, result) {
     if (result) {
      if (entry[INDEX_NOTE].indexOf('EDS') != -1) {
        result.num_floorfee += num; 
-       result.amt_floorfee += num; 
+       result.amt_floorfee += amt; 
      } else {
        result.num_private += num;
        result.amt_private += amt;
@@ -1565,7 +1565,7 @@ function getStudentItemizedPaymentDisplay(entry, result) {
     }
   }   
   if (entry[INDEX_PAYMENT_NUM_DROPIN_PRACTICE]) {
-    num = entry[INDEX_PAYMENT_NUM_DROPIN_PRACTICE];
+    num = parseInt(entry[INDEX_PAYMENT_NUM_DROPIN_PRACTICE]);
     amt = parseFloat(entry[INDEX_PAYMENT_AMT_DROPIN_PRACTICE]);
     itemsPaid.push(''+ num + ' Dropin Practice for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per practice');
     if (result) {
@@ -1574,7 +1574,7 @@ function getStudentItemizedPaymentDisplay(entry, result) {
     }
   }   
   if (entry[INDEX_PAYMENT_NUM_MONTHLY_PRACTICE]) {
-    num = entry[INDEX_PAYMENT_NUM_MONTHLY_PRACTICE];
+    num = parseInt(entry[INDEX_PAYMENT_NUM_MONTHLY_PRACTICE]);
     amt = parseFloat(entry[INDEX_PAYMENT_AMT_MONTHLY_PRACTICE]);
     itemsPaid.push(''+ num + ' Monthly Practice for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per student');
     if (result) {
@@ -1583,7 +1583,7 @@ function getStudentItemizedPaymentDisplay(entry, result) {
     }
   }   
   if (entry[INDEX_PAYMENT_NUM_CHILDREN]) {
-    num = entry[INDEX_PAYMENT_NUM_CHILDREN];
+    num = parseInt(entry[INDEX_PAYMENT_NUM_CHILDREN]);
     amt = parseFloat(entry[INDEX_PAYMENT_AMT_CHILDREN]);
     itemsPaid.push(''+ num + ' Children\'s Program for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per student');
     if (result) {
@@ -1592,7 +1592,7 @@ function getStudentItemizedPaymentDisplay(entry, result) {
     }
   }   
   if (entry[INDEX_PAYMENT_NUM_YOUTH]) {
-    num = entry[INDEX_PAYMENT_NUM_YOUTH];
+    num = parseInt(entry[INDEX_PAYMENT_NUM_YOUTH]);
     amt = parseFloat(entry[INDEX_PAYMENT_AMT_YOUTH]);
     itemsPaid.push(''+ num + ' Youth Program for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per student');
     if (result) {
@@ -1601,7 +1601,7 @@ function getStudentItemizedPaymentDisplay(entry, result) {
     }
   }   
   if (entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]) {
-    num = entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES];
+    num = parseInt(entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]);
     amt = parseFloat(entry[INDEX_PAYMENT_AMT_INDEPENDENT_FLOOR_FEES]);
     itemsPaid.push(''+ num + ' Lessons, Floor Fees paid total <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per lesson');
     if (result) { // using EDS note for now
@@ -1610,7 +1610,7 @@ function getStudentItemizedPaymentDisplay(entry, result) {
     }
   }   
   if (entry[INDEX_PAYMENT_NUM_PARTIES]) {
-    num = entry[INDEX_PAYMENT_NUM_PARTIES];
+    num = parseInt(entry[INDEX_PAYMENT_NUM_PARTIES]);
     amt = parseFloat(entry[INDEX_PAYMENT_AMT_PARTIES]);
     itemsPaid.push(''+ num + ' Parties for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per party');
     if (result) {
