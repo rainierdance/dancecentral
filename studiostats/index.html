@@ -571,13 +571,16 @@ TeacherStats.prototype.getDisplay = function() {
     var groupClassStat = allStatsClasses.getStat(statGroup[i][0]);
     var amt = groupClassStat.getTotalAmount();
     if (amt > 0) amtTotal += amt;
-    html.push('<tr><td>' + (i+1) + '</td><td>' +
+    html.push('<tr><td>' +
       ((amt > 0) ? '$' + amt.toFixed(2) : '') + '</td><td>' + 
       '<a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(statGroup[i][0]) + '\')">' + 
      statGroup[i][0] + '</a> ' + highlightTODO(statGroup[i][1]) + '</td></tr>');
   }
   html.push('</table>');
-  if (amtTotal > 0) html.push('Total group classes: <b>$' + amtTotal.toFixed(2) + '</b>');
+  if (amtTotal > 0) 
+    html.push('<p>Total <b>' + i + '</b> group classes. Gross Revenue: <b>$' + amtTotal.toFixed(2) + '</b>');
+  else if (i > 0)
+    html.push('<p>Total <b>' + i + '</b> group classes.');
   html.push('<p>');
 
   // private
@@ -594,7 +597,7 @@ TeacherStats.prototype.getDisplay = function() {
     var amt = getLessonAmount(this.name, sortedList[i]);
     if (amt > 0) amtTotal += amt;
 
-    html.push('<tr><td>' + (i+1) + '</td><td>' + 
+    html.push('<tr><td>' + 
      (amt > 0 ? '$' + amt.toFixed(2) : '<font style="color:red">UNPAID</font>') + '</td><td>' +
      sortedList[i][0] + '</td><td>' +
      sortedList[i][1] + '</td><td>' +
@@ -604,6 +607,7 @@ TeacherStats.prototype.getDisplay = function() {
   }
   html.push('</table>');
 //  if (amtTotal > 0) html.push('Total private lessons: <b>$' + amtTotal.toFixed(2) + '</b>');
+  if (i > 0) html.push('<p>Total <b>' + i + '</b> private lessons.');
   html.push('<p>');
 
   // floor fees paid
