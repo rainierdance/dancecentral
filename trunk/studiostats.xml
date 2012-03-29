@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0329.1336";
+var VERSION = "12.0329.1349";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -637,7 +637,7 @@ TeacherStats.prototype.getDisplay = function() {
     var groupClassStat = allStatsClasses.getStat(statGroup[i][0]);
     var amt = groupClassStat.getTotalAmount();
     if (amt > 0) amtTotal += amt;
-    html.push('<tr><td>' +
+    html.push('<tr><td>&nbsp;</td><td>' +
       ((amt > 0) ? '$' + amt.toFixed(2) : '&nbsp;') + '</td><td>' + 
       '<a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(statGroup[i][0]) + '\')">' + 
      statGroup[i][0] + '</a> ' + highlightTODO(statGroup[i][1]) + '</td></tr>');
@@ -665,7 +665,7 @@ TeacherStats.prototype.getDisplay = function() {
 
     html.push('<tr><td>' + 
      (amt > 0 ? '$' + amt.toFixed(2) : '<font style="color:red">UNPAID</font>') + '</td><td>' +
-     sortedList[i][0] + '</td><td>' +
+     sortedList[i][0] + ' ' +
      sortedList[i][1] + '</td><td>' +
     '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (sortedList[i][2]) + '\')">' +
      sortedList[i][2] + '</a></td><td>' +
