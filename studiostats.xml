@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0329.1202";
+var VERSION = "12.0329.1212";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1279,10 +1279,9 @@ function showStudentStats() {
   }
   html.push('</select>');
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsSummary()">Summary</a>');
-  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsOverview()">All Students Details</a>');
-  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsOverdue()">Overdue Students - Details</a>');
-  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsOverdueNames()">Overdue Students - Names Only</a>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsOverdueNames()">Overdue Students</a>');
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsPositiveNames()">Students with Positive Balance</a>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsOverview()">All Students Details</a>');
   _gel('idSelect').innerHTML = html.join('');
   
   showStudentStatsSummary();
@@ -1419,7 +1418,8 @@ function showStudentsPositiveNames() {
   // reset select box
   _gel('idPick').selectedIndex = 0;
 
-  var html = ['<table cellpadding=2>'];
+  var html = [];
+  html.push('<table cellpadding=4 style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
   html.push('<tr><td></td><td>Student</td><td>Private Lessons Balance</td><td>Group Classes Balance</td></tr>');
 
   var sortedList = statsStudents.getSortedStudentsList();
@@ -1446,7 +1446,13 @@ function showStudentsOverdueNames() {
   // reset select box
   _gel('idPick').selectedIndex = 0;
 
-  var html = ['<table cellpadding=2>'];
+  var html = [];
+  html.push('<p>');
+  html.push('<b>Students with negative balance:</b>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsOverdue()">Expand and show account details</a><p>');
+
+
+  html.push('<table cellpadding=4 style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
   html.push('<tr><td></td><td>Student</td><td>Private Lessons Balance</td><td>Group Classes Balance</td></tr>');
 
   var sortedList = statsStudents.getSortedStudentsList();
