@@ -894,6 +894,7 @@ PaymentsStats.prototype.getDisplay = function (entry) {
 
   var cntPaymentTotal= 0;
   var result = [0, 0.0, 0, 0.0, 0, 0.0];
+  var edsPayment = 0.0;
 
   html.push('<table cellpadding=4  style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
   for (var i = 0 ; i<this.stats.length; i++) {
@@ -904,7 +905,10 @@ PaymentsStats.prototype.getDisplay = function (entry) {
         '\')">' + entry[INDEX_NAME] + '</a></td><td><b>$' +
       entry[INDEX_AMOUNT_TOTAL] + '</b></td>'
     );
-    cntPaymentTotal += parseFloat(entry[INDEX_AMOUNT_TOTAL]);
+    var amt = parseFloat(entry[INDEX_AMOUNT_TOTAL]);
+    cntPaymentTotal += amt;
+    if (entry[INDEX_NOTE].indexOf("EDS") != -1)
+      edsPayment += amt;
 
     html.push('<td>');
     html.push(getStudentItemizedPaymentDisplay(entry, result));
@@ -914,8 +918,9 @@ PaymentsStats.prototype.getDisplay = function (entry) {
   return '<p>Total: <b>$' + cntPaymentTotal.toFixed(2) + '</b><br>' +
      'Series and Dropin classes: ' + (result[0] + result[2]) + ' for $' + 
      (result[1] + result[3]).toFixed(2) + ' &nbsp; &nbsp; &nbsp; ' +
-     'Private classes: ' + result[4].toFixed(2) + ' for $' + result[5].toFixed(2) + '<br>' +
-     html.join('');
+     'Private classes: ' + result[4].toFixed(2) + ' for $' + result[5].toFixed(2) + 
+     ' &nbsp; &nbsp; EDS floor fee: $' + edsPayment.toFixed(2) +
+     '<br>' + html.join('');
 
 }
 
