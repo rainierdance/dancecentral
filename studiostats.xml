@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0329.1212";
+var VERSION = "12.0329.1336";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -638,7 +638,7 @@ TeacherStats.prototype.getDisplay = function() {
     var amt = groupClassStat.getTotalAmount();
     if (amt > 0) amtTotal += amt;
     html.push('<tr><td>' +
-      ((amt > 0) ? '$' + amt.toFixed(2) : '') + '</td><td>' + 
+      ((amt > 0) ? '$' + amt.toFixed(2) : '&nbsp;') + '</td><td>' + 
       '<a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(statGroup[i][0]) + '\')">' + 
      statGroup[i][0] + '</a> ' + highlightTODO(statGroup[i][1]) + '</td></tr>');
   }
