@@ -26,22 +26,24 @@ gAllRawEntities.push("2/22/2012 15:48:25;Lorenzo Farris;Youth;2/22/2012;15:48;Ch
 gAllRawEntities.push("2/27/2012 11:02:03;Violeta Abramova;Teach;2/27/2012;11:01;Series Wednesday 8:00 PM Am. Rhythm Level 2 - Rumba,Children 2012-02-27 Monday 4:00 PM Children's Program Level 1;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/23/2012 15:48:29;Lorenzo Farris;Private;2/22/2012;15:48;;1;Simeon Stoynov;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/24/2012 15:48:35;Lorenzo Farris;Practice;2/22/2012;15:48;;1;;Practice-Free;TODO practice;;;;;;;;;;;;;;;;;;;;;".split(';'));
+
 gAllRawEntities.push("2/22/2012 15:48:46;Lorenzo Farris;Payment;2/22/2012;15:48;;;;;Special;65;Check;;;3;;;;;;;;65;;;;;;Wedding Special;;".split(';'));
 gAllRawEntities.push("2/22/2012 15:48:59;Lorenzo Farris;Payment;3/25/2012;15:48;;;;;;65;CreditCard;;;3;;;;;;;;65;;;;;;Wedding Special;;".split(';'));
 
+gAllRawEntities.push("1/27/2012 10:07:19;Lorenzo Farris;Payment;2/27/2012;10:07;;;;;;20;Cash;;;;;;;;2;;;;;;;;20;;;".split(';'));
+gAllRawEntities.push("2/28/2012 10:07:33;Jackie Wu;Payment;2/27/2012;10:07;;;;;;50;Cash;;;;;;;;5;;;;;;;;50;;;".split(';'));
+gAllRawEntities.push("2/28/2012 10:07:49;Jackie Wu;Payment;1/20/2012;10:07;;;;;;20;Check;;;;;;;;2;;;;;;;;20;;;".split(';'));
 
-gAllRawEntities.push("1/27/2012 10:07:19;Simeon Stoynov;Payment;2/27/2012;10:07;;;;;;20;Cash;;;;;;;;2;;;;;;;;20;;;".split(';'));
-gAllRawEntities.push("2/28/2012 10:07:33;Kora Stoynova;Payment;2/27/2012;10:07;;;;;;50;Cash;;;;;;;;5;;;;;;;;50;;;".split(';'));
-gAllRawEntities.push("2/28/2012 10:07:49;Simeon Stoynov;Payment;1/20/2012;10:07;;;;;;20;Check;;;;;;;;2;;;;;;;;20;;;".split(';'));
 gAllRawEntities.push("3/27/2012 10:07:56;Simeon Stoynov;Teach;2/27/2012;10:07;Series Monday 8:45 PM Intl. Standard Level 2 - Quickstep,Series Monday 7:15 PM Am. Smooth Level 1 - Waltz;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("3/7/2012 10:13:45;Simeon Stoynov;Teach;2/20/2012;10:07;Series Monday 7:15 PM Am. Smooth Level 1 - Waltz,Series Monday 8:00 PM Am. Rhythm Level 1 - EC Swing,Series Monday 8:45 PM Intl. Standard Level 2 - Quickstep;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
+
 gAllRawEntities.push("2/27/2012 10:49:48;Rachel Wu;Youth;2/27/2012;10:49;Children_2012_03_05_MON_LEVEL_1;;;Youth-Take-Class;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/27/2012 11:00:47;Lorenzo Farris;Group;2/27/2012;11:00;Series 2012-02-27 Monday 7:15 PM Am. Smooth Level 1 - Waltz,Series 2012-02-27 Monday 8:45 PM Intl. Standard Level 2 - Quickstep;;;Paid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/27/2012 11:01:16;Lorenzo Farris;Group;2/28/2012;11:00;Series 2012-02-28 Tuesday 7:15 PM Am. Smooth Level 3 - Foxtrot;;;Paid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/27/2012 11:01:52;Fiona Farris;Youth;2/27/2012;11:01;Children 2012-02-27 Monday 4:00 PM Children's Program Level 1;;;Youth-Take-Class;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 
 gAllRawEntities.push("2/25/2012 15:48:42;Jackie Wu;Payment;1/22/2012;15:48;;;;;Some TODO note here;50;Cash;;4;1;;;;;;;16;21;;;;;;Intro Special;4;13".split(';'));
-gAllRawEntities.push("3/14/2012 22:39:13;Jackie Wu;Payment;3/14/2012;22:21;;;;;;1103;;1;2;3.2;7;5;4;6;;40.2;24;197;70;240;230;240;;;8;64".split(';'));
+gAllRawEntities.push("3/14/2012 22:39:13;Jackie Wu;Payment;3/14/2012;22:21;;;;;;1105.2;;1;2;3.2;7;5;4;6;;40.2;24;197;70;240;230;240;;;8;64".split(';'));
 gAllRawEntities.push("2/27/2012 9:59:34;Jackie Wu;Group;2/27/2012;9:59;Series Tuesday 8:00 PM Am. Rhythm Level 3 - Cha Cha,Series Wednesday 8:00 PM Am. Rhythm Level 2 - Rumba,Drop-in Saturday 7:15 PM Cha Cha;;;Paid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/22/2012 0:07:28;Jackie Wu;Group;2/22/2012;;Series 3/5/2012 Wednesday 8:45 PM Intl. Standard Level 3 - Foxtrot;;;Free;TODO group;;;;;;;;;;;;;;;;;;;;;".split(';'));
 gAllRawEntities.push("2/22/2012 0:07:49;Jackie Wu;Group;2/22/2012;;Series 3/5/2012 Tuesday 7:15 PM Am. Smooth Level 3 - Foxtrot;;;Free;;;;;;;;;;;;;;;;;;;;;;".split(';'));
