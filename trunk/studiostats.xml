@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0329.1707";
+var VERSION = "12.0330.1302";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -984,6 +984,7 @@ PaymentsStats.prototype.getDisplay = function (entry) {
     html.push('</td></tr>');
   }
   html.push('</table>');
+
   var htmlSummary = [];
   htmlSummary.push('<p>Total: <b>$' + cntPaymentTotal.toFixed(2) + '</b><p>');
   htmlSummary.push('<table cellpadding=4  style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
@@ -995,19 +996,26 @@ PaymentsStats.prototype.getDisplay = function (entry) {
   htmlSummary.push('<tr align=right><td>' +
      'Private classes</td><td>' + result.num_private.toFixed(2) + '</td><td> $' + result.amt_private.toFixed(2) + '</td</tr>');
   htmlSummary.push('<tr align=right><td>' +
+     'Floor fee</td><td> ' + result.num_floorfee.toFixed(2) + '</td><td>$' + result.amt_floorfee.toFixed(2) + '</td></tr>');
+  htmlSummary.push('<tr align=right><td>' +
      'Youth Program</td><td> ' + result.num_youth + '</td><td>$' + result.amt_youth.toFixed(2) + '</td></tr>');
   htmlSummary.push('<tr align=right><td>' +
      'Children\'s Program</td><td> ' + result.num_child + '</td><td>$' + result.amt_child.toFixed(2) + '</td></tr>');
-  htmlSummary.push('<tr align=right><td>' +
-     'EDS floor fee</td><td> ' + result.num_floorfee.toFixed(2) + '</td><td>$' + result.amt_floorfee.toFixed(2) + '</td></tr>');
   htmlSummary.push('<tr align=right><td>' +
      'Monthly Practice</td><td> ' + result.num_practice_monthly + '</td><td>$' + result.amt_practice_monthly.toFixed(2) + '</td></tr>');
   htmlSummary.push('<tr align=right><td>' +
      'Dropin Practice</td><td> ' + result.num_practice_dropin + '</td><td>$' + result.amt_practice_dropin.toFixed(2) + '</td></tr>');
   htmlSummary.push('<tr align=right><td>' +
      'Parties and Rounds</td><td> ' + result.num_party + '</td><td>$' + result.amt_party.toFixed(2) + '</td></tr>');
+  htmlSummary.push('<tr align=right><td>' +
+     '&nbsp;</td><td>&nbsp;</td><td>$' + 
+     (result.amt_party + result.amt_dropin + result.amt_series + result.amt_private + result.amt_youth + result.amt_child + 
+      result.amt_floorfee + result.amt_practice_monthly + result.amt_practice_dropin).toFixed(2) + '</td></tr>');
 
   htmlSummary.push('</table>');
+
+  htmlSummary.push('<p>Group Classes + Private Lessons + Floor Fee <b>$' + 
+    (result.amt_series + result.amt_dropin + result.amt_private + result.amt_floorfee).toFixed(2) + '</b><p><b>Details</b><p>');
   return htmlSummary.join('') + html.join('');
 
 }
@@ -1416,6 +1424,8 @@ function showStudentStatsSummary() {
 
   html.push('</table>');
 
+  html.push('<p>Classes and Private Lessons: $' + (amtGroupTotal + amtLessonTotal).toFixed(2));
+
   updateReportTime();
   _gel('idEntityList').innerHTML = html.join('');
 }
@@ -1567,7 +1577,7 @@ function getStudentItemizedPaymentDisplay(entry, result) {
     amt = parseFloat(entry[INDEX_PAYMENT_AMT_PRIVATE]);
     itemsPaid.push(''+ num.toFixed(2) + ' Private Lessons for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per lesson');
     if (result) {
-     if (entry[INDEX_NOTE].indexOf('EDS') != -1) {
+     if (entry[INDEX_NOTE].indexOf('floor fee') != -1) { 
        result.num_floorfee += num; 
        result.amt_floorfee += amt; 
      } else {
@@ -1616,9 +1626,9 @@ function getStudentItemizedPaymentDisplay(entry, result) {
     num = parseInt(entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]);
     amt = parseFloat(entry[INDEX_PAYMENT_AMT_INDEPENDENT_FLOOR_FEES]);
     itemsPaid.push(''+ num + ' Lessons, Floor Fees paid total <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per lesson');
-    if (result) { // using EDS note for now
-     //result.num_floorfee += num;
-     //result.amt_floorfee += amt;
+    if (result) {
+     result.num_floorfee += num;
+     result.amt_floorfee += amt;
     }
   }   
   if (entry[INDEX_PAYMENT_NUM_PARTIES]) {
