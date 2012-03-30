@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0330.1302";
+var VERSION = "12.0330.1308";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -991,12 +991,12 @@ PaymentsStats.prototype.getDisplay = function (entry) {
 
   htmlSummary.push('<tr style="font-weight:bold"><td></td><td>Number</td><td>Total Amount</td></tr>');
   htmlSummary.push('<tr align=right><td>' +
-     'Series and Dropin classes</td><td>' + (result.num_series + result.num_dropin) + '</td><td>$' + 
+     'Series and Dropin Classes</td><td>' + (result.num_series + result.num_dropin) + '</td><td>$' + 
      (result.amt_series + result.amt_dropin).toFixed(2) + '</td></tr>');
   htmlSummary.push('<tr align=right><td>' +
-     'Private classes</td><td>' + result.num_private.toFixed(2) + '</td><td> $' + result.amt_private.toFixed(2) + '</td</tr>');
+     'Private Lessons</td><td>' + result.num_private.toFixed(2) + '</td><td> $' + result.amt_private.toFixed(2) + '</td</tr>');
   htmlSummary.push('<tr align=right><td>' +
-     'Floor fee</td><td> ' + result.num_floorfee.toFixed(2) + '</td><td>$' + result.amt_floorfee.toFixed(2) + '</td></tr>');
+     'Floor Fee</td><td> ' + result.num_floorfee.toFixed(2) + '</td><td>$' + result.amt_floorfee.toFixed(2) + '</td></tr>');
   htmlSummary.push('<tr align=right><td>' +
      'Youth Program</td><td> ' + result.num_youth + '</td><td>$' + result.amt_youth.toFixed(2) + '</td></tr>');
   htmlSummary.push('<tr align=right><td>' +
@@ -1014,7 +1014,7 @@ PaymentsStats.prototype.getDisplay = function (entry) {
 
   htmlSummary.push('</table>');
 
-  htmlSummary.push('<p>Group Classes + Private Lessons + Floor Fee <b>$' + 
+  htmlSummary.push('<p>Group Classes + Private Lessons + Floor Fee: &nbsp;  <b>$' + 
     (result.amt_series + result.amt_dropin + result.amt_private + result.amt_floorfee).toFixed(2) + '</b><p><b>Details</b><p>');
   return htmlSummary.join('') + html.join('');
 
@@ -1424,10 +1424,10 @@ function showStudentStatsSummary() {
 
   html.push('</table>');
 
-  html.push('<p>Classes and Private Lessons: $' + (amtGroupTotal + amtLessonTotal).toFixed(2));
 
   updateReportTime();
-  _gel('idEntityList').innerHTML = html.join('');
+  _gel('idEntityList').innerHTML = '<p>Total Classes and Private Lessons: <b>$' + (amtGroupTotal + amtLessonTotal).toFixed(2) + '<p>' +
+    html.join('') + '</b>';
 }
 
 function showStudentsPositiveNames() {
