@@ -168,6 +168,11 @@ StudentStats.prototype.updateAccounts = function() {
   }
 }
 
+function isGroupClass(name) {
+  return (name.indexOf('Series') != -1 ||
+        name.indexOf('Drop-in') != -1 );
+}
+
 StudentStats.prototype.getDisplay = function() {
   var student = this.name;
 
@@ -191,31 +196,35 @@ StudentStats.prototype.getDisplay = function() {
   var startDate = _gel('idStartDate').value;
   var endDate = _gel('idEndDate').value;
 
-  htmlSummary.push('<b>' + student + '</b> &nbsp; &nbsp; ');
-  if (startDate || endDate) htmlSummary.push(startDate + ' ~ ' + endDate);
+  htmlSummary.push('<b>' + student + '</b>');
   htmlSummary.push('<p>');
 
   var html = [];
   for (var type in this.stat) {
     var entries = this.getStatForSignInType(type);
     if (entries.length == 0) continue;
-    html.push('<i>' + type + '</i>'); // student name
+    html.push('<p><i>' + type + '</i>'); // student name
 
-    html.push('<ol>'); // each sign in type
+    html.push('<table cellpadding=2>'); // each sign in type
+    var position = 0;
     for (var i = 0 ; i < entries.length; i++) {
        var entry = entries[i]; // full log line
        var classes = entry[INDEX_CLASSES].split(',');
 
        if (type == 'Group' || type == 'Party' || type == 'Youth') {
          if (classes && classes.length > 0) {
+           classes.reverse();
            for (var j = 0; j < classes.length; j++) {
              var classNameStr = trimLR(classes[j]);
              var statClass = allStatsClasses.getStat(classNameStr);
               var amt = statClass.getAmount(student);
-             html.push('<li> ' + entry[INDEX_RATE_TYPE] + 
-                (amt ? ' $' + amt.toFixed(2) + ' ' : '') +
-                ' <a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(classNameStr) + '\')">' + 
-                classNameStr + '</a> ' + highlightTODO(entry[INDEX_NOTE]));
+             position++;
+             html.push('<tr valign=top><td>' + (position) + '</td><td>' + entry[INDEX_RATE_TYPE] +  '</td><td>');
+             html.push((amt && amt > 0 ? ' $' + amt.toFixed(2) + ' ' : 
+                   (isGroupClass(classNameStr) && entry[INDEX_RATE_TYPE] == 'Paid' ? ' <font style="color:red">UNPAID</font>' : '')));
+             html.push('</td><td>' +
+                '<a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(classNameStr) + '\')">' + 
+                classNameStr + '</a></td><td>' + highlightTODO(entry[INDEX_NOTE]) + '</td></tr>');
              if (entry[INDEX_RATE_TYPE] == 'Paid') {
                if (classNameStr.indexOf('Series') != -1) 
                  cntSeriesTaken += 1;
@@ -226,30 +235,25 @@ StudentStats.prototype.getDisplay = function() {
          }
        } else if (type == 'Private') { //JW
           var amt = getLessonAmountFromEntry(entry);
-          html.push('<li>' + (amt > 0 ? '$' + amt.toFixed(2) : '') + ' <b>' + entry[INDEX_DATE] + '</b> ' + 
-            entry[INDEX_TIME] + ' ' + 
-            entry[INDEX_TEACHER] + ' ' + entry[INDEX_LENGTH] + ' min lesson ' + highlightTODO(entry[INDEX_NOTE]));
+          html.push('<tr valign=top><td>' + (i+1) + '</td><td>' +
+              (amt > 0 ? '$' + amt.toFixed(2) : '<font style="color:red">UNPAID</font>') + '</td><td><b>' + entry[INDEX_DATE] + '</b></td><td>' + 
+            entry[INDEX_TIME] + '</td><td>' + 
+            entry[INDEX_TEACHER] + '</td><td>' + entry[INDEX_LENGTH] + ' min lesson </td><td>' + highlightTODO(entry[INDEX_NOTE]) + '</td></tr>');
           cntPrivateTakenMin += parseInt(trimLR(entry[INDEX_LENGTH]));
        } else if (type == 'Practice') {
-          html.push('<li>' + entry[INDEX_DATE] + ' ' + 
-            entry[INDEX_TIME] + ' ' + 
-            entry[INDEX_LENGTH] + ' ' + 
-            entry[INDEX_RATE_TYPE] + ' <b>' + 
-            entry[INDEX_AMOUNT_TOTAL] + '</b>'  + highlightTODO(entry[INDEX_NOTE])
+          html.push('<tr valign=top><td>' + (i+1) + '</td><td>' + entry[INDEX_DATE] + '</td><td>' + 
+            entry[INDEX_TIME] + '</td><td>' + 
+            entry[INDEX_LENGTH] + '</td><td>' + 
+            entry[INDEX_RATE_TYPE] + '</td><td><b>' + 
+            entry[INDEX_AMOUNT_TOTAL] + '</b></td><td>'  + highlightTODO(entry[INDEX_NOTE] + '</td></tr>')
           );
        } else if (type == 'Payment') {
-          html.push('<li> ' + entry[INDEX_DATE] + ' ' 
+          html.push('<tr valign=top><td>' + entry[INDEX_DATE] + '</td><td>' 
              + ' <b>$' + 
-            entry[INDEX_AMOUNT_TOTAL] + '</b> '
+            entry[INDEX_AMOUNT_TOTAL] + '</b></td>'
           );
-          // itemize the total
-          if (entry[INDEX_SIGNIN_TYPE] != 'Payment') {
-            html.push(' ' + 
-              entry[INDEX_RATE_TYPE] + ' ' +
-              entry[INDEX_CLASSES].split(',').join(' &nbsp;'));
-          } else { // straight payment
-            html.push('<br>' + getStudentItemizedPaymentDisplay(entry));
-          }
+          html.push('<td>' + getStudentItemizedPaymentDisplay(entry) + '</td></tr>');
+
           var num = entry[INDEX_PAYMENT_NUM_PRIVATE];
           if (num)  {
             num = parseFloat(num);
@@ -289,11 +293,11 @@ StudentStats.prototype.getDisplay = function() {
        } else { //TODO: wrong place
        }
     }
-    html.push('</ol>');
+    html.push('</table>');
   }
 
   // student's summary
-  htmlSummary.push('<b>Summary</b><p>');
+  htmlSummary.push('<b>Account Summary</b><p>');
 
   // account summary
   htmlSummary.push('<table cellpadding=4 style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
@@ -315,6 +319,8 @@ StudentStats.prototype.getDisplay = function() {
 
   htmlSummary.push('</table><p>');
 
+  if (startDate || endDate) htmlSummary.push('<b>Period: ' + startDate + ' ~ ' + endDate + '</b><p>');
+/*
   htmlSummary.push('<table cellpadding=4 style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
   htmlSummary.push('<tr style="font-weight:bold"><td>Type</td><td>Bought</td><td>Taken</td><td>Balance</td></tr>');
   htmlSummary.push('<tr align=right><td align=left>Series and Dropins</td><td>' + (cntSeriesPaid + cntDropinPaid) + 
@@ -330,7 +336,7 @@ StudentStats.prototype.getDisplay = function() {
   if (cntMonthlyChildProgramPaid > 0) 
     htmlSummary.push('<tr align=right><td align=left>Children\'s Program</td><td>' + cntMonthlyChildProgramPaid + '</td><td>&nbsp;</td><td>&nbsp;</td></tr>');
   htmlSummary.push('</table><p>');
-
+*/
   return htmlSummary.join('') + html.join('');
 }
 ////////////////////////////////////////////////////////////////////////
@@ -452,7 +458,11 @@ TeacherStats.prototype.addEntry = function(entry) {
         var groupClass = trimLR(classes[j]);
         if (!groupClass) continue; // skip empty ones
         // a teacher's group class stats contains an array of group class names
-        stat.push([groupClass, note]); // class name already indicates date and time
+        // insert in order
+        for (var k=0; k<stat.length; k++) {
+          if (stat[k][0] >groupClass) break;
+        }
+        stat.splice(k, 0, [groupClass, note]); // class name already indicates date and time
       }
     } else {
       //TODO: wrong entry
@@ -553,27 +563,36 @@ TeacherStats.prototype.getDisplay = function() {
   html.push('<b>' + this.name + '</b><p>');
 
   var statGroup = this.stat['Teach'];
-  if (statGroup && statGroup.length > 0)
-    html.push('Group Classes taught:');
+  var htmlGroup = [];
+
   var amtTotal = 0;
-  html.push('<ol>');
+  htmlGroup.push('<table cellpadding=2>');//JW
   for (var i = 0; statGroup && i< statGroup.length; i++) {
     var groupClassStat = allStatsClasses.getStat(statGroup[i][0]);
     var amt = groupClassStat.getTotalAmount();
     if (amt > 0) amtTotal += amt;
-    html.push('<li> ' +
-      ((amt > 0) ? '$' + amt.toFixed(2) : '') + ' ' + 
+    htmlGroup.push('<tr><td>&nbsp;</td><td>' +
+      ((amt > 0) ? '$' + amt.toFixed(2) : '&nbsp;') + '</td><td>' + 
       '<a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(statGroup[i][0]) + '\')">' + 
-     statGroup[i][0] + '</a> ' + highlightTODO(statGroup[i][1]));
+     statGroup[i][0] + '</a> ' + highlightTODO(statGroup[i][1]) + '</td></tr>');
   }
-  html.push('</ol>');
-  if (amtTotal > 0) html.push('Total group classes: <b>$' + amtTotal.toFixed(2) + '</b>');
-  html.push('<p>');
+  htmlGroup.push('</table>');
+
+  if (statGroup && statGroup.length > 0) {
+    html.push('Group Classes taught:<p>');
+    if (amtTotal > 0) 
+      html.push('Total <b>' + i + '</b> group classes. Gross Revenue: <b>$' + amtTotal.toFixed(2) + '</b>');
+    else if (i > 0)
+      html.push('Total <b>' + i + '</b> group classes.');
+    html.push('<p>');
+    html.push(htmlGroup.join(''));
+    html.push('<p>');
+  }
 
   // private
   var statPrivate = this.stat['Private'];
   if (statPrivate && statPrivate.length > 0)
-    html.push('Private Lessons taught:');
+    html.push('Private Lessons taught:<p>');
   html.push('<table cellpadding=2>');
 
   var sortedList = statPrivate; // already sorted in reverse chronological order
@@ -584,16 +603,17 @@ TeacherStats.prototype.getDisplay = function() {
     var amt = getLessonAmount(this.name, sortedList[i]);
     if (amt > 0) amtTotal += amt;
 
-    html.push('<tr><td>' + (i+1) + '</td><td>' + 
-     (amt > 0 ? '$' + amt.toFixed(2) : '') + '</td><td>' +
-     sortedList[i][0] + '</td><td>' +
+    html.push('<tr><td>' + 
+     (amt > 0 ? '$' + amt.toFixed(2) : '<font style="color:red">UNPAID</font>') + '</td><td>' +
+     sortedList[i][0] + ' ' +
      sortedList[i][1] + '</td><td>' +
     '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (sortedList[i][2]) + '\')">' +
      sortedList[i][2] + '</a></td><td>' +
      sortedList[i][3] + ' min lesson</td>' + '<td>' + highlightTODO(sortedList[i][4]) + '</tr>');
   }
   html.push('</table>');
-  if (amtTotal > 0) html.push('Total private lessons: <b>$' + amtTotal.toFixed(2) + '</b>');
+//  if (amtTotal > 0) html.push('Total private lessons: <b>$' + amtTotal.toFixed(2) + '</b>');
+  if (i > 0) html.push('<p>Total <b>' + i + '</b> private lessons.');
   html.push('<p>');
 
   // floor fees paid
@@ -666,7 +686,8 @@ ClassStats.prototype.getTotalAmount = function() {
   var amt = 0;
   for (var i=0; i<this.stat.length; i++) {
     if (this.stat[i][2]) 
-      amt += this.stat[i][2];
+      if (this.stat[i][2] > 0)
+        amt += this.stat[i][2];
   }
   return amt;
 }
@@ -676,6 +697,7 @@ ClassStats.prototype.getAmount = function(name) {
     if (this.stat[i][0] == name)
       return (this.stat[i][2] ? parseFloat(this.stat[i][2]) : 0);
   }
+  return 0;
 }
 
 ClassStats.prototype.getDisplay = function() {
@@ -693,14 +715,16 @@ ClassStats.prototype.getDisplay = function() {
 
   for (var i = 0; i < this.stat.length; i++) {
     var rateDisplay = this.stat[i][1];
-    var amt = this.stat[i][2] ? parseFloat(this.stat[i][2]) : 0;
+    var amt = allStatsClasses.getStat(this.name).getAmount(this.stat[i][0]);
     html.push('<tr><td>' + (i+1) + '</td><td>' + 
               '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (this.stat[i][0]) +
               '\')">' + this.stat[i][0] + '</a>' +
               '</td><td> ' + (rateDisplay ? rateDisplay : ' ') + 
-      '</td><td>' + ((amt > 0) ? '$' + amt.toFixed(2) : '') + '</td><td>' +
-      highlightTODO(this.stat[i][3]) + '</td>' +
-      '</tr>');
+           '</td><td>' + 
+           ((amt > 0) ? '$' + amt.toFixed(2) : 
+             (isGroupClass(this.name) && rateDisplay == 'Paid' ? '<font style="color:red">UNPAID</font>' : '')) + 
+            '</td><td>' + highlightTODO(this.stat[i][3]) + '</td>' +
+          '</tr>');
   }
 
   html.push('</table>');
@@ -731,6 +755,11 @@ AllClassesStats.prototype.getSortedClasses = function () {
 }
 
 AllClassesStats.prototype.addEntry = function (entry) {
+  var type = trimLR(entry[INDEX_SIGNIN_TYPE]);
+  if (type != 'Group' && type != 'Youth') {
+    return;  // TODO: workaround for bug, group class column has value for private lesson entries
+  }
+
   var classes = trimLR(entry[INDEX_CLASSES]).split(',');
 
   var amtTotalPayment = trimLR(entry[INDEX_AMOUNT_TOTAL]);
@@ -870,7 +899,7 @@ PaymentsStats.prototype.getDisplay = function (entry) {
   html.push('<p>');
 
   var cntPaymentTotal= 0;
-  var result = [0, 0.0, 0, 0.0, 0, 0.0];
+  var result = new PaymentTotal();
 
   html.push('<table cellpadding=4  style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
   for (var i = 0 ; i<this.stats.length; i++) {
@@ -881,18 +910,39 @@ PaymentsStats.prototype.getDisplay = function (entry) {
         '\')">' + entry[INDEX_NAME] + '</a></td><td><b>$' +
       entry[INDEX_AMOUNT_TOTAL] + '</b></td>'
     );
-    cntPaymentTotal += parseFloat(entry[INDEX_AMOUNT_TOTAL]);
+    var amt = parseFloat(entry[INDEX_AMOUNT_TOTAL]);
+    cntPaymentTotal += amt;
 
     html.push('<td>');
     html.push(getStudentItemizedPaymentDisplay(entry, result));
     html.push('</td></tr>');
   }
   html.push('</table>');
-  return '<p>Total: <b>$' + cntPaymentTotal.toFixed(2) + '</b><br>' +
-     'Series classes: ' + result[0] + ' for $' + result[1].toFixed(2) + ' &nbsp; &nbsp; &nbsp; ' +
-     'Dropin classes: ' + result[2] + ' for $' + result[3].toFixed(2) + ' &nbsp; &nbsp; &nbsp; ' +
-     'Private classes: ' + result[4].toFixed(2) + ' for $' + result[5].toFixed(2) + '<br>' +
-     html.join('');
+  var htmlSummary = [];
+  htmlSummary.push('<p>Total: <b>$' + cntPaymentTotal.toFixed(2) + '</b><p>');
+  htmlSummary.push('<table cellpadding=4  style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
+
+  htmlSummary.push('<tr style="font-weight:bold"><td></td><td>Number</td><td>Total Amount</td></tr>');
+  htmlSummary.push('<tr align=right><td>' +
+     'Series and Dropin classes</td><td>' + (result.num_series + result.num_dropin) + '</td><td>$' + 
+     (result.amt_series + result.amt_dropin).toFixed(2) + '</td></tr>');
+  htmlSummary.push('<tr align=right><td>' +
+     'Private classes</td><td>' + result.num_private.toFixed(2) + '</td><td> $' + result.amt_private.toFixed(2) + '</td</tr>');
+  htmlSummary.push('<tr align=right><td>' +
+     'Youth Program</td><td> ' + result.num_youth + '</td><td>$' + result.amt_youth.toFixed(2) + '</td></tr>');
+  htmlSummary.push('<tr align=right><td>' +
+     'Children\'s Program</td><td> ' + result.num_child + '</td><td>$' + result.amt_child.toFixed(2) + '</td></tr>');
+  htmlSummary.push('<tr align=right><td>' +
+     'EDS floor fee</td><td> ' + result.num_floorfee.toFixed(2) + '</td><td>$' + result.amt_floorfee.toFixed(2) + '</td></tr>');
+  htmlSummary.push('<tr align=right><td>' +
+     'Monthly Practice</td><td> ' + result.num_practice_monthly + '</td><td>$' + result.amt_practice_monthly.toFixed(2) + '</td></tr>');
+  htmlSummary.push('<tr align=right><td>' +
+     'Dropin Practice</td><td> ' + result.num_practice_dropin + '</td><td>$' + result.amt_practice_dropin.toFixed(2) + '</td></tr>');
+  htmlSummary.push('<tr align=right><td>' +
+     'Parties and Rounds</td><td> ' + result.num_party + '</td><td>$' + result.amt_party.toFixed(2) + '</td></tr>');
+
+  htmlSummary.push('</table>');
+  return htmlSummary.join('') + html.join('');
 
 }
 
@@ -992,8 +1042,28 @@ StudentAccount.prototype.takeLesson = function(num) {
   return this.privatePayment.takeOut(num);
 }
 
+StudentAccount.prototype.isPrivateOverdue = function() {
+  return this.privatePayment.overdue;
+}
+
+StudentAccount.prototype.isGroupOverdue = function() {
+  return this.groupPayment.overdue;
+}
+
+StudentAccount.prototype.getGroupBalance = function() {
+  return this.groupPayment.numBought - this.groupPayment.numUsed;
+}
+
+StudentAccount.prototype.getPrivateBalance = function() {
+  return this.privatePayment.numBought - this.privatePayment.numUsed;
+}
+
 StudentAccount.prototype.isOverdue = function() {
   return this.privatePayment.overdue || this.groupPayment.overdue;
+}
+
+StudentAccount.prototype.isPositive = function() {
+  return this.getPrivateBalance() > 0 && this.getGroupBalance() > 0;
 }
 
 
@@ -1113,6 +1183,10 @@ function processStatsWithTimeRestrict(startDate, endDate) {
 
 //////////////////////////////////////
 // select a student from drop down
+function updateReportTime() {
+  _gel('reportTime').innerHTML = '<p>' + LINE + 'Report time: ' + new Date().toString();
+}
+
 function updateStudentStats(optSelect) {
   if (optSelect.selectedIndex == 0) {
     showStudentStatsSummary();
@@ -1129,6 +1203,7 @@ function updateStudentStatsWithName(selected) {
     // check if it's teacher
     updateTeacherStatsWithName(selected);
   } else {
+    updateReportTime();
     _gel('idEntityList').innerHTML = stat.getDisplay();
   }
 }
@@ -1143,8 +1218,10 @@ function showStudentStats() {
     html.push('<option>' + sortedStudents[i]);
   }
   html.push('</select>');
-  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsSummary()">Show summary</a>');
-  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsOverview()">Show all details</a>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsSummary()">Summary</a>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsOverdueNames()">Overdue Students</a>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsPositiveNames()">Students with Positive Balance</a>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsOverview()">All Students Details</a>');
   _gel('idSelect').innerHTML = html.join('');
   
   showStudentStatsSummary();
@@ -1273,6 +1350,89 @@ function showStudentStatsSummary() {
 
   html.push('</table>');
 
+  updateReportTime();
+  _gel('idEntityList').innerHTML = html.join('');
+}
+
+function showStudentsPositiveNames() {
+  // reset select box
+  _gel('idPick').selectedIndex = 0;
+
+  var html = [];
+  html.push('<table cellpadding=4 style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
+  html.push('<tr><td></td><td>Student</td><td>Private Lessons Balance</td><td>Group Classes Balance</td></tr>');
+
+  var sortedList = statsStudents.getSortedStudentsList();
+  var total = 0;
+  for (var i=0; i<sortedList.length; i++) {
+    var key = sortedList[i];
+    var account = getStudentAccount(key);
+    if (!account.isPositive()) continue;
+    total++
+    html.push('<tr><td>' + (total) + '</td><td>' + 
+      '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) + '\')">' + key + '</a></td>');
+    html.push('<td align=right>' + account.getPrivateBalance().toFixed(2) + '</td>');
+    html.push('<td align=right>' + account.getGroupBalance() + '</td>');
+    html.push('</tr>');
+  }
+
+  html.push('</table>');
+
+  updateReportTime();
+  _gel('idEntityList').innerHTML = html.join('');
+}
+
+function showStudentsOverdueNames() {
+  // reset select box
+  _gel('idPick').selectedIndex = 0;
+
+  var html = [];
+  html.push('<p>');
+  html.push('<b>Students with negative balance:</b>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsOverdue()">Expand and show account details</a><p>');
+
+
+  html.push('<table cellpadding=4 style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
+  html.push('<tr><td></td><td>Student</td><td>Private Lessons Balance</td><td>Group Classes Balance</td></tr>');
+
+  var sortedList = statsStudents.getSortedStudentsList();
+  var total = 0;
+  for (var i=0; i<sortedList.length; i++) {
+    var key = sortedList[i];
+    var account = getStudentAccount(key);
+    if (!account.isOverdue()) continue;
+    total++
+    html.push('<tr><td>' + (total) + '</td><td>' + 
+      '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) + '\')">' + key + '</a></td>');
+    html.push('<td  align=right>' + account.getPrivateBalance().toFixed(2) + '</td>');
+    html.push('<td  align=right>' + account.getGroupBalance() + '</td>');
+    html.push('</tr>');
+  }
+
+  html.push('</table>');
+
+  updateReportTime();
+  _gel('idEntityList').innerHTML = html.join('');
+}
+
+function showStudentsOverdue() {
+  // reset select box
+  _gel('idPick').selectedIndex = 0;
+
+  var html = [];
+
+  var sortedList = statsStudents.getSortedStudentsList();
+  var total = 0;
+  for (var i=0; i<sortedList.length; i++) {
+    var key = sortedList[i];
+    var account = getStudentAccount(key);
+    if (!account.isOverdue()) continue;
+    total++;
+    html.push(statsStudents.getStat(key).getDisplay());
+  }
+  html.push(LINE);
+  html.push('<b>Total Overdue</b>: ' + total + ' students.');
+  updateReportTime();
   _gel('idEntityList').innerHTML = html.join('');
 }
 
@@ -1288,21 +1448,43 @@ function showStudentStatsOverview() {
     var key = sortedList[i];
     html.push(statsStudents.getStat(key).getDisplay());
   }
+  updateReportTime();
   _gel('idEntityList').innerHTML = html.join('');
 }
 
-// result: [series, series$, dropin, dropin$, private, private$]
+function PaymentTotal(){
+  this.num_series = 0;
+  this.amt_series = 0.0;
+  this.num_dropin = 0;
+  this.amt_dropin = 0.0;
+  this.num_private = 0.0;
+  this.amt_private = 0.0;
+  this.num_youth = 0;
+  this.amt_youth = 0.0;
+  this.num_child = 0;
+  this.amt_child = 0.0;
+  this.num_party = 0;
+  this.amt_party = 0.0;
+  this.num_floorfee = 0; // EDS floor fee in note area
+  this.amt_floorfee = 0.0;
+  this.num_practice_dropin = 0;
+  this.amt_practice_dropin = 0.0;
+  this.num_practice_monthly = 0;
+  this.amt_practice_monthly = 0.0;
+}
+
 function getStudentItemizedPaymentDisplay(entry, result) {
-  var itemsPaid = [];
+  var html = ['<table cellpadding=0 cellspacing=0><tr><td>'];
   var num, amt;
 
+  var itemsPaid = [];
   if (entry[INDEX_PAYMENT_NUM_SERIES]) {
     num = parseInt(entry[INDEX_PAYMENT_NUM_SERIES]);
     amt = parseFloat(entry[INDEX_PAYMENT_AMT_SERIES]);
     itemsPaid.push(''+ num + ' Series Classes for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per class');
     if (result) {
-     result[0] += num;
-     result[1] += amt;
+     result.num_series += num;
+     result.amt_series += amt;
     }
   }   
   if (entry[INDEX_PAYMENT_NUM_DROPIN]) {
@@ -1310,8 +1492,8 @@ function getStudentItemizedPaymentDisplay(entry, result) {
     amt = parseFloat(entry[INDEX_PAYMENT_AMT_DROPIN]);
     itemsPaid.push(''+ num + ' Dropin Classes for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per class');
     if (result) {
-     result[2] += num;
-     result[3] += amt;
+     result.num_dropin += num;
+     result.amt_dropin += amt;
     }
   }   
   if (entry[INDEX_PAYMENT_NUM_PRIVATE]) {
@@ -1319,49 +1501,78 @@ function getStudentItemizedPaymentDisplay(entry, result) {
     amt = parseFloat(entry[INDEX_PAYMENT_AMT_PRIVATE]);
     itemsPaid.push(''+ num.toFixed(2) + ' Private Lessons for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per lesson');
     if (result) {
-     result[4] += num;
-     result[5] += amt;
+     if (entry[INDEX_NOTE].indexOf('EDS') != -1) {
+       result.num_floorfee += num; 
+       result.amt_floorfee += amt; 
+     } else {
+       result.num_private += num;
+       result.amt_private += amt;
+     }
     }
   }   
   if (entry[INDEX_PAYMENT_NUM_DROPIN_PRACTICE]) {
-    num = entry[INDEX_PAYMENT_NUM_DROPIN_PRACTICE];
-    amt = entry[INDEX_PAYMENT_AMT_DROPIN_PRACTICE];
+    num = parseInt(entry[INDEX_PAYMENT_NUM_DROPIN_PRACTICE]);
+    amt = parseFloat(entry[INDEX_PAYMENT_AMT_DROPIN_PRACTICE]);
     itemsPaid.push(''+ num + ' Dropin Practice for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per practice');
+    if (result) {
+     result.num_practice_dropin += num;
+     result.amt_practice_dropin += amt;
+    }
   }   
   if (entry[INDEX_PAYMENT_NUM_MONTHLY_PRACTICE]) {
-    num = entry[INDEX_PAYMENT_NUM_MONTHLY_PRACTICE];
-    amt = entry[INDEX_PAYMENT_AMT_MONTHLY_PRACTICE];
+    num = parseInt(entry[INDEX_PAYMENT_NUM_MONTHLY_PRACTICE]);
+    amt = parseFloat(entry[INDEX_PAYMENT_AMT_MONTHLY_PRACTICE]);
     itemsPaid.push(''+ num + ' Monthly Practice for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per student');
+    if (result) {
+     result.num_practice_monthly += num;
+     result.amt_practice_monthly += amt;
+    }
   }   
   if (entry[INDEX_PAYMENT_NUM_CHILDREN]) {
-    num = entry[INDEX_PAYMENT_NUM_CHILDREN];
-    amt = entry[INDEX_PAYMENT_AMT_CHILDREN];
+    num = parseInt(entry[INDEX_PAYMENT_NUM_CHILDREN]);
+    amt = parseFloat(entry[INDEX_PAYMENT_AMT_CHILDREN]);
     itemsPaid.push(''+ num + ' Children\'s Program for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per student');
+    if (result) {
+     result.num_child += num;
+     result.amt_child += amt;
+    }
   }   
   if (entry[INDEX_PAYMENT_NUM_YOUTH]) {
-    num = entry[INDEX_PAYMENT_NUM_YOUTH];
-    amt = entry[INDEX_PAYMENT_AMT_YOUTH];
+    num = parseInt(entry[INDEX_PAYMENT_NUM_YOUTH]);
+    amt = parseFloat(entry[INDEX_PAYMENT_AMT_YOUTH]);
     itemsPaid.push(''+ num + ' Youth Program for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per student');
+    if (result) {
+     result.num_youth += num;
+     result.amt_youth += amt;
+    }
   }   
   if (entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]) {
-    num = entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES];
-    amt = entry[INDEX_PAYMENT_AMT_INDEPENDENT_FLOOR_FEES];
+    num = parseInt(entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]);
+    amt = parseFloat(entry[INDEX_PAYMENT_AMT_INDEPENDENT_FLOOR_FEES]);
     itemsPaid.push(''+ num + ' Lessons, Floor Fees paid total <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per lesson');
+    if (result) { // using EDS note for now
+     //result.num_floorfee += num;
+     //result.amt_floorfee += amt;
+    }
   }   
   if (entry[INDEX_PAYMENT_NUM_PARTIES]) {
-    num = entry[INDEX_PAYMENT_NUM_PARTIES];
-    amt = entry[INDEX_PAYMENT_AMT_PARTIES];
+    num = parseInt(entry[INDEX_PAYMENT_NUM_PARTIES]);
+    amt = parseFloat(entry[INDEX_PAYMENT_AMT_PARTIES]);
     itemsPaid.push(''+ num + ' Parties for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per party');
+    if (result) {
+     result.num_party += num;
+     result.amt_party += amt;
+    }
   }   
 
-  var html = ['<div style="margin-left:20">' + itemsPaid.join('<br>') + '</div>'];
+  html.push(itemsPaid.join('<br>') + '</td></tr><tr><td style=""><i>');
 
-  var notes = [];
   if (entry[INDEX_PAYMENT_DISCOUNT]) {
-    notes.push(entry[INDEX_PAYMENT_DISCOUNT]);  
+    html.push(entry[INDEX_PAYMENT_DISCOUNT] + '<br>');  
   }
-  notes.push(highlightTODO(entry[INDEX_NOTE]));
-  return html + notes.join('<br>');
+  html.push(highlightTODO(entry[INDEX_NOTE]));
+  html.push('</i></td></tr></table>');
+  return html.join('');
 }
 
 
@@ -1371,6 +1582,7 @@ function showPaymentStats() {
   _gel('idSelect').innerHTML = '';
 
   var html = statsPayment.getDisplay();
+  updateReportTime();
   _gel('idEntityList').innerHTML = html;
 }
 
@@ -1461,6 +1673,7 @@ function showTeacherStatsSummary() {
 
   html.push('</table>');
 
+  updateReportTime();
   _gel('idEntityList').innerHTML = html.join('');
 }
 
@@ -1476,6 +1689,7 @@ function updateTeacherStats(optSelect) {
 
 function updateTeacherStatsWithName(selected) {
   var stat = statsTeachers.getStat(selected);
+  updateReportTime();
   _gel('idEntityList').innerHTML = stat.getDisplay();
 }
 
@@ -1491,6 +1705,7 @@ function showTeacherStatsOverview() {
     var stat = statsTeachers.getStat(teacher);
     html.push(stat.getDisplay());
   }
+  updateReportTime();
   _gel('idEntityList').innerHTML = html.join('');
 }
 
@@ -1518,6 +1733,7 @@ function showClassesStatsSummary() {
   _gel('idPick').selectedIndex = 0;
 
   var html = statsClasses.getSummaryDisplay();
+  updateReportTime();
   _gel('idEntityList').innerHTML = html;
 }
 
@@ -1534,6 +1750,7 @@ function showClassesStatsOverview() {
    html.push(stat.getDisplay());
   }
 
+  updateReportTime();
   _gel('idEntityList').innerHTML = html.join('');
 }
 
@@ -1549,6 +1766,7 @@ function updateClassStats(optSelect) {
 
 function updateClassStatsWithName(selected) {
   var stat = statsClasses.getStat(selected);
+  updateReportTime();
   _gel('idEntityList').innerHTML = stat.getDisplay();
 
 }
@@ -1576,6 +1794,7 @@ Ending (MM/DD/YYYY):
 </div>
 
 <div id="idEntityList" style="overflow: auto;"><img src="http://www.google.com/ig/images/spinner.gif" /></div>
+<div id='reportTime'></div>
 
 <script type="text/javascript" SRC="localonly.js"></script>
 
