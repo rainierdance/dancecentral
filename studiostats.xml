@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0330.1308";
+var VERSION = "12.0330.1355";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1251,8 +1251,9 @@ function processStatsWithTimeRestrict(startDate, endDate) {
   _gel('idEntityList').innerHTML = '';
   _gel('idSelect').innerHTML = '';
 
-  // default show classes stats
-  showClassesStats();
+  // default
+  // showClassesStats();
+  showPaymentStats();
 }
 
 //////////////////////////////////////
@@ -1320,9 +1321,20 @@ function showStudentStatsSummary() {
   var cntPaymentTotal = 0;
   var amtGroupTotal = 0;
   var amtLessonTotal = 0;
+  var totalGroupUsed = 0.0;
+  var totalPrivateUsed = 0.0;
+  var totalGroupBought = 0.0;
+  var totalPrivateBought = 0.0;
 
   for (var j=0; j<sortedList.length; j++) {
     var key = sortedList[j];
+
+    var account = getStudentAccount(key);
+    totalGroupUsed += account.groupPayment.amtUsed;
+    totalGroupBought += account.groupPayment.amtBought;
+    totalPrivateUsed += account.privatePayment.amtUsed;
+    totalPrivateBought += account.privatePayment.amtBought;
+
     var statStudent = statsStudents.getStat(key); // signInType, array of logs
     //group, youth could have signed in multiple classes
     var entries = statStudent.getStatForSignInType('Group');
@@ -1426,8 +1438,16 @@ function showStudentStatsSummary() {
 
 
   updateReportTime();
-  _gel('idEntityList').innerHTML = '<p>Total Classes and Private Lessons: <b>$' + (amtGroupTotal + amtLessonTotal).toFixed(2) + '<p>' +
-    html.join('') + '</b>';
+
+
+  //_gel('idEntityList').innerHTML = '<p>Total Classes and Private Lessons: <b>$' + 
+  //  (amtGroupTotal + amtLessonTotal).toFixed(2) + '</b><p>' + html.join('');
+
+  _gel('idEntityList').innerHTML = '<p>Total Classes and Private Lessons: &nbsp; &nbsp; Used <b>$' + 
+    (totalGroupUsed + totalPrivateUsed).toFixed(2) + '</b> &nbsp; &nbsp; Bought: <b>$' + 
+    (totalGroupBought + totalPrivateBought).toFixed(2) +  '</b>' +
+    ' &nbsp; &nbsp; Unused: <b>$' + (totalGroupBought + totalPrivateBought - totalGroupUsed - totalPrivateUsed).toFixed(2) + '</b>' +
+    '<p>' + html.join('');
 }
 
 function showStudentsPositiveNames() {
