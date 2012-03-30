@@ -164,7 +164,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0328.0328";
+var VERSION = "12.0330.1226";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1249,7 +1249,7 @@ Specials:<br>
 </tr>
 
 <tr id="trPayment"><td>Total Payment</td><td>
-<input type='text' value="" id="entry_prep_payment_total" size=6>&nbsp;&nbsp;
+<input type='text' value="" id="entry_prep_payment_total" size=6 readonly>&nbsp;&nbsp;
 <span id='idPaymentMethods' style='display:none'>
 <span id='paymentMethods'>
 <input type='radio' value="Cash" name="rPaymentMethod" id='labelPrepMethodCash' ><label for="labelPrepMethodCash">Cash</label> &nbsp;&nbsp;
