@@ -62,7 +62,7 @@ gAllRawEntities.push("3/11/2012 15:38:04;Cecilia Wang;Group;3/8/2012;20:10:00;Dr
 gAllRawEntities.push("3/16/2012 14:39:26;Cecilia Wang;Private;3/14/2012;18:50:00;;45;Kora Stoynova".split(';'));
 gAllRawEntities.push("3/25/2012 17:17:57;Cecilia Wang;Payment;3/14/2012;18:50:00;;;;;EDS floor fee;12;;;;1;;;;;;;;12".split(';'));
 
-gAllRawEntities.push("3/8/2012 12:03:59;Diane Johnson;Private;3/8/2012;12:15:00;;45;Simeon Stoynov".split(';'));
+//gAllRawEntities.push("3/8/2012 12:03:59;Diane Johnson;Private;3/8/2012;12:15:00;;45;Simeon Stoynov".split(';'));
 gAllRawEntities.push("3/8/2012 12:03:59;Diane Johnson;Private;3/8/2012;13:00:00;;45;Simeon Stoynov".split(';'));
 gAllRawEntities.push("3/16/2012 13:21:58;Diane Johnson;Payment;3/8/2012;13:21:00;;;;;EDS floor fee;24;;;;2;;;;;;;;24".split(';'));
 gAllRawEntities.push("3/16/2012 14:52:02;Diane Johnson;Private;3/15/2012;11:45:00;;45;Simeon Stoynov".split(';'));
