@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0331.1229";
+var VERSION = "12.0331.1425";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1000,6 +1000,8 @@ PaymentsStats.prototype.getDisplay = function (onlySummary) {
   var paymentHeader = 'Total: <b>$' + cntPaymentTotal.toFixed(2) + '</b> &nbsp; &nbsp;' + getPeriod() + '<p>';
 
   var htmlSummary = []; 
+  var studentSales = result.amt_party + result.amt_dropin + result.amt_series + result.amt_private + result.amt_youth + result.amt_child +
+      result.amt_practice_monthly + result.amt_practice_dropin;
 
   htmlSummary.push('<table cellpadding=4  style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
 
@@ -1010,8 +1012,6 @@ PaymentsStats.prototype.getDisplay = function (onlySummary) {
   htmlSummary.push('<tr align=right><td>' +
      'Private Lessons</td><td>' + result.num_private.toFixed(2) + '</td><td> $' + result.amt_private.toFixed(2) + '</td</tr>');
   htmlSummary.push('<tr align=right><td>' +
-     'Floor Fee</td><td> ' + result.num_floorfee.toFixed(2) + '</td><td>$' + result.amt_floorfee.toFixed(2) + '</td></tr>');
-  htmlSummary.push('<tr align=right><td>' +
      'Youth Program</td><td> ' + result.num_youth + '</td><td>$' + result.amt_youth.toFixed(2) + '</td></tr>');
   htmlSummary.push('<tr align=right><td>' +
      'Children\'s Program</td><td> ' + result.num_child + '</td><td>$' + result.amt_child.toFixed(2) + '</td></tr>');
@@ -1021,10 +1021,12 @@ PaymentsStats.prototype.getDisplay = function (onlySummary) {
      'Dropin Practice</td><td> ' + result.num_practice_dropin + '</td><td>$' + result.amt_practice_dropin.toFixed(2) + '</td></tr>');
   htmlSummary.push('<tr align=right><td>' +
      'Parties and Rounds</td><td> ' + result.num_party + '</td><td>$' + result.amt_party.toFixed(2) + '</td></tr>');
+  htmlSummary.push('<tr align=right style="font-weight:bold"><td>' +
+     'Student Sales Total</td><td>&nbsp;</td><td>$' + studentSales.toFixed(2) + '</td></tr>');
   htmlSummary.push('<tr align=right><td>' +
-     '&nbsp;</td><td>&nbsp;</td><td>$' + 
-     (result.amt_party + result.amt_dropin + result.amt_series + result.amt_private + result.amt_youth + result.amt_child + 
-      result.amt_floorfee + result.amt_practice_monthly + result.amt_practice_dropin).toFixed(2) + '</td></tr>');
+     'Floor Fee</td><td> ' + result.num_floorfee.toFixed(2) + '</td><td>$' + result.amt_floorfee.toFixed(2) + '</td></tr>');
+  htmlSummary.push('<tr align=right style="font-weight:bold"><td>' +
+     'Total</td><td>&nbsp;</td><td>$' + (studentSales + result.amt_floorfee).toFixed(2) + '</td></tr>');
 
   htmlSummary.push('</table>');
 
