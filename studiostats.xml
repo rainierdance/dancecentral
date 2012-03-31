@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0330.1355";
+var VERSION = "12.0330.2018";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -937,7 +937,7 @@ AllClassesStats.prototype.getSummaryDisplay = function () {
   html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Class</td><td>Total #</td><td>Paid #</td><td>Paid $</td></tr>');
   for (var i = 0; i<sortedList.length; i++) {
    html.push('<tr align=right><td>' + (i+1) +
-     '</td><td><a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(sortedList[i][0]) +
+     '</td><td align=left><a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(sortedList[i][0]) +
      '\')">' + sortedList[i][0] + '</a></td><td>' + sortedList[i][1] + '</td><td>' + 
      (sortedList[i][2] > 0 ? sortedList[i][2] : '') + 
      '</td><td>' + ((sortedList[i][3] && sortedList[i][3] > 0) ? '$' + sortedList[i][3].toFixed(2) : '') + 
@@ -1374,7 +1374,7 @@ function showStudentStatsSummary() {
     studentTotal += cntYouth;
 
     html.push('<tr align=right><td>' + (j+1) + 
-      '</td><td><a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) +
+      '</td><td align=left><a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) +
       '\')">' + key + '</a></td>');
     html.push('<td>' + (cntGroup == 0 ? ' ' : cntGroup) +  '</td><td>' + (amtGroup >0 ? '$' + amtGroup.toFixed(2) : ' ') + '</td>');
     html.push('<td>' + (cntParty == 0 ? ' ' : cntParty) + '</td>');
