@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0330.2018";
+var VERSION = "12.0331.1229";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -126,9 +126,10 @@ var INDEX_PAYMENT_AMT_PARTIES = 30;
 var statsTeachers;
 var statsStudents;
 var statsClasses;
+var statsPayment;
+
 var allStatsClasses;
 var allStatsTeachers;
-var statsPayment;
 
 var accounts = {}; // key student, value: StudentAccount
 
@@ -237,6 +238,16 @@ StudentStats.prototype.updateAccounts = function() {
 function isGroupClass(name) {
   return (name.indexOf('Series') != -1 ||
         name.indexOf('Drop-in') != -1 );
+}
+
+function getPeriod() {
+  var startDate = _gel('idStartDate').value;
+  var endDate = _gel('idEndDate').value;
+
+  if (startDate || endDate)
+    return ('Period: <b>' + startDate + ' ~ ' + endDate + '</b>');
+
+  return "";
 }
 
 StudentStats.prototype.getDisplay = function() {
@@ -385,7 +396,8 @@ StudentStats.prototype.getDisplay = function() {
 
   htmlSummary.push('</table><p>');
 
-  if (startDate || endDate) htmlSummary.push('<b>Period: ' + startDate + ' ~ ' + endDate + '</b><p>');
+  htmlSummary.push('<b>Activities</b> &nbsp; &nbsp; ' + getPeriod() + '<p>');
+
 /*
   htmlSummary.push('<table cellpadding=4 style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
   htmlSummary.push('<tr style="font-weight:bold"><td>Type</td><td>Bought</td><td>Taken</td><td>Balance</td></tr>');
@@ -900,9 +912,9 @@ AllClassesStats.prototype.getSummaryDisplay = function () {
   }
 
   var html = [];
-  html.push('<b>Summary</b><p>');
+  html.push('<b>Summary</b> &nbsp; &nbsp; ' + getPeriod() + '<p>');
   html.push('<table cellpadding=4 style="border-collapse:collapse;" bordercolor="lightgray" border=1>');
-  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Number of Events</td><td>Total Students</td><td>Total Paid #</td><td>Paid #/ Event</td><td>Total Paid $</td></tr>');
+  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Number of Events</td><td>Total Students</td><td>Total Paid #</td><td>Paid # / Event</td><td>Total Paid $</td></tr>');
 
   if (cntTotalGroup > 0) {
      html.push('<tr align=right><td>Group and Series</td><td>' + cntTotalGroup + 
@@ -959,10 +971,10 @@ PaymentsStats.prototype.addEntry = function (entry) {
   this.stats.push(entry);
 }
 
-PaymentsStats.prototype.getDisplay = function (entry) {
+PaymentsStats.prototype.getDisplay = function (onlySummary) {
   var html = [];
 
-  html.push('<p>');
+  html.push('<b>Details</b><p>');
 
   var cntPaymentTotal= 0;
   var result = new PaymentTotal();
@@ -985,8 +997,10 @@ PaymentsStats.prototype.getDisplay = function (entry) {
   }
   html.push('</table>');
 
-  var htmlSummary = [];
-  htmlSummary.push('<p>Total: <b>$' + cntPaymentTotal.toFixed(2) + '</b><p>');
+  var paymentHeader = 'Total: <b>$' + cntPaymentTotal.toFixed(2) + '</b> &nbsp; &nbsp;' + getPeriod() + '<p>';
+
+  var htmlSummary = []; 
+
   htmlSummary.push('<table cellpadding=4  style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
 
   htmlSummary.push('<tr style="font-weight:bold"><td></td><td>Number</td><td>Total Amount</td></tr>');
@@ -1015,8 +1029,12 @@ PaymentsStats.prototype.getDisplay = function (entry) {
   htmlSummary.push('</table>');
 
   htmlSummary.push('<p>Group Classes + Private Lessons + Floor Fee: &nbsp;  <b>$' + 
-    (result.amt_series + result.amt_dropin + result.amt_private + result.amt_floorfee).toFixed(2) + '</b><p><b>Details</b><p>');
-  return htmlSummary.join('') + html.join('');
+    (result.amt_series + result.amt_dropin + result.amt_private + result.amt_floorfee).toFixed(2) + '</b><p>');
+
+  if (onlySummary)
+    return htmlSummary.join('');
+  else
+    return paymentHeader + htmlSummary.join('') + html.join('');
 
 }
 
@@ -1156,6 +1174,7 @@ function initData() {
 
   processStatsWithTimeRestrict(null, null); // all stats
 
+  showPaymentStats();
 
   // get per students account information, this is only done one time
 }
@@ -1180,6 +1199,7 @@ function processStats() {
   endDate.setTime(endDate.getTime() + 22*60*60*1000 + 30 *60*1000); // ending, before 10:30pm
 
   processStatsWithTimeRestrict(startDate, endDate);
+  showPaymentStats();
 }
 
 function processStatsWithTimeRestrict(startDate, endDate) {
@@ -1244,6 +1264,7 @@ function processStatsWithTimeRestrict(startDate, endDate) {
     // check taking classes, go through all classes taken.
     allStatsClasses = statsClasses;
     allStatsTeachers = statsTeachers;
+
     statsStudents.updateAccounts();
   }
   // clear display
@@ -1309,9 +1330,14 @@ function showStudentStatsSummary() {
   var sortedList = statsStudents.getSortedStudentsList();
   var html = [];
 
+  html.push('<b>Student Summary</b> &nbsp; &nbsp; ' + getPeriod() + '<p>');
+
   html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
-  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Student</td><td>Classes</td><td>Classes $</td><td>Parties/Rounds</td>' +
-   '<td>Youth/Child</td><td>Private Lessons</td><td>Lesson $</td><td>Practice</td><td>Total SignIn\'s</td><td>Payment</td></tr>');
+  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Student</td><td>Classes</td><td>Classes $</td>' + 
+   '<td>Private Lessons</td><td>Lesson $</td>' + 
+   '<td>Parties/Rounds</td>' +
+   '<td>Youth/Child</td>' + 
+   '<td>Practice</td><td>Total Visits</td><td>Payment</td></tr>');
 
   var cntGroupTotal = 0;
   var cntPartyTotal = 0;
@@ -1321,19 +1347,9 @@ function showStudentStatsSummary() {
   var cntPaymentTotal = 0;
   var amtGroupTotal = 0;
   var amtLessonTotal = 0;
-  var totalGroupUsed = 0.0;
-  var totalPrivateUsed = 0.0;
-  var totalGroupBought = 0.0;
-  var totalPrivateBought = 0.0;
 
   for (var j=0; j<sortedList.length; j++) {
     var key = sortedList[j];
-
-    var account = getStudentAccount(key);
-    totalGroupUsed += account.groupPayment.amtUsed;
-    totalGroupBought += account.groupPayment.amtBought;
-    totalPrivateUsed += account.privatePayment.amtUsed;
-    totalPrivateBought += account.privatePayment.amtBought;
 
     var statStudent = statsStudents.getStat(key); // signInType, array of logs
     //group, youth could have signed in multiple classes
@@ -1377,8 +1393,6 @@ function showStudentStatsSummary() {
       '</td><td align=left><a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) +
       '\')">' + key + '</a></td>');
     html.push('<td>' + (cntGroup == 0 ? ' ' : cntGroup) +  '</td><td>' + (amtGroup >0 ? '$' + amtGroup.toFixed(2) : ' ') + '</td>');
-    html.push('<td>' + (cntParty == 0 ? ' ' : cntParty) + '</td>');
-    html.push('<td>' + (cntYouth == 0 ? ' ' : cntYouth) + '</td>');
 
     var statType = statStudent.getStatForSignInType('Private');
     var privateLessonMin = 0;
@@ -1398,6 +1412,9 @@ function showStudentStatsSummary() {
 
     html.push('<td>' + privateLessonNum.toFixed(2) + '</td>');
     html.push('<td>' + (amtLesson > 0 ? '$' + amtLesson.toFixed(2) : '') + '</td>');
+
+    html.push('<td>' + (cntParty == 0 ? ' ' : cntParty) + '</td>');
+    html.push('<td>' + (cntYouth == 0 ? ' ' : cntYouth) + '</td>');
 
     statType = statStudent.getStatForSignInType('Practice');
     html.push('<td>' + (statType ? statType.length : ' ') + '</td>');
@@ -1425,11 +1442,11 @@ function showStudentStatsSummary() {
   }
 
   html.push('<tr align=right style="font-weight:bold"><td>&nbsp;</td>' +
-    '<td>Total</td><td>' + cntGroupTotal + '</td><td>' + (amtGroupTotal > 0 ? '$' + amtGroupTotal.toFixed(2) : '') + '</td>' +
-   '<td>' + cntPartyTotal + '</td>' +
-   '<td>' + cntYouthTotal + 
+    '<td>Total</td><td>' + cntGroupTotal + '</td><td>' + (amtGroupTotal > 0 ? '$' + amtGroupTotal.toFixed(2) : '') + 
    '</td><td>' + cntPrivateTotal.toFixed(2) + 
    '</td><td>' + (amtLessonTotal >0 ? '$' + amtLessonTotal.toFixed(2) : '') +
+   '</td><td>' + cntPartyTotal + 
+   '</td><td>' + cntYouthTotal + 
    '</td><td>' + cntPracticeTotal + '</td><td>' +
    (cntGroupTotal + cntPartyTotal + cntYouthTotal + cntPrivateTotal + cntPracticeTotal).toFixed(2) + 
    '</td><td>$' + cntPaymentTotal.toFixed(2) + '</td></tr>');
@@ -1438,16 +1455,10 @@ function showStudentStatsSummary() {
 
 
   updateReportTime();
+  _gel('idEntityList').innerHTML = html.join('');
 
-
-  //_gel('idEntityList').innerHTML = '<p>Total Classes and Private Lessons: <b>$' + 
-  //  (amtGroupTotal + amtLessonTotal).toFixed(2) + '</b><p>' + html.join('');
-
-  _gel('idEntityList').innerHTML = '<p>Total Classes and Private Lessons: &nbsp; &nbsp; Used <b>$' + 
-    (totalGroupUsed + totalPrivateUsed).toFixed(2) + '</b> &nbsp; &nbsp; Bought: <b>$' + 
-    (totalGroupBought + totalPrivateBought).toFixed(2) +  '</b>' +
-    ' &nbsp; &nbsp; Unused: <b>$' + (totalGroupBought + totalPrivateBought - totalGroupUsed - totalPrivateUsed).toFixed(2) + '</b>' +
-    '<p>' + html.join('');
+//  _gel('idEntityList').innerHTML = '<p>Total Classes and Private Lessons: <b>$' + 
+//    (amtGroupTotal + amtLessonTotal).toFixed(2) + '</b><p>' + html.join('');
 }
 
 function showStudentsPositiveNames() {
@@ -1671,8 +1682,6 @@ function getStudentItemizedPaymentDisplay(entry, result) {
   return html.join('');
 }
 
-
-
 //////////////////////////////////////
 function showPaymentStats() {
   _gel('idSelect').innerHTML = '';
@@ -1707,6 +1716,7 @@ function showTeacherStatsSummary() {
   var sortedList = statsTeachers.getSortedTeachersList();
 
   var html = [];
+  html.push('<p><b>Summary</b> &nbsp; &nbsp; ' + getPeriod() + '</p>');
 
   html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
   html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Teacher</td><td>Group Classes</td>' +
@@ -1867,6 +1877,46 @@ function updateClassStatsWithName(selected) {
 
 }
 
+function showStudioOverview() {
+  _gel('idStartDate').value = '';
+  _gel('idEndDate').value = '';
+
+  processStats(); // replace display right away, not efficient
+
+  _gel('idSelect').innerHTML = '';
+
+  var sortedList = statsStudents.getSortedStudentsList();
+  var html = [];
+
+  var totalGroupUsed = 0.0;
+  var totalPrivateUsed = 0.0;
+  var totalGroupBought = 0.0;
+  var totalPrivateBought = 0.0;
+
+  for (var j=0; j<sortedList.length; j++) {
+    var key = sortedList[j];
+
+    var account = getStudentAccount(key);
+    totalGroupUsed += account.groupPayment.amtUsed;
+    totalGroupBought += account.groupPayment.amtBought;
+    totalPrivateUsed += account.privatePayment.amtUsed;
+    totalPrivateBought += account.privatePayment.amtBought;
+  }
+
+  var classSummary  = '<p>Total Classes and Private Lessons: &nbsp; &nbsp; Used <b>$' + 
+    (totalGroupUsed + totalPrivateUsed).toFixed(2) + '</b> &nbsp; &nbsp; Bought: <b>$' + 
+    (totalGroupBought + totalPrivateBought).toFixed(2) +  '</b>' +
+    ' &nbsp; &nbsp; Unused: <b>$' + (totalGroupBought + totalPrivateBought - totalGroupUsed - totalPrivateUsed).toFixed(2) + '</b>' +
+    '<p>';
+
+  var paymentSummary = statsPayment.getDisplay(true);
+
+  updateReportTime();
+
+  _gel('idEntityList').innerHTML = '<b>Payment Summary</b><p>' + paymentSummary + 
+   '<p><b>Activities Summary</b><p>' + classSummary;
+}
+
 </script> 
 
 <!--- UI elements --->
@@ -1879,10 +1929,15 @@ Ending (MM/DD/YYYY):
 <p>
 
 <div id='idStatsLinks' style="display:None">
-<a href="javascript:void(0)" onclick="showStudentStats();">Student stats</a> &nbsp; | &nbsp; 
-<a href="javascript:void(0)" onclick="showClassesStats();">Classes and Party stats</a> &nbsp; | &nbsp; 
-<a href="javascript:void(0)" onclick="showTeacherStats();">Teacher stats</a> &nbsp; | &nbsp; 
-<a href="javascript:void(0)" onclick="showPaymentStats();">Payment stats</a>
+<a href="javascript:void(0)" onclick="showStudentStats();">Student stats</a> 
+&nbsp; | &nbsp; <a href="javascript:void(0)" onclick="showClassesStats();">Classes and Party stats</a>
+&nbsp; | &nbsp; <a href="javascript:void(0)" onclick="showTeacherStats();">Teacher stats</a>
+&nbsp; | &nbsp; <a href="javascript:void(0)" onclick="showPaymentStats();">Payment stats</a> 
+<span style="float:right"><a style='text-decoration:none' href="javascript:void(0)" onclick="showStudioOverview();">
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+</a>
+</span>
+<p><hr style="background-color:black;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;height:1px"><p>
 </div>
 </div>
 
