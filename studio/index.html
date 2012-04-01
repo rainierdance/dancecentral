@@ -30,6 +30,9 @@ var gSelectedEntity = null; // Entity object
 var gSelectedSignInTypeIndex = null;
 var gErrElement;
 
+var gLastSignInType = 0;
+var gLastDateUsed = formatDate(new Date());
+
 ////////////////////////////////////////////////////////////////////////
 <!-- Utilities -->
 function formatDate(dateObj) {
@@ -273,13 +276,17 @@ function selectEntity(index) {
 
   _gel('idEntityHeader').style.display = '';
   _gel('idSignInPanel').style.display = 'None';
+
+  // default to Group class sign in
+  changeSignInType(gLastSignInType);
 }
 
 function fillInDateTime() {
   // fill in common fields for all types of sign in
   var now = new Date();
   element = _gel('entry_prep_date'); // Date
-  element.value = formatDate(now);
+  //element.value = formatDate(now);
+  element.value = gLastDateUsed; // use last used date
 
   var start = now;
   var hour = start.getHours();
@@ -344,6 +351,8 @@ function fillInDateTime() {
 }
 
 function changeSignInType(signInTypeIndex) {
+  gLastSignInType = signInTypeIndex;
+
   gSelectedSignInTypeIndex = signInTypeIndex;
   var signInTypeValue = gAllSignInTypes[gSelectedSignInTypeIndex].value;
 
@@ -502,6 +511,11 @@ var categoryFilters = {
 //  'Party' : ['Party', 'Round'],
   'Teach' : ['Series', 'Drop-in', 'Children', 'Youth'],
   'Youth' : ['Children', 'Youth']
+}
+
+function onChangeDate() {
+  gLastDateUsed = _gel('entry_prep_date').value;
+  fillInClasses(true);
 }
 
 function fillInClasses(onlyToday) {
@@ -924,7 +938,14 @@ function onSignIn() {
   if (!isNaN(value)) length = value;
 
   _gel('entry_11').value = (length > 0) ? length : '';
-  _gel('entry_5').value = _gel('entry_prep_note').value;
+
+  var floorFee = '';
+
+  if (_gel('entry_prep_payment_opt_private_floorfee').checked) {
+    floorFee = 'Floor Fee. ';
+  }
+
+  _gel('entry_5').value = floorFee + _gel('entry_prep_note').value;
 
   _gel('entry_12').value = _gel('entry_prep_payment_total').value;
   radioOptions = formPrep.rPaymentMethod;
@@ -1000,7 +1021,7 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 <table border=0 cellspacing=5>
 
 <tr id="trDateTime"><td width=150>Date and Time</td><td>
-<input type="text" name="entry.6.single" value=""  id="entry_prep_date" onchange="fillInClasses(true)"> &nbsp;
+<input type="text" name="entry.6.single" value=""  id="entry_prep_date" onchange="onChangeDate()"> &nbsp;
 <input type="text" value=""  id="startTimeHour" size=2> : 
 <input type="text" value=""  id="startTimeMin" size=2> 
 <!-- changed to use text box
@@ -1058,7 +1079,9 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 <tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_punch" size=3  onchange="updateDropInClassTotal()"> Number of Drop-in Classes</td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_punch" onchange="updateTotal()" size=3></td></tr>
 <tr><td><input type='text' value="" id="entry_prep_payment_num_private" size=3 onchange="updatePrivateTotal()"> Number of Private Lessons </td>
-<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_private" onchange="updateTotal()" size=3></td></tr>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_private" onchange="updateTotal()" size=3> &nbsp;
+<input type=checkbox id="entry_prep_payment_opt_private_floorfee" value="Floor Fee"> Floor Fee
+</td></tr>
 <tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_youth"  onchange="updateYouthTotal()" size=3> Number of students in Youth Program </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_youth" onchange="updateTotal()" size=3></td></tr>
 <tr><td><input type='text' value="" id="entry_prep_payment_num_child" size=3  onchange="updateChildrenTotal()"> Number of students in Children's Program </td>

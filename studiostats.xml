@@ -76,7 +76,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0331.1425";
+var VERSION = "12.0331.1749";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -945,19 +945,58 @@ AllClassesStats.prototype.getSummaryDisplay = function () {
 
   html.push('</table><p>'); 
 
-  html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
-  html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Class</td><td>Total #</td><td>Paid #</td><td>Paid $</td></tr>');
+  var htmlGroup = [];
+  var htmlKids = [];
+  var htmlParty = [];
+
+  htmlGroup.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
+  htmlParty.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
+  htmlKids.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
+
+  htmlGroup.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Class</td><td>Total #</td><td>Paid #</td><td>Paid $</td></tr>');
+  htmlParty.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Class</td><td>Total #</td><td>Paid #</td><td>Paid $</td></tr>');
+  htmlKids.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Class</td><td>Total #</td></tr>');
+
+  var iGroup = 0; 
+  var iKids = 0;
+  var iParty = 0;
+
   for (var i = 0; i<sortedList.length; i++) {
-   html.push('<tr align=right><td>' + (i+1) +
-     '</td><td align=left><a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(sortedList[i][0]) +
-     '\')">' + sortedList[i][0] + '</a></td><td>' + sortedList[i][1] + '</td><td>' + 
-     (sortedList[i][2] > 0 ? sortedList[i][2] : '') + 
-     '</td><td>' + ((sortedList[i][3] && sortedList[i][3] > 0) ? '$' + sortedList[i][3].toFixed(2) : '') + 
-     '</td></tr>');
+    if (sortedList[i][0].indexOf('Youth') != -1 || sortedList[i][0].indexOf('Child') != -1) {
+       iKids++;
+       htmlKids.push(
+         '<tr align=right><td>' + (iKids) +
+         '</td><td align=left><a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(sortedList[i][0]) +
+         '\')">' + sortedList[i][0] + '</a></td><td>' + sortedList[i][1] + '</td></tr>');
+    } else if (isGroupClass(sortedList[i][0])) {
+       iGroup++;
+       htmlGroup.push(
+         '<tr align=right><td>' + (iGroup) +
+         '</td><td align=left><a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(sortedList[i][0]) +
+         '\')">' + sortedList[i][0] + '</a></td><td>' + sortedList[i][1] + '</td><td>' + 
+         (sortedList[i][2] > 0 ? sortedList[i][2] : '') + 
+         '</td><td>' + ((sortedList[i][3] && sortedList[i][3] > 0) ? '$' + sortedList[i][3].toFixed(2) : '') + 
+         '</td></tr>');
+    } else { // Party and Rounds
+       iParty++;
+       htmlParty.push(
+         '<tr align=right><td>' + (iParty) +
+         '</td><td align=left><a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(sortedList[i][0]) +
+         '\')">' + sortedList[i][0] + '</a></td><td>' + sortedList[i][1] + '</td><td>' + 
+         (sortedList[i][2] > 0 ? sortedList[i][2] : '') + 
+         '</td><td>' + ((sortedList[i][3] && sortedList[i][3] > 0) ? '$' + sortedList[i][3].toFixed(2) : '') + 
+         '</td></tr>');
+    }
   }
 
-  html.push('</table>');
-  return html.join('');
+  htmlGroup.push('</table>');
+  htmlParty.push('</table>');
+  htmlKids.push('</table>');
+
+  return html.join('') + 
+    (iGroup > 0 ? '<p><b>Series and Group Classes:</b> <p>' + htmlGroup.join('') : '') +
+    (iParty > 0 ? '<p><b>Party and Rounds:</b> <p>' + htmlParty.join('') : '') + 
+    (iKids > 0 ? '<p><b>Youth and Children\'s Program:</b> <p>' + htmlKids.join('') : '');
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -1610,7 +1649,7 @@ function getStudentItemizedPaymentDisplay(entry, result) {
     amt = parseFloat(entry[INDEX_PAYMENT_AMT_PRIVATE]);
     itemsPaid.push(''+ num.toFixed(2) + ' Private Lessons for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per lesson');
     if (result) {
-     if (entry[INDEX_NOTE].indexOf('floor fee') != -1) { 
+     if (entry[INDEX_NOTE].toLowerCase().indexOf('floor fee') != -1) { 
        result.num_floorfee += num; 
        result.amt_floorfee += amt; 
      } else {
