@@ -164,7 +164,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0331.1749";
+var VERSION = "12.0401.2035";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1234,7 +1234,7 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_punch" onchange="updateTotal()" size=3></td></tr>
 <tr><td><input type='text' value="" id="entry_prep_payment_num_private" size=3 onchange="updatePrivateTotal()"> Number of Private Lessons </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_private" onchange="updateTotal()" size=3> &nbsp;
-<input type=checkbox id="entry_prep_payment_opt_private_floorfee" value="Floor Fee"> Floor Fee
+<input type=checkbox id="entry_prep_payment_opt_private_floorfee" value="Floor Fee"><label for="entry_prep_payment_opt_private_floorfee"> Floor Fee</label>
 </td></tr>
 <tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_youth"  onchange="updateYouthTotal()" size=3> Number of students in Youth Program </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_youth" onchange="updateTotal()" size=3></td></tr>
