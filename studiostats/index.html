@@ -65,6 +65,9 @@ var statsPayment;
 var allStatsClasses;
 var allStatsTeachers;
 
+var amtGroupTotal = 0;
+var amtLessonTotal = 0;
+
 var accounts = {}; // key student, value: StudentAccount
 
 ////////////////////////////////////////////////////////////////////////
@@ -479,6 +482,7 @@ TeacherStats.prototype.addEntry = function(entry) {
     } else {
       //TODO: wrong entry
     }
+/*
   } else if (signInType == 'Payment') {
     var amtFloorFees = parseFloat(entry[INDEX_PAYMENT_AMT_INDEPENDENT_FLOOR_FEES]);
     if (!isNaN(amtFloorFees)) {
@@ -486,6 +490,7 @@ TeacherStats.prototype.addEntry = function(entry) {
     } else {
       //TODO: wrong entry
     }
+*/
   } else if (signInType == 'Private') { // taught a private lesson
     var length = parseInt(entry[INDEX_LENGTH]);
     var student = trimLR(entry[INDEX_NAME]);
@@ -970,7 +975,7 @@ PaymentsStats.prototype.getDisplay = function (onlySummary) {
   }
   html.push('</table>');
 
-  var paymentHeader = 'Total: <b>$' + cntPaymentTotal.toFixed(2) + '</b> &nbsp; &nbsp;' + getPeriod() + '<p>';
+  var paymentHeader = 'Total: <b>$' + cntPaymentTotal.toFixed(2) + '</b> &nbsp; &nbsp;' + getPeriod() + '<a href="javascript:void(0)" onclick="showStudioOverview()" style="float:right">All dates summary</a><p>';
 
   var htmlSummary = []; 
   var studentSales = result.amt_party + result.amt_dropin + result.amt_series + result.amt_private + result.amt_youth + result.amt_child +
@@ -1003,8 +1008,15 @@ PaymentsStats.prototype.getDisplay = function (onlySummary) {
 
   htmlSummary.push('</table>');
 
-  htmlSummary.push('<p>Group Classes + Private Lessons + Floor Fee: &nbsp;  <b>$' + 
-    (result.amt_series + result.amt_dropin + result.amt_private + result.amt_floorfee).toFixed(2) + '</b><p>');
+  // in case this hasn't been run, generate total global
+  getStudentStatsSummary();
+
+  var unused = (result.amt_series + result.amt_dropin + result.amt_private + result.amt_floorfee) - 
+    (amtGroupTotal + amtLessonTotal);
+
+  htmlSummary.push('<p>Group Classes + Private Lessons + Floor Fee: &nbsp;  Paid $' + 
+    (result.amt_series + result.amt_dropin + result.amt_private + result.amt_floorfee).toFixed(2) + ' &nbsp; &nbsp; Used: $' +
+    (amtGroupTotal + amtLessonTotal).toFixed(2) + ' &nbsp; &nbsp; Unused: $' + unused.toFixed(2) + '<p>');
 
   if (onlySummary)
     return htmlSummary.join('');
@@ -1206,7 +1218,7 @@ function processStatsWithTimeRestrict(startDate, endDate) {
     var entry = gAllEntities[i];
     var classes = trimLR(entry[INDEX_CLASSES]).split(',');
     var amtTotalPayment = trimLR(entry[INDEX_AMOUNT_TOTAL]);
-    var numFloorFees = parseInt(trimLR(entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]));
+//    var numFloorFees = parseInt(trimLR(entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]));
 
     var student = trimLR(entry[INDEX_NAME]);
     var teacher = trimLR(entry[INDEX_TEACHER]);
@@ -1218,7 +1230,8 @@ function processStatsWithTimeRestrict(startDate, endDate) {
       statsPayment.addEntry(entry);
     }
 
-    if ((signInType == 'Teach') || !isNaN(numFloorFees)) { // teacher sign in
+    //if ((signInType == 'Teach') || !isNaN(numFloorFees)) { // teacher sign in
+    if (signInType == 'Teach') { // teacher sign in
       teacher = student;
       student = null;
     }
@@ -1302,6 +1315,13 @@ function showStudentStatsSummary() {
   // reset select box
   _gel('idPick').selectedIndex = 0;
 
+  var html = getStudentStatsSummary();
+
+  updateReportTime();
+  _gel('idEntityList').innerHTML = html;
+}
+
+function getStudentStatsSummary() {
   var sortedList = statsStudents.getSortedStudentsList();
   var html = [];
 
@@ -1320,8 +1340,9 @@ function showStudentStatsSummary() {
   var cntPrivateTotal = 0;
   var cntPracticeTotal = 0;
   var cntPaymentTotal = 0;
-  var amtGroupTotal = 0;
-  var amtLessonTotal = 0;
+
+  amtGroupTotal = 0;
+  amtLessonTotal = 0;
 
   for (var j=0; j<sortedList.length; j++) {
     var key = sortedList[j];
@@ -1428,12 +1449,8 @@ function showStudentStatsSummary() {
 
   html.push('</table>');
 
+  return html.join('');
 
-  updateReportTime();
-  _gel('idEntityList').innerHTML = html.join('');
-
-//  _gel('idEntityList').innerHTML = '<p>Total Classes and Private Lessons: <b>$' + 
-//    (amtGroupTotal + amtLessonTotal).toFixed(2) + '</b><p>' + html.join('');
 }
 
 function showStudentsPositiveNames() {
@@ -1628,6 +1645,7 @@ function getStudentItemizedPaymentDisplay(entry, result) {
      result.amt_youth += amt;
     }
   }   
+/*
   if (entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]) {
     num = parseInt(entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]);
     amt = parseFloat(entry[INDEX_PAYMENT_AMT_INDEPENDENT_FLOOR_FEES]);
@@ -1637,6 +1655,7 @@ function getStudentItemizedPaymentDisplay(entry, result) {
      result.amt_floorfee += amt;
     }
   }   
+*/
   if (entry[INDEX_PAYMENT_NUM_PARTIES]) {
     num = parseInt(entry[INDEX_PAYMENT_NUM_PARTIES]);
     amt = parseFloat(entry[INDEX_PAYMENT_AMT_PARTIES]);
@@ -1878,11 +1897,27 @@ function showStudioOverview() {
     totalPrivateBought += account.privatePayment.amtBought;
   }
 
-  var classSummary  = '<p>Total Classes and Private Lessons: &nbsp; &nbsp; Used <b>$' + 
-    (totalGroupUsed + totalPrivateUsed).toFixed(2) + '</b> &nbsp; &nbsp; Bought: <b>$' + 
-    (totalGroupBought + totalPrivateBought).toFixed(2) +  '</b>' +
-    ' &nbsp; &nbsp; Unused: <b>$' + (totalGroupBought + totalPrivateBought - totalGroupUsed - totalPrivateUsed).toFixed(2) + '</b>' +
-    '<p>';
+  var classHtml  = []; //WW
+  classHtml.push('<table cellpadding=4 style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
+  classHtml.push('<tr align=right><td></td><td>Bought</td><td>Used</td><td>Unused</td></tr>');
+  classHtml.push('<tr align=right><td>Group Classes</td><td>$' + 
+    totalGroupBought.toFixed(2) + '</td><td>$' + 
+    totalGroupUsed.toFixed(2) + '</td><td>$' +
+    (totalGroupBought - totalGroupUsed).toFixed(2) + '</td></tr>');
+
+  classHtml.push('<tr align=right><td>Private Lessons and Floor Fees</td><td>$' + 
+    totalPrivateBought.toFixed(2) + '</td><td>$' + 
+    totalPrivateUsed.toFixed(2) + '</td><td>$' +
+    (totalPrivateBought - totalPrivateUsed).toFixed(2) + '</td></tr>');
+
+  classHtml.push('<tr align=right style="font-weight:bold"><td>Total</td><td>$' + 
+    (totalPrivateBought + totalGroupBought).toFixed(2) + '</td><td>$' + 
+    (totalPrivateUsed + totalGroupUsed).toFixed(2) + '</td><td>$' +
+    (totalPrivateBought + totalGroupBought - totalGroupUsed - totalPrivateUsed).toFixed(2) + '</td></tr>');
+  classHtml.push('</table>');
+
+  var classSummary  = classHtml.join('');
+
 
   var paymentSummary = statsPayment.getDisplay(true);
 
@@ -1890,6 +1925,7 @@ function showStudioOverview() {
 
   _gel('idEntityList').innerHTML = '<b>Payment Summary</b><p>' + paymentSummary + 
    '<p><b>Activities Summary</b><p>' + classSummary;
+
 }
 
 </script> 
@@ -1908,10 +1944,6 @@ Ending (MM/DD/YYYY):
 &nbsp; | &nbsp; <a href="javascript:void(0)" onclick="showClassesStats();">Classes and Party stats</a>
 &nbsp; | &nbsp; <a href="javascript:void(0)" onclick="showTeacherStats();">Teacher stats</a>
 &nbsp; | &nbsp; <a href="javascript:void(0)" onclick="showPaymentStats();">Payment stats</a> 
-<span style="float:right"><a style='text-decoration:none' href="javascript:void(0)" onclick="showStudioOverview();">
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-</a>
-</span>
 <p><hr style="background-color:black;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;height:1px"><p>
 </div>
 </div>
