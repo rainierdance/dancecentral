@@ -72,11 +72,12 @@ td, body {
 }
 a:hover {text-decoration: underline; color: red; background: #fafad2;}
 .errMsg {background-color: #ffe6cc; border: 2px solid #c43b1d; padding: 2px;}
+.warning {background-color: #ffe6cc; border: 2px solid #c43b1d; padding: 2px;}
 </style>
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0404.2333";
+var VERSION = "12.0405.0003";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -796,17 +797,23 @@ ClassStats.prototype.getDisplay = function() {
 
   html.push('<table cellpadding=2>');
 
+  var names = [];
+
   for (var i = 0; i < this.stat.length; i++) {
     var rateDisplay = this.stat[i][1];
     var amt = allStatsClasses.getStat(this.name).getAmount(this.stat[i][0]);
-    html.push('<tr><td>' + (i+1) + '</td><td>' + 
+    var warning = (names.indexOf(this.stat[i][0]) != -1);
+    if (!warning) names.push(this.stat[i][0]);
+    
+    html.push('<tr><td>' + (i+1) + '</td><td>' +
               '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (this.stat[i][0]) +
               '\')">' + this.stat[i][0] + '</a>' +
               '</td><td> ' + (rateDisplay ? rateDisplay : ' ') + 
            '</td><td>' + 
            ((amt > 0) ? '$' + amt.toFixed(2) : 
              (isGroupClass(this.name) && rateDisplay == 'Paid' ? '<font style="color:red">UNPAID</font>' : '')) + 
-            '</td><td>' + highlightTODO(this.stat[i][3]) + '</td>' +
+            '</td><td>' + highlightTODO(this.stat[i][3]) + '</td><td>' + 
+            (warning? '<span class="warning">WARNING: Dup</span>' : '') + '</td>' +
           '</tr>');
   }
 
