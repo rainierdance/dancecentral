@@ -77,7 +77,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0405.0003";
+var VERSION = "12.0405.0023";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -280,6 +280,8 @@ StudentStats.prototype.getDisplay = function() {
   htmlSummary.push('<b>' + student + '</b>');
   htmlSummary.push('<p>');
 
+  var names = [];
+
   var html = [];
   for (var type in this.stat) {
     var entries = this.getStatForSignInType(type);
@@ -297,6 +299,9 @@ StudentStats.prototype.getDisplay = function() {
            classes.reverse();
            for (var j = 0; j < classes.length; j++) {
              var classNameStr = trimLR(classes[j]);
+             var warning = (names.indexOf(classNameStr) != -1);
+             if (!warning) names.push(classNameStr);
+
              var statClass = allStatsClasses.getStat(classNameStr);
               var amt = statClass.getAmount(student);
              position++;
@@ -305,7 +310,9 @@ StudentStats.prototype.getDisplay = function() {
                    (isGroupClass(classNameStr) && entry[INDEX_RATE_TYPE] == 'Paid' ? ' <font style="color:red">UNPAID</font>' : '')));
              html.push('</td><td>' +
                 '<a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(classNameStr) + '\')">' + 
-                classNameStr + '</a></td><td>' + highlightTODO(entry[INDEX_NOTE]) + '</td></tr>');
+                classNameStr + '</a></td><td>' + highlightTODO(entry[INDEX_NOTE]) + '</td><td>' +
+                (warning? '<span class="warning">WARNING: Dup</span>' : '') + '</td>' +
+                '</tr>');
              if (entry[INDEX_RATE_TYPE] == 'Paid') {
                if (classNameStr.indexOf('Series') != -1) 
                  cntSeriesTaken += 1;
