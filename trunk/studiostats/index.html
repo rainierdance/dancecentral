@@ -1156,7 +1156,8 @@ StudentAccount.prototype.isOverdue = function() {
 }
 
 StudentAccount.prototype.isPositive = function() {
-  return this.getPrivateBalance() > 0 && this.getGroupBalance() > 0;
+  return (this.getPrivateBalance() > 0 && this.getGroupBalance() >= 0) || 
+    (this.getPrivateBalance() >= 0 && this.getGroupBalance() > 0) ;
 }
 
 
