@@ -77,7 +77,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0405.0023";
+var VERSION = "12.0405.2322";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1222,7 +1222,8 @@ StudentAccount.prototype.isOverdue = function() {
 }
 
 StudentAccount.prototype.isPositive = function() {
-  return this.getPrivateBalance() > 0 && this.getGroupBalance() > 0;
+  return (this.getPrivateBalance() > 0 && this.getGroupBalance() >= 0) || 
+    (this.getPrivateBalance() >= 0 && this.getGroupBalance() > 0) ;
 }
 
 
