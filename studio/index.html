@@ -840,8 +840,6 @@ function validateInput() {
   // clear previous error
   if (_gel(gErrElement)) _gel(gErrElement).className = '';
 
-  _gel('entry_8').value = value; // start time
-
   var signInType = _gel('entry_4').value;
   // validation is different for different sign in type 
   if (signInType == 'Group') { // include parties

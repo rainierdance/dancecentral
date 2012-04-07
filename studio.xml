@@ -164,7 +164,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0406.2051";
+var VERSION = "12.0406.2100";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1044,6 +1044,22 @@ function onSignIn() {
 */
   // do text box
   select = _gel('startTimeAmPm');
+
+  // enforce time
+  var ampm = select.options[select.selectedIndex].value;
+  var hr = _gel('startTimeHour').value;
+  if (ampm == 'am') { // need to be after 3am
+    if (parseInt(hr) < 3) {
+      _gel('startTimeHour').value = '3';
+      _gel('startTimeMin').value = '59';
+    }
+  } else { //pm
+    if (parseInt(hr) >=11) { // need to be before 10:55
+      _gel('startTimeHour').value = '10';
+      _gel('startTimeMin').value = '59';
+    }
+  }
+
   value = _gel('startTimeHour').value + ':' +
     _gel('startTimeMin').value + 
    select.options[select.selectedIndex].value;
