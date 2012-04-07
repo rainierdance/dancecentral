@@ -19,7 +19,7 @@ function escapeHtml(text) {
 //gAllRawEntities.push("log".split(';'));
 
 
-gAllRawEntities.push("2/22/2012 0:04:01;Rachel Wu;Group;2/22/2012;;Youth Monday 8:00 PM Am. Rhythm Level 1 - EC Swing,Series 3/5/2012 Tuesday 7:15 PM Am. Smooth Level 3 - Foxtrot;;;Paid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
+gAllRawEntities.push("2/22/2012 0:04:01;Rachel Wu;Group;2/2/2012;;Youth Monday 8:00 PM Am. Rhythm Level 1 - EC Swing,Series 3/5/2012 Tuesday 7:15 PM Am. Smooth Level 3 - Foxtrot;;;Paid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
 
 
 gAllRawEntities.push("2/22/2012 15:47:58;Lorenzo Farris;Group;2/22/2012;15:47;Series 3/5/2012 Wednesday 8:00 PM Intl. Latin Level 3 - Paso Doble;;;Paid;;;;;;;;;;;;;;;;;;;;;;".split(';'));
