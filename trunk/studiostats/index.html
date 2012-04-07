@@ -1217,7 +1217,10 @@ function processStatsWithTimeRestrict(startDate, endDate) {
 
     for (var j=0; j<gAllEntities.length; j++) {
       var date1 = new Date(gAllEntities[j][INDEX_DATE] + ' ' + gAllEntities[j][INDEX_TIME]);
-      if (date1 < date2) break;
+      if (date1 < date2) break; // reverse chronological
+      if (date1 == date2) {
+        if (gAllEntities[j][INDEX_DATE] < gAllRawEntities[i][INDEX_DATE]) break;
+      }
     }
     gAllEntities.splice(j, 0, gAllRawEntities[i]);
   }
