@@ -73,11 +73,12 @@ td, body {
 a:hover {text-decoration: underline; color: red; background: #fafad2;}
 .errMsg {background-color: #ffe6cc; border: 2px solid #c43b1d; padding: 2px;}
 .warning {background-color: #ffe6cc; border: 2px solid #c43b1d; padding: 2px;}
+.overdue {background-color: #ffe6cc; border: 1px solid #c43b1d; padding: 2px;}
 </style>
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0406.2049";
+var VERSION = "12.0407.1206";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -164,6 +165,15 @@ function trimLR(input) {
 function highlightTODO(input) {
   if (!input) return '';
   return input.replace(/TODO/g, '<span style="font-weight:bold;background:#fafad2;color:red">TODO<\/span>');
+}
+
+function highlightOverdue(input) {
+  if (!input) return '';
+  if (parseFloat(input) < 0) {
+    return '<span class="overdue">' + input + '</span>';
+  } else {
+   return input;
+  }
 }
 
 function escapeParam(input) {
@@ -278,6 +288,9 @@ StudentStats.prototype.getDisplay = function() {
   var endDate = _gel('idEndDate').value;
 
   htmlSummary.push('<b>' + student + '</b>');
+  if (getStudentAccount(student).isOverdue()) {
+    htmlSummary.push(' &nbsp; &nbsp; &nbsp; <span class="overdue">OVERDUE</span>');
+  }
   htmlSummary.push('<p>');
 
   var names = [];
@@ -394,14 +407,14 @@ StudentStats.prototype.getDisplay = function() {
         '</td><td>$' + account.groupPayment.amtBought.toFixed(2) +
         '</td><td>' + account.groupPayment.numUsed +
         '</td><td>$' + account.groupPayment.amtUsed.toFixed(2) +
-        '</td><td>' + (account.groupPayment.numBought - account.groupPayment.numUsed)+
+        '</td><td>' + highlightOverdue(account.groupPayment.numBought - account.groupPayment.numUsed)+
         '</td><td>$' + (account.groupPayment.amtBought - account.groupPayment.amtUsed).toFixed(2)+
         '</td></tr>');
   htmlSummary.push('<tr align=right><td align=left>Private lessons</td><td>' + account.privatePayment.numBought +
         '</td><td>$' + account.privatePayment.amtBought.toFixed(2) +
         '</td><td>' + account.privatePayment.numUsed.toFixed(2) +
         '</td><td>$' + account.privatePayment.amtUsed.toFixed(2) +
-        '</td><td>' + (account.privatePayment.numBought - account.privatePayment.numUsed).toFixed(2)+
+        '</td><td>' + highlightOverdue((account.privatePayment.numBought - account.privatePayment.numUsed).toFixed(2))+
         '</td><td>$' + (account.privatePayment.amtBought - account.privatePayment.amtUsed).toFixed(2)+
         '</td></tr>');
 
@@ -871,7 +884,7 @@ AllClassesStats.prototype.addEntry = function (entry) {
   }
 }
 
-AllClassesStats.prototype.getSummaryDisplay = function () {
+AllClassesStats.prototype.getSummaryDisplay = function (input) {
   var cntTotalGroup = 0;
   var cntTotalParty = 0;
   var cntTotalRound = 0;
@@ -896,9 +909,11 @@ AllClassesStats.prototype.getSummaryDisplay = function () {
     // check how many are paid
     var cntPaid = 0;
     var key = this.sortedClasses[i];
+    if (input && key.toLowerCase().indexOf(input.toLowerCase()) == -1) continue; // match input
+
     var statGroup = this.stats[key].stat;
     for (var j=0; j< statGroup.length; j++) {
-      if (statGroup[j][1] == 'Paid') cntPaid++;  //JW
+      if (statGroup[j][1] == 'Paid') cntPaid++;  
     }
     var stat = allStatsClasses.getStat(key);
     var amt = stat.getTotalAmount();
@@ -1379,28 +1394,55 @@ function updateStudentStatsWithName(selected) {
   }
 }
 
+function resetSelection() {
+  // reset select box
+  if (_gel('idPick')) {
+    _gel('idPick').selectedIndex = 0;
+  }
+  if (_gel('idNameSelect')) {
+    _gel('idNameSelect').value = '';
+  }
+}
+
+function changeStudent(input) {
+  var html = getStudentStatsSummary(input);
+
+  updateReportTime();
+  _gel('idEntityList').innerHTML = html;
+}
+
 // fill student select drop down
 function showStudentStats() {
   var sortedStudents = statsStudents.getSortedStudentsList();
 
-  var html = ['<p><select id="idPick" onchange="updateStudentStats(this)">'];
+
+  var html = ['<p>'];
+/*
+  html.push('<select id="idPick" onchange="updateStudentStats(this)">');
   html.push('<option>' + ' --- Pick a student ---');
   for (var i = 0; i< sortedStudents.length; i++) {
     html.push('<option>' + sortedStudents[i]);
   }
   html.push('</select>');
+*/
+  html.push('Name: <input type=text id="idNameSelect" onKeyUp="changeStudent(this.value)" onChange="changeStudent(this.value)" size=30>');
+
+  //html.push('<span style="float:right">');
+  html.push('<span style="margin-left:50px">');
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsSummary()">Summary</a>');
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsOverdueNames()">Overdue Students</a>');
-  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsPositiveNames()">Students with Positive Balance</a>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsNamesWithBalance()">Students with Balance</a>');
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsOverview()">All Students Details</a>');
+  html.push('</span>');
   _gel('idSelect').innerHTML = html.join('');
   
+  _gel('idNameSelect').focus();
+
   showStudentStatsSummary();
 }
 
 function showStudentStatsSummary() {
-  // reset select box
-  _gel('idPick').selectedIndex = 0;
+  resetSelection();
 
   var html = getStudentStatsSummary();
 
@@ -1408,7 +1450,7 @@ function showStudentStatsSummary() {
   _gel('idEntityList').innerHTML = html;
 }
 
-function getStudentStatsSummary() {
+function getStudentStatsSummary(input) {
   var sortedList = statsStudents.getSortedStudentsList();
   var html = [];
 
@@ -1431,8 +1473,12 @@ function getStudentStatsSummary() {
   amtGroupTotal = 0;
   amtLessonTotal = 0;
 
+  var iList = 0;
+  var studentName = 0;
+
   for (var j=0; j<sortedList.length; j++) {
     var key = sortedList[j];
+    if (input && key.toLowerCase().indexOf(input.toLowerCase()) == -1) continue; // match input
 
     var statStudent = statsStudents.getStat(key); // signInType, array of logs
     //group, youth could have signed in multiple classes
@@ -1472,9 +1518,16 @@ function getStudentStatsSummary() {
     cntYouthTotal += cntYouth;
     studentTotal += cntYouth;
 
-    html.push('<tr align=right><td>' + (j+1) + 
+    iList++;
+    studentName = key;
+    var nameHtml = key;
+    if (getStudentAccount(key).isOverdue()) {
+      nameHtml = '<spant class="overdue">' + key + '</span>';
+    };
+
+    html.push('<tr align=right><td>' + (iList) + 
       '</td><td align=left><a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) +
-      '\')">' + key + '</a></td>');
+      '\')">' + nameHtml + '</a></td>');
     html.push('<td>' + (cntGroup == 0 ? ' ' : cntGroup) +  '</td><td>' + (amtGroup >0 ? '$' + amtGroup.toFixed(2) : ' ') + '</td>');
 
     var statType = statStudent.getStatForSignInType('Private');
@@ -1536,13 +1589,18 @@ function getStudentStatsSummary() {
 
   html.push('</table>');
 
-  return html.join('');
+  if (iList == 1) {
+    // one student left, we switch to show student's details
+    var stat = statsStudents.getStat(studentName, true); // don't create if not exist
+    return stat.getDisplay();
+  } else {
+    return html.join('');
+  }
 
 }
 
-function showStudentsPositiveNames() {
-  // reset select box
-  _gel('idPick').selectedIndex = 0;
+function showStudentsNamesWithBalance() {
+  resetSelection();
 
   var html = [];
   html.push('<table cellpadding=4 style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
@@ -1553,7 +1611,7 @@ function showStudentsPositiveNames() {
   for (var i=0; i<sortedList.length; i++) {
     var key = sortedList[i];
     var account = getStudentAccount(key);
-    if (!account.isPositive()) continue;
+    if (!account.isPositive() && !account.isOverdue()) continue;
     total++
     html.push('<tr><td>' + (total) + '</td><td>' + 
       '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) + '\')">' + key + '</a></td>');
@@ -1569,8 +1627,7 @@ function showStudentsPositiveNames() {
 }
 
 function showStudentsOverdueNames() {
-  // reset select box
-  _gel('idPick').selectedIndex = 0;
+  resetSelection();
 
   var html = [];
   html.push('<p>');
@@ -1602,8 +1659,7 @@ function showStudentsOverdueNames() {
 }
 
 function showStudentsOverdue() {
-  // reset select box
-  _gel('idPick').selectedIndex = 0;
+  resetSelection();
 
   var html = [];
 
@@ -1624,8 +1680,7 @@ function showStudentsOverdue() {
 
 // show all students' details
 function showStudentStatsOverview() {
-  // reset select box
-  _gel('idPick').selectedIndex = 0;
+  resetSelection();
 
   var html = [];
 
@@ -1792,7 +1847,7 @@ function showTeacherStats() {
 
 // show summary of all teachers
 function showTeacherStatsSummary() {
-  _gel('idPick').selectedIndex = 0;
+  resetSelection();
 
   var sortedList = statsTeachers.getSortedTeachersList();
 
@@ -1882,7 +1937,7 @@ function updateTeacherStatsWithName(selected) {
 
 // show all teachers
 function showTeacherStatsOverview() {
-  _gel('idPick').selectedIndex = 0;
+  resetSelection();
 
   var sortedList = statsTeachers.getSortedTeachersList();
 
@@ -1902,22 +1957,40 @@ function showTeacherStatsOverview() {
 function showClassesStats() {
   var sortedList = statsClasses.getSortedClasses();
 
-  var html = ['<p><select id="idPick" onchange="updateClassStats(this)">'];
+  var html = ['<p>'];
+/*
+  html.push('<select id="idPick" onchange="updateClassStats(this)">');
   html.push('<option>' + ' --- Pick a class, party ---');
   for (var i = 0; i< sortedList.length; i++) {
     html.push('<option value="' + sortedList[i] + '">' + sortedList[i]);
   }
   html.push('</select>');
+
+*/
+
+  html.push('Class name: <input type=text id="idNameSelect" onKeyUp="changeClass(this.value)" onChange="changeClass(this.value)" size=30>');
+
+  html.push('<span style="margin-left:50px">');
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showClassesStatsSummary()">Show summary</a>');
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showClassesStatsOverview()">Show all details</a>');
+  html.push('</span>');
+
   _gel('idSelect').innerHTML = html.join('');
+
+  _gel('idNameSelect').focus(); // get focus so user can start typing
 
   showClassesStatsSummary();
 }
 
+function changeClass(input) {
+  var html = statsClasses.getSummaryDisplay(input);
+  updateReportTime();
+  _gel('idEntityList').innerHTML = html;
+}
+
 // show classes summary with total particpants and paid particpants
 function showClassesStatsSummary() {
-  _gel('idPick').selectedIndex = 0;
+  resetSelection();
 
   var html = statsClasses.getSummaryDisplay();
   updateReportTime();
@@ -1926,7 +1999,7 @@ function showClassesStatsSummary() {
 
 // show all classes details
 function showClassesStatsOverview() {
-  _gel('idPick').selectedIndex = 0;
+  resetSelection();
 
   var html = [];
 
