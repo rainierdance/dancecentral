@@ -840,6 +840,8 @@ function validateInput() {
   // clear previous error
   if (_gel(gErrElement)) _gel(gErrElement).className = '';
 
+  _gel('entry_8').value = value; // start time
+
   var signInType = _gel('entry_4').value;
   // validation is different for different sign in type 
   if (signInType == 'Group') { // include parties
@@ -890,6 +892,22 @@ function onSignIn() {
 */
   // do text box
   select = _gel('startTimeAmPm');
+
+  // enforce time
+  var ampm = select.options[select.selectedIndex].value;
+  var hr = _gel('startTimeHour').value;
+  if (ampm == 'am') { // need to be after 3am
+    if (parseInt(hr) < 3) {
+      _gel('startTimeHour').value = '3';
+      _gel('startTimeMin').value = '59';
+    }
+  } else { //pm
+    if (parseInt(hr) >=11) { // need to be before 10:55
+      _gel('startTimeHour').value = '10';
+      _gel('startTimeMin').value = '59';
+    }
+  }
+
   value = _gel('startTimeHour').value + ':' +
     _gel('startTimeMin').value + 
    select.options[select.selectedIndex].value;
