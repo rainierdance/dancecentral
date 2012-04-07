@@ -31,7 +31,8 @@ gAllRawEntities.push("2/23/2012 15:48:29;Lorenzo Farris;Private;2/22/2012;15:48;
 gAllRawEntities.push("2/24/2012 15:48:35;Lorenzo Farris;Practice;2/22/2012;15:48;;1;;Practice-Free;TODO practice;;;;;;;;;;;;;;;;;;;;;".split(';'));
 
 gAllRawEntities.push("2/22/2012 15:48:46;Lorenzo Farris;Payment;2/22/2012;15:48;;;;;Special;65;Check;;;3;;;;;;;;65;;;;;;Wedding Special;;".split(';'));
-gAllRawEntities.push("2/22/2012 15:48:59;Lorenzo Farris;Payment;3/25/2012;15:48;;;;;;65;CreditCard;;;3;;;;;;;;65;;;;;;Wedding Special;;".split(';'));
+gAllRawEntities.push("2/22/2012 15:48:59;Aorenzo Farris;Payment;2/22/2012;17:48;;;;;;65;CreditCard;;;3;;;;;;;;65;;;;;;Wedding Special;;".split(';'));
+gAllRawEntities.push("2/22/2012 15:48:59;Zorenzo Farris;Payment;2/22/2012;14:48;;;;;;65;CreditCard;;;3;;;;;;;;65;;;;;;Wedding Special;;".split(';'));
 
 
 gAllRawEntities.push("3/27/2012 10:07:56;Simeon Stoynov;Teach;2/27/2012;10:07;Series Monday 8:45 PM Intl. Standard Level 2 - Quickstep,Series Monday 7:15 PM Am. Smooth Level 1 - Waltz;;;;;;;;;;;;;;;;;;;;;;;;;".split(';'));
