@@ -17,9 +17,9 @@ function escapeHtml(text) {
 
 
 // initialization for local testing
-addEntityInOrder(new Entity('Rachel', 'Wu', '3625', 'Bellevue', '98005', 'rachel@wu', '882', 'Kora', 'Jackie', 'Rachel TODO note', '1/30/2012 15:54:25', 'Female', 'Kora Stoynova', '2/1/2011', '', 0));
-addEntityInOrder(new Entity('Jackie', 'Wu', '3625', '', '98005', 'jackie@wu', '882', 'Kora', 'Jackie', 'Jackie note', '1/30/2012 16:02:09',  'Female', 'Kora Stoynova', '1/1/2012', '2/2/2012', 1));
-addEntityInOrder(new Entity('Jonh really long name', 'Bush', '123', 'Redmond', '98052', 'jonh@bush', '222', 'Simeon', '', 'from radio', '1/30/2012 16:29:06',  'Female', 'Simeon Stoynov', 'foo bar','', 2));
+addEntityInOrder(new Entity('Rachel', 'Wu', '3625', 'Bellevue', '98005', 'rachel@wu', '882', 'Kora', 'Jackie', 'Rachel TODO note', '1/30/2012 15:54:25', 'Female', 'Kora Stoynova', '2/1/2011', '', ''));
+addEntityInOrder(new Entity('Jackie', 'Wu', '3625', '', '98005', 'jackie@wu', '882', 'Kora', 'Jackie', 'Jackie note', '1/30/2012 16:02:09',  'Female', 'Kora Stoynova', '1/1/2012', '2/2/2012', 'bounced'));
+addEntityInOrder(new Entity('Jonh really long name', 'Bush', '123', 'Redmond', '98052', 'jonh@bush', '222', 'Simeon', '', 'from radio', '1/30/2012 16:29:06',  'Female', 'Simeon Stoynov', 'foo bar','', 'Yes'));
 
 gAllTeachers.push(new Teacher('Kora Stoynova'));
 gAllTeachers.push(new Teacher('Simeon Stoynov'));

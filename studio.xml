@@ -144,7 +144,7 @@ function handleStudentQueryResponse(response) {
       data.getFormattedValue(row,6), //primary teacher
       data.getFormattedValue(row,12), //liability date
       data.getFormattedValue(row,13), //photo consent date
-      row
+      data.getFormattedValue(row,15) //in contacts
     ));
   }
 
@@ -164,7 +164,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0406.2100";
+var VERSION = "12.0423.1025";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -219,7 +219,7 @@ function Teacher(name) {
 
 function Entity(firstName, lastName, address, city, zip, email, phone,
     referrer, guardian, note, creatTime, gender, teacher, liabilityDate,
-    photoDate, index) {
+    photoDate, inContacts) {
   this.firstName = firstName;
   this.lastName = lastName;
   this.address = address;
@@ -235,6 +235,7 @@ function Entity(firstName, lastName, address, city, zip, email, phone,
   this.teacher = teacher;
   this.liabilityDate = liabilityDate;
   this.photoDate =  photoDate;
+  this.inContacts = inContacts;
 
 }
 
@@ -334,6 +335,18 @@ function getEntityDetails(student) {
   html.push('<tr><td>Register Date</td><td>');
   html.push(escapeHtml(student.creatTime));
   html.push('</td></tr>');
+
+  html.push('<tr><td>In Contacts</td><td>');
+  flag = false;
+  if (student.inContacts && student.inContacts.toLowerCase().indexOf('yes') == -1) flag = true;
+  if (flag) 
+    html.push('<font style="font-weight:bold; background:red; color:yellow;">');
+  html.push(escapeHtml(student.inContacts));
+  if (flag) 
+    html.push('</font>');
+
+  html.push('</td></tr>');
+
   html.push('<tr><td>Note</td><td>');
   flag = false;
   if (student.note.indexOf('TODO') !=-1) {
@@ -341,8 +354,9 @@ function getEntityDetails(student) {
     html.push('<font style="font-weight:bold; background:red; color:yellow;">');
   }
   html.push(escapeHtml(student.note));
-  if (flag) html.push('</fong>');
+  if (flag) html.push('</font>');
   html.push('</td></tr>');
+
   html.push('</table>');
 
   return html.join('');

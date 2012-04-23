@@ -144,7 +144,7 @@ function handleStudentQueryResponse(response) {
       data.getFormattedValue(row,6), //primary teacher
       data.getFormattedValue(row,12), //liability date
       data.getFormattedValue(row,13), //photo consent date
-      row
+      data.getFormattedValue(row,15) //in contacts
     ));
   }
 
