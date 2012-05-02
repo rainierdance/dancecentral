@@ -16,27 +16,27 @@ function escapeHtml(text) {
 gAllClasses.push({
   'title' : 'H Monday 8:00pm Intl. Latin Level 2 - Jive ANY',
   'category' : 'Series',
-  'start_date': '3/5/2012',
+  'start_date': '3/5/2014',
   'day_of_week': 'Monday',
   'start_time': '8:00 PM',
   'style': 'International Latin, International Standard',
   'dance_name': 'Jive',
   'level':'',
   'description': 'ISTD syllabus figures and technique for Jive at the "Associate" or "Bronze" level. Prerequisite is Level 1 Jive.',
-  'teacher' : '',
+  'teacher' : 'Kora',
   'bio' : 'http://foo'
   });
 gAllClasses.push({
   'title' : 'Past Intl. Latin Level 1 - Rumba',
   'category' : 'Drop-in',
-  'start_date': '2/20/2012',
+  'start_date': '2/20/2014',
   'day_of_week': 'Tuesday',
   'start_time': '2:00 PM',
   'style': 'International Latin',
   'dance_name': 'Rumba',
   'level':'',
   'description': 'ISTD syllabus figures and technique for Jive at the "Associate" or "Bronze" level. Prerequisite is Level 1 Jive.',
-  'teacher' : 'Simeon',
+  'teacher' : 'Simeon Stoynov',
   'bio' : 'http://foo'
   });
 gAllClasses.push({
@@ -68,7 +68,7 @@ gAllClasses.push({
 gAllClasses.push({
   'title' : 'Z Intl. A test Latin Level 1 - Rumba',
   'category' : 'Drop-in',
-  'start_date': '4/5/2012',
+  'start_date': '4/5/2014',
   'day_of_week': 'Thursday',
   'start_time': '2:00 PM',
   'style': 'International Standard',
@@ -81,7 +81,7 @@ gAllClasses.push({
 gAllClasses.push({
   'title' : 'A Intl. Latin Level 1 - weekly drop in',
   'category' : 'Drop-in',
-  'start_date': '4/5/2012',
+  'start_date': '4/5/2014',
   'day_of_week': 'Friday',
   'start_time': '2:00 PM',
   'style': 'International Standard',

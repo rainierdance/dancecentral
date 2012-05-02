@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0222.0005";
+var VERSION = "12.0501.2253";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -101,12 +101,18 @@ var resultList = null;
 var filterKeys = {
   'style' : ['Style', 4], // how many per row
   'level' : ['Level', 4], //there are very few classes after user filter by style
-  'day_of_week' : ['Day', 7]
-  //'teacher' : 'Teacher',  // maybe later
+  'day_of_week' : ['Day', 7],
+  'teacher' : ['Instructor', 5]
 }; 
 var URL_BASE = 'http://dancecentral.googlecode.com/svn/trunk/regclass/';
 var gSelectedClasses = [];
 var dayOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+var presetFilters = {
+  'level' : ['Beginner', 'Level 1', 'Level 2', 'Level 3'],
+  'teacher' : ['Kora', 'Simeon', 'Jeffrey', 'Violeta', 'Peter'],
+  'day_of_week' : dayOfWeek
+}; 
 
 ////////////////////////////////////////////////////////////////////////
 <!-- Utilities -->
@@ -190,7 +196,7 @@ function filterClasses(filter) {
            var class_values = gAllClasses[i][key].split(',');
            for (var k = 0; k<class_values.length; k++) {
              var class_value = class_values[k].replace(/^\s+|\s+$/g,"");
-             if (class_value == values[j]) {
+             if (class_value.indexOf(values[j]) != -1) {
                found = true;
                break;
              }
@@ -363,9 +369,14 @@ function showFilters() {
    gAllFilters[key] = [];
   }
 
-  var key;
+  // preset keys
+  for (var key in presetFilters) {
+    gAllFilters[key] = presetFilters[key];
+  }
+
   for (var i = 0; i < gAllClasses.length; i++) {
     for (var key in filterKeys) {
+      if (presetFilters[key]) continue; // skip preset filters, which has the order
       // ',' can be used as delimiter if a class has more than 1 value for the key
       var values = gAllClasses[i][key].split(',');
       // trim spaces
