@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0501.2302";
+var VERSION = "12.0501.2318";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -110,7 +110,7 @@ var dayOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturd
 
 var presetFilters = {
   'level' : ['Beginner', 'Level 1', 'Level 2', 'Level 3'],
-  'teacher' : ['Kora', 'Simeon', 'Jeffrey', 'Violeta', 'Peter'],
+//  'teacher' : ['Kora', 'Simeon', 'Jeffrey', 'Violeta', 'Peter'],
   'day_of_week' : dayOfWeek
 }; 
 
@@ -391,6 +391,11 @@ function showFilters() {
         }
       }
     }
+  }
+
+  for (var key in filterKeys) {
+    if (!presetFilters[key])
+      gAllFilters[key].sort();
   }
 
   var keyNo = 0;
