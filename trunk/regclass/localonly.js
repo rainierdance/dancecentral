@@ -36,8 +36,8 @@ gAllClasses.push({
   'dance_name': 'Rumba',
   'level':'',
   'description': 'ISTD syllabus figures and technique for Jive at the "Associate" or "Bronze" level. Prerequisite is Level 1 Jive.',
-  'teacher' : 'Simeon Stoynov',
-  'bio' : 'http://foo'
+  'teacher' : 'Jackie',
+  'bio' : ''
   });
 gAllClasses.push({
   'title' : 'A Intl. Latin Level 1 - weekly drop in',

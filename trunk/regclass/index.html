@@ -24,7 +24,7 @@ var filterKeys = {
   'style' : ['Style', 4], // how many per row
   'level' : ['Level', 4], //there are very few classes after user filter by style
   'day_of_week' : ['Day', 7],
-  'teacher' : ['Instructor', 5]
+  'teacher' : ['Instructor', 6]
 }; 
 var URL_BASE = 'http://dancecentral.googlecode.com/svn/trunk/regclass/';
 var gSelectedClasses = [];
@@ -236,7 +236,11 @@ function showClasses(filter) {
     html.push('<td>' + (groupClass['level'] ?  groupClass['level'] : 'Any')+ '</td>');
     html.push('<td>');
     if (groupClass['teacher']) {
-      html.push('<a href="' + groupClass['bio'] + '" target="_blank">' + groupClass['teacher'] + '</a>');
+      if (groupClass['bio']) {
+        html.push('<a href="' + groupClass['bio'] + '" target="_blank">' + groupClass['teacher'] + '</a>');
+      } else {
+        html.push(groupClass['teacher']);
+      }
     }
     html.push('</td>');
     //html.push('<td>' + groupClass['category'] + (groupClass['category'] == 'Series' ? ' (4 classes)' : '') + '</td>');
@@ -298,7 +302,7 @@ function showFilters() {
 
   for (var i = 0; i < gAllClasses.length; i++) {
     for (var key in filterKeys) {
-      if (presetFilters[key]) continue; // skip preset filters, which has the order
+      // additional values may be appended to end of preset filters (don't just take preset filters, e.g. visiting coach)
       // ',' can be used as delimiter if a class has more than 1 value for the key
       var values = gAllClasses[i][key].split(',');
       // trim spaces
