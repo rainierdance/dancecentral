@@ -32,7 +32,7 @@ var dayOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturd
 
 var presetFilters = {
   'level' : ['Beginner', 'Level 1', 'Level 2', 'Level 3'],
-  'teacher' : ['Kora', 'Simeon', 'Jeffrey', 'Violeta', 'Peter'],
+//  'teacher' : ['Kora', 'Simeon', 'Jeffrey', 'Violeta', 'Peter'],
   'day_of_week' : dayOfWeek
 }; 
 
@@ -313,6 +313,11 @@ function showFilters() {
         }
       }
     }
+  }
+
+  for (var key in filterKeys) {
+    if (!presetFilters[key])
+      gAllFilters[key].sort();
   }
 
   var keyNo = 0;
