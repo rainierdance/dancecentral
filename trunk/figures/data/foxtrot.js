@@ -589,7 +589,7 @@ var foxtrotFigures =
     {
       'name' : 'Open Telemark, Natural Turn, Outside Swivel and Feather Ending',
       'level' : 'Silver',
-      'urlpath' : 'open-telemark-natural-turn-outside-swivel-and-feather-ending',
+      'urlpath' : 'open-telemark-natural-turn-to-outside-swivel-and-feather-ending',
       'startAlignment' : ['DC'],
       'startFoot' : 'LF',
       'startDirection' : 'fwd',
