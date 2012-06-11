@@ -78,7 +78,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0611.1559";
+var VERSION = "12.0611.1616";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -543,7 +543,9 @@ TeacherStats.prototype.getStatForSignInType = function(type) {
   return this.stat[type];
 }
 
-TeacherStats.prototype.addEntry = function(entry) {
+// statsClasses optional: if present, it tries to put the classes teacher taught into StatsClasses
+// for classes offered but no one showed up.
+TeacherStats.prototype.addEntry = function(entry, statsClasses) {
   var signInType = trimLR(entry[INDEX_SIGNIN_TYPE]);
   var stat = this.getStatForSignInType(signInType);
 
@@ -565,6 +567,7 @@ TeacherStats.prototype.addEntry = function(entry) {
           if (stat[k][0] >groupClass) break;
         }
         stat.splice(k, 0, [groupClass, note]); // class name already indicates date and time
+        if (statsClasses) statsClasses.getStat(groupClass); // just to create an entry, some classes has no participants, this will affect average calculation
       }
     } else {
       //TODO: wrong entry
@@ -1361,7 +1364,7 @@ function processStatsWithTimeRestrict(startDate, endDate) {
 
     if (teacher) { // Private, Teach, Pay floor fees
       var stat = statsTeachers.getStat(teacher);
-      stat.addEntry(entry);
+      stat.addEntry(entry, statsClasses);
     }
 
     if (student) { // student record, also logs private lessons too
