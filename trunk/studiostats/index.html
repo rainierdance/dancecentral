@@ -594,13 +594,31 @@ function getLessonAmountFromEntry(entry) {
   return stat.getLessonAmountFromEntry(entry);
 }
 
+// sort by date in reverse chronological order
+// "Series 2012-05-01 ....
+// input: statGroup array [i][0] is class name
+function sortStatGroup(input) {
+  var output = [];
+  for (var i = 0; i<input.length; i++) {
+    var name1 = trimLR(input[i][0]).replace(/^[^\s]* /, "");
+    for (var j=0; j<output.length; j++) {
+      var name2 = output[j][0].replace(/^[^\s]* /, "");
+      if (name1 > name2) {
+        break;
+      }
+    }
+    output.splice(j, 0, input[i]);
+  }
+  return output;
+}
+
 TeacherStats.prototype.getDisplay = function() {
   var html = [];
 
   html.push(LINE);
   html.push('<b>' + this.name + '</b><p>');
 
-  var statGroup = this.stat['Teach'];
+  var statGroup = sortStatGroup(this.stat['Teach']);
   var htmlGroup = [];
 
   var amtTotal = 0;
@@ -785,9 +803,12 @@ function AllClassesStats() {
 AllClassesStats.prototype.getStat = function (name) {
   if (!this.stats[name]) {
     this.stats[name] = new ClassStats(name);
+    // sort starting from date "Series 2012-06-..." ignore "Series " (or Drop-in)
     for (var i = 0; i< this.sortedClasses.length; i++) {
       // recent classes first
-      if (this.sortedClasses[i] < name) break;
+      var name1 = trimLR(name).replace(/^[^\s]* /, "");
+      var name2 = trimLR(this.sortedClasses[i]).replace(/^[^\s]* /, "");
+      if (name2 < name1) break;
     }
     this.sortedClasses.splice(i, 0, name);
   }
