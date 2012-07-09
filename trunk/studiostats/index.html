@@ -263,7 +263,7 @@ StudentStats.prototype.getDisplay = function() {
               var amt = statClass.getAmount(student);
              position++;
              html.push('<tr valign=top><td>' + (position) + '</td><td>' + entry[INDEX_RATE_TYPE] +  '</td><td>');
-             html.push((amt && amt > 0 ? ' $' + amt.toFixed(2) + ' ' : 
+             html.push((amt >= 0 ? ' $' + amt.toFixed(2) + ' ' : 
                    (isGroupClass(classNameStr) && entry[INDEX_RATE_TYPE] == 'Paid' ? ' <font style="color:red">UNPAID</font>' : '')));
              html.push('</td><td>' +
                 '<a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(classNameStr) + '\')">' + 
@@ -281,7 +281,7 @@ StudentStats.prototype.getDisplay = function() {
        } else if (type == 'Private') { //JW
           var amt = getLessonAmountFromEntry(entry);
           html.push('<tr valign=top><td>' + (i+1) + '</td><td>' +
-              (amt > 0 ? '$' + amt.toFixed(2) : (isPaidLesson(entry) ? '<font style="color:red">UNPAID</font>' : 'Free')) + '</td><td><b>' + entry[INDEX_DATE] + '</b></td><td>' + 
+              (isPaidLesson(entry) ? (amt >= 0 ? '$' + amt.toFixed(2) : '<font style="color:red">UNPAID</font>') : 'Free') + '</td><td><b>' + entry[INDEX_DATE] + '</b></td><td>' + 
             entry[INDEX_TIME] + '</td><td>' + 
             entry[INDEX_TEACHER] + '</td><td>' + entry[INDEX_LENGTH] + ' min lesson </td><td>' + highlightTODO(entry[INDEX_NOTE]) + '</td></tr>');
           cntPrivateTakenMin += parseInt(trimLR(entry[INDEX_LENGTH]));
@@ -673,8 +673,7 @@ TeacherStats.prototype.getDisplay = function() {
     if (amt > 0) amtTotal += amt;
 
     html.push('<tr><td>' + 
-     (amt > 0 ? '$' + amt.toFixed(2) : ' ') + '</td><td>' +
-//     (amt > 0 ? '$' + amt.toFixed(2) : '<font style="color:red">UNPAID</font>') + '</td><td>' +
+     (amt >= 0 ? '$' + amt.toFixed(2) : '<font style="color:red">UNPAID</font>') + '</td><td>' +
      sortedList[i][0] + ' ' +
      sortedList[i][1] + '</td><td>' +
     '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (sortedList[i][2]) + '\')">' +
@@ -796,7 +795,7 @@ ClassStats.prototype.getDisplay = function() {
               '\')">' + this.stat[i][0] + '</a>' +
               '</td><td> ' + (rateDisplay ? rateDisplay : ' ') + 
            '</td><td>' + 
-           ((amt > 0) ? '$' + amt.toFixed(2) : 
+           ((amt >= 0) ? '$' + amt.toFixed(2) : 
              (isGroupClass(this.name) && rateDisplay == 'Paid' ? '<font style="color:red">UNPAID</font>' : '')) + 
             '</td><td>' + highlightTODO(this.stat[i][3]) + '</td><td>' + 
             (warning? '<span class="warning">WARNING: Dup</span>' : '') + '</td>' +

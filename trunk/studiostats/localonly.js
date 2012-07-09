@@ -62,8 +62,9 @@ gAllRawEntities.push("3/16/2012 13:19:36;Cecilia Wang;Payment;3/2/2012;13:18:00;
 gAllRawEntities.push("3/12/2012 17:59:18;Cecilia Wang;Private;3/7/2012;18:30:00;;45;Simeon Stoynov;;with Ed".split(';'));
 gAllRawEntities.push("3/16/2012 13:21:30;Cecilia Wang;Payment;3/7/2012;13:21:00;;;;;EDS floor fee;12;;;;1;;;;;;;;12".split(';'));
 gAllRawEntities.push("3/11/2012 15:38:04;Cecilia Wang;Group;3/8/2012;20:10:00;Drop-in 2012-03-08 Thursday 8:00 PM Standard Technique;;;Free".split(';'));
-gAllRawEntities.push("3/16/2012 14:39:26;Cecilia Wang;Private;3/14/2012;18:50:00;;45;Kora Stoynova".split(';'));
-gAllRawEntities.push("3/25/2012 17:17:57;Cecilia Wang;Payment;3/14/2012;18:50:00;;;;;EDS floor fee;12;;;;1;;;;;;;;12".split(';'));
+gAllRawEntities.push("3/16/2012 14:39:26;Cecilia Wang;Private;3/14/2012;18:50:00;;45;Simeon Stoynov".split(';'));
+gAllRawEntities.push("3/25/2012 17:17:57;Cecilia Wang;Payment;3/14/2012;18:50:00;;;;;test;12;;;;1;;;;;;;;12".split(';'));
+gAllRawEntities.push("3/25/2012 17:17:57;Cecilia Wang;Payment;3/14/2012;18:50:00;;;;;test credit;0;;;;1;;;;;;;;0".split(';'));
 
 //gAllRawEntities.push("3/8/2012 12:03:59;Diane Johnson;Private;3/8/2012;12:15:00;;45;Simeon Stoynov".split(';'));
 gAllRawEntities.push("3/8/2012 12:03:59;Diane Johnson;Private;3/8/2012;13:00:00;;45;Simeon Stoynov".split(';'));
@@ -78,4 +79,4 @@ gAllRawEntities.push("3/26/2012 17:01:44;Diane Johnson;Payment;3/16/2012;13:45:0
 gAllRawEntities.push('3/23/2012 19:39:40;Alex and Natalia Gorobets;Group;3/22/2012;19:15:00;Drop-in 2012-03-23 Thursday 7:15 PM Latin Technique,Drop-in 2012-03-23 Thursday 8:00 PM Standard Technique;;;Paid;Alex'.split(';'));
 gAllRawEntities.push('3/19/2012 10:49:54;Alex and Natalia Gorobets;Payment;3/16/2012;10:49:00;;;;;Natalia Gorobets paid 3, 1 is recorded under Evvy.;12;;;2;;;;;;;;12'.split(';'));
 gAllRawEntities.push('3/23/2012 19:39:26;Alex and Natalia Gorobets;Group;3/22/2012;19:15:00;Drop-in 2012-03-22 Thursday 7:15 PM Latin Technique,Drop-in 2012-03-22 Thursday 8:00 PM Standard Technique;;;Paid;Natalia'.split(';'));
-gAllRawEntities.push('3/26/2012 18:28:02;Alex and Natalia Gorobets;Payment;3/23/2012;18:27:00;;;;;March special;6;;;1;;;;;;;;6'.split(';'));
+gAllRawEntities.push('3/26/2012 18:28:02;Alex and Natalia Gorobets;Payment;3/23/2012;18:27:00;;;;;March special;0;;;1;;;;;;;;0'.split(';'));
