@@ -193,6 +193,14 @@ StudentStats.prototype.updateAccounts = function() {
   }
 }
 
+function isYouth(name) {
+  return (name.indexOf('Youth') != -1);
+}
+
+function isParty(name) {
+  return (name.indexOf('Party') != -1);
+}
+
 function isGroupClass(name) {
   return (name.indexOf('Series') != -1 ||
         name.indexOf('Drop-in') != -1 );
@@ -263,7 +271,7 @@ StudentStats.prototype.getDisplay = function() {
               var amt = statClass.getAmount(student);
              position++;
              html.push('<tr valign=top><td>' + (position) + '</td><td>' + entry[INDEX_RATE_TYPE] +  '</td><td>');
-             html.push((amt >= 0 ? ' $' + amt.toFixed(2) + ' ' : 
+             html.push(((amt > 0) || (amt == 0 && isGroupClass(classNameStr) && entry[INDEX_RATE_TYPE] == 'Paid') ? ' $' + amt.toFixed(2) + ' ' : 
                    (isGroupClass(classNameStr) && entry[INDEX_RATE_TYPE] == 'Paid' ? ' <font style="color:red">UNPAID</font>' : '')));
              html.push('</td><td>' +
                 '<a href="javascript:void(0)" onclick="updateClassStatsWithName(\'' + escapeParam(classNameStr) + '\')">' + 
@@ -795,7 +803,7 @@ ClassStats.prototype.getDisplay = function() {
               '\')">' + this.stat[i][0] + '</a>' +
               '</td><td> ' + (rateDisplay ? rateDisplay : ' ') + 
            '</td><td>' + 
-           ((amt >= 0) ? '$' + amt.toFixed(2) : 
+           (((amt > 0) || (amt == 0 && isGroupClass(this.name) && rateDisplay == 'Paid')) ? '$' + amt.toFixed(2) : 
              (isGroupClass(this.name) && rateDisplay == 'Paid' ? '<font style="color:red">UNPAID</font>' : '')) + 
             '</td><td>' + highlightTODO(this.stat[i][3]) + '</td><td>' + 
             (warning? '<span class="warning">WARNING: Dup</span>' : '') + '</td>' +
@@ -1589,6 +1597,7 @@ function showStudentsNamesWithoutBalance() {
 
   html.push('</table>');
 
+  html.push('<p>Total: ' + total);
   updateReportTime();
   _gel('idEntityList').innerHTML = html.join('');
 }
