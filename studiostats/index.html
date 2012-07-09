@@ -114,6 +114,13 @@ function escapeParam(input) {
   return input.replace(/'/g, "\\'");
 }
 
+// old private lesson entries don't have RATE TYPE entered
+function isPaidLesson(entry) {
+  return (entry[INDEX_RATE_TYPE] == null) || 
+         (entry[INDEX_RATE_TYPE] == 'Paid') ||
+         (entry[INDEX_RATE_TYPE] == '');
+}
+
 ////////////////////////////////////////////////////////////////////////
 // Classes
 
@@ -177,7 +184,10 @@ StudentStats.prototype.updateAccounts = function() {
      var entry = entries[i]; // full log line
      var len = parseInt(entry[INDEX_LENGTH]);
      var num = parseFloat((len/45).toFixed(2));
-     var amt = account.takeLesson(num);
+     var amt = 0;
+     if (isPaidLesson(entry)) {
+       amt = account.takeLesson(num);
+     }
      var statTeacher = allStatsTeachers.getStat(entry[INDEX_TEACHER]);
      statTeacher.updateAmount(entry, amt);
   }
@@ -271,7 +281,7 @@ StudentStats.prototype.getDisplay = function() {
        } else if (type == 'Private') { //JW
           var amt = getLessonAmountFromEntry(entry);
           html.push('<tr valign=top><td>' + (i+1) + '</td><td>' +
-              (amt > 0 ? '$' + amt.toFixed(2) : '<font style="color:red">UNPAID</font>') + '</td><td><b>' + entry[INDEX_DATE] + '</b></td><td>' + 
+              (amt > 0 ? '$' + amt.toFixed(2) : (isPaidLesson(entry) ? '<font style="color:red">UNPAID</font>' : 'Free')) + '</td><td><b>' + entry[INDEX_DATE] + '</b></td><td>' + 
             entry[INDEX_TIME] + '</td><td>' + 
             entry[INDEX_TEACHER] + '</td><td>' + entry[INDEX_LENGTH] + ' min lesson </td><td>' + highlightTODO(entry[INDEX_NOTE]) + '</td></tr>');
           cntPrivateTakenMin += parseInt(trimLR(entry[INDEX_LENGTH]));
@@ -602,7 +612,7 @@ function getLessonAmountFromEntry(entry) {
 // input: statGroup array [i][0] is class name
 function sortStatGroup(input) {
   var output = [];
-  for (var i = 0; i<input.length; i++) {
+  for (var i = 0; input && i<input.length; i++) {
     var name1 = trimLR(input[i][0]).replace(/^[^\s]* /, "");
     for (var j=0; j<output.length; j++) {
       var name2 = output[j][0].replace(/^[^\s]* /, "");
@@ -663,7 +673,8 @@ TeacherStats.prototype.getDisplay = function() {
     if (amt > 0) amtTotal += amt;
 
     html.push('<tr><td>' + 
-     (amt > 0 ? '$' + amt.toFixed(2) : '<font style="color:red">UNPAID</font>') + '</td><td>' +
+     (amt > 0 ? '$' + amt.toFixed(2) : ' ') + '</td><td>' +
+//     (amt > 0 ? '$' + amt.toFixed(2) : '<font style="color:red">UNPAID</font>') + '</td><td>' +
      sortedList[i][0] + ' ' +
      sortedList[i][1] + '</td><td>' +
     '<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (sortedList[i][2]) + '\')">' +
@@ -1028,7 +1039,9 @@ PaymentsStats.prototype.getDisplay = function (onlySummary) {
   }
   html.push('</table>');
 
-  var paymentHeader = 'Total: <b>$' + cntPaymentTotal.toFixed(2) + '</b> &nbsp; &nbsp;' + getPeriod() + '<a href="javascript:void(0)" onclick="showStudioOverview()" style="float:right">All dates summary</a><p>';
+  var paymentHeader = '<font color="red">Warning: These numbers are not valid when data in the chosen date range is not complete.</font><p>';
+  paymentHeader += 'Total: <b>$' + cntPaymentTotal.toFixed(2) + '</b> &nbsp; &nbsp;' + getPeriod();
+  //var paymentHeader = 'Total: <b>$' + cntPaymentTotal.toFixed(2) + '</b> &nbsp; &nbsp;' + getPeriod() + '<a href="javascript:void(0)" onclick="showStudioOverview()" style="float:right">All dates summary</a><p>';
 
   var htmlSummary = []; 
   var studentSales = result.amt_party + result.amt_dropin + result.amt_series + result.amt_private + result.amt_youth + result.amt_child +
@@ -1069,7 +1082,8 @@ PaymentsStats.prototype.getDisplay = function (onlySummary) {
 
   htmlSummary.push('<p>Group Classes + Private Lessons + Floor Fee: &nbsp;  Paid $' + 
     (result.amt_series + result.amt_dropin + result.amt_private + result.amt_floorfee).toFixed(2) + ' &nbsp; &nbsp; Used: $' +
-    (amtGroupTotal + amtLessonTotal).toFixed(2) + ' &nbsp; &nbsp; Unused: $' + unused.toFixed(2) + '<p>');
+    (amtGroupTotal + amtLessonTotal).toFixed(2) + '<p>');
+//    (amtGroupTotal + amtLessonTotal).toFixed(2) + ' &nbsp; &nbsp; Unused: $' + unused.toFixed(2) + '<p>');
 
   if (onlySummary)
     return htmlSummary.join('');

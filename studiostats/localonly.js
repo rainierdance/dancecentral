@@ -55,6 +55,9 @@ gAllRawEntities.push("2/27/2012 10:14:39;Jackie Wu;Private;2/22/2012;10:14;;1;Si
 gAllRawEntities.push("2/27/2012 10:48:14;Jackie Wu;Youth;2/27/2012;10:47;Children_2012_03_05_MON_LEVEL_1,Youth_2012_03_05_WED_17_30_LEVEL_1;;;;TODO some;;;;;;;;;;;;;;;;;;;;;".split(';'));
 
 gAllRawEntities.push("3/5/2012 23:32:35;Cecilia Wang;Private;3/2/2012;19:30:00;;60;Simeon Stoynov".split(';'));
+gAllRawEntities.push("3/6/2012 23:32:35;Cecilia Wang;Private;3/6/2012;19:30:00;;45;Simeon Stoynov".split(';'));
+gAllRawEntities.push("3/7/2012 23:32:35;Cecilia Wang;Private;3/7/2012;19:30:00;;45;Simeon Stoynov".split(';'));
+gAllRawEntities.push("3/7/2012 23:32:35;Cecilia Wang;Private;3/5/2012;19:30:00;;45;Kora Stoynov;Free".split(';'));
 gAllRawEntities.push("3/16/2012 13:19:36;Cecilia Wang;Payment;3/2/2012;13:18:00;;;;;EDS floor fee;16;;;;1.33;;;;;;;;16".split(';'));
 gAllRawEntities.push("3/12/2012 17:59:18;Cecilia Wang;Private;3/7/2012;18:30:00;;45;Simeon Stoynov;;with Ed".split(';'));
 gAllRawEntities.push("3/16/2012 13:21:30;Cecilia Wang;Payment;3/7/2012;13:21:00;;;;;EDS floor fee;12;;;;1;;;;;;;;12".split(';'));
