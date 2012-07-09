@@ -1403,6 +1403,7 @@ function showStudentStats() {
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsSummary()">Summary</a>');
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsOverdueNames()">Overdue Students</a>');
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsNamesWithBalance()">Students with Balance</a>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsNamesWithoutBalance()">Students without Balance</a>');
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsOverview()">All Students Details</a>');
   html.push('</span>');
   _gel('idSelect').innerHTML = html.join('');
@@ -1568,6 +1569,28 @@ function getStudentStatsSummary(input) {
     return html.join('');
   }
 
+}
+
+function showStudentsNamesWithoutBalance() {
+  resetSelection();
+
+  var html = [];
+
+  var sortedList = statsStudents.getSortedStudentsList();
+  var total = 0;
+  for (var i=0; i<sortedList.length; i++) {
+    var key = sortedList[i];
+    var account = getStudentAccount(key);
+    if (!account.isPositive() && !account.isOverdue()) {
+      total++
+      html.push('<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) + '\')">' + key + '</a><br>');
+    }
+  }
+
+  html.push('</table>');
+
+  updateReportTime();
+  _gel('idEntityList').innerHTML = html.join('');
 }
 
 function showStudentsNamesWithBalance() {
