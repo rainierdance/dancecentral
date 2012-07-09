@@ -485,8 +485,9 @@ function signInPrivateLesson() {
   _gel('trPackages').style.display = 'None';
   _gel('trPayment').style.display = 'None';
   _gel('trDateTime').style.display = '';
-  _gel("trRateType").style.display='None';
+  _gel("trRateType").style.display='';
 
+  fillInRateTypes(0);
   fillInTeachers();
   fillInLength();
 }
@@ -572,7 +573,7 @@ function fillInTeachers() {
   _gel('fieldTeachers').innerHTML = html.join('');
 }
 
-function fillInRateTypes() {
+function fillInRateTypes(selectedIndex) {
   var html = ['<table cellspacing=4>'];
   var len = gAllRateTypes.length;
   var cols = 0;
@@ -581,7 +582,9 @@ function fillInRateTypes() {
       if (cols == 0) html.push('<tr>');
       var label = "idRate" + i;
       html.push('<td><input type=radio name="rRate" id="' + label+ '" value="' + 
-         gAllRateTypes[i].value+ '" /><label for="' + label + '"> ' +
+         gAllRateTypes[i].value+ '" ');
+      html.push((selectedIndex == i) ? ' checked' : '');
+      html.push('/><label for="' + label + '"> ' +
          gAllRateTypes[i].display + "</label>&nbsp;&nbsp;</td>");
       cols = ((cols + 1) % 3);
       cntTypes++;
