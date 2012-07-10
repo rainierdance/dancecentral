@@ -1347,6 +1347,7 @@ function processStatsWithTimeRestrict(startDate, endDate) {
   _gel('idSelect').innerHTML = '';
   _gel('idPeriodStart').innerHTML = periodStart;
   _gel('idPeriodEnd').innerHTML = periodEnd;
+  _gel('idTotalRecords').innerHTML = gAllEntities.length;
 
   // default
   // showClassesStats();
@@ -2103,7 +2104,7 @@ function showStudioOverview() {
 
 <!--- UI elements --->
 <div id='idControlPanel' style="display:None">
-Data contains entries from <b><span id='idPeriodStart'></b> to <b><span id="idPeriodEnd"></b>.<br>
+Data contains entries from <b><span id='idPeriodStart'></b> to <b><span id="idPeriodEnd"></b>. Total records: <b><span id="idTotalRecords"></b><br>
 <font color="red">Warning: Statistics numbers are not valid when data in the chosen date range is not complete.</font><p>
 Date starting (MM/DD/YYYY): 
 <input type=text id='idStartDate' size=12>   
