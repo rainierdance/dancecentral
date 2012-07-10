@@ -78,7 +78,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0710.1140";
+var VERSION = "12.0710.1205";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1655,7 +1655,7 @@ function getStudentStatsSummary(input) {
 function showStudentsNamesWithoutBalance() {
   resetSelection();
 
-  var html = [];
+  var html = ['This list is for archiving data.<br><textarea rows=5 cols=100>'];
 
   var sortedList = statsStudents.getSortedStudentsList();
   var total = 0;
@@ -1664,11 +1664,12 @@ function showStudentsNamesWithoutBalance() {
     var account = getStudentAccount(key);
     if (!account.isPositive() && !account.isOverdue()) {
       total++
-      html.push('<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) + '\')">' + key + '</a><br>');
+      //html.push('<a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) + '\')">' + key + '</a><br>');
+      html.push(',' + key +',\n');
     }
   }
 
-  html.push('</table>');
+  html.push('</textarea>');
 
   html.push('<p>Total: ' + total);
   updateReportTime();
