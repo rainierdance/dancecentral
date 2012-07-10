@@ -78,7 +78,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0709.1626";
+var VERSION = "12.0710.1140";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -86,6 +86,7 @@ var LINE = '<hr style="background-color:rgb(204,204,204);border-top-style:none;b
 
 var gAllRawEntities = []; // all raw log entries, not sorted, directly read from data file
 var gAllEntities = []; // sorted and date restricted
+var periodStart = '', periodEnd = ''; // all log dates
 
 var INDEX_TIMESTAMP = 0;
 var INDEX_NAME = 1;
@@ -1112,7 +1113,7 @@ PaymentsStats.prototype.getDisplay = function (onlySummary) {
   }
   html.push('</table>');
 
-  var paymentHeader = '<font color="red">Warning: These numbers are not valid when data in the chosen date range is not complete.</font><p>';
+  var paymentHeader = '';
   paymentHeader += 'Total: <b>$' + cntPaymentTotal.toFixed(2) + '</b> &nbsp; &nbsp;' + getPeriod();
   //var paymentHeader = 'Total: <b>$' + cntPaymentTotal.toFixed(2) + '</b> &nbsp; &nbsp;' + getPeriod() + '<a href="javascript:void(0)" onclick="showStudioOverview()" style="float:right">All dates summary</a><p>';
 
@@ -1401,11 +1402,17 @@ function processStatsWithTimeRestrict(startDate, endDate) {
     allStatsTeachers = statsTeachers;
 
     statsStudents.updateAccounts();
+    if (gAllEntities.length > 0) {
+      periodStart = gAllEntities[gAllEntities.length-1][INDEX_DATE];
+      periodEnd = gAllEntities[0][INDEX_DATE];
+    }
   }
   // clear display
   _gel('idStatsLinks').style.display = '';
   _gel('idEntityList').innerHTML = '';
   _gel('idSelect').innerHTML = '';
+  _gel('idPeriodStart').innerHTML = periodStart;
+  _gel('idPeriodEnd').innerHTML = periodEnd;
 
   // default
   // showClassesStats();
@@ -2161,9 +2168,11 @@ function showStudioOverview() {
 
 <!--- UI elements --->
 <div id='idControlPanel' style="display:None">
-Period Starting (MM/DD/YYYY): 
+Data contains entries from <b><span id='idPeriodStart'></b> to <b><span id="idPeriodEnd"></b>.<br>
+<font color="red">Warning: Statistics numbers are not valid when data in the chosen date range is not complete.</font><p>
+Date starting (MM/DD/YYYY): 
 <input type=text id='idStartDate' size=12>   
-Ending (MM/DD/YYYY):
+ending (MM/DD/YYYY):
 <input type=text id='idEndDate' size=12>
 <input type=submit value='Get Stats!' onclick="processStats()">
 <p>
