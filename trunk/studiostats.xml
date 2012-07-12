@@ -74,11 +74,19 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 .errMsg {background-color: #ffe6cc; border: 2px solid #c43b1d; padding: 2px;}
 .warning {background-color: #ffe6cc; border: 2px solid #c43b1d; padding: 2px;}
 .overdue {background-color: #ffe6cc; border: 1px solid #c43b1d; padding: 2px;}
+
+/* Sortable tables */
+table.sortable thead {
+    background-color:#eee;
+    font-weight: bold;
+    cursor: default;
+}
 </style>
+
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0712.0933";
+var VERSION = "12.0712.1203";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1306,6 +1314,7 @@ function initData() {
   showPaymentStats();
 
   // get per students account information, this is only done one time
+
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -1424,6 +1433,9 @@ function processStatsWithTimeRestrict(startDate, endDate) {
 // select a student from drop down
 function updateReportTime() {
   _gel('reportTime').innerHTML = '<p>' + LINE + 'Report time: ' + new Date().toString();
+
+  // init sorttable for every newly generated report, has to user timer so browser has the DOM updated
+  setInterval("sorttable.init()", 5000);
 }
 
 function updateStudentStats(optSelect) {
@@ -1508,14 +1520,16 @@ function getStudentStatsSummary(input) {
   var sortedList = statsStudents.getSortedStudentsList();
   var html = [];
 
-  html.push('<b>Student Summary</b> &nbsp; &nbsp; ' + getPeriod() + '<p>');
+  html.push('<b>Student Summary</b> &nbsp; &nbsp; ' + getPeriod() + ' (Click on header column to sort by column)<p>');
 
-  html.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
+  html.push('<table class="sortable" cellpadding=8 style="border-collapse:collapse;" border=1>');
+  html.push('<thead>');
   html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Student</td><td>Classes</td><td>Classes $</td>' + 
    '<td>Private Lessons</td><td>Lesson $</td>' + 
    '<td>Parties/Rounds</td>' +
    '<td>Youth/Child</td>' + 
    '<td>Practice</td><td>Total Visits</td><td>Payment</td></tr>');
+  html.push('</thead>');
 
   var cntGroupTotal = 0;
   var cntPartyTotal = 0;
@@ -1651,7 +1665,7 @@ function getStudentStatsSummary(input) {
     var stat = statsStudents.getStat(studentName, true); // don't create if not exist
     return stat.getDisplay();
   } else {
-    return html.join('');
+    return 'Total student: ' + iList + '<p>' + html.join('');
   }
 
 }
@@ -1659,7 +1673,7 @@ function getStudentStatsSummary(input) {
 function showStudentsNamesWithoutBalance() {
   resetSelection();
 
-  var html = ['This list is for archiving data.<br><textarea rows=5 cols=100>'];
+  var html = ['This list is for archiving data.<p><textarea rows=5 cols=100>'];
 
   var sortedList = statsStudents.getSortedStudentsList();
   var total = 0;
@@ -1675,9 +1689,8 @@ function showStudentsNamesWithoutBalance() {
 
   html.push('</textarea>');
 
-  html.push('<p>Total: ' + total);
   updateReportTime();
-  _gel('idEntityList').innerHTML = html.join('');
+  _gel('idEntityList').innerHTML = 'Total: ' + total + '<p>' + html.join('');
 }
 
 function showStudentsNamesWithBalance() {
@@ -1704,7 +1717,7 @@ function showStudentsNamesWithBalance() {
   html.push('</table>');
 
   updateReportTime();
-  _gel('idEntityList').innerHTML = html.join('');
+  _gel('idEntityList').innerHTML = 'Total: ' + total + '<p>' + html.join('');
 }
 
 function showStudentsOverdueNames() {
@@ -1736,7 +1749,7 @@ function showStudentsOverdueNames() {
   html.push('</table>');
 
   updateReportTime();
-  _gel('idEntityList').innerHTML = html.join('');
+  _gel('idEntityList').innerHTML = 'Total: ' + total + '<p>' + html.join('');
 }
 
 function showStudentsOverdue() {
@@ -2197,6 +2210,7 @@ ending (MM/DD/YYYY):
 <div id="idEntityList" style="overflow: auto;"><img src="http://www.google.com/ig/images/spinner.gif" /></div>
 <div id='reportTime'></div>
 
+<script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/studiostats/sorttable.js"></script>
 
 </body>
 ]]></Content>
