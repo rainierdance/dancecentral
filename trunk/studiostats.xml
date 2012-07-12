@@ -78,7 +78,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0710.1304";
+var VERSION = "12.0712.0933";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1561,6 +1561,7 @@ function getStudentStatsSummary(input) {
     cntGroupTotal += cntGroup;
     cntPartyTotal += cntParty;
     studentTotal += cntGroup;
+    studentTotal += cntParty;
 
     var cntYouth = 0;
     entries = statStudent.getStatForSignInType('Youth');
@@ -1631,6 +1632,8 @@ function getStudentStatsSummary(input) {
     html.push('</tr>');
   }
 
+  var cntVisits = cntGroupTotal + cntPartyTotal + cntYouthTotal + cntPrivateTotal + cntPracticeTotal;
+
   html.push('<tr align=right style="font-weight:bold"><td>&nbsp;</td>' +
     '<td>Total</td><td>' + cntGroupTotal + '</td><td>' + (amtGroupTotal > 0 ? '$' + amtGroupTotal.toFixed(2) : '') + 
    '</td><td>' + cntPrivateTotal.toFixed(2) + 
@@ -1638,7 +1641,7 @@ function getStudentStatsSummary(input) {
    '</td><td>' + cntPartyTotal + 
    '</td><td>' + cntYouthTotal + 
    '</td><td>' + cntPracticeTotal + '</td><td>' +
-   (cntGroupTotal + cntPartyTotal + cntYouthTotal + cntPrivateTotal + cntPracticeTotal).toFixed(2) + 
+   cntVisits.toFixed(2) + 
    '</td><td>$' + cntPaymentTotal.toFixed(2) + '</td></tr>');
 
   html.push('</table>');
