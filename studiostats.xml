@@ -86,7 +86,7 @@ table.sortable thead {
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0712.1203";
+var VERSION = "12.0712.1207";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1435,7 +1435,7 @@ function updateReportTime() {
   _gel('reportTime').innerHTML = '<p>' + LINE + 'Report time: ' + new Date().toString();
 
   // init sorttable for every newly generated report, has to user timer so browser has the DOM updated
-  setInterval("sorttable.init()", 5000);
+  setInterval("sorttable.init()", 2000);
 }
 
 function updateStudentStats(optSelect) {
@@ -1594,7 +1594,10 @@ function getStudentStatsSummary(input) {
       nameHtml = '<spant class="overdue">' + key + '</span>';
     };
 
-    html.push('<tr align=right><td>' + (iList) + 
+    //html.push('<tr align=right><td>' + (iList) + 
+    // the number is misleading when the table is sortable, remove
+
+    html.push('<tr align=right><td>&nbsp;' +
       '</td><td align=left><a href="javascript:void(0)" onclick="updateStudentStatsWithName(\'' + (key) +
       '\')">' + nameHtml + '</a></td>');
     html.push('<td>' + (cntGroup == 0 ? ' ' : cntGroup) +  '</td><td>' + (amtGroup >0 ? '$' + amtGroup.toFixed(2) : ' ') + '</td>');
