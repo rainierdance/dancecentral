@@ -1566,7 +1566,7 @@ function getStudentStatsSummary(input) {
       studentTotal += statType.length;
     }
 
-    html.push('<td>' + studentTotal.toFixed(2) + '</td>');
+    html.push('<td>' + studentTotal.toFixed(0) + '</td>');
 
     var amtTotal = 0;
     entries = statStudent.getStatForSignInType('Payment');
@@ -1592,7 +1592,7 @@ function getStudentStatsSummary(input) {
    '</td><td>' + cntPartyTotal + 
    '</td><td>' + cntYouthTotal + 
    '</td><td>' + cntPracticeTotal + '</td><td>' +
-   cntVisits.toFixed(2) + 
+   cntVisits.toFixed(0) + 
    '</td><td>$' + cntPaymentTotal.toFixed(2) + '</td></tr>');
 
   html.push('</table>');
