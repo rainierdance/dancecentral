@@ -35,7 +35,7 @@ function escapeHtml(text) {
 var gadgetHelper = null;
 _IG_RegisterOnloadHandler(loadVisualizationAPI);
 function loadVisualizationAPI() {
-  gFormPostKey = prefs.getString('formPostKey'));
+  gFormPostKey = prefs.getString('formPostKey');
   google.load("visualization", "1");
   google.setOnLoadCallback(sendTeacherQuery);
 }
@@ -168,7 +168,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0713.1050";
+var VERSION = "12.0713.1102";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals

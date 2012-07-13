@@ -35,7 +35,7 @@ function escapeHtml(text) {
 var gadgetHelper = null;
 _IG_RegisterOnloadHandler(loadVisualizationAPI);
 function loadVisualizationAPI() {
-  gFormPostKey = prefs.getString('formPostKey'));
+  gFormPostKey = prefs.getString('formPostKey');
   google.load("visualization", "1");
   google.setOnLoadCallback(sendTeacherQuery);
 }
