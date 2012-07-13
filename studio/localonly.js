@@ -1,6 +1,6 @@
 <!--Only included for local test -->
 function onLoad() {
-  refreshSearchResult(gAllEntities);
+  startMain(gAllEntities);
 }
 
 function _gel(id) {

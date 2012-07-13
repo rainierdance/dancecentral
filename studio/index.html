@@ -17,6 +17,9 @@ var VERSION = "$Rev$";
 // everyone who signed liability waiver, including all teachers and students
 // read from data file
 var gAllEntities = [];	 
+// form key is from live from, not the spreadsheet url
+var gFormPostKey = 'dC1ScmpPZF9pWG9qQ1JraWkyMi1GZmc6MQ';  // old key
+//var gFormPostKey = 'dFZ5cEhUTGpLaHMxc2t4cDUyU3VZYlE6MA'; // 2012-07
 
 // read from data file, current ongoing classes
 var gAllClasses = [];
@@ -215,20 +218,30 @@ function showEntityDetails(index) {
   _gel('idEntityDetails').innerHTML = details;
 }
 
+function startMain() {
+  // set form action URL
+  _gel("ss-form").action = 'https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?hl=en_US&formkey=' + gFormPostKey + '&ifq';
+  refreshSearchResult(gAllEntities, true);
+}
+
 ////////////////////////////////////////////////////////////////////////
 // Display search result
-function refreshSearchResult(entities) {
+function refreshSearchResult(entities, hideList) {
   _gel('idTopSearchPanel').style.display = '';
 
   _gel('idFrameSubmit').src = 'about:blank'; // in case of previous submit
 
   var html = [];   // start the HTML output string
-  for (var i = 0; i < entities.length; i++) {
-    html.push((i+1) + '&nbsp;<a href="javascript:void(0)" onclick="selectEntity(' + 
-      entities[i].index + ')" onmouseover="showEntityDetails(' + entities[i].index + ')">' +
-      entities[i].getName() + '</a><br>');
+  if (!hideList) {
+    for (var i = 0; i < entities.length; i++) {
+      html.push((i+1) + '&nbsp;<a href="javascript:void(0)" onclick="selectEntity(' + 
+        entities[i].index + ')" onmouseover="showEntityDetails(' + entities[i].index + ')">' +
+        entities[i].getName() + '</a><br>');
+    }
   }
-  _gel('idEntityList').innerHTML = html.join('');
+  // show only the total instead of long list
+  _gel('idEntityList').innerHTML = ((entities.length > 1) ? 'Total Number: ' + entities.length + '<p>' : '') +
+    html.join('');
   if (entities.length == 0) {
     // show new student
     _gel('idIsNewPanel').style.display = '';
@@ -1176,7 +1189,6 @@ Payment discount: <input type='text' value="" id="entry_prep_payment_discount" s
 <!-- Normally hidden, the actual form used to post to Google Spreadsheet -->
 <div style="display:none">
 <form target="frmSubmit" 
-  action="https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?hl=en_US&amp;formkey=dC1ScmpPZF9pWG9qQ1JraWkyMi1GZmc6MQ&amp;ifq" 
   method="POST" id="ss-form">
 Name: <input type="text" name="entry.0.single" value=""  id="entry_0"><br>
 Type: <input type="text" name="entry.4.single" value=""  id="entry_4"><br>
