@@ -14,6 +14,9 @@
           required="true"/>
 <UserPref name="classesDataUrl" display_name="Classes Data url"
           required="true"/>
+<UserPref name="formPostKey" display_name="Form Post Key"
+          default_value = "dC1ScmpPZF9pWG9qQ1JraWkyMi1GZmc6MQ" 
+          required="true"/>
 <Content type="html"><![CDATA[
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
@@ -32,6 +35,7 @@ function escapeHtml(text) {
 var gadgetHelper = null;
 _IG_RegisterOnloadHandler(loadVisualizationAPI);
 function loadVisualizationAPI() {
+  gFormPostKey = prefs.getString('formPostKey'));
   google.load("visualization", "1");
   google.setOnLoadCallback(sendTeacherQuery);
 }
@@ -148,7 +152,7 @@ function handleStudentQueryResponse(response) {
     ));
   }
 
-  refreshSearchResult(gAllEntities);
+  startMain();
 }
 </script>
 
