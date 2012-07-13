@@ -164,7 +164,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0713.0042";
+var VERSION = "12.0713.0046";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1330,7 +1330,7 @@ Payment discount: <input type='text' value="" id="entry_prep_payment_discount" s
 <!-- Normally hidden, the actual form used to post to Google Spreadsheet -->
 <div style="display:none">
 <form target="frmSubmit" 
-  action="https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?hl=en_US&amp;formkey=0Ajd3OhcxW1E9dEhwU2wxUHgtdTFzQ3ZGMzZBX3ZtZHc&amp;ifq" 
+  action="https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?hl=en_US&amp;formkey=dC1ScmpPZF9pWG9qQ1JraWkyMi1GZmc6MQ&amp;ifq" 
   method="POST" id="ss-form">
 Name: <input type="text" name="entry.0.single" value=""  id="entry_0"><br>
 Type: <input type="text" name="entry.4.single" value=""  id="entry_4"><br>
