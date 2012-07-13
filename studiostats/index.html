@@ -1245,12 +1245,13 @@ function initData() {
 
   processStatsWithTimeRestrict(null, null); // all stats, init
 
+/*
   // when data is incomplete, don't want to confuse on first payment screen
   var defaultStartDate = new Date();
   defaultStartDate.setDate(1); // first of the current month
   _gel('idStartDate').value = formatDateWithSlash(defaultStartDate); 
   processStatsWithTimeRestrict(defaultStartDate, null); // take the default start date
-
+*/
   showStudentStats();
   //showPaymentStats();
 
@@ -1278,7 +1279,8 @@ function processStats() {
   endDate.setTime(endDate.getTime() + 22*60*60*1000 + 55 *60*1000); // ending, before 10:55pm
 
   processStatsWithTimeRestrict(startDate, endDate);
-  showPaymentStats();
+  showClassesStats();
+  //showPaymentStats();
 }
 
 function processStatsWithTimeRestrict(startDate, endDate) {
@@ -1366,8 +1368,8 @@ function processStatsWithTimeRestrict(startDate, endDate) {
   _gel('idTotalRecords').innerHTML = gAllEntities.length;
 
   // default
-  // showClassesStats();
-  showPaymentStats();
+  showClassesStats();
+  //showPaymentStats();
 }
 
 //////////////////////////////////////
