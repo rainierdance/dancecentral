@@ -1137,7 +1137,7 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 <tr><td><input type='text' value="" id="entry_prep_payment_num_dropin_practice" size=3  onchange="updateDropinPracticeTotal()"> Number of Drop-in Practice </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_dropin_practice" onchange="updateTotal()" size=3></td></tr>
 
-<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_parties" size=3  onchange="updatePartyTotal()"> Number of Parties </td>
+<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_parties" size=3  onchange="updatePartyTotal()"> Number of Parties, Rounds, Seminars or Events </td>
 <td>Amount: <input type='text' value="" id="entry_prep_payment_amt_parties" onchange="updateTotal()" size=3></td></tr>
 
 <tr style="display:none"><td colspan=2>Teacher: </td></tr>
@@ -1240,7 +1240,7 @@ Note: <textarea name="entry.5.single" rows="8" cols="75"  id="entry_5"></textare
 // The value of each SignInType is used to map Group classes' value and RateType values 
 // to filter the classes rate types to display
 
-gAllSignInTypes.push(new ValueDisplay('Group', 'Classes and Parties'));
+gAllSignInTypes.push(new ValueDisplay('Group', 'Classes, Parties and Events'));
 //gAllSignInTypes.push(new ValueDisplay('Party', 'Parties and Rounds'));
 gAllSignInTypes.push(new ValueDisplay('Youth', 'Youth & Children'));
 gAllSignInTypes.push(new ValueDisplay('Private', 'Private Lesson'));
