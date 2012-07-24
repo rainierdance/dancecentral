@@ -181,6 +181,7 @@ StudentStats.prototype.updateAccounts = function() {
          var classNameStr = trimLR(classes[j]);
          if (classNameStr.indexOf('Party') != -1) continue; // skip party
          if (classNameStr.indexOf('Round') != -1) continue; // skip party
+         if (classNameStr.indexOf('Event') != -1) continue; // skip party
          var amt = account.takeClass(1);
          var statClass = allStatsClasses.getStat(classNameStr);
          statClass.updateAmount(this.name, amt);
@@ -768,6 +769,7 @@ ClassStats.prototype.updateAmount = function(name, amt) {
 ClassStats.prototype.getTotalAmount = function() {
   if (this.name.indexOf('Party') != -1) return 0;
   if (this.name.indexOf('Round') != -1) return 0;
+  if (this.name.indexOf('Event') != -1) return 0;
 
   var amt = 0;
   for (var i=0; i<this.stat.length; i++) {
@@ -872,6 +874,7 @@ AllClassesStats.prototype.addEntry = function (entry) {
 AllClassesStats.prototype.getSummaryDisplay = function (input) {
   var cntTotalGroup = 0;
   var cntTotalParty = 0;
+  var cntTotalEvent = 0;
   var cntTotalRound = 0;
   var cntTotalYouth = 0;
   var cntTotalChildren = 0;
@@ -879,10 +882,12 @@ AllClassesStats.prototype.getSummaryDisplay = function (input) {
   // paid students
   var cntTotalGroupPaid = 0;
   var cntTotalPartyPaid = 0;
+  var cntTotalEventPaid = 0;
   var cntTotalRoundPaid = 0;
 
   var cntTotalGroupParticipants = 0;
   var cntTotalPartyParticipants = 0;
+  var cntTotalEventParticipants = 0;
   var cntTotalRoundParticipants = 0;
   var cntTotalYouthParticipants = 0;
   var cntTotalChildrenParticipants = 0;
@@ -914,6 +919,11 @@ AllClassesStats.prototype.getSummaryDisplay = function (input) {
       cntTotalParty++;
       cntTotalPartyPaid += cntPaid;
       cntTotalPartyParticipants += statGroup.length;
+    }
+    if (key.indexOf('Event') != -1) {
+      cntTotalEvent++;
+      cntTotalEventPaid += cntPaid;
+      cntTotalEventParticipants += statGroup.length;
     }
     if (key.indexOf('Round') != -1) {
       cntTotalRound++;
@@ -950,6 +960,11 @@ AllClassesStats.prototype.getSummaryDisplay = function (input) {
     html.push('<tr align=right><td>Rounds</td><td>' + cntTotalRound + 
      '</td><td>' + cntTotalRoundParticipants + 
      '</td><td>' + cntTotalRoundPaid + '</td><td>' + (cntTotalRoundPaid/cntTotalRound).toFixed(0) + '</td><td>&nbsp;</td></tr>');
+  }
+  if (cntTotalEvent > 0)  {
+    html.push('<tr align=right><td>Events</td><td>' + cntTotalEvent + 
+       '</td><td>' + cntTotalEventParticipants + 
+     '</td><td>' + cntTotalEventPaid + '</td><td>' + (cntTotalEventPaid/cntTotalEvent).toFixed(0) + '</td><td>&nbsp;</td></tr>');
   }
   if (cntTotalYouth > 0) {
     html.push('<tr align=right><td>Youth</td><td>' + cntTotalYouth + 
@@ -1014,7 +1029,7 @@ AllClassesStats.prototype.getSummaryDisplay = function (input) {
 
   return html.join('') + 
     (iGroup > 0 ? '<p><b>Series and Group Classes:</b> <p>' + htmlGroup.join('') : '') +
-    (iParty > 0 ? '<p><b>Party and Rounds:</b> <p>' + htmlParty.join('') : '') + 
+    (iParty > 0 ? '<p><b>Parties, Rounds and Events:</b> <p>' + htmlParty.join('') : '') + 
     (iKids > 0 ? '<p><b>Youth and Children\'s Program:</b> <p>' + htmlKids.join('') : '');
 }
 
@@ -1080,7 +1095,7 @@ PaymentsStats.prototype.getDisplay = function (onlySummary) {
   htmlSummary.push('<tr align=right><td>' +
      'Dropin Practice</td><td> ' + result.num_practice_dropin + '</td><td>$' + result.amt_practice_dropin.toFixed(2) + '</td></tr>');
   htmlSummary.push('<tr align=right><td>' +
-     'Parties and Rounds</td><td> ' + result.num_party + '</td><td>$' + result.amt_party.toFixed(2) + '</td></tr>');
+     'Parties, Rounds and Events</td><td> ' + result.num_party + '</td><td>$' + result.amt_party.toFixed(2) + '</td></tr>');
   htmlSummary.push('<tr align=right style="font-weight:bold"><td>' +
      'Student Sales Total</td><td>&nbsp;</td><td>$' + studentSales.toFixed(2) + '</td></tr>');
   htmlSummary.push('<tr align=right><td>' +
@@ -1470,7 +1485,7 @@ function getStudentStatsSummary(input) {
   html.push('<thead>');
   html.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Student</td><td>Classes</td><td>Classes $</td>' + 
    '<td>Private Lessons</td><td>Lesson $</td>' + 
-   '<td>Parties/Rounds</td>' +
+   '<td>Parties/Rounds/Events</td>' +
    '<td>Youth/Child</td>' + 
    '<td>Practice</td><td>Total Visits</td><td>Payment</td></tr>');
   html.push('</thead>');
@@ -1845,7 +1860,7 @@ function getStudentItemizedPaymentDisplay(entry, result) {
   if (entry[INDEX_PAYMENT_NUM_PARTIES]) {
     num = parseInt(entry[INDEX_PAYMENT_NUM_PARTIES]);
     amt = parseFloat(entry[INDEX_PAYMENT_AMT_PARTIES]);
-    itemsPaid.push(''+ num + ' Parties for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per party');
+    itemsPaid.push(''+ num + ' Parties/rounds/events for <b>$' + amt + '</b>' + ' Unit: $' + (amt/num).toFixed(2) + ' per event');
     if (result) {
      result.num_party += num;
      result.amt_party += amt;
