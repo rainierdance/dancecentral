@@ -37,7 +37,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0306.1041";
+var VERSION = "12.0729.1047";
 
 function onLoad() {
   // fill in default date
@@ -50,10 +50,24 @@ function onLoad() {
   _gel('entry_11').value = dateStr;
 }
 
+// trim left and right space
+function trimLR(input) {
+  if (!input) {
+    return '';
+  }
+  return input.replace(/^\s+|\s+$/g,"");
+}
+
+function checkinput() {
+  _gel('entry_0').value = trimLR(_gel('entry_0').value); // firt name
+  _gel('entry_1').value = trimLR(_gel('entry_1').value); // last name
+  return true;
+}
+
 </script>
 
 <div style='line-height:2'>
-<form action="https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?formkey=dF9PbmlrUFVjLXZlbXNnUWhiRkVqaGc6MQ&amp;ifq" method="POST" id="ss-form">
+<form action="https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?formkey=dF9PbmlrUFVjLXZlbXNnUWhiRkVqaGc6MQ&amp;ifq" method="POST" id="ss-form" onsubmit="return checkinput()">
 
 <b>First Name</b>: <input type="text" name="entry.0.single" value="" class="ss-q-short" id="entry_0"> 
 <b>Last Name</b>: <input type="text" name="entry.1.single" value="" class="ss-q-short" id="entry_1"> &nbsp; 

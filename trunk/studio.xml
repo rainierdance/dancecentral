@@ -168,7 +168,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0724.0146";
+var VERSION = "12.0729.1051";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -210,6 +210,14 @@ function getClassID (keys) {
 // display name removes the Drop in date placeholder
 function getClassSignInNamePrefix(keys) {
   return (keys[0] + ' ' + keys[1] + ' ' + keys[2] + ' ' + keys[3] + ' ' + keys[7]).replace(/YYYY-MM-DD/g, '');
+}
+
+// trim left and right space
+function trimLR(input) {
+  if (!input) {
+    return '';
+  }
+  return input.replace(/^\s+|\s+$/g,"");
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -1164,25 +1172,25 @@ function onSignIn() {
   }
 
   // payment related entries
-  _gel('entry_14').value = _gel('entry_prep_payment_num_series_classes').value;
-  _gel('entry_15').value = _gel('entry_prep_payment_num_punch').value;
-  _gel('entry_16').value = _gel('entry_prep_payment_num_private').value;
-  _gel('entry_17').value = _gel('entry_prep_payment_num_dropin_practice').value;
-  _gel('entry_18').value = _gel('entry_prep_payment_num_child').value;
-  _gel('entry_19').value = _gel('entry_prep_payment_num_youth').value;
-  _gel('entry_20').value = _gel('entry_prep_payment_num_practice').value;
-  _gel('entry_21').value = _gel('entry_prep_payment_num_floor').value;
-  _gel('entry_22').value = _gel('entry_prep_payment_amt_series').value;
-  _gel('entry_23').value = _gel('entry_prep_payment_amt_punch').value;
-  _gel('entry_24').value = _gel('entry_prep_payment_amt_private').value;
-  _gel('entry_25').value = _gel('entry_prep_payment_amt_dropin_practice').value;
-  _gel('entry_26').value = _gel('entry_prep_payment_amt_child').value;
-  _gel('entry_27').value = _gel('entry_prep_payment_amt_youth').value;
-  _gel('entry_28').value = _gel('entry_prep_payment_amt_practice').value;
-  _gel('entry_29').value = _gel('entry_prep_payment_amt_floor').value;
-  _gel('entry_30').value = _gel('entry_prep_payment_discount').value;
-  _gel('entry_31').value = _gel('entry_prep_payment_num_parties').value;
-  _gel('entry_32').value = _gel('entry_prep_payment_amt_parties').value;
+  _gel('entry_14').value = trimLR(_gel('entry_prep_payment_num_series_classes').value);
+  _gel('entry_15').value = trimLR(_gel('entry_prep_payment_num_punch').value);
+  _gel('entry_16').value = trimLR(_gel('entry_prep_payment_num_private').value);
+  _gel('entry_17').value = trimLR(_gel('entry_prep_payment_num_dropin_practice').value);
+  _gel('entry_18').value = trimLR(_gel('entry_prep_payment_num_child').value);
+  _gel('entry_19').value = trimLR(_gel('entry_prep_payment_num_youth').value);
+  _gel('entry_20').value = trimLR(_gel('entry_prep_payment_num_practice').value);
+  _gel('entry_21').value = trimLR(_gel('entry_prep_payment_num_floor').value);
+  _gel('entry_22').value = trimLR(_gel('entry_prep_payment_amt_series').value);
+  _gel('entry_23').value = trimLR(_gel('entry_prep_payment_amt_punch').value);
+  _gel('entry_24').value = trimLR(_gel('entry_prep_payment_amt_private').value);
+  _gel('entry_25').value = trimLR(_gel('entry_prep_payment_amt_dropin_practice').value);
+  _gel('entry_26').value = trimLR(_gel('entry_prep_payment_amt_child').value);
+  _gel('entry_27').value = trimLR(_gel('entry_prep_payment_amt_youth').value);
+  _gel('entry_28').value = trimLR(_gel('entry_prep_payment_amt_practice').value);
+  _gel('entry_29').value = trimLR(_gel('entry_prep_payment_amt_floor').value);
+  _gel('entry_30').value = trimLR(_gel('entry_prep_payment_discount').value);
+  _gel('entry_31').value = trimLR(_gel('entry_prep_payment_num_parties').value);
+  _gel('entry_32').value = trimLR(_gel('entry_prep_payment_amt_parties').value);
 
   if (validateInput()) {
     _gel('btnSubmit').click();
