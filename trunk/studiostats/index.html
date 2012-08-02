@@ -983,8 +983,8 @@ AllClassesStats.prototype.getSummaryDisplay = function (input) {
   var htmlKids = [];
   var htmlParty = [];
 
-  htmlGroup.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
-  htmlParty.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
+  htmlGroup.push('<table class="sortable" cellpadding=8 style="border-collapse:collapse;" border=1>');
+  htmlParty.push('<table class="sortable" cellpadding=8 style="border-collapse:collapse;" border=1>');
   htmlKids.push('<table cellpadding=8 style="border-collapse:collapse;" border=1>');
 
   htmlGroup.push('<tr style="font-weight:bold"><td>&nbsp;</td><td>Class</td><td>Total #</td><td>Paid #</td><td>Paid $</td></tr>');
@@ -1659,7 +1659,7 @@ function showStudentsNamesWithBalance() {
   resetSelection();
 
   var html = [];
-  html.push('<b>Students with either positive or negative balance.</b><p><table cellpadding=4 style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
+  html.push('<b>Students with either positive or negative balance.</b><p><table class="sortable" cellpadding=4 style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
   html.push('<tr><td></td><td>Student</td><td>Private Lessons Balance</td><td>Group Classes Balance</td></tr>');
 
   var sortedList = statsStudents.getSortedStudentsList();
@@ -1694,7 +1694,7 @@ function showStudentsOverdueNames() {
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsOverdue()">Expand and show account details</a><p>');
 
 
-  html.push('<table cellpadding=4 style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
+  html.push('<table class="sortable" cellpadding=4 style="border-collapse:collapse;" border=1 bordercolor="lightgray">');
   html.push('<tr><td></td><td>Student</td><td>Private Lessons Balance</td><td>Group Classes Balance</td></tr>');
 
   var sortedList = statsStudents.getSortedStudentsList();
