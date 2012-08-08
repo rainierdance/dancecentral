@@ -86,7 +86,7 @@ table.sortable thead {
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0801.1948";
+var VERSION = "12.0808.0109";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1357,7 +1357,7 @@ function processStats() {
 
   // new Date(with just date) always uses midnight which screws things up when it's day light saving
   startDate.setTime(startDate.getTime() + 2*60*60*1000 + 55*60*1000); // starting adding 2:55am
-  endDate.setTime(endDate.getTime() + 22*60*60*1000 + 55 *60*1000); // ending, before 10:55pm
+  endDate.setTime(endDate.getTime() + 23*60*60*1000 + 00 *60*1000); // ending, before 11:00pm
 
   processStatsWithTimeRestrict(startDate, endDate);
   showClassesStats();
