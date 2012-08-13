@@ -18,7 +18,7 @@
           default_value = "dC1ScmpPZF9pWG9qQ1JraWkyMi1GZmc6MQ" 
           required="true"/>
 <Content type="html"><![CDATA[
-<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 
 <script>
 function escapeHtml(text) {
@@ -168,7 +168,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0808.0106";
+var VERSION = "12.0813.1143";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1213,7 +1213,7 @@ Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" 
 <!-- Search result list + each participant details -->
 <table cellspacing=15 id='idSearchResult'>
 <tr><td valign=top nowrap>
-<div id="idEntityList" style="overflow: auto;"><img src="http://www.google.com/ig/images/spinner.gif" /></div>
+<div id="idEntityList" style="overflow: auto;"><img src="https://www.google.com/ig/images/spinner.gif" /></div>
 </td>
 <td valign=top> <div id='idEntityDetails'></div></td>
 </tr>
