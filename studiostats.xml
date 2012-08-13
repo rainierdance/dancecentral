@@ -11,7 +11,7 @@
 <UserPref name="dataUrl" display_name="Data url"
           required="true"/>
 <Content type="html"><![CDATA[
-<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 
 <script>
 function escapeHtml(text) {
@@ -86,7 +86,7 @@ table.sortable thead {
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0808.0109";
+var VERSION = "12.0813.1148";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -2238,7 +2238,7 @@ ending (MM/DD/YYYY):
 <div id='idSelect'>
 </div>
 
-<div id="idEntityList" style="overflow: auto;"><img src="http://www.google.com/ig/images/spinner.gif" /></div>
+<div id="idEntityList" style="overflow: auto;"><img src="https://www.google.com/ig/images/spinner.gif" /></div>
 <div id='reportTime'></div>
 
 <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/studiostats/sorttable.js"></script>
