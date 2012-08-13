@@ -11,7 +11,7 @@
 <UserPref name="dataUrl" display_name="Data url"
           required="true"/>
 <Content type="html"><![CDATA[
-<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 
 <script>
 function escapeHtml(text) {
