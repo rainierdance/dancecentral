@@ -29,37 +29,328 @@
         'Spiral' : 
           {
             'name' : 'Spiral',
-            'level' : 'Silver'
+            'level' : 'Silver',
+            'urlpath' : 'spiral',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
+            'follow' : [
+                {
+                   'id' : 'Alemana',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'HockeyStick',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'SlidingDoors',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Fencing',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'ThreeAlemanas',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : 'When finished in Open Position, follow with Open Basic, or 1-3 Open Basic into Progressive Walks Back or Natural Top'
+                },
+                {
+                   'id' : 'Alemana',
+                   'comment' : 'When finished in Open Position'
+                },
+                {
+                   'id' : 'OpenHipTwist',
+                   'comment' : 'When finished in Open Position'
+                },
+                {
+                   'id' : 'Curl',
+                   'comment' : 'When finished in Open Position'
+                },
+                {
+                   'id' : 'ThreeThrees',
+                   'comment' : 'When finished in Open Position'
+                },
+                {
+                   'id' : 'ThreeAlemanas',
+                   'comment' : 'When finished in Open Position'
+                },
+                {
+                   'id' : 'NewYorkLSP',
+                   'comment' : 'When finished in Open CPP'
+                },
+                {
+                   'id' : 'SpotTurnR',
+                   'comment' : 'When finished in Open CPP'
+                },
+                {
+                   'id' : 'UnderarmTurnL',
+                   'comment' : 'When finished in Open CPP'
+                },
+                {
+                   'id' : 'ReverseTop',
+                   'comment' : 'When finished in Contact Position, follow with 4-6 or 4-9 Reverse Top.'
+                }
+              ]
           },
         'Curl' : 
           {
             'name' : 'Curl',
-            'level' : 'Silver'
+            'level' : 'Silver',
+            'urlpath' : 'curl',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
+            'follow' : [
+                {
+                   'eval' : 'SameFollowAs("Spiral")',
+                   'comment' : ''
+                }
+              ]
           },
         'RopeSpinning' : 
           {
             'name' : 'Rope Spinning',
-            'level' : 'Silver'
+            'level' : 'Silver',
+            'urlpath' : 'rope-spinning',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
+            'follow' : [
+                {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'OpeningOutToRightAndLeft',
+                   'comment' : 'Lady end Rope Spinning LF to side'
+                },
+                {
+                   'id' : 'HandToHandRSP',
+                   'comment' : 'When Man and Lady end to side'
+                },
+                {
+                   'id' : 'SideStepLeftLF',
+                   'comment' : 'When Man and Lady end to side'
+                },
+                {
+                   'id' : 'SideStepRightLF',
+                   'comment' : 'When Man and Lady end to side'
+                },
+                {
+                   'id' : 'CubanRockLF',
+                   'comment' : 'When Man and Lady end to side'
+                },
+                {
+                   'id' : 'SyncopatedCubanRockLF',
+                   'comment' : 'When Man and Lady end to side'
+                },
+                {
+                   'id' : 'NewYorkLSP',
+                   'comment' : 'When ending in Open CPP'
+                },
+                {
+                   'id' : 'SpotTurnR',
+                   'comment' : 'When ending in Open CPP'
+                },
+                {
+                   'id' : 'UnderarmTurnL',
+                   'comment' : 'When ending in Open CPP'
+                },
+                {
+                   'id' : 'NaturalOpeningOutMovement',
+                   'comment' : "When Lady ends fwd to Man's Right side"
+                },
+                {
+                   'id' : 'ClosedHipTwist',
+                   'comment' : "When Lady ends fwd to Man's Right side"
+                },
+                {
+                   'id' : 'Spiral',
+                   'comment' : "When Lady ends fwd to Man's Right side"
+                },
+                {
+                   'id' : 'RopeSpinning',
+                   'comment' : "When Lady ends fwd to Man's Right side"
+                },
+                {
+                   'id' : 'HipTwists',
+                   'comment' : "When Man and Lady fwd toward partner's R side"
+                },
+                {
+                   'id' : 'ProgressiveWalksFwdRShadow',
+                   'comment' : "When ending in R Shadow Position"
+                },
+                {
+                   'id' : 'SlidingDoors',
+                   'comment' : "When ending in R Shadow Position, follow with 7-12 of Sliding Doors."
+                }
+              ]
           },
         'Aida' : 
           {
             'name' : 'Aida',
-            'level' : 'Silver'
+            'level' : 'Silver',
+            'urlpath' : 'aida',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
+            'follow' : [
+                {
+                   'id' : 'CubanRockLF',
+                   'comment' : 'Aida followed by Cuban Rock fwd and Spot Turn; or Cuban Rock to Progressive Walks forward in Right Shadow Position'
+                },
+                {
+                   'id' : 'SpotTurnL',
+                   'comment' : 'Aida followed by Double Spot Turns to L (Lady to R)'
+                },
+                {
+                   'id' : 'CucarachasLF',
+                   'comment' : 'Aida followed by side Cucaracha, Man LF side, Lady RF side'
+                },
+                {
+                   'id' : 'Curl',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Spiral',
+                   'comment' : ''
+                }
+              ]
           },
         'OpeningOutFromReverseTop' : 
           {
             'name' : 'Opening Out From Reverse Top',
-            'level' : 'Silver'
+            'level' : 'Silver',
+            'urlpath' : 'opening-out-from-reverse-top',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
+            'follow' : [
+                {
+                   'id' : 'Alemana',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'HockeyStick',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'SlidingDoors',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Fencing',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'ThreeAlemanas',
+                   'comment' : ''
+                }
+              ]
           },
         'ReverseTop' : 
           {
             'name' : 'Reverse Top',
-            'level' : 'Silver'
+            'level' : 'Silver',
+            'urlpath' : 'open-hip-twist',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
+            'follow' : [
+                {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'OpeningOutFromReverseTop',
+                   'comment' : 'from step 6'
+                },
+                {
+                   'id' : 'Aida',
+                   'comment' : 'from step 6'
+                },
+                {
+                   'id' : 'Spiral',
+                   'comment' : 'from step 6 of Reverse Top, follow with 4-6 of Spiral, after leading Lady into her spiral turn on step 6 of Spiral Turn'
+                }
+              ]
           },
         'OpenHipTwist' : 
           {
             'name' : 'Open Hip Twist',
-            'level' : 'Silver'
+            'level' : 'Silver',
+            'urlpath' : 'open-hip-twist',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
+            'follow' : [
+                {
+                   'id' : 'Alemana',
+                   'comment' : 'when finished in Fan or Open Position'
+                },
+                {
+                   'id' : 'HockeyStick',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'SlidingDoors',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Fencing',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'ThreeAlemanas',
+                   'comment' : 'when finished in Fan or Open Position'
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : 'when finished in Open Position, follow with Open Basic or 1-3 Open Basic Movement into pprogressive Walks Back or Natual Top'
+                },
+                {
+                   'id' : 'OpenHipTwist',
+                   'comment' : 'when finished in Open Position'
+                },
+                {
+                   'id' : 'Curl',
+                   'comment' : 'when Open Hip Twist finishes in Open Position'
+                },
+                {
+                   'id' : 'ThreeThrees',
+                   'comment' : 'when Open Hip Twist finishes in Open Position'
+                },
+                {
+                   'id' : 'NewYorkLSP',
+                   'comment' : 'when Open Hip Twist finishes in Open CPP'
+                },
+                {
+                   'id' : 'SpotTurnR',
+                   'comment' : 'when Open Hip Twist finishes in Open CPP'
+                },
+                {
+                   'id' : 'UnderarmTurnL',
+                   'comment' : 'when Open Hip Twist finishes in Open CPP'
+                },
+                {
+                   'id' : 'ReverseTop',
+                   'comment' : 'when Open Hip Twist finishes in Contact Position, follow with 4-6 or 4-9 Reverse Top.'
+                }
+              ]
           },
         'ClosedHipTwist' : 
           {
