@@ -4853,7 +4853,7 @@ var foxtrotFigures =
             'name' : 'Aida',
             'level' : 'Silver',
             'urlpath' : 'aida',
-            'timing' : '2341 2341',
+            'timing' : '2341',
             'startFoot' : 'LF',
             'follow' : [
                 {
