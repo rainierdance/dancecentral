@@ -1390,7 +1390,7 @@ function processStatsWithTimeRestrict(startDate, endDate) {
 //////////////////////////////////////
 // select a student from drop down
 function updateReportTime() {
-  _gel('reportTime').innerHTML = '<p>' + LINE + 'Report time: ' + new Date().toString();
+  _gel('reportTime').innerHTML = 'Report time: ' + new Date().toString() + '<p>';
 
   // init sorttable for every newly generated report, has to user timer so browser has the DOM updated
   setInterval("sorttable.init()", 2000);
@@ -1664,6 +1664,9 @@ function showStudentsNamesWithBalance() {
 
   var sortedList = statsStudents.getSortedStudentsList();
   var total = 0;
+  var totalUnusedPrivate = 0;
+  var totalUnusedGroup = 0;
+
   for (var i=0; i<sortedList.length; i++) {
     var key = sortedList[i];
     var account = getStudentAccount(key);
@@ -1674,12 +1677,19 @@ function showStudentsNamesWithBalance() {
       (key) + '\')">' + 
       '<span ' + (account.isOverdue() ? ' class="overdue" ' : '') + '>' + 
       key + '</span></a></td>');
-    html.push('<td align=right>' + account.getPrivateBalance().toFixed(2) + '</td>');
-    html.push('<td align=right>' + account.getGroupBalance() + '</td>');
+    var numPrivate = account.getPrivateBalance();
+    var numGroup = account.getGroupBalance();
+    html.push('<td align=right>' + numPrivate.toFixed(2) + '</td>');
+    html.push('<td align=right>' + numGroup + '</td>');
+    if (numPrivate > 0) totalUnusedPrivate += numPrivate;
+    if (numGroup > 0) totalUnusedGroup += numGroup;
+
     html.push('</tr>');
   }
 
   html.push('</table>');
+  html.push('<p>Total unused private lessons: ' + totalUnusedPrivate + '<br>');
+  html.push('<p>Total Unused group classes: ' + totalUnusedGroup + '<br>');
 
   updateReportTime();
   _gel('idEntityList').innerHTML = 'Total: ' + total + '<p>' + html.join('');
@@ -2172,8 +2182,8 @@ ending (MM/DD/YYYY):
 <div id='idSelect'>
 </div>
 
-<div id="idEntityList" style="overflow: auto;"><img src="https://www.google.com/ig/images/spinner.gif" /></div>
 <div id='reportTime'></div>
+<div id="idEntityList" style="overflow: auto;"><img src="https://www.google.com/ig/images/spinner.gif" /></div>
 
 <script type="text/javascript" SRC="localonly.js"></script>
 <script type="text/javascript" SRC="sorttable.js"></script>
