@@ -1784,7 +1784,7 @@ function PaymentTotal(){
 }
 
 function getStudentItemizedPaymentDisplay(entry, result) {
-  var html = ['<table cellpadding=0 cellspacing=0><tr><td>'];
+  var html = [];
   var num, amt;
 
   var itemsPaid = [];
@@ -1877,13 +1877,13 @@ function getStudentItemizedPaymentDisplay(entry, result) {
     }
   }   
 
-  html.push(itemsPaid.join('<br>') + '</td></tr><tr><td style=""><i>');
+  html.push(itemsPaid.join('<br>') + '<br><i>');
 
   if (entry[INDEX_PAYMENT_DISCOUNT]) {
     html.push(entry[INDEX_PAYMENT_DISCOUNT] + '<br>');  
   }
   html.push(highlightTODO(entry[INDEX_NOTE]));
-  html.push('</i></td></tr></table>');
+  html.push('</i>');
   return html.join('');
 }
 
