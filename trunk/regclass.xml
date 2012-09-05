@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0501.2318";
+var VERSION = "12.0905.0906";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -179,6 +179,18 @@ function filterClasses(filter) {
       if (time1 < (time2 - 24 * 60 * 60 * 1000)) { // give  a day
         match = false;
       }
+    }
+    if (gAllClasses[i]['category'] == 'Series' && gAllClasses[i]['start_date']) {
+      // check if Series class start in past month, then don't show
+      var date1 = new Date(gAllClasses[i]['start_date']);
+      var month1 = date1.getMonth();
+      var year1 = date1.getYear();
+
+      var today = new Date();
+      var thisMonth = today.getMonth();
+      var thisYear = today.getYear();
+      if (thisYear > year1 || ((thisYear == year1) && (thisMonth > month1)))
+        match = false;
     }
     if (match && filter) { // if there is filter check filter
       for (var key in filter) {
