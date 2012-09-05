@@ -54,7 +54,7 @@ function handleClassesQueryResponse(response) {
   var data = response.getDataTable();
   for (var row = 0; row < data.getNumberOfRows(); row++) {
     var category = data.getFormattedValue(row,1);
-    if (category != 'Series' && category != 'Drop-in' && category != 'Party')
+    if (category != 'Series' && category != 'Drop-in' && category != 'Party' && category != 'Round' && category != 'Event')
         continue;
     gAllClasses.push({
       'title' : data.getFormattedValue(row,0),
@@ -89,7 +89,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0905.0955";
+var VERSION = "12.0905.1023";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
