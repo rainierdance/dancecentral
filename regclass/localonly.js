@@ -60,7 +60,7 @@ gAllClasses.push({
   'start_time': '8:00 PM',
   'style': 'International Latin, International Standard',
   'dance_name': 'Jive',
-  'level':'',
+  'level':'Level 2, Level 3, Level 4',
   'description': 'ISTD syllabus figures and technique for Jive at the "Associate" or "Bronze" level. Prerequisite is Level 1 Jive.',
   'teacher' : 'Kora',
   'bio' : 'http://foo'
