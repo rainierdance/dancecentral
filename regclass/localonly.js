@@ -14,9 +14,61 @@ function escapeHtml(text) {
 
 // initialization for local testing
 gAllClasses.push({
-  'title' : 'H Monday 8:00pm Intl. Latin Level 2 - Jive ANY',
+  'title' : 'Past month Monday 8:00pm Intl. Latin Level 2 - Jive ANY',
   'category' : 'Series',
-  'start_date': '3/5/2014',
+  'start_date': '3/5/2012',
+  'day_of_week': 'Monday',
+  'start_time': '8:00 PM',
+  'style': 'International Latin, International Standard',
+  'dance_name': 'Jive',
+  'level':'',
+  'description': 'ISTD syllabus figures and technique for Jive at the "Associate" or "Bronze" level. Prerequisite is Level 1 Jive.',
+  'teacher' : 'Kora',
+  'bio' : 'http://foo'
+  });
+gAllClasses.push({
+  'title' : 'Future month Monday 8:00pm Intl. Latin Level 2 - Jive ANY',
+  'category' : 'Series',
+  'start_date': '12/5/2012',
+  'day_of_week': 'Monday',
+  'start_time': '8:00 PM',
+  'style': 'International Latin, International Standard',
+  'dance_name': 'Jive',
+  'level':'',
+  'description': 'ISTD syllabus figures and technique for Jive at the "Associate" or "Bronze" level. Prerequisite is Level 1 Jive.',
+  'teacher' : 'Kora',
+  'bio' : 'http://foo'
+  });
+gAllClasses.push({
+  'title' : 'Past Month Past Year Monday 8:00pm Intl. Latin Level 2 - Jive ANY',
+  'category' : 'Series',
+  'start_date': '1/5/2011',
+  'day_of_week': 'Monday',
+  'start_time': '8:00 PM',
+  'style': 'International Latin, International Standard',
+  'dance_name': 'Jive',
+  'level':'',
+  'description': 'ISTD syllabus figures and technique for Jive at the "Associate" or "Bronze" level. Prerequisite is Level 1 Jive.',
+  'teacher' : 'Kora',
+  'bio' : 'http://foo'
+  });
+gAllClasses.push({
+  'title' : 'Past Year Future Month Monday 8:00pm Intl. Latin Level 2 - Jive ANY',
+  'category' : 'Series',
+  'start_date': '12/5/2011',
+  'day_of_week': 'Monday',
+  'start_time': '8:00 PM',
+  'style': 'International Latin, International Standard',
+  'dance_name': 'Jive',
+  'level':'',
+  'description': 'ISTD syllabus figures and technique for Jive at the "Associate" or "Bronze" level. Prerequisite is Level 1 Jive.',
+  'teacher' : 'Kora',
+  'bio' : 'http://foo'
+  });
+gAllClasses.push({
+  'title' : 'Future Year Monday 8:00pm Intl. Latin Level 2 - Jive ANY',
+  'category' : 'Series',
+  'start_date': '8/5/2014',
   'day_of_week': 'Monday',
   'start_time': '8:00 PM',
   'style': 'International Latin, International Standard',
