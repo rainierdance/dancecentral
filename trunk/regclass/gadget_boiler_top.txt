@@ -54,8 +54,10 @@ function handleClassesQueryResponse(response) {
   var data = response.getDataTable();
   for (var row = 0; row < data.getNumberOfRows(); row++) {
     var category = data.getFormattedValue(row,1);
+/*
     if (category != 'Series' && category != 'Drop-in')
         continue;
+*/
     gAllClasses.push({
       'title' : data.getFormattedValue(row,0),
       'category' : data.getFormattedValue(row,1), 
