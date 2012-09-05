@@ -91,7 +91,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0905.0911";
+var VERSION = "12.0905.0929";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -102,7 +102,7 @@ var gAllFilters = {};
 var resultList = null;
 var filterKeys = {
   'style' : ['Style', 4], // how many per row
-  'level' : ['Level', 4], //there are very few classes after user filter by style
+  'level' : ['Level', 5], //there are very few classes after user filter by style
   'day_of_week' : ['Day', 7],
   'teacher' : ['Instructor', 6]
 }; 

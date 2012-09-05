@@ -14,6 +14,32 @@ function escapeHtml(text) {
 
 // initialization for local testing
 gAllClasses.push({
+  'title' : "Seminar Guest's lecture",
+  'category' : 'Event',
+  'start_date': '12/5/2012',
+  'day_of_week': 'Friday',
+  'start_time': '8:00 PM',
+  'style': 'Ballet',
+  'dance_name': 'Ballet',
+  'level':'',
+  'description': '',
+  'teacher' : 'Sarah',
+  'bio' : ''
+  });
+gAllClasses.push({
+  'title' : 'Ballroom Party',
+  'category' : 'Party',
+  'start_date': '',
+  'day_of_week': 'Friday',
+  'start_time': '8:00 PM',
+  'style': '',
+  'dance_name': '',
+  'level':'',
+  'description': 'Party away',
+  'teacher' : '',
+  'bio' : ''
+  });
+gAllClasses.push({
   'title' : 'Past month Monday 8:00pm Intl. Latin Level 2 - Jive ANY',
   'category' : 'Series',
   'start_date': '3/5/2012',
