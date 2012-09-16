@@ -58,7 +58,42 @@
           {
             'name' : 'Chase',
             'level' : 'Silver',
+            'urlpath' : 'chase',
+            'timing' : '234&1 234&1 234&1 234&1',
+            'startFoot' : 'LF',
             'follow' : [
+              {
+                'id' : 'OpenBasic',
+                'comment' : 'Normal Open Basic, or 1-2 Open Basic into Three Cha Cha Chas Back, or 1-5 of Open Basic into Natural Top'
+              },
+              {
+                'id' : 'TimeStepLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'Alemana',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenHipTwist',
+                'comment' : ''
+              },
+              {
+                'id' : 'Curl',
+                'comment' : ''
+              },
+              {
+                'id' : 'Sweetheart',
+                'comment' : ''
+              },
+              {
+                'id' : 'TurkishTowel',
+                'comment' : ''
+              },
+              {
+                'id' : 'FollowMyLeader',
+                'comment' : ''
+              }
               ]
           },
         'CubanBreakLF' : 
@@ -128,21 +163,142 @@
           {
             'name' : 'Opening Out From Reverse Top',
             'level' : 'Silver',
+            'urlpath' : 'opening-out-from-reverse-top',
+            'timing' : '234&1',
+            'startFoot' : 'RF',
             'follow' : [
+              {
+                'id' : 'Alemana',
+                'comment' : ''
+              },
+              {
+                'id' : 'HockeyStick',
+                'comment' : ''
+              }
               ]
           },
         'ReverseTop' : 
           {
             'name' : 'Reverse Top',
             'level' : 'Silver',
+            'urlpath' : 'reverse-top',
+            'timing' : '234&1 234&1 234&1',
+            'startFoot' : 'RF',
             'follow' : [
+              {
+                'id' : 'ClosedBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'Fan',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpeningOutFromReverseTop',
+                'comment' : ''
+              },
+              {
+                'id' : 'Aida',
+                'comment' : ''
+              },
+              {
+                'id' : 'Spiral',
+                'comment' : 'after leading Lady into her spiral on step 10 of Reverse Top, follow with 6-10 of Spiral'
+              }
               ]
           },
         'OpenHipTwist' : 
           {
             'name' : 'Open Hip Twist',
             'level' : 'Silver',
+            'urlpath' : 'open-hip-twist',
+            'timing' : '234&1 234&1',
+            'startFoot' : 'LF',
             'follow' : [
+              {
+                'id' : 'Alemana',
+                'comment' : 'From Fan Position, or Open Position'
+              },
+              {
+                'id' : 'HockeyStick',
+                'comment' : ''
+              },
+              {
+                'id' : 'HipTwistSpiral',
+                'comment' : '7-10 Hip Twist Spiral'
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : 'Basic, or 1-2 Open Basic into Three Cha Cha Chas Back, or 1-5 Open Basic into Natural Top'
+              },
+              {
+                'id' : 'TimeStepLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenHipTwist',
+                'comment' : 'when finish in Open Position'
+              },
+              {
+                'id' : 'Curl',
+                'comment' : 'when finish in Open Position'
+              },
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : 'when finish in Open Position'
+              },
+              {
+                'id' : 'SplitCubanBreakLF',
+                'comment' : 'when finish in Open Position'
+              },
+              {
+                'id' : 'Chase',
+                'comment' : 'when finish in Open Position'
+              },
+              {
+                'id' : 'TurkishTowel',
+                'comment' : 'when finish in Open Position'
+              },
+              {
+                'id' : 'Sweetheart',
+                'comment' : 'when finish in Open Position'
+              },
+              {
+                'id' : 'FollowMyLeader',
+                'comment' : 'when finish in Open Position'
+              },
+              {
+                'id' : 'NewYorkLSP',
+                'comment' : 'when finish in Open CPP'
+              },
+              {
+                'id' : 'SpotTurnToR',
+                'comment' : 'when finish in Open CPP'
+              },
+              {
+                'id' : 'UnderarmTurnToL',
+                'comment' : 'when finish in Open CPP'
+              },
+              {
+                'id' : 'ThreeChaChaChasFwd',
+                'comment' : 'when finish in Open CPP, 4-9 Three Cha Chas'
+              },
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : 'when finish in Open CPP'
+              },
+              {
+                'id' : 'SplitCubanBreakLF',
+                'comment' : 'when finish in Open CPP'
+              },
+              {
+                'id' : 'ReverseTop',
+                'comment' : 'when finish in Contact Position, 6-10 or 6-15 Reverse Top'
+              }
               ]
           },
         'ClosedHipTwist' : 
