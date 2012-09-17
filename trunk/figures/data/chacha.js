@@ -99,63 +99,376 @@
           {
             'name' : 'Cuban Break LF',
             'level' : 'Silver',
+            'urlpath' : 'cuban-breaks',
+            'timing' : '2&3&4&1',
+            'startFoot' : 'LF',
             'follow' : [
+              {
+                'id' : 'CubanBreakRF',
+                'comment' : ''
+              }
               ]
           },
         'CubanBreakRF' : 
           {
             'name' : 'Cuban Break RF',
             'level' : 'Silver',
+            'urlpath' : 'cuban-breaks',
+            'timing' : '2&3&4&1',
+            'startFoot' : 'RF',
             'follow' : [
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SpotTurnToR',
+                'comment' : ''
+              },
+              {
+                'id' : 'NewYorkLSP',
+                'comment' : ''
+              }
               ]
           },
         'SplitCubanBreakRF' : 
           {
             'name' : 'Split Cuban Break RF',
             'level' : 'Silver',
+            'urlpath' : 'cuban-breaks',
+            'timing' : '2&3&4&1',
+            'startFoot' : 'RF',
             'follow' : [
+              {
+                'id' : 'SplitCubanBreakLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SpotTurnToR',
+                'comment' : ''
+              },
+              {
+                'id' : 'NewYorkLSP',
+                'comment' : ''
+              }
               ]
           },
         'SplitCubanBreakLF' : 
           {
             'name' : 'Split Cuban Break LF',
             'level' : 'Silver',
+            'urlpath' : 'cuban-breaks',
+            'timing' : '2&3&4&1',
+            'startFoot' : 'LF',
             'follow' : [
+              {
+                'id' : 'SplitCubanBreakRF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SpotTurnToL',
+                'comment' : ''
+              },
+              {
+                'id' : 'NewYorkRSP',
+                'comment' : ''
+              }
               ]
           },
         'CrossBasic' : 
           {
             'name' : 'Cross Basic',
             'level' : 'Silver',
+            'urlpath' : 'cross-basic',
+            'timing' : '234&1 234&1',
+            'startFoot' : 'LF',
             'follow' : [
+              {
+                'id' : 'ClosedBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'SpotTurnToR',
+                'comment' : ''
+              },
+              {
+                'id' : 'HandToHandRSP',
+                'comment' : ''
+              },
+              {
+                'id' : 'SideStepLeftLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SideStepRightLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'ThereAndBack',
+                'comment' : ''
+              },
+              {
+                'id' : 'TimeStepLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'Fan',
+                'comment' : ''
+              },
+              {
+                'id' : 'CrossBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SplitCubanBreakLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'UnderarmTurnToR',
+                'comment' : 'after steps 1-5 of Cross Basic'
+              },
+              {
+                'id' : 'Fan',
+                'comment' : 'after steps 1-5 of Cross Basic, follow with steps 6-10 of Fan'
+              },
+              {
+                'id' : 'Spiral',
+                'comment' : 'after steps 1-5 of Cross Basic, leady Lady to do Spiral on step 5, then steps 6-10 of Spiral'
+              }
               ]
           },
         'RopeSpinning' : 
           {
             'name' : 'Rope Spinning',
             'level' : 'Silver',
+            'urlpath' : 'rope-spinning',
+            'timing' : '234&1 234&1',
+            'startFoot' : 'LF',
             'follow' : [
+              {
+                'id' : 'ClosedBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'ThereAndBack',
+                'comment' : ''
+              },
+              {
+                'id' : 'Fan',
+                'comment' : ''
+              },
+              {
+                'id' : 'HandToHandRSP',
+                'comment' : 'when Man and Lady end to side'
+              },
+              {
+                'id' : 'SideStepLeftLF',
+                'comment' : 'when Man and Lady end to side'
+              },
+              {
+                'id' : 'SideStepRightLF',
+                'comment' : 'when Man and Lady end to side'
+              },
+              {
+                'id' : 'TimeStepLF',
+                'comment' : 'when Man and Lady end to side'
+              },
+              {
+                'id' : 'CrossBasic',
+                'comment' : 'when Man and Lady end to side'
+              },
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : 'when Man and Lady end to side'
+              },
+              {
+                'id' : 'SplitCubanBreakLF',
+                'comment' : 'when Man and Lady end to side'
+              },
+              {
+                'id' : 'NewYorkLSP',
+                'comment' : 'when Man and Lady end diagonally fwd in Open CPP'
+              },
+              {
+                'id' : 'SpotTurnToR',
+                'comment' : 'when Man and Lady end diagonally fwd in Open CPP'
+              },
+              {
+                'id' : 'UnderarmTurnToL',
+                'comment' : 'when Man and Lady end diagonally fwd in Open CPP'
+              },
+              {
+                'id' : 'ThreeChaChaChasFwd',
+                'comment' : 'when Man and Lady end diagonally fwd in Open CPP, follow 4-9 Three Cha Chas Fwd in LSP'
+              },
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : 'when Man and Lady end diagonally fwd in Open CPP'
+              },
+              {
+                'id' : 'SplitCubanBreakLF',
+                'comment' : 'when Man and Lady end diagonally fwd in Open CPP'
+              },
+              {
+                'id' : 'NaturalOpeningOutMovement',
+                'comment' : "when Lady end fwd toward Man's R side"
+              },
+              {
+                'id' : 'ClosedHipTwist',
+                'comment' : "when Lady end fwd toward Man's R side"
+              },
+              {
+                'id' : 'Spiral',
+                'comment' : "when Lady end fwd toward Man's R side"
+              },
+              {
+                'id' : 'RopeSpinning',
+                'comment' : "when Lady end fwd toward Man's R side"
+              },
+              {
+                'id' : 'AdvancedHipTwist',
+                'comment' : "when Man and Lady fwd toward partner's R side"
+              },
+              {
+                'id' : 'HipTwistSpiral',
+                'comment' : "when Man and Lady fwd toward partner's R side"
+              }
               ]
           },
         'Curl' : 
           {
             'name' : 'Curl',
             'level' : 'Silver',
+            'urlpath' : 'curl',
+            'timing' : '234&1 234&1',
+            'startFoot' : 'LF',
             'follow' : [
+              {
+                'eval' : 'SameFollowAs("Spiral")'
+              }
               ]
           },
         'Spiral' : 
           {
             'name' : 'Spiral',
             'level' : 'Silver',
+            'urlpath' : 'spiral',
+            'timing' : '234&1 234&1',
+            'startFoot' : 'LF',
             'follow' : [
+              {
+                'id' : 'Alemana',
+                'comment' : ''
+              },
+              {
+                'id' : 'HockeyStick',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : 'when ending in Open Position, follow with Open Basic, or 1-2 Open Basic and Three Cha Cha Chas Back, or 1-5 Open Basic into Natural Top'
+              },
+              {
+                'id' : 'TimeStepLF',
+                'comment' : 'when ending in Open Position'
+              },
+              {
+                'id' : 'Alemana',
+                'comment' : 'when ending in Open Position'
+              },
+              {
+                'id' : 'OpenHipTwist',
+                'comment' : 'when ending in Open Position'
+              },
+              {
+                'id' : 'Curl',
+                'comment' : 'when ending in Open Position'
+              },
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : 'when ending in Open Position'
+              },
+              {
+                'id' : 'SplitCubanBreakLF',
+                'comment' : 'when ending in Open Position'
+              },
+              {
+                'id' : 'TurkishTowel',
+                'comment' : 'when ending in Open Position'
+              },
+              {
+                'id' : 'Sweetheart',
+                'comment' : 'when ending in Open Position'
+              },
+              {
+                'id' : 'FollowMyLeader',
+                'comment' : 'when ending in Open Position'
+              },
+              {
+                'id' : 'NewYorkLSP',
+                'comment' : 'when ending in Open CPP'
+              },
+              {
+                'id' : 'SpotTurnToR',
+                'comment' : 'when ending in Open CPP'
+              },
+              {
+                'id' : 'UnderarmTurnToL',
+                'comment' : 'when ending in Open CPP'
+              },
+              {
+                'id' : 'ThreeChaChaChasFwd',
+                'comment' : 'when ending in Open CPP, follow 4-9 Three Cha Chas fwd in LSP'
+              },
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : 'when ending in Open CPP'
+              },
+              {
+                'id' : 'SplitCubanBreakLF',
+                'comment' : 'when ending in Open CPP'
+              },
+              {
+                'id' : 'ReverseTop',
+                'comment' : 'when ending in Contact Position, follow with 6-10 or 6-15 Reverse Top'
+              },
+              {
+                'id' : 'SpotTurnToR',
+                'comment' : 'when ending in LSP'
+              },
+              {
+                'id' : 'NewYorkLSP',
+                'comment' : 'when ending in LSP, follow with New York LSP, no turn on first step'
+              },
+              {
+                'id' : 'ThreeChaChaChasFwd',
+                'comment' : 'when ending in LSP, follow with Three Cha Chas Fwd in LSP'
+              },
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : 'when ending in LSP'
+              }
               ]
           },
         'Aida' : 
           {
             'name' : 'Aida',
             'level' : 'Silver',
+            'urlpath' : 'aida',
+            'timing' : '234&1',
+            'startFoot' : 'RF',
             'follow' : [
+              {
+                'eval' : 'SameFollowAs("SpotTurnToL")'
+              }
               ]
           },
         'OpeningOutFromReverseTop' : 
