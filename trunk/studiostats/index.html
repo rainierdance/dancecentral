@@ -1255,6 +1255,7 @@ function getStudentAccount(name) {
 // called when data file finished loading
 function initData() {
   // indicate we are ready, replace spinning imag
+  _gel('idVersion').innerHTML = VERSION;
   _gel('idEntityList').innerHTML = '';
   _gel('idControlPanel').style.display = '';
 
@@ -2184,6 +2185,8 @@ ending (MM/DD/YYYY):
 
 <div id='reportTime'></div>
 <div id="idEntityList" style="overflow: auto;"><img src="https://www.google.com/ig/images/spinner.gif" /></div>
+
+<div style="float:right;color:gray" id='idVersion'></div>
 
 <script type="text/javascript" SRC="localonly.js"></script>
 <script type="text/javascript" SRC="sorttable.js"></script>
