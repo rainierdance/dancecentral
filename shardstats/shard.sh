@@ -1,6 +1,14 @@
+# Usage: $0 data.csv ratetypesfile
 input=$1
-output_past=output_past.csv
-output_current=output_current.csv
+filter_ratetypes_extract=$2
+
+if [ -z $input ] ; then
+  echo "$0 data.csv filter_ratetypes_extract"
+  exit
+fi
+
+data_past=data_past.csv
+output_carryover=output_carryover.csv
 
 echo "Working on $input..."
 
@@ -32,20 +40,35 @@ grep -v ',Private,' r4.csv >r5.csv
 grep ',Group,' $input >$group
 grep -v ',Group,' r5.csv >r6.csv
 
+echo "Checking if there are unexpected data lines left..."
+echo "----------"
+wc -l r6.csv
+echo "----------"
+cat r6.csv
+echo "----------"
+
+rm r1.csv r2.csv r3.csv r4.csv r5.csv r6.csv
+
 ###################################
 # for real
+
+if [ -z $filter_ratetypes_extract ] ; then
+  echo "$0 $1 filter_rateypes_extract"
+  exit
+fi
 
 # remove trailing spaces
 sed  's/ *,/,/g' $input > $input.cleanup
 
-grep -f filter_ratetypes_extract $input.cleanup > $output_past
-grep -f filter_ratetypes_extract $input.cleanup > $output_past.1.test
-grep -v -f filter_ratetypes_extract $input.cleanup > tmp.csv
+grep -f $filter_ratetypes_extract $input.cleanup > $data_past
+grep -v -f $filter_ratetypes_extract $input.cleanup > tmp.csv
 
-grep -f filter_clear_accounts tmp.csv >> $output_past
-grep -f filter_clear_accounts tmp.csv > $output_past.2.test
-grep -v -f filter_clear_accounts tmp.csv > $output_current
+# append to the past data for accounts that have no overdue
+grep -f filter_clear_accounts tmp.csv >> $data_past
 
-rm tmp.csv
+# remainder should be kept in current data
+grep -v -f filter_clear_accounts tmp.csv > $output_carryover
+
+rm tmp.csv $input.cleanup
 
 echo 'Exiting...'
