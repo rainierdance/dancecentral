@@ -10,6 +10,10 @@
 </ModulePrefs>
 <UserPref name="dataUrl" display_name="Data url"
           required="true"/>
+<UserPref name="data1Url" display_name="Data 1 url"
+          required="false"/>
+<UserPref name="data2Url" display_name="Data 2 url"
+          required="false"/>
 <Content type="html"><![CDATA[
 <script src="https://www.google.com/jsapi" type="text/javascript"></script>
 
@@ -26,9 +30,24 @@ function escapeHtml(text) {
  * Load the APIs and run sendStudentQuery when the load is complete
  */
 var gadgetHelper = null;
+var dataUrls = [];
+var dataIndex = 0;
+
 _IG_RegisterOnloadHandler(loadVisualizationAPI);
 function loadVisualizationAPI() {
   google.load("visualization", "1");
+
+  var dataurl = prefs.getString('dataUrl');
+  dataUrls.push(dataurl);
+
+  dataurl = prefs.getString('data1Url');
+  if (dataurl && (dataurl.length > 0)) 
+    dataUrls.push(dataurl);
+
+  dataurl = prefs.getString('data2Url');
+  if (dataurl && (dataurl.length > 0)) 
+    dataUrls.push(dataurl);
+
   google.setOnLoadCallback(sendDataQuery);
 }
 
@@ -40,8 +59,9 @@ function loadVisualizationAPI() {
  */
 var prefs = new _IG_Prefs(); // User preferences
 
+// new form data
 function sendDataQuery() {
-  prefs.set('_table_query_url', prefs.getString('dataUrl'));
+  prefs.set('_table_query_url', dataUrls[dataIndex++]);
   gadgetHelper = new google.visualization.GadgetHelper();
   var query = gadgetHelper.createQueryFromPrefs(prefs);
   query.send(handleDataQueryResponse);
@@ -60,7 +80,10 @@ function handleDataQueryResponse(response) {
     gAllRawEntities.push(cols);
   }
 
-  initData();
+  if (dataIndex >= dataUrls.length)
+    initData();
+  else // get more data
+    sendDataQuery();
 }
 </script>
 
@@ -86,7 +109,7 @@ table.sortable thead {
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0827.1033";
+var VERSION = "12.0924.1237";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
