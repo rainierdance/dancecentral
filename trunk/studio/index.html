@@ -240,7 +240,8 @@ function refreshSearchResult(entities, hideList) {
   _gel('idFrameSubmit').src = 'about:blank'; // in case of previous submit
 
   var html = [];   // start the HTML output string
-  if (!hideList) {
+  var threshold = 20; // beyond this,we'll just show total number of students, instead of long list
+  if (!hideList || entities.length <= threshold) {
     for (var i = 0; i < entities.length; i++) {
       html.push((i+1) + '&nbsp;<a href="javascript:void(0)" onclick="selectEntity(' + 
         entities[i].index + ')" onmouseover="showEntityDetails(' + entities[i].index + ')">' +
@@ -248,7 +249,7 @@ function refreshSearchResult(entities, hideList) {
     }
   }
   // show only the total instead of long list
-  _gel('idEntityList').innerHTML = ((entities.length > 1) ? 'Total Number: ' + entities.length + '<p>' : '') +
+  _gel('idEntityList').innerHTML = ((entities.length > threshold) ? 'Total Number: ' + entities.length + '<p>' : '') +
     html.join('');
   if (entities.length == 0) {
     // show new student
