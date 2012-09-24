@@ -109,7 +109,7 @@ table.sortable thead {
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0924.1237";
+var VERSION = "12.0924.1243";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1344,6 +1344,7 @@ function getStudentAccount(name) {
 // called when data file finished loading
 function initData() {
   // indicate we are ready, replace spinning imag
+  _gel('idVersion').innerHTML = VERSION;
   _gel('idEntityList').innerHTML = '';
   _gel('idControlPanel').style.display = '';
 
@@ -2273,6 +2274,8 @@ ending (MM/DD/YYYY):
 
 <div id='reportTime'></div>
 <div id="idEntityList" style="overflow: auto;"><img src="https://www.google.com/ig/images/spinner.gif" /></div>
+
+<div style="float:right;color:gray" id='idVersion'></div>
 
 <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/studiostats/sorttable.js"></script>
 
