@@ -8,6 +8,10 @@
 <Require feature="setprefs" />
 <Require feature="locked-domain" />
 </ModulePrefs>
+<UserPref name="formPostKey" display_name="Form Post Key"
+	  default="dF9PbmlrUFVjLXZlbXNnUWhiRkVqaGc6MQ" 
+          required="true"/>
+
 <Content type="html"><![CDATA[
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
@@ -21,7 +25,14 @@ function escapeHtml(text) {
 }
 
 var gadgetHelper = null;
-_IG_RegisterOnloadHandler(onLoad);
+_IG_RegisterOnloadHandler(onGadgetLoad);
+
+var prefs = new _IG_Prefs(); // User preferences
+
+function onGadgetLoad() {
+  gFormPostKey = prefs.getString('formPostKey');
+  onLoad();
+}
 
 </script>
 

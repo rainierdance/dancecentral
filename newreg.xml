@@ -8,6 +8,10 @@
 <Require feature="setprefs" />
 <Require feature="locked-domain" />
 </ModulePrefs>
+<UserPref name="formPostKey" display_name="Form Post Key"
+	  default="dF9PbmlrUFVjLXZlbXNnUWhiRkVqaGc6MQ" 
+          required="true"/>
+
 <Content type="html"><![CDATA[
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
@@ -21,7 +25,14 @@ function escapeHtml(text) {
 }
 
 var gadgetHelper = null;
-_IG_RegisterOnloadHandler(onLoad);
+_IG_RegisterOnloadHandler(onGadgetLoad);
+
+var prefs = new _IG_Prefs(); // User preferences
+
+function onGadgetLoad() {
+  gFormPostKey = prefs.getString('formPostKey');
+  onLoad();
+}
 
 </script>
 
@@ -37,7 +48,8 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0729.1047";
+var VERSION = "12.0923.2017";
+var gFormPostKey = "dF9PbmlrUFVjLXZlbXNnUWhiRkVqaGc6MQ";
 
 function onLoad() {
   // fill in default date
@@ -46,6 +58,9 @@ function onLoad() {
    ('' + (100 + now.getMonth() + 1)).substring(1) + '/' +
    ('' + (100 + now.getDate())).substring(1) + '/' +
    now.getFullYear();
+
+  // initial setup
+  _gel("ss-form").action = 'https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?hl=en_US&formkey=' + gFormPostKey + '&ifq';
 
   _gel('entry_11').value = dateStr;
 }
@@ -67,7 +82,7 @@ function checkinput() {
 </script>
 
 <div style='line-height:2'>
-<form action="https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?formkey=dF9PbmlrUFVjLXZlbXNnUWhiRkVqaGc6MQ&amp;ifq" method="POST" id="ss-form" onsubmit="return checkinput()">
+<form method="POST" id="ss-form" onsubmit="return checkinput()">
 
 <b>First Name</b>: <input type="text" name="entry.0.single" value="" class="ss-q-short" id="entry_0"> 
 <b>Last Name</b>: <input type="text" name="entry.1.single" value="" class="ss-q-short" id="entry_1"> &nbsp; 
