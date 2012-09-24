@@ -81,6 +81,22 @@ var amtLessonTotal = 0;
 
 var accounts = {}; // key student, value: StudentAccount
 
+// workaround, teacher and length are sometimes switched
+function getTeacher(entry) {
+  var teacher = parseInt(trimLR(entry[INDEX_TEACHER]));
+  if (teacher > 0) 
+    return entry[INDEX_LENGTH];
+  else
+    return entry[INDEX_TEACHER];
+}
+
+function getLessonLength(entry) {
+  var teacher = parseInt(trimLR(entry[INDEX_TEACHER]));
+  if (teacher > 0) 
+    return teacher;
+  else
+    return parseInt(trimLR(entry[INDEX_LENGTH]));
+}
 ////////////////////////////////////////////////////////////////////////
 <!-- Utilities -->
 function formatDate(dateObj) {
@@ -192,13 +208,13 @@ StudentStats.prototype.updateAccounts = function() {
   entries = this.getStatForSignInType('Private');
   for (var i = entries.length - 1 ; i >= 0; i--) {
      var entry = entries[i]; // full log line
-     var len = parseInt(entry[INDEX_LENGTH]);
+     var len = getLessonLength(entry);
      var num = parseFloat((len/45).toFixed(2));
      var amt = 0;
      if (isPaidLesson(entry)) {
        amt = account.takeLesson(num);
      }
-     var statTeacher = allStatsTeachers.getStat(entry[INDEX_TEACHER]);
+     var statTeacher = allStatsTeachers.getStat(getTeacher(entry));
      statTeacher.updateAmount(entry, amt);
   }
 }
@@ -301,12 +317,12 @@ StudentStats.prototype.getDisplay = function() {
           html.push('<tr valign=top><td>' + (i+1) + '</td><td>' +
               (isPaidLesson(entry) ? (amt >= 0 ? '$' + amt.toFixed(2) : '<font style="color:red">UNPAID</font>') : 'Free') + '</td><td><b>' + entry[INDEX_DATE] + '</b></td><td>' + 
             entry[INDEX_TIME] + '</td><td>' + 
-            entry[INDEX_TEACHER] + '</td><td>' + entry[INDEX_LENGTH] + ' min lesson </td><td>' + highlightTODO(entry[INDEX_NOTE]) + '</td></tr>');
-          cntPrivateTakenMin += parseInt(trimLR(entry[INDEX_LENGTH]));
+            getTeacher(entry) + '</td><td>' + getLessonLength(entry) + ' min lesson </td><td>' + highlightTODO(entry[INDEX_NOTE]) + '</td></tr>');
+          cntPrivateTakenMin += getLessonLength(entry);
        } else if (type == 'Practice') {
           html.push('<tr valign=top><td>' + (i+1) + '</td><td>' + entry[INDEX_DATE] + '</td><td>' + 
             entry[INDEX_TIME] + '</td><td>' + 
-            entry[INDEX_LENGTH] + '</td><td>' + 
+            getLessonLength(entry) + '</td><td>' + 
             entry[INDEX_RATE_TYPE] + '</td><td><b>' + 
             entry[INDEX_AMOUNT_TOTAL] + '</b></td><td>'  + highlightTODO(entry[INDEX_NOTE] + '</td></tr>')
           );
@@ -454,7 +470,7 @@ TeacherStats.prototype.updateAmount = function(entry, amt) {
   var date = entry[INDEX_DATE];
   var time = entry[INDEX_TIME];
   var student = entry[INDEX_NAME];
-  var len = entry[INDEX_LENGTH];
+  var len = getLessonLength(entry);
 
   var statPrivate = this.stat['Private'];
   for (var i = 0; statPrivate && i<statPrivate .length; i++) {
@@ -469,7 +485,7 @@ TeacherStats.prototype.getLessonAmountFromEntry = function(entry) {
   var date = entry[INDEX_DATE];
   var time = entry[INDEX_TIME];
   var student = entry[INDEX_NAME];
-  var len = entry[INDEX_LENGTH];
+  var len = getLessonLength(entry);
 
   return this.getAmount(date, time, student, len);
 }
@@ -544,7 +560,7 @@ TeacherStats.prototype.addEntry = function(entry, statsClasses) {
     }
 */
   } else if (signInType == 'Private') { // taught a private lesson
-    var length = parseInt(entry[INDEX_LENGTH]);
+    var length = getLessonLength(entry);
     var student = trimLR(entry[INDEX_NAME]);
     if (!isNaN(length)) {
       stat.push([entryDate, entryTime, student, length, note]);
@@ -619,7 +635,7 @@ function getLessonAmount(teacher, info) {
 }
 
 function getLessonAmountFromEntry(entry) {
-  var teacher = entry[INDEX_TEACHER];
+  var teacher = getTeacher(entry);
   var stat = allStatsTeachers.getStat(teacher);
   // find entry that matches info and return amt
   return stat.getLessonAmountFromEntry(entry);
@@ -1337,7 +1353,7 @@ function processStatsWithTimeRestrict(startDate, endDate) {
 //    var numFloorFees = parseInt(trimLR(entry[INDEX_PAYMENT_NUM_INDEPENDENT_FLOOR_FEES]));
 
     var student = trimLR(entry[INDEX_NAME]);
-    var teacher = trimLR(entry[INDEX_TEACHER]);
+    var teacher = trimLR(getTeacher(entry));
 
     var signInType = trimLR(entry[INDEX_SIGNIN_TYPE]);
     var rateType = trimLR(entry[INDEX_RATE_TYPE]);
@@ -1565,7 +1581,7 @@ function getStudentStatsSummary(input) {
     var statType = statStudent.getStatForSignInType('Private');
     var privateLessonMin = 0;
     for (var i=0; statType && i<statType.length; i++) {
-      privateLessonMin += parseFloat(statType[i][INDEX_LENGTH]);
+      privateLessonMin += getLessonLength(statType[i]);
 
       var amt = getLessonAmountFromEntry(statType[i]);
       if (amt > 0) {
