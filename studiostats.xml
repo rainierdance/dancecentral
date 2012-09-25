@@ -109,7 +109,7 @@ table.sortable thead {
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0924.1341";
+var VERSION = "12.0925.0200";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -156,6 +156,7 @@ var INDEX_PAYMENT_AMT_YOUTH = 25;
 var INDEX_PAYMENT_AMT_MONTHLY_PRACTICE = 26;
 var INDEX_PAYMENT_AMT_INDEPENDENT_FLOOR_FEES = 27;
 var INDEX_PAYMENT_AMT_PARTIES = 30;
+var INDEX_MAX = 32; // num of columns
 
 var statsTeachers;
 var statsStudents;
@@ -173,7 +174,7 @@ var accounts = {}; // key student, value: StudentAccount
 // workaround, teacher and length are sometimes switched
 function getTeacher(entry) {
   var teacher = parseInt(trimLR(entry[INDEX_TEACHER]));
-  if (teacher > 0) 
+  if (teacher > 0)  // cols switched
     return entry[INDEX_LENGTH];
   else
     return entry[INDEX_TEACHER];
@@ -265,6 +266,8 @@ StudentStats.prototype.addEntry = function(entry) {
   statType.push(entry);
 }
 
+var gCarryOverEntries = [];
+
 StudentStats.prototype.updateAccounts = function() {
   // go through all payment
   var account = getStudentAccount(this.name);
@@ -275,6 +278,9 @@ StudentStats.prototype.updateAccounts = function() {
   }
 
   entries = this.getStatForSignInType('Group');
+  var lastIndex = entries.length;
+  var unusedPayment = account.getUnusedGroupPaymentEntries();
+
   for (var i = entries.length - 1 ; i >= 0; i--) {
      var entry = entries[i]; // full log line
      if (entry[INDEX_RATE_TYPE] != 'Paid') continue;
@@ -292,9 +298,25 @@ StudentStats.prototype.updateAccounts = function() {
          statClass.updateAmount(this.name, amt);
        }
      }
+     if (account.isGroupPaymentSlotUsed()) {
+       lastIndex = i;
+       // some log entries uses multiple classes, only some classes are paid off, need to keep 1 log entry together.
+       unusedPayment = account.getUnusedGroupPaymentEntries();
+     }
+  }
+
+  for (var i = 0; i < lastIndex; i++) {
+    gCarryOverEntries.push(entries[i]);
+  }
+
+  for (var i=0; i < unusedPayment.length; i++) {
+    var paymentEntry = formatPaymentEntry(this.name, unusedPayment[i], INDEX_PAYMENT_NUM_DROPIN, INDEX_PAYMENT_AMT_DROPIN);
+    gCarryOverEntries.push(paymentEntry);
   }
 
   entries = this.getStatForSignInType('Private');
+  lastIndex = entries.length;
+  unusedPayment = account.getUnusedPrivatePaymentEntries();
   for (var i = entries.length - 1 ; i >= 0; i--) {
      var entry = entries[i]; // full log line
      var len = getLessonLength(entry);
@@ -305,7 +327,40 @@ StudentStats.prototype.updateAccounts = function() {
      }
      var statTeacher = allStatsTeachers.getStat(getTeacher(entry));
      statTeacher.updateAmount(entry, amt);
+
+     if (account.isPrivatePaymentSlotUsed()) {
+       lastIndex = i;
+       unusedPayment = account.getUnusedPrivatePaymentEntries();
+     }
   }
+
+  for (var i = 0; i < lastIndex; i++) {
+    gCarryOverEntries.push(entries[i]);
+  }
+
+  for (var i=0; i < unusedPayment.length; i++) {
+    var paymentEntry = formatPaymentEntry(this.name, unusedPayment[i], INDEX_PAYMENT_NUM_PRIVATE, INDEX_PAYMENT_AMT_PRIVATE);
+    gCarryOverEntries.push(paymentEntry);
+  }
+}
+
+//paymentInfo: [date, num, $]
+function formatPaymentEntry(name, paymentInfo, indexNum, indexAmt) {
+  var today = new Date();
+  var entry = [];
+  // init
+  for (var i=0; i<INDEX_MAX; i++) entry.push('');
+  // fill in what's needed for Payment entry
+  entry[INDEX_TIMESTAMP] = '' + (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear() + ' 00:00:00';
+  entry[INDEX_NAME] = name;
+  entry[INDEX_SIGNIN_TYPE] = 'Payment';
+  entry[INDEX_DATE] = paymentInfo[0];
+  entry[INDEX_TIME] = '00:00:00';
+  entry[INDEX_NOTE] = 'Carry Over';
+  entry[INDEX_AMOUNT_TOTAL] = paymentInfo[2];
+  entry[indexNum] = paymentInfo[1];
+  entry[indexAmt] = paymentInfo[2];
+  return entry;
 }
 
 function isYouth(name) {
@@ -1287,6 +1342,20 @@ AccountInfo.prototype.takeOut = function(num) {
   return amt;
 }
 
+AccountInfo.prototype.isSlotUsed = function() {
+  return (this.groupIndexLeft == 0 && (this.groupIndex >=0));
+}
+
+AccountInfo.prototype.getUnusedEntries = function() {
+  var result = [];
+  var index = this.groupIndex;
+  if (this.isSlotUsed()) index = index -1;
+  for (var i=0; i<=index; i++) {
+    result.push(this.logs[i]);
+  }
+  return result;
+}
+
 // Student Account Information
 function StudentAccount(name) {
   this.name = name;
@@ -1314,6 +1383,22 @@ StudentAccount.prototype.addPayment = function(entry) {
     amt = parseFloat(entry[INDEX_PAYMENT_AMT_PRIVATE]);
     this.privatePayment.addPayment([date, num, amt]);
   }   
+}
+
+StudentAccount.prototype.isGroupPaymentSlotUsed = function() {
+  return this.groupPayment.isSlotUsed();
+}
+
+StudentAccount.prototype.isPrivatePaymentSlotUsed = function() {
+  return this.privatePayment.isSlotUsed();
+}
+
+StudentAccount.prototype.getUnusedGroupPaymentEntries = function() {
+  return this.groupPayment.getUnusedEntries();
+}
+
+StudentAccount.prototype.getUnusedPrivatePaymentEntries = function() {
+  return this.privatePayment.getUnusedEntries();
 }
 
 StudentAccount.prototype.takeClass = function(num) {
@@ -1563,6 +1648,7 @@ function showStudentStats() {
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsNamesWithBalance()">Students with Balance</a>');
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsNamesWithoutBalance()">Students without Balance</a>');
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsOverview()">All Students Details</a>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsCarryOver()">Carry Over</a>');
   html.push('</span>');
   _gel('idSelect').innerHTML = html.join('');
   
@@ -1736,6 +1822,20 @@ function getStudentStatsSummary(input) {
     return 'Total student: ' + iList + '<p>' + html.join('');
   }
 
+}
+
+function showStudentsCarryOver() {
+  resetSelection();
+
+  var html = ['<b>Students carryover.</b> (This list is for archiving data.)<p><textarea rows=5 cols=100>'];
+  for (var i = 0; i < gCarryOverEntries.length; i++) {
+    html.push(gCarryOverEntries[i].join('\t') + '\n');
+  }
+
+  html.push('</textarea>');
+
+  updateReportTime();
+  _gel('idEntityList').innerHTML = 'Total: ' + gCarryOverEntries.length + '<p>' + html.join('');
 }
 
 function showStudentsNamesWithoutBalance() {
