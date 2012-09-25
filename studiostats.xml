@@ -109,7 +109,7 @@ table.sortable thead {
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0925.0937";
+var VERSION = "12.0925.1030";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -359,12 +359,13 @@ function formatPaymentEntry(name, paymentInfo, indexNum, indexAmt) {
   // init
   for (var i=0; i<INDEX_MAX; i++) entry.push('');
   // fill in what's needed for Payment entry
-  entry[INDEX_TIMESTAMP] = '' + (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear() + ' 00:00:00';
+  var dateStr = '' + (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
+  entry[INDEX_TIMESTAMP] = dateStr + ' 00:00:00';
   entry[INDEX_NAME] = name;
   entry[INDEX_SIGNIN_TYPE] = 'Payment';
   entry[INDEX_DATE] = paymentInfo[0];
-  entry[INDEX_TIME] = '00:00:00';
-  entry[INDEX_NOTE] = 'Carry Over';
+  entry[INDEX_TIME] = '05:00:00';
+  entry[INDEX_NOTE] = 'NOTE (' + dateStr + '): Payment Balance Carry Over.';
   entry[INDEX_AMOUNT_TOTAL] = paymentInfo[2];
   entry[indexNum] = paymentInfo[1];
   entry[indexAmt] = paymentInfo[2];
