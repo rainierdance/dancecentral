@@ -168,7 +168,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0923.2329";
+var VERSION = "12.0925.0909";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -176,7 +176,7 @@ var VERSION = "12.0923.2329";
 // read from data file
 var gAllEntities = [];	 
 // form key is from live from, not the spreadsheet url
-var gFormPostKey = 'dC1ScmpPZF9pWG9qQ1JraWkyMi1GZmc6MQ';  // old key
+var gFormPostKey = 'dDlrWkgwUHRHSU9sSy1rWDY5NWpwWkE6MA';  // test key
 //var gFormPostKey = 'dFZ5cEhUTGpLaHMxc2t4cDUyU3VZYlE6MA'; // 2012-07
 
 // read from data file, current ongoing classes
@@ -398,7 +398,7 @@ function refreshSearchResult(entities, hideList) {
   _gel('idFrameSubmit').src = 'about:blank'; // in case of previous submit
 
   var html = [];   // start the HTML output string
-  var threshold = 3; // beyond this,we'll just show total number of students, instead of long list
+  var threshold = 20; // beyond this,we'll just show total number of students, instead of long list
   if (!hideList || entities.length <= threshold) {
     for (var i = 0; i < entities.length; i++) {
       html.push((i+1) + '&nbsp;<a href="javascript:void(0)" onclick="selectEntity(' + 
@@ -588,16 +588,17 @@ function changeSignInType(signInTypeIndex) {
 
 // clear the fields - we don't want to sign in with extra fields
 function clearFields() {
+  // reset form first to clear residue (classes.checked before resetting innerHTML)
+
+  _gel("ss-form").reset();
+  _gel("idFormPrep").reset();
+
   // reset fields that are hidden
   _gel('fieldTeachers').innerHTML=''
   _gel('entry_prep_length').value='';
   _gel('fieldClasses').innerHTML=''
   _gel('fieldRate').innerHTML=''
   if (_gel(gErrElement)) _gel(gErrElement).className = '';
-
-  // reset form
-  _gel("ss-form").reset();
-  _gel("idFormPrep").reset();
 
   _gel('idFrameSubmit').src = 'about:blank';
 }
