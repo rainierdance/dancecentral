@@ -7,7 +7,7 @@ if [ -z $input ] ; then
   exit
 fi
 
-data_past=data_past.csv
+data_past=data_past
 output_carryover=output_carryover.csv
 
 echo "Working on $input..."
@@ -60,15 +60,19 @@ fi
 # remove trailing spaces
 sed  's/ *,/,/g' $input > $input.cleanup
 
-grep -f $filter_ratetypes_extract $input.cleanup > $data_past
+grep -f $filter_ratetypes_extract $input.cleanup > $data_past.types.csv
 grep -v -f $filter_ratetypes_extract $input.cleanup > tmp.csv
 
+# remove empty lines
+sed '/^[\s]*$/d' filter_clear_accounts >acct.tmp
+sed 's/,Simeon Stoynov,/,Simeon Stoynov,Private,/g' acct.tmp > clear_accounts
+
 # append to the past data for accounts that have no overdue
-grep -f filter_clear_accounts tmp.csv >> $data_past
+grep -f clear_accounts tmp.csv > $data_past.clear.csv
 
 # remainder should be kept in current data
-grep -v -f filter_clear_accounts tmp.csv > $output_carryover
+grep -v -f clear_accounts tmp.csv > $output_carryover
 
-rm tmp.csv $input.cleanup
+rm tmp.csv $input.cleanup acct.tmp
 
 echo 'Exiting...'
