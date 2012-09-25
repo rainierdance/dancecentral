@@ -1784,14 +1784,14 @@ function showLog() {
 
   var html = ['<b>Raw entries</b><p><textarea rows=5 cols=100>'];
 
-  for (var i=0; i<gAllRawEntities.length; i++) {
-    html.push(gAllRawEntities[i].join('\t') + '\n');
+  for (var i=0; i<gAllEntities.length; i++) {
+    html.push(gAllEntities[i].join('\t') + '\n');
   }
 
   html.push('</textarea>');
 
   updateReportTime();
-  _gel('idEntityList').innerHTML = 'Total: ' + gAllRawEntities.length + '<p>' + html.join('');
+  _gel('idEntityList').innerHTML = 'Total: ' + gAllEntities.length + '<p>' + html.join('');
 }
 
 function showStudentsNamesWithoutBalance() {
