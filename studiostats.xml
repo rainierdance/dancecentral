@@ -77,7 +77,7 @@ function handleDataQueryResponse(response) {
     for (var col = 0; col < data.getNumberOfColumns(); col++) {
       cols.push(data.getFormattedValue(row,col).replace(/^\s+|\s+$/g,""));
     }
-    gAllRawEntities.push(cols);
+    addRawEntry(cols);
   }
 
   if (dataIndex >= dataUrls.length)
@@ -109,7 +109,7 @@ table.sortable thead {
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0925.0200";
+var VERSION = "12.0925.0937";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -187,6 +187,14 @@ function getLessonLength(entry) {
   else
     return parseInt(trimLR(entry[INDEX_LENGTH]));
 }
+
+function log(msg) {
+  var debugElement = document.getElementById('debugOutput');
+  if (debugElement) {
+    debugElement.innerHTML = msg + '\n' + debugElement.innerHTML;
+  }
+}
+
 ////////////////////////////////////////////////////////////////////////
 <!-- Utilities -->
 function formatDate(dateObj) {
@@ -1440,12 +1448,16 @@ function getStudentAccount(name) {
   if (!accounts[name]) accounts[name] = new StudentAccount(name);
   return accounts[name];
 }
+////////////////////////////////////////////////////////////////////////
+function addRawEntry(cols) {
+  gAllRawEntities.push(cols);
+}
 
 ////////////////////////////////////////////////////////////////////////
 // called when data file finished loading
 function initData() {
   // indicate we are ready, replace spinning imag
-  _gel('idVersion').innerHTML = VERSION;
+  _gel('idVersion').innerHTML = VERSION + ' &nbsp; <a href="javascript:void(0)" onclick="showLog()">log</a>';
   _gel('idEntityList').innerHTML = '';
   _gel('idControlPanel').style.display = '';
 
@@ -1836,6 +1848,21 @@ function showStudentsCarryOver() {
 
   updateReportTime();
   _gel('idEntityList').innerHTML = 'Total: ' + gCarryOverEntries.length + '<p>' + html.join('');
+}
+
+function showLog() {
+  resetSelection();
+
+  var html = ['<b>Raw entries</b><p><textarea rows=5 cols=100>'];
+
+  for (var i=0; i<gAllRawEntities.length; i++) {
+    html.push(gAllRawEntities[i].join('\t') + '\n');
+  }
+
+  html.push('</textarea>');
+
+  updateReportTime();
+  _gel('idEntityList').innerHTML = 'Total: ' + gAllRawEntities.length + '<p>' + html.join('');
 }
 
 function showStudentsNamesWithoutBalance() {
@@ -2392,6 +2419,7 @@ ending (MM/DD/YYYY):
 <div id="idEntityList" style="overflow: auto;"><img src="https://www.google.com/ig/images/spinner.gif" /></div>
 
 <div style="float:right;color:gray" id='idVersion'></div>
+<pre id='debugOutput'></pre>
 
 <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/studiostats/sorttable.js"></script>
 
