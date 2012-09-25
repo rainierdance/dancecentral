@@ -109,7 +109,7 @@ table.sortable thead {
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0925.1030";
+var VERSION = "12.0925.1109";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -314,7 +314,24 @@ StudentStats.prototype.updateAccounts = function() {
   }
 
   for (var i = 0; i < lastIndex; i++) {
-    gCarryOverEntries.push(entries[i]);
+    var entry = entries[i]; // full log line
+    if (entry[INDEX_RATE_TYPE] != 'Paid') continue; // do not carry over Free classes, parties
+    var classes = entry[INDEX_CLASSES].split(',');
+    if (classes && classes.length > 0) {
+      classes.sort();
+      var skip = true;
+      for (var j = 0; j < classes.length; j++) {
+        var classNameStr = trimLR(classes[j]);
+        if ((classNameStr.indexOf('Party') != 0) && // not a party
+	    (classNameStr.indexOf('Round') != 0) && // not a round
+            (classNameStr.indexOf('Event') != 0)) { // not an event
+          skip = false;
+          break;
+        }
+      }
+      if (!skip)
+        gCarryOverEntries.push(entries[i]);
+    }
   }
 
   for (var i=0; i < unusedPayment.length; i++) {
