@@ -7278,53 +7278,260 @@ var foxtrotFigures =
             'follow' : [
              ]
         },
-        'ShadowCircularVolta' : 
+        'ShadowCircularVoltaLF' : 
          {
-            'name' : 'Shadow Circular Volta',
+            'name' : 'Shadow Circular Volta with LF',
             'level' : 'Silver',
+            'urlpath' : 'shadow-circular-volta',
+            'startFoot' : ['LF'],
+            'startAlignment' : [''],
+            'startDirection' : ['fwd'],
+            'timing' : '1a2a3a4',
             'follow' : [
+              {
+                'id' : 'FootChange2',
+                'comment' : "R shadow position to closed position"
+              },
+              {
+                'id' : 'FootChange4',
+                'comment' : "R shadow Position to PP"
+              },
+              {
+                'id' : 'SambaWalkRF',
+                'comment' : ""
+              },
+              {
+                'id' : 'TravelingBotaFogosForward',
+                'comment' : "RF"
+              },
+              {
+                'id' : 'ShadowTravelingVoltaRF',
+                'comment' : ""
+              },
+              {
+                'id' : 'ShadowCircularVoltaRF',
+                'comment' : ""
+              },
+              {
+                'id' : 'TravelingBotaFogosForward',
+                'comment' : "same foot Bota Fogo to R Contra Position"
+              },
+              {
+                'id' : 'CruzadosWalksAndLocks',
+                'comment' : "Cruzado Walks or Locks comments with RF"
+              }
+             ]
+        },
+        'ShadowCircularVoltaRF' : 
+         {
+            'name' : 'Shadow Circular Volta with RF',
+            'level' : 'Silver',
+            'urlpath' : 'shadow-circular-volta',
+            'startFoot' : ['RF'],
+            'startAlignment' : [''],
+            'startDirection' : ['fwd'],
+            'timing' : '1a2a3a4',
+            'follow' : [
+              {
+                'id' : 'SambaWalkLF',
+                'comment' : ""
+              },
+              {
+                'id' : 'TravelingBotaFogosForward',
+                'comment' : ""
+              },
+              {
+                'id' : 'ShadowTravelingVoltaLF',
+                'comment' : ""
+              },
+              {
+                'id' : 'TravelingBotaFogosForward',
+                'comment' : "same foot Bota Fogo to R Contra Position"
+              },
+              {
+                'id' : 'CruzadosWalksAndLocks',
+                'comment' : "Cruzado Walks or Locks comments with LF"
+              }
              ]
         },
         'Maypole' : 
          {
             'name' : 'Maypole',
             'level' : 'Silver',
+            'urlpath' : 'maypole',
+            'startFoot' : ['LF', 'RF'],
+            'startAlignment' : [''],
+            'startDirection' : ['fwd'],
+            'timing' : '1a2a3a4',
             'follow' : [
+              {
+                'eval' : 'MatchFigures({"startFoot" : "RF"})',
+                'comment' : 'when Man is turning left in Maypole'
+              },
+              {
+                'eval' : 'MatchFigures({"startFoot" : "RF"})',
+                'comment' : 'when Man is turning right in Maypole'
+              }
              ]
         },
         'ArgentineCrosses' : 
          {
             'name' : 'Argentine Crosses',
             'level' : 'Silver',
+            'urlpath' : 'argentine-crosses',
+            'startFoot' : ['LF'],
+            'startAlignment' : ['Wall'],
+            'startDirection' : ['fwd'],
+            'timing' : 'QQS QQS QQS QQS',
             'follow' : [
+              {
+                'id' : 'WhiskToL',
+                'comment' : "with or without Lady's underarm turn"
+              },
+              {
+                'id' : 'SambaWalkStationary',
+                'comment' : 'LF Stationary Samba Walk, leading Lady underarm into Spot Volta to R, releasing hold with RH'
+              },
+              {
+                'id' : 'WhiskToR',
+                'comment' : "with or without Lady's underarm turn"
+              },
+              {
+                'id' : 'SambaWalkStationary',
+                'comment' : 'RF Stationary Samba Walk, leading Lady underarm into Spot Volta to L, releasing hold with RH'
+              },
+              {
+                'id' : 'SoloSpotVoltaL',
+                'comment' : ''
+              }
              ]
         },
         'RollingOffTheArm' : 
          {
             'name' : 'Rolling Off The Arm',
             'level' : 'Silver',
+            'urlpath' : 'rolling-off-the-arm',
+            'startFoot' : ['LF'],
+            'startAlignment' : ['LOD'],
+            'startDirection' : ['side'],
+            'timing' : '123 123',
             'follow' : [
-             ]
+              {
+                'id' : 'SambaWalkLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'WhiskToL',
+                'comment' : 'when finished with Closed Position'
+              },
+              {
+                'id' : 'ReverseTurn',
+                'comment' : 'when finished with Closed Position'
+              },
+              {
+                'id' : 'FootChange8',
+                'comment' : ''
+              }
+            ]
         },
         'Plait' : 
          {
             'name' : 'Plait',
             'level' : 'Silver',
+            'urlpath' : 'plait',
+            'startFoot' : ['RF'],
+            'startAlignment' : ['BDW'],
+            'startDirection' : ['back'],
+            'timing' : 'SSQQS',
             'follow' : [
+              {
+                'id' : 'ReverseBasicMovement',
+                'comment' : 'when Plait ends with LF, follow with 4-6 of Reverse Basic Movement'
+              },
+              {
+                'id' : 'ReverseTurn',
+                'comment' : 'when Plait ends with LF, follow with 4-6 of Reverse Turn'
+              },
+              {
+                'id' : 'ReverseRoll',
+                'comment' : 'when Plait ends with LF, follow with, 4-6 of Reverse Roll'
+              },
+              {
+                'id' : 'NaturalBasicMovement',
+                'comment' : 'when Plait ends with RF, follow with 4-6 of Natural Basic Movement'
+              },
+              {
+                'id' : 'NaturalRoll',
+                'comment' : 'when Plait ends with RF, follow with 4-6 of Natural Roll'
+              }
              ]
         },
         'BackRocks' : 
          {
             'name' : 'Back Rocks',
             'level' : 'Silver',
+            'urlpath' : 'back-rocks',
+            'startFoot' : ['RF'],
+            'startAlignment' : ['BDW'],
+            'startDirection' : ['back'],
+            'timing' : 'SQQSQQ',
             'follow' : [
+              {
+                'id' : 'ReverseBasicMovement',
+                'comment' : '4-6 of Reverse Basic Movement'
+              },
+              {
+                'id' : 'ReverseTurn',
+                'comment' : '4-6 of Reverse Turn'
+              },
+              {
+                'id' : 'Plait',
+                'comment' : ''
+              },
+              {
+                'id' : 'ReverseRoll',
+                'comment' : '4-6 of Reverse Roll'
+              },
+              {
+                'id' : 'NaturalBasicMovement',
+                'comment' : 'from step 3, follow with 4-6 of Natural Basic Movement'
+              },
+              {
+                'id' : 'NaturalRoll',
+                'comment' : 'From step 3, follow with 4-6 of Natural Roll'
+              }
              ]
         },
         'OpenRocks' : 
          {
             'name' : 'Open Rocks',
             'level' : 'Silver',
+            'urlpath' : 'open-rocks',
+            'startFoot' : ['RF'],
+            'startAlignment' : ['BDW'],
+            'startDirection' : ['fwd'],
+            'timing' : 'SQQSQQSQQ',
             'follow' : [
+              {
+                'id' : 'ReverseTurn',
+                'comment' : 'Man 1/8 to L, Lady 1/4, regain normal hold'
+              },
+              {
+                'id' : 'ReverseRoll',
+                'comment' : ''
+              },
+              {
+                'id' : 'ThreeStepTurn',
+                'comment' : ''
+              },
+              {
+                'id' : 'NaturalRoll',
+                'comment' : 'after steps 1-6 of Open Rocks, Man 1/8 R, Lady 1/4.'
+              },
+              {
+                'id' : 'PromenadeAndCPPRuns',
+                'comment' : 'starting with 7-9, continuing with 4-9.'
+              }
              ]
         },
         'ClosedRocks' : 
@@ -7470,8 +7677,8 @@ var foxtrotFigures =
                 'comment' : ''
               },
               {
-                'id' : 'ShadowCircularVolta',
-                'comment' : 'LF'
+                'id' : 'ShadowCircularVoltaLF',
+                'comment' : ''
               },
               {
                 'id' : 'ContraBotaFogos',
@@ -7514,8 +7721,8 @@ var foxtrotFigures =
                 'comment' : ''
               },
               {
-                'id' : 'ShadowCircularVolta',
-                'comment' : 'RF'
+                'id' : 'ShadowCircularVoltaRF',
+                'comment' : ''
               },
               {
                 'id' : 'ContraBotaFogos',
