@@ -15,7 +15,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "12.0927.1626";
+    var VERSION = "12.0927.1845";
     var ID_ANALYTICS = "UA-10550268-1";
     var pageTracker;
 
@@ -98,7 +98,7 @@ Routine:
 <a id='idPauseRoutine' style='display:none' href="javascript:void(0);" onclick="pauseRoutine();">Pause</a><a id='idContinueRoutine' style='display:none' href="javascript:void(0);" onclick="continueRoutine();">Continue</a> &nbsp;
 </span>
 </td></tr>
-<tr><td style="background: #fff4c2;"> <span id='spanRoutine'></span></td></tr>
+<tr><td > <span id='spanRoutine'></span></td></tr>
 <tr><td>
 <span id='editControls' style="display:none;">
   <span id='deleteControls' style="display:none">
