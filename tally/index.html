@@ -25,6 +25,8 @@ function onLoad() {
   _gel("ss-form").action = 'https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?hl=en_US&formkey=' + gFormPostKey + '&ifq';
 
   _gel('entry_0').value = dateStr;
+  updateTotal();
+
 }
 
 // trim left and right space
@@ -61,8 +63,6 @@ function checkFields() {
 }
 
 function updateTotal() {
-
- checkFields();
 
   var total = 0.0;
 
@@ -158,22 +158,22 @@ Violeta</label>
 <label  for="entry_8"># of quarters ($0.25)
 </label>
 <label  for="entry_8"></label>
-<input type="text" name="entry.8.single" value=""  id="entry_8" size=4 onChange="updateTotal();">
+<input type="text" name="entry.8.single" value="40"  id="entry_8" size=4 onChange="updateTotal();">
 &nbsp; &nbsp; &nbsp;
 <label  for="entry_9"># of dimes ($0.10)
 </label>
 <label  for="entry_9"></label>
-<input type="text" name="entry.9.single" value=""  id="entry_9" size=4 onChange="updateTotal();">
+<input type="text" name="entry.9.single" value="50"  id="entry_9" size=4 onChange="updateTotal();">
 <br>
 <label  for="entry_10"># of nickels ($0.05)
 </label>
 <label  for="entry_10"></label>
-<input type="text" name="entry.10.single" value=""  id="entry_10" size=4 onChange="updateTotal();">
+<input type="text" name="entry.10.single" value="40"  id="entry_10" size=4 onChange="updateTotal();">
 &nbsp; &nbsp; &nbsp; &nbsp;
 <label  for="entry_11"># of pennies ($0.01)
 </label>
 <label  for="entry_11"></label>
-<input type="text" name="entry.11.single" value=""  id="entry_11" size=4 onChange="updateTotal();">
+<input type="text" name="entry.11.single" value="100"  id="entry_11" size=4 onChange="updateTotal();">
 <br> 
 <label class="ss-q-title" for="entry_14"><b>Note</b></label> <br>
 <label class="ss-q-help" for="entry_14"></label>
