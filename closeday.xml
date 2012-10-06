@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="DanceCentral.info Studio Management - Closing Business Day"
+             description="DanceCentral.info Studio Management"
+             author="DanceCentral.info"
+             >
+<Require feature="idi"/>
+<Require feature="setprefs" />
+<Require feature="locked-domain" />
+</ModulePrefs>
+<UserPref name="formPostKey" display_name="Form Post Key"
+	  default="dFBIQVZyVE1OUUFaNXhIRGZjZXcyWGc6MQ" 
+          required="true"/>
+
+<Content type="html"><![CDATA[
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
+<script>
+function escapeHtml(text) {
+  if (text == null) {
+    return '';
+  }
+  //return _hesc(text);
+  return text;
+}
+
+var gadgetHelper = null;
+_IG_RegisterOnloadHandler(onGadgetLoad);
+
+var prefs = new _IG_Prefs(); // User preferences
+
+function onGadgetLoad() {
+  gFormPostKey = prefs.getString('formPostKey');
+  onLoad();
+}
+
+</script>
+
+<body onLoad='onLoad()'>
+<style>
+td, body {
+  font-family: Arial, sans-serif;
+  font-size: 0.8em;
+}
+a:hover {text-decoration: underline; color: red; background: #fafad2;}
+.errMsg {background-color: #ffe6cc; border: 0px solid #c43b1d; }
+.verifyMsg {background-color: #ffffcc; border: 2px solid #ffcc99; padding: 2px; margin-left:10px; width:600px; }
+</style>
+
+<script>
+var IS_GADGET = true;
+var VERSION = "12.1006.1356";
+var gFormPostKey = "dFBIQVZyVE1OUUFaNXhIRGZjZXcyWGc6MQ";
+
+function onLoad() {
+  // fill in default date
+  var now = new Date();
+  var dateStr = 
+   ('' + (100 + now.getMonth() + 1)).substring(1) + '/' +
+   ('' + (100 + now.getDate())).substring(1) + '/' +
+   now.getFullYear();
+
+  // initial setup
+  _gel("ss-form").action = 'https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?hl=en_US&formkey=' + gFormPostKey + '&ifq';
+
+  _gel('entry_0').value = dateStr;
+}
+
+// trim left and right space
+function trimLR(input) {
+  if (!input) {
+    return '';
+  }
+  return input.replace(/^\s+|\s+$/g,"");
+}
+
+function checkFields() {
+  var staff = _gel('entry_12');
+  if (_gel('entry_0').value == "") { // date
+    _gel('errMsg').innerHTML = 'Please make sure to enter the date.';
+    return false;
+  }  else {
+   // TODO: check staff
+    _gel('errMsg').innerHTML = '';
+  }
+  return true;
+}
+
+function getNumber(ele) {
+  if (!ele || ele.value.length == 0) return 0.0;
+  else return parseFloat(ele.value);
+}
+
+function verify() {
+ var startBalance = getNumber(_gel('entry_1'));
+ var totalDaily = getNumber(_gel('entry_2'));
+ var totalCreditCard = getNumber(_gel('entry_3'));
+ var totalOnline = getNumber(_gel('entry_4'));
+ var totalDeposit = getNumber(_gel('entry_5'));
+ var endBalance = getNumber(_gel('entry_6'));
+ var totalSalesInApp = getNumber(_gel('entry_7'));
+
+ var calculatedEndingBalance = startBalance + totalDaily - totalCreditCard - totalOnline - totalDeposit;
+
+  _gel('entry_9').value = calculatedEndingBalance;
+  _gel('entry_10').value = (endBalance == calculatedEndingBalance ? 'YES' : 'NO');
+  _gel('entry_11').value = (totalDaily == totalSalesInApp ? 'YES' : 'NO');
+
+  _gel('idCalBalance').innerHTML = '$' + calculatedEndingBalance;
+  _gel('idCalBalanceMatch').innerHTML = _gel('entry_10').value;
+  _gel('idAppMatch').innerHTML = _gel('entry_11').value;
+}
+
+function checkInput() {
+  verify();
+ 
+  return checkFields();
+}
+
+</script>
+
+<div style="font-size:12pt;font-weight:bold"> Does everything look good? <span style="color:green" id="idResult"></span></div><p>
+
+<span class="errMsg" id='errMsg'></span>
+
+<div style='line-height:2'>
+
+
+<form method="POST" id="ss-form" onSubmit="return checkInput();">
+
+<div class="errorbox-good">
+<div class="ss-item ss-item-required ss-text"><div class="ss-form-entry"><label class="ss-q-title" for="entry_0">Date
+<span class="ss-required-asterisk">*</span></label>
+<label class="ss-q-help" for="entry_0"></label>
+<input type="text" name="entry.0.single" value="" class="ss-q-short" id="entry_0">
+<br> <div class="errorbox-good">
+<div class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-title" for="entry_8"><b>Aria Staff</b> </label>
+<label class="ss-q-help" for="entry_8"> &nbsp;<i>I am closing the day. I can count money. :)</i></label>
+<label class="ss-choice-label"><input type="radio" name="entry.8.group" value="Brandon" class="ss-q-radio" id="group_8_1">
+Brandon</label> <label class="ss-choice-label"><input type="radio" name="entry.8.group" value="Jackie" class="ss-q-radio" id="group_8_2">
+Jackie</label> <label class="ss-choice-label"><input type="radio" name="entry.8.group" value="Jeff" class="ss-q-radio" id="group_8_3">
+Jeff</label> <label class="ss-choice-label"><input type="radio" name="entry.8.group" value="Kora" class="ss-q-radio" id="group_8_4">
+Kora</label> <label class="ss-choice-label"><input type="radio" name="entry.8.group" value="Peter" class="ss-q-radio" id="group_8_5">
+Peter</label> <label class="ss-choice-label"><input type="radio" name="entry.8.group" value="Sarah" class="ss-q-radio" id="group_8_6">
+Sarah</label> <label class="ss-choice-label"><input type="radio" name="entry.8.group" value="Simeon" class="ss-q-radio" id="group_8_7">
+Simeon</label> <label class="ss-choice-label"><input type="radio" name="entry.8.group" value="Violeta" class="ss-q-radio" id="group_8_8">
+Violeta</label>
+<br>
+<input type="text" name="entry.1.single" value="" class="ss-q-short" id="entry_1">
+<label class="ss-q-title" for="entry_1">Cash Register <b>Actual Starting Balance</b>
+<span class="ss-required-asterisk"></span></label>
+ (including checks and cash).
+<br> <div class="errorbox-good">
+<input type="text" name="entry.2.single" value="" class="ss-q-short" id="entry_2">
+<label class="ss-q-title" for="entry_2">QBO <span style="font-weight:bold">Daily Income Total</span>
+<span class="ss-required-asterisk"></span></label>
+ (From <a target="_blank" href="https://qbo.intuit.com">QBO</a>  Customers -&gt; Income List.)
+<br> <div class="errorbox-good">
+<input type="text" name="entry.3.single" value="" class="ss-q-short" id="entry_3">
+<label class="ss-q-title" for="entry_3">Merchant Center <b>Credit Card Daily Total</b> </label>
+(From <a href="https://merchantcenter.intuit.com" target="_blank">Merchant Center</a> Activities and Reports -&gt;     Transactions.)
+<br> <div class="errorbox-good">
+<input type="text" name="entry.4.single" value="" class="ss-q-short" id="entry_4">
+<label class="ss-q-title" for="entry_4">Online Sales Total </label>
+(From Google Checkout. Purchase orders are in frontdesk@ email.)
+<br> <div class="errorbox-good">
+<input type="text" name="entry.5.single" value="" class="ss-q-short" id="entry_5">
+<label class="ss-q-title" for="entry_5">Bank Deposit </label>
+ (If any checks and cash are taken to bank for deposit.)
+<br> <div class="errorbox-good">
+<input type="text" name="entry.6.single" value="" class="ss-q-short" id="entry_6">
+<label class="ss-q-title" for="entry_6">Cash Register <b>Actual Ending Balance</b> </label>
+<br> <div class="errorbox-good">
+<input type="text" name="entry.7.single" value="" class="ss-q-short" id="entry_7">
+<label class="ss-q-title" for="entry_7"> Studio App Daily Student Sales Total (<a href="http://studio.ariaballroom.com " target="_blank">Studio App</a>, Statistics - Current, enter date range, Payment Stats.) <span class="ss-required-asterisk"></span></label>
+<br>
+
+<input type="button" onclick="verify()"  value="Verify, but do not submit"> &nbsp; &nbsp;  (The yellow box will be filled after clicking the button.)
+<div class="verifyMsg">
+<b>Calculated cash ending balance: <span id='idCalBalance'></span></b>
+<br>
+<b>Calculated cash ending balance matches actual balance? <span id='idCalBalanceMatch'></span></b>
+<br>
+<b>Studio app Student Sales matches QBO sales for the day? <span id='idAppMatch'></span></b>
+</div>
+<label class="ss-q-title" for="entry_12">Note (specify any special circumstances) </label><br>
+<label class="ss-q-help" for="entry_12"></label>
+<textarea name="entry.12.single" rows="8" cols="75" class="ss-q-long" id="entry_12"></textarea>
+<br>
+<input type="hidden" name="entry.9.single" value="" class="ss-q-short" id="entry_9"> <!-- calculated cash total -->
+<input type="hidden" name="entry.10.single" value="" class="ss-q-short" id="entry_10"> <!-- cash actual matches calculated -->
+<input type="hidden" name="entry.11.single" value="" class="ss-q-short" id="entry_11"> <!-- Studio app matches QBO sales -->
+<input type="hidden" name="pageNumber" value="0">
+<input type="hidden" name="backupCache" value="">
+
+
+<div class="ss-item ss-navigate"><div class="ss-form-entry">
+<input type="submit" name="submit" value="Ready. Submit Now!"></div></div></form>
+<script type="text/javascript">
+      
+      (function() {
+var divs = document.getElementById('ss-form').
+getElementsByTagName('div');
+var numDivs = divs.length;
+for (var j = 0; j < numDivs; j++) {
+if (divs[j].className == 'errorbox-bad') {
+divs[j].lastChild.firstChild.lastChild.focus();
+return;
+}
+}
+for (var i = 0; i < numDivs; i++) {
+var div = divs[i];
+if (div.className == 'ss-form-entry' &&
+div.firstChild &&
+div.firstChild.className == 'ss-q-title') {
+div.lastChild.focus();
+return;
+}
+}
+})();
+      </script></div>
+
+
+
+</body>
+]]></Content>
+</Module>
+
