@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="DanceCentral.info Studio Management - Tally"
+             description="DanceCentral.info Studio Management"
+             author="DanceCentral.info"
+             >
+<Require feature="idi"/>
+<Require feature="setprefs" />
+<Require feature="locked-domain" />
+</ModulePrefs>
+<UserPref name="formPostKey" display_name="Form Post Key"
+	  default="dG5DVjdwTkxocUFQS042REFvNEZQYmc6MQ" 
+          required="true"/>
+
+<Content type="html"><![CDATA[
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
+<script>
+function escapeHtml(text) {
+  if (text == null) {
+    return '';
+  }
+  //return _hesc(text);
+  return text;
+}
+
+var gadgetHelper = null;
+_IG_RegisterOnloadHandler(onGadgetLoad);
+
+var prefs = new _IG_Prefs(); // User preferences
+
+function onGadgetLoad() {
+  gFormPostKey = prefs.getString('formPostKey');
+  onLoad();
+}
+
+</script>
+

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="DanceCentral.info Studio Management - Tally"
+             description="DanceCentral.info Studio Management"
+             author="DanceCentral.info"
+             >
+<Require feature="idi"/>
+<Require feature="setprefs" />
+<Require feature="locked-domain" />
+</ModulePrefs>
+<UserPref name="formPostKey" display_name="Form Post Key"
+	  default="dG5DVjdwTkxocUFQS042REFvNEZQYmc6MQ" 
+          required="true"/>
+
+<Content type="html"><![CDATA[
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
+<script>
+function escapeHtml(text) {
+  if (text == null) {
+    return '';
+  }
+  //return _hesc(text);
+  return text;
+}
+
+var gadgetHelper = null;
+_IG_RegisterOnloadHandler(onGadgetLoad);
+
+var prefs = new _IG_Prefs(); // User preferences
+
+function onGadgetLoad() {
+  gFormPostKey = prefs.getString('formPostKey');
+  onLoad();
+}
+
+</script>
+
+<body onLoad='onLoad()'>
+<style>
+td, body {
+  font-family: Arial, sans-serif;
+  font-size: 0.8em;
+}
+a:hover {text-decoration: underline; color: red; background: #fafad2;}
+.errMsg {background-color: #ffe6cc; border: 0px solid #c43b1d; }
+</style>
+
+<script>
+var IS_GADGET = true;
+var VERSION = "12.1006.1226";
+var gFormPostKey = "dG5DVjdwTkxocUFQS042REFvNEZQYmc6MQ";
+
+function onLoad() {
+  // fill in default date
+  var now = new Date();
+  var dateStr = 
+   ('' + (100 + now.getMonth() + 1)).substring(1) + '/' +
+   ('' + (100 + now.getDate())).substring(1) + '/' +
+   now.getFullYear();
+
+  // initial setup
+  _gel("ss-form").action = 'https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?hl=en_US&formkey=' + gFormPostKey + '&ifq';
+
+  _gel('entry_0').value = dateStr;
+}
+
+// trim left and right space
+function trimLR(input) {
+  if (!input) {
+    return '';
+  }
+  return input.replace(/^\s+|\s+$/g,"");
+}
+
+var ENTRIES= [
+  ['entry_2', 100.0],
+  ['entry_3', 50.0],
+  ['entry_4', 20.0],
+  ['entry_5', 10.0],
+  ['entry_6', 5.0],
+  ['entry_7', 1.0],
+  ['entry_8', 0.25],
+  ['entry_9', 0.10],
+  ['entry_10', 0.05],
+  ['entry_11', 0.01]
+  ];
+
+function checkFields() {
+  var staff = _gel('entry_12');
+  if (_gel('entry_0').value == "") {
+    _gel('errMsg').innerHTML = 'Please make sure to enter the date.';
+    return false;
+  }  else {
+   // TODO: check staff
+    _gel('errMsg').innerHTML = '';
+  }
+  return true;
+}
+
+function updateTotal() {
+
+ checkFields();
+
+  var total = 0.0;
+
+  //checks
+  var input = parseFloat(_gel('entry_1').value);
+  if (!isNaN(input)) total += input;
+
+  for (var i=0; i<ENTRIES.length; i++) {
+    var num =  parseInt(_gel(ENTRIES[i][0]).value);
+    if (!isNaN(num)) total += ENTRIES[i][1] * num;
+  }
+
+  _gel('idTotal').innerHTML = '$' + total;
+  return total;
+}
+
+function checkInput() {
+  _gel('entry_13').value = updateTotal();
+ 
+  return checkFields();
+}
+
+</script>
+
+<div style="font-size:12pt;font-weight:bold"> Grand Total: <span style="color:green" id="idTotal">$0</span></div><p>
+
+<span class="errMsg" id='errMsg'></span>
+
+<div style='line-height:2'>
+
+
+<form method="POST" id="ss-form" onSubmit="return checkInput();">
+
+
+<label  for="entry_0"><b>Date *</b>
+</label>
+<label  for="entry_0"></label>
+<input type="text" name="entry.0.single" value=""  id="entry_0" size=12>
+<br> 
+<label  for="entry_12"><b>Aria Staff *</b>
+</label>
+<label  for="entry_12"></label>
+<label ><input type="radio" name="entry.12.group" value="Brandon"  id="group_12_1">
+Brandon</label> <label ><input type="radio" name="entry.12.group" value="Jackie"  id="group_12_2">
+Jackie</label> <label ><input type="radio" name="entry.12.group" value="Jeff"  id="group_12_3">
+Jeff</label> <label ><input type="radio" name="entry.12.group" value="Kora"  id="group_12_4">
+Kora</label> <label ><input type="radio" name="entry.12.group" value="Peter"  id="group_12_5">
+Peter</label> <label ><input type="radio" name="entry.12.group" value="Sarah"  id="group_12_6">
+Sarah</label> <label ><input type="radio" name="entry.12.group" value="Simeon"  id="group_12_7">
+Simeon</label> <label ><input type="radio" name="entry.12.group" value="Violeta"  id="group_12_8">
+Violeta</label>
+
+<input type="hidden" name="entry.13.single" value="" class="ss-q-short" id="entry_13">
+
+<br>
+<input type="hidden" name="pageNumber" value="0">
+<input type="hidden" name="backupCache" value="">
+
+
+
+<label  for="entry_1">Checks Total
+</label>
+<label  for="entry_1"></label>
+<input type="text" name="entry.1.single" value=""  id="entry_1" size=8 onChange="updateTotal();">
+<br> 
+<label  for="entry_2"># of $100's:  </label>
+<label  for="entry_2"></label> <input type="text" name="entry.2.single" value=""  id="entry_2" size=4 onChange="updateTotal();">
+&nbsp; &nbsp; &nbsp;
+<label  for="entry_3"># of $50's: </label>
+<label  for="entry_3"></label>
+<input type="text" name="entry.3.single" value=""  id="entry_3" size=4 onChange="updateTotal();">
+&nbsp; &nbsp; &nbsp;
+<label  for="entry_4"># of $20's: 
+</label>
+<label  for="entry_4"></label>
+<input type="text" name="entry.4.single" value=""  id="entry_4" size=4 onChange="updateTotal();">
+<br> 
+<label  for="entry_5"># of $10's: 
+</label>
+<label  for="entry_5"></label>
+<input type="text" name="entry.5.single" value=""  id="entry_5"  size=4 onChange="updateTotal();">
+&nbsp; &nbsp; &nbsp;&nbsp;
+<label  for="entry_6"># of $5's: 
+</label>
+<label  for="entry_6"></label>
+<input type="text" name="entry.6.single" value=""  id="entry_6"  size=4 onChange="updateTotal();">
+&nbsp; &nbsp; &nbsp;&nbsp;
+<label  for="entry_7"># of $1's: 
+</label>
+<label  for="entry_7"></label>
+<input type="text" name="entry.7.single" value=""  id="entry_7" size=4 onChange="updateTotal();">
+<br> 
+<label  for="entry_8"># of quarters ($0.25)
+</label>
+<label  for="entry_8"></label>
+<input type="text" name="entry.8.single" value=""  id="entry_8" size=4 onChange="updateTotal();">
+&nbsp; &nbsp; &nbsp;
+<label  for="entry_9"># of dimes ($0.10)
+</label>
+<label  for="entry_9"></label>
+<input type="text" name="entry.9.single" value=""  id="entry_9" size=4 onChange="updateTotal();">
+<br>
+<label  for="entry_10"># of nickels ($0.05)
+</label>
+<label  for="entry_10"></label>
+<input type="text" name="entry.10.single" value=""  id="entry_10" size=4 onChange="updateTotal();">
+&nbsp; &nbsp; &nbsp; &nbsp;
+<label  for="entry_11"># of pennies ($0.01)
+</label>
+<label  for="entry_11"></label>
+<input type="text" name="entry.11.single" value=""  id="entry_11" size=4 onChange="updateTotal();">
+<br> 
+<input type="submit" name="submit" value="Submit">
+</form>
+<script type="text/javascript">
+      
+      (function() {
+var divs = document.getElementById('ss-form').
+getElementsByTagName('div');
+var numDivs = divs.length;
+for (var j = 0; j < numDivs; j++) {
+if (divs[j].className == 'errorbox-bad') {
+divs[j].lastChild.firstChild.lastChild.focus();
+return;
+}
+}
+for (var i = 0; i < numDivs; i++) {
+var div = divs[i];
+if (div.className == 'ss-form-entry' &&
+div.firstChild &&
+div.firstChild.className == 'ss-q-title') {
+div.lastChild.focus();
+return;
+}
+}
+})();
+      </script></div>
+
+
+
+</body>
+]]></Content>
+</Module>
+
