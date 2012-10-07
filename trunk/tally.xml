@@ -48,7 +48,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.1006.1803";
+var VERSION = "12.1006.1812";
 var gFormPostKey = "dG5DVjdwTkxocUFQS042REFvNEZQYmc6MQ";
 
 function onLoad() {
@@ -207,7 +207,7 @@ function checkInput() {
 <br> 
 <label class="ss-q-title" for="entry_14"><b>Note</b></label> <br>
 <label class="ss-q-help" for="entry_14"></label>
-<textarea name="entry.14.single" rows="8" cols="75" class="ss-q-long" id="entry_14" rows=5 cols=200></textarea>
+<textarea name="entry.14.single" rows="8" cols="75" class="ss-q-long" id="entry_14"></textarea>
 <br>
 
 <input type="submit" name="submit" value="Submit">

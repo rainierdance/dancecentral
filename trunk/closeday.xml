@@ -49,7 +49,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.1006.1803";
+var VERSION = "12.1006.1812";
 var gFormPostKey = "dFBIQVZyVE1OUUFaNXhIRGZjZXcyWGc6MQ";
 
 function onLoad() {
