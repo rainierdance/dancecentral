@@ -43,13 +43,13 @@ td, body {
   font-size: 0.8em;
 }
 a:hover {text-decoration: underline; color: red; background: #fafad2;}
-.errMsg {background-color: #ffe6cc; border: 0px solid #c43b1d; }
-.verifyMsg {background-color: #ffffcc; border: 2px solid #ffcc99; padding: 2px; margin-left:10px; width:600px; }
+.errMsg {background-color: #ffffcffffcc; border: 0px solid #c43b1d; font-weight: bold; color:red;}
+.verifyMsg {background-color: #ffffcc; border: 2px solid #ffcc99; padding: 2px; margin-left:10px; width:600px; font-weight:bold; }
 </style>
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.1006.1356";
+var VERSION = "12.1006.1803";
 var gFormPostKey = "dFBIQVZyVE1OUUFaNXhIRGZjZXcyWGc6MQ";
 
 function onLoad() {
@@ -77,10 +77,12 @@ function trimLR(input) {
 function checkFields() {
   var staff = _gel('entry_12');
   if (_gel('entry_0').value == "") { // date
-    _gel('errMsg').innerHTML = 'Please make sure to enter the date.';
+    _gel('errMsg').innerHTML = 'ERROR: Please make sure to enter the date.';
     return false;
-  }  else {
-   // TODO: check staff
+  }  else if (_gel('entry_8').value == "") { // staff
+    _gel('errMsg').innerHTML = 'ERROR: Please enter Aria Staff name closing the day.';
+    return false;
+  } else {
     _gel('errMsg').innerHTML = '';
   }
   return true;
@@ -134,31 +136,27 @@ function checkInput() {
 <label class="ss-q-help" for="entry_0"></label>
 <input type="text" name="entry.0.single" value="" class="ss-q-short" id="entry_0">
 <br> <div class="errorbox-good">
-<div class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-title" for="entry_8"><b>Aria Staff</b> </label>
+<label class="ss-q-title" for="entry_8"><b>Aria Staff</b>: </label>
+<input type="text" name="entry.8.single" value="" class="ss-q-short" id="entry_8" size=32> 
 <label class="ss-q-help" for="entry_8"> &nbsp;<i>I am closing the day. I can count money. :)</i></label>
-<label class="ss-choice-label"><input type="radio" name="entry.8.group" value="Brandon" class="ss-q-radio" id="group_8_1">
-Brandon</label> <label class="ss-choice-label"><input type="radio" name="entry.8.group" value="Jackie" class="ss-q-radio" id="group_8_2">
-Jackie</label> <label class="ss-choice-label"><input type="radio" name="entry.8.group" value="Jeff" class="ss-q-radio" id="group_8_3">
-Jeff</label> <label class="ss-choice-label"><input type="radio" name="entry.8.group" value="Kora" class="ss-q-radio" id="group_8_4">
-Kora</label> <label class="ss-choice-label"><input type="radio" name="entry.8.group" value="Peter" class="ss-q-radio" id="group_8_5">
-Peter</label> <label class="ss-choice-label"><input type="radio" name="entry.8.group" value="Sarah" class="ss-q-radio" id="group_8_6">
-Sarah</label> <label class="ss-choice-label"><input type="radio" name="entry.8.group" value="Simeon" class="ss-q-radio" id="group_8_7">
-Simeon</label> <label class="ss-choice-label"><input type="radio" name="entry.8.group" value="Violeta" class="ss-q-radio" id="group_8_8">
-Violeta</label>
+
 <br>
 <input type="text" name="entry.1.single" value="" class="ss-q-short" id="entry_1">
 <label class="ss-q-title" for="entry_1">Cash Register <b>Actual Starting Balance</b>
 <span class="ss-required-asterisk"></span></label>
  (including checks and cash).
 <br> <div class="errorbox-good">
+<input type="text" name="entry.6.single" value="" class="ss-q-short" id="entry_6">
+<label class="ss-q-title" for="entry_6">Cash Register <b>Actual Ending Balance</b> </label>
+<br> <div class="errorbox-good">
 <input type="text" name="entry.2.single" value="" class="ss-q-short" id="entry_2">
 <label class="ss-q-title" for="entry_2">QBO <span style="font-weight:bold">Daily Income Total</span>
 <span class="ss-required-asterisk"></span></label>
- (From <a target="_blank" href="https://qbo.intuit.com">QBO</a>  Customers -&gt; Income List.)
+ (From QBO: Customers -&gt; Income List.)
 <br> <div class="errorbox-good">
 <input type="text" name="entry.3.single" value="" class="ss-q-short" id="entry_3">
 <label class="ss-q-title" for="entry_3">Merchant Center <b>Credit Card Daily Total</b> </label>
-(From <a href="https://merchantcenter.intuit.com" target="_blank">Merchant Center</a> Activities and Reports -&gt;     Transactions.)
+(From Merchant Center: Activities and Reports -&gt;     Transactions.)
 <br> <div class="errorbox-good">
 <input type="text" name="entry.4.single" value="" class="ss-q-short" id="entry_4">
 <label class="ss-q-title" for="entry_4">Online Sales Total </label>
@@ -168,11 +166,8 @@ Violeta</label>
 <label class="ss-q-title" for="entry_5">Bank Deposit </label>
  (If any checks and cash are taken to bank for deposit.)
 <br> <div class="errorbox-good">
-<input type="text" name="entry.6.single" value="" class="ss-q-short" id="entry_6">
-<label class="ss-q-title" for="entry_6">Cash Register <b>Actual Ending Balance</b> </label>
-<br> <div class="errorbox-good">
 <input type="text" name="entry.7.single" value="" class="ss-q-short" id="entry_7">
-<label class="ss-q-title" for="entry_7"> Studio App Daily Student Sales Total (<a href="http://studio.ariaballroom.com " target="_blank">Studio App</a>, Statistics - Current, enter date range, Payment Stats.) <span class="ss-required-asterisk"></span></label>
+<label class="ss-q-title" for="entry_7"> Studio App Daily Student Sales Total (Studio App: Statistics - Current, enter date range, Payment Stats.) <span class="ss-required-asterisk"></span></label>
 <br>
 
 <input type="button" onclick="verify()"  value="Verify, but do not submit"> &nbsp; &nbsp;  (The yellow box will be filled after clicking the button.)

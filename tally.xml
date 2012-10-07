@@ -43,12 +43,12 @@ td, body {
   font-size: 0.8em;
 }
 a:hover {text-decoration: underline; color: red; background: #fafad2;}
-.errMsg {background-color: #ffe6cc; border: 0px solid #c43b1d; }
+.errMsg {background-color: #ffffcc; border: 0px solid #c43b1d; font-weight:bold; color:red}
 </style>
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.1006.1447";
+var VERSION = "12.1006.1803";
 var gFormPostKey = "dG5DVjdwTkxocUFQS042REFvNEZQYmc6MQ";
 
 function onLoad() {
@@ -89,13 +89,13 @@ var ENTRIES= [
   ];
 
 function checkFields() {
-  var staff = _gel('entry_12');
+  var staff = _gel('entry_12').value;
   if (_gel('entry_0').value == "") {
-    _gel('errMsg').innerHTML = 'Please make sure to enter the date.';
+    _gel('errMsg').innerHTML = 'ERROR: Please make sure to enter the date.';
     return false;
-  }  else {
-   // TODO: check staff
-    _gel('errMsg').innerHTML = '';
+  }  else if (staff == "") {
+    _gel('errMsg').innerHTML = 'ERROR: Please enter Staff name that did the tally';
+    return false;
   }
   return true;
 }
@@ -142,16 +142,8 @@ function checkInput() {
 <br> 
 <label  for="entry_12"><b>Aria Staff *</b>
 </label>
-<label  for="entry_12"></label>
-<label ><input type="radio" name="entry.12.group" value="Brandon"  id="group_12_1">
-Brandon</label> <label ><input type="radio" name="entry.12.group" value="Jackie"  id="group_12_2">
-Jackie</label> <label ><input type="radio" name="entry.12.group" value="Jeff"  id="group_12_3">
-Jeff</label> <label ><input type="radio" name="entry.12.group" value="Kora"  id="group_12_4">
-Kora</label> <label ><input type="radio" name="entry.12.group" value="Peter"  id="group_12_5">
-Peter</label> <label ><input type="radio" name="entry.12.group" value="Sarah"  id="group_12_6">
-Sarah</label> <label ><input type="radio" name="entry.12.group" value="Simeon"  id="group_12_7">
-Simeon</label> <label ><input type="radio" name="entry.12.group" value="Violeta"  id="group_12_8">
-Violeta</label>
+<input type="text" name="entry.12.single" value="" class="ss-q-short" id="entry_12" size=24>
+<label  for="entry_12">Who did the tally?</label>
 
 <input type="hidden" name="entry.13.single" value="" class="ss-q-short" id="entry_13">
 
