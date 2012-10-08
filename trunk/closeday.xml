@@ -49,7 +49,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.1006.1812";
+var VERSION = "12.1007.1841";
 var gFormPostKey = "dFBIQVZyVE1OUUFaNXhIRGZjZXcyWGc6MQ";
 
 function onLoad() {
@@ -99,6 +99,7 @@ function verify() {
  var totalCreditCard = getNumber(_gel('entry_3'));
  var totalOnline = getNumber(_gel('entry_4'));
  var totalDeposit = getNumber(_gel('entry_5'));
+ var miscIncome = getNumber(_gel('entry_13'));
  var endBalance = getNumber(_gel('entry_6'));
  var totalSalesInApp = getNumber(_gel('entry_7'));
 
@@ -106,7 +107,7 @@ function verify() {
 
   _gel('entry_9').value = calculatedEndingBalance;
   _gel('entry_10').value = (endBalance == calculatedEndingBalance ? 'YES' : 'NO');
-  _gel('entry_11').value = (totalDaily == totalSalesInApp ? 'YES' : 'NO');
+  _gel('entry_11').value = (totalDaily == (totalSalesInApp + miscIncome) ? 'YES' : 'NO');
 
   _gel('idCalBalance').innerHTML = '$' + calculatedEndingBalance;
   _gel('idCalBalanceMatch').innerHTML = _gel('entry_10').value;
@@ -150,7 +151,7 @@ function checkInput() {
 <label class="ss-q-title" for="entry_6">Cash Register <b>Actual Ending Balance</b> </label>
 <br> <div class="errorbox-good">
 <input type="text" name="entry.2.single" value="" class="ss-q-short" id="entry_2">
-<label class="ss-q-title" for="entry_2">QBO <span style="font-weight:bold">Daily Income Total</span>
+<label class="ss-q-title" for="entry_2"> <span style="font-weight:bold">QBO Daily Income Total</span>
 <span class="ss-required-asterisk"></span></label>
  (From QBO: Customers -&gt; Income List.)
 <br> <div class="errorbox-good">
@@ -165,9 +166,12 @@ function checkInput() {
 <input type="text" name="entry.5.single" value="" class="ss-q-short" id="entry_5">
 <label class="ss-q-title" for="entry_5">Bank Deposit </label>
  (If any checks and cash are taken to bank for deposit.)
+<br>
+<input type="text" name="entry.13.single" value="" class="ss-q-short" id="entry_13">
+Misc cash income (not recorded in studio app, e.g. coffee/water fund)
 <br> <div class="errorbox-good">
 <input type="text" name="entry.7.single" value="" class="ss-q-short" id="entry_7">
-<label class="ss-q-title" for="entry_7"> Studio App Daily Student Sales Total (Studio App: Statistics - Current, enter date range, Payment Stats.) <span class="ss-required-asterisk"></span></label>
+<label class="ss-q-title" for="entry_7"> <b>Studio App Student Sales Total</b> (Studio App: Statistics - Current, enter date range, Payment Stats.) <span class="ss-required-asterisk"></span></label>
 <br>
 
 <input type="button" onclick="verify()"  value="Verify, but do not submit"> &nbsp; &nbsp;  (The yellow box will be filled after clicking the button.)
