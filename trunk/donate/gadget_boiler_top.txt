@@ -9,7 +9,15 @@
 <Require feature="locked-domain" />
 </ModulePrefs>
 <UserPref name="merchantID" display_name="Merchnat ID"
-	  default="609547929702515" 
+	  default_value="609547929702515" 
+          required="true"/>
+
+<UserPref name="title" display_name="Item Title"
+	  default_value="Donate to IBT" 
+          required="true"/>
+
+<UserPref name="description" display_name="Item Description"
+	  default_value="Your tax deductible contribution is an investment in your community." 
           required="true"/>
 
 <Content type="html"><![CDATA[
@@ -31,6 +39,8 @@ var prefs = new _IG_Prefs(); // User preferences
 
 function onGadgetLoad() {
   merchantID = prefs.getString('merchantID');
+  inputTitle = prefs.getString('title');
+  inputDescription = prefs.getString('description');
   onLoad();
 }
 
