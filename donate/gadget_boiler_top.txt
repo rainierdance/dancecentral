@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="DanceCentral.info Studio Management - Donation"
+             description="DanceCentral.info Studio Management"
+             author="DanceCentral.info"
+             >
+<Require feature="idi"/>
+<Require feature="setprefs" />
+<Require feature="locked-domain" />
+</ModulePrefs>
+<UserPref name="merchantID" display_name="Merchnat ID"
+	  default="609547929702515" 
+          required="true"/>
+
+<Content type="html"><![CDATA[
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
+<script>
+function escapeHtml(text) {
+  if (text == null) {
+    return '';
+  }
+  //return _hesc(text);
+  return text;
+}
+
+var gadgetHelper = null;
+_IG_RegisterOnloadHandler(onGadgetLoad);
+
+var prefs = new _IG_Prefs(); // User preferences
+
+function onGadgetLoad() {
+  merchantID = prefs.getString('merchantID');
+  onLoad();
+}
+
+</script>
+
