@@ -1,8 +1,26 @@
+<!--
+/***********************************************
+  Copyright 2012 Rainier Dance, LLC.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+**************************************************/
+-->
+
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-<ModulePrefs title="DanceCentral.info Studio Management"
-             description="DanceCentral.info Studio Management"
-             author="DanceCentral.info"
+<ModulePrefs title="Rainier Dance Studio Management - Sign In"
+             description="Rainier Dance Studio Management"
+             author="Rainier Dance, LLC."
              >
 <Require feature="idi"/>
 <Require feature="setprefs" />
@@ -156,6 +174,24 @@ function handleStudentQueryResponse(response) {
 }
 </script>
 
+<!--
+/***********************************************
+  Copyright 2012 Rainier Dance, LLC.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+**************************************************/
+-->
+
 <body onload='onLoad()'>
 <style>
 td, body {
@@ -168,7 +204,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.1020.2330";
+var VERSION = "12.1021.1033";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -177,7 +213,6 @@ var VERSION = "12.1020.2330";
 var gAllEntities = [];	 
 // form key is from live from, not the spreadsheet url
 var gFormPostKey = 'dDlrWkgwUHRHSU9sSy1rWDY5NWpwWkE6MA';  // test key
-//var gFormPostKey = 'dFZ5cEhUTGpLaHMxc2t4cDUyU3VZYlE6MA'; // 2012-07
 
 // read from data file, current ongoing classes
 var gAllClasses = [];
