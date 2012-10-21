@@ -168,7 +168,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.1020.1802";
+var VERSION = "12.1020.2330";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1424,7 +1424,7 @@ gAllRateTypes.push(new ValueDisplay('Other', 'Other'));
 
 </script>
 
-<script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/studio/../utils/license.js"></script>
+<script type="text/javascript" SRC="https://dancecentral.googlecode.com/svn/trunk/studio/../utils/license.js"></script>
 
 </body>
 ]]></Content>
