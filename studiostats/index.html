@@ -1386,7 +1386,7 @@ function addRawEntry(cols) {
 // called when data file finished loading
 function initData() {
   // indicate we are ready, replace spinning imag
-  _gel('idVersion').innerHTML = VERSION + ' &nbsp; <a href="javascript:void(0)" onclick="showLog()">log</a>';
+  _gel('idVersion').innerHTML = '<a href="javascript:void(0)" onclick="showLog()">log</a>';
   _gel('idEntityList').innerHTML = '';
   _gel('idControlPanel').style.display = '';
 
