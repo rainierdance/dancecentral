@@ -23,7 +23,7 @@ function showCopyright() {
   var html = [];
   html.push('<span style="float:right">');
   if (VERSION) {
-    html.push('<span style="font-size:0.7em;">' + VERSION + '</span> ');
+    html.push('<span style="color:white;font-size:0.7em;">' + VERSION + '</span> ');
   }
   html.push('Powered By <a href="http://www.rainierdance.com" target="_blank"><img border=0 height=16 src="https://dancecentral.googlecode.com/svn/trunk/images/rainierdance_logo.jpg"/></a>');
   html.push(' <a href="http://www.rainierdance.com" target="_blank">Rainier Dance, LLC.</a>');
