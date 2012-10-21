@@ -24,11 +24,11 @@ cat $dirname/gadget_boiler_bottom.txt >>$TMP
 # replace IS_GADGET, VERSION, URL
 sed -e 's/IS_GADGET = false/IS_GADGET = true/g' $TMP | \
 sed -e "s/var VERSION = .*$/var VERSION = \"$TIMESTAMP\";/g" | \
-sed -e "s#HREF=\"#HREF=\"http://dancecentral.googlecode.com/svn/trunk/$dirname/#" | \
-sed -e "s#SRC=\"#SRC=\"http://dancecentral.googlecode.com/svn/trunk/$dirname/#" | \
+sed -e "s#HREF=\"#HREF=\"https://dancecentral.googlecode.com/svn/trunk/$dirname/#" | \
+sed -e "s#SRC=\"#SRC=\"https://dancecentral.googlecode.com/svn/trunk/$dirname/#" | \
 sed -e "/src=\"data/d" | \
 sed -e "/localonly/d" | \
-sed -e "s#<!--DATA-->#<script type=\"text/javascript\" SRC=\"http://dancecentral.googlecode.com/svn/trunk/$DATAFILE\"></script>#" \
+sed -e "s#<!--DATA-->#<script type=\"text/javascript\" SRC=\"https://dancecentral.googlecode.com/svn/trunk/$DATAFILE\"></script>#" \
 > $dirname.xml
 
 rm $TMP
