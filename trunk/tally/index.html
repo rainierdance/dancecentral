@@ -27,6 +27,7 @@ function onLoad() {
   _gel('entry_0').value = dateStr;
   updateTotal();
 
+  showCopyright();
 }
 
 // trim left and right space
@@ -87,7 +88,9 @@ function checkInput() {
 
 </script>
 
-<div style="font-size:12pt;font-weight:bold"> Grand Total: <span style="color:green" id="idTotal">$0</span></div><p>
+<div id="idCopyright"></div>
+
+<div style="font-size:14pt;font-weight:bold"> Grand Total: <span style="padding:4px;background:#ffffcc;border:1px solid #c43b1d; color:green" id="idTotal">$0</span></div><p>
 
 <span class="errMsg" id='errMsg'></span>
 
@@ -200,5 +203,6 @@ return;
 
 
 <script type="text/javascript" SRC="localonly.js"></script>
+<script type="text/javascript" SRC="../utils/license.js"></script>
 
 </body>

@@ -26,6 +26,8 @@ function onLoad() {
   _gel("ss-form").action = 'https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?hl=en_US&formkey=' + gFormPostKey + '&ifq';
 
   _gel('entry_0').value = dateStr;
+
+  showCopyright();
 }
 
 // trim left and right space
@@ -83,6 +85,8 @@ function checkInput() {
 }
 
 </script>
+
+<div id="idCopyright"></div>
 
 <div style="font-size:12pt;font-weight:bold"> Does everything look good? <span style="color:green" id="idResult"></span></div><p>
 
@@ -144,7 +148,7 @@ Misc cash income (not recorded in studio app, e.g. coffee/water fund)
 <br>
 <b>Studio app Student Sales matches QBO sales for the day? <span id='idAppMatch'></span></b>
 </div>
-<label class="ss-q-title" for="entry_12">Note (specify any special circumstances) </label><br>
+<label class="ss-q-title" for="entry_12">Note (any special circumstances) </label><br>
 <label class="ss-q-help" for="entry_12"></label>
 <textarea name="entry.12.single" rows="8" cols="75" class="ss-q-long" id="entry_12"></textarea>
 <br>
@@ -183,5 +187,7 @@ return;
 
 
 <script type="text/javascript" SRC="localonly.js"></script>
+<script type="text/javascript" SRC="../utils/license.js"></script>
+
 
 </body>

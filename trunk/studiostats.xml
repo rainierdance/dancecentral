@@ -109,7 +109,7 @@ table.sortable thead {
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.0925.1527";
+var VERSION = "12.1020.2357";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1493,6 +1493,7 @@ function initData() {
 
   // get per students account information, this is only done one time
 
+  showCopyright();
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -2411,6 +2412,8 @@ function showStudioOverview() {
 </script> 
 
 <!--- UI elements --->
+<div id="idCopyright"></div>
+
 <div id='idControlPanel' style="display:None">
 Data contains entries from <b><span id='idPeriodStart'></b> to <b><span id="idPeriodEnd"></b>. Total records: <b><span id="idTotalRecords"></b><br>
 <font color="red">Warning: Statistics numbers are not valid when data in the chosen date range is not complete.</font><p>
@@ -2439,7 +2442,9 @@ ending (MM/DD/YYYY):
 <div style="float:right;color:gray" id='idVersion'></div>
 <pre id='debugOutput'></pre>
 
-<script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/studiostats/sorttable.js"></script>
+<script type="text/javascript" SRC="https://dancecentral.googlecode.com/svn/trunk/studiostats/sorttable.js"></script>
+<script type="text/javascript" SRC="https://dancecentral.googlecode.com/svn/trunk/studiostats/../utils/license.js"></script>
+
 
 </body>
 ]]></Content>

@@ -1404,6 +1404,7 @@ function initData() {
 
   // get per students account information, this is only done one time
 
+  showCopyright();
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -2322,6 +2323,8 @@ function showStudioOverview() {
 </script> 
 
 <!--- UI elements --->
+<div id="idCopyright"></div>
+
 <div id='idControlPanel' style="display:None">
 Data contains entries from <b><span id='idPeriodStart'></b> to <b><span id="idPeriodEnd"></b>. Total records: <b><span id="idTotalRecords"></b><br>
 <font color="red">Warning: Statistics numbers are not valid when data in the chosen date range is not complete.</font><p>
@@ -2352,5 +2355,7 @@ ending (MM/DD/YYYY):
 
 <script type="text/javascript" SRC="localonly.js"></script>
 <script type="text/javascript" SRC="sorttable.js"></script>
+<script type="text/javascript" SRC="../utils/license.js"></script>
+
 
 </body>
