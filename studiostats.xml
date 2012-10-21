@@ -1,8 +1,26 @@
+<!--
+/***********************************************
+  Copyright 2012 Rainier Dance, LLC.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+**************************************************/
+-->
+
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-<ModulePrefs title="DanceCentral.info Studio Management"
-             description="DanceCentral.info Studio Management"
-             author="DanceCentral.info"
+<ModulePrefs title="Rainier Dance Studio Management - Stats"
+             description="Rainier Dance Studio Management"
+             author="Rainier Dance, LLC."
              >
 <Require feature="idi"/>
 <Require feature="setprefs" />
@@ -87,6 +105,23 @@ function handleDataQueryResponse(response) {
 }
 </script>
 
+<!--
+/***********************************************
+  Copyright 2012 Rainier Dance, LLC.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+**************************************************/
+-->
 <body onload='onLoad()'>
 <style>
 td, body {
@@ -109,7 +144,7 @@ table.sortable thead {
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.1020.2357";
+var VERSION = "12.1021.1033";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -1475,7 +1510,7 @@ function addRawEntry(cols) {
 // called when data file finished loading
 function initData() {
   // indicate we are ready, replace spinning imag
-  _gel('idVersion').innerHTML = VERSION + ' &nbsp; <a href="javascript:void(0)" onclick="showLog()">log</a>';
+  _gel('idVersion').innerHTML = '<a href="javascript:void(0)" onclick="showLog()">log</a>';
   _gel('idEntityList').innerHTML = '';
   _gel('idControlPanel').style.display = '';
 
@@ -2444,7 +2479,6 @@ ending (MM/DD/YYYY):
 
 <script type="text/javascript" SRC="https://dancecentral.googlecode.com/svn/trunk/studiostats/sorttable.js"></script>
 <script type="text/javascript" SRC="https://dancecentral.googlecode.com/svn/trunk/studiostats/../utils/license.js"></script>
-
 
 </body>
 ]]></Content>

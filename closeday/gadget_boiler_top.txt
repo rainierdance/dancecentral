@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-<ModulePrefs title="DanceCentral.info Studio Management - Closing Business Day"
-             description="DanceCentral.info Studio Management"
-             author="DanceCentral.info"
+<ModulePrefs title="Rainier Dance Studio Management - Closing Business Day"
+             description="Rainier Dance Studio Management"
+             author="Rainier Dance, LLC"
              >
 <Require feature="idi"/>
 <Require feature="setprefs" />
@@ -16,14 +16,6 @@
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 
 <script>
-function escapeHtml(text) {
-  if (text == null) {
-    return '';
-  }
-  //return _hesc(text);
-  return text;
-}
-
 var gadgetHelper = null;
 _IG_RegisterOnloadHandler(onGadgetLoad);
 
