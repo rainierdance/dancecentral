@@ -48,7 +48,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.1006.1812";
+var VERSION = "12.1020.2356";
 var gFormPostKey = "dG5DVjdwTkxocUFQS042REFvNEZQYmc6MQ";
 
 function onLoad() {
@@ -65,6 +65,7 @@ function onLoad() {
   _gel('entry_0').value = dateStr;
   updateTotal();
 
+  showCopyright();
 }
 
 // trim left and right space
@@ -125,7 +126,9 @@ function checkInput() {
 
 </script>
 
-<div style="font-size:12pt;font-weight:bold"> Grand Total: <span style="color:green" id="idTotal">$0</span></div><p>
+<div id="idCopyright"></div>
+
+<div style="font-size:14pt;font-weight:bold"> Grand Total: <span style="padding:4px;background:#ffffcc;border:1px solid #c43b1d; color:green" id="idTotal">$0</span></div><p>
 
 <span class="errMsg" id='errMsg'></span>
 
@@ -237,6 +240,7 @@ return;
       </script></div>
 
 
+<script type="text/javascript" SRC="https://dancecentral.googlecode.com/svn/trunk/tally/../utils/license.js"></script>
 
 </body>
 ]]></Content>
