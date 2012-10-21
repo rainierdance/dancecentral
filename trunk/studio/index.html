@@ -230,6 +230,7 @@ function startMain() {
   // set form action URL
   _gel("ss-form").action = 'https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?hl=en_US&formkey=' + gFormPostKey + '&ifq';
   refreshSearchResult(gAllEntities, true);
+  showCopyright();
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -1048,6 +1049,7 @@ function onSignIn() {
 <!--- UI elements --->
 
 <!-- Search header, always shown -->
+<div id="idCopyright"></div>
 <div id='idTopSearchPanel' style='display:None'>
 Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" onKeyUp='changeKeyword(this.value)'>
 <span id='idIsNewPanel' style="display:None"><input id='idIsNew' type=checkbox onclick='addAndSelectEntity()'><label for="idIsNew">Sign in as a new student</label></span>
@@ -1265,5 +1267,6 @@ gAllRateTypes.push(new ValueDisplay('Other', 'Other'));
 </script>
 
 <script type="text/javascript" SRC="localonly.js"></script>
+<script type="text/javascript" SRC="../utils/license.js"></script>
 
 </body>
