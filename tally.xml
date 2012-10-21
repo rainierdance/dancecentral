@@ -58,7 +58,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.1021.0028";
+var VERSION = "12.1021.0033";
 var gFormPostKey = "dG5DVjdwTkxocUFQS042REFvNEZQYmc6MQ";
 
 function onLoad() {
@@ -127,7 +127,7 @@ function checkInput() {
 
 <div id="idCopyright"></div>
 
-<div style="font-size:14pt;font-weight:bold"> Grand Total: 
+<div style="font-size:14pt;font-weight:bold;margin-top:10px;"> Grand Total: 
 <span style="padding:2px;background:#ffffcc;border:1px solid #c43b1d; color:green" id="idTotal"> $0</span>
 </div><p>
 
