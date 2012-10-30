@@ -14,6 +14,9 @@
           required="false"/>
 <UserPref name="data2Url" display_name="Data 2 url"
           required="false"/>
+<UserPref name="options" display_name="Display Options"
+          default_value="0"
+          required="false"/>
 <Content type="html"><![CDATA[
 <script src="https://www.google.com/jsapi" type="text/javascript"></script>
 
@@ -47,6 +50,8 @@ function loadVisualizationAPI() {
   dataurl = prefs.getString('data2Url');
   if (dataurl && (dataurl.length > 0)) 
     dataUrls.push(dataurl);
+
+  gOptions = prefs.getString('options');
 
   google.setOnLoadCallback(sendDataQuery);
 }

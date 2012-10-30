@@ -24,6 +24,7 @@ td, body {
 a:hover {text-decoration: underline; color: red; background: #fafad2;}
 .errMsg {background-color: #ffe6cc; border: 2px solid #c43b1d; padding: 2px;}
 .warning {background-color: #ffe6cc; border: 2px solid #c43b1d; padding: 2px;}
+.alert {background-color: #ffe6cc; border: 2px solid #c43b1d; padding:2px; margin: 5px;}
 .overdue {background-color: #ffe6cc; border: 1px solid #c43b1d; padding: 2px;}
 
 /* Sortable tables */
@@ -46,6 +47,11 @@ var LINE = '<hr style="background-color:rgb(204,204,204);border-top-style:none;b
 var gAllRawEntities = []; // all raw log entries, not sorted, directly read from data file
 var gAllEntities = []; // sorted and date restricted
 var periodStart = '', periodEnd = ''; // all log dates
+var gOptions = 1; // default
+var OPTION_SIMPLE = 1; // just student stats
+
+var LEN_STOP = 5000; //
+var LEN_ALERT = 4500; // alert for sharding
 
 var INDEX_TIMESTAMP = 0;
 var INDEX_NAME = 1;
@@ -1403,7 +1409,8 @@ function addRawEntry(cols) {
 // called when data file finished loading
 function initData() {
   // indicate we are ready, replace spinning imag
-  _gel('idVersion').innerHTML = '<a href="javascript:void(0)" onclick="showLog()">log</a>';
+  if (gOptions != OPTION_SIMPLE) 
+    _gel('idVersion').innerHTML = '<a href="javascript:void(0)" onclick="showLog()">log</a>';
   _gel('idEntityList').innerHTML = '';
   _gel('idControlPanel').style.display = '';
 
@@ -1416,10 +1423,6 @@ function initData() {
   _gel('idStartDate').value = formatDateWithSlash(defaultStartDate); 
   processStatsWithTimeRestrict(defaultStartDate, null); // take the default start date
 */
-  showStudentStats();
-  //showPaymentStats();
-
-  // get per students account information, this is only done one time
 
   showCopyright();
 }
@@ -1444,8 +1447,6 @@ function processStats() {
   endDate.setTime(endDate.getTime() + 23*60*60*1000 + 00 *60*1000); // ending, before 11:00pm
 
   processStatsWithTimeRestrict(startDate, endDate);
-  showClassesStats();
-  //showPaymentStats();
 }
 
 function processStatsWithTimeRestrict(startDate, endDate) {
@@ -1525,16 +1526,24 @@ function processStatsWithTimeRestrict(startDate, endDate) {
     }
   }
   // clear display
-  _gel('idStatsLinks').style.display = '';
+  _gel('idStatsLinks').style.display = (gOptions == OPTION_SIMPLE ? 'None' : ''); // simple mode: just student stats
   _gel('idEntityList').innerHTML = '';
   _gel('idSelect').innerHTML = '';
   _gel('idPeriodStart').innerHTML = periodStart;
   _gel('idPeriodEnd').innerHTML = periodEnd;
   _gel('idTotalRecords').innerHTML = gAllEntities.length;
+  if (gAllEntities.length > LEN_STOP) {
+    _gel('idAlert').innerHTML = '<p><span class="alert">STOP. Over ' + LEN_STOP + ' records. The software is not designed for this use.</span>';
+    _gel('idStatsLinks').style.display = 'None';
+    _gel('idDateRestrict').style.display = 'None';
+    _gel('idVersion').style.display = 'None';
+  } else if (gAllEntities.length > LEN_ALERT) {
+    _gel('idAlert').innerHTML = '<p><span class="alert">Warning: Consider sharding data now. Software will stop working after over ' +  LEN_STOP + ' records.</span>';
+    showStudentStats();
+  } else {
+    showStudentStats();
+  }
 
-  // default
-  showClassesStats();
-  //showPaymentStats();
 }
 
 //////////////////////////////////////
@@ -1602,12 +1611,14 @@ function showStudentStats() {
 
   //html.push('<span style="float:right">');
   html.push('<span style="margin-left:50px">');
-  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsSummary()">All Students Summary</a>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsSummary()">Students Summary</a>');
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsOverdueNames()">Overdue Students</a>');
+  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsOverview()">Students Details</a>');
+  if (gOptions != OPTION_SIMPLE) {
   html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsNamesWithBalance()">Students with Balance</a>');
-  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsNamesWithoutBalance()">Students without Balance</a>');
-  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentStatsOverview()">All Students Details</a>');
-  html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsCarryOver()">Carry Over</a>');
+    html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsNamesWithoutBalance()">Students without Balance</a>');
+    html.push(' &nbsp; &nbsp; <a href="javascript:void(0)" onclick="showStudentsCarryOver()">Carry Over</a>');
+  }
   html.push('</span>');
   _gel('idSelect').innerHTML = html.join('');
   
@@ -2343,13 +2354,16 @@ function showStudioOverview() {
 <div id="idCopyright"></div>
 
 <div id='idControlPanel' style="display:None">
-Data contains entries from <b><span id='idPeriodStart'></b> to <b><span id="idPeriodEnd"></b>. Total records: <b><span id="idTotalRecords"></b><br>
-<font color="red">Warning: Statistics numbers are not valid when data in the chosen date range is not complete.</font><p>
+Total records: <b><span id="idTotalRecords"></b> (<span id='idPeriodStart'></span> ~ <span id="idPeriodEnd"></span>)
+<div id='idAlert'></div>
+<br>
+<span id='idDateRestrict'>
 Date starting (MM/DD/YYYY): 
 <input type=text id='idStartDate' size=12>   
 ending (MM/DD/YYYY):
 <input type=text id='idEndDate' size=12>
 <input type=submit value='Get Stats!' onclick="processStats()">
+</span>
 <p>
 
 <div id='idStatsLinks' style="display:None">
