@@ -8,14 +8,14 @@
 <Content type="html"><![CDATA[
 <head>
   <base target="_top" />
-  <LINK REL=StyleSheet HREF="http://dancecentral.googlecode.com/svn/trunk/figures/figures.css" TYPE="text/css"/>
-  <LINK REL=StyleSheet HREF="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/dci_video.css" TYPE="text/css"/>
+  <LINK REL=StyleSheet HREF="https://dancecentral.googlecode.com/svn/trunk/figures/figures.css" TYPE="text/css"/>
+  <LINK REL=StyleSheet HREF="https://dancecentral.googlecode.com/svn/trunk/figures/../videos/dci_video.css" TYPE="text/css"/>
 
   <script type="text/javascript">
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "12.0927.1845";
+    var VERSION = "12.1117.1332";
     var ID_ANALYTICS = "UA-10550268-1";
     var pageTracker;
 
@@ -45,11 +45,11 @@
     }
   </script>
 
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../utils/utils.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/connecting_figures.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/dci_video.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/../videos/videos_data.js"></script>
-  <script type="text/javascript" SRC="http://dancecentral.googlecode.com/svn/trunk/figures/figures_data.js"></script>
+  <script type="text/javascript" SRC="https://dancecentral.googlecode.com/svn/trunk/figures/../utils/utils.js"></script>
+  <script type="text/javascript" SRC="https://dancecentral.googlecode.com/svn/trunk/figures/connecting_figures.js"></script>
+  <script type="text/javascript" SRC="https://dancecentral.googlecode.com/svn/trunk/figures/../videos/dci_video.js"></script>
+  <script type="text/javascript" SRC="https://dancecentral.googlecode.com/svn/trunk/figures/../videos/videos_data.js"></script>
+  <script type="text/javascript" SRC="https://dancecentral.googlecode.com/svn/trunk/figures/figures_data.js"></script>
 
 
 

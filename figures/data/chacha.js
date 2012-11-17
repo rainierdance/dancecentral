@@ -11,46 +11,314 @@
           },
 */
     var chachaFigures = {
-        'FootChanges' : 
+        'FootChanges1' : 
           {
-            'name' : 'Foot Changes',
+            'name' : 'Foot Changes - Method 1: Normal Opposite to Same Foot - 2341 Turn on LF on 1',
             'level' : 'Gold',
+            'urlpath' : 'foot-changes',
+            'timing' : '2341',
+            'startFoot' : 'RF',
             'follow' : [
+              {
+                'id' : 'ClosedBasic',
+                'comment' : 'steps 6-10'
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : 'steps 6-10'
+              }
+              ]
+          },
+        'FootChanges2':
+          {
+            'name' : 'Foot Changes - Method 2: Same Foot to Normal Opposite - 2341 Turn on LF on 1',
+            'level' : 'Gold',
+            'urlpath' : 'foot-changes',
+            'timing' : '2341',
+            'startFoot' : 'RF',
+            'follow' : [
+              {
+                'id' : 'OpenBasic',
+                'comment' : 'steps 6-10'
+              }
+              ]
+          },
+        'FootChanges3':
+          {
+            'name' : 'Foot Changes - Method 3: Normal Opposite to Same Foot - Turn on LF on 2, hold 3',
+            'level' : 'Gold',
+            'urlpath' : 'foot-changes',
+            'timing' : '234&1 234&1',
+            'startFoot' : 'RF',
+            'follow' : [
+              {
+                'id' : 'ClosedBasic',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : ''
+              }
+              ]
+          },
+        'FootChanges4' : 
+          {
+            'name' : 'Foot Changes - Method 4: Same Foot to Normal Opposite - Turn on LF on 2, hold 3',
+            'level' : 'Gold',
+            'urlpath' : 'foot-changes',
+            'timing' : '234&1',
+            'startFoot' : 'RF',
+            'follow' : [
+              {
+                'id' : 'OpenBasic',
+                'comment' : ''
+              }
               ]
           },
         'FollowMyLeader' : 
           {
             'name' : 'Follow My Leader',
             'level' : 'Gold',
+            'urlpath' : 'follow-my-leader',
+            'timing' : '234&1 234&1 234&1 234&1 234&1 234&1',
+            'startFoot' : 'LF',
             'follow' : [
+              {
+                'id' : 'Alemana',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : 'Open Basic; Or, 1,2 of Open Basic to Three Cha Cha Chas Back; Or 1-5 of Open Basic to Natural Top'
+              },
+              {
+                'id' : 'TimeStepLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenHipTwist',
+                'comment' : ''
+              },
+              {
+                'id' : 'Curl',
+                'comment' : ''
+              },
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SplitCubanBreakLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'Chase',
+                'comment' : ''
+              },
+              {
+                'id' : 'TurkishTowel',
+                'comment' : ''
+              },
+              {
+                'id' : 'AdvancedHipTwist',
+                'comment' : ''
+              },
+              {
+                'id' : 'HipTwistSpiral',
+                'comment' : ''
+              },
+              {
+                'id' : 'Sweetheart',
+                'comment' : ''
+              }
               ]
           },
         'Sweetheart' : 
           {
             'name' : 'Sweetheart',
             'level' : 'Gold',
+            'urlpath' : 'sweetheart',
+            'timing' : '234&1 234&1 234&1 234&1 234&1 234&1',
+            'startFoot' : 'LF',
             'follow' : [
+              {
+                'id' : 'Alemana',
+                'comment' : ''
+              },
+              {
+                'id' : 'HockeyStick',
+                'comment' : ''
+              }
               ]
           },
         'TurkishTowel' : 
           {
             'name' : 'Turkish Towel',
             'level' : 'Gold',
+            'urlpath' : 'turkish-towel',
+            'timing' : '234&1 234&1 234&1 234&1 234&1 234&1',
+            'startFoot' : 'LF',
             'follow' : [
+              {
+                'id' : 'Alemana',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : 'Open Basic; Or, 1,2 of Open Basic to Three Cha Cha Chas Back; Or 1-5 of Open Basic to Natural Top'
+              },
+              {
+                'id' : 'TimeStepLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenHipTwist',
+                'comment' : ''
+              },
+              {
+                'id' : 'Curl',
+                'comment' : ''
+              },
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SplitCubanBreakLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'Chase',
+                'comment' : ''
+              },
+              {
+                'id' : 'Sweetheart',
+                'comment' : ''
+              },
+              {
+                'id' : 'FollowMyLeader',
+                'comment' : ''
+              }
               ]
           },
         'HipTwistSpiral' : 
           {
             'name' : 'Hip Twist Spiral',
             'level' : 'Gold',
+            'urlpath' : 'hip-twist-spiral',
+            'timing' : '234&1 234&1',
+            'startFoot' : 'LF',
             'follow' : [
+              {
+                'id' : 'NewYorkLSP',
+                'comment' : ''
+              },
+              {
+                'id' : 'SpotTurnToR',
+                'comment' : ''
+              },
+              {
+                'id' : 'UnderarmTurnToL',
+                'comment' : ''
+              },
+              {
+                'id' : 'ThreeChaChaChasFwd',
+                'comment' : 'step 4-9 in LSP'
+              },
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SplitCubanBreakLF',
+                'comment' : ''
+              }
               ]
           },
         'AdvancedHipTwist' : 
           {
             'name' : 'Advanced Hip Twist',
             'level' : 'Gold',
+            'urlpath' : 'advanced-hip-twist',
+            'timing' : '234&1 234&1',
+            'startFoot' : 'LF',
             'follow' : [
+              {
+                'id' : 'Alemana',
+                'comment' : ''
+              },
+              {
+                'id' : 'HockeyStick',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenBasic',
+                'comment' : 'Open Basic; Or, 1,2 of Open Basic to Three Cha Cha Chas Back; Or 1-5 of Open Basic to Natural Top'
+              },
+              {
+                'id' : 'TimeStepLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'OpenHipTwist',
+                'comment' : ''
+              },
+              {
+                'id' : 'Curl',
+                'comment' : ''
+              },
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SplitCubanBreakLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'Chase',
+                'comment' : ''
+              },
+              {
+                'id' : 'TurkishTowel',
+                'comment' : ''
+              },
+              {
+                'id' : 'Sweetheart',
+                'comment' : ''
+              },
+              {
+                'id' : 'FollowMyLeader',
+                'comment' : ''
+              },
+              {
+                'id' : 'NewYorkLSP',
+                'comment' : ''
+              },
+              {
+                'id' : 'SpotTurnToR',
+                'comment' : ''
+              },
+              {
+                'id' : 'UnderarmTurnToL',
+                'comment' : ''
+              },
+              {
+                'id' : 'ThreeChaChaChasFwd',
+                'comment' : 'LSP'
+              },
+              {
+                'id' : 'CubanBreakLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'SplitCubanBreakLF',
+                'comment' : ''
+              },
+              {
+                'id' : 'ReverseTop',
+                'comment' : '6-10 or 6-15 Reverse Top'
+              }
               ]
           },
         'Chase' : 
@@ -2435,6 +2703,14 @@
               {
                 'id' : 'FollowMyLeader',
                 'comment' : 'in Open Position'
+              },
+              {
+                'id' : 'FootChanges1',
+                'comment' : 'after steps 1-5'
+              },
+              {
+                'id' : 'FootChanges3',
+                'comment' : 'after steps 1-5'
               }
              ]
         }
