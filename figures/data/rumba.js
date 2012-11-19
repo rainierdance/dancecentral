@@ -1,10 +1,115 @@
     //-------------------------------------------
     // RUMBA FIGURES
     var rumbaFigures = {
-        'HipTwists' : 
+        'AdvancedHipTwists' : 
           {
-            'name' : 'Hip Twists (Advanced, Continuous and Circular)',
-            'level' : 'Gold'
+            'name' : 'Advanced Hip Twists',
+            'level' : 'Gold',
+            'urlpath' : 'advanced-hip-twists',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
+            'follow' : [
+                {
+                   'id' : 'Alemana',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'HockeyStick',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'SlidingDoors',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Fencing',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'ThreeAlemanas',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : 'when finish in Open Position; 1-3 Open Basic followed by Progressive Walks Back or Natural Top'
+                },
+                {
+                   'id' : 'Alemana',
+                   'comment' : 'when finish in Open Position'
+                },
+                {
+                   'id' : 'OpenHipTwist',
+                   'comment' : 'when finish in Open Position'
+                },
+                {
+                   'id' : 'Curl',
+                   'comment' : 'when finish in Open Position'
+                },
+                {
+                   'id' : 'ThreeThrees',
+                   'comment' : 'when finish in Open Position'
+                },
+                {
+                   'id' : 'ThreeAlemanas',
+                   'comment' : 'when finish in Open Position'
+                },
+                {
+                   'id' : 'NewYorkLSP',
+                   'comment' : 'when finish in Open CPP'
+                },
+                {
+                   'id' : 'SpotTurnR',
+                   'comment' : 'when finish in Open CPP'
+                },
+                {
+                   'id' : 'UnderarmTurnL',
+                   'comment' : 'when finish in Open CPP'
+                },
+                {
+                   'id' : 'ReverseTop',
+                   'comment' : 'when finish in Contact Position, continue with 4-6 or 4-9 of Reverse Top'
+                }
+            ]
+          },
+        'ContinuousHipTwists' : 
+          {
+            'name' : 'Continuous Hip Twists',
+            'level' : 'Gold',
+            'urlpath' : 'continuous-hip-twists',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
+            'follow' : [
+                {
+                   'id' : 'AdvancedHipTwists',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'ContinuousHipTwists',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'CircularHipTwists',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'RopeSpinning',
+                   'comment' : ''
+                }
+            ]
+          },
+        'CircularHipTwists' : 
+          {
+            'name' : 'Circular Hip Twists',
+            'level' : 'Gold',
+            'urlpath' : 'circular-hip-twists',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
+            'follow' : [
+                {
+                   'id' : 'AdvancedHipTwists',
+                   'comment' : 'step 4-6'
+                }
+            ]
           },
         'ThreeAlemanas' : 
           {
@@ -53,7 +158,15 @@
                    'comment' : ''
                 },
                 {
-                   'id' : 'HipTwists',
+                   'id' : 'AdvancedHipTwists',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'ContinuousHipTwists',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'CircularHipTwists',
                    'comment' : ''
                 },
                 {
@@ -307,7 +420,15 @@
                    'comment' : "When Lady ends fwd to Man's Right side"
                 },
                 {
-                   'id' : 'HipTwists',
+                   'id' : 'AdvancedHipTwists',
+                   'comment' : "When Man and Lady fwd toward partner's R side"
+                },
+                {
+                   'id' : 'ContinuousHipTwists',
+                   'comment' : "When Man and Lady fwd toward partner's R side"
+                },
+                {
+                   'id' : 'CircularHipTwists',
                    'comment' : "When Man and Lady fwd toward partner's R side"
                 },
                 {
@@ -643,7 +764,15 @@
                    'comment' : '4-6 following step 6 of Natural Top'
                 },
                 {
-                   'id' : 'HipTwists',
+                   'id' : 'AdvancedHipTwists',
+                   'comment' : 'continue to turn a further 1/8 (up to 3/8) R on step 9, Man taking last step fwd in line with LF towards Lady R side'
+                },
+                {
+                   'id' : 'ContinuousHipTwists',
+                   'comment' : 'continue to turn a further 1/8 (up to 3/8) R on step 9, Man taking last step fwd in line with LF towards Lady R side'
+                },
+                {
+                   'id' : 'CircularHipTwists',
                    'comment' : 'continue to turn a further 1/8 (up to 3/8) R on step 9, Man taking last step fwd in line with LF towards Lady R side'
                 }
               ]
@@ -779,7 +908,15 @@
                    'comment' : 'when ending Lady fwd toards Man\'s R side'
                 },
                 {
-                   'id' : 'HipTwists',
+                   'id' : 'AdvancedHipTwists',
+                   'comment' : 'when ending fwd towards partner\'s R side'
+                },
+                {
+                   'id' : 'ContinuousHipTwists',
+                   'comment' : 'when ending fwd towards partner\'s R side'
+                },
+                {
+                   'id' : 'CircularHipTwists',
                    'comment' : 'when ending fwd towards partner\'s R side'
                 },
                 {
