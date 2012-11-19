@@ -5406,22 +5406,146 @@ var foxtrotFigures =
         'ThreeAlemanas' : 
           {
             'name' : 'Three Alemanas',
-            'level' : 'Gold'
+            'level' : 'Gold',
+            'urlpath' : 'three-alamanas',
+            'timing' : '2341 2341 2341 2341',
+            'startFoot' : 'LF',
+            'follow' : [
+                {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'OpeningOutToRightAndLeft',
+                   'comment' : 'after lady stepping to side at end of Three Alemanas'
+                }
+             ]
           },
         'ThreeThrees' : 
           {
             'name' : 'Three Threes',
-            'level' : 'Gold'
+            'level' : 'Gold',
+            'urlpath' : 'three-threes',
+            'timing' : '2341 2341 2341 2341',
+            'startFoot' : 'LF',
+            'follow' : [
+                {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'HipTwists',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Alemana',
+                   'comment' : 'when ending in Fan Position'
+                },
+                {
+                   'id' : 'HockeyStick',
+                   'comment' : 'when ending in Fan Position'
+                },
+                {
+                   'id' : 'SlidingDoors',
+                   'comment' : 'when ending in Fan Position'
+                },
+                {
+                   'id' : 'Fencing',
+                   'comment' : 'when ending in Fan Position'
+                },
+                {
+                   'id' : 'ThreeAlemanas',
+                   'comment' : 'when ending in Fan Position'
+                }
+             ]
           },
         'Fencing' : 
           {
             'name' : 'Fencing',
-            'level' : 'Gold'
+            'level' : 'Gold',
+            'urlpath' : 'fencing',
+            'timing' : '2341 2341',
+            'startFoot' : 'LF',
+            'follow' : [
+                {
+                   'id' : 'NewYorkLSP',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'SpotTurnR',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'UnderarmTurnL',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'CucarachasLF',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'SideStepLeftLF',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'Fan',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'HandToHandRSP',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'SideStepRightLF',
+                   'comment' : ''
+                },
+                {
+                   'id' : 'CubanRockLF',
+                   'comment' : ''
+                }
+             ]
           },
         'SlidingDoors' : 
           {
             'name' : 'Sliding Doors',
-            'level' : 'Gold'
+            'level' : 'Gold',
+            'urlpath' : 'sliding-doors',
+            'timing' : '2341 2341 2341 2341',
+            'startFoot' : 'LF',
+            'follow' : [
+                {
+                   'id' : 'ProgressiveWalksFwd',
+                   'comment' : 'in Right Shadow Position, hold 2 or 3 (Kiki Walks)'
+                },
+                {
+                   'id' : 'Spiral',
+                   'comment' : ''
+                }
+             ]
           },
         'Spiral' : 
           {
