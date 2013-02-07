@@ -186,7 +186,7 @@ a:hover {text-decoration: underline; color: red; background: #fafad2;}
 
 <script>
 var IS_GADGET = true;
-var VERSION = "12.1021.1038";
+var VERSION = "13.0206.2205";
 
 ////////////////////////////////////////////////////////////////////////
 // Globals
@@ -995,14 +995,14 @@ var specials = {
   ],
   'Intro' : [
    [0, 0], //series
-   [4, 15.7], //punch, including 4 for classes, 4 for parties
-   [1, 21.2], //private
+   [4, 12.76], //goup classes
+   [2, 34.58], //private
    [0, 0], //practice
    [0, 0], //floor
    [0, 0], //child
    [0, 0], //youth
    [0, 0], // practice students
-   [4, 13.1] //parties
+   [1, 2.66] //parties
   ],
   'None' : [
    [0, 0], //series
