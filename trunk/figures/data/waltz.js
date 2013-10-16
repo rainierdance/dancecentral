@@ -44,6 +44,13 @@
             'follow' : [
               ]
           },
+        'FallawayWhisk' : 
+          {
+            'name' : 'FallawayWhisk',
+            'level' : 'Gold',
+            'follow' : [
+              ]
+          },
         'DragHesitation' : 
           {
             'name' : 'Drag Hesitation',
