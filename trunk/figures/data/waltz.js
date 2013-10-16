@@ -17,6 +17,10 @@
                   'comment' : 'releasing LF on step 3'
                 },
                 {
+                  'id' : 'FallawayWhisk', //same as BackWhisk
+                  'comment' : 'after runing around Man to R 12&3'
+                },
+                {
                   'id' : 'BackWhisk',
                   'comment' : 'after runing around Man to R 12&3'
                 },
@@ -182,6 +186,10 @@
                   'comment' : ''
                 },
                 {
+                  'id' : 'FallawayWhisk', // same as BackWhisk
+                  'comment' : ''
+                },
+                {
                   'id' : 'BackWhisk',
                   'comment' : ''
                 },
@@ -220,6 +228,10 @@
                 {
                   'id' : 'NaturalTurn',
                   'comment' : '4-6'
+                },
+                {
+                  'id' : 'FallawayWhisk', // same as BackWhisk
+                  'comment' : ''
                 },
                 {
                   'id' : 'BackWhisk',
@@ -315,6 +327,10 @@
                 },
                 {
                   'id' : 'OutsideChange',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'FallawayWhisk', // same as BackWhisk
                   'comment' : ''
                 },
                 {
@@ -729,6 +745,10 @@
                   'comment' : '4-6'
                 },
                 {
+                  'id' : 'FallawayWhisk', // same as BackWhisk
+                  'comment' : ''
+                },
+                {
                   'id' : 'BackWhisk',
                   'comment' : ''
                 },
@@ -1043,6 +1063,10 @@
                   'comment' : ''
                 },
                 {
+                  'id' : 'FallawayWhisk', // same as BackWhisk
+                  'comment' : 'standard, or with turn at corner'
+                },
+                {
                   'id' : 'BackWhisk',
                   'comment' : 'standard, or with turn at corner'
                 },
@@ -1115,6 +1139,10 @@
                 {
                   'id' : 'BackLock',
                   'comment' : ''
+                },
+                {
+                  'id' : 'FallawayWhisk', // same as BackWhisk
+                  'comment' : 'standard, or with turn at corner'
                 },
                 {
                   'id' : 'BackWhisk',
@@ -1411,6 +1439,10 @@
                 {
                   'id' : 'OutsideChange',  // listed as ClosedImpetu's precedes
                   'comment' : 'after 1-3, ending BDC, either underturned, or commenced LOD'
+                },
+                {
+                  'id' : 'FallawayWhisk', // same as BackWhisk
+                  'comment' : 'after 1-3 Natural Turn'
                 },
                 {
                   'id' : 'BackWhisk',
