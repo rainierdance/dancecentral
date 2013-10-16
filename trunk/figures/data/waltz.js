@@ -159,7 +159,7 @@
             'startAlignment' : ['BLOD'],
             'startFoot' : 'RF',
             'startDirection' : 'back',
-            'timing' : '123 or 134 456',
+            'timing' : '123 or 123 456',
             'follow' : [
                 {
                   'id' : 'OutsideChange',
@@ -1209,6 +1209,10 @@
                 {
                   'id' : 'LeftWhisk',
                   'comment' : 'RF back into Left Whisk'
+                },
+                {
+                  'id' : 'TurningLockToR',
+                  'comment' : 'after overturned Natural Spin Turn'
                 },
                 {
                   'id' : 'HoverCorte',
