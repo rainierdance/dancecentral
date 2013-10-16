@@ -15,11 +15,11 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "13.1015.1708";
+    var VERSION = "13.1015.1935";
     var ID_ANALYTICS = "UA-10550268-1";
     var pageTracker;
 
-    var inputDance = 'Tango';
+    var inputDance = 'Waltz';
     var inputFigureName = 'all';
     var inputMode = 'routine';
     var inputVideoMode = '';

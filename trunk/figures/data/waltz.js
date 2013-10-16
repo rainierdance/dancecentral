@@ -6,49 +6,189 @@
           {
             'name' : 'Left Whisk',
             'level' : 'Gold',
+            'urlpath' : 'left-whisk',
+            'startAlignment' : ['FDW'],
+            'startFoot' : 'RF',
+            'startDirection' : 'fwd',
+            'timing' : '123',
             'follow' : [
+                {
+                  'id' : 'BackWhisk',
+                  'comment' : 'after runing around Man to R 12&3'
+                },
+                {
+                  'id' : 'OutsideSpin',
+                  'comment' : 'after runing around Man to R 12&3'
+                },
+                {
+                  'id' : 'OpenImpetus',
+                  'comment' : 'after runing around Man to R 12&3'
+                },
+                {
+                  'id' : 'ClosedImpetus',
+                  'comment' : 'after runing around Man to R 12&3'
+                }
               ]
           },
         'ContraCheck' : 
           {
             'name' : 'Contra Check',
             'level' : 'Gold',
+            'urlpath' : 'contra-check',
+            'startAlignment' : ['DW'],
+            'startFoot' : 'LF',
+            'startDirection' : 'fwd',
+            'timing' : '123',
             'follow' : [
+                {
+                  'id' : 'ChasseFromPP',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'WeaveFromPP',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'CrossHesitation',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'Wing',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'LeftWhisk',
+                  'comment' : ''
+                }
               ]
           },
         'ClosedWing' : 
           {
             'name' : 'Closed Wing',
             'level' : 'Gold',
+            'urlpath' : 'closed-wing',
+            'startAlignment' : ['FDC'],
+            'startFoot' : 'RF',
+            'startDirection' : 'fwd',
+            'timing' : '123',
             'follow' : [
+                {
+                  //'eval' : 'MatchFigureName("Reverse")', // not generating right figures
+                  'eval' : 'MatchFigures({"startFoot" : "LF", "startDirection" : "fwd", "startAlignment" : "DC"})',
+                  'comment' : 'taking step 1 in CBMP OP on L side'
+                },
+                {
+                  'id' : 'Whisk',
+                  'comment' : 'if ended DW'
+                }
               ]
           },
         'TurningLockToR' : 
           {
             'name' : 'Turning Lock to R',
             'level' : 'Gold',
+            'urlpath' : 'turning-lock-to-r',
+            'startAlignment' : ['LOD'],
+            'startFoot' : 'RF',
+            'startDirection' : 'back',
+            'timing' : '1&23',
             'follow' : [
+                {
+                  'id' : 'Wing',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ChasseFromPP',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'LeftWhisk',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'WeaveFromPP',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'CrossHesitation', 
+                  'comment' : ''
+                }
               ]
           },
         'FallawayReverseAndSlipPivot' : 
           {
             'name' : 'Fallaway Reverse And Slip Pivot',
             'level' : 'Gold',
+            'urlpath' : 'fallaway-reverse-and-slip-pivot',
+            'startAlignment' : ['FDC'],
+            'startFoot' : 'LF',
+            'startDirection' : 'fwd',
+            'timing' : '12&3',
             'follow' : [
+                {
+                  'id' : 'Whisk',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'DoubleReverseSpin',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ProgressiveChasseToR',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ClosedTelemark',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'OpenTelemark',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'ContraCheck',
+                  'comment' : ''
+                }
               ]
           },
         'HoverCorte' : 
           {
             'name' : 'Hover Corte',
             'level' : 'Gold',
+            'urlpath' : 'hover-corte',
+            'startAlignment' : ['BLOD'],
+            'startFoot' : 'RF',
+            'startDirection' : 'back',
+            'timing' : '123 or 134 456',
             'follow' : [
+                {
+                  'id' : 'OutsideChange',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'BackWhisk',
+                  'comment' : ''
+                },
+                {
+                  'id' : 'OutsideSpin',
+                  'comment' : ''
+                }
               ]
           },
         'FallawayWhisk' : 
           {
-            'name' : 'FallawayWhisk',
+            'name' : 'Fallaway Whisk',
             'level' : 'Gold',
+            'urlpath' : 'fallaway-whisk',
+            'startAlignment' : ['BLOD'],
+            'startFoot' : 'LF',
+            'startDirection' : 'back',
+            'timing' : '123',
             'follow' : [
+                {
+                  'eval' : 'SameFollowAs("BackWhisk")',
+                  'comment' : ''
+                }
               ]
           },
         'DragHesitation' : 
