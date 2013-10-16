@@ -13,6 +13,10 @@
             'timing' : '123',
             'follow' : [
                 {
+                  'id' : 'OutsideChange', // listed as precedes
+                  'comment' : 'releasing LF on step 3'
+                },
+                {
                   'id' : 'BackWhisk',
                   'comment' : 'after runing around Man to R 12&3'
                 },
@@ -78,6 +82,10 @@
                   'comment' : 'taking step 1 in CBMP OP on L side'
                 },
                 {
+                  'id' : 'FallawayReverseAndSlipPivot', // listed as precedes
+                  'comment' : ''
+                },
+                {
                   'id' : 'Whisk',
                   'comment' : 'if ended DW'
                 }
@@ -126,6 +134,10 @@
             'timing' : '12&3',
             'follow' : [
                 {
+                  'id' : 'ReverseTurn', // listed as precedes
+                  'comment' : 'At corner.'
+                },
+                {
                   'id' : 'Whisk',
                   'comment' : ''
                 },
@@ -161,6 +173,10 @@
             'startDirection' : 'back',
             'timing' : '123 or 123 456',
             'follow' : [
+                {
+                  'id' : 'BackLock', // listed as precedes
+                  'comment' : ''
+                },
                 {
                   'id' : 'OutsideChange',
                   'comment' : ''
@@ -242,6 +258,18 @@
                   'comment' : ''
                 },
                 {
+                  'id' : 'Wing', // listed as precedes
+                  'comment' : 'when ended in PP'
+                },
+                {
+                  'id' : 'LeftWhisk', // listed as precedes
+                  'comment' : 'when ended in PP'
+                },
+                {
+                  'id' : 'ChasseFromPP', // listed as precedes
+                  'comment' : 'when ended in PP'
+                },
+                {
                   'id' : 'ClosedWing',
                   'comment' : ''
                 },
@@ -292,6 +320,10 @@
                 {
                   'id' : 'BackWhisk',
                   'comment' : ''
+                },
+                {
+                  'id' : 'ClosedImpetus', // listed as precedes
+                  'comment' : 'when turned to L to back DW'
                 },
                 {
                   'id' : 'BackLock',
@@ -355,6 +387,10 @@
                   'comment' : ''
                 },
                 {
+                  'id' : 'FallawayReverseAndSlipPivot', // listed as precedes
+                  'comment' : ''
+                },
+                {
                   'id' : 'Whisk',
                   'comment' : 'at corner'
                 }
@@ -403,6 +439,10 @@
             'timing' : '123',
             'follow' : [
                 {
+                  'id' : 'ClosedChangeRF', // listed as precedes
+                  'comment' : ''
+                },
+                {
                   'eval' : 'MatchFigureName("Natural")',
                   'comment' : 'when ending DW'
                 },
@@ -426,6 +466,14 @@
             'startDirection' : 'back',
             'timing' : '1&23',
             'follow' : [
+                {
+                  'id' : 'Wing', // listed as precedes
+                  'comment' : 'when ended in PP'
+                },
+                {
+                  'id' : 'WeaveFromPP', // listed as precedes
+                  'comment' : 'when ended in PP'
+                },
                 {
                   'id' : 'CrossHesitation',
                   'comment' : 'when ended in PP'
@@ -611,6 +659,14 @@
                   'comment' : 'when ending OP'
                 },
                 {
+                  'id' : 'Wing', // listed as precedes
+                  'comment' : 'when ended in PP'
+                },
+                {
+                  'id' : 'WeaveFromPP', // listed as precedes
+                  'comment' : 'when ended in PP'
+                },
+                {
                   'id' : 'ClosedWing',
                   'comment' : 'when ending OP'
                 },
@@ -784,6 +840,14 @@
                 {
                   'id' : 'HesitationChange', // derived from: Hesitation change has same precedes as Natural Turn
                   'comment' : ''
+                },
+                {
+                  'id' : 'LeftWhisk', // listed as precedes
+                  'comment' : 'when ended in PP'
+                },
+                {
+                  'id' : 'Wing', // listed as precedes
+                  'comment' : 'when ended in PP'
                 },
                 {
                   'id' : 'ChasseFromPP',
@@ -1256,6 +1320,10 @@
                   'comment' : ''
                 },
                 {
+                  'id' : 'FallawayReverseAndSlipPivot', // listed as precedes
+                  'comment' : ''
+                },
+                {
                   'id' : 'ProgressiveChasseToR',
                   'comment' : 'after 4-6 of Reverse Turn ended DC after undertuned Natural Spin Turn or Closed Impetus'
                 },
@@ -1286,6 +1354,10 @@
                 {
                   'id' : 'ContraCheck',
                   'comment' : ''
+                },
+                {
+                  'id' : 'LeftWhisk', // listed as precedes
+                  'comment' : 'after 1-3 Reverse Turn, start Left Whisk with RF back on step 1'
                 },
                 {
                   'id' : 'HoverCorte',
