@@ -9907,36 +9907,48 @@ var foxtrotFigures =
         'FallawayFourStep' :
           {
           'name' : 'Fallaway Four Step',
-          //'urlpath' : 'waltz-natural-turn',
+          'urlpath' : 'fallaway-fourstep',
           'level' : 'Gold',
-          //'startAlignment' : ['DW'],
-          //'startFoot' : 'RF',
-          //'startDirection' : 'fwd',
-           'timing' : '',
+          'startAlignment' : ['LOD'],
+          'startFoot' : 'LF',
+          'startDirection' : 'fwd',
+          'timing' : 'QQQQ',
           'follow' : [
+              {
+                'eval' : 'MatchFigureName("Promenade")',
+                'comment' : ''
+              }
             ]
         },
         'Oversway' :
           {
           'name' : 'Oversway',
-          //'urlpath' : 'waltz-natural-turn',
+          'urlpath' : 'oversway',
           'level' : 'Gold',
-          //'startAlignment' : ['DW'],
-          //'startFoot' : 'RF',
-          //'startDirection' : 'fwd',
-           'timing' : '',
+          'startAlignment' : ['DC'],
+          'startFoot' : 'LF',
+          'startDirection' : 'fwd',
+           'timing' : 'QQSS',
           'follow' : [
+              {
+                'eval' : 'MatchFigureName("Promenade")',
+                'comment' : 'after ending in PP - see notes in figure'
+              }
             ]
         },
         'BasicReverseTurn' :
           {
           'name' : 'Basic Reverse Turn',
-          //'urlpath' : 'waltz-natural-turn',
+          'urlpath' : 'basic-reverse-turn',
           'level' : 'Gold',
-          //'startAlignment' : ['DW'],
-          //'startFoot' : 'RF',
-          //'startDirection' : 'fwd',
+          'startAlignment' : ['DC'],
+          'startFoot' : 'LF',
+          'startDirection' : 'fwd',
+          'timing' : 'QQSQQS or QQ&QQS',
           'follow' : [
+              {
+                'eval' : 'SameFollowAs("OpenReverseTurnLadyOutside")'
+              }
             ]
         },
         'Chase' :
@@ -9954,25 +9966,80 @@ var foxtrotFigures =
         'FallawayReverseAndSlipPivot' :
           {
           'name' : 'Fallaway Reverse and Slip Pivot',
-          //'urlpath' : 'waltz-natural-turn',
+          'urlpath' : 'fallaway-reverse-and-slip-pivot',
           'level' : 'Gold',
-          //'startAlignment' : ['DW'],
-          //'startFoot' : 'RF',
-          //'startDirection' : 'fwd',
-           'timing' : '',
+          'startAlignment' : ['DC'],
+          'startFoot' : 'LF',
+          'startDirection' : 'fwd',
+          'timing' : 'QQQQ',
           'follow' : [
+              {
+                'eval' : 'MatchFigureName("Reverse")',
+                'comment' : 'if ended in LOD'
+              },
+              {
+                'id' : 'FourStep',
+                'comment' : 'if ended in LOD, overturn Four Step'
+              },
+              {
+                'id' : 'ReverseOutsideSwivel',
+                'comment' : 'if ended in LOD'
+              },
+              {
+                'id' : 'FallawayFourStep',
+                'comment' : 'if ended in LOD'
+              },
+              {
+                'id' : 'Oversway',
+                'comment' : 'if ended in LOD'
+              },
+              {
+                'id' : 'FallawayReverseAndSlipPivot',
+                'comment' : 'if ended in LOD'
+              },
+              {
+                'id' : 'FiveStep',
+                'comment' : 'if ended in LOD, overturn Five Step'
+              },
+              {
+                'id' : 'ProgressiveLink',
+                'comment' : 'if ended in DW'
+              },
+              {
+                'id' : 'FourStep',
+                'comment' : 'if ended in DW'
+              },
+              {
+                'id' : 'FourStepChange',
+                'comment' : 'if ended in DW'
+              },
+              {
+                'id' : 'BrushTap',
+                'comment' : 'if ended in DW'
+              },
+              {
+                'id' : 'FiveStep',
+                'comment' : 'if ended in DW'
+              },
+              {
+                'id' : 'ContraCheck',
+                'comment' : 'if ended in DW'
+              }
             ]
         },
         'FiveStep' :
           {
           'name' : 'Five Step',
-          //'urlpath' : 'waltz-natural-turn',
+          'urlpath' : 'five-step',
           'level' : 'Gold',
-          //'startAlignment' : ['DW'],
-          //'startFoot' : 'RF',
-          //'startDirection' : 'fwd',
-           'timing' : '',
+          'startAlignment' : ['DW'],
+          'startFoot' : 'LF',
+          'startDirection' : 'fwd',
+          'timing' : 'QQQQS or QQS&S',
           'follow' : [
+            {
+                'eval' : 'SameFollowAs("FourStep")'
+            }
             ]
         },
         'ContraCheck' : 
