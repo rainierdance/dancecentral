@@ -2,7 +2,7 @@
     // TANGO FIGURES
     var tangoFigures = 
       {
-        'Walk' :
+       'Walk' :
           {
             'name' : 'Walk',
             'urlpath' : 'walk',
@@ -56,7 +56,7 @@
             'name' : 'Closed Finish',
             'urlpath' : 'open-finish',
             'level' : 'Newcomer',
-            'startAlignment' : ['DC'],
+            'startAlignment' : ['DC', 'PP'],
             'startFoot' : 'RF',
             'startDirection' : 'back',
             'timing' : 'QQS',
@@ -86,7 +86,7 @@
             'name' : 'Open Finish',
             'urlpath' : 'open-finish',
             'level' : 'Newcomer',
-            'startAlignment' : ['DC'],
+            'startAlignment' : ['DC', 'PP'],
             'startFoot' : 'RF',
             'startDirection' : 'back',
             'timing' : 'QQS',
@@ -243,7 +243,7 @@
           'name' : 'Closed Promenade',
           'urlpath' : 'closed-promenade',
           'level' : 'Newcomer',
-          'startAlignment' : ['DC', 'LOD', 'DW'],
+          'startAlignment' : ['DC', 'LOD', 'DW', 'PP'],
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
            'timing' : 'SQQS',
@@ -494,7 +494,7 @@
           'name' : 'Open Promenade',
           'urlpath' : 'open-promenade',
           'level' : 'Bronze',
-          'startAlignment' : ['LOD'],
+          'startAlignment' : ['LOD', 'PP'],
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
            'timing' : 'SQQS',
@@ -633,7 +633,7 @@
           'name' : 'Natural Twist Turn',
           'urlpath' : 'natural-twist-turn',
           'level' : 'Bronze',
-          'startAlignment' : ['LOD'],
+          'startAlignment' : ['LOD', 'PP'],
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
            'timing' : 'S QQS QQ',
@@ -669,6 +669,7 @@
           'follow' : [
               {
                 'eval' : 'MatchFigureName("Promenade")',
+                //'eval' : 'MatchFigures({"startAlignment" : "PP"})', // not sure if this is correct
                 'comment' : ''
               },
               {
@@ -686,7 +687,7 @@
           'name' : 'Natural Promenade Turn',
           'urlpath' : 'natural-promenade-turn',
           'level' : 'Bronze',
-          'startAlignment' : ['LOD'],
+          'startAlignment' : ['LOD', 'PP'],
           'startFoot' : 'LF',
           'startDirection' : 'fwd',
            'timing' : 'S QQS',
@@ -714,7 +715,7 @@
           'name' : 'Promenade Link',
           'urlpath' : 'promenade-link',
           'level' : 'Silver',
-          'startAlignment' : ['LOD'],
+          'startAlignment' : ['LOD', 'PP'],
           'startFoot' : 'LF',
           'startDirection' : 'side',
            'timing' : 'SQQ',
@@ -745,7 +746,7 @@
           'name' : 'Back Open Promenade',
           'urlpath' : 'back-open-promenade',
           'level' : 'Silver',
-          'startAlignment' : ['Along LOD pointing DW'],
+          'startAlignment' : ['LOD', 'PP'],
           'startFoot' : 'LF',
           'startDirection' : 'side',
            'timing' : 'SQQS',
@@ -790,7 +791,7 @@
           'name' : 'Outside Swivel',
           'urlpath' : 'outside-swivel',
           'level' : 'Silver',
-          'startAlignment' : ['center'],
+          'startAlignment' : ['Center'],
           'startFoot' : 'LF',
           'startDirection' : 'back',
            'timing' : 'SQQ',
@@ -823,7 +824,7 @@
           'name' : 'Fallaway  Promenade',
           'urlpath' : 'fallaway-promenade',
           'level' : 'Silver',
-          'startAlignment' : ['LOD'],
+          'startAlignment' : ['LOD', 'PP'],
           'startFoot' : 'LF',
           'startDirection' : 'side',
            'timing' : 'SQQSQQ',
@@ -905,6 +906,9 @@
               'id' : 'ProgressiveLink'
             },
             {
+              'id' : 'ProgressiveSideStep'   // listed in precedes
+            },
+            {
               'id' : 'BackCorte'
             },
             {
@@ -983,14 +987,22 @@
         },
         'Chase' :
           {
-          'name' : 'The Chase',
-          //'urlpath' : 'waltz-natural-turn',
+          'name' : 'Chase',
+          'urlpath' : 'the-chase',
           'level' : 'Gold',
-          //'startAlignment' : ['DW'],
-          //'startFoot' : 'RF',
-          //'startDirection' : 'fwd',
-           'timing' : '',
+          'startAlignment' : ['DW', 'PP'],
+          'startFoot' : 'LF',
+          'startDirection' : 'side',
+          'timing' : 'SQQQQS',
           'follow' : [
+              {
+                'eval' : 'MatchFigureName("Promenade")',
+                'comment' : 'when ended in PP'
+              },
+              {
+                'id' : 'ProgressiveLink',
+                'comment' : 'when ended inline'
+              }
             ]
         },
         'FallawayReverseAndSlipPivot' :
@@ -1036,6 +1048,9 @@
                 'comment' : 'if ended in DW'
               },
               {
+                'id' : 'ProgressiveSideStep'   // listed in precedes
+              },
+              {
                 'id' : 'FourStep',
                 'comment' : 'if ended in DW'
               },
@@ -1075,15 +1090,17 @@
         'ContraCheck' : 
           {
             'name' : 'Contra Check',
-            //'urlpath' : 'waltz-closed-changes',
+            'urlpath' : 'contra-check',
             'level' : 'Gold',
-            //'startAlignment' : ['DC', 'DW'],
-            //'startFoot' : ['RF', 'LF'],
-            //'startDirection' : 'fwd',
-           'timing' : '',
+            'startAlignment' : ['DW'],
+            'startFoot' : ['LF'],
+            'startDirection' : 'fwd',
+            'timing' : 'SQQ',
             'follow' : [
-                {
-                }
+              {
+                'eval' : 'MatchFigureName("Promenade")',
+                'comment' : ''
+              }
               ]
           }
       };
