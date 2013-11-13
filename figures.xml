@@ -7,6 +7,7 @@
 <UserPref name="video" display_name="Show Videos" default_value=""/>
 <Content type="html"><![CDATA[
 <head>
+
   <base target="_top" />
   <LINK REL=StyleSheet HREF="https://dancecentral.googlecode.com/svn/trunk/figures/figures.css" TYPE="text/css"/>
   <LINK REL=StyleSheet HREF="https://dancecentral.googlecode.com/svn/trunk/figures/../videos/dci_video.css" TYPE="text/css"/>
@@ -142,4 +143,5 @@ document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.
 
 ]]></Content>
 </Module>
+
 
