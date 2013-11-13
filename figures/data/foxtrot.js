@@ -330,6 +330,9 @@ var foxtrotFigures =
           'id' : 'FeatherStep'
         },
         {
+          'id' : 'CurvedFeatherToBackFeather' //listed as precedes
+        },
+        {
           'id' : 'NaturalWeave',
           'comment' : 'at corner for Bronze; side of room for Silver and Gold'
         }
@@ -582,6 +585,7 @@ var foxtrotFigures =
         { 'id' : 'ClosedTelemark' },
         { 'eval' : 'MatchFigureName("OpenTelemark")' },
         { 'id' : 'FallawayReverseAndSlipPivot' },
+        { 'id' : 'ReverseWave' }, // listed in precedes
         { 'id' : 'BounceFallawayWithWeaveEnding'}
       ]
     },
@@ -691,49 +695,178 @@ var foxtrotFigures =
      //doesn't exist as a separate pattern in book, will have to extract it
       'name' : 'Outside Swivel',
       'level' : 'Silver',
+      'urlpath' : 'open-telemark-natural-turn-to-outside-swivel-and-feather-ending',
+      'startAlignment' : ['DW'],
+      'startFoot' : 'LF',
+      'startDirection' : 'back',
+      'timing' : 'SSQQS',
       'follow' : [
+        {
+          'id' : 'NaturalZigZagFromPP' //listed as precedes
+        },
+        {
+          'id' : 'CurvedFeatherToBackFeather' //listed as precedes
+        }
       ]
     },
   'NaturalTwistTurn' : 
     {
       'name' : 'Natural Twist Turn',
       'level' : 'Gold',
+      'urlpath' : 'natural-twist-turn',
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'RF',
+      'startDirection' : 'fwd',
       'follow' : [
+        { 'eval' : 'SameFollowAs("FeatherStep")'},
+        { 'id' : 'NaturalWeave', 'comment' : 'after step 5, continue with 3-8 of Natural Weave' },
+        { 'id' : 'ClosedImpetusAndFeatherFinish', 'comment' : 'after step 5, continue with 3-7 Closed Impetus and Feather Finish' },
+        { 'id' : 'OpenImpetus', 'comment' : 'ater step 5, continue with 3-4 of Open Impetus'}
       ]
     },
   'CurvedFeatherToBackFeather' : 
     {
       'name' : 'Curved Feather to Back Feather',
       'level' : 'Gold',
+      'urlpath' : 'curved-feather-to-back-feather',
+      'startAlignment' : ['LOD'],
+      'startFoot' : 'RF',
+      'startDirection' : 'fwd',
       'follow' : [
+        {
+          'id' : 'ClosedImpetusAndFeatherFinish',
+          'comment' : 'Feather Finish'
+        },
+        {
+          'id' : 'BasicWeave',
+          'comment' : 'At corner'
+        },
+        {
+          'id' : 'ClosedImpetusAndFeatherFinish',
+          'comment' : 'After steps 1-3, Closed Impetus'
+        },
+        {
+          'id' : 'OpenImpetus',
+          'comment' : 'After steps 1-3'
+        }
       ]
     },
   'NaturalZigZagFromPP' : 
     {
       'name' : 'Natural Zig-Zag from PP',
-      'level' : 'Silver',
+      'level' : 'Gold',
+      'urlpath' : 'natural-zig-zag-from-pp',
+      'startAlignment' : ['DW'],
+      'startFoot' : 'RF',
+      'startDirection' : 'fwd',
       'follow' : [
+        {
+          'id' : 'ThreeStep',
+          'comment' : ''
+        },
+        {
+          'id' : 'ChangeOfDirection',
+          'comment' : ''
+        },
+        {
+          'id' : 'HoverTelemark',
+          'comment' : ''
+        },
+        {
+          'id' : 'ReverseWave',
+          'comment' : ''
+        },
+        {
+          'id' : 'ReverseTurn',
+          'comment' : 'if ended DC'
+        },
+        {
+          'id' : 'ClosedTelemark',
+          'comment' : 'if ended DC'
+        },
+        {
+          'id' : 'OpenTelemarkAndFeatherEnding',
+          'comment' : 'if ended DC'
+        },
+        {
+          'id' : 'FallawayReverseAndSlipPivot',
+          'comment' : 'if ended DC'
+        },
+        {
+          'id' : 'BounceFallawayWithWeaveEnding',
+          'comment' : 'if ended DC'
+        },
+        {
+          'id' : 'OpenTelemarkNaturalTurnOutsideSwivelAndFeatherEnding', // listed in precedes
+          'comment' : ''
+        },
+        {
+          'id' : 'ReverseWave',
+          'comment' : 'if ended DC'
+        }
       ]
     },
   'FallawayReverseAndSlipPivot' : 
     {
       'name' : 'Fallaway Reverse and Slip Pivot',
       'level' : 'Gold',
+      'urlpath' : 'fallaway-reverse-and-slip-pivot',
+      'startAlignment' : ['DC'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
       'follow' : [
+        {
+          'id' : 'ChangeOfDirection',
+          'comment' : ''
+        },
+        {
+          'id' : 'HoverTelemark',
+          'comment' : ''
+        },
+        {
+          'id' : 'ReverseWave',
+          'comment' : ''
+        },
+        {
+          'id' : 'FallawayReverseAndSlipPivot',
+          'comment' : ''
+        },
+        {
+          'id' : 'BasicWeave',
+          'comment' : 'At corner'
+        },
+        {
+          'id' : 'OpenTelemarkAndFeatherEnding',
+          'comment' : 'At corner'
+        }
       ]
     },
   'NaturalHoverTelemark' : 
     {
       'name' : 'Natural Hover Telemark',
       'level' : 'Gold',
+      'urlpath' : 'natural-hover-telemark',
+      'startAlignment' : ['DW'],
+      'startFoot' : 'RF',
+      'startDirection' : 'fwd',
       'follow' : [
+        {
+          'eval' : 'SameFollowAs("NaturalTelemark")'
+        }
       ]
     },
   'BounceFallawayWithWeaveEnding' : 
     {
       'name' : 'Bounce Fallaway with Weave Ending',
       'level' : 'Gold',
+      'urlpath' : 'bounce-fallaway-with-weave-ending',
+      'startAlignment' : ['DC'],
+      'startFoot' : 'LF',
+      'startDirection' : 'fwd',
       'follow' : [
+        {
+          'eval' : 'SameFollowAs("ReverseTurn")'
+        }
       ]
     }
 };
