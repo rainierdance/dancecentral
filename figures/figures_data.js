@@ -3436,6 +3436,7 @@ var foxtrotFigures =
       'startAlignment' : ['LOD'],
       'startFoot' : 'RF',
       'startDirection' : 'fwd',
+      'timing' : 'SQ&QSQQS',
       'follow' : [
         { 'eval' : 'SameFollowAs("FeatherStep")'},
         { 'id' : 'NaturalWeave', 'comment' : 'after step 5, continue with 3-8 of Natural Weave' },
@@ -3451,6 +3452,7 @@ var foxtrotFigures =
       'startAlignment' : ['LOD'],
       'startFoot' : 'RF',
       'startDirection' : 'fwd',
+      'timing' : 'SQQSQQS',
       'follow' : [
         {
           'id' : 'ClosedImpetusAndFeatherFinish',
@@ -3478,6 +3480,7 @@ var foxtrotFigures =
       'startAlignment' : ['DW'],
       'startFoot' : 'RF',
       'startDirection' : 'fwd',
+      'timing' : 'SQQQQS',
       'follow' : [
         {
           'id' : 'ThreeStep',
@@ -3533,6 +3536,7 @@ var foxtrotFigures =
       'startAlignment' : ['DC'],
       'startFoot' : 'LF',
       'startDirection' : 'fwd',
+      'timing' : 'QQQQ',
       'follow' : [
         {
           'id' : 'ChangeOfDirection',
@@ -3568,6 +3572,7 @@ var foxtrotFigures =
       'startAlignment' : ['DW'],
       'startFoot' : 'RF',
       'startDirection' : 'fwd',
+      'timing' : 'SQQSQQS',
       'follow' : [
         {
           'eval' : 'SameFollowAs("NaturalTelemark")'
@@ -3582,6 +3587,7 @@ var foxtrotFigures =
       'startAlignment' : ['DC'],
       'startFoot' : 'LF',
       'startDirection' : 'fwd',
+      'timing' : 'S&QQQQQQS',
       'follow' : [
         {
           'eval' : 'SameFollowAs("ReverseTurn")'
