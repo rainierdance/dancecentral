@@ -7,7 +7,6 @@
 <UserPref name="video" display_name="Show Videos" default_value=""/>
 <Content type="html"><![CDATA[
 <head>
-
   <base target="_top" />
   <LINK REL=StyleSheet HREF="https://dancecentral.googlecode.com/svn/trunk/figures/figures.css" TYPE="text/css"/>
   <LINK REL=StyleSheet HREF="https://dancecentral.googlecode.com/svn/trunk/figures/../videos/dci_video.css" TYPE="text/css"/>
@@ -16,7 +15,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "13.1112.1834";
+    var VERSION = "13.1113.1634";
     var ID_ANALYTICS = "UA-10550268-1";
     var pageTracker;
 
@@ -143,5 +142,4 @@ document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.
 
 ]]></Content>
 </Module>
-
 
