@@ -1,0 +1,1449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="Rainier Dance Studio Management - Sign In"
+             description="Rainier Dance Studio Management"
+             author="Rainier Dance, LLC."
+             >
+<Require feature="idi"/>
+<Require feature="setprefs" />
+<Require feature="locked-domain" />
+</ModulePrefs>
+<UserPref name="studentDataUrl" display_name="Student Data url"
+          required="true"/>
+<UserPref name="teacherDataUrl" display_name="Teacher Data url"
+          required="true"/>
+<UserPref name="classesDataUrl" display_name="Classes Data url"
+          required="true"/>
+<UserPref name="formPostKey" display_name="Form Post Key"
+          default_value = "dC1ScmpPZF9pWG9qQ1JraWkyMi1GZmc6MQ" 
+          required="true"/>
+<Content type="html"><![CDATA[
+<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+<script>
+function escapeHtml(text) {
+  if (text == null) {
+    return '';
+  }
+  //return _hesc(text);
+  return text;
+}
+
+/**
+ * Load the APIs and run sendStudentQuery when the load is complete
+ */
+var gadgetHelper = null;
+_IG_RegisterOnloadHandler(loadVisualizationAPI);
+function loadVisualizationAPI() {
+  gFormPostKey = prefs.getString('formPostKey');
+  google.load("visualization", "1");
+  google.setOnLoadCallback(sendTeacherQuery);
+}
+
+/**
+ * Create a query (shaped by the Gadget's user preferences), then
+ * send it to the spreadsheet data source. Also give the name of a
+ * function ("handleQueryResponse") to run once the spreadsheet data
+ * is retrieved:
+ */
+var prefs = new _IG_Prefs(); // User preferences
+
+function sendTeacherQuery() {
+  prefs.set('_table_query_url', prefs.getString('teacherDataUrl'));
+  gadgetHelper = new google.visualization.GadgetHelper();
+  var query = gadgetHelper.createQueryFromPrefs(prefs);
+  query.send(handleTeacherQueryResponse);
+}
+
+function handleTeacherQueryResponse(response) {
+  if (!gadgetHelper.validateResponse(response)) {
+    return;     // Default error handling was done, just leave.
+  }
+  var data = response.getDataTable();
+  for (var row = 0; row < data.getNumberOfRows(); row++) {
+    gAllTeachers.push(new Teacher(
+      data.getFormattedValue(row,1) //name
+    ));
+  }
+
+  sendClassesQuery();
+}
+
+function sendClassesQuery() {
+  prefs.set('_table_query_url', prefs.getString('classesDataUrl'));
+  gadgetHelper = new google.visualization.GadgetHelper();
+  var query = gadgetHelper.createQueryFromPrefs(prefs);
+  query.send(handleClassesQueryResponse);
+}
+
+function handleClassesQueryResponse(response) {
+  if (!gadgetHelper.validateResponse(response)) {
+    return;     // Default error handling was done, just leave.
+  }
+  var data = response.getDataTable();
+  for (var row = 0; row < data.getNumberOfRows(); row++) {
+    var keys = [
+        data.getFormattedValue(row,1),
+        data.getFormattedValue(row,2) ? data.getFormattedValue(row,2) : 'YYYY-MM-DD', // date will be replaced
+        data.getFormattedValue(row,3),
+        data.getFormattedValue(row,4),
+        data.getFormattedValue(row,5),
+        data.getFormattedValue(row,6),
+        data.getFormattedValue(row,7),
+        data.getFormattedValue(row,0)
+        ];
+    gAllClasses.push(new ValueDisplay(
+      getClassID(keys),
+      getClassSignInNamePrefix(keys)
+    ));
+  }
+  sendStudentQuery();
+}
+
+function sendStudentQuery() {
+  prefs.set('_table_query_url', prefs.getString('studentDataUrl'));
+  gadgetHelper = new google.visualization.GadgetHelper();
+  var query = gadgetHelper.createQueryFromPrefs(prefs);
+  query.send(handleStudentQueryResponse);
+}
+
+/**
+ * The core logic. Process the spreadsheet data however you want.
+ * In this case, we create HTML to be presented back to the user.
+ * We'll use inline comments to provide a step-by-step description
+ * of what we're doing:
+ */
+function handleStudentQueryResponse(response) {
+
+  /**
+   * Use the visualization GadgetHelper class to handle errors
+   */
+  if (!gadgetHelper.validateResponse(response)) {
+    return;     // Default error handling was done, just leave.
+  }
+
+  /**
+   * GET THE DATA FROM THE SPREADSHEET - sorry to scream in caps, but
+   * this is a key step
+   */
+  var data = response.getDataTable();
+
+  /**
+   * Process all Rows in the specified range
+   */
+  for (var row = 0; row < data.getNumberOfRows(); row++) {
+    addEntityInOrder(new Entity(
+      data.getFormattedValue(row,1), //firstName
+      data.getFormattedValue(row,2), //lastname
+      data.getFormattedValue(row,7), //address
+      data.getFormattedValue(row,8), //city
+      data.getFormattedValue(row,9), //zip
+      data.getFormattedValue(row,3), //email
+      data.getFormattedValue(row,4), //phone
+      data.getFormattedValue(row,5), //referrer
+      data.getFormattedValue(row,10), //guardian
+      data.getFormattedValue(row,14), //note
+      data.getFormattedValue(row,0), //createTime
+      data.getFormattedValue(row,11), //gender
+      data.getFormattedValue(row,6), //primary teacher
+      data.getFormattedValue(row,12), //liability date
+      data.getFormattedValue(row,13), //photo consent date
+      data.getFormattedValue(row,15) //in contacts
+    ));
+  }
+
+  startMain();
+}
+</script>
+
+<!--
+/***********************************************
+  Copyright 2012 Rainier Dance, LLC.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+**************************************************/
+-->
+
+<body onload='onLoad()'>
+<style>
+td, body {
+  font-family: Arial, sans-serif;
+  font-size: 0.8em;
+}
+a:hover {text-decoration: underline; color: red; background: #fafad2;}
+.errMsg {background-color: #ffe6cc; border: 2px solid #c43b1d; padding: 2px;}
+</style>
+
+<script>
+var IS_GADGET = true;
+var VERSION = "13.1202.1635";
+
+////////////////////////////////////////////////////////////////////////
+// Globals
+// everyone who signed liability waiver, including all teachers and students
+// read from data file
+var gAllEntities = [];	 
+// form key is from live from, not the spreadsheet url
+var gFormPostKey = 'dDlrWkgwUHRHSU9sSy1rWDY5NWpwWkE6MA';  // test key
+
+// read from data file, current ongoing classes
+var gAllClasses = [];
+
+// read from data file, used to populate private lesson teacher drop down
+var gAllTeachers = []; 
+
+var gAllSignInTypes = []; // value,display pair
+var gAllRateTypes = [];
+var gSelectedEntity = null; // Entity object
+var gSelectedSignInTypeIndex = null;
+var gErrElement;
+
+var gLastSignInType = 0;
+var gLastDateUsed = formatDate(new Date());
+
+////////////////////////////////////////////////////////////////////////
+<!-- Utilities -->
+function formatDate(dateObj) {
+  return dateObj.getFullYear() + '-' +
+   ('' + (100 + dateObj.getMonth() + 1)).substring(1) + '-' +
+   ('' + (100 + dateObj.getDate())).substring(1);
+}
+
+//value has date holder
+function getClassID (keys) {
+  return (keys[0] + ' YYYY-MM-DD ' + keys[2] + ' ' + keys[3] + ' ' + keys[7]);
+}
+
+// display name removes the Drop in date placeholder
+function getClassSignInNamePrefix(keys) {
+  return (keys[0] + ' ' + keys[1] + ' ' + keys[2] + ' ' + keys[3] + ' ' + keys[7]).replace(/YYYY-MM-DD/g, '');
+}
+
+// trim left and right space
+function trimLR(input) {
+  if (!input) {
+    return '';
+  }
+  return input.replace(/^\s+|\s+$/g,"");
+}
+
+////////////////////////////////////////////////////////////////////////
+// Many objects are of this type (Value, Display)
+function ValueDisplay(value, display) {
+  this.value = value;
+  this.display = display;
+}
+
+//TODO: add more properties later
+function Teacher(name) {
+  this.name = name;
+}
+
+function Entity(firstName, lastName, address, city, zip, email, phone,
+    referrer, guardian, note, creatTime, gender, teacher, liabilityDate,
+    photoDate, inContacts) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.address = address;
+  this.city = city;
+  this.zip = zip;
+  this.email = email;
+  this.phone = phone;
+  this.referrer = referrer;
+  this.guardian =  guardian;
+  this.note = note;
+  this.creatTime = creatTime;
+  this.gender = gender;
+  this.teacher = teacher;
+  this.liabilityDate = liabilityDate;
+  this.photoDate =  photoDate;
+  this.inContacts = inContacts;
+
+}
+
+function addEntityInOrder(entity) {
+  for (var i=0; i<gAllEntities.length; i++) {
+    if (gAllEntities[i].getName() < entity.getName()) continue;
+    // insert here
+    break;
+  }
+  gAllEntities.splice(i, 0, entity);
+  // object's index to gAllEntities
+  entity.index = i;  // resorted
+  for (var j = i+1; j < gAllEntities.length; j++) {
+    gAllEntities[j].index = j;  // resorted
+  }
+
+  return i;
+}
+
+// returns full name of the Entity (Entity or Teacher)
+Entity.prototype.getName = function() {
+  return this.firstName + ' ' + this.lastName;
+}
+
+// returns an array of Entity objects who's full name contains the keyword
+// case insensitive comparison
+function getMatchingEntities(keyword) {
+  if (!keyword || keyword.length == 0) return gAllEntities;
+
+  var results = [];
+  for (var i = 0; i < gAllEntities.length; i++) {
+    var fullname = gAllEntities[i].firstName.toLowerCase() + ' ' + gAllEntities[i].lastName.toLowerCase();
+    if (fullname.indexOf(keyword.toLowerCase()) != -1)
+        results.push(gAllEntities[i]);
+  }
+  return results;
+}
+
+// returns detailed student information in html
+function getEntityDetails(student) {
+  var html = ['<table>'];   // start the HTML output string
+  html.push('<tr><td>Name</td><td>');
+  html.push(escapeHtml(student.firstName));
+  html.push(' ');
+  html.push(escapeHtml(student.lastName));
+  html.push('</td></tr>');
+
+  html.push('<tr><td valign=top>Address</td><td>');
+  html.push(escapeHtml(student.address));
+  html.push('<br>');
+  html.push(escapeHtml(student.city));
+  if (student.city && student.city.length > 0)
+    html.push(', ');
+  html.push(escapeHtml(student.zip));
+  html.push('</td></tr>');
+
+  html.push('<tr><td>Email</td><td>');
+  html.push(escapeHtml(student.email));
+  html.push('</td></tr>');
+
+  html.push('<tr><td>Phone</td><td>');
+  html.push(escapeHtml(student.phone));
+  html.push('</td></tr>');
+
+  html.push('<tr><td>Gender</td><td>');
+  html.push(escapeHtml(student.gender));
+  html.push('</td></tr>');
+  html.push('<tr><td>Primary Teacher</td><td>');
+  html.push(escapeHtml(student.teacher));
+
+  html.push('<tr><td>Referrer</td><td>');
+  html.push(escapeHtml(student.referrer));
+  html.push('</td></tr>');
+  html.push('<tr><td>Guardian</td><td>');
+  html.push(escapeHtml(student.guardian));
+  html.push('</td></tr>');
+
+  // alert if liability waiver is  due.
+  var flag = false;
+  if (!student.liabilityDate || student.liabilityDate.length == 0)
+    flag = true;
+  else {
+    var signDate = new Date(student.liabilityDate);
+     flag = (new Date()).getTime() - signDate.getTime() > 6 * 28 * 24 * 60 * 60 * 1000;
+  }
+     // or there is TODO in note
+
+  html.push('<tr><td>Liability Waiver Date</td><td>');
+  if (flag) html.push('<font style="font-weight:bold; background:red; color:yellow;">');
+  html.push(escapeHtml('&nbsp; ' + student.liabilityDate) + '&nbsp;');
+  if (flag) html.push('</font>');
+  html.push('</td></tr>');
+
+  html.push('<tr><td>Photo Consent Date</td><td>');
+  html.push(escapeHtml(student.photoDate));
+  html.push('</td></tr>');
+  html.push('<tr><td>Register Date</td><td>');
+  html.push(escapeHtml(student.creatTime));
+  html.push('</td></tr>');
+
+  html.push('<tr><td>In Contacts</td><td>');
+  flag = false;
+  if (student.inContacts && student.inContacts.toLowerCase().indexOf('yes') == -1) flag = true;
+  if (flag) 
+    html.push('<font style="font-weight:bold; background:red; color:yellow;">');
+  html.push(escapeHtml(student.inContacts));
+  if (flag) 
+    html.push('</font>');
+
+  html.push('</td></tr>');
+
+  html.push('<tr><td>Note</td><td>');
+  flag = false;
+  if (student.note.indexOf('TODO') !=-1) {
+    flag = true; 
+    html.push('<font style="font-weight:bold; background:red; color:yellow;">');
+  }
+  html.push(escapeHtml(student.note));
+  if (flag) html.push('</font>');
+  html.push('</td></tr>');
+
+  html.push('</table>');
+
+  return html.join('');
+}
+
+// display student details, no visibility change
+function showEntityDetails(index) {
+  var details = getEntityDetails(gAllEntities[index]);
+
+  _gel('idEntityDetails').innerHTML = details;
+}
+
+function startMain() {
+  // set form action URL
+  _gel("ss-form").action = 'https://docs.google.com/a/ariaballroom.com/spreadsheet/formResponse?hl=en_US&formkey=' + gFormPostKey + '&ifq';
+  refreshSearchResult(gAllEntities, true);
+  showCopyright();
+}
+
+////////////////////////////////////////////////////////////////////////
+// Display search result
+function refreshSearchResult(entities, hideList) {
+  _gel('idTopSearchPanel').style.display = '';
+
+  _gel('idFrameSubmit').src = 'about:blank'; // in case of previous submit
+
+  var html = [];   // start the HTML output string
+  var threshold = 20; // beyond this,we'll just show total number of students, instead of long list
+  if (!hideList || entities.length <= threshold) {
+    for (var i = 0; i < entities.length; i++) {
+      html.push((i+1) + '&nbsp;<a href="javascript:void(0)" onclick="selectEntity(' + 
+        entities[i].index + ')" onmouseover="showEntityDetails(' + entities[i].index + ')">' +
+        entities[i].getName() + '</a><br>');
+    }
+  }
+  // show only the total instead of long list
+  _gel('idEntityList').innerHTML = ((entities.length > threshold) ? 'Total Number: ' + entities.length + '<p>' : '') +
+    html.join('');
+  if (entities.length == 0) {
+    // show new student
+    _gel('idIsNewPanel').style.display = '';
+  } else {
+    _gel('idIsNewPanel').style.display = 'None';
+    _gel('idIsNew').checked = false;
+  }
+
+  // clear details panel
+  _gel('idEntityDetails').innerHTML = '';
+
+  // show search result
+  _gel('idSearchResult').style.display = '';
+
+  // hide sign in panel
+  _gel('idEntityHeader').style.display = 'none';
+  _gel('idSignInPanel').style.display = 'none';
+}
+
+function changeKeyword(keyword) {
+  var entities = getMatchingEntities(keyword);
+  refreshSearchResult(entities);
+}
+
+////////////////////////////////////////////////////////////////////////
+//
+function addAndSelectEntity() {
+  var value = _gel('idKeyword').value.split(' ');
+  var first = value[0];
+  var last = value[1]? value[1] : '';
+
+  var entity = new Entity(first, last, '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+
+  var index = addEntityInOrder(entity);
+
+  selectEntity(index);
+}
+
+// Select a student and show header
+function selectEntity(index) {
+  gSelectedEntity = gAllEntities[index];
+
+  _gel('idSearchResult').style.display = 'none';
+
+  clearFields();
+
+  //_gel('fieldName').innerHTML = gSelectedEntity.getName();
+  _gel('idKeyword').value = gSelectedEntity.getName();
+
+  // initial selection of sign in types
+  var element = _gel('fieldType');
+  var html = [];
+  var len = gAllSignInTypes.length;
+  for (var i = 0; i< len; i++ ) {
+    html.push('<a href="javascript:void(0)" onClick="changeSignInType(' +
+      i + ')"/>' + gAllSignInTypes[i].display + '</a> &nbsp;&nbsp;');
+  }
+  element.innerHTML = html.join('');
+
+  _gel('idEntityHeader').style.display = '';
+  _gel('idSignInPanel').style.display = 'None';
+
+  // default to Group class sign in
+  changeSignInType(gLastSignInType);
+}
+
+function fillInDateTime() {
+  // fill in common fields for all types of sign in
+  var now = new Date();
+  element = _gel('entry_prep_date'); // Date
+  //element.value = formatDate(now);
+  element.value = gLastDateUsed; // use last used date
+
+  var start = now;
+  var hour = start.getHours();
+  var min = start.getMinutes();
+
+  // use text box
+  var value = (hour >= 12 ? 'pm' : 'am');
+  if (hour > 12) {
+    hour = hour -12;
+  }
+
+  element = _gel('startTimeAmPm');
+  var len = element.options.length;
+  for ( var i=0; i<len; i++) {
+   var option = element.options[i];
+   if (option.value == value)
+    option.selected = true;
+  }
+
+  _gel('startTimeHour').value = hour;
+  _gel('startTimeMin').value = min;
+
+/* changed to use textbox, exact time of sign in
+  var start_min = (min - (min % 15)+15) % 60;
+  var start_hour = hour;
+  if (min > start_min) start_hour++; // advance hour
+
+  var value = 'am';
+  if (start_hour >= 12) {
+    value = 'pm';
+  }
+  if (start_hour > 12) {
+    start_hour = start_hour -12;
+  }
+
+  element = _gel('startTimeAmPm');
+  var len = element.options.length;
+  for ( var i=0; i<len; i++) {
+   var option = element.options[i];
+   if (option.value == value)
+    option.selected = true;
+  }
+
+  value = start_min;
+  element = _gel('startTimeMin');
+  var len = element.options.length;
+  for ( var i=0; i<len; i++) {
+   var option = element.options[i];
+   if (option.value == value)
+    option.selected = true;
+  }
+
+  value = start_hour;
+  element = _gel('startTimeHour');
+  var len = element.options.length;
+  for ( var i=0; i<len; i++) {
+   var option = element.options[i];
+   if (option.value == value)
+    option.selected = true;
+  }
+*/
+}
+
+function changeSignInType(signInTypeIndex) {
+  gLastSignInType = signInTypeIndex;
+
+  gSelectedSignInTypeIndex = signInTypeIndex;
+  var signInTypeValue = gAllSignInTypes[gSelectedSignInTypeIndex].value;
+
+  // re-render to highlight the currently selected sign in type
+  var html = [];
+  var len = gAllSignInTypes.length;
+  for (var i = 0; i< len; i++ ) {
+    if (gAllSignInTypes[i].value == signInTypeValue) {
+      html.push('<b>' + gAllSignInTypes[i].display + '</b> &nbsp;&nbsp;');
+    } else {
+    html.push('<a href="javascript:void(0)" onClick="changeSignInType(' +
+      i + ')"/>' + gAllSignInTypes[i].display + '</a> &nbsp;&nbsp;');
+    }
+  }
+  _gel('fieldType').innerHTML = html.join('');
+
+  clearFields();  // don't want to reset here, keep date
+
+  fillInDateTime();
+
+  if (signInTypeValue.indexOf('Group') == 0) {
+    signInGroup();
+  } else if (signInTypeValue.indexOf('Party') == 0) {
+    signInGroup();
+  } else if (signInTypeValue.indexOf('Teach') == 0) {
+    signInTeach();
+  } else if (signInTypeValue.indexOf('Youth') == 0) {
+    signInYouth();
+  } else if (signInTypeValue.indexOf('Practice') == 0) {
+    signInPractice();
+  } else if (signInTypeValue.indexOf('Private') == 0) {
+    signInPrivateLesson();
+  } else if (signInTypeValue.indexOf('Payment') == 0) {
+    logPayment();
+  }
+
+  _gel('idSignInPanel').style.display = '';
+}
+
+// clear the fields - we don't want to sign in with extra fields
+function clearFields() {
+  // reset form first to clear residue (classes.checked before resetting innerHTML)
+
+  _gel("ss-form").reset();
+  _gel("idFormPrep").reset();
+
+  // reset fields that are hidden
+  _gel('fieldTeachers').innerHTML=''
+  _gel('entry_prep_length').value='';
+  _gel('fieldClasses').innerHTML=''
+  _gel('fieldRate').innerHTML=''
+  if (_gel(gErrElement)) _gel(gErrElement).className = '';
+
+  _gel('idFrameSubmit').src = 'about:blank';
+}
+
+function signInGroup() {
+  // hide unused fields
+  _gel("trTeacher").style.display='None';
+  _gel("trLength").style.display='None';
+  _gel("trClasses").style.display='';
+  _gel("trPayment").style.display='None';
+  _gel('trPackages').style.display = 'None';
+  _gel('trDateTime').style.display = '';
+  _gel("trRateType").style.display='';
+
+  fillInRateTypes();
+  fillInClasses(true);
+}
+
+function signInTeach() {
+  // hide unused fields
+  _gel("trTeacher").style.display='None';
+  _gel("trLength").style.display='None';
+  _gel("trClasses").style.display='';
+  _gel("trPayment").style.display='None';
+  _gel('trPackages').style.display = 'None';
+  _gel('trDateTime').style.display = '';
+  _gel("trRateType").style.display='None';
+
+  fillInClasses(true);
+}
+
+function signInYouth(hidePayment) {
+  // hide unused fields
+  _gel("trTeacher").style.display='None';
+  _gel("trLength").style.display='None';
+  _gel("trClasses").style.display='';
+  _gel("trPayment").style.display='None';
+  _gel('trPackages').style.display = 'None';
+  _gel('trDateTime').style.display = '';
+  _gel("trRateType").style.display='None';
+
+  //fillInRateTypes();
+  fillInClasses(true);
+}
+
+function signInPractice() {
+  // hide unused fields
+  _gel("trTeacher").style.display='None';
+  _gel("trLength").style.display='';
+  _gel("trClasses").style.display='None';
+  _gel('trPackages').style.display = 'None';
+  _gel('trPayment').style.display = 'None';
+  _gel('trDateTime').style.display = '';
+  _gel("trRateType").style.display='';
+
+  fillInRateTypes();
+  fillInLength();
+}
+
+function signInPrivateLesson() {
+  // hide unused fields
+  _gel("trTeacher").style.display='';
+  _gel("trLength").style.display='';
+  _gel("trClasses").style.display='None';
+  _gel('trPackages').style.display = 'None';
+  _gel('trPayment').style.display = 'None';
+  _gel('trDateTime').style.display = '';
+  _gel("trRateType").style.display='';
+
+  fillInRateTypes(0);
+  fillInTeachers();
+  fillInLength();
+}
+
+function logPayment() {
+  _gel("trTeacher").style.display='None';
+  _gel("trLength").style.display='None';
+  _gel("trClasses").style.display='None';
+  _gel('trPackages').style.display = '';
+  _gel('trPayment').style.display = '';
+  _gel('trDateTime').style.display = '';
+  _gel("trRateType").style.display='None';
+}
+
+var dayMapping = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday'
+];
+
+function isTodaysClass(classId) {
+  // var dayOfWeek = new Date().getDay(); // 0-6
+  // get date from input box, for back filling
+  var dateValue = _gel('entry_prep_date').value.replace(/-/g, '/');
+  var signDate = new Date(dateValue);
+  var dayOfWeek = signDate.getDay();
+  return (classId.indexOf(' ' + dayMapping[dayOfWeek] + ' ') != -1);
+}
+
+var categoryFilters = {
+  'Group' : ['Series', 'Drop-in', 'Party', 'Round', 'Event'],
+//  'Party' : ['Party', 'Round'],
+  'Teach' : ['Series', 'Drop-in', 'Children', 'Youth'],
+  'Youth' : ['Children', 'Youth']
+}
+
+function onChangeDate() {
+  gLastDateUsed = _gel('entry_prep_date').value;
+  fillInClasses(true);
+}
+
+function fillInClasses(onlyToday) {
+  var html = [];
+  var selectedClasses = [];
+  var len = gAllClasses.length;
+  var categoryFilter = categoryFilters[gAllSignInTypes[gSelectedSignInTypeIndex].value];
+  for (var i = 0; i< len; i++) {
+    if (!onlyToday || isTodaysClass(gAllClasses[i].value)){
+      if (!categoryFilter || categoryFilter.length == 0)  // no filter, take all
+        selectedClasses.push(gAllClasses[i]);
+      for (var j=0; j<categoryFilter.length; j++ ) {
+        if (gAllClasses[i].value.indexOf(categoryFilter[j]) == 0) {
+          selectedClasses.push(gAllClasses[i]);
+          break;
+        }
+      }
+    }
+  }
+
+  len = selectedClasses.length;
+  for (var i = 0; i< len; i++ ) {
+    idLabel = "idClass" + i;
+    html.push('<input type="checkbox" name="eventName" value="' + selectedClasses[i].value+ '" id="' + idLabel + '" /><label for="' + 
+      idLabel + '">&nbsp;' + selectedClasses[i].display + "</label><br>");
+  }
+  _gel('fieldClasses').innerHTML = html.join('');
+}
+
+function fillInTeachers() {
+  var html = ['<select id="selectTeacher">'];
+  var len = gAllTeachers.length;
+  html.push('<option value="" /> -- Pick -- &nbsp;&nbsp;');
+  for (var i = 0; i< len; i++ ) {
+    html.push('<option value="' + gAllTeachers[i].name+ '" ' + 
+      ((gAllTeachers[i].name == gSelectedEntity.teacher) ? 'selected="selected"' : '') +
+      '/>' + gAllTeachers[i].name + " &nbsp;&nbsp;&nbsp;&nbsp;");
+  }
+  html.push('</select>');
+  _gel('fieldTeachers').innerHTML = html.join('');
+}
+
+function fillInRateTypes(selectedIndex) {
+  var html = ['<table cellspacing=4>'];
+  var len = gAllRateTypes.length;
+  var cols = 0;
+  var cntTypes = 0;
+  for (var i = 0; i< len; i++ ) {
+      if (cols == 0) html.push('<tr>');
+      var label = "idRate" + i;
+      html.push('<td><input type=radio name="rRate" id="' + label+ '" value="' + 
+         gAllRateTypes[i].value+ '" ');
+      html.push((selectedIndex == i) ? ' checked' : '');
+      html.push('/><label for="' + label + '"> ' +
+         gAllRateTypes[i].display + "</label>&nbsp;&nbsp;</td>");
+      cols = ((cols + 1) % 3);
+      cntTypes++;
+      if (cols == 0) html.push('</tr>');
+  }
+  _gel('fieldRate').innerHTML = html.join('');
+}
+
+function fillInLength() {
+  _gel('entry_prep_length').value = '45';
+}
+
+// update the total $ amount
+// Basic pricing logic is built-in, can be manually changed
+function updateSeriesTotal() {
+  var value, amount;
+
+  // pricing for group series
+  value = parseInt(_gel('entry_prep_payment_num_series').value);
+  if (!isNaN(value)) {
+    if (value >= 2) {
+      amount = 70 + (value-2) * 25;
+    } else {
+      amount = 40 * value;
+    }
+    _gel('entry_prep_payment_amt_series').value = amount;
+    _gel('entry_prep_payment_num_series_classes').value = value * 4; // default 4 classes in one series
+  }
+  else {
+    _gel('entry_prep_payment_amt_series').value = '';
+    _gel('entry_prep_payment_num_series').value = '';
+    _gel('entry_prep_payment_num_series_classes').value = '';
+  }
+  updateTotal();
+}
+
+function updatePartyTotal() {
+  var value, amount;
+  value = parseInt(_gel('entry_prep_payment_num_parties').value);
+  if (!isNaN(value)) {
+/*
+    if (value >= 10)
+      amount = value * 6;
+    else if (value >= 5)
+      amount = value * 8; 
+    else 
+*/
+      amount = value * 10; 
+    _gel('entry_prep_payment_amt_parties').value = amount;
+  } else {
+    _gel('entry_prep_payment_amt_parties').value = '';
+    _gel('entry_prep_payment_num_parties').value = '';
+  }
+  updateTotal();
+}
+
+function updateDropInClassTotal() {
+  var value, amount;
+  // pricing for punch cards
+  value = parseInt(_gel('entry_prep_payment_num_punch').value);
+  if (!isNaN(value)) {
+    if (value >= 10)
+      amount = value * 8;
+    else  if (value >=5)
+      amount = value * 10; // 5~9 classes
+    else 
+      amount = value * 12; // base price
+    _gel('entry_prep_payment_amt_punch').value = amount;
+  } else {
+    _gel('entry_prep_payment_amt_punch').value = '';
+    _gel('entry_prep_payment_num_punch').value = '';
+  }
+  updateTotal();
+}
+
+function updatePrivateTotal() {
+  var value, amount;
+  // pricing for private lessons
+  value = parseInt(_gel('entry_prep_payment_num_private').value);
+  if (!isNaN(value)) {
+    if (value >= 10)
+      amount = value * 55;
+    else if (value >=5) {
+      amount = value * 60;
+    } else {
+      amount = value * 65;
+    }
+    _gel('entry_prep_payment_amt_private').value = amount;
+  } else {
+    _gel('entry_prep_payment_amt_private').value = '';
+    _gel('entry_prep_payment_num_private').value = '';
+  }
+  updateTotal();
+}
+
+/*
+function updateWeddingTotal() {
+  var value, amount;
+  // pricing for wedding
+  value = parseInt(_gel('entry_prep_payment_num_wedding').value);
+  if (!isNaN(value)) {
+    if (value >= 10)
+      amount = value * 55;
+    else if (value >=5) {
+      amount = value * 60;
+    } else {
+      amount = value * 65;
+    }
+    _gel('entry_prep_payment_amt_wedding').value = amount;
+  } else {
+    _gel('entry_prep_payment_amt_wedding').value = '';
+    _gel('entry_prep_payment_num_wedding').value = '';
+  }
+  updateTotal();
+}
+*/
+
+function updateDropinPracticeTotal() {
+  var value, amount;
+  value = parseInt(_gel('entry_prep_payment_num_dropin_practice').value);
+  if (!isNaN(value)) {
+    amount = value * 10; // drop in practice
+    _gel('entry_prep_payment_amt_dropin_practice').value = amount;
+  }
+  else {
+    _gel('entry_prep_payment_amt_dropin_practice').value = '';
+    _gel('entry_prep_payment_num_dropin_practice').value = '';
+  }
+  updateTotal();
+}
+
+function updatePracticeTotal() {
+  var value, amount;
+  // pricing for practice
+  value = parseInt(_gel('entry_prep_payment_num_practice').value);
+  if (!isNaN(value)) {
+    amount = value * 40; // there is student discount
+    _gel('entry_prep_payment_amt_practice').value = amount;
+  }
+  else {
+    _gel('entry_prep_payment_amt_practice').value = '';
+    _gel('entry_prep_payment_num_practice').value = '';
+  }
+  updateTotal();
+}
+
+function updateFloorTotal() {
+  var value, amount;
+  // pricing for floor
+  value = parseInt(_gel('entry_prep_payment_num_floor').value);
+  if (!isNaN(value)) {
+    amount = value * 10;
+    _gel('entry_prep_payment_amt_floor').value = amount;
+  }
+  else {
+    _gel('entry_prep_payment_amt_floor').value = '';
+    _gel('entry_prep_payment_num_floor').value = '';
+  }
+  updateTotal();
+}
+
+function updateChildrenTotal() {
+  var value, amount;
+  // pricing for children's program
+  value = parseInt(_gel('entry_prep_payment_num_child').value);
+  if (!isNaN(value)) {
+    if (value > 1)
+      amount = 60 + (value-1) * 45;
+    else {
+      amount = 60 * value; // could be zero
+    }
+    _gel('entry_prep_payment_amt_child').value = amount;
+  } else {
+    _gel('entry_prep_payment_amt_child').value = '';
+    _gel('entry_prep_payment_num_child').value = '';
+  }
+  updateTotal();
+}
+
+function updateYouthTotal() {
+  // pricing for Youth
+  value = parseInt(_gel('entry_prep_payment_num_youth').value);
+  if (!isNaN(value)) {
+    if (value > 1)
+      amount = 80 + (value-1) * 50;
+    else {
+      amount = 80 * value; // could be zero
+   }
+   _gel('entry_prep_payment_amt_youth').value = amount;
+  } else {
+    _gel('entry_prep_payment_amt_youth').value = '';
+    _gel('entry_prep_payment_num_youth').value = '';
+  }
+  updateTotal();
+}
+
+var packageSuffix = ['series', 'punch', 'private', 'practice', 'floor', 'child', 'youth', 'dropin_practice', 'parties'];
+var specials = {
+  'Wedding' : [ // array of [#, $] for each type in the package Suffix
+   [0, 0], //series
+   [0, 0], //punch
+   [3, 65], //actually, 2 lessons + 1 30-min consultation
+   [0, 0], //practice
+   [0, 0], //floor
+   [0, 0], //child
+   [0, 0], //youth
+   [0, 0], // practice students
+   [0, 0] //parties
+  ],
+  'Intro' : [
+   [0, 0], //series
+   [4, 12.76], //goup classes
+   [2, 34.58], //private
+   [0, 0], //practice
+   [0, 0], //floor
+   [0, 0], //child
+   [0, 0], //youth
+   [0, 0], // practice students
+   [1, 2.66] //parties
+  ],
+  'None' : [
+   [0, 0], //series
+   [0, 0], //punch
+   [0, 0], //private
+   [0, 0], //practice
+   [0, 0], //floor
+   [0, 0], //child
+   [0, 0], //youth
+   [0, 0], // practice students
+   [0, 0] //parties
+  ]
+}
+
+function onSpecial(keySpecial) {
+  var special = specials[keySpecial];
+  for (var i = 0; i < packageSuffix.length; i++) {
+   _gel('entry_prep_payment_num_' + packageSuffix[i]).value = (special[i][0] == 0 ? '' : special[i][0]);
+   _gel('entry_prep_payment_amt_' + packageSuffix[i]).value = (special[i][1] == 0 ? '' : special[i][1]);
+  }
+  if (keySpecial != 'None') {
+    _gel('entry_prep_payment_discount').value = keySpecial + ' Special';
+  } else {
+    _gel('entry_prep_payment_discount').value = '';
+  }
+  updateTotal();
+}
+
+function updateTotal() {
+  // recalculate the grand total
+  var amount = 0;
+  for (var i = 0; i < packageSuffix.length; i++) {
+   if (_gel('entry_prep_payment_amt_' + packageSuffix[i]) &&
+       _gel('entry_prep_payment_amt_' + packageSuffix[i]).value) {
+        amount += parseFloat(_gel('entry_prep_payment_amt_' + packageSuffix[i]).value); }
+  }
+  _gel('entry_prep_payment_total').value = amount;
+}
+
+function checkField(elemIdValue, elemIdErr) {
+   if (_gel(elemIdValue).value == '') {
+    _gel(elemIdErr).className = 'errMsg';
+    gErrElement = elemIdErr;
+    return false;
+   }
+   _gel(elemIdErr).className = '';
+  return true;
+}
+
+function validateInput() {
+  // clear previous error
+  if (_gel(gErrElement)) _gel(gErrElement).className = '';
+
+  var signInType = _gel('entry_4').value;
+  // validation is different for different sign in type 
+  if (signInType == 'Group') { // include parties
+   // if paid on spot, $, method.
+   if (!checkField('entry_6', 'entry_prep_date') ||
+       !checkField('entry_9', 'trClasses') ||
+       !checkField('entry_10', 'trRateType')
+      ) 
+    return false;
+  } else if (signInType == 'Teach') {
+   if (!checkField('entry_6', 'entry_prep_date') ||
+       !checkField('entry_9', 'trClasses'))
+    return false;
+  } else if (signInType == 'Youth') {
+   if (!checkField('entry_6', 'entry_prep_date') ||
+       !checkField('entry_9', 'trClasses'))
+    return false;
+
+  } else if (signInType == 'Private') {
+   if (!checkField('entry_6', 'entry_prep_date') ||
+       !checkField('entry_3', 'trTeacher') ||
+       !checkField('entry_11', 'trLength'))  // lesson length
+    return false;
+  } else if (signInType == 'Practice') {
+   if (!checkField('entry_11', 'trLength') ||
+       !checkField('entry_10', 'trRateType')) 
+    return false;
+  } else if (signInType == 'Payment') { // very simple check
+   if (!checkField('entry_12', 'entry_prep_payment_total')) { // need to validate numbers 
+      return false;
+   }
+  }
+  return true;
+}
+
+function onSignIn() {
+  _gel('entry_0').value = gSelectedEntity.getName();
+  _gel('entry_4').value = gAllSignInTypes[gSelectedSignInTypeIndex].value;
+  _gel('entry_6').value = _gel('entry_prep_date').value;
+
+  var select, value;
+/*
+  select = _gel('startTimeHour');
+  value = select.options[select.selectedIndex].value;
+  select = _gel('startTimeMin');
+  value += ':' + select.options[select.selectedIndex].value;
+  select = _gel('startTimeAmPm');
+*/
+  // do text box
+  select = _gel('startTimeAmPm');
+
+  // enforce time
+  var ampm = select.options[select.selectedIndex].value;
+  var hr = _gel('startTimeHour').value;
+  if (ampm == 'am') { // need to be after 3am
+    if (parseInt(hr) < 3) {
+      _gel('startTimeHour').value = '3';
+      _gel('startTimeMin').value = '59';
+    }
+  } else { //pm
+    if (parseInt(hr) >=11) { // need to be before 10:55
+      _gel('startTimeHour').value = '10';
+      _gel('startTimeMin').value = '54';
+    }
+  }
+
+  value = _gel('startTimeHour').value + ':' +
+    _gel('startTimeMin').value + 
+   select.options[select.selectedIndex].value;
+
+  _gel('entry_8').value = value; // start time
+
+  // classes, concatenated with ,
+  var len;
+  var values = [];
+
+  var formPrep = _gel('idFormPrep');
+  var classes = formPrep.eventName;
+  if (classes) {
+    len = classes.length;
+    if (len) {
+      for (var i=0; i<len; i++) {
+        if (classes[i].checked) values.push(classes[i].value);
+      }
+    } else { // single checkbox, classes won't have length property
+      if (classes.checked) values.push(classes.value);
+    }
+  }
+
+  // replace placeholder date
+  var valueClasses = values.join(',').replace(/YYYY-MM-DD/g,  _gel('entry_prep_date').value);
+  _gel('entry_9').value = valueClasses;
+
+  select = _gel('selectTeacher');
+  if (select && select.options)
+    _gel('entry_3').value = select.options[select.selectedIndex].value;
+
+  var radioOptions = formPrep.rRate;
+  if (radioOptions) {
+    len = radioOptions.length;
+    for (var i = 0; i < len; i++) {
+      if (radioOptions[i].checked) {
+        _gel('entry_10').value = radioOptions[i].value;
+        break;
+      }
+    }
+  }
+
+  // private lessons, 1 hr lesson is logged as 1.5 in sign in log
+  value = parseInt(_gel('entry_prep_length').value);
+  var length = 0;
+  if (!isNaN(value)) length = value;
+
+  _gel('entry_11').value = (length > 0) ? length : '';
+
+  var floorFee = '';
+
+  if (_gel('entry_prep_payment_opt_private_floorfee').checked) {
+    floorFee = 'Floor Fee. ';
+  }
+
+  _gel('entry_5').value = floorFee + _gel('entry_prep_note').value;
+
+  _gel('entry_12').value = _gel('entry_prep_payment_total').value;
+  radioOptions = formPrep.rPaymentMethod;
+  if (radioOptions) {
+    len = radioOptions.length;
+    for (var i = 0; i < len; i++) {
+      if (radioOptions[i].checked) {
+        _gel('entry_13').value = radioOptions[i].value;
+        break;
+      }
+    }
+  }
+
+  // payment related entries
+  _gel('entry_14').value = trimLR(_gel('entry_prep_payment_num_series_classes').value);
+  _gel('entry_15').value = trimLR(_gel('entry_prep_payment_num_punch').value);
+  _gel('entry_16').value = trimLR(_gel('entry_prep_payment_num_private').value);
+  _gel('entry_17').value = trimLR(_gel('entry_prep_payment_num_dropin_practice').value);
+  _gel('entry_18').value = trimLR(_gel('entry_prep_payment_num_child').value);
+  _gel('entry_19').value = trimLR(_gel('entry_prep_payment_num_youth').value);
+  _gel('entry_20').value = trimLR(_gel('entry_prep_payment_num_practice').value);
+  _gel('entry_21').value = trimLR(_gel('entry_prep_payment_num_floor').value);
+  _gel('entry_22').value = trimLR(_gel('entry_prep_payment_amt_series').value);
+  _gel('entry_23').value = trimLR(_gel('entry_prep_payment_amt_punch').value);
+  _gel('entry_24').value = trimLR(_gel('entry_prep_payment_amt_private').value);
+  _gel('entry_25').value = trimLR(_gel('entry_prep_payment_amt_dropin_practice').value);
+  _gel('entry_26').value = trimLR(_gel('entry_prep_payment_amt_child').value);
+  _gel('entry_27').value = trimLR(_gel('entry_prep_payment_amt_youth').value);
+  _gel('entry_28').value = trimLR(_gel('entry_prep_payment_amt_practice').value);
+  _gel('entry_29').value = trimLR(_gel('entry_prep_payment_amt_floor').value);
+  _gel('entry_30').value = trimLR(_gel('entry_prep_payment_discount').value);
+  _gel('entry_31').value = trimLR(_gel('entry_prep_payment_num_parties').value);
+  _gel('entry_32').value = trimLR(_gel('entry_prep_payment_amt_parties').value);
+
+  if (validateInput()) {
+    _gel('btnSubmit').click();
+  }
+
+  return false;
+}
+
+</script> 
+
+<!--- UI elements --->
+
+<!-- Search header, always shown -->
+<div id="idCopyright"></div>
+<div id='idTopSearchPanel' style='display:None'>
+Name Search: <input id='idKeyword' size=30 onChange="changeKeyword(this.value)" onKeyUp='changeKeyword(this.value)'>
+<span id='idIsNewPanel' style="display:None"><input id='idIsNew' type=checkbox onclick='addAndSelectEntity()'><label for="idIsNew">Sign in as a new student</label></span>
+<p>
+</div>
+
+<!-- Search result list + each participant details -->
+<table cellspacing=15 id='idSearchResult'>
+<tr><td valign=top nowrap>
+<div id="idEntityList" style="overflow: auto;"><img src="https://www.google.com/ig/images/spinner.gif" /></div>
+</td>
+<td valign=top> <div id='idEntityDetails'></div></td>
+</tr>
+</table>
+
+<div id="idEntityHeader">
+<!--<span id="fieldName" style="font-weight:bold;font-size:1.1em;line-height:3;padding-left:20px"></span> //-->
+<div id="fieldType"></div>
+</div>
+
+<! -- Preparation form, used by UI to eventually calculate what should be posted to spreasheet  -->
+<form onSubmit="return onSignIn()" id="idFormPrep">
+
+<div id="idSignInPanel" style="display:none">
+<hr style="background-color:rgb(204,204,204);border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;height:1px">
+
+<table border=0 cellspacing=5>
+
+<tr id="trDateTime"><td width=150>Date and Time</td><td>
+<input type="text" name="entry.6.single" value=""  id="entry_prep_date" onchange="onChangeDate()"> &nbsp;
+<input type="text" value=""  id="startTimeHour" size=2> : 
+<input type="text" value=""  id="startTimeMin" size=2> 
+<!-- changed to use text box
+<select id='startTimeHour'>
+<option>12</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+<option>7</option>
+<option>8</option>
+<option>9</option>
+<option>10</option>
+<option>11</option>
+</select>
+<select id='startTimeMin'>
+<option>00</option>
+<option>15</option>
+<option>30</option>
+<option>45</option>
+</select>
+!-->
+<select id='startTimeAmPm'>
+<option>am</option>
+<option>pm</option>
+</select>
+
+</td</tr>
+
+<tr id="trClasses"><td>Classes <a href="javascript:void(0)" onclick="fillInClasses(false)">show all</a></td><td>
+<span id="fieldClasses"></span>
+</td></tr>
+
+<tr id="trTeacher"><td>Private lesson teacher</td><td>
+<span id="fieldTeachers"></span>
+</td></tr>
+
+<tr id="trLength"><td>Length</td><td>
+<input type="text" name="entry.6.single" value=""  id="entry_prep_length" size=3> min
+</td></tr>
+
+<tr id="trRateType"><td>Rate type</td><td>
+<span id="fieldRate"></span>
+</td></tr>
+
+<tr id="trPackages"><td>Series, Packages</td>
+<td><span id="fieldPackage">
+<table>
+<tr><td colspan=2>Student: </td></tr>
+<tr><td><input type='text' value="" id="entry_prep_payment_num_series" size=3 onchange="updateSeriesTotal()"> Number of Series sessions, total of
+<input type='text' id='entry_prep_payment_num_series_classes' size=4> classes</td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_series" onchange="updateTotal()" size=3></td></tr>
+<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_punch" size=3  onchange="updateDropInClassTotal()"> Number of Drop-in Classes</td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_punch" onchange="updateTotal()" size=3></td></tr>
+<tr><td><input type='text' value="" id="entry_prep_payment_num_private" size=3 onchange="updatePrivateTotal()"> Number of Private Lessons </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_private" onchange="updateTotal()" size=3> &nbsp;
+<input type=checkbox id="entry_prep_payment_opt_private_floorfee" value="Floor Fee"><label for="entry_prep_payment_opt_private_floorfee"> Floor Fee</label>
+</td></tr>
+<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_youth"  onchange="updateYouthTotal()" size=3> Number of students in Youth Program </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_youth" onchange="updateTotal()" size=3></td></tr>
+<tr><td><input type='text' value="" id="entry_prep_payment_num_child" size=3  onchange="updateChildrenTotal()"> Number of students in Children's Program </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_child" onchange="updateTotal()" size=3></td></tr>
+<tr  style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_practice" size=3  onchange="updatePracticeTotal()"> Number of dancers for Monthly Practice </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_practice" onchange="updateTotal()" size=3></td></tr>
+<tr><td><input type='text' value="" id="entry_prep_payment_num_dropin_practice" size=3  onchange="updateDropinPracticeTotal()"> Number of Drop-in Practice </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_dropin_practice" onchange="updateTotal()" size=3></td></tr>
+
+<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_parties" size=3  onchange="updatePartyTotal()"> Number of Parties, Rounds, Seminars or Events </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_parties" onchange="updateTotal()" size=3></td></tr>
+
+<tr style="display:none"><td colspan=2>Teacher: </td></tr>
+
+<tr  style="background:whitesmoke;display:none"><td><input type='text' value="" id="entry_prep_payment_num_floor"  onchange="updateFloorTotal()" size=3> Number of lessons for Floor Fees (Independent)</td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_floor" onchange="updateTotal()" size=3>
+</td>
+</tr>
+
+<!--
+<tr style="background:whitesmoke"><td><input type='text' value="" id="entry_prep_payment_num_wedding"  onchange="updateWeddingTotal()" onchange="updateTotal()" size=3> Number of Lessons for Wedding Dance </td>
+<td>Amount: <input type='text' value="" id="entry_prep_payment_amt_wedding" onchange="updateTotal()" size=3></td></tr>
+-->
+</table>
+<p>
+Specials:<br>
+<input type='radio' value="Intro" name="rSpecial" id='labelSpecialIntro' onclick="onSpecial('Intro')"> <label for="labelSpecialIntro">Introductory Special</label>
+&nbsp; &nbsp; &nbsp;
+<input type='radio' value="Wedding" name="rSpecial" id='labelSpecialWedding' onclick="onSpecial('Wedding')"> <label for="labelSpecialWedding">Wedding Special</label>
+&nbsp; &nbsp; &nbsp;
+<input type='radio' value="None" name="rSpecial" id='labelSpecialNone' onclick="onSpecial('None')" checked> <label for="labelSpecialNone">None</label>
+</span>
+</td>
+</tr>
+
+<tr id="trPayment"><td>Total Payment</td><td>
+<input type='text' value="" id="entry_prep_payment_total" size=6 readonly>&nbsp;&nbsp;
+<span id='idPaymentMethods' style='display:none'>
+<span id='paymentMethods'>
+<input type='radio' value="Cash" name="rPaymentMethod" id='labelPrepMethodCash' ><label for="labelPrepMethodCash">Cash</label> &nbsp;&nbsp;
+<input type='radio' value="Check" name="rPaymentMethod" id='labelPrepMethodCheck' ><label for="labelPrepMethodCheck">Check</label>&nbsp;&nbsp; 
+<input type='radio' value="CreditCard" name="rPaymentMethod" id='labelPrepMethodCC' ><label for="labelPrepMethodCC">Credit Card</label> &nbsp;
+</span>
+<br>
+Payment discount: <input type='text' value="" id="entry_prep_payment_discount" size=40>&nbsp;&nbsp;
+</span>
+</td></tr>
+
+<tr><td valign=top>Note</td><td>
+<textarea name="entry.5.single" rows="3" cols="50"  id="entry_prep_note"></textarea>
+</td></tr>
+</table>
+
+<input type="submit" name="submit" value="Sign In">
+</form>
+
+<!-- End of preparation form>
+
+<!-- Normally hidden, the actual form used to post to Google Spreadsheet -->
+<div style="display:none">
+<form target="frmSubmit" 
+  method="POST" id="ss-form">
+Name: <input type="text" name="entry.0.single" value=""  id="entry_0"><br>
+Type: <input type="text" name="entry.4.single" value=""  id="entry_4"><br>
+Date: <input type="text" name="entry.6.single" value=""  id="entry_6"><br>
+Start time: <input type="text" name="entry.8.single" value=""  id="entry_8"><br>
+Class/Party  name: <input type="text" name="entry.9.single" value=""  id="entry_9" size=160><br>
+Teacher: <input type="text" name="entry.3.single" value=""  id="entry_3"><br>
+Length:<input type="text" name="entry.11.single" value=""  id="entry_11"><br>
+Rate type: <input type="text" name="entry.10.single" value=""  id="entry_10"><br>
+Amount: <input type="text" name="entry.12.single" value=""  id="entry_12"><br>
+Payment method: <input type="text" name="entry.13.single" value=""  id="entry_13"><br>
+Payment discount: <input type="text" name="entry.30.single" value=""  id="entry_30"><br>
+# of Group Series: <input type="text" name="entry.14.single" value=""  id="entry_14"><br>
+# of Drop-in classes: <input type="text" name="entry.15.single" value=""  id="entry_15"><br>
+# of Private Lessons: <input type="text" name="entry.16.single" value=""  id="entry_16"><br>
+# of Wedding Lessons: <input type="text" name="entry.17.single" value=""  id="entry_17"><br>
+# of Children's Program: <input type="text" name="entry.18.single" value=""  id="entry_18"><br>
+# of Youth Program: <input type="text" name="entry.19.single" value=""  id="entry_19"><br>
+# of Montly Practice: <input type="text" name="entry.20.single" value=""  id="entry_20"><br>
+# of Lessons for Floore Fees: <input type="text" name="entry.21.single" value=""  id="entry_21"><br>
+$ of Group Series: <input type="text" name="entry.22.single" value=""  id="entry_22"><br>
+$ of Drop-in Class: <input type="text" name="entry.23.single" value=""  id="entry_23"><br>
+$ of Private Lessons: <input type="text" name="entry.24.single" value=""  id="entry_24"><br>
+$ of Wedding Lessons: <input type="text" name="entry.25.single" value=""  id="entry_25"><br>
+$ of Children's Program: <input type="text" name="entry.26.single" value=""  id="entry_26"><br>
+$ of Youth Program: <input type="text" name="entry.27.single" value=""  id="entry_27"><br>
+$ of Montly Practice: <input type="text" name="entry.28.single" value=""  id="entry_28"><br>
+$ of Lessons for Floore Fees: <input type="text" name="entry.29.single" value=""  id="entry_29"><br>
+# of parties: <input type="text" name="entry.31.single" value=""  id="entry_31"><br>
+$ for parties: <input type="text" name="entry.32.single" value=""  id="entry_32"><br>
+Note: <textarea name="entry.5.single" rows="8" cols="75"  id="entry_5"></textarea><br>
+<input type="hidden" name="pageNumber" value="0">
+<input type="hidden" name="backupCache" value="">
+<input type="submit" name="submit" value="Submit" id='btnSubmit'>
+</form>
+</div>
+
+<div style="display:none">
+</div>
+
+<!-- Visible to make sure form post is successful -->
+<div>
+<iframe name="frmSubmit" id='idFrameSubmit' width=500 height=200 frameborder=0 scrolling=no></iframe>
+</div>
+
+</div>
+
+<script>
+// The value of each SignInType is used to map Group classes' value and RateType values 
+// to filter the classes rate types to display
+
+gAllSignInTypes.push(new ValueDisplay('Group', 'Classes, Parties and Events'));
+//gAllSignInTypes.push(new ValueDisplay('Party', 'Parties and Rounds'));
+gAllSignInTypes.push(new ValueDisplay('Youth', 'Youth & Children'));
+gAllSignInTypes.push(new ValueDisplay('Private', 'Private Lesson'));
+gAllSignInTypes.push(new ValueDisplay('Practice', 'Practice'));
+gAllSignInTypes.push(new ValueDisplay('Payment', 'Payment'));
+gAllSignInTypes.push(new ValueDisplay('Teach', 'Teach Group Classes'));
+
+gAllRateTypes.push(new ValueDisplay('Paid', 'Paid'));
+gAllRateTypes.push(new ValueDisplay('Free', 'Free'));
+gAllRateTypes.push(new ValueDisplay('Other', 'Other'));
+
+</script>
+
+<script type="text/javascript" SRC="https://dancecentral.googlecode.com/svn/trunk/studio_signin/../utils/license.js"></script>
+
+</body>
+]]></Content>
+</Module>
+
