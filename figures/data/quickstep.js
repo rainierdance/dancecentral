@@ -46,6 +46,10 @@
                     'id' : 'TippleChasseToRight'
                 },
                 {
+                  'id' : 'TipsyToR',
+                  'comment' : '' // listed in precedes
+                },
+                {
                     'id' : 'RunningFinish'
                 },
                 {
@@ -137,6 +141,10 @@
             'timing' : 'QQQQQQS',
             'follow' : [
                 {
+                  'id' : 'Fishtail',
+                  'comment' : ''  // list in precedes
+                },
+                {
                     'id' : 'TipsyToL',
                     'comment' : 'into 2-12 V6 DC or 2-5 BAck Lock down LOD.'
                 },
@@ -188,6 +196,10 @@
                   'comment' : ''
                 },
                 {
+                  'id' : 'Fishtail',
+                  'comment' : ''  // list in precedes
+                },
+                {
                   'id' : 'FourQuickRun',
                   'comment' : 'at corner, LF back with Lady OP, TH, S, into Four Quick Run'
                 },
@@ -210,6 +222,10 @@
                 {
                   'eval' : 'MatchFigures({"startFoot" : "RF", "startAlignment" : "DW", "startDirection" : "fwd"})',
                   'comment' : ''
+                },
+                {
+                  'id' : 'Fishtail',
+                  'comment' : ''  // list in precedes
                 },
                 {
                   'id' : 'QuickOpenReverse',
@@ -246,6 +262,10 @@
                 {
                   'id' : 'V6',
                   'comment' : 'at corner, LF back with Lady OP, TH, S, into 2-12 V6'
+                },
+                {
+                  'id' : 'Fishtail',
+                  'comment' : ''  // list in precedes
                 },
                 {
                   'id' : 'TipsyToL',
@@ -346,6 +366,10 @@
                 {
                   'id' : 'FourQuickRun',
                   'comment' : ''
+                },
+                {
+                  'id' : 'HeelPivot',
+                  'comment' : 'after 1-3 of Quick Open Reverse'   //listed in precedes
                 },
                 {
                   'id' : 'HoverCorte',
@@ -1154,6 +1178,10 @@
                 {
                   'id' : 'ZigZagBackLockAndRunningFinish',
                   'comment' : 'use 6th step of Natural Turn as entry'
+                },
+                {
+                  'id' : 'TipsyToR',
+                  'comment' : 'after 1-4 of Natural Turn' // listed in precedes
                 },
                 {
                   'id' : 'RumbaCross'
