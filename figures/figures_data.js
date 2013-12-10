@@ -4325,7 +4325,34 @@ var foxtrotFigures =
         'HoverCorte' : 
           {
             'name' : 'Hover Corte',
-            'level' : 'Gold'
+            'level' : 'Gold',
+            'urlpath' : 'hover-corte',
+            'startFoot' : 'RF',
+            'startDirection' : 'BLOD',
+            'timing' : 'SSSS',
+            'follow' : [
+                {
+                    'id' : 'TippleChasseToRight'
+                },
+                {
+                    'id' : 'RunningFinish'
+                },
+                {
+                    'id' : 'TipsyToL'
+                },
+                {
+                    'id' : 'FourQuickRun',
+                    'comment' : 'At corner'
+                },
+                {
+                    'id' : 'V6',
+                    'comment' : 'At corner, 2-12 of V6'
+                },
+                {
+                    'id' : 'SixQuickRun',
+                    'comment' : 'At corner'
+                }
+            ]
           },
         'TipsyToL' : 
           {
@@ -4374,17 +4401,66 @@ var foxtrotFigures =
         'RumbaCross' : 
           {
             'name' : 'Rumba Cross',
-            'level' : 'Gold'
+            'level' : 'Gold',
+            'urlpath' : 'rumba-cross',
+            'startFoot' : 'LF',
+            'startDirection' : 'fwd',
+            'timing' : 'QQS',
+            'follow' : [
+                { 
+                    'id' : 'RunningRightTurn',
+                    'comment' : '5-11 of Running Right Turn, RF fwd, S, into Tipsy to L'
+                },
+                {
+                    'id' : 'RumbaCross'
+                }
+            ]
           },
         'SixQuickRun' : 
           {
             'name' : 'Six Quick Run',
-            'level' : 'Gold'
+            'level' : 'Gold',
+            'urlpath' : 'six-quick-run',
+            'startFoot' : 'RF',
+            'startDirection' : 'back',
+            'timing' : 'QQQQQQS',
+            'follow' : [
+                {
+                    'id' : 'TipsyToL',
+                    'comment' : 'into 2-12 V6 DC or 2-5 BAck Lock down LOD.'
+                },
+                {
+                    'id' : 'FourQuickRun',
+                    'comment' : 'At corner, LF back with Lady OP, TH, S, into Four Quick Run or 2-12 of V6'
+                }
+            ]
           },
         'CrossSwivel' : 
           {
             'name' : 'Cross Swivel',
-            'level' : 'Gold'
+            'level' : 'Gold',
+            'urlpath' : 'cross-swivel',
+            'startFoot' : 'LF',
+            'startDirection' : 'fwd',
+            'timing' : 'SSS',
+            'follow' : [
+                {
+                    'id' : 'TippleChasseToRight',
+                    'comment' : ''
+                },
+                {
+                    'id' : 'RunningFinish',
+                    'comment' : ''
+                },
+                {
+                    'id' : 'Fishtail',
+                    'comment' : ''
+                },
+                {
+                    'id' : 'TipsyToR',
+                    'comment' : 'After LF back with Lady OP, TH, S, into Tipsy to R'
+                }
+            ]
           },
         'ClosedTelemark' : 
           {
