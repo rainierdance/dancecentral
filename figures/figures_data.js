@@ -373,6 +373,42 @@
             'startFoot' : 'LF',
             'follow' : [
               {
+                'id' : 'Fan',
+                'comment' : 'into Fan step 6-10' //listed in precedes
+              },
+              {
+                'id' : 'TimeStepRF',
+                'comment' : '' //listed in precedes
+              },
+              {
+                'id' : 'SideStepRightRF',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'SideStepLeftRF',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'HandToHandLSP',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'UnderarmTurnToL',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'SpotTurnToL',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'NewYorkRSP',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'ClosedBasic',
+                'comment' : '6-10 of Closed Basic'     // listed in precedes
+              },
+              {
                 'id' : 'CubanBreakRF',
                 'comment' : ''
               }
@@ -387,8 +423,64 @@
             'startFoot' : 'RF',
             'follow' : [
               {
+                'id' : 'FollowMyLeader',
+                'comment' : ''   // listed in precedes
+              },
+              {
+                'id' : 'Sweetheart',
+                'comment' : ''   // listed in precedes
+              },
+              {
+                'id' : 'TurkishTowel',
+                'comment' : ''   // listed in precedes
+              },
+              {
+                'id' : 'Chase',
+                'comment' : ''   // listed in precedes
+              },
+              {
+                'id' : 'CrossBasic',
+                'comment' : ''   // listed in precedes
+              },
+              {
+                'id' : 'OpenHipTwist',
+                'comment' : '' //listed in precedes
+              },
+              {
+                'id' : 'Fan',
+                'comment' : '' //listed in precedes
+              },
+              {
+                'id' : 'TimeStepLF',
+                'comment' : '' //listed in precedes
+              },
+              {
+                'id' : 'SideStepRightLF',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'SideStepLeftLF',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'ThereAndBack',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'HandToHandRSP',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'ClosedBasic',
+                'comment' : ''     // listed in precedes
+              },
+              {
                 'id' : 'CubanBreakLF',
                 'comment' : ''
+              },
+              {
+                'id' : 'UnderarmTurnToR',
+                'comment' : ''     // listed in precedes
               },
               {
                 'id' : 'SpotTurnToR',
@@ -405,15 +497,43 @@
             'name' : 'Split Cuban Break RF',
             'level' : 'Silver',
             'urlpath' : 'cuban-breaks',
-            'timing' : '2&3&4&1',
+            'timing' : '2&34&1',
             'startFoot' : 'RF',
             'follow' : [
+              {
+                'id' : 'Fan',
+                'comment' : 'into Fan step 6-10' //listed in precedes
+              },
+              {
+                'id' : 'TimeStepRF',
+                'comment' : '' //listed in precedes
+              },
+              {
+                'id' : 'SideStepRightRF',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'SideStepLeftRF',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'HandToHandLSP',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'ClosedBasic',
+                'comment' : '6-10 of Closed Basic'     // listed in precedes
+              },
               {
                 'id' : 'SplitCubanBreakLF',
                 'comment' : ''
               },
               {
-                'id' : 'SpotTurnToR',
+                'id' : 'UnderarmTurnToL',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'SpotTurnToL',
                 'comment' : ''
               },
               {
@@ -427,15 +547,71 @@
             'name' : 'Split Cuban Break LF',
             'level' : 'Silver',
             'urlpath' : 'cuban-breaks',
-            'timing' : '2&3&4&1',
+            'timing' : '2&34&1',
             'startFoot' : 'LF',
             'follow' : [
+              {
+                'id' : 'FollowMyLeader',
+                'comment' : ''   // listed in precedes
+              },
+              {
+                'id' : 'Sweetheart',
+                'comment' : ''   // listed in precedes
+              },
+              {
+                'id' : 'TurkishTowel',
+                'comment' : ''   // listed in precedes
+              },
+              {
+                'id' : 'Chase',
+                'comment' : ''   // listed in precedes
+              },
+              {
+                'id' : 'CrossBasic',
+                'comment' : ''   // listed in precedes
+              },
+              {
+                'id' : 'OpenHipTwist',
+                'comment' : '' //listed in precedes
+              },
+              {
+                'id' : 'Fan',
+                'comment' : '' //listed in precedes
+              },
+              {
+                'id' : 'TimeStepLF',
+                'comment' : '' //listed in precedes
+              },
+              {
+                'id' : 'SideStepRightLF',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'SideStepLeftLF',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'ThereAndBack',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'HandToHandRSP',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'ClosedBasic',
+                'comment' : ''     // listed in precedes
+              },
               {
                 'id' : 'SplitCubanBreakRF',
                 'comment' : ''
               },
               {
-                'id' : 'SpotTurnToL',
+                'id' : 'UnderarmTurnToR',
+                'comment' : ''     // listed in precedes
+              },
+              {
+                'id' : 'SpotTurnToR',
                 'comment' : ''
               },
               {
@@ -452,6 +628,22 @@
             'timing' : '234&1 234&1',
             'startFoot' : 'LF',
             'follow' : [
+              {
+                'id' : 'Fan',
+                'comment' : ''   // listed in precedes
+              },
+              {
+                'id' : 'HockeyStick',
+                'comment' : 'Cross Basic ending in Fan position'   // listed in precedes
+              },
+              {
+                'id' : 'Alemana',
+                'comment' : 'Cross Basic ending in Fan position'   // listed in precedes
+              },
+              {
+                'id' : 'NewYorkLSP',
+                'comment' : ''   // listed in precedes
+              },
               {
                 'id' : 'ClosedBasic',
                 'comment' : ''
@@ -634,6 +826,10 @@
             'startFoot' : 'LF',
             'follow' : [
               {
+                'id' : 'Chase',
+                'comment' : ''   // listed in precedes
+              },
+              {
                 'id' : 'Alemana',
                 'comment' : ''
               },
@@ -766,6 +962,10 @@
             'timing' : '234&1 234&1 234&1',
             'startFoot' : 'RF',
             'follow' : [
+              {
+                'id' : 'ThereAndBack',
+                'comment' : ''     // listed in precedes
+              },
               {
                 'id' : 'ClosedBasic',
                 'comment' : ''
@@ -1171,6 +1371,10 @@
             'startFoot' : 'LF',
             'follow' : [
               {
+                'id' : 'ShoulderToShoulderL',
+                'comment' : 'Man turning 1/8 to R on last step'   // listed in precedes
+              },
+              {
                 'id' : 'ClosedBasic',
                 'comment' : ''
               },
@@ -1282,6 +1486,10 @@
             'timing' : '234&1',
             'startFoot' : 'RF',
             'follow' : [
+              {
+                'id' : 'ThereAndBack',
+                'comment' : ''     // listed in precedes
+              },
               {
                 'id' : 'ClosedBasic',
                 'comment' : ''
@@ -1577,6 +1785,10 @@
             'startFoot' : 'RF',
             'follow' : [
               {
+                'id' : 'CrossBasic',
+                'comment' : ''   // listed in precedes
+              },
+              {
                 'id' : 'ClosedBasic',
                 'comment' : ''
               },
@@ -1660,6 +1872,42 @@
             'timing' : '4&1 2&3 4&1',
             'startFoot' : 'RF',
             'follow' : [
+              {
+                'id' : 'CrossBasic',
+                'comment' : 'Three ChaChas Fwd in LSP, man starting on RF ending facing partner'   // listed in precedes
+              },
+              {
+                'id' : 'Aida',
+                'comment' : 'Three ChaChas Fwd in RSP, man starting on LF ending facing partner'   // listed in precedes
+              },
+              {
+                'id' : 'SideStepRightRF',
+                'comment' : 'Three ChaChas Fwd in RSP, man starting on LF ending facing partner'   // listed in precedes
+              },
+              {
+                'id' : 'SideStepRightLF',
+                'comment' : 'Three ChaChas Fwd in LSP, man starting on RF ending facing partner'   // listed in precedes
+              },
+              {
+                'id' : 'SideStepLeftRF',
+                'comment' : 'Three ChaChas Fwd in RSP, man starting on LF ending facing partner'   // listed in precedes
+              },
+              {
+                'id' : 'SideStepLeftLF',
+                'comment' : 'Three ChaChas Fwd in LSP, man starting on RF ending facing partner'   // listed in precedes
+              },
+              {
+                'id' : 'ThereAndBack',
+                'comment' : 'Three ChaChas Fwd in LSP, man starting on RF ending facing partner'   // listed in precedes
+              },
+              {
+                'id' : 'HandToHandRSP',
+                'comment' : 'Three ChaChas Fwd in LSP, man starting on RF ending facing partner'   // listed in precedes
+              },
+              {
+                'id' : 'HandToHandLSP',
+                'comment' : 'Three ChaChas Fwd in RSP, man starting on LF ending facing partner'   // listed in precedes
+              },
               {
                 'id' : 'ClosedBasic',
                 'comment' : ''
@@ -1839,6 +2087,10 @@
             'startFoot' : 'RF',
             'follow' : [
               {
+                'id' : 'CrossBasic',
+                'comment' : ''   // listed in precedes
+              },
+              {
                 'id' : 'ClosedBasic',
                 'comment' : ''
               },
@@ -1995,6 +2247,10 @@
             'startFoot' : 'RF',
             'follow' : [
               {
+                'id' : 'CrossBasic',
+                'comment' : 'ended facing partner, then followed by Cross Basic'   // listed in precedes
+              },
+              {
                 'id' : 'ShoulderToShoulderL',
                 'comment' : ''
               },
@@ -2081,6 +2337,10 @@
             'startFoot' : 'RF',
             'follow' : [
               {
+                'id' : 'CrossBasic',
+                'comment' : ''   // listed in precedes
+              },
+              {
                 'id' : 'ClosedBasic',
                 'comment' : ''
               },
@@ -2093,7 +2353,7 @@
                 'comment' : ''
               },
               {
-                'id' : 'SpotTurnToR',
+                'id' : 'SpotTurnToL',
                 'comment' : ''
               },
               {
@@ -2163,7 +2423,7 @@
                 'comment' : ''
               },
               {
-                'id' : 'SpotTurnToL',
+                'id' : 'SpotTurnToR',
                 'comment' : ''
               },
               {
@@ -2217,6 +2477,10 @@
             'startFoot' : 'RF',
             'follow' : [
               {
+                'id' : 'TimeStepLF',
+                'comment' : '' //listed in precedes
+              },
+              {
                 'id' : 'ClosedBasic',
                 'comment' : ''
               },
@@ -2233,7 +2497,7 @@
                 'comment' : ''
               },
               {
-                'id' : 'UnderarmTurnToL',
+                'id' : 'UnderarmTurnToR',
                 'comment' : ''
               },
               {
@@ -2339,7 +2603,7 @@
                 'comment' : ''
               },
               {
-                'id' : 'UnderarmTurnToR',
+                'id' : 'UnderarmTurnToL',
                 'comment' : ''
               },
               {
@@ -2499,6 +2763,10 @@
                 'comment' : 'when ending facing partner'
               },
               {
+                'id' : 'SideStepLeftRF',
+                'comment' : 'when ending facing partner' // listed in precedes
+              },
+              {
                 'id' : 'SideStepRightRF',
                 'comment' : 'when ending facing partner'
               },
@@ -2550,6 +2818,10 @@
             'timing' : '234&1 234&1',
             'startFoot' : 'LF',
             'follow' : [
+              {
+                'id' : 'TimeStepRF',
+                'comment' : 'after 1-5' //listed in precedes
+              },
               {
                 'id' : 'OpenBasic'
               },
@@ -2649,6 +2921,10 @@
             'timing' : '234&1 234&1',
             'startFoot' : 'LF',
             'follow' : [
+              {
+                'id' : 'Fan',
+                'comment' : '' //listed in precedes
+              },
               {
                 'id' : 'ClosedBasic',
                 'comment' : 'in Closed Position'
