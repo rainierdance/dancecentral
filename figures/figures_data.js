@@ -6041,6 +6041,26 @@ var foxtrotFigures =
             'startFoot' : 'LF',
             'follow' : [
                 {
+                   'id' : 'CubanRockLF',
+                   'comment' : ''   // listed in precedes`
+                },
+                {
+                   'id' : 'SideStepRightLF',
+                   'comment' : 'end to side'   // listed in precedes`
+                },
+                {
+                   'id' : 'SideStepLeftLF',
+                   'comment' : ''   // listed in precedes`
+                },
+                {
+                   'id' : 'HandToHandRSP',
+                   'comment' : ''   // listed in precedes`
+                },
+                {
+                   'id' : 'NewYorkLSP',
+                   'comment' : ''  // listed in precedes
+                },
+                {
                    'id' : 'BasicMovementsClosed',
                    'comment' : ''
                 },
@@ -6276,6 +6296,10 @@ var foxtrotFigures =
             'timing' : '2341 2341',
             'startFoot' : 'LF',
             'follow' : [
+                {
+                   'id' : 'HandToHandRSP',
+                   'comment' : 'both stepping to side'   // listed in precedes`
+                },
                 {
                    'id' : 'BasicMovementsClosed',
                    'comment' : ''
@@ -6627,6 +6651,14 @@ var foxtrotFigures =
             'startFoot' : 'LF',
             'follow' : [
                 {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : '' // listed in precedes
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : '' // listed in precedes
+                },
+                {
                    'id' : 'NaturalOpeningOutMovement',
                    'comment' : ''
                 },
@@ -6970,6 +7002,14 @@ var foxtrotFigures =
             'timing' : '2341',
             'startFoot' : 'RF',
             'follow' : [
+                {
+                   'id' : 'SideStepLeftLF',
+                   'comment' : ''   // listed in precedes`
+                },
+                {
+                   'id' : 'HandToHandRSP',
+                   'comment' : ''   // listed in precedes`
+                },
                 {
                    'id' : 'BasicMovementsOpen',
                    'comment' : ''
@@ -7326,6 +7366,10 @@ var foxtrotFigures =
             'timing' : '2341 2341',
             'startFoot' : 'LF',
             'follow' : [
+                {
+                   'id' : 'SideStepLeftLF',
+                   'comment' : 'ended facking partner'   // listed in precedes
+                },
                 {
                    'id' : 'SpotTurnR',
                    'comment' : ''
@@ -7715,6 +7759,14 @@ var foxtrotFigures =
             'startFoot' : 'RF',
             'follow' : [
                 {
+                   'id' : 'ProgressiveWalksFwdRSP',
+                   'comment' : '' // listed in precedes
+                },
+                {
+                   'id' : 'ProgressiveWalksFwd',
+                   'comment' : '' // listed in precedes
+                },
+                {
                    'id' : 'BasicMovementsOpen',
                    'comment' : ''
                 },
@@ -7947,6 +7999,10 @@ var foxtrotFigures =
             'startFoot' : 'LF',
             'follow' : [
                 {
+                   'id' : 'SideStepLeftRF',
+                   'comment' : ''    // listed in precedes
+                },
+                {
                    'id' : 'NewYorkRSP',
                    'comment' : 'when ending in Open PP'
                 },
@@ -8005,6 +8061,10 @@ var foxtrotFigures =
             'startFoot' : 'RF',
             'follow' : [
                 {
+                   'id' : 'ProgressiveWalksFwdRSP',
+                   'comment' : 'no turn at end of count 1 in New York RSP' // listed in precedes
+                },
+                {
                    'id' : 'NewYorkLSP',
                    'comment' : 'when ending in Open CPP'
                 },
@@ -8057,6 +8117,10 @@ var foxtrotFigures =
             'startFoot' : 'LF',
             'follow' : [
                 {
+                   'id' : 'SpotTurnL',
+                   'comment' : ''  // listed in precedes
+                },
+                {
                    'id' : 'BasicMovementsOpen',
                     'comment' : '4-6'
                 },
@@ -8092,6 +8156,10 @@ var foxtrotFigures =
             'timing' : '2341',
             'startFoot' : 'RF',
             'follow' : [
+                {
+                   'id' : 'SpotTurnR',
+                   'comment' : ''  // listed in precedes
+                },
                 {
                    'id' : 'BasicMovementsOpen',
                     'comment' : ''

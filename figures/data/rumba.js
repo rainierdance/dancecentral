@@ -120,6 +120,26 @@
             'startFoot' : 'LF',
             'follow' : [
                 {
+                   'id' : 'CubanRockLF',
+                   'comment' : ''   // listed in precedes`
+                },
+                {
+                   'id' : 'SideStepRightLF',
+                   'comment' : 'end to side'   // listed in precedes`
+                },
+                {
+                   'id' : 'SideStepLeftLF',
+                   'comment' : ''   // listed in precedes`
+                },
+                {
+                   'id' : 'HandToHandRSP',
+                   'comment' : ''   // listed in precedes`
+                },
+                {
+                   'id' : 'NewYorkLSP',
+                   'comment' : ''  // listed in precedes
+                },
+                {
                    'id' : 'BasicMovementsClosed',
                    'comment' : ''
                 },
@@ -355,6 +375,10 @@
             'timing' : '2341 2341',
             'startFoot' : 'LF',
             'follow' : [
+                {
+                   'id' : 'HandToHandRSP',
+                   'comment' : 'both stepping to side'   // listed in precedes`
+                },
                 {
                    'id' : 'BasicMovementsClosed',
                    'comment' : ''
@@ -706,6 +730,14 @@
             'startFoot' : 'LF',
             'follow' : [
                 {
+                   'id' : 'BasicMovementsClosed',
+                   'comment' : '' // listed in precedes
+                },
+                {
+                   'id' : 'BasicMovementsOpen',
+                   'comment' : '' // listed in precedes
+                },
+                {
                    'id' : 'NaturalOpeningOutMovement',
                    'comment' : ''
                 },
@@ -1049,6 +1081,14 @@
             'timing' : '2341',
             'startFoot' : 'RF',
             'follow' : [
+                {
+                   'id' : 'SideStepLeftLF',
+                   'comment' : ''   // listed in precedes`
+                },
+                {
+                   'id' : 'HandToHandRSP',
+                   'comment' : ''   // listed in precedes`
+                },
                 {
                    'id' : 'BasicMovementsOpen',
                    'comment' : ''
@@ -1405,6 +1445,10 @@
             'timing' : '2341 2341',
             'startFoot' : 'LF',
             'follow' : [
+                {
+                   'id' : 'SideStepLeftLF',
+                   'comment' : 'ended facking partner'   // listed in precedes
+                },
                 {
                    'id' : 'SpotTurnR',
                    'comment' : ''
@@ -1794,6 +1838,14 @@
             'startFoot' : 'RF',
             'follow' : [
                 {
+                   'id' : 'ProgressiveWalksFwdRSP',
+                   'comment' : '' // listed in precedes
+                },
+                {
+                   'id' : 'ProgressiveWalksFwd',
+                   'comment' : '' // listed in precedes
+                },
+                {
                    'id' : 'BasicMovementsOpen',
                    'comment' : ''
                 },
@@ -2026,6 +2078,10 @@
             'startFoot' : 'LF',
             'follow' : [
                 {
+                   'id' : 'SideStepLeftRF',
+                   'comment' : ''    // listed in precedes
+                },
+                {
                    'id' : 'NewYorkRSP',
                    'comment' : 'when ending in Open PP'
                 },
@@ -2084,6 +2140,10 @@
             'startFoot' : 'RF',
             'follow' : [
                 {
+                   'id' : 'ProgressiveWalksFwdRSP',
+                   'comment' : 'no turn at end of count 1 in New York RSP' // listed in precedes
+                },
+                {
                    'id' : 'NewYorkLSP',
                    'comment' : 'when ending in Open CPP'
                 },
@@ -2136,6 +2196,10 @@
             'startFoot' : 'LF',
             'follow' : [
                 {
+                   'id' : 'SpotTurnL',
+                   'comment' : ''  // listed in precedes
+                },
+                {
                    'id' : 'BasicMovementsOpen',
                     'comment' : '4-6'
                 },
@@ -2171,6 +2235,10 @@
             'timing' : '2341',
             'startFoot' : 'RF',
             'follow' : [
+                {
+                   'id' : 'SpotTurnR',
+                   'comment' : ''  // listed in precedes
+                },
                 {
                    'id' : 'BasicMovementsOpen',
                     'comment' : ''

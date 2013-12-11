@@ -29,12 +29,17 @@ var routine = []; // array of RoutineStep objects
 
 var currentAnimatedDiagram = null;
 
+var IS_DEBUG = '0';
+
 //-------------------------------------------
 // one-time initialization after scripts are loaded
 function initVars() {
   if (!IS_GADGET) {
     var paramValue = getURLParam('dance');
     if (paramValue) inputDance = paramValue;
+
+    paramValue = getURLParam('debug');
+    if (paramValue) IS_DEBUG = paramValue;
 
     paramValue = getURLParam('figure');
     if (paramValue) inputFigureName = paramValue;
@@ -318,6 +323,9 @@ function getFigureLink(figureID, inPage) {
       }
       //output.push('?tmpl=/system/app/templates/print/');
       output.push('">' + name + '</a> ');
+      if (IS_DEBUG == '1') {
+        output.push(' ( ' + figureID + ' ) ');
+      }
       if (!inPage && showComments) {  // show the rest of the configuration
         INFO_FIELDS.forEach(function (fieldID) {
           if (figure[fieldID]) {
