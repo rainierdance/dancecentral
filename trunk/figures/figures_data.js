@@ -6041,6 +6041,38 @@ var foxtrotFigures =
             'startFoot' : 'LF',
             'follow' : [
                 {
+                   'id' : 'CircularHipTwists',
+                   'comment' : ''   // listed in precedes`
+                },
+                {
+                   'id' : 'ContinuousHipTwists',
+                   'comment' : ''   // listed in precedes`
+                },
+                {
+                   'id' : 'AdvancedHipTwists',
+                   'comment' : ''   // listed in precedes`
+                },
+                {
+                   'id' : 'SlidingDoors',
+                   'comment' : 'Man turns body slightly to R on last step to lead Lady fwd towards his R side, then turns her R to RSP. Lady LF fwd inline with RF then 1/2 R on LF to end LF back. Man LF slightly leftwards on the second to last step'   // listed in precedes`
+                },
+                {
+                   'id' : 'RopeSpinning',
+                   'comment' : ''   // listed in precedes`
+                },
+                {
+                   'id' : 'Spiral',
+                   'comment' : ''   // listed in precedes`
+                },
+                {
+                   'id' : 'ClosedHipTwist',
+                   'comment' : ''   // listed in precedes`
+                },
+                {
+                   'id' : 'NaturalOpeningOutMovement',
+                   'comment' : ''   // listed in precedes`
+                },
+                {
                    'id' : 'CubanRockLF',
                    'comment' : ''   // listed in precedes`
                 },
@@ -6650,6 +6682,10 @@ var foxtrotFigures =
             'timing' : '2341 2341',
             'startFoot' : 'LF',
             'follow' : [
+                {
+                   'id' : 'Fan',
+                   'comment' : '' // listed in precedes
+                },
                 {
                    'id' : 'BasicMovementsClosed',
                    'comment' : '' // listed in precedes
@@ -8188,6 +8224,10 @@ var foxtrotFigures =
             'timing' : '2341 2341',
             'startFoot' : 'LF',
             'follow' : [
+                {
+                   'id' : 'ReverseTop',
+                   'comment' : '' // listed in precedes
+                },
                 {
                    'id' : 'BasicMovementsOpen',
                    'comment' : ''
