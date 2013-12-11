@@ -141,12 +141,16 @@
             'timing' : 'QQQQQQS',
             'follow' : [
                 {
+                  'id' : 'NaturalTurn',
+                  'comment' : 'start OP'
+                },
+                {
                   'id' : 'Fishtail',
                   'comment' : ''  // list in precedes
                 },
                 {
                     'id' : 'TipsyToL',
-                    'comment' : 'into 2-12 V6 DC or 2-5 BAck Lock down LOD.'
+                    'comment' : 'into 2-12 V6 DC or 2-5 Back Lock down LOD.'
                 },
                 {
                     'id' : 'FourQuickRun',
