@@ -40,6 +40,7 @@ function initVars() {
 
     paramValue = getURLParam('debug');
     if (paramValue) IS_DEBUG = paramValue;
+    if (IS_DEBUG == '1') showPrecedes = true;
 
     paramValue = getURLParam('figure');
     if (paramValue) inputFigureName = paramValue;
@@ -140,7 +141,7 @@ function initVars() {
   showFollows = getCookie('showFollows') != "0";
   showDiagram = getCookie('showDiagram') != "0";
   */
-  if (inputMode == 'routine') {
+  if (inputMode == 'routine' && IS_DEBUG == '0') {
     showPrecedes = false;
     showComments = false;
     showDiagram = false;
