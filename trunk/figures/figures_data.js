@@ -8420,7 +8420,7 @@ var foxtrotFigures =
             'timing' : 'QQS QQS',
             'follow' : [
               {
-                'id' : 'CrisCrossVoltas',
+                'id' : 'CrissCrossVoltas',
                 'comment' : "start from step 4 or 8"
               },
               {
