@@ -15,56 +15,187 @@
          {
             'name' : 'Cruzados Walks and Locks',
             'level' : 'Gold',
+            'urlpath' : 'cruzados-walks-and-locks',
+            'startFoot' : ['RF'],
+            'startDirection' : ['fwd'],
+            'timing' : 'aS',
             'follow' : [
+              {
+                'id' : 'FootChange2',
+                'comment' : ""
+              },
+              {
+                'id' : 'FootChange4',
+                'comment' : ""
+              }
              ]
         },
         'SambaLocks' : 
          {
             'name' : 'Samba Locks',
             'level' : 'Gold',
+            'urlpath' : 'samba-locks',
+            'startFoot' : ['RF'],
+            'startDirection' : ['fwd'],
+            'timing' : 'QQS QQS',
             'follow' : [
+              {
+                'id' : 'CrisCrossVoltas',
+                'comment' : "start from step 4 or 8"
+              },
+              {
+                'id' : 'Maypole',
+                'comment' : "Man turning R"
+              },
+              {
+                'id' : 'SoloSpotVoltaR',
+                'comment' : "Lady turning L"
+              }
              ]
         },
         'ThreeStepTurn' : 
          {
             'name' : 'Three Step Turn',
             'level' : 'Gold',
+            'urlpath' : 'three-step-turn',
+            'startFoot' : ['LF'],
+            'startDirection' : [''],
+            'timing' : '1a2',
             'follow' : [
+              {
+                'id' : 'SambaLocks',
+                'comment' : ""
+              }
              ]
         },
         'PromenadeAndCPPRuns' : 
          {
             'name' : 'Promenade And Counter Promenade Runs',
             'level' : 'Gold',
+            'urlpath' : 'promenade-and-counter-promenade-runs',
+            'startFoot' : ['RF'],
+            'startDirection' : ['side'],
+            'timing' : '123 123 123',
             'follow' : [
+              {
+                'id' : 'SambaWalkLF',
+                'comment' : ""
+              },
+              {
+                'id' : 'ThreeStepTurn',
+                'comment' : "Turn to R, Lady to L, then follow with Whisk to L"
+              },
+              {
+                'id' : 'RhythmBounce',
+                'comment' : "Man LF, Lady RF"
+              },
+              {
+                'id' : 'TravelingVoltaL',
+                'comment' : "start with step 2"
+              }
              ]
         },
         'ReverseRoll' : 
          {
             'name' : 'Reverse Roll',
             'level' : 'Gold',
+            'urlpath' : 'reverse-roll',
+            'startFoot' : ['LF'],
+            'startDirection' : ['fwd'],
+            'timing' : 'SQQ',
             'follow' : [
+              {
+                'eval' : 'SameFollowAs("ReverseTurn")'
+              }
              ]
         },
         'NaturalRoll' : 
          {
             'name' : 'Natural Roll',
             'level' : 'Gold',
+            'urlpath' : 'natural-roll',
+            'startFoot' : ['RF'],
+            'startDirection' : ['fwd'],
+            'timing' : 'SQQ',
             'follow' : [
+              {
+                'id' : 'BackRocks',
+                'comment' : "after 1-3 of Natural Roll"
+              },
+              {
+                'id' : 'Plait',
+                'comment' : "after 1-3 of Natural Roll"
+              },
+              {
+                'id' : 'OpenRocks',
+                'comment' : "" //figure starting with RF, facing partner - sample
+              },
+              {
+                'id' : 'ClosedRocks',
+                'comment' : "" //figure starting with RF, facing partner - sample
+              },
+              {
+                'id' : 'WhiskToR',
+                'comment' : "" //figure starting with RF, facing partner - sample
+              },
+              {
+                'id' : 'NaturalBasicMovement',
+                'comment' : "" //figure starting with RF, facing partner - sample
+              },
+              {
+                'id' : 'SideBasicMovement',
+                'comment' : "" //figure starting with RF, facing partner - sample
+              },
+              {
+                'id' : 'ProgressiveBasicMovement',
+                'comment' : "" //figure starting with RF, facing partner - sample
+              }
              ]
         },
         'Roundabout' : 
          {
             'name' : 'Round About',
             'level' : 'Gold',
+            'urlpath' : 'roundabout',
+            'startFoot' : ['RF', 'LF'],
+            'startDirection' : ['fwd'],
+            'timing' : '1a2a3a4',
             'follow' : [
+              {
+                'id' : 'ContraBotaFogos',
+                'comment' : "Roundabout to R followed by LF Contra Bota Fogos, Roundabout to L followed by RF Contra Bota Fogos"
+              },
+              {
+                'id' : 'Roundabout',
+                'comment' : "Roundabout to R followed by Roundabout to L, Roundabout to L followed by Roundabout to R"
+              }
              ]
         },
         'ContraBotaFogos' : 
          {
-            'name' : 'Conra Bota Fogos',
+            'name' : 'Contra Bota Fogos',
             'level' : 'Gold',
+            'urlpath' : 'contra-botafogos',
+            'startFoot' : ['RF'],
+            'startDirection' : ['fwd'],
+            'timing' : '1a23a4',
             'follow' : [
+              {
+                'id' : 'FootChange6',
+                'comment' : "from R Contra Position to PP"
+              },
+              {
+                'id' : 'FootChange7',
+                'comment' : "from R Contra Position to Open CPP"
+              },
+              {
+                'id' : 'Roundabout',
+                'comment' : "Roundabout to R"
+              },
+              {
+                'id' : 'Roundabout',
+                'comment' : "Roundabout to L following RF Contra Bota Fogo"
+              }
              ]
         },
         'ShadowCircularVoltaLF' : 
