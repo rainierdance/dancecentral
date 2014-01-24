@@ -8401,6 +8401,22 @@ var foxtrotFigures =
             'timing' : 'aS',
             'follow' : [
               {
+                'id' : 'ShadowCircularVoltaLF', // listed in precedes
+                'comment' : 'when ended with weight on RF'
+              },
+              {
+                'id' : 'ShadowCircularVoltaRF', // listed in precedes
+                'comment' : 'when ended with weight on LF'
+              },
+              {
+                'id' : 'ShadowTravelingVoltaLF',  // listed in precedes
+                'comment' : 'When Cruzado Walks or Locks end with weight on RF'
+              },
+              {
+                'id' : 'ShadowTravelingVoltaRF',  // listed in precedes
+                'comment' : 'When Cruzado Walks or Locks end with weight on LF'
+              },
+              {
                 'id' : 'FootChange2',
                 'comment' : ""
               },
@@ -8419,6 +8435,10 @@ var foxtrotFigures =
             'startDirection' : ['fwd'],
             'timing' : 'QQS QQS',
             'follow' : [
+              {
+                'id' : 'CrissCrossBotaFogos', // listed in precedes
+                'comment' : ''
+              },
               {
                 'id' : 'CrissCrossVoltas',
                 'comment' : "start from step 4 or 8"
@@ -8457,6 +8477,10 @@ var foxtrotFigures =
             'startDirection' : ['side'],
             'timing' : '123 123 123',
             'follow' : [
+              {
+                'id' : 'WhiskToL', // listed in precedes
+                'comment' : 'turn to face partner on 1 of Whisk'
+              },
               {
                 'id' : 'SambaWalkLF',
                 'comment' : ""
@@ -8498,6 +8522,14 @@ var foxtrotFigures =
             'startDirection' : ['fwd'],
             'timing' : 'SQQ',
             'follow' : [
+              {
+                'id' : 'PromenadeAndCPPRuns', // listed in precedes
+                'comment' : ''
+              },
+              {
+                'id' : 'CortaJaca',   // listed in precedes
+                'comment' : ""
+              },
               {
                 'id' : 'BackRocks',
                 'comment' : "after 1-3 of Natural Roll"
@@ -8633,6 +8665,10 @@ var foxtrotFigures =
             'timing' : '1a2a3a4',
             'follow' : [
               {
+                'id' : 'ShadowCircularVoltaLF', // listed in precedes
+                'comment' : ''
+              },
+              {
                 'id' : 'SambaWalkLF',
                 'comment' : ""
               },
@@ -8665,6 +8701,14 @@ var foxtrotFigures =
             'timing' : '1a2a3a4',
             'follow' : [
               {
+                'id' : 'ReverseTurn', // listed in precedes
+                'comment' : 'Man turning R in Maypole'
+              },
+              {
+                'id' : 'WhiskToL', // listed in precedes
+                'comment' : 'Man turning R in Maypole'
+              },
+              {
                 'eval' : 'MatchFigures({"startFoot" : "RF"})',
                 'comment' : 'when Man is turning left in Maypole'
               },
@@ -8684,6 +8728,18 @@ var foxtrotFigures =
             'startDirection' : ['fwd'],
             'timing' : 'QQS QQS QQS QQS',
             'follow' : [
+              {
+                'id' : 'OpenRocks',   // listed in precedes
+                'comment' : "Argentine Crosses ended facing LOD, with LF Stationary Walk and Lady's underarm turning ending"
+              },
+              {
+                'id' : 'ClosedRocks',   // listed in precedes
+                'comment' : "Argentine Crosses ended facing LOD, with LF Stationary Walk and Lady's underarm turning ending"
+              },
+              {
+                'id' : 'CortaJaca',   // listed in precedes
+                'comment' : "Lady's underarm turn ending to ARgentine Crosses near corner, then followed by Corta Jaca"
+              },
               {
                 'id' : 'WhiskToL',
                 'comment' : "with or without Lady's underarm turn"
@@ -8893,6 +8949,10 @@ var foxtrotFigures =
             'timing' : 'SQQQQQQ',
             'follow' : [
               {
+                'id' : 'WhiskToL', // listed in precedes
+                'comment' : ''
+              },
+              {
                 'id' : 'NaturalBasicMovement',
                 'comment' : '4-6'
               },
@@ -9041,6 +9101,14 @@ var foxtrotFigures =
             'urlpath' : 'foot-changes',
             'follow' : [
               {
+                'id' : 'CruzadosWalksAndLocks', // listed in precedes
+                'comment' : ''
+              },
+              {
+                'id' : 'ShadowCircularVoltaRF', // listed in precedes
+                'comment' : ''
+              },
+              {
                 'id' : 'ShadowTravelingVoltaRF',
                 'comment' : ''
               }
@@ -9052,6 +9120,10 @@ var foxtrotFigures =
             'level' : 'Bronze',
             'urlpath' : 'foot-changes',
             'follow' : [
+              {
+                'id' : 'WhiskToR', // listed in precedes
+                'comment' : ''
+              }
              ]
         },
         'FootChange3' : 
@@ -9061,6 +9133,10 @@ var foxtrotFigures =
             'urlpath' : 'foot-changes',
             'follow' : [
               {
+                'id' : 'ShadowCircularVoltaLF', // listed in precedes
+                'comment' : ''
+              },
+              {
                 'id' : 'ShadowTravelingVoltaLF',
                 'comment' : ''
               }
@@ -9068,7 +9144,7 @@ var foxtrotFigures =
         },
         'FootChange4' : 
          {
-            'name' : 'Foot Change 4: Rright Shadow Position to Promenade Position',
+            'name' : 'Foot Change 4: Right Shadow Position to Promenade Position',
             'level' : 'Silver',
             'urlpath' : 'foot-changes',
             'follow' : [
@@ -9088,6 +9164,14 @@ var foxtrotFigures =
             'level' : 'Gold',
             'urlpath' : 'foot-changes',
             'follow' : [
+              {
+                'id' : 'Roundabout', // listed in precedes
+                'comment' : ''
+              },
+              {
+                'id' : 'ContraBotaFogos', // listed in precedes
+                'comment' : ''
+              }
              ]
         },
         'FootChange6' : 
@@ -9096,6 +9180,14 @@ var foxtrotFigures =
             'level' : 'Gold',
             'urlpath' : 'foot-changes',
             'follow' : [
+              {
+                'id' : 'SambaWalkRF', // listed in precedes
+                'comment' : ''
+              },
+              {
+                'id' : 'SambaWalkSide', // listed in precedes
+                'comment' : ''
+              }
              ]
         },
         'FootChange7' : 
@@ -9104,6 +9196,14 @@ var foxtrotFigures =
             'level' : 'Gold',
             'urlpath' : 'foot-changes',
             'follow' : [
+              {
+                'id' : 'CrissCrossBotaFogos', // listed in precedes
+                'comment' : ''
+              },
+              {
+                'id' : 'CrissCrossVoltas', // listed in precedes
+                'comment' : ''
+              }
              ]
         },
         'FootChange8' : 
@@ -9112,6 +9212,14 @@ var foxtrotFigures =
             'level' : 'Silver',
             'urlpath' : 'foot-changes',
             'follow' : [
+              {
+                'id' : 'CruzadosWalksAndLocks', // listed in precedes
+                'comment' : ''
+              },
+              {
+                'id' : 'ShadowCircularVoltaRF', // listed in precedes
+                'comment' : ''
+              },
               {
                 'id' : 'ShadowTravelingVoltaRF',
                 'comment' : ''
@@ -9238,7 +9346,7 @@ var foxtrotFigures =
               },
               {
                 'id' : 'RollingOffTheArm',
-                'comment' : 'when ending in R Side Position'
+                'comment' : 'when ending in R Side Position with Double Hand Hold'
               }
              ]
         },
@@ -9313,6 +9421,14 @@ var foxtrotFigures =
             'timing' : '1a2 3a4',
             'follow' : [
               {
+                'id' : 'RollingOffTheArm', // listed in precedes
+                'comment' : "Criss Cross Boto Fogos and LF Stationary Walk with Lady's underam turn ending, finishing in RSP, taking Double hand hold. Continue with one or three Samba Walks in RSP."
+              },
+              {
+                'id' : 'SambaWalkRF', // listed in precedes
+                'comment' : "with Lady's underarm turn ending in PP"
+              },
+              {
                 'id' : 'SambaWalkStationary',
                 'comment' : 'LF, leading lady to turn R under raised arms, lady 1-3 Spot Volta turning 3/4 R. Then regain hold, follow with Natural or Progressive Basic Movements'
               },
@@ -9352,6 +9468,14 @@ var foxtrotFigures =
             'startDirection' : 'fwd',
             'timing' : '1a2 3a4',
             'follow' : [
+              {
+                'id' : 'ShadowCircularVoltaLF', // listed in precedes
+                'comment' : ''
+              },
+              {
+                'id' : 'ShadowCircularVoltaRF', // listed in precedes
+                'comment' : ''
+              },
               {
                 'id' : 'NaturalBasicMovement',
                 'comment' : 'commenced OP - turn 1/8 R over 2 and 3 to face partner'
@@ -9419,6 +9543,14 @@ var foxtrotFigures =
             'startAlignment' : ['various'],
             'timing' : 'a1a2',
             'follow' : [
+              {
+                'id' : 'TravelingVoltaL', // listed in precedes
+                'comment' : 'Rhythm Bounce on LF followed by Traveling Volta to Left'
+              },
+              {
+                'id' : 'TravelingVoltaR', // listed in precedes
+                'comment' : 'Rhythm Bounce on RF followed by Traveling Volta to Right'
+              }
              ]
         },
         'SambaWalkStationary' : 
@@ -9536,6 +9668,14 @@ var foxtrotFigures =
             'startDirection' : 'fwd',
             'follow' : [
               {
+                'id' : 'ShadowCircularVoltaLF', // listed in precedes
+                'comment' : ''
+              },
+              {
+                'id' : 'ShadowTravelingVoltaLF',  // listed in precedes
+                'comment' : ''
+              },
+              {
                 'id' : 'SambaWalkLF',
                 'comment' : ''
               },
@@ -9555,6 +9695,14 @@ var foxtrotFigures =
             'startFoot' : 'LF',
             'startDirection' : 'fwd',
             'follow' : [
+              {
+                'id' : 'ShadowCircularVoltaRF', // listed in precedes
+                'comment' : ''
+              },
+              {
+                'id' : 'ShadowTravelingVoltaRF',  // listed in precedes
+                'comment' : ''
+              },
               {
                 'id' : 'SambaWalkRF',
                 'comment' : ''
@@ -9579,6 +9727,14 @@ var foxtrotFigures =
             'timing' : '1a2',
             'startDirection' : 'side',
             'follow' : [
+              {
+                'id' : 'TravelingVoltaR', // listed in precedes
+                'comment' : ''
+              },
+              {
+                'id' : 'NaturalBasicMovement', // listed in precedes
+                'comment' : ''
+              },
               {
                 'id' : 'ReverseBasicMovement',
                 'comment' : ''
@@ -9615,6 +9771,10 @@ var foxtrotFigures =
             'timing' : '1a2',
             'startDirection' : 'side',
             'follow' : [
+              {
+                'id' : 'ReverseBasicMovement', // listed in precedes
+                'comment' : ''
+              },
               {
                 'id' : 'NaturalBasicMovement',
                 'comment' : ''
