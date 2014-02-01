@@ -3898,6 +3898,9 @@ var foxtrotFigures =
          {
             'name' : 'Stalking Walks, Flicks and Break',
             'level' : 'Gold',
+            'urlpath' : 'stalking-walks-flicks-and-break',
+            'startAlignment' : ['Closed Position'],
+            'timing' : 'QQ QQQQ QQ QQQQ QQQQ QQ QaQ',
             'follow' : [
              ]
         },
@@ -3905,6 +3908,9 @@ var foxtrotFigures =
          {
             'name' : 'Catapult',
             'level' : 'Gold',
+            'urlpath' : 'catapult',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QaQ QQ QaQ QaQ',
             'follow' : [
              ]
         },
@@ -3912,6 +3918,9 @@ var foxtrotFigures =
          {
             'name' : 'Chicken Walks',
             'level' : 'Gold',
+            'urlpath' : 'chicken-walks',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQQQ',
             'follow' : [
              ]
         },
@@ -3919,6 +3928,9 @@ var foxtrotFigures =
          {
             'name' : 'Chugging',
             'level' : 'Gold',
+            'urlpath' : 'chugging',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QaQ QaQ QaQ QaQ QaQ',
             'follow' : [
              ]
         },
@@ -3926,6 +3938,9 @@ var foxtrotFigures =
          {
             'name' : 'Toe Heel Swivels',
             'level' : 'Gold',
+            'urlpath' : 'toe-heel-swivels',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQQQQQQQ',
             'follow' : [
              ]
         },
@@ -3933,6 +3948,9 @@ var foxtrotFigures =
          {
             'name' : 'Shoulder Spin',
             'level' : 'Gold',
+            'urlpath' : 'shoulder-spin',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QaQ QQ QaQ QaQ',
             'follow' : [
              ]
         },
@@ -3940,6 +3958,9 @@ var foxtrotFigures =
          {
             'name' : 'Curly Whip',
             'level' : 'Gold',
+            'urlpath' : 'curly-whip',
+            'startAlignment' : ['Closed Position'],
+            'timing' : 'QQ QaQ',
             'follow' : [
              ]
         },
@@ -3947,6 +3968,9 @@ var foxtrotFigures =
          {
             'name' : 'Miami Special',
             'level' : 'Silver',
+            'urlpath' : 'miami-special',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QaQ',
             'follow' : [
              ]
         },
@@ -3954,6 +3978,9 @@ var foxtrotFigures =
          {
             'name' : 'Simple Spin',
             'level' : 'Silver',
+            'urlpath' : 'simple-spin',
+            'startAlignment' : ['Open CPP'],
+            'timing' : 'QQ',
             'follow' : [
              ]
         },
@@ -3961,6 +3988,9 @@ var foxtrotFigures =
          {
             'name' : 'Rolling Off the Arm',
             'level' : 'Silver',
+            'urlpath' : 'rolling-off-the-arm',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QQ QaQ',
             'follow' : [
              ]
         },
@@ -3968,6 +3998,9 @@ var foxtrotFigures =
          {
             'name' : 'Spanish Arms',
             'level' : 'Silver',
+            'urlpath' : 'spanish-arms',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QaQ',
             'follow' : [
              ]
         },
@@ -3975,6 +4008,9 @@ var foxtrotFigures =
          {
             'name' : 'Windmill',
             'level' : 'Silver',
+            'urlpath' : 'windmill',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QaQ',
             'follow' : [
              ]
         },
@@ -3982,14 +4018,17 @@ var foxtrotFigures =
          {
             'name' : 'Reverse Whip',
             'level' : 'Silver',
+            'urlpath' : 'reverse-whip',
+            'startAlignment' : ['Closed Position'],
+            'timing' : 'QQ QaQ QQ QaQ',
             'follow' : [
              ]
         },
         'FallawayRock' : 
          {
             'name' : 'Fallaway Rock',
-            'urlpath' : 'fallaway-rock',
             'level' : 'Newcomer',
+            'urlpath' : 'fallaway-rock',
             'startAlignment' : ['Closed Position'],
             'timing' : 'QQ QaQ QaQ',
             'follow' : [
