@@ -23,6 +23,9 @@
          {
             'name' : 'Stalking Walks, Flicks and Break',
             'level' : 'Gold',
+            'urlpath' : 'stalking-walks-flicks-and-break',
+            'startAlignment' : ['Closed Position'],
+            'timing' : 'QQ QQQQ QQ QQQQ QQQQ QQ QaQ',
             'follow' : [
              ]
         },
@@ -30,6 +33,9 @@
          {
             'name' : 'Catapult',
             'level' : 'Gold',
+            'urlpath' : 'catapult',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QaQ QQ QaQ QaQ',
             'follow' : [
              ]
         },
@@ -37,6 +43,9 @@
          {
             'name' : 'Chicken Walks',
             'level' : 'Gold',
+            'urlpath' : 'chicken-walks',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQQQ',
             'follow' : [
              ]
         },
@@ -44,6 +53,9 @@
          {
             'name' : 'Chugging',
             'level' : 'Gold',
+            'urlpath' : 'chugging',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QaQ QaQ QaQ QaQ QaQ',
             'follow' : [
              ]
         },
@@ -51,6 +63,9 @@
          {
             'name' : 'Toe Heel Swivels',
             'level' : 'Gold',
+            'urlpath' : 'toe-heel-swivels',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQQQQQQQ',
             'follow' : [
              ]
         },
@@ -58,6 +73,9 @@
          {
             'name' : 'Shoulder Spin',
             'level' : 'Gold',
+            'urlpath' : 'shoulder-spin',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QaQ QQ QaQ QaQ',
             'follow' : [
              ]
         },
@@ -65,6 +83,9 @@
          {
             'name' : 'Curly Whip',
             'level' : 'Gold',
+            'urlpath' : 'curly-whip',
+            'startAlignment' : ['Closed Position'],
+            'timing' : 'QQ QaQ',
             'follow' : [
              ]
         },
@@ -72,6 +93,9 @@
          {
             'name' : 'Miami Special',
             'level' : 'Silver',
+            'urlpath' : 'miami-special',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QaQ',
             'follow' : [
              ]
         },
@@ -79,6 +103,9 @@
          {
             'name' : 'Simple Spin',
             'level' : 'Silver',
+            'urlpath' : 'simple-spin',
+            'startAlignment' : ['Open CPP'],
+            'timing' : 'QQ',
             'follow' : [
              ]
         },
@@ -86,6 +113,9 @@
          {
             'name' : 'Rolling Off the Arm',
             'level' : 'Silver',
+            'urlpath' : 'rolling-off-the-arm',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QQ QaQ',
             'follow' : [
              ]
         },
@@ -93,6 +123,9 @@
          {
             'name' : 'Spanish Arms',
             'level' : 'Silver',
+            'urlpath' : 'spanish-arms',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QaQ',
             'follow' : [
              ]
         },
@@ -100,6 +133,9 @@
          {
             'name' : 'Windmill',
             'level' : 'Silver',
+            'urlpath' : 'windmill',
+            'startAlignment' : ['Open Position'],
+            'timing' : 'QQ QaQ QaQ',
             'follow' : [
              ]
         },
@@ -107,14 +143,17 @@
          {
             'name' : 'Reverse Whip',
             'level' : 'Silver',
+            'urlpath' : 'reverse-whip',
+            'startAlignment' : ['Closed Position'],
+            'timing' : 'QQ QaQ QQ QaQ',
             'follow' : [
              ]
         },
         'FallawayRock' : 
          {
             'name' : 'Fallaway Rock',
-            'urlpath' : 'fallaway-rock',
             'level' : 'Newcomer',
+            'urlpath' : 'fallaway-rock',
             'startAlignment' : ['Closed Position'],
             'timing' : 'QQ QaQ QaQ',
             'follow' : [
