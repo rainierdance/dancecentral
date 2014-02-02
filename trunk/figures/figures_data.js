@@ -4145,6 +4145,14 @@ var foxtrotFigures =
             'timing' : 'QQ QaQ QaQ',
             'follow' : [
               {
+                'id' : 'HipBump', // listed in precedes
+                'comment' : ''
+              },
+              {
+                'id' : 'Link', // listed in precedes
+                'comment' : ''
+              },
+              {
                 'id' : 'ChangeOfPlacesLeftToRight',
                 'comment' : 'Man turn 1/4 R over steps 3-6, Lady 1/2 to L'
               },
@@ -4196,6 +4204,10 @@ var foxtrotFigures =
             'startAlignment' : ['Open Position'],
             'timing' : 'QQ QaQ QQ QaQ',
             'follow' : [
+              {
+                'id' : 'ChangeOfHandsBehindBack', // listed in precedes
+                'comment' : ''
+              },
               {
                 'id' : 'ChangeOfPlacesLeftToRight',
                 'comment' : "release R to L hand hold at end of step 2 and taking L to R or R to R hand hold at end of Lady's turn"
@@ -4308,6 +4320,26 @@ var foxtrotFigures =
             'startAlignment' : ['Open Position'],
             'timing' : 'QQ QaQ QaQ',
             'follow' : [
+              {
+                'id' : 'ToeHeelSwivels', // listed in precedes
+                'comment' : ''
+              },
+              {
+                'id' : 'StopAndGo', // listed in precedes
+                'comment' : ''
+              },
+              {
+                'id' : 'HipBump', // listed in precedes
+                'comment' : ''
+              },
+              {
+                'id' : 'ChangeOfHandsBehindBack', // listed in precedes
+                'comment' : ''
+              },
+              {
+                'id' : 'Link', // listed in precedes
+                'comment' : ''
+              },
               {
                 'id' : 'ChangeOfPlacesLeftToRight',
                 'comment' : 'release R to L hand hold as needed'
@@ -4515,6 +4547,10 @@ var foxtrotFigures =
             'timing' : 'QQ QaQ QaQ',
             'follow' : [
               {
+                'id' : 'Chugging', // listed in precedes
+                'comment' : ''
+              },
+              {
                 'id' : 'Link',
                 'comment' : ''
               },
@@ -4568,6 +4604,18 @@ var foxtrotFigures =
             'startAlignment' : ['Open Position'],
             'timing' : 'QQ QaQ QaQ',
             'follow' : [
+              {
+                'id' : 'Chugging', // listed in precedes
+                'comment' : ''
+              },
+              {
+                'id' : 'ToeHeelSwivels', // listed in precedes
+                'comment' : ''
+              },
+              {
+                'id' : 'HipBump', // listed in precedes
+                'comment' : ''
+              },
               {
                 'id' : 'Link',
                 'comment' : ''

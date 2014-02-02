@@ -15,7 +15,7 @@
     //-------------------------------------------
     // globals
     var IS_GADGET = true; 
-    var VERSION = "14.0201.1720";
+    var VERSION = "14.0202.1054";
     var ID_ANALYTICS = "UA-10550268-1";
     var pageTracker;
 
