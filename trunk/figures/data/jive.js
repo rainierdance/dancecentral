@@ -27,6 +27,14 @@
             'startAlignment' : ['Closed Position'],
             'timing' : 'QQ QQQQ QQ QQQQ QQQQ QQ QaQ',
             'follow' : [
+              {
+                'id' : 'FallawayThrowaway',
+                'comment' : 'step 3-8 Fallaway Throwaway'
+              },
+              {
+                'id' : 'ChangeOfPlacesRightToLeft',
+                'comment' : 'step 3-8 of Change of Places'
+              }
              ]
         },
         'Catapult' : 
@@ -37,6 +45,50 @@
             'startAlignment' : ['Open Position'],
             'timing' : 'QQ QaQ QaQ QQ QaQ QaQ',
             'follow' : [
+              {
+                'id' : 'ChangeOfPlacesLeftToRight',
+                'comment' : 'when Catapult ends in R to R hand hold'
+              },
+              {
+                'id' : 'AmericanSpin',
+                'comment' : 'when Catapult ends in R to R hand hold'
+              },
+              {
+                'id' : 'RollingOffTheArm',
+                'comment' : 'when Catapult ends in R to R hand hold'
+              },
+              {
+                'id' : 'MiamiSpecial',
+                'comment' : 'when Catapult ends in R to R hand hold'
+              },
+              {
+                'id' : 'ShoulderSpin',
+                'comment' : 'when Catapult ends in R to R hand hold'
+              },
+              {
+                'id' : 'Chugging',
+                'comment' : 'when Catapult ends in R to R hand hold'
+              },
+              {
+                'id' : 'Link',
+                'comment' : 'when Catapult ends in L to R hand hold'
+              },
+              {
+                'id' : 'ChangeOfPlacesLeftToRight',
+                'comment' : 'when Catapult ends in L to R hand hold'
+              },
+              {
+                'id' : 'ChangeOfHandsBehindBack',
+                'comment' : 'when Catapult ends in L to R hand hold'
+              },
+              {
+                'id' : 'HipBump',
+                'comment' : 'when Catapult ends in L to R hand hold'
+              },
+              {
+                'id' : 'StopAndGo',
+                'comment' : 'when Catapult ends in L to R hand hold'
+              }
              ]
         },
         'ChickenWalks' : 
@@ -47,6 +99,10 @@
             'startAlignment' : ['Open Position'],
             'timing' : 'QQQQ',
             'follow' : [
+              {
+                'id' : 'FallawayThrowaway',
+                'comment' : 'step 3-8 Fallaway Throwaway started with L to R hand hold.'
+              }
              ]
         },
         'Chugging' : 
@@ -57,6 +113,54 @@
             'startAlignment' : ['Open Position'],
             'timing' : 'QQ QaQ QaQ QaQ QaQ QaQ QaQ',
             'follow' : [
+              {
+                'id' : 'ChangeOfPlacesLeftToRight',
+                'comment' : 'when Chugging ended with R to R hand hold'
+              },
+              {
+                'id' : 'AmericanSpin',
+                'comment' : 'when Chugging ended with R to R hand hold'
+              },
+              {
+                'id' : 'RollingOffTheArm',
+                'comment' : 'when Chugging ended with R to R hand hold'
+              },
+              {
+                'id' : 'MiamiSpecial',
+                'comment' : 'when Chugging ended with R to R hand hold'
+              },
+              {
+                'id' : 'ShoulderSpin',
+                'comment' : 'when Chugging ended with R to R hand hold'
+              },
+              {
+                'id' : 'Catapult',
+                'comment' : 'when Chugging ended with R to R hand hold'
+              },
+              {
+                'id' : 'Link',
+                'comment' : 'when Chugging ended with L to R hand hold'
+              },
+              {
+                'id' : 'ChangeOfPlacesLeftToRight',
+                'comment' : 'when Chugging ended with L to R hand hold'
+              },
+              {
+                'id' : 'ChangeOfHandsBehindBack',
+                'comment' : 'when Chugging ended with L to R hand hold'
+              },
+              {
+                'id' : 'HipBump',
+                'comment' : 'when Chugging ended with L to R hand hold'
+              },
+              {
+                'id' : 'AmericanSpin',
+                'comment' : 'when Chugging ended with L to R hand hold, dance American Spin with L to R handhold'
+              },
+              {
+                'id' : 'StopAndGo',
+                'comment' : 'when Chugging ended with L to R hand hold'
+              }
              ]
         },
         'ToeHeelSwivels' : 
@@ -67,6 +171,22 @@
             'startAlignment' : ['Open Position'],
             'timing' : 'QQQQQQQQ',
             'follow' : [
+              {
+                'id' : 'FallawayRock',
+                'comment' : 'step 3-8 of Fallway Rock, regain normal hold on 2nd chasse'
+              },
+              {
+                'id' : 'FallawayThrowaway',
+                'comment' : 'step 3-8 Fallaway Throwaway'
+              },
+              {
+                'id' : 'ChangeOfPlacesRightToLeft',
+                'comment' : ''
+              },
+              {
+                'id' : 'StalkingWalksFlicksAndBreak',
+                'comment' : 'step 3-20, retain double hold throughout'
+              }
              ]
         },
         'ShoulderSpin' : 
@@ -77,6 +197,50 @@
             'startAlignment' : ['Open Position'],
             'timing' : 'QQ QaQ QaQ QQ QaQ QaQ',
             'follow' : [
+              {
+                'id' : 'ChangeOfPlacesLeftToRight',
+                'comment' : 'when Shoulder Spin ends with R to R hand hold'
+              },
+              {
+                'id' : 'AmericanSpin',
+                'comment' : 'when Shoulder Spin ends with R to R hand hold'
+              },
+              {
+                'id' : 'RollingOffTheArm',
+                'comment' : 'when Shoulder Spin ends with R to R hand hold'
+              },
+              {
+                'id' : 'MiamiSpecial',
+                'comment' : 'when Shoulder Spin ends with R to R hand hold'
+              },
+              {
+                'id' : 'Chugging',
+                'comment' : 'when Shoulder Spin ends with R to R hand hold'
+              },
+              {
+                'id' : 'Catapult',
+                'comment' : 'when Shoulder Spin ends with R to R hand hold'
+              },
+              {
+                'id' : 'Link',
+                'comment' : 'when Shoulder Spin ends with L to R hand hold'
+              },
+              {
+                'id' : 'ChangeOfPlacesLeftToRight',
+                'comment' : 'when Shoulder Spin ends with L to R hand hold'
+              },
+              {
+                'id' : 'ChangeOfHandsBehindBack',
+                'comment' : 'when Shoulder Spin ends with L to R hand hold'
+              },
+              {
+                'id' : 'HipBump',
+                'comment' : 'when Shoulder Spin ends with L to R hand hold'
+              },
+              {
+                'id' : 'StopAndGo',
+                'comment' : 'when Shoulder Spin ends with L to R hand hold'
+              }
              ]
         },
         'CurlyWhip' : 
@@ -87,6 +251,14 @@
             'startAlignment' : ['Closed Position'],
             'timing' : 'QQ QaQ',
             'follow' : [
+              {
+                'id' : 'Whip',
+                'comment' : ''
+              },
+              {
+                'id' : 'WhipThrowaway',
+                'comment' : ''
+              }
              ]
         },
         'MiamiSpecial' : 
@@ -97,6 +269,14 @@
             'startAlignment' : ['Open Position'],
             'timing' : 'QQ QaQ QaQ',
             'follow' : [
+              {
+                'id' : 'ChangeOfPlacesLeftToRight',
+                'comment' : 'Man turn 1/4 R over steps 3-6, Lady 1/2 to L'
+              },
+              {
+                'id' : 'HipBump',
+                'comment' : 'Man turn 1/8 to R over steps 3-5, Lady 1/8 to L'
+              }
              ]
         },
         'SimpleSpin' : 
@@ -107,6 +287,30 @@
             'startAlignment' : ['Open CPP'],
             'timing' : 'QQ',
             'follow' : [
+              {
+                'id' : 'Link',
+                'comment' : ''
+              },
+              {
+                'id' : 'ChangeOfPlacesLeftToRight',
+                'comment' : ''
+              },
+              {
+                'id' : 'HipBump',
+                'comment' : ''
+              },
+              {
+                'id' : 'ChangeOfHandsBehindBack',
+                'comment' : ''
+              },
+              {
+                'id' : 'AmericanSpin',
+                'comment' : 'spin from L to R hand hold'
+              },
+              {
+                'id' : 'StopAndGo',
+                'comment' : ''
+              }
              ]
         },
         'RollingOffTheArm' : 
@@ -117,6 +321,58 @@
             'startAlignment' : ['Open Position'],
             'timing' : 'QQ QaQ QQ QaQ',
             'follow' : [
+              {
+                'id' : 'ChangeOfPlacesLeftToRight',
+                'comment' : "release R to L hand hold at end of step 2 and taking L to R or R to R hand hold at end of Lady's turn"
+              },
+              {
+                'id' : 'RollingOffTheArm',
+                'comment' : ''
+              },
+              {
+                'id' : 'ChangeOfPlacesLeftToRight',
+                'comment' : 'having release R to L hand hold'
+              },
+              {
+                'id' : 'Windmill',
+                'comment' : 'with double hand hold'
+              },
+              {
+                'id' : 'SpanishArms',
+                'comment' : 'with double hand hold'
+              },
+              {
+                'id' : 'RollingOffTheArm',
+                'comment' : 'with double hand hold'
+              },
+              {
+                'id' : 'ChangeOfPlacesLeftToRight',
+                'comment' : 'with R to R hand hold'
+              },
+              {
+                'id' : 'AmericanSpin',
+                'comment' : 'with R to R hand hold'
+              },
+              {
+                'id' : 'RollingOffTheArm',
+                'comment' : 'with R to R hand hold'
+              },
+              {
+                'id' : 'MiamiSpecial',
+                'comment' : 'with R to R hand hold'
+              },
+              {
+                'id' : 'ShoulderSpin',
+                'comment' : 'with R to R hand hold'
+              },
+              {
+                'id' : 'Chugging',
+                'comment' : 'with R to R hand hold'
+              },
+              {
+                'id' : 'Catapult',
+                'comment' : 'with R to R hand hold'
+              }
              ]
         },
         'SpanishArms' : 
@@ -127,6 +383,46 @@
             'startAlignment' : ['Open Position'],
             'timing' : 'QQ QaQ QaQ',
             'follow' : [
+              {
+                'id' : 'Link',
+                'comment' : 'release R to L hand hold as needed'
+              },
+              {
+                'id' : 'ChangeOfPlacesLeftToRight',
+                'comment' : 'release R to L hand hold as needed'
+              },
+              {
+                'id' : 'ChangeOfHandsBehindBack',
+                'comment' : 'release R to L hand hold as needed'
+              },
+              {
+                'id' : 'HipBump',
+                'comment' : 'release R to L hand hold as needed'
+              },
+              {
+                'id' : 'AmericanSpin',
+                'comment' : 'left to right hand hold'
+              },
+              {
+                'id' : 'StopAndGo',
+                'comment' : 'release R to L hand hold as needed'
+              },
+              {
+                'id' : 'Windmill',
+                'comment' : 'release R to L hand hold as needed'
+              },
+              {
+                'id' : 'SpanishArms',
+                'comment' : 'release R to L hand hold as needed'
+              },
+              {
+                'id' : 'RollingOffTheArm',
+                'comment' : 'with double hold or eleasing L to R hand hold'
+              },
+              {
+                'id' : 'ToeHeelSwivels',
+                'comment' : 'release R to L hand hold as needed'
+              }
              ]
         },
         'Windmill' : 
@@ -137,6 +433,22 @@
             'startAlignment' : ['Open Position'],
             'timing' : 'QQ QaQ QaQ',
             'follow' : [
+              {
+                'id' : 'ChangeOfPlacesLeftToRight',
+                'comment' : 'release R to L hand hold as needed'
+              },
+              {
+                'id' : 'Windmill',
+                'comment' : 'release R to L hand hold as needed'
+              },
+              {
+                'id' : 'SpanishArms',
+                'comment' : 'release R to L hand hold as needed'
+              },
+              {
+                'id' : 'RollingOffTheArm',
+                'comment' : 'with double hand hold or releaseing L to R hand hold'
+              }
              ]
         },
         'ReverseWhip' : 
@@ -147,6 +459,38 @@
             'startAlignment' : ['Closed Position'],
             'timing' : 'QQ QaQ QQ QaQ',
             'follow' : [
+              {
+                'id' : 'StalkingWalksFlicksAndBreak',   // listed in precedes
+                'comment' : ''  
+              },
+              {
+                'id' : 'BasicInPlace',
+                'comment' : ''
+              },
+              {
+                'id' : 'FallawayRock',
+                'comment' : ''
+              },
+              {
+                'id' : 'FallawayThrowaway',
+                'comment' : ''
+              },
+              {
+                'id' : 'ChangeOfPlacesRightToLeft',
+                'comment' : ''
+              },
+              {
+                'id' : 'Walks',
+                'comment' : ''
+              },
+              {
+                'id' : 'Mooch',
+                'comment' : ''
+              },
+              {
+                'id' : 'ReverseWhip',
+                'comment' : ''
+              }
              ]
         },
         'FallawayRock' : 
@@ -635,6 +979,10 @@
             'startAlignment' : ['Closed Position'],
             'timing' : 'QQ QaQ',
             'follow' : [
+              {
+                'id' : 'StalkingWalksFlicksAndBreak',   // listed in precedes
+                'comment' : ''  
+              },
               {
                 'id' : 'FallawayRock',
                 'comment' : ''
