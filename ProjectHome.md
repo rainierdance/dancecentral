@@ -1,0 +1,1 @@
+Gadget to be embedded to www.dancecentral.info
